@@ -1,9 +1,17 @@
-export { InkStage } from './core/ink-stage';
+export { InkStage, INK_STAGE_PAPER } from './core/ink-stage';
 export type { InkStageOptions } from './core/ink-stage';
-export { InkWash, INK_BLACK, INK_INDIGO, INK_CINNABAR, INK_PINE, INK_TEA } from './core/ink-wash';
-export type { InkWashOptions, InkStrokeStyle, InkPigment } from './core/ink-wash';
-export { InkBrush, strokeSegments } from './core/ink-brush';
-export type { BrushPoint, BrushSegment, InkBrushOptions } from './core/ink-brush';
+export { InkWash, inkPointerPath } from './core/ink-wash';
+export type { InkWashOptions, InkStrokeRequest, InkColor } from './core/ink-wash';
+export { InkBrushEngine, INK_BRUSH_MODES, INK_SIZES, INK_EFFECTS, INK_BLENDS, INK_TIP_OFFSET, resolveInkSize } from './core/ink-brush';
+export type {
+  InkBrushMode, InkSizeName, InkEffect, InkBlend, InkBrushSettings, InkPoint, InkDrawOp, InkFrameStep, InkShaderState,
+} from './core/ink-brush';
+export { INK_PALETTE, INK_COLOR_NAMES, inkColorId, inkColorRgb } from './core/ink-palette';
+export type { InkColorName, InkColorEntry } from './core/ink-palette';
+export { PROP_BRUSHES } from './plugins/prop-brushes';
+export type { PropBrush, PropPaintingId, PropPart } from './plugins/prop-brushes';
+export { paintProp, actionStroke } from './plugins/prop-paintings';
+export type { PropStroke, PropPlacement } from './plugins/prop-paintings';
 export { InkWorld } from './core/ink-world';
 export type { InkBridge, InkImpact, InkProjectile } from './core/ink-world';
 export { ITEM_PRESETS, getItemPreset } from './plugins/items';

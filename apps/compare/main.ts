@@ -1,70 +1,95 @@
 import { Application } from 'pixi.js';
-import { INK_BLACK, INK_INDIGO, InkWash, type InkStrokeStyle } from '@inkgames/engine';
+import {
+  INK_BLENDS, INK_BRUSH_MODES, INK_EFFECTS, INK_STAGE_PAPER, InkWash, inkPointerPath, paintProp,
+  type InkBrushMode, type InkColorName, type InkPoint, type PropPaintingId, type PropPlacement, type PropStroke,
+} from '@inkgames/engine';
 
-export interface CompareStroke {
-  readonly points: ReadonlyArray<readonly [number, number]>;
-  readonly brush: { readonly mode: string; readonly size: string | number; readonly effect: number };
-  readonly pigment: readonly [number, number, number];
-  readonly color: string;
+/** A stroke in inkEngine API terms: what the host page passes to setBrush / setColor / strokePath. */
+interface EngineStroke {
+  readonly part: string;
+  readonly brush: { readonly mode: number; readonly size: string | number; readonly effect: number; readonly blend: number };
+  readonly color: InkColorName;
+  readonly points: readonly InkPoint[];
+  readonly seed: number;
 }
 
-const strokes: CompareStroke[] = [
-  {
-    points: Array.from({ length: 22 }, (_, i) => [70 + i * 16, 150 + (i % 3) * 3] as const),
-    brush: { mode: 'brush', size: 'large', effect: 0 },
-    pigment: [0.07, 0.07, 0.08],
-    color: 'black',
-  },
-  {
-    points: curve(90, 300, 320, 210, 680, 360, 26),
-    brush: { mode: 'brush', size: 'large', effect: 0 },
-    pigment: [0.1, 0.16, 0.32],
-    color: 'blue_dark',
-  },
-  {
-    points: Array.from({ length: 16 }, (_, i) => [480 + i * 18, 90 + i * 12] as const),
-    brush: { mode: 'brush', size: 'medium', effect: 2 },
-    pigment: [0.07, 0.07, 0.08],
-    color: 'black',
-  },
-];
-
-const mount = document.querySelector<HTMLElement>('#mount');
-if (!mount) throw new Error('Missing compare mount');
-const app = new Application();
-await app.init({ width: 800, height: 600, preference: 'webgl', autoStart: false, backgroundColor: 0xdedede, antialias: false, resolution: 1 });
-mount.appendChild(app.canvas);
-const wash = new InkWash(app, { width: 800, height: 600, scale: 1, seed: 1234567890, paper: 'neutral' });
-app.stage.addChild(wash.view);
-for (const stroke of strokes) {
-  const style: InkStrokeStyle = {
-    mode: 'brush',
-    size: stroke.brush.size === 'medium' ? 1 : 2,
-    effect: stroke.brush.effect === 2 ? 'flyingWhite' : 'mix',
-    pigment: stroke.pigment[2] > 0.2 ? INK_INDIGO : INK_BLACK,
-    seed: 1234567890,
-  };
-  // The second stroke carries its own indigo; don't collapse it into INK_BLACK.
-  const pigment = { r: stroke.pigment[0], g: stroke.pigment[1], b: stroke.pigment[2] };
-  wash.strokePath(stroke.points.map(([x, y]) => ({ x, y })), { ...style, pigment }, 'erasable', 22);
+interface CompareScene {
+  readonly width: number;
+  readonly height: number;
+  readonly background: readonly [number, number, number];
+  readonly seed: number;
+  readonly strokes: readonly EngineStroke[];
 }
-app.render();
 
 declare global {
   interface Window {
     __compareReady?: boolean;
-    __compareStrokes?: CompareStroke[];
+    __compareScene?: CompareScene;
   }
 }
-window.__compareStrokes = strokes;
-window.__compareReady = true;
 
-function curve(x0: number, y0: number, cx: number, cy: number, x1: number, y1: number, steps: number): Array<readonly [number, number]> {
-  const points = [];
-  for (let i = 0; i <= steps; i++) {
-    const t = i / steps;
-    const u = 1 - t;
-    points.push([u * u * x0 + 2 * u * t * cx + t * t * x1, u * u * y0 + 2 * u * t * cy + t * t * y1] as const);
-  }
-  return points;
+/** Where each prop sits on the 640×480 comparison sheet (scale 1, the same size as in the demos). */
+const PLACEMENT: Readonly<Record<PropPaintingId, PropPlacement>> = {
+  sword: { x: 300, y: 320 },
+  blade: { x: 280, y: 330 },
+  spear: { x: 300, y: 260 },
+  bow: { x: 300, y: 240 },
+  shield: { x: 320, y: 250 },
+  'war-horse': { x: 330, y: 250 },
+  banner: { x: 200, y: 250, pose: 1 },
+  'ink-bomb': { x: 320, y: 300, scale: 1.25 },
+  'water-brush': { x: 320, y: 300 },
+  boat: { x: 330, y: 250 },
+  water: { x: 0, y: 200, width: 640 },
+  landscape: { x: 0, y: 330, width: 640 },
+  figure: { x: 320, y: 260 },
+};
+
+const PROPS: readonly PropPaintingId[] = [
+  'sword', 'blade', 'spear', 'bow', 'shield', 'war-horse', 'banner', 'ink-bomb', 'water-brush', 'boat', 'water', 'landscape',
+];
+
+function toEngine(stroke: PropStroke): EngineStroke {
+  return {
+    part: stroke.part,
+    brush: {
+      mode: INK_BRUSH_MODES[stroke.brush.mode],
+      size: stroke.brush.size,
+      effect: INK_EFFECTS[stroke.brush.effect],
+      blend: INK_BLENDS[stroke.brush.blend],
+    },
+    color: stroke.color,
+    points: inkPointerPath(stroke.points, stroke.brush.mode as InkBrushMode),
+    seed: stroke.seed,
+  };
 }
+
+const query = new URLSearchParams(location.search);
+const requested = query.get('prop') as PropPaintingId | null;
+const id: PropPaintingId = requested && PROPS.includes(requested) ? requested : 'sword';
+const nav = document.querySelector<HTMLElement>('#props');
+for (const prop of PROPS) {
+  const link = document.createElement('a');
+  link.href = `?prop=${prop}`;
+  link.textContent = prop;
+  nav?.appendChild(link);
+}
+const caption = document.querySelector<HTMLElement>('#caption');
+if (caption) caption.textContent = `InkGames 水墨层 · ${id} · 笔刷来自 PROP_BRUSHES，与 inkEngine 宿主页用同一组指针路径和种子`;
+
+const mount = document.querySelector<HTMLElement>('#mount');
+if (!mount) throw new Error('Missing compare mount');
+const width = 640;
+const height = 480;
+const seed = 1234567890;
+const app = new Application();
+await app.init({ width, height, preference: 'webgl', autoStart: false, antialias: false, resolution: 1, backgroundColor: 0x222222 });
+mount.appendChild(app.canvas);
+const wash = new InkWash(app, { width, height, seed, background: INK_STAGE_PAPER, paper: true });
+app.stage.addChild(wash.view);
+const strokes = paintProp(id, PLACEMENT[id]);
+for (const stroke of strokes) wash.paint(stroke);
+app.render();
+
+window.__compareScene = { width, height, background: INK_STAGE_PAPER, seed, strokes: strokes.map(toEngine) };
+window.__compareReady = true;
