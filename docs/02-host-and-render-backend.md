@@ -11,21 +11,21 @@
 | `width` / `height` | 1280 / 720 | 横屏舞台。Matter 世界用同一套像素，测试里角色落在 y≈580–615。 |
 | `preference` | `'webgl'` | 滤镜是 GLSL 300 ES，不走 WebGPU。 |
 | `autoStart` | `false` | 关掉 Pixi ticker。权威步由舞台自己的 `requestAnimationFrame` 推进。 |
-| `backgroundColor` | `0xf4efe4` | 纸色外的画布底。纸纹本身在 `InkWash` 的纹理里。 |
-| `antialias` | `false` | 墨层是 RenderTexture，抗锯齿会把笔画边缘和纸纹搅在一起。 |
-| `resolution` | `1` | 模拟分辨率另由 `InkWash` 的 `scale` 决定，不跟设备像素比走。 |
+| `backgroundColor` | `0xeae2d2` | 纸色外的画布底。纸纹本身在 `InkWash` 的纹理里。 |
+| `antialias` | `false` | 画布本身不需要；笔触画进墨层时用的是 `stamp` 纹理自己的 MSAA。 |
+| `resolution` | `1` | 墨层与画布同为 1280×720，对应 inkEngine 的 `pixelDensity: 1`。 |
 
-画布插进 `options.parent`，样式是 `width/height: 100%`、`objectFit: contain`。显示树只有三层，从下到上：`ink.view`（整张纸）、`props`（桥、靶、旗、舟）、`actor`（人物）。
+画布插进 `options.parent`，样式是 `width/height: 100%`、`objectFit: contain`。显示树从下到上：纸层 `sheet.view`、可擦层 `marks.view`（`multiply`）、精灵容器（每个精灵是一张小墨层的 `view`，同样 `multiply`）。
 
 `webglcontextlost` 时舞台暂停并清空累加器，状态文字提示刷新或重置。恢复事件**不会**重建 RenderTexture 和滤镜。这是已知缺口，见计划 P0。
 
-`dispose()` 幂等：取消 RAF、卸监听、`world.dispose()`、`ink.dispose()`、`app.destroy(true, { children: true })`。
+`dispose()` 幂等：取消 RAF、卸监听、`world.dispose()`、逐个销毁精灵墨层、可擦层和纸层，最后 `app.destroy(true, { children: true })`。
 
 ## 2.0 墨层不是第二条 GL 管线
 
-`InkWash` 只用 Pixi 的 `renderer.render({ container, target, clear })` 写 RenderTexture。滤镜在 `src/core/ink-wash-filters.ts`，顶点着色器和旧滤镜同一套 Pixi v8 约定。不要在这些 pass 外面再调 `withGLState()`，也不要读 Pixi 私有字段。
+`InkWash` 只用 Pixi 的 `renderer.render({ container, target, clear })` 写 RenderTexture。滤镜在 `src/core/ink-wash-filters.ts`，片元着色器是 `src/core/ink-shaders.ts` 里生成的 inkEngine 移植。每个 pass 是一张铺在笔画外接矩形上的 `Sprite`，顶点着色器把片元在目标纹理里的像素坐标传给片元着色器。不要在这些 pass 外面再调 `withGLState()`，也不要读 Pixi 私有字段。
 
-十卡的模拟分辨率是画面的一半：`new InkWash(app, { width: 1280, height: 720, scale: 0.5, paper: 'xuan' })`。`/compare/` 用 `scale: 1`、800×600、`paper: 'neutral'`，方便和 inkEngine 对坐标。
+十卡的纸层是 `new InkWash(app, { width: 1280, height: 720, seed, background: INK_STAGE_PAPER, paper: true })`，可擦层和精灵用 `transparent: true`。`/compare/` 用 640×480、同样的纸色和种子 `1234567890`；`?scene=modes` 是 800×600、inkEngine 默认的 222 灰。
 
 ## v0.1：p5 宿主和原生 WebGL2
 

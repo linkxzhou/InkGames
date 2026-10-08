@@ -77,19 +77,35 @@ for (const prop of PROPS) {
 const caption = document.querySelector<HTMLElement>('#caption');
 if (caption) caption.textContent = `InkGames 水墨层 · ${id} · 笔刷来自 PROP_BRUSHES，与 inkEngine 宿主页用同一组指针路径和种子`;
 
+/** The seven inkEngine brush modes on inkEngine's default 222 gray: one stroke each, same pointer path and seed. */
+function modeStrokes(): PropStroke[] {
+  const modes: InkBrushMode[] = ['brush', 'marker', 'gothic', 'pen', 'dots', 'fly', 'brushSP'];
+  return modes.map((mode, i) => {
+    const shift = mode === 'gothic' ? 0 : -10;
+    const points = Array.from({ length: 40 }, (_, k) => ({ x: 80 + (620 * k) / 39 + shift, y: 60 + i * 75 + shift }));
+    return {
+      prop: 'landscape', part: mode, brush: { mode, size: mode === 'gothic' ? 'medium' : 'large', effect: 'mix', blend: 'mix' },
+      color: 'black', points, seed: 100 + i,
+    };
+  });
+}
+
+const modes = query.get('scene') === 'modes';
 const mount = document.querySelector<HTMLElement>('#mount');
 if (!mount) throw new Error('Missing compare mount');
-const width = 640;
-const height = 480;
+const width = modes ? 800 : 640;
+const height = modes ? 600 : 480;
+const background: readonly [number, number, number] = modes ? [222, 222, 222] : INK_STAGE_PAPER;
 const seed = 1234567890;
 const app = new Application();
 await app.init({ width, height, preference: 'webgl', autoStart: false, antialias: false, resolution: 1, backgroundColor: 0x222222 });
 mount.appendChild(app.canvas);
-const wash = new InkWash(app, { width, height, seed, background: INK_STAGE_PAPER, paper: true });
+const wash = new InkWash(app, { width, height, seed, background, paper: true });
 app.stage.addChild(wash.view);
-const strokes = paintProp(id, PLACEMENT[id]);
+const strokes = modes ? modeStrokes() : paintProp(id, PLACEMENT[id]);
 for (const stroke of strokes) wash.paint(stroke);
 app.render();
+if (modes && caption) caption.textContent = 'InkGames 水墨层 · inkEngine 七种笔刷，同一指针路径与种子';
 
-window.__compareScene = { width, height, background: INK_STAGE_PAPER, seed, strokes: strokes.map(toEngine) };
+window.__compareScene = { width, height, background, seed, strokes: strokes.map(toEngine) };
 window.__compareReady = true;

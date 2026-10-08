@@ -14,8 +14,11 @@
 ## 2.0 从 `src/index.ts` 能拿到什么
 
 - `InkStage`、`InkStageOptions`：一页一个舞台。`create({ parent, item, onStatus })` 自己 `await app.init`，失败会 `dispose`。
-- `InkWash`、`InkWashOptions`、`InkStrokeStyle`、`InkPigment`，以及颜料常量 `INK_BLACK`、`INK_INDIGO`、`INK_CINNABAR`、`INK_PINE`、`INK_TEA`。
-- `InkBrush`、`strokeSegments`、`BrushPoint`、`BrushSegment`、`InkBrushOptions`：弹簧笔尖和笔毫，纯 CPU，不碰 GPU。
+- `InkStage` 的纸色 `INK_STAGE_PAPER`。
+- `InkWash`、`InkWashOptions`、`InkStrokeRequest`、`InkColor`、`inkPointerPath`：跑 inkEngine 管线的墨层，见第 7 章。
+- `InkBrushEngine`、`InkBrushSettings`、`InkPoint`、`InkDrawOp`、`InkFrameStep`、`InkShaderState`，以及面板取值表 `INK_BRUSH_MODES`、`INK_SIZES`、`INK_EFFECTS`、`INK_BLENDS`、`INK_TIP_OFFSET`、`resolveInkSize`：逐帧移植的七种笔刷，纯 CPU，不碰 GPU。
+- `INK_PALETTE`、`INK_COLOR_NAMES`、`inkColorId`、`inkColorRgb`、`InkColorName`：inkEngine 的 36 色。
+- `PROP_BRUSHES`、`PropBrush`、`PropPaintingId`、`paintProp`、`actionStroke`、`PropStroke`、`PropPlacement`：每个道具的笔刷表和画法，见第 8 章。
 - `InkWorld`、`InkBridge`、`InkImpact`、`InkProjectile`：Matter 世界、墨桥、投射物命中。
 - `ITEM_PRESETS`、`getItemPreset`、`ItemPreset`、`ItemAction`：十张卡片的文案和动作种类。
 
@@ -31,11 +34,11 @@
 键盘 / 指针
   → InkStage.frame（唯一 RAF）
       → 固定步：InkWorld.step、道具动作、eraseBridge
-      → 显示步：InkWash.update、Graphics 重画人物和道具
+      → 显示步：可擦层 InkWash.update（拖动中的湿墨）、移动和旋转墨层精灵
 ```
 
 墨的碰撞不读像素。水刷先改 `InkWorld` 里的矩形刚体，再在已提交的墨层上做视觉减淡。`InkWash` 不拥有物理世界。
 
 ## 还不能当成完成的部分
 
-真实桌面 GPU 的帧率、WebGL 上下文自动重建、七种笔刷里未移植的四种、光谱混色、2.0 自己的录制格式、按道具拆开的插件文件。清单在 [剩余工作](../plan/10-v2-pixi-matter-ink-game-engine-plan.md)。和 inkEngine 的逐项差距在 [第 12 章](./12-inkengine-parity-audit.md)。
+真实桌面 GPU 的帧率、WebGL 上下文自动重建、随时间流动的力场与 flow/distort/metallic 后处理、2.0 自己的录制格式、按道具拆开的插件文件。清单在 [剩余工作](../plan/10-v2-pixi-matter-ink-game-engine-plan.md)。和 inkEngine 的逐项差距在 [第 12 章](./12-inkengine-parity-audit.md)。

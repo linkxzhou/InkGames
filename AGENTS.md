@@ -51,7 +51,7 @@ InkGames/
 - 旧 GL 原型：原生 WebGL2 pass 仍须包在 `withGLState()` 内；新 PixiJS 渲染由 Pixi 管理 WebGL 资源，禁止不经版本验证混用原生 GL 状态或依赖 Pixi 私有字段。
 - 时钟：Pixi ticker 与 Matter Runner 不得和内核 RAF 同时推进权威世界；角色/墨障命中只读固定步 CPU 状态。
 - 注释：仅解释“为什么”，不写“是什么”；中文用于用户可见逻辑，英文用于底层算法。
-- 禁止：在 `src/` 使用 `console.log` 作为常态日志（测试与 `apps/` 可）；未确认书面许可范围前，不复制 `thirdparty/inkField` 或 `thirdparty/inkEngine` 的代码、shader、常量表及受限素材。
+- 禁止：在 `src/` 使用 `console.log` 作为常态日志（测试与 `apps/` 可）；不复制 `thirdparty/inkField` 的代码、shader、常量表及受限素材。`thirdparty/inkEngine` 的算法、shader 与常量表按 §6 的所有者声明可以移植进 `src/`，文件头须写归属；内嵌字体、`demo.json` 等素材仍不复制。
 
 ## 3. 文档约定
 
