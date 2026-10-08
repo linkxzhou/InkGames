@@ -70,7 +70,7 @@ interface InkStrokeStyle extends InkBrushOptions {
 
 ## 旧墨水：`InkFluid`
 
-`src/plugins/ink-fluid.ts` 是纳维–斯托克斯风格的 R/RG16F 场，由 `createInkFluidPlugin()` 接到 v0.1 渲染阶段。水刷在那里会把活动墨冲开，锁定笔画有单独路径。它和 `InkWash` 的 `min()` 扩散不是同一个模型，这次没有改它，否则 `/inkcross/` 的像素和墨量断言会对不上。
+`src/plugins/ink-fluid.ts` 是纳维–斯托克斯风格的 R/RG16F 场，由 `createInkFluidPlugin()` 接到 v0.1 渲染阶段。它和 `InkWash` 的 `min()` 扩散不是同一个模型。水刷的剪刀矩形会清掉活动墨、湿场和已经沉下去的 `fixedInk`，否则固定步跑得快时桥面擦完仍是深色；矩形外面的湿墨还会回渗。锁定笔画不走这条擦除。
 
 ## 调用时注意
 

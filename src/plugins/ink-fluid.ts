@@ -367,8 +367,8 @@ export class InkFluid implements InkVisual {
     });
   }
   /**
-   * 局部擦除：只在路径包围盒内清除「活动墨 + 湿场」，固定墨层（fixedInk）保留，
-   * 对应 plan/07 §4.4「已干墨不产生误导性视觉擦除」。
+   * 局部擦除：在路径包围盒内清掉活动墨、湿场和已经沉进 fixedInk 的墨。
+   * 只清包围盒，盒子外的湿墨仍会在后续步里回渗。若留下 fixedInk，帧率一高桥面就会在擦完后仍是一整条深色。
    * 返回被清理的世界坐标包围盒，供插件决定是否需要重绘相交笔画。
    */
   erase(path: readonly Point[], radius: number): { x: number; y: number; w: number; h: number } | undefined {
@@ -389,7 +389,7 @@ export class InkFluid implements InkVisual {
       gl.enable(gl.SCISSOR_TEST);
       gl.scissor(left, bottom, right - left, top - bottom);
       gl.clearColor(0, 0, 0, 0);
-      for (const field of [this.pigment, this.wet]) {
+      for (const field of [this.pigment, this.wet, this.fixedInk]) {
         gl.bindFramebuffer(gl.FRAMEBUFFER, field.read.fbo);
         gl.viewport(0, 0, field.read.w, field.read.h);
         gl.clear(gl.COLOR_BUFFER_BIT);
@@ -468,7 +468,7 @@ export class InkFluid implements InkVisual {
     gl.clearColor(0, 0, 0, 0);
     for (const rect of rectangles) {
       gl.scissor(rect.left, rect.bottom, Math.max(0, rect.right - rect.left), Math.max(0, rect.top - rect.bottom));
-      for (const field of [this.pigment, this.wet]) {
+      for (const field of [this.pigment, this.wet, this.fixedInk]) {
         gl.bindFramebuffer(gl.FRAMEBUFFER, field.read.fbo);
         gl.viewport(0, 0, field.read.w, field.read.h);
         gl.clear(gl.COLOR_BUFFER_BIT);
