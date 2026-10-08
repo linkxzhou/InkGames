@@ -29,6 +29,23 @@ export function inkCos(x: number): number {
   return inkSin(x + HALF_PI);
 }
 
+/**
+ * atan2(y, x) for visual masks (metallic bite outlines). A minimax polynomial on atan,
+ * accurate to about 1e-6. Collision and brush geometry do not use it.
+ */
+export function inkAtan2(y: number, x: number): number {
+  if (x === 0 && y === 0) return 0;
+  const ax = x < 0 ? -x : x;
+  const ay = y < 0 ? -y : y;
+  const a = ax < ay ? ax / ay : ay / ax;
+  const s = a * a;
+  let r = ((-0.0464964749 * s + 0.15931422) * s - 0.327622764) * s * a + a;
+  if (ay > ax) r = HALF_PI - r;
+  if (x < 0) r = PI - r;
+  if (y < 0) r = -r;
+  return r;
+}
+
 /** p5 randomSeed()/random(): Numerical Recipes LCG, 2^32 modulus. */
 export class P5Random {
   private state = 0;

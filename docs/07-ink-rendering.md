@@ -39,7 +39,9 @@
 | `final` | 已提交的颜色（`finalBuffer`） | 白 |
 | `typeMap` | R 0.5 普通墨 / 1 白墨，G 白墨不透明度 | 黑 |
 | `display` | 纸 × 墨的合成结果，`view` 显示它 | 合成一次 |
-| `force` | `mapFrag` 力场，建表时画一次 | — |
+| `force` | `mapFrag` 力场，每次 feedback 前按帧时钟重画笔画矩形 | — |
+| `lastStroke` | 刚提交的湿墨，给 flow 的 `lastStrokeTex` | 白 |
+| `bugsMask` / `bugsData` | 虫蚀轮廓的颜色和中心 | 透明 |
 | `scratch` | 读写分离的临时目标 | — |
 
 每个 pass 只覆盖当前笔画的外接矩形（加 3px，墨效 4/5 每帧再扩 3px）。在矩形外 inkEngine 的全屏 pass 不会改动像素，所以结果相同，SwiftShader 上快得多。
@@ -63,8 +65,17 @@ wash.paint({
 - `setBrush({ mode, size, effect, blend })`、`setColor(name | [r, g, b])`、`strokePath(points, seed?)`、`paint(stroke)`：与 inkEngine 的 `setBrush().setColor().strokePath()` 对应。`points` 是笔尖落点；`inkPointerPath(points, mode)` 换算成 inkEngine 要的指针坐标（加 10px，gothic 不加）。
 - `strokePath` 是同步的：按下、每帧一个点、停一帧、提起、倒计时、提交，全部在一次调用里跑完。
 - `beginStroke` / `addPoint` / `endStroke` 给拖动用，每个显示帧调一次 `update()`。和 inkEngine 一样每帧只取最新的指针位置，提交前用 `realtime.frag` 在 `display` 上叠出湿墨。
+- `finish`（可选）：笔画提交后按 inkEngine 的顺序跑 metallic、distort、flow。见下。
 - `wash(x, y, radius)`：水刷。按距离把 `final` 往白色混，类型图在圈心清零，再重画这一块。
 - `clear()`、`dispose()`（幂等）。
+
+`InkFinish`：
+
+| 字段 | 行为 |
+|---|---|
+| `flow: { blendType, iterations, seed? }` | 一次 flow 提交。`blendVol = 100 * (1 + iterations * 0.1)`，写入 `final` 和 `typeMap` 后再合成。种子缺省时用笔画种子对 1000000 取余 |
+| `distort: { displacementB?, displacementC?, extent? }` | `extent: 'frame'` 扭曲整幅，`'stroke'`（默认）只扭曲这一笔的矩形及其上下镜像。B 默认 20，C 默认 50 |
+| `metallic: { size?, tint? }` | 按 inkEngine 的阈值在已合成的画面上找深色点，画闪电形咬痕，再跑 `metallic.frag`。`size` 默认 10，`tint` 默认 `[0.72, 0.5, 0.35]` |
 
 笔刷取值与 inkEngine/index.html 的菜单相同：
 
@@ -91,7 +102,7 @@ wash.paint({
 
 ## 力场与纸
 
-`force` 用移植的 `mapFrag` 在建表时画一次（时间取 0），之后不再更新。inkEngine 每帧用 `millis()` 重画，但它只让采样偏移约 ±0.1px，逐帧重画在 SwiftShader 上会让每一笔多出一倍开销。`mapFrag` 里那 6 个从未被上传的 uniform 同样固定为 0。
+`force` 用移植的 `mapFrag`。每次 feedback 前把当前笔画矩形重画一遍，时间是 `frameCount / 60`，对应 `clock: 'frame'` 下的 `millis() * 0.001`。新墨层的 `frameCount` 从 2 开始，因为对照用的宿主页在 `ready` 之后先 `step(2)`。矩形以外的力场留着上一次的值；feedback 只采样矩形内部。`mapFrag` 里那 6 个从未被上传的 uniform 仍然是 0。空闲时不重画整幅，所以游戏进行中纸上的旧墨不会自己继续流动。
 
 纸纹按 `generatePaperTexture(40, 20, 15, 0.2)`：用 Canvas 2D 画 100 个半径 0.75 的浅点做小块，横向每 `宽/500` 像素、纵向每 20 像素盖一次，纵向按 `noise` 抖 15px，最后以 MULTIPLY 乘到 `min(255, 底色 × 1.1)` 上。种子相同、浏览器相同时，纸与 inkEngine 宿主页一致。
 
@@ -99,9 +110,12 @@ wash.paint({
 
 `InkStage` 用三类墨层，见 [第 8 章](./08-gameplay-and-persistence.md)：
 
-- 纸层：远山、近山、地面、河、靶和本页道具，开场画一次，水刷不改。
-- 可擦层：`transparent` 的 `InkWash`，`multiply` 叠在纸层上，放可擦桥、挥击、溅墨、尘迹、水纹。重播和重置只清这一层。
-- 精灵：会动或拿在手里的东西各自画在一张小的透明墨层上，当作精灵移动、旋转（马的两种步态、舟、三幅风向的旗、人物、手持件、飞行中的箭和墨罐）。
+- 远山：单独一张透明墨层，放在 z = −80，绕画面中心缩放，相机移动时比纸层少跟一段。
+- 纸层（z = 0，不缩放）：近山、地面、河、靶和本页道具，开场画一次，水刷不改。屏幕坐标等于世界坐标减去相机偏移。
+- 可擦层：同样在 z = 0。`transparent` 的 `InkWash`，`multiply` 叠在纸层上，放可擦桥、挥击、溅墨、尘迹、水纹。重播和重置只清这一层。
+- 精灵（z = 40）：会动或拿在手里的东西各自画在一张小的透明墨层上。缩放绕落点（脚、蹄、龙骨、旗杆根、箭镞），所以脚还踩在 z = 0 的地面上。飞行中的箭和墨罐绕刚体中心缩放。
+
+`inkLayerScale(height, z)` 和 `INK_LAYER_Z` 是这套深度。相机以 0.05 的比例跟上角色，偏移限制在水平 48 px、垂直 36 px，避免纸的边缘露出太多。指针换算会把这个偏移加回去。没有景深模糊，也没有 EasyCam 在回放时收到的 1.1 倍变焦。
 
 ## 旧墨水：`InkFluid`
 

@@ -13,6 +13,7 @@
 | `mode` / `size` / `effect` / `blend` / `color` | 笔刷、尺寸、墨效、混色、颜色，取值见第 7 章 |
 | `pressure` | 笔压 0..1，即含墨量。第 8 帧起 ≥ 0.3 升一档尺寸，≥ 0.5 两档，≥ 0.7 三档。省略表示鼠标 |
 | `speed` | 每帧指针走多少像素。越快越细、越干，飞白越多 |
+| `finish` | 可选。`flow` / `distort` / `metallic`，这一笔提交后跑。见第 7 章 |
 
 湿、干、渗由这几列组合出来：`wet` / `effect4` 湿而洇，`flyingWhite` 加快速运笔是枯笔飞白，`mix` 是常规扩散。inkEngine 每笔都把内渗强度固定为 0.45，所以表里没有这一列。
 
@@ -22,9 +23,9 @@
 
 | 道具 | 部件与笔刷 |
 |---|---|
-| 剑 | 刃：大笔 medium、湿墨、`sage_gray`（钢灰）；两刃口：大笔 ultra-small、飞白、黑、每帧 15px；脊：速写 small、锐化；格：大笔 medium 黑；柄：小笔 small `terra_cotta`；剑首：小号重按；穗：brushSP 湿墨红 |
-| 刀 | 刀身：大笔 large 湿墨 `sage_gray`；刃口：飞白刷 small 黑；刀背：ultra-small 锐化；刀盘、缠柄 `wine_red`；场上两摊色墨：大笔 extra-large 湿墨 `blue` / `red` |
-| 枪 | 杆：大笔 medium `terra_cotta` 一笔到底；枪头：大笔 medium 黑三笔成叶；枪缨：大笔 medium 湿墨红、笔压 0.5 |
+| 剑 | 刃：大笔 medium、湿墨、`sage_gray`（钢灰），提交后走 metallic（虫蚀，尺寸 14）；两刃口：大笔 ultra-small、飞白、黑、每帧 15px；脊：速写 small、锐化；格：大笔 medium 黑；柄：小笔 small `terra_cotta`；剑首：小号重按；穗：brushSP 湿墨红 |
+| 刀 | 刀身：大笔 large 湿墨 `sage_gray`，metallic 尺寸 16；刃口：飞白刷 small 黑；刀背：ultra-small 锐化；刀盘、缠柄 `wine_red`；场上两摊色墨：大笔 extra-large 湿墨 `blue` / `red` |
+| 枪 | 杆：大笔 medium `terra_cotta` 一笔到底；枪头：大笔 medium 黑三笔成叶，每笔 metallic 尺寸 12；枪缨：大笔 medium 湿墨红、笔压 0.5 |
 | 弓 | 弓臂：大笔 medium `brown`（赭）两道弧；弓梢、弦：细锐化黑；握把：小笔；箭：细杆、锐化箭头、飞白 `wine_red` 箭羽 |
 | 盾 | 盾面：大笔 huge 湿墨 `gray_brown` 成片铺开；盾缘：大笔 medium 黑三笔；盾钮：large 重按；纹章：small 湿墨红；铆钉：点画 |
 | 战马 | 身：大笔 large 黑、笔压 0.4（第 8 帧起升到 3）六笔泼成一团；颈、头：large / medium 重按；外晕：extra-large `effect4` 浅灰；四腿：small 每帧 6px 干笔；鬃：brushSP；尾：飞白刷 medium |
@@ -32,7 +33,7 @@
 | 墨弹 | 罐腹：大笔 large 湿墨黑、笔压 0.4 两圈；肩、颈、口：large / medium；塞：小笔 `terra_cotta`；釉光：飞白刷白墨；引信：small；火星：哥特红。落地：哥特 large 湿墨黑 + extra-large `effect4` 黑 |
 | 水刷 | 杆：大笔 medium `terra_cotta`；箍：小笔 medium 黑；笔毫：brushSP large 湿墨 `blue`；水滴：点画 |
 | 舟 | 船身：大笔 extra-large 湿墨 `light_gray_new`；船底、舷、篷骨、桨、艄公：ultra-small 细线；篷：large 湿墨 `gray_brown`；尾迹：飞白刷 |
-| 水面 | 水面：大笔 extra-large `effect4` 淡青（`dusty_rose`）洇开；水流：飞白刷 extra-large `light_gray_new` 横向长笔；水色：extra-large 湿墨淡青；深处：extra-large 湿墨灰；浪花：飞白刷 small 白墨；涟漪：ultra-small `sage_gray` |
+| 水面 | 水面：大笔 extra-large `effect4` 淡青（`dusty_rose`）洇开，提交后 flow（blend 0，4 次迭代）；水流：飞白刷 extra-large `light_gray_new` 横向长笔；水色：extra-large 湿墨淡青；深处：extra-large 湿墨灰，再按该笔矩形做 distort（B 20、C 50）；浪花：飞白刷 small 白墨；涟漪：ultra-small `sage_gray` |
 
 对照页 `/compare/?prop=<id>` 把同一道具画在 640×480 的纸上，与 inkEngine 宿主页并排，见 [第 12 章](./12-inkengine-parity-audit.md)。
 
@@ -40,9 +41,12 @@
 
 `InkStage`（`src/core/ink-stage.ts`）开场画三类东西：
 
-1. 纸层（`INK_STAGE_PAPER` 底色，纸是它 ×1.1）：远山、近山、地面，河（舟、水刷两页），本页道具的大图（剑、刀、枪、弓、盾、墨罐、水刷），以及木桩、草靶、箭靶、色墨、锁定桥。之后不再改动。
-2. 可擦层：透明墨层，`multiply` 叠在纸上。可擦桥和所有动作笔画写在这里。重播和重置只清这一层再补画可擦桥。
-3. 精灵：每样会动或拿在手里的东西各画在一张小的透明墨层上，开场画好，之后只移动或旋转。人物有站立和出手两种姿势；马有两种步态，跑起来交替；三幅旗对应西风、无风、东风；舟随行进平移；手持件是本页道具缩小约三分之一；飞行中的箭按速度方向旋转（用速度的单位向量组矩阵，不调 `atan2`），墨罐不旋转。
+1. 远山：透明墨层，z = −80，绕画面中心缩小，相机一动它跟得比纸少。
+2. 纸层（z = 0，不缩放，`INK_STAGE_PAPER` 底色，纸是它 ×1.1）：近山、地面，河（舟、水刷两页），本页道具的大图（剑、刀、枪、弓、盾、墨罐、水刷），以及木桩、草靶、箭靶、色墨、锁定桥。之后不再改动。屏幕位置是世界坐标减去相机偏移，所以点击和碰撞仍用 1280×720 的世界坐标。
+3. 可擦层：同样 z = 0。透明墨层，`multiply` 叠在纸上。可擦桥和所有动作笔画写在这里。重播和重置只清这一层再补画可擦桥。
+4. 精灵：z = 40，绕落点放大（人物的脚、马蹄、舟的龙骨、旗杆根；箭和墨罐绕刚体中心）。人物有站立和出手两种姿势；马有两种步态，跑起来交替；三幅旗对应西风、无风、东风；舟随行进平移；手持件是本页道具缩小约三分之一，握点跟着身体的缩放走；飞行中的箭按速度方向旋转（用速度的单位向量组矩阵，不调 `atan2`），墨罐不旋转。
+
+相机以每帧 5% 的比例把画面中心拉向角色，偏移限制在 48×36 px 以内。纸层因此仍盖住几乎整个画面。
 
 ## 每页的交互
 

@@ -1,7 +1,8 @@
 import { Filter, GlProgram, type TextureSource } from 'pixi.js';
 import {
-  INK_COMPOSITE_FRAGMENT, INK_ENCODE_FRAGMENT, INK_FEEDBACK_FRAGMENT, INK_FORCE_MAP_FRAGMENT,
-  INK_REALTIME_FRAGMENT, INK_TYPE_MAP_FRAGMENT,
+  INK_COMPOSITE_FRAGMENT, INK_DISTORT_FRAGMENT, INK_ENCODE_FRAGMENT, INK_FEEDBACK_FRAGMENT,
+  INK_FLOW_FRAGMENT, INK_FORCE_MAP_FRAGMENT, INK_METALLIC_FRAGMENT, INK_REALTIME_FRAGMENT,
+  INK_TYPE_MAP_FRAGMENT,
 } from './ink-shaders';
 
 /**
@@ -41,7 +42,7 @@ void main(void) {
   else finalColor = vec4(mix(color.rgb, vec3(1.0), wipe), 1.0);
 }`;
 
-type UniformType = 'f32' | 'i32' | 'vec2<f32>' | 'vec3<f32>';
+type UniformType = 'f32' | 'i32' | 'vec2<f32>' | 'vec3<f32>' | 'vec4<f32>';
 
 interface UniformSpec {
   readonly value: number | Float32Array;
@@ -80,7 +81,10 @@ function makeFilter(name: string, fragment: string, uniforms: Record<string, Uni
 }
 
 const f = (value = 0): UniformSpec => ({ value, type: 'f32' });
+const i = (value = 0): UniformSpec => ({ value, type: 'i32' });
+const v2 = (a = 0, b = 0): UniformSpec => ({ value: new Float32Array([a, b]), type: 'vec2<f32>' });
 const v3 = (a = 0, b = 0, c = 0): UniformSpec => ({ value: new Float32Array([a, b, c]), type: 'vec3<f32>' });
+const v4 = (a = 0, b = 0, c = 0, d = 0): UniformSpec => ({ value: new Float32Array([a, b, c, d]), type: 'vec4<f32>' });
 
 export function createFeedbackFilter(wet: TextureSource, force: TextureSource, width: number, height: number): InkFilter {
   return makeFilter('ink-feedback', INK_FEEDBACK_FRAGMENT, {
@@ -139,6 +143,41 @@ export function createForceMapFilter(params: ForceMapParams, width: number, heig
     canvasCenter: { value: new Float32Array([width / 2, height / 2]), type: 'vec2<f32>' },
     time: f(0),
   }, {}, width, height);
+}
+
+/**
+ * distort.frag. inkEngine runs it on the whole frame when distortShaderEnabled is set.
+ * displacementC is 50 (the control panel's value), not the 100 the field is declared with.
+ * rs / cellular / grain / white-dot stay off unless a caller sets them.
+ */
+export function createDistortFilter(source: TextureSource, force: TextureSource, width: number, height: number): InkFilter {
+  return makeFilter('ink-distort', INK_DISTORT_FRAGMENT, {
+    time: f(0), distortEnabled: f(1), displacementB: f(20), displacementC: f(50), showFbmMask: f(0),
+    fbmSeed1: f(100), fbmSeed2: f(200), fbmSeed3: f(300), fbmSeed4: f(400),
+    backgroundColor: v3(222 / 255, 222 / 255, 222 / 255),
+    rsEnabled: f(0), rsFrequency: f(300), rsWaveSpeed: f(1), rsStrength: f(0.5), rsGradientMix: f(0.1), rsScale: f(100),
+    cellularEnabled: f(0), cellularScale: f(15), cellularSeed: f(0.5), whiteDotDensity: f(0), grainAmount: f(0),
+  }, { tex0: source, forceMap: force }, width, height);
+}
+
+/** flow.frag. One pass; blendVol already includes inkEngine's (1 + iterations * 0.1). pixelScale 0 and 1 are the same. */
+export function createFlowFilter(source: TextureSource, lastStroke: TextureSource, width: number, height: number): InkFilter {
+  return makeFilter('ink-flow', INK_FLOW_FRAGMENT, {
+    lastStrokeOnly: i(0), blendType: i(0), blendVol: f(100), radSeed: f(0),
+    strokeBounds: v4(0, 0, 1, 1), pixD: f(1), blendA: f(0.01), blendB: f(25), directVol: f(10), snoiseVol: f(3),
+    gobalStyle: i(0), vline: i(5), hline: i(5), cellT: f(1), colorDeep: f(0.015), whiteDot: f(0.01),
+    doBigShape: f(0), doMask: f(0.5), multiDir: i(0), drawTime: i(1), seed: f(0), iTime: f(0), pixelScale: f(1),
+    isTypeMapMode: i(0),
+  }, { tex0: source, lastStrokeTex: lastStroke }, width, height);
+}
+
+/** metallic.frag. bugsMask is the bite colour, bugsData is center.xy and size.z in 0..1. */
+export function createMetallicFilter(source: TextureSource, mask: TextureSource, data: TextureSource, width: number, height: number): InkFilter {
+  return makeFilter('ink-metallic', INK_METALLIC_FRAGMENT, {
+    time: f(0), resolution: v2(width, height), metallicStrength: f(0.85), flowSpeed: f(1),
+    lightPos: v2(0.5, 0.4), specularPower: f(12), fresnelStrength: f(0.5),
+    metalTint: v3(0.72, 0.5, 0.35),
+  }, { tex0: source, bugsMask: mask, bugsData: data }, width, height);
 }
 
 export function createWashFilter(source: TextureSource, width: number, height: number): InkFilter {
