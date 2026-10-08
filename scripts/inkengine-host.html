@@ -5,32 +5,35 @@
   <title>inkEngine 对照</title>
   <style>
     body { margin: 0; background: #222; color: #eee; font-family: sans-serif; }
-    header { padding: 12px 16px; font-size: 14px; }
-    #mount { width: 800px; height: 600px; }
     canvas { display: block; }
   </style>
 </head>
 <body>
-  <header>inkEngine · 同一组笔画（EasyCam 关闭，便于坐标对齐）</header>
   <div id="mount"></div>
   <script src="/ink-engine/p5.min.js"></script>
   <script src="/ink-engine/ink-engine.js"></script>
   <script>
+    // 参数来自查询串，便于和 src 的对照页用同样的画布尺寸、纸色和种子。
+    const query = new URLSearchParams(location.search);
+    const width = Number(query.get('w') || 800);
+    const height = Number(query.get('h') || 600);
+    const background = (query.get('bg') || '222,222,222').split(',').map(Number);
     const ink = InkEngine.create({
       container: 'mount',
-      width: 800,
-      height: 600,
+      width,
+      height,
       pixelDensity: 1,
-      seed: 1234567890,
+      seed: Number(query.get('seed') || 1234567890),
       loop: false,
       clock: 'frame',
-      easycam: false,
+      easycam: query.get('easycam') !== '0',
       input: false,
-      background: [222, 222, 222],
-      toggles: { paper: true, grid: false, futurePath: false, console: false, camera: false },
+      background,
+      toggles: { paper: query.get('paper') !== '0', grid: false, futurePath: false, console: false, camera: false },
     });
     ink.ready.then(() => {
-      ink.setOptions({ paper: true, grid: false, futurePath: false, console: false, camera: false });
+      ink.setOptions({ paper: query.get('paper') !== '0', grid: false, futurePath: false, console: false, camera: false });
+      ink.step(2);
       window.__ink = ink;
       window.__inkReady = true;
     }).catch((error) => {
