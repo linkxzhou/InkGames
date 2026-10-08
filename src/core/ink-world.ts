@@ -102,6 +102,14 @@ export class InkWorld {
 
   bodyFor(id: number): Body | undefined { return this.platforms.get(id)?.[0]; }
 
+  clearBridges(): void {
+    for (const bodies of this.platforms.values()) {
+      for (const body of bodies) Composite.remove(this.physics.world, body);
+    }
+    this.platforms.clear();
+    this.bridges.clear();
+  }
+
   eraseBridge(x: number, y: number, radius: number): number[] {
     const changed: number[] = [];
     if (!(radius > 0)) return changed;

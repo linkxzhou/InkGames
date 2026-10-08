@@ -1,5 +1,9 @@
 export { InkStage } from './core/ink-stage';
 export type { InkStageOptions } from './core/ink-stage';
+export { InkWash, INK_BLACK, INK_INDIGO, INK_CINNABAR, INK_PINE, INK_TEA } from './core/ink-wash';
+export type { InkWashOptions, InkStrokeStyle, InkPigment } from './core/ink-wash';
+export { InkBrush, strokeSegments } from './core/ink-brush';
+export type { BrushPoint, BrushSegment, InkBrushOptions } from './core/ink-brush';
 export { InkWorld } from './core/ink-world';
 export type { InkBridge, InkImpact, InkProjectile } from './core/ink-world';
 export { ITEM_PRESETS, getItemPreset } from './plugins/items';

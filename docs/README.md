@@ -1,19 +1,24 @@
-# InkGames 文档 · PixiJS 迁移路线
+# InkGames 文档
 
-> **状态**：以下 01..10 是先前的 v0.1 迁移指南，插件/核心划分和单关范围尚未按 2.0 重写；新目标与实施证据以 [InkGames 2.0 计划](../plan/10-v2-pixi-matter-ink-game-engine-plan.md) 为准。PixiJS/Matter.js 已安装，首页及十条效果路由已有初步实现，旧 p5/WebGL2 页面暂留；新页面尚未完成浏览器验收。各章「已实现」仅指旧原型，不指 2.0 完成；历史资料见 [plan 索引](../plan/README.md)。
+这些章节描述仓库里**已经能跑的代码**。还没做的事写在 [剩余工作](../plan/10-v2-pixi-matter-ink-game-engine-plan.md)，不写进「可以这样调用」的示例。历史检索留在 [第 11 章](./11-references-and-research.md)。和 inkEngine 的逐项对照在 [第 12 章](./12-inkengine-parity-audit.md)。
 
-| 章节 | 新目标与边界 |
+| 章 | 内容 |
 |---|---|
-| [01 范围](./01-scope-and-engine-map.md) | 横版动作竖切片、权威逻辑和显示职责 |
-| [02 Pixi 宿主](./02-host-and-render-backend.md) | 单 WebGL 画布、时钟、坐标、资源与恢复 |
-| [03 固定步](./03-microkernel-and-loop.md) | 复用微内核、避免 Pixi/Matter 双循环 |
-| [04 插件](./04-plugin-system.md) | manifest、Pixi/物理/水墨适配与生命周期 |
-| [05 场景](./05-world-scene-and-assets.md) | CPU 世界与 Pixi 显示树分离，资源/相机 |
-| [06 输入物理](./06-input-strokes-and-physics.md) | Matter 候选、FSM、攻击、水刷与碰撞事务 |
-| [07 水墨表现](./07-ink-rendering.md) | RenderTexture 融合、纸张、Mesh 刀光、流场 |
-| [08 玩法录制](./08-gameplay-and-persistence.md) | 角色规则、VFX 事件与录制版本 |
-| [09 验证](./09-tooling-and-quality.md) | CPU/视觉一致性与真实 GPU 性能 |
-| [10 交付](./10-shipping-and-ecosystem.md) | 竖切片、依赖及许可证验收 |
-| [11 旧研究附录](./11-references-and-research.md) | 2026-10-08 p5/GL 等资料；保留时间与验证边界 |
+| [01 范围](./01-scope-and-engine-map.md) | 两套并存的运行时，以及公共出口 |
+| [02 宿主与渲染](./02-host-and-render-backend.md) | p5 宿主、旧 WebGL2、Pixi `InkStage` |
+| [03 时钟](./03-microkernel-and-loop.md) | `Engine` 固定步，以及 `InkStage` 自己的 RAF |
+| [04 插件与道具](./04-plugin-system.md) | 插件图、`ItemPreset`、十卡页面 |
+| [05 场景](./05-world-scene-and-assets.md) | 旧场景服务与 `InkWorld` |
+| [06 输入、笔和碰撞](./06-input-strokes-and-physics.md) | 笔画权威几何、Matter、水刷 |
+| [07 水墨](./07-ink-rendering.md) | `InkWash` 的缓冲、笔毫和滤镜 |
+| [08 玩法与录制](./08-gameplay-and-persistence.md) | 十卡里实际发生的事，以及旧录制 |
+| [09 验证](./09-tooling-and-quality.md) | `build.sh`、测试、冒烟、对照截图 |
+| [10 交付](./10-shipping-and-ecosystem.md) | 构建入口、许可、还不能发布的部分 |
 
-阅读时先看 [当前代码入口](../src/index.ts)，用 `./build.sh check` 检查当前源码，用 `./build.sh dev` 打开十卡首页（旧演示仍可通过旧路由进入）。**不能**把旧测试、旧截图或研究中的效果当 Pixi 新方案的实现证据。当前首个门槛是 [2.0 V0](../plan/10-v2-pixi-matter-ink-game-engine-plan.md) 的参考版授权核验与 Pixi/Matter 技术 spike，尚未完成。
+公共类型和函数只从 [`src/index.ts`](../src/index.ts) 导出。应用代码用别名 `@inkgames/engine`，不要去 import `src/core/` 或 `src/plugins/` 的内部文件。
+
+```bash
+./build.sh dev      # http://127.0.0.1:5173/  十卡首页
+./build.sh check    # tsc + vitest + 文档相对链接
+./build.sh browser  # 构建后的无头 Chromium 冒烟
+```

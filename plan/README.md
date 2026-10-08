@@ -1,16 +1,19 @@
-# InkGames 规划索引
+# 规划索引
 
-> **当前目标**：[InkGames 2.0 PixiJS + Matter.js 实施计划](./10-v2-pixi-matter-ink-game-engine-plan.md)：基础游戏与水墨效果归 `src/core`，道具/载具效果组合归 `src/plugins`；首页十张效果卡替代旧两个应用。[使用文档](../docs/README.md)及 `07` 记录此前 v0.1 迁移方向，与 2.0 不一致时以本计划为准。`plan/01..06`、`08..09` 是 p5.js/原生 WebGL2 路线的历史材料和审计记录；现有源码仍以 `src/` 为准，不能把 2.0 目标写成已完成。
+现行文件只有一份：[尚未完成的工作](./10-v2-pixi-matter-ink-game-engine-plan.md)。使用说明在 [docs](../docs/README.md)。已经写进仓库的行为以 `src/` 和文档为准，不在这里重复成「已完成」清单。
 
-| 文件 | 定位 |
+## 删除记录（2026-10-08）
+
+下列文件整份删除。它们要么描述已经落地的 v0.1 微内核，要么是被 2.0 目录和十卡演示替代的旧路线，留在 `plan/` 里会和现行代码互相矛盾。
+
+| 删除的文件 | 原因 |
 |---|---|
-| [10 InkGames 2.0 实施计划](./10-v2-pixi-matter-ink-game-engine-plan.md) | **现行目标**：Pixi/Matter 内建核心、道具插件、十卡首页与迁移门槛 |
-| [07 旧 v0.1 迁移基线](./07-microkernel-plugin-plan.md) | 历史阶段：微内核 + 能力插件 + 《墨渡》单关，不再决定 2.0 分层 |
-| [01 inkField 参考研究](./01-reference-analysis-inkField.md) | 历史研究；**受限许可，不得复制代码、shader 或常量表、不得公开再分发快照** |
-| [02 inkwash 参考研究](./02-reference-analysis-inkwash.md) | 历史研究；MIT 来源与流体模型，可作为后续实验参考 |
-| [03 原始需求](./03-requirements.md) · [04 原始架构](./04-architecture.md) · [05 原始 v1 计划](./05-v1-plan.md) | 旧 p5 方向与估算，非 PixiJS 承诺 |
-| [06 旧路线核验](./06-validation-and-detailed-plan.md) | p5/GL 问题的历史勘误；不能直接推定 Pixi 的行为 |
-| [08 优化记录](./08-inkfield-informed-optimization-plan.md) | 旧管线的优化实验和 clean-room 边界；优化方案需重新评估 |
-| [09 契约审计与返工记录](./09-src-contract-gap-and-apps-rework-plan.md) | 有时间层次的旧原型缺陷/修复记录；末尾的墨量对账偏差需在新管线复验 |
+| `01-reference-analysis-inkField.md` | inkField 许可与结构研究。结论已吸收到 [第三方登记](../THIRD_PARTY_NOTICES.md) 和 [docs/11](../docs/11-references-and-research.md)，不再指导实现。 |
+| `02-reference-analysis-inkwash.md` | MIT 流体参考笔记。`src/plugins/ink-fluid.ts` 已是独立实现，笔记本身不是待办。 |
+| `03-requirements.md`、`04-architecture.md`、`05-v1-plan.md` | 最初的 p5 单关需求、架构和排期，产品范围已被十卡水墨动作演示替代。 |
+| `06-validation-and-detailed-plan.md` | 对 01–05 的勘误。勘误对象已删除。 |
+| `07-microkernel-plugin-plan.md` | v0.1 微内核计划。`Engine`、插件图、固定步、资源回滚、笔画/侵蚀/录制已在 `src/core` 与 `src/plugins` 落地，并有 `tests/` 覆盖。 |
+| `08-inkfield-informed-optimization-plan.md` | 旧 WebGL2 墨水管线的优化实验记录。优化落在 `ink-fluid.ts`；2.0 画面改走 `InkWash`。 |
+| `09-src-contract-gap-and-apps-rework-plan.md` | 2026-10-08 对旧《墨渡》的审计。其中「球与印章不绘制」「水刷视觉未接线」已在旧页面补上，并由 `scripts/browser-smoke.mjs` 断言。十卡演示已按现行公共 API 重写，该返工单不再是待办。 |
 
-旧文件保留供追溯，**不是 2.0 的规范或已实现能力**。PixiJS/Matter.js 已安装，`./build.sh dev` 默认打开十卡首页；旧 p5 演示暂留在 `/inkcross/`、`/wuxia/`，新页面仍需单独浏览器功能验收与真实 GPU 性能测试。`thirdparty/inkEngine` 的书面授权文件不在仓库，使用和公开发布范围须先核查 [LICENSE](../thirdparty/inkEngine/LICENSE)。
+`docs/11` 仍保留当日的检索附录。文中出现「plan/07」是历史叙述，不是仍然有效的计划链接。

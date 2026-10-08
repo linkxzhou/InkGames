@@ -26,14 +26,21 @@ function resolvePlaywright() {
 }
 
 function resolveChromium() {
-  const cache = join(process.env.HOME ?? '', 'Library/Caches/ms-playwright');
-  if (!existsSync(cache)) return undefined;
-  const versions = readdirSync(cache).filter(name => /^chromium-\d+$/.test(name)).sort();
-  for (const version of versions.reverse()) {
-    const mac = join(cache, version, 'chrome-mac-arm64', 'Google Chrome for Testing.app', 'Contents', 'MacOS', 'Google Chrome for Testing');
-    if (existsSync(mac)) return mac;
-    const linux = join(cache, version, 'chrome-linux', 'chrome');
-    if (existsSync(linux)) return linux;
+  const caches = [
+    join(process.env.HOME ?? '', 'Library/Caches/ms-playwright'),
+    join(process.env.HOME ?? '', '.cache/ms-playwright'),
+  ];
+  for (const cache of caches) {
+    if (!existsSync(cache)) continue;
+    const versions = readdirSync(cache).filter(name => /^chromium-\d+$/.test(name)).sort();
+    for (const version of versions.reverse()) {
+      const mac = join(cache, version, 'chrome-mac-arm64', 'Google Chrome for Testing.app', 'Contents', 'MacOS', 'Google Chrome for Testing');
+      if (existsSync(mac)) return mac;
+      const linux64 = join(cache, version, 'chrome-linux64', 'chrome');
+      if (existsSync(linux64)) return linux64;
+      const linux = join(cache, version, 'chrome-linux', 'chrome');
+      if (existsSync(linux)) return linux;
+    }
   }
   return undefined;
 }
@@ -47,7 +54,7 @@ if (!playwright) {
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.map': 'application/json' };
 const server = createServer((request, response) => {
   const path = (request.url ?? '/').split('?')[0];
-  const file = join(root, 'dist', path === '/' ? 'inkcross/index.html' : path.endsWith('/') ? `${path}index.html` : path);
+  const file = join(root, 'dist', path === '/' ? 'index.html' : path.endsWith('/') ? `${path}index.html` : path);
   try {
     const body = readFileSync(file);
     response.writeHead(200, { 'content-type': `${MIME[extname(file)] ?? 'application/octet-stream'}; charset=utf-8` });
@@ -334,6 +341,47 @@ try {
     throw new Error(`武侠自动运行失败：${JSON.stringify({ auto, wuxiaErrors })}`);
   }
   console.log('武侠自动运行:', auto);
+
+  const cards = ['sword', 'blade', 'spear', 'bow', 'shield', 'war-horse', 'banner', 'ink-bomb', 'water-brush', 'boat'];
+  const gallery = await browser.newPage();
+  const galleryErrors = [];
+  gallery.on('pageerror', error => galleryErrors.push(error.message));
+  gallery.on('console', message => { if (message.type() === 'error') galleryErrors.push(message.text()); });
+  const home = await gallery.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'load', timeout: 20000 });
+  if (home?.status() !== 200) throw new Error('十卡首页未返回成功状态');
+  await gallery.waitForFunction(() => document.querySelectorAll('#cards a').length >= 10, undefined, { timeout: 20000 });
+  const cardCount = await gallery.locator('#cards a').count();
+  if (cardCount !== 10) throw new Error(`首页卡片数量不是 10：${cardCount}`);
+  if (galleryErrors.length) throw new Error('首页报错:\n' + galleryErrors.join('\n'));
+  console.log('十卡首页:', cardCount);
+
+  for (const id of cards) {
+    const itemPage = await browser.newPage();
+    const itemErrors = [];
+    itemPage.on('pageerror', error => itemErrors.push(error.message));
+    itemPage.on('console', message => { if (message.type() === 'error') itemErrors.push(message.text()); });
+    const response = await itemPage.goto(`http://127.0.0.1:${port}/${id}/`, { waitUntil: 'load', timeout: 30000 });
+    if (response?.status() !== 200) throw new Error(`${id} 未返回成功状态`);
+    await itemPage.waitForFunction(() => {
+      const loading = document.getElementById('loading');
+      const status = document.getElementById('status')?.textContent ?? '';
+      return Boolean(document.querySelector('#canvas-root canvas')) && loading?.hidden === true && status.includes('演示已就绪');
+    }, undefined, { timeout: 90000 });
+    if (itemErrors.length) throw new Error(`${id} 报错:\n` + itemErrors.join('\n'));
+    await itemPage.close();
+    console.log('道具页通过:', id);
+  }
+
+  const compare = await browser.newPage();
+  const compareErrors = [];
+  compare.on('pageerror', error => compareErrors.push(error.message));
+  compare.on('console', message => { if (message.type() === 'error') compareErrors.push(message.text()); });
+  const compareResponse = await compare.goto(`http://127.0.0.1:${port}/compare/`, { waitUntil: 'load', timeout: 30000 });
+  if (compareResponse?.status() !== 200) throw new Error('对照页未返回成功状态');
+  await compare.waitForFunction(() => window.__compareReady === true, undefined, { timeout: 90000 });
+  if (compareErrors.length) throw new Error('对照页报错:\n' + compareErrors.join('\n'));
+  console.log('对照页通过');
+
   console.log('浏览器冒烟通过');
 } finally {
   await browser.close();

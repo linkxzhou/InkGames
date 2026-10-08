@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>inkEngine 对照</title>
+  <style>
+    body { margin: 0; background: #222; color: #eee; font-family: sans-serif; }
+    header { padding: 12px 16px; font-size: 14px; }
+    #mount { width: 800px; height: 600px; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <header>inkEngine · 同一组笔画（EasyCam 关闭，便于坐标对齐）</header>
+  <div id="mount"></div>
+  <script src="/ink-engine/p5.min.js"></script>
+  <script src="/ink-engine/ink-engine.js"></script>
+  <script>
+    const ink = InkEngine.create({
+      container: 'mount',
+      width: 800,
+      height: 600,
+      pixelDensity: 1,
+      seed: 1234567890,
+      loop: false,
+      clock: 'frame',
+      easycam: false,
+      input: false,
+      background: [222, 222, 222],
+      toggles: { paper: true, grid: false, futurePath: false, console: false, camera: false },
+    });
+    ink.ready.then(() => {
+      ink.setOptions({ paper: true, grid: false, futurePath: false, console: false, camera: false });
+      window.__ink = ink;
+      window.__inkReady = true;
+    }).catch((error) => {
+      window.__inkError = String(error);
+    });
+  </script>
+</body>
+</html>

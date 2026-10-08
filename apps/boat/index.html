@@ -1,1 +1,39 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#1e2827"/><title>舟 · InkGames</title><link rel="stylesheet" href="../styles.css"/></head><body class="demo" data-item="boat"><header class="demo-header"><a href="../" class="brand"><span class="brand-seal">墨</span><span>INKGAMES <small>实验工坊 / 2.0</small></span></a><a href="../" class="back">← 返回效果目录</a></header><main class="demo-layout"><div class="demo-heading"><div><span class="demo-index" id="effect-number"></span><h1 id="effect-title"></h1></div><p id="effect-description"></p></div><div class="canvas-shell" id="canvas-root"><div class="loading-overlay" id="loading">墨色正在入纸…</div></div><div class="demo-panel"><div class="demo-actions"><button id="action" type="button">触发效果</button><button id="pause" class="secondary" type="button">暂停演示</button><button id="reset" class="secondary" type="button">重置角色</button></div><span class="demo-hint">A / D 移动 · W 跳跃 · 空格触发 · 点击画布指定位置</span></div><div class="demo-status" id="status" role="status" aria-live="polite"></div></main><script type="module" src="../demo.ts"></script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1e2827" />
+  <title>水墨演示 · InkGames</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="demo" data-item="boat">
+  <header class="demo-header">
+    <a href="../" class="brand"><span class="brand-seal">墨</span><span>INKGAMES <small>水墨动作</small></span></a>
+    <a href="../" class="back">← 返回十卡</a>
+  </header>
+  <main class="demo-layout">
+    <div class="demo-heading">
+      <div>
+        <span class="demo-index" id="effect-number"></span>
+        <h1 id="effect-title"></h1>
+      </div>
+      <p id="effect-description"></p>
+    </div>
+    <div class="canvas-shell" id="canvas-root">
+      <div class="loading-overlay" id="loading">墨色正在入纸…</div>
+    </div>
+    <div class="demo-panel">
+      <div class="demo-actions">
+        <button id="action" type="button">触发效果</button>
+        <button id="replay" class="secondary" type="button">重播墨迹</button>
+        <button id="pause" class="secondary" type="button">暂停</button>
+        <button id="reset" class="secondary" type="button">重置</button>
+      </div>
+      <p class="demo-hint" id="hint"></p>
+    </div>
+    <div class="demo-status" id="status" role="status" aria-live="polite"></div>
+  </main>
+  <script type="module" src="../demo.ts"></script>
+</body>
+</html>

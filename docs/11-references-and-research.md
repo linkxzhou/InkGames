@@ -1,10 +1,10 @@
 # 11 · 旧路线参考资料、在线核验与检索结论
 
-[目录](./README.md) · [上一章](./10-shipping-and-ecosystem.md) · [现行 PixiJS 迁移计划](../plan/07-microkernel-plugin-plan.md)
+[目录](./README.md) · [上一章](./10-shipping-and-ecosystem.md) · [现行剩余工作](../plan/10-v2-pixi-matter-ink-game-engine-plan.md)
 
-> **历史附录**：本文保存 2026-10-08 p5.js/原生 WebGL2 路线的研究与当时的决策记录；文中“已落实在 plan/07 / 前十章”等叙述只描述当时的版本，**现在不再适用**。R1–R6 的 p5 专属结论不能推定 PixiJS 行为；R7–R14 亦需在新架构重新验证。当前实施规则只见 [迁移基线](../plan/07-microkernel-plugin-plan.md)。
+> **历史附录**：本文保存 2026-10-08 p5.js/原生 WebGL2 路线的研究与当时的决策记录。文中“已落实在 plan/07 / 前十章”只描述当时的版本。`plan/07` 已于同日删除，删除原因见 [规划索引](../plan/README.md)。R1–R6 的 p5 专属结论不能推定 PixiJS 行为。现行实现以 [docs/01](./01-scope-and-engine-map.md) 到 [docs/10](./10-shipping-and-ecosystem.md) 为准，未做完的事在 [剩余工作](../plan/10-v2-pixi-matter-ink-game-engine-plan.md)。
 >
-> **检索日期：2026-10-08（UTC+8）。**方法：WebSearch/WebFetch 阅读原文；curl 检查链接状态码；npm registry 取版本与发布时间；下载 `p5@2.3.4` npm 包并对照 GitHub 标签 `v2.3.4` 源码静态阅读。**本章所有条目都没有在浏览器里运行实测**（“是否实测”一律为否），源码结论来自阅读，不来自运行。日期照抄来源页面；npm/GitHub 时间为 UTC；页面没写日期的记为“未注明”。本章是资料和证据索引；基于 R1–R14 对架构与阶段门槛的修订已经落实在 [plan/07](../plan/07-microkernel-plugin-plan.md) 和前十章，未决项仍须 G1/G2 浏览器实验确认。
+> **检索日期：2026-10-08（UTC+8）。**方法：WebSearch/WebFetch 阅读原文；curl 检查链接状态码；npm registry 取版本与发布时间；下载 `p5@2.3.4` npm 包并对照 GitHub 标签 `v2.3.4` 源码静态阅读。**本章所有条目都没有在浏览器里运行实测**（“是否实测”一律为否），源码结论来自阅读，不来自运行。日期照抄来源页面；npm/GitHub 时间为 UTC；页面没写日期的记为“未注明”。本章是资料和证据索引。基于 R1–R14 的修订曾经写进已删除的 plan/07 和当时的前十章；那些计划文件不再存在，正文里的 “plan/07” 是历史叙述。
 
 状态图例：
 
@@ -124,7 +124,7 @@
 
 ## 3. 【检索发现，需决策】
 
-以下两个选择尚需 G1/G2 实测与负责人定案；[plan/07](../plan/07-microkernel-plugin-plan.md) 已把它们列为阶段准入门槛，现阶段不擅自预设结果。
+以下两个选择在检索当时尚需 G1/G2 实测与负责人定案。它们曾被写进现已删除的 plan/07。现行门槛见 [剩余工作](../plan/10-v2-pixi-matter-ink-game-engine-plan.md)，本节保留当时的选项原文。
 
 1. **【检索发现，需决策】host-p5 的帧驱动方式。**plan/07 写的是“p5 在宿主驱动帧”。R5 表明 p5 默认按 60 fps 节流 draw，144 Hz 屏上不是每个 RAF 都调用。可选方案：
    - (a) 保留 p5 `draw()` 驱动，host 启动时设 `frameRate()`，并用 RAF 时间戳喂累加器；

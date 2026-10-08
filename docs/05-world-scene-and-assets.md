@@ -1,17 +1,36 @@
-# 05 · CPU 世界、Pixi 显示树、相机与资源
+# 05 · 场景与世界
 
 [目录](./README.md) · [上一章](./04-plugin-system.md) · [下一章](./06-input-strokes-and-physics.md)
 
-## 已实现 API（旧原型）
+## `InkWorld`：2.0 的权威场景
 
-`createScenePlugin()`、`createCameraPlugin()`、`createInputPlugin()`、`parseSceneJSON()` 与 `loadSceneJSON()` 提供圆体/笔画的最小场景格式；加载前会解析校验，但写入不是事务回滚。可对照 [旧墨渡场景测试数据](../tests/fixtures/inkcross-scene.json)；目前没有通用角色组件/异步资源管理或 Pixi 显示树。
+类在 `src/core/ink-world.ts`。构造时：
 
-## 设计目标
+- `Matter.Engine.create({ enableSleeping: false })`，`gravity.y = 1`。
+- 玩家是圆，半径 18，初始 `(180, 135)`，`friction: 0.6`，`restitution: 0.05`，标签 `'player'`。
+- 地面矩形中心 `(640, 630)`、宽 1280、高 50，静态。
+- 左右墙在 x=25 和 x=1255，挡住出画。
 
-CPU 关卡持有稳定实体 ID、状态机、碰撞/物理与墨障数据；Pixi Container 层级只持显示对象和绘制顺序，绝不作为权威 transform。每固定步将物理位置写回世界快照，渲染阶段从快照/插值驱动角色、平台、背景与墨障显示；相机统一给输入逆变换、世界图层和墨层，UI 仍在屏幕空间。背景视差不能带动 collider。
+没有调用 `Matter.Runner`。调用方每固定步执行一次 `step(dt)`，内部是 `MatterEngine.update(this.physics, dt * 1000)`。
 
-Pixi Assets 作为资源加载/缓存候选；按实际 Pixi 版本确认全局缓存行为，以场景租约记录素材/Filter/RenderTexture 的引用和销毁边界。纸张纹理/刀光噪声图须有来源和许可，丢 context/resize 时纹理重建并能回到有效状态。场景 JSON 先保留 v1 并引入新 schema 版本，增补角色/攻击/材质引用前制定迁移和加载失败回滚，不能把旧 `circles/strokes/goal` 解析器宣称能读新结构。
+状态机 `state`：`'idle' | 'run' | 'jump' | 'attack' | 'hurt'`。`move(direction)` 把水平速度设成 `direction * 5`（direction 夹在 -1 到 1）。`jump()` 只在 `grounded` 时把竖直速度设成 -12：人在地面附近（y ≥ 585 且竖直速度很小），或站在某段墨桥顶上。`attack()` 锁定 14 步，`hurt()` 锁定 22 步；锁定期间不根据速度重写状态。
 
-## 未实现项与验收
+### 墨桥
 
-实体映射、Pixi 场景适配（显示对象）、资源租约、事务切关和新 schema 均未实现。测试同一个 world 点在相机 pan/zoom、CSS 缩放/DPR/resize 下输入与渲染对齐，连切关卡后没有漏掉 Pixi 对象或物理 body。基础无墨场景必须可运行。
+`addBridge(x, y, width, locked?)` 返回 id，放进 `platforms` 和 `bridges`。几何是水平矩形，高 12，静态。`eraseBridge(x, y, radius)` 跳过 `locked`。竖直距离超出 `radius + 6` 的段保留；否则用圆在该高度的水平弦长裁掉一段，短于 3 像素的残段丢掉，其余换成新的矩形。返回被改过的 id。`clearBridges()` 卸掉全部桥体和映射，重置时用。
+
+水刷页只有两座桥：`(300, 500, 420)` 可擦，`(920, 450, 240)` 锁定。别的道具页不放桥，避免每页都是同一段墨。
+
+### 投射物
+
+`launchProjectile(fromX, fromY, toX, toY)` 加一个半径 8 的圆，`collisionFilter.group = -1`（不撞玩家），速度指向目标、速率 14，竖直再减 3。`collisionStart` 里若打到非玩家物体，记下 `{ id, x, y }` 并立刻移除弹体。`drainImpacts()` 把队列交出去并清空。`step` 里年龄达到 150，或位置超出大约 `[-50, 1330] × [-50, 770]`，弹体被删掉且**不**产生命中，画面上也就没有墨晕。
+
+`addBody` / `removeBody` 给弓靶和盾的来袭用。弓靶是静态圆 `(1040, 480, r=36)`。来袭从 x=1180 以速度 -7 飞向玩家。
+
+`dispose()` 卸碰撞监听并清空复合。重复调用要由舞台保证只走一次；世界本身没有 disposed 旗标。
+
+## v0.1 场景服务
+
+`createScenePlugin`、`createCameraPlugin`、`createInputPlugin`、`createPointerPlugin` 在 `src/plugins/world.ts`。`parseSceneJSON` / `loadSceneJSON`（`src/plugins/scene-json.ts`）读关卡 JSON。`Scene2D`、`Camera2D`、`Rect`、`SceneMarker` 等类型从 `src/plugins/tokens.ts` 经 `src/index.ts` 导出。
+
+这些服务不描述十卡舞台。十卡的远山、近山、地面是 `InkStage.paintSheet` 里写进 `InkWash` 的折线，锁定在墨层上，没有对应的 Matter 体（地面矩形才是脚底下的碰撞）。
