@@ -1,4 +1,5 @@
 import type { InkBlend, InkBrushMode, InkEffect, InkSizeName } from '../core/ink-brush';
+import type { InkFinish } from '../core/ink-wash';
 import type { InkColorName } from '../core/ink-palette';
 
 /**
@@ -22,6 +23,8 @@ export interface PropBrush {
   /** Pointer travel per frame, in sheet pixels. */
   readonly speed: number;
   readonly pressure?: number;
+  /** flow / distort / metallic, applied after this part's stroke commits. */
+  readonly finish?: InkFinish;
 }
 
 export type PropPaintingId =
@@ -32,12 +35,16 @@ const brush = (
   mode: InkBrushMode, size: InkSizeName, effect: InkEffect, color: InkColorName, speed: number, pressure?: number, blend: InkBlend = 'mix',
 ): PropBrush => (pressure === undefined ? { mode, size, effect, blend, color, speed } : { mode, size, effect, blend, color, speed, pressure });
 
+function withFinish(row: PropBrush, finish: InkFinish): PropBrush {
+  return { ...row, finish };
+}
+
 /**
  * Every brush the ten demos paint with, per prop and part. Tune here; prop-paintings.ts only holds paths.
  */
 export const PROP_BRUSHES = {
   sword: {
-    blade: brush('brush', 'medium', 'wet', 'sage_gray', 7),
+    blade: withFinish(brush('brush', 'medium', 'wet', 'sage_gray', 7), { metallic: { size: 14 } }),
     edge: brush('brush', 'ultra-small', 'flyingWhite', 'black', 15),
     ridge: brush('pen', 'small', 'sharpen', 'black', 11),
     guard: brush('brush', 'medium', 'mix', 'black', 5),
@@ -49,7 +56,7 @@ export const PROP_BRUSHES = {
     splash: brush('gothic', 'small', 'wet', 'black', 9),
   },
   blade: {
-    blade: brush('brush', 'large', 'wet', 'sage_gray', 8),
+    blade: withFinish(brush('brush', 'large', 'wet', 'sage_gray', 8), { metallic: { size: 16 } }),
     edge: brush('fly', 'small', 'flyingWhite', 'black', 16),
     spine: brush('brush', 'ultra-small', 'sharpen', 'black', 12),
     guard: brush('brush', 'medium', 'mix', 'black', 3, 0.5),
@@ -61,7 +68,7 @@ export const PROP_BRUSHES = {
   },
   spear: {
     shaft: brush('brush', 'medium', 'mix', 'terra_cotta', 11),
-    head: brush('brush', 'medium', 'mix', 'black', 4),
+    head: withFinish(brush('brush', 'medium', 'mix', 'black', 4), { metallic: { size: 12 } }),
     socket: brush('marker', 'small', 'mix', 'black', 3),
     tassel: brush('brush', 'medium', 'wet', 'red', 5, 0.5),
     target: brush('brush', 'large', 'wet', 'gray_brown', 3),
@@ -143,9 +150,9 @@ export const PROP_BRUSHES = {
     wake: brush('fly', 'small', 'flyingWhite', 'light_gray_new', 12),
   },
   water: {
-    surface: brush('brush', 'extra-large', 'effect4', 'dusty_rose', 16),
+    surface: withFinish(brush('brush', 'extra-large', 'effect4', 'dusty_rose', 16), { flow: { blendType: 0, iterations: 4 } }),
     current: brush('fly', 'extra-large', 'mix', 'light_gray_new', 14),
-    deep: brush('brush', 'extra-large', 'wet', 'light_gray_new', 16),
+    deep: withFinish(brush('brush', 'extra-large', 'wet', 'light_gray_new', 16), { distort: { displacementB: 20, displacementC: 50, extent: 'stroke' } }),
     tint: brush('brush', 'extra-large', 'wet', 'dusty_rose', 18),
     crest: brush('fly', 'small', 'flyingWhite', 'white', 12),
     ripple: brush('brush', 'ultra-small', 'mix', 'sage_gray', 9),

@@ -33,11 +33,14 @@
 | 合成 | `composite.frag`：纸 × 墨，白墨走滤色 | 移植 | `INK_COMPOSITE_FRAGMENT` |
 | 实时湿墨 | `realtime.frag` | 移植 | 拖动时 `update()` 用它叠出未提交的湿墨 |
 | 纸 | `generatePaperTexture(40, 20, 15, 0.2)`，P2D 拼贴后乘到底色 ×1.1 | 移植 | `inkPaperPixels`，同样的 Canvas 2D 调用和种子 |
-| 力场 | `updateForceMap` 每帧跑 `mapFrag`，时间来自 `millis()` | 不同 | 着色器移植，但每张墨层只在建表时画一次（时间 0）。它只让采样偏移约 ±0.1px，逐帧重画在 SwiftShader 上让每笔多一倍开销。原版从未上传的 6 个 uniform 同样为 0 |
+| 力场 | `updateForceMap` 每帧跑 `mapFrag`，时间来自 `millis()` | 对齐 | 每次 feedback 前按 `frameCount / 60` 重画当前笔画矩形（`clock: 'frame'` 的 `millis()*0.001`）。时钟从 2 起，对齐宿主页 `ready` 之后的 `step(2)`。空闲时不重画整幅。原版从未上传的 6 个 uniform 仍为 0 |
 | 全屏 pass | 每帧对整个画布跑 feedback | 不同 | 只跑笔画外接矩形。墨效 0–3 下矩形外像素原版也不变；墨效 4/5 的外扩按每帧 3px 预留 |
-| 重叠处的残影 | 新笔第一帧与上一笔的 ping-pong 内容混合 | 不同 | 落笔时把上一笔的矩形填回白色，只在新旧笔重叠的第一帧略浅 |
-| 镜头与分层 | EasyCam、4 层 z 平面、景深模糊 | 缺失 | 游戏页是平面画布。对照截图时宿主页打开 EasyCam（关掉时 inkEngine 的整幅画会缩到约 65% 并居中） |
-| 后处理 | flow、distort、虫蚀 metallic、遮罩 | 缺失 | 合成之后没有这些 pass |
+| 重叠处的残影 | 新笔第一帧与上一笔的 ping-pong 内容混合 | 移植 | 落笔不再把上一笔的矩形填白。feedback 的 alpha < 1，重叠处叠在残留的 ping-pong 上 |
+| 镜头与分层 | EasyCam、4 层 z、景深模糊 | 对齐 | `inkLayerScale`：`fov = π/3`，距离 `height / (2·tan(30°))`，`tan(30°) = 1/√3`。z = 0 的纸层不缩放，指针加回相机偏移。远山 z = −80，人物和道具 z = 40 并绕落点缩放。相机以 0.05 跟手，最多偏 48×36 px。没有 EasyCam 的 1.1 倍变焦，也没有景深模糊。对照页 `?scene=camera` 把整幅画放在 z = 40，对应 inkEngine 的 `finalOut` |
+| flow | `flow.frag`，按住时 `blendVol * (1 + iterations·0.1)`，松手写入 final / typeMap | 对齐 | `InkFinish.flow`。稳定画面是松手后再合成的那一帧（`composite(flow(final))`），不是按住期间那一帧。种子用笔画种子而不是 `Math.random()`。`strokeBounds` 仍是左上角归一化坐标，和原版一样拿去跟左下角的 UV 比 |
+| distort | `distort.frag`，默认关；打开后扭曲整幅 | 对齐 | 着色器移植。`displacementB = 20`、`displacementC = 50`（面板值）。对照页 `extent: 'frame'` 跑整幅。道具表里的水面深处只扭曲该笔的矩形，避免把远山一起拉开。rs / cellular / 白点 / 颗粒没有接上 |
+| metallic | `scanBugBites` + `metallic.frag` | 对齐 | 阈值、加权抽样、闪电形轮廓和「偏移乘 0」都在。`bugsSize` 与 tint `[0.72, 0.5, 0.35]` 走面板默认。像素和 inkEngine 差几级时，最暗的采样点会换地方，咬痕中心跟着换。没有 boid。提交之后不会每帧对整幅重跑 |
+| 遮罩 | `drawMaskRect` / `drawMaskPolygon` | 缺失 | 合成之后没有遮罩 pass |
 | 录制 | `mp` / `md` / `mr`、回放 | 不同 | `src/plugins/recording.ts` 只记录 v0.1 命令。2.0 的笔画用 `PropStroke`（笔刷、颜色、每帧指针点、种子）表达，对照页把它交给宿主页重画 |
 | 旧流体 | 无 | 不同 | `src/plugins/ink-fluid.ts` 仍服务 `/inkcross/`，不是这条管线 |
 
@@ -47,6 +50,8 @@
 
 ## 并排时应该看到什么，以及不该声称什么
 
-同一组笔画下，两边的每一笔应落在同一位置，有同样的笔势、分叉、飞白断口、点画分布和颜色。差别来自三处：力场不随时间流动，Pixi 与 p5 的线段光栅化和 MSAA 不同，以及着色器噪声的取样细节。所以墨色深浅和斑驳的位置会有出入，构图和笔性应当一致。
+同一组笔画下，两边的每一笔应落在同一位置，有同样的笔势、分叉、飞白断口、点画分布和颜色。力场现在按帧时钟重画，重叠处也不再被填白。剩下的出入来自 Pixi 与 p5 的线段光栅化和 MSAA，以及着色器噪声的取样。所以墨色深浅和斑驳的位置仍会有几级灰度的差别，构图和笔性应当一致。
+
+flow、distort、metallic 各有一张对照页（`/compare/?scene=flow|distort|metallic`），分层镜头是 `/compare/?scene=camera`（整幅在 z = 40）。剑刃、刀身、枪头在道具表里打开 metallic，水面打开 flow，水面深处打开只作用于该笔矩形的 distort。游戏页的纸层保持 1:1，人物和手持物在 z = 40 放大，远山在 z = −80 缩小并少跟一点相机。
 
 未实测：独立显卡、Safari、Firefox、以及「和 inkField 原版逐像素一致」。SwiftShader 截图只说明着色器能跑、构图和笔性可对。
