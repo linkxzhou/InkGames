@@ -18,7 +18,7 @@
 
 ## 单测覆盖什么
 
-`tests/` 对 v0.1 的时钟、插件图、侵蚀、场景、录制做断言。`tests/v2-core.test.ts` 覆盖 `InkWorld` 的落地、墨桥裁切、投射物命中，以及道具预设校验。`tests/ink-brush.test.ts` 覆盖笔毫的可复现、弹簧滞后和飞白少毫。测试不创建 WebGL，也不比较截图像素。
+`tests/` 对 v0.1 的时钟、插件图、侵蚀、场景、录制做断言。`tests/v2-core.test.ts` 覆盖 `InkWorld` 的落地、墨桥裁切、投射物命中，以及道具预设校验。`tests/ink-brush.test.ts` 覆盖 p5 兼容的随机与噪声、面板取值，以及笔刷移植与 inkEngine 的对齐（同一测试笔画的笔画种子与逐帧线段数）。`tests/prop-brushes.test.ts` 检查每个道具的笔刷行都是 inkEngine/index.html 能选到的值、各道具配置互不相同、每笔每帧一个指针点。测试不创建 WebGL，也不比较截图像素。
 
 ## 浏览器冒烟
 
@@ -38,4 +38,6 @@ SwiftShader 通过不等于 60 FPS，也不等于 Safari / Firefox / 真机 GPU 
 
 ## 对照截图
 
-`/compare/` 用种子 `1234567890`、中性纸、满分辨率，画三条与说明页一致的笔画：水平大笔、一条青墨曲线、一条飞白斜线。inkEngine 那边要关 EasyCam、`pixelDensity: 1`、同一颗种子，否则构图对不齐。两边不会逐像素相同。差异表在 [第 12 章](./12-inkengine-parity-audit.md)。
+`/compare/?prop=<id>` 在 640×480、`INK_STAGE_PAPER` 纸色、种子 `1234567890` 上画一个道具（`?scene=modes` 是七种笔刷各一笔，800×600、222 灰），并把笔画写进 `window.__compareScene`：模式编号、尺寸、墨效、混色、颜色、指针坐标、种子。
+
+`scripts/capture-parity.mjs` 先截这一页，再打开 `scripts/inkengine-host.html`（同尺寸、同纸色、同种子、`pixelDensity: 1`、**打开** EasyCam），逐笔执行 `p.randomSeed(seed)`、`setBrush`、`setColor`、`strokePath`、`step(点数 + 倒计时)`，用 `snapshot()` 取图，最后并排拼成 `<id>-compare.png`。EasyCam 关掉时 inkEngine 的整幅画会缩到约 65% 并居中，坐标对不上。截图写到 `/opt/cursor/artifacts/screenshots/`。inkEngine 一侧每帧要 0.1–0.3 秒，全部道具要十几分钟。两边不会逐像素相同，差异表在 [第 12 章](./12-inkengine-parity-audit.md)。
