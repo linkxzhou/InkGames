@@ -22,6 +22,11 @@ export class InkStage {
   private last = 0;
   private accumulator = 0;
   private steps = 0;
+  private wind = 0;
+  private horseX = 220;
+  private horseRunning = false;
+  private boatX = 290;
+  private boatMoving = false;
   private paused = false;
   private disposed = false;
   private readonly keys = new Set<string>();
@@ -127,30 +132,58 @@ export class InkStage {
       this.options.onStatus?.('投射物命中物理表面，落点墨效已触发');
     }
     this.steps++;
-    if (this.options.item.effects.includes('dust') && direction && this.steps % 16 === 0) {
-      this.effects.splash(this.world.player.position.x, this.world.player.position.y + 18, 0xa69b81, 5);
+    if (this.horseRunning) {
+      this.horseX = 80 + ((this.horseX + 8 - 80) % 1120);
+      if (this.steps % 7 === 0) this.effects.splash(this.horseX - 22, 596, 0x877c68, 4);
     }
-    if (this.options.item.effects.includes('ripple') && this.steps % 45 === 0) this.effects.ripple(this.world.player.position.x, 625);
+    if (this.boatMoving) {
+      this.boatX = 80 + ((this.boatX + 2 - 80) % 1120);
+      if (this.steps % 12 === 0) this.effects.ripple(this.boatX - 24, 640);
+    }
+    if (this.wind && this.steps % 22 === 0) this.effects.splash(180 + (this.steps * Math.abs(this.wind) * 4) % 900, 210, 0x748783, 3);
   }
 
   act(x = this.world.player.position.x + 130, y = this.world.player.position.y - 30): void {
     if (this.paused || this.disposed || !this.effects) return;
-    const { id, accent } = this.options.item;
+    const { id, action, accent } = this.options.item;
     const origin = { x: this.world.player.position.x, y: this.world.player.position.y };
-    if (id === 'water-brush') {
-      const changed = this.world.eraseBridge(x, y, 55);
-      this.effects.ripple(x, y);
-      this.options.onStatus?.(changed.length ? '墨桥命中区间已裁切；对应 Matter 碰撞体同步替换' : '未命中可擦墨桥；锁定桥保持实体碰撞');
-    } else if (id === 'banner' || id === 'boat' || id === 'shield') {
-      this.effects.ripple(x, y, accent);
-      this.effects.splash(x, y, accent, 8);
-    } else if (id === 'bow' || id === 'ink-bomb') {
-      this.world.attack();
-      this.world.launchProjectile(origin.x, origin.y - 24, x, y);
-      this.options.onStatus?.('投射物已发射；命中物理表面后才会溅墨');
-    } else {
-      this.world.attack();
-      this.effects.slash(origin, { x, y }, accent, id === 'blade' ? 24 : 12);
+    switch (action) {
+      case 'erase': {
+        const changed = this.world.eraseBridge(x, y, 55);
+        this.effects.ripple(x, y);
+        this.options.onStatus?.(changed.length ? '墨桥命中区间已裁切；对应 Matter 碰撞体同步替换' : '未命中可擦墨桥；锁定桥保持实体碰撞');
+        break;
+      }
+      case 'projectile': case 'blast':
+        this.world.attack();
+        this.world.launchProjectile(origin.x, origin.y - 24, x, y);
+        this.options.onStatus?.('投射物已发射；命中物理表面后才会溅墨');
+        break;
+      case 'thrust':
+        this.world.attack();
+        this.effects.thrust(origin, { x, y }, accent);
+        this.options.onStatus?.('枪锋沿直线刺出；物理命中判定仍待实现');
+        break;
+      case 'swing':
+        this.world.attack();
+        this.effects.slash(origin, { x, y }, accent, id === 'blade' ? 24 : 12);
+        break;
+      case 'wind':
+        this.wind = this.wind >= 1 ? -1 : this.wind <= -1 ? 0 : 1;
+        this.options.onStatus?.(this.wind ? `风场已开启（方向：${this.wind > 0 ? '东' : '西'}）` : '风场已停止');
+        break;
+      case 'gallop':
+        this.horseRunning = !this.horseRunning;
+        this.options.onStatus?.(this.horseRunning ? '战马奔跑；蹄迹和扬尘持续生成' : '战马停下');
+        break;
+      case 'wake':
+        this.boatMoving = !this.boatMoving;
+        this.options.onStatus?.(this.boatMoving ? '舟行开始，船尾水纹向外传播' : '舟行停止');
+        break;
+      case 'guard':
+        this.effects.ripple(origin.x + 35, origin.y, accent);
+        this.options.onStatus?.('格挡墨环预览；成功格挡判定尚未实现');
+        break;
     }
   }
 
@@ -162,6 +195,24 @@ export class InkStage {
     for (const bridge of this.world.strokes) {
       this.scene.roundRect(bridge.x - bridge.width / 2, bridge.y - 7, bridge.width, 14, 6)
         .fill({ color: bridge.locked ? 0x2e4a50 : 0x344041, alpha: 0.78 });
+    }
+    if (this.options.item.action === 'gallop') {
+      const stride = this.horseRunning ? (this.steps % 16 < 8 ? 8 : -4) : 0;
+      this.foreground.ellipse(this.horseX, 576 + stride / 3, 46, 22).fill(0x564d43);
+      this.foreground.moveTo(this.horseX - 27, 588).lineTo(this.horseX - 34, 605 - stride)
+        .moveTo(this.horseX + 22, 588).lineTo(this.horseX + 30, 605 + stride)
+        .stroke({ width: 8, color: 0x564d43 });
+    }
+    if (this.options.item.action === 'wake') {
+      this.foreground.moveTo(this.boatX - 55, 635).quadraticCurveTo(this.boatX, 679, this.boatX + 55, 635)
+        .lineTo(this.boatX - 55, 635).fill(0x354b4c);
+    }
+    if (this.options.item.action === 'wind') {
+      this.foreground.moveTo(930, 455).lineTo(930, 280).stroke({ width: 6, color: 0x504945 });
+      const lift = this.wind ? this.wind * 34 : 0;
+      const sway = this.wind ? (this.steps % 50 - 25) * this.wind * 0.35 : 0;
+      this.foreground.moveTo(935, 300).quadraticCurveTo(1015 + lift, 340 + sway, 1110 + lift, 308 + sway)
+        .lineTo(935, 370).fill({ color: this.options.item.accent, alpha: 0.75 });
     }
     for (const projectile of this.world.projectiles) {
       const { x: shotX, y: shotY } = projectile.body.position;
@@ -188,6 +239,11 @@ export class InkStage {
 
   reset(): void {
     this.world.resetPlayer();
+    this.horseRunning = false;
+    this.boatMoving = false;
+    this.wind = 0;
+    this.horseX = 220;
+    this.boatX = 290;
     this.effects.splash(180, 135, this.options.item.accent, 15);
     this.options.onStatus?.('角色已重置');
   }

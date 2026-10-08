@@ -1,0 +1,105 @@
+NOTE ON THIS COPY (added by the restoration — not part of the original licence text)
+==================================================================================
+This directory contains "InkEngine", a readable restoration of the inkField ink
+engine made from the obfuscated inkField build (script.js + shader.js) for
+linkxzhou. It was produced on 2026-10-08 on the basis that linkxzhou holds
+written authorization from the inkField author (as stated by the user; the
+authorization document itself is not included here). It is not an official
+inkField release.
+
+The inkField licence below continues to apply to all inkField-derived code,
+shaders and assets in this directory (ink-engine.js, the shader sources inlined
+in it, demo.json). Any use beyond what the licence allows relies solely on that
+author's permission and is limited to its scope — do not redistribute or
+publish this restoration unless that permission covers it.
+
+Bundled third-party components (their own licences apply):
+  - p5.js 1.11.10 (p5.min.js)            — LGPL-2.1, https://p5js.org
+  - p5.EasyCam (inlined in ink-engine.js) — MIT, (c) 2018 Thomas Diewald
+  - Inconsolata font (inlined as data URL) — SIL Open Font License 1.1, Raph Levien
+
+==================================================================================
+ORIGINAL inkField LICENSE (verbatim)
+==================================================================================
+
+Open Creative License
+Copyright (c) 2026 Aluan Wang <ileivoivm@gmail.com>
+
+This license covers two distinct things — the inkField source code, and
+the artworks created with it — under separate terms.
+
+--------------------------------------------------------------------------
+1. SOURCE CODE — CLOSED UNTIL MAINTENANCE DORMANCY
+--------------------------------------------------------------------------
+
+The inkField source code, shaders, embedded scripts, and binary assets
+in this repository are not yet open for redistribution, modification,
+or derivative works. This restriction is a transitional state — when
+the author steps back from active maintenance, the full source will be
+re-licensed under an OSI-approved open-source license so the community
+can continue it freely.
+
+Until that day:
+
+What you ARE welcome to do:
+  - View and clone the repository for personal study.
+  - Use the published web application for any purpose, including
+    creating artworks for sale:
+    https://ileivoivm.github.io/inkField/
+  - Submit paintings to the public gallery.
+  - File bug reports, feature requests, and documentation PRs.
+
+Anything beyond the list above — redistribution, forking as a separate
+product, integrating the rendering engine into another application, or
+building a derivative codebase — is reserved.
+
+--------------------------------------------------------------------------
+2. ARTWORKS CREATED WITH INKFIELD
+--------------------------------------------------------------------------
+
+Paintings you create using inkField — the JSON recordings, rendered
+frames, and resulting images / videos — belong to you:
+
+  - Full copyright belongs to the creator.
+  - Commercial use is expressly permitted: exhibit, sell, mint as NFT,
+    license, or distribute without restriction.
+  - No royalty or revenue share is owed to the inkField project.
+  - Attribution ("Made with inkField") is appreciated but not required.
+
+--------------------------------------------------------------------------
+3. GALLERY SUBMISSIONS
+--------------------------------------------------------------------------
+
+By submitting a recording to the public gallery under
+`gallery/recordings/`, you grant the project a non-exclusive,
+royalty-free license to host, display, and reference your submission
+for gallery purposes. You retain full copyright. You may request
+removal at any time by filing a GitHub Issue.
+
+--------------------------------------------------------------------------
+4. THIRD-PARTY COMPONENTS
+--------------------------------------------------------------------------
+
+Portions of inkField incorporate third-party libraries under their own
+licenses. Those licenses continue to apply to those components:
+
+  - p5.js — LGPL-2.1 (https://github.com/processing/p5.js)
+  - p5.easycam — LGPL (https://github.com/freshfork/p5.EasyCam)
+  - spectral.js — MIT (https://github.com/rvanwijnen/spectral.js)
+  - p5.brush (inspiration) — MIT (https://github.com/acamposuribe/p5.brush)
+
+--------------------------------------------------------------------------
+5. DISCLAIMER
+--------------------------------------------------------------------------
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY ARISING FROM THE USE OF THE SOFTWARE OR ARTWORKS CREATED
+WITH IT.
+
+--------------------------------------------------------------------------
+
+This is a custom license, not an SPDX-recognized identifier.
+Questions about this license can be sent to ileivoivm@gmail.com.

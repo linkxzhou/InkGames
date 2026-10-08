@@ -6,12 +6,10 @@
 
 `EnginePlugin.manifest` 声明 `requires/provides` 与版本，`Engine` 在构造时解析依赖、拓扑排序、拒绝重复 provider；初始化失败会回滚资源。`ctx.get()` 只能在合法生命周期读取已声明依赖。可在 `tests/core-plugins.test.ts` 观察已有测试，`./build.sh check` 检查当前原型；现有 p5/原生 GL 插件不是 Pixi 插件。
 
-## 设计目标
+## 2.0 已实现的最小道具配置
 
-宿主/渲染插件拥有 Pixi Application/Renderer，向场景与水墨插件提供受控显示/离屏能力；场景插件拥有 CPU entity/相机，物理插件封装 Matter 世界，FSM/战斗订阅 CPU 意图与碰撞事实；RenderTexture/Filter/Mesh 视觉插件仅消费已提交结果。插件服务提供相同版本契约并明确资源所有者，销毁时先释放 GPU 图层/滤镜/纹理，再销毁 Pixi 应用；物理世界不能由 Shader 或滤镜回读决定。Pixi `extensions` 若是全局注册，不直接作为每个 Engine 的隔离插件图。
+`ITEM_PRESETS` 的十个条目各有 `id/action/effects/accent`，`getItemPreset(id)` 拒绝未知道具。`InkStage` 根据 `action` 组合 `InkWorld` 和 `InkEffects`：枪的直刺与刀剑弧线、弓/墨弹真实 Matter 投射物、战马蹄迹、旌旗风向与舟尾涟漪已区别处理。`tests/v2-core.test.ts` 验证配置和投射物首次命中/越界回收。**该配置并不是完备的 `itemId/version/requiresEffects/config` 插件协议**，枪/剑/刀的武器物理命中、旗帜 Mesh 及真正资源租约仍未实现。
 
-物理候选 Planck.js 与 Matter.js 只能择一提供权威 `PhysicsToken`，并对胶囊链/碎段重建、固定步和接触事件做行为比较；不要写两个同时启动的 runner。资源卸载和 context lost 分别验证，多实例启动/清理不能串扰。
+## 2.0 设计目标与未实现项
 
-## 未实现项与实践
-
-Pixi 渲染服务、物理服务、战斗/FSM token、运行时热插拔都未实现。先为新服务编写 manifest/失败回滚测试；迁移前不要在示例里实例化不存在的 `createPixi*Plugin()`。API 上线时同步 `src/index.ts`、对应章节和 [plan/07](../plan/07-microkernel-plugin-plan.md) 阶段状态。
+场景、Pixi 宿主、Matter 权威世界和通用水墨效果属于内建 core；道具插件声明 `itemId/version/requiresEffects/config`，组合核心效果并明确生命周期、依赖冲突与资源租约。道具效果不得另起物理世界或 RAF，卸载墨色后保留权威碰撞。旧 `EnginePlugin.manifest` 仍是 p5 原型的能力插件协议，不适用于 2.0 道具。真正的道具安装/卸载 API、效果依赖校验、资源回滚及多实例隔离测试仍待实现；验收以 [2.0 计划](../plan/10-v2-pixi-matter-ink-game-engine-plan.md) 为准。

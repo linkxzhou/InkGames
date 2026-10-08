@@ -3,7 +3,7 @@ export type { InkStageOptions } from './core/ink-stage';
 export { InkWorld } from './core/ink-world';
 export type { InkBridge, InkImpact, InkProjectile } from './core/ink-world';
 export { ITEM_PRESETS, getItemPreset } from './plugins/items';
-export type { ItemPreset } from './plugins/items';
+export type { ItemAction, ItemPreset } from './plugins/items';
 export { Engine } from './core/engine';
 export { createToken } from './core/types';
 export { resolvePlugins, satisfies, FIXED_PHASES, RENDER_PHASES } from './core/plugin-graph';

@@ -5,7 +5,7 @@ export interface EffectPoint { readonly x: number; readonly y: number }
 
 interface InkDrop extends EffectPoint { readonly size: number; readonly life: number; readonly color: number }
 interface InkRing extends EffectPoint { readonly start: number; readonly color: number }
-interface InkTrail { readonly from: EffectPoint; readonly to: EffectPoint; readonly start: number; readonly color: number; readonly width: number }
+interface InkTrail { readonly from: EffectPoint; readonly to: EffectPoint; readonly start: number; readonly color: number; readonly width: number; readonly straight: boolean }
 
 export class InkEffects {
   readonly layer = new Container();
@@ -41,8 +41,11 @@ export class InkEffects {
   }
 
   slash(from: EffectPoint, to: EffectPoint, color = 0x202e36, width = 12): void {
-    this.trails.push({ from, to, color, width, start: this.frame });
-    this.splash(to.x, to.y, color, 10);
+    this.trails.push({ from, to, color, width, start: this.frame, straight: false });
+  }
+
+  thrust(from: EffectPoint, to: EffectPoint, color: number): void {
+    this.trails.push({ from, to, color, width: 5, start: this.frame, straight: true });
   }
 
   ripple(x: number, y: number, color = 0x668993): void {
@@ -65,10 +68,17 @@ export class InkEffects {
       const age = this.frame - trail.start;
       if (age > 32) { this.trails.splice(i, 1); continue; }
       const opacity = (1 - age / 32) * 0.8;
-      this.strokes.moveTo(trail.from.x, trail.from.y).quadraticCurveTo((trail.from.x + trail.to.x) / 2, Math.min(trail.from.y, trail.to.y) - 48, trail.to.x, trail.to.y)
-        .stroke({ width: trail.width * (1 - age / 38), color: trail.color, alpha: opacity, cap: 'round' });
-      this.strokes.moveTo(trail.from.x + 4, trail.from.y - 8).lineTo(trail.to.x - 8, trail.to.y - 5)
-        .stroke({ width: 2, color: 0xf0e8d7, alpha: opacity * 0.8 });
+      if (trail.straight) {
+        this.strokes.moveTo(trail.from.x, trail.from.y).lineTo(trail.to.x, trail.to.y)
+          .stroke({ width: trail.width * (1 - age / 38), color: trail.color, alpha: opacity, cap: 'round' });
+        this.strokes.circle(trail.to.x, trail.to.y, 3 + age * 0.12)
+          .fill({ color: 0xf0e8d7, alpha: opacity * 0.8 });
+      } else {
+        this.strokes.moveTo(trail.from.x, trail.from.y).quadraticCurveTo((trail.from.x + trail.to.x) / 2, Math.min(trail.from.y, trail.to.y) - 48, trail.to.x, trail.to.y)
+          .stroke({ width: trail.width * (1 - age / 38), color: trail.color, alpha: opacity, cap: 'round' });
+        this.strokes.moveTo(trail.from.x + 4, trail.from.y - 8).lineTo(trail.to.x - 8, trail.to.y - 5)
+          .stroke({ width: 2, color: 0xf0e8d7, alpha: opacity * 0.8 });
+      }
     }
     for (let i = this.rings.length - 1; i >= 0; i--) {
       const ring = this.rings[i];
