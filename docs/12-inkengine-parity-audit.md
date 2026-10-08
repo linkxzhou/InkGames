@@ -39,7 +39,7 @@
 | 录制 | `mp` / `md` / `mr` 与 `demoRecording` | 不同 | `src/plugins/recording.ts` 只记录 v0.1 命令。`InkWash` 不读那份 JSON |
 | 后处理 | flow、distort、虫蚀 metallic | 缺失 | 合成之后没有这三支 pass |
 | 镜头 | EasyCam，构图会偏大约数个百分点 | 缺失 | 对照页关掉 EasyCam，坐标才能并排。游戏页没有这台相机 |
-| 旧流体 | 无。inkEngine 不是纳维–斯托克斯场 | 不同 | `src/plugins/ink-fluid.ts` 留给 `/inkcross/`。这次没改，避免冒烟的墨量断言失效 |
+| 旧流体 | 无。inkEngine 不是纳维–斯托克斯场 | 不同 | `src/plugins/ink-fluid.ts` 仍服务 `/inkcross/`。水刷剪刀现在连 `fixedInk` 一起清，避免桥面沉墨后擦不掉；模型本身没有改成 `min()` 扩散 |
 | 碰撞 | 无游戏刚体 | 不同 | 水刷改的是 `InkWorld` 矩形。`wash` 只减淡 `committed`。这是玩法，不是墨色 pass |
 
 ## 这次为了靠近观感改了什么
