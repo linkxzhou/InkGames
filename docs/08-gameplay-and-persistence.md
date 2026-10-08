@@ -2,27 +2,67 @@
 
 [目录](./README.md) · [上一章](./07-ink-rendering.md) · [下一章](./09-tooling-and-quality.md)
 
-十卡是同一张 1280×720 的纸，加上各自的一句交互。开场都会画远山、近山和地面（锁定）。每页的器物写进 `InkWash`：剑有刃、格、柄，刀是弯刃，枪有叶状枪头，弓有弦和箭，盾是尖底盾面，旗有旗面，马是侧影，舟有船舱，墨弹是带盖的墨罐，水和水刷是成片的湿笔。人物是线稿，手里的器物用同一套轮廓缩小跟着走；飞行中的箭和墨罐也用这套轮廓，不用圆点。刚体仍然是圆和矩形。
+十卡是同一张 1280×720 的纸，加上各自的一句交互。画面上所有东西都由 [第 7 章](./07-ink-rendering.md) 的 inkEngine 笔刷一笔一笔画出来，笔刷取自一张表。刚体仍然是圆和矩形，只决定碰撞，不决定长相。
+
+## 道具怎么画
+
+`src/plugins/prop-brushes.ts` 的 `PROP_BRUSHES` 是唯一的笔刷表：每个道具（以及水面、远山、人物）按部件列出一行，内容就是在 inkEngine/index.html 面板上要选的东西，加上画师的手。
+
+| 列 | 含义 |
+|---|---|
+| `mode` / `size` / `effect` / `blend` / `color` | 笔刷、尺寸、墨效、混色、颜色，取值见第 7 章 |
+| `pressure` | 笔压 0..1，即含墨量。第 8 帧起 ≥ 0.3 升一档尺寸，≥ 0.5 两档，≥ 0.7 三档。省略表示鼠标 |
+| `speed` | 每帧指针走多少像素。越快越细、越干，飞白越多 |
+
+湿、干、渗由这几列组合出来：`wet` / `effect4` 湿而洇，`flyingWhite` 加快速运笔是枯笔飞白，`mix` 是常规扩散。inkEngine 每笔都把内渗强度固定为 0.45，所以表里没有这一列。
+
+`src/plugins/prop-paintings.ts` 只放路径：每个部件一条或几条手势（折线、二次或三次曲线、弧、波），`paintProp(id, { x, y, scale, mirror, pose, variant, width })` 按该部件的 `speed` 把路径采成每帧一个指针点（落笔和提笔时放慢），配上表里的笔刷和由道具、部件、序号算出的种子，返回 `PropStroke[]`。`scale < 1` 时笔刷尺寸换成按比例缩小的数值，手速同比放慢。`actionStroke(id, part, path)` 画一笔动作（挥击、溅墨、尾迹）。
+
+各道具的主笔刷（完整的表在源码里）：
+
+| 道具 | 部件与笔刷 |
+|---|---|
+| 剑 | 刃：大笔 medium、湿墨、`sage_gray`（钢灰）；两刃口：大笔 ultra-small、飞白、黑、每帧 15px；脊：速写 small、锐化；格：大笔 medium 黑；柄：小笔 small `terra_cotta`；剑首：小号重按；穗：brushSP 湿墨红 |
+| 刀 | 刀身：大笔 large 湿墨 `sage_gray`；刃口：飞白刷 small 黑；刀背：ultra-small 锐化；刀盘、缠柄 `wine_red`；场上两摊色墨：大笔 extra-large 湿墨 `blue` / `red` |
+| 枪 | 杆：大笔 medium `terra_cotta` 一笔到底；枪头：大笔 medium 黑三笔成叶；枪缨：大笔 medium 湿墨红、笔压 0.5 |
+| 弓 | 弓臂：大笔 medium `brown`（赭）两道弧；弓梢、弦：细锐化黑；握把：小笔；箭：细杆、锐化箭头、飞白 `wine_red` 箭羽 |
+| 盾 | 盾面：大笔 huge 湿墨 `gray_brown` 成片铺开；盾缘：大笔 medium 黑三笔；盾钮：large 重按；纹章：small 湿墨红；铆钉：点画 |
+| 战马 | 身：大笔 large 黑、笔压 0.4（第 8 帧起升到 3）六笔泼成一团；颈、头：large / medium 重按；外晕：extra-large `effect4` 浅灰；四腿：small 每帧 6px 干笔；鬃：brushSP；尾：飞白刷 medium |
+| 旗 | 旗面：大笔 extra-large 湿墨红四行；洇边：large `effect4` 红；折痕、旗边：ultra-small `wine_red`；杆：small 飞白干笔；飘带：brushSP 红 |
+| 墨弹 | 罐腹：大笔 large 湿墨黑、笔压 0.4 两圈；肩、颈、口：large / medium；塞：小笔 `terra_cotta`；釉光：飞白刷白墨；引信：small；火星：哥特红。落地：哥特 large 湿墨黑 + extra-large `effect4` 黑 |
+| 水刷 | 杆：大笔 medium `terra_cotta`；箍：小笔 medium 黑；笔毫：brushSP large 湿墨 `blue`；水滴：点画 |
+| 舟 | 船身：大笔 extra-large 湿墨 `light_gray_new`；船底、舷、篷骨、桨、艄公：ultra-small 细线；篷：large 湿墨 `gray_brown`；尾迹：飞白刷 |
+| 水面 | 水面：大笔 extra-large `effect4` 淡青（`dusty_rose`）洇开；水流：飞白刷 extra-large `light_gray_new` 横向长笔；水色：extra-large 湿墨淡青；深处：extra-large 湿墨灰；浪花：飞白刷 small 白墨；涟漪：ultra-small `sage_gray` |
+
+对照页 `/compare/?prop=<id>` 把同一道具画在 640×480 的纸上，与 inkEngine 宿主页并排，见 [第 12 章](./12-inkengine-parity-audit.md)。
+
+## 舞台上的分层
+
+`InkStage`（`src/core/ink-stage.ts`）开场画三类东西：
+
+1. 纸层（`INK_STAGE_PAPER` 底色，纸是它 ×1.1）：远山、近山、地面，河（舟、水刷两页），本页道具的大图（剑、刀、枪、弓、盾、墨罐、水刷），以及木桩、草靶、箭靶、色墨、锁定桥。之后不再改动。
+2. 可擦层：透明墨层，`multiply` 叠在纸上。可擦桥和所有动作笔画写在这里。重播和重置只清这一层再补画可擦桥。
+3. 精灵：每样会动或拿在手里的东西各画在一张小的透明墨层上，开场画好，之后只移动或旋转。人物有站立和出手两种姿势；马有两种步态，跑起来交替；三幅旗对应西风、无风、东风；舟随行进平移；手持件是本页道具缩小约三分之一；飞行中的箭按速度方向旋转（用速度的单位向量组矩阵，不调 `atan2`），墨罐不旋转。
+
+## 每页的交互
 
 | 页 | 动作 | 实际发生的事 |
 |---|---|---|
-| 剑 `sword` | `swing` | 拖动写飞白。空格或按钮挥一条飞白弧。弧上有点距木桩 `(900, 540)` 小于 56 才在桩上泼几道短墨。挥空没有溅墨。 |
-| 刀 `blade` | `swing` | 拖动是湿笔。开场是一把弯刀，旁边两摊色墨。挥刀用更宽的湿笔扫过，重叠处 `min` 压色。 |
-| 枪 `spear` | `thrust` | 点击定落点，枯笔直线。三个方靶只在第一次被线段擦到（距离 < 28）时溅朱砂，并标 `hit`。 |
-| 弓 `bow` | `projectile` | 点击是瞄准点。箭是箭形，撞上靶或地面才在落点晕开。 |
-| 盾 `shield` | `guard` | 约 30 步后从右侧飞来一枝短箭。距离 ≥ 120 时空格无效。贴身格挡才在身前再印一面小盾。没格开会 `hurt()`。 |
-| 马 `war-horse` | `gallop` | 空格切换奔跑。马是侧影，跑起来才隔几步把整匹马挪到新的位置并补一笔蹄痕。停下不再添新印。 |
-| 旗 `banner` | `wind` | 风向在东、西、停之间转。旗杆和旗面写在墨层里，变风会重画旗面。另外每 18 步在天上写一条短墨丝。 |
-| 墨弹 `ink-bomb` | `blast` | 场上是一只墨罐。抛出的也是缩小的罐子。命中后沿几个方向泼出湿墨。未命中不伪造爆炸。 |
-| 水刷 `water-brush` | `erase` | 下半张是一层层湿笔叠成的水面，岸上有一支水笔。拖动同时裁刚体和减淡可擦墨。右桥锁定。 |
-| 舟 `boat` | `wake` | 舟画在水面上。空格开停。走动时间隔把船身挪开，并在船尾补一道水纹。停下不再添新的尾迹。 |
-
-`replay()` 重画本页开场墨，角色留在原地。`reset()` 连角色一起放回出生点，并关掉马、舟和风。
+| 剑 `sword` | `swing` | 拖动用剑的 `slash` 笔刷写飞白。空格或按钮挥一道飞白弧。弧上有点距木桩 `(900, 540)` 小于 56 才在桩上用哥特笔泼墨。挥空没有泼墨。 |
+| 刀 `blade` | `swing` | 拖动是刀的湿墨大笔。挥刀那一笔扫过青、朱两摊色墨，叠处按 encode 着色器混色压暗。 |
+| 枪 `spear` | `thrust` | 点击定落点，飞白刷直线刺出。三个草靶只在第一次被线段擦到（距离 < 28）时用哥特笔溅红，并标 `hit`。 |
+| 弓 `bow` | `projectile` | 点击是瞄准点。飞行中是箭形精灵。撞上箭靶或地面后，在落点按飞行方向画一支扎住的箭和一蓬溅墨。 |
+| 盾 `shield` | `guard` | 约 30 步后从右侧飞来一支箭（镜像的箭精灵）。距离 ≥ 120 时空格无效。贴身格挡时箭消失，在盾前用哥特笔碎成一蓬墨。没格开会 `hurt()`，人物泛红。 |
+| 马 `war-horse` | `gallop` | 空格切换奔跑。马的两种步态精灵交替、向右平移，每 14 步在蹄下用哥特笔扬一蓬尘。停下不再添新尘。 |
+| 旗 `banner` | `wind` | 风向在东、西、停之间转，换成对应的一幅旗。有风时每 24 步在天上写一条飞白墨丝。 |
+| 墨弹 `ink-bomb` | `blast` | 场上是一只墨罐。抛出的是缩小的罐子精灵。命中后浓墨用 `effect4` 洇开，再用哥特笔炸开。未命中不伪造爆炸。 |
+| 水刷 `water-brush` | `erase` | 下半张是河，岸上画着一支水笔。拖动同时裁刚体和洗淡可擦层。右侧桥画在纸层上、刚体锁定，洗不掉。 |
+| 舟 `boat` | `wake` | 舟在河上。空格开停。走动时每 16 步在船尾写一道飞白水纹。停下不再添。 |
 
 没有伤害数值、连击或关卡切换。状态文字来自 `onStatus`，页面把它写进 `#status`。
 
 ## 录制
 
-`createRecorder`、`createReplay`、`parseRecording`（`src/plugins/recording.ts`）记录的是 v0.1 的命令流，给 `Engine` 用。`InkStage` 没有把按键和 `strokePath` 写成同一份 JSON，也不能重放 inkEngine 的 `mp` / `md` / `mr`。
+`createRecorder`、`createReplay`、`parseRecording`（`src/plugins/recording.ts`）记录的是 v0.1 的命令流，给 `Engine` 用。`InkStage` 没有把按键和笔画写成同一份 JSON，也不能重放 inkEngine 的 `mp` / `md` / `mr`。
 
-要复现一条 2.0 笔画，调用方自己保存 `BrushPoint[]` 和 `InkStrokeStyle.seed`，再调用 `strokePath`。`tests/ink-brush.test.ts` 用这个办法锁笔毫，不锁 GPU 图像。
+要复现一条 2.0 笔画，保存它的 `PropStroke`（笔刷、颜色、每帧的点、种子）再交给 `InkWash.paint`。同一种子在 inkEngine 里对应 `p.randomSeed(seed)` 后的同一笔。`tests/ink-brush.test.ts` 锁的是笔触数据，不锁 GPU 图像。

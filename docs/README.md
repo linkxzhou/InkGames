@@ -10,7 +10,7 @@
 | [04 插件与道具](./04-plugin-system.md) | 插件图、`ItemPreset`、十卡页面 |
 | [05 场景](./05-world-scene-and-assets.md) | 旧场景服务与 `InkWorld` |
 | [06 输入、笔和碰撞](./06-input-strokes-and-physics.md) | 笔画权威几何、Matter、水刷 |
-| [07 水墨](./07-ink-rendering.md) | `InkWash` 的缓冲、笔毫和滤镜 |
+| [07 水墨](./07-ink-rendering.md) | `InkWash`：移植的 inkEngine 笔刷、着色器、缓冲与选笔注意 |
 | [08 玩法与录制](./08-gameplay-and-persistence.md) | 十卡里实际发生的事，以及旧录制 |
 | [09 验证](./09-tooling-and-quality.md) | `build.sh`、测试、冒烟、对照截图 |
 | [10 交付](./10-shipping-and-ecosystem.md) | 构建入口、许可、还不能发布的部分 |
