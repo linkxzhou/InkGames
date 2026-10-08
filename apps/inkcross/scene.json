@@ -1,0 +1,17 @@
+{
+  "format": "inkgames.scene",
+  "version": 1,
+  "world": { "width": 640, "height": 480, "gravity": 600 },
+  "ball": { "x": 70, "y": 60, "radius": 12 },
+  "goal": { "x": 540, "y": 360, "radius": 26 },
+  "strokes": [
+    { "locked": true, "points": [
+      { "x": 12, "y": 135, "radius": 6 },
+      { "x": 185, "y": 170, "radius": 6 }
+    ] },
+    { "points": [
+      { "x": 390, "y": 300, "radius": 5 },
+      { "x": 610, "y": 395, "radius": 5 }
+    ] }
+  ]
+}

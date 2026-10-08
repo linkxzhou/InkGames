@@ -1,0 +1,32 @@
+{
+  "name": "inkgames",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "InkGames 2.0：PixiJS + Matter.js 水墨横版动作游戏引擎（迁移中）",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --port 4173",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "matter-js": "0.20.0",
+    "p5": "^2.3.4",
+    "pixi.js": "8.22.0"
+  },
+  "devDependencies": {
+    "@types/matter-js": "0.20.2",
+    "@types/node": "^22.15.0",
+    "playwright": "^1.60.0",
+    "typescript": "^5.9.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4"
+  }
+}
