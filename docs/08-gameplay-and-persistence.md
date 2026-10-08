@@ -1,17 +1,28 @@
-# 08 · 横版玩法、VFX 事件与录制
+# 08 · 玩法与录制
 
 [目录](./README.md) · [上一章](./07-ink-rendering.md) · [下一章](./09-tooling-and-quality.md)
 
-## 已实现 API（旧原型）
+十卡是同一张 1280×720 的纸，加上各自的一句交互。开场都会画远山、近山和地面（锁定）。人物是 `Graphics` 线稿，每帧跟 `player.position` 走，不进墨层。
 
-`createInkCrossPlugin()` 提供《墨渡》球/目标/墨量基础规则；`createRecorder()`、`parseRecording()`、`createReplay()` 记录和回放固定步命令。现有录制不含物理引擎版本/seed/gap/完整场景；`apps/wuxia/main.ts` 战斗是应用层自动演示，**不是横版战斗公共 API**。
+| 页 | 动作 | 实际发生的事 |
+|---|---|---|
+| 剑 `sword` | `swing` | 拖动写飞白。空格或按钮挥一条飞白弧。弧上有点距木桩 `(900, 540)` 小于 56 才在桩上 `blot`。挥空没有溅墨。 |
+| 刀 `blade` | `swing` | 拖动是湿笔。开场有青、朱两团。挥刀用更宽的湿笔扫过，重叠处 `min` 压色。 |
+| 枪 `spear` | `thrust` | 点击定落点，枯笔直线。三个靶心只在第一次被线段擦到（距离 < 28）时记朱砂，并标 `hit`。 |
+| 弓 `bow` | `projectile` | 点击是瞄准点。箭体飞在 Matter 里，撞上靶或地面才晕开。飞行途中不画墨。 |
+| 盾 `shield` | `guard` | 约 30 步后从右侧生成来袭。距离 ≥ 120 时空格无效，不画环。贴身格挡才用常量表画一圈墨点并移除来袭。没格开会 `hurt()`，仍然不画环。 |
+| 马 `war-horse` | `gallop` | 空格切换奔跑。只有奔跑时每 8 步在蹄下 `blot`，尘点画在 `props` 上。停下不再加新印。 |
+| 旗 `banner` | `wind` | 风向在东、西、停之间转。旗面是 `props` 上的折线，另外每 18 步在天上写一条短墨丝。 |
+| 墨弹 `ink-bomb` | `blast` | 和弓共用投射物。命中后三团湿墨（黑、朱、青）叠在落点。未命中不伪造爆炸。 |
+| 水刷 `water-brush` | `erase` | 角色出生在左桥上方。拖动同时裁刚体和减淡可擦墨。右桥锁定。 |
+| 舟 `boat` | `wake` | 空格开停。走动时每 10 步在船尾 `blot` 湿墨，涟漪画在 `props`。停下不再添尾迹。 |
 
-## 设计目标
+`replay()` 重画本页开场墨，角色留在原地。`reset()` 连角色一起放回出生点，并关掉马、舟和风。
 
-角色状态机按固定步处理 Idle/Run/Jump/Attack/Hurt，攻击窗决定武器命中与击退，伤害/胜负只读 CPU 事实。刀光、飞墨、屏幕震动和音频订阅命中/状态切换事实；Pixi Container 管显示和 UI，镜头抖动不修改物理位置。输入到状态、碰撞、伤害、触发、胜负定义固定先后；暂停与重试销毁/重建 Pixi 资源及 Matter body，避免旧接触回调泄漏。浏览器音频仍需用户交互后启动。
+没有伤害数值、连击或关卡切换。状态文字来自 `onStatus`，页面把它写进 `#status`。
 
-升级录制 schema 时保存场景、插件/物理版本与配置、角色初态、量化输入、命令顺序与暂停/gap；旧版本录制要么显式迁移要么拒绝，不能偷偷在新 Matter 世界重放并声称等价。逻辑状态哈希不包含 GPU 特效；跨浏览器数值确定性先测后承诺。
+## 录制
 
-## 未实现项与验收
+`createRecorder`、`createReplay`、`parseRecording`（`src/plugins/recording.ts`）记录的是 v0.1 的命令流，给 `Engine` 用。`InkStage` 没有把按键和 `strokePath` 写成同一份 JSON，也不能重放 inkEngine 的 `mp` / `md` / `mr`。
 
-FSM、战斗 hitbox、VFX 绑定、版本化存档和新录制格式均未实现。P2 起先在无渲染测试中证明“输入→攻击命中→Hurt→击退→胜负”；P5 验证暂停、重试、保存/重放和 UI/音频不影响碰撞。同一命中事件只能触发一次墨效、一次伤害。
+要复现一条 2.0 笔画，调用方自己保存 `BrushPoint[]` 和 `InkStrokeStyle.seed`，再调用 `strokePath`。`tests/ink-brush.test.ts` 用这个办法锁笔毫，不锁 GPU 图像。

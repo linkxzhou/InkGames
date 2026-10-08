@@ -3,7 +3,7 @@ export interface HostPort {
   now(): number;
   requestFrame(callback: (timestamp: number) => void): number;
   cancelFrame(handle: number): void;
-  /** 上下文丢失/恢复时由宿主上报；引擎据此暂停与恢复唯一时钟（plan/07 §8.2）。 */
+  /** 上下文丢失/恢复时由宿主上报；引擎据此暂停唯一时钟，不在丢失期间推进固定步。 */
   onContextLost?(handler: () => void): void;
   onContextRestored?(handler: () => void): void;
 }
@@ -111,6 +111,6 @@ export interface EngineOptions {
   readonly maxStepsPerFrame?: number;
   readonly maxFrameTime?: number;
   readonly onGap?: (lostSeconds: number, step: number) => void;
-  /** 上下文恢复后回调：宿主/应用在此重建 GPU 资源（plan/07 §8.2）。 */
+  /** 上下文恢复后回调。GPU 资源由宿主重建，引擎不会自动重放插件 init。 */
   readonly onContextRestored?: () => void;
 }

@@ -1,18 +1,41 @@
-# 09 · 测试、对账与性能
+# 09 · 验证
 
 [目录](./README.md) · [上一章](./08-gameplay-and-persistence.md) · [下一章](./10-shipping-and-ecosystem.md)
 
-## 已实现（旧原型）
+命令只有 `./build.sh` 这一套。
 
-`./build.sh check` 执行类型、Vitest、相对链接检查；`./build.sh browser` 是另行执行的 Chromium/SwiftShader 旧 p5 页面冒烟，**不是 PixiJS 浏览器验证**。旧测试覆盖固定步、插件依赖、笔画侵蚀及最小场景/录制；没有 Matter/FSM/RenderTexture/Shader 性能结果。
+| 命令 | 做什么 |
+|---|---|
+| `install` | `yarn install`。失败时脚本直接退出并提示检查网络，不会跳过。 |
+| `dev` | Vite，`apps/` 为根，默认 `127.0.0.1:5173`。`/` 是十卡首页。 |
+| `typecheck` | `tsc --noEmit`，`strict`。 |
+| `build` | 类型检查后 `vite build`，产物在 `dist/`。入口含十卡、首页、`inkcross`、`wuxia`、`compare`。 |
+| `test` | `vitest run`。 |
+| `links` | `scripts/check-links.mjs` 检查 README、AGENTS、`docs/`、`plan/` 的相对链接。 |
+| `check` | `typecheck` + `test` + `links`。提交前跑这个。 |
+| `browser` | 先 `build`，再 `scripts/browser-smoke.mjs`。 |
+| `clean` | 删 `dist/` 和 Vite/Vitest 缓存。 |
 
-## 设计目标与分层门槛
+## 单测覆盖什么
 
-1. 无 DOM 逻辑测试：固定步次数、输入排序、FSM 转移、平台接触、受击去重、水刷碎段/胶囊转换、动态 collider 替换和版本化回放。记录物理引擎/插件版本、步号、CPU 状态哈希；对 Matter 跨平台一致不做未经验证的保证。
-2. Pixi 浏览器功能测试：强制 WebGL 而非自动切换后端；检查离屏模糊→阈值→纸张合成、相机坐标、滤镜透明边、resize、销毁、context lost 后真正重建。截图与笔画/collider 可视化对账；锁定/交叠墨障不能只擦视觉。
-3. 性能/资源测试：实际目标桌面 GPU 测 CPU step p95、渲染 p95、draw calls、RenderTexture 尺寸/峰值估算、粒子/滤镜半径档位及持续 5 分钟资源稳定性；可用 GPU timer 才报告 GPU 时间。**60 FPS 是目标，不凭 PixiJS 品牌或 SwiftShader 结果承诺**。SwiftShader 只用于可信页面的功能验证，不代表硬件帧率；Safari/Firefox 逐项实测后才列入支持矩阵。
-4. 文档/发布测试：新依赖版本及许可证、素材许可、`thirdparty/inkField` 的公开仓库及提交历史边界；构建产物不得带受限快照。`./build.sh check` 通过并不等于许可/真机通过。
+`tests/` 对 v0.1 的时钟、插件图、侵蚀、场景、录制做断言。`tests/v2-core.test.ts` 覆盖 `InkWorld` 的落地、墨桥裁切、投射物命中，以及道具预设校验。`tests/ink-brush.test.ts` 覆盖笔毫的可复现、弹簧滞后和飞白少毫。测试不创建 WebGL，也不比较截图像素。
 
-## 未实现项
+## 浏览器冒烟
 
-上述 Pixi/Matter E2E、截图对账、真实 GPU 性能、GPU 恢复断言和跨浏览器矩阵均未实现。[plan/07](../plan/07-microkernel-plugin-plan.md) 每阶段必须附测试及环境证据；迁移旧浏览器脚本时要更新行为而不是沿用“成功”字样。
+`scripts/browser-smoke.mjs` 用无头 Chromium。启动参数包含 `--enable-unsafe-swiftshader`、`--use-gl=angle`、`--use-angle=swiftshader`。没有独立显卡时走 SwiftShader。
+
+它检查：
+
+- `/` 有十张卡，且没有 `pageerror`。
+- 十个道具页出现画布、`#loading` 隐藏、状态离开「加载中」。
+- `/compare/` 在超时内把 `window.__compareReady` 设为真。
+- `/inkcross/` 仍检查墨珠、印章、落笔、水刷擦桥、锁定桥不被误伤、稳定期墨量漂移、擦除对墨量有影响、上下文丢失后引擎 `paused`。
+- `/wuxia/` 仍检查画布宽度 900、WebGL2、波次和斩敌文字。
+
+局部重绘和全量重建的墨量差只打印，不作为失败条件。那是旧墨水的已知差异。
+
+SwiftShader 通过不等于 60 FPS，也不等于 Safari / Firefox / 真机 GPU 已测。那些在文档和计划里写明「未实测」。
+
+## 对照截图
+
+`/compare/` 用种子 `1234567890`、中性纸、满分辨率，画三条与说明页一致的笔画：水平大笔、一条青墨曲线、一条飞白斜线。inkEngine 那边要关 EasyCam、`pixelDensity: 1`、同一颗种子，否则构图对不齐。两边不会逐像素相同。差异表在 [第 12 章](./12-inkengine-parity-audit.md)。

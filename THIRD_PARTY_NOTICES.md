@@ -27,10 +27,11 @@
 | 组件 | 许可 | 说明 |
 |---|---|---|
 | `thirdparty/inkField` | 自定义 "Open Creative License"（受限） | **不得复制代码/shader/常量表，不得随公开仓库或发布物再分发**。本项目仅借鉴其公开文档描述的通用思想（弹簧阻尼笔刷、`min()` 扩散、独立身份缓冲、确定性录制），所有实现均为独立完成。公开发布前须隔离该快照并检查 Git 历史。 |
-| `thirdparty/inkEngine` | inkField 自定义许可 + 未附于仓库的书面授权 | 可读还原版的 JS、GLSL、内嵌字体及 `demo.json` 未获仓库内可核对的移植/发布范围；2.0 仅独立实现功能需求，不复制内容。公开发布前审查快照与历史。 |
+| `thirdparty/inkEngine` | inkField 自定义许可；仓库所有者声明另有书面授权（授权书不在本仓库） | 可读还原版，供效果对照。所有者声明 inkField 作者已书面授权将算法与着色器逻辑移植进 `src/`。`src/core/ink-brush.ts`、`src/core/ink-wash-filters.ts` 据此移植了笔尖、反馈、类型图和合成的结构，并在文件头保留归属。授权书未入库，本登记不能代替它。快照、内嵌字体、`demo.json` 不进入 `dist/`，也不修改 `thirdparty/` 内的文件。 |
 | `thirdparty/inkwash` | MIT | 场模型的思路来源；如需移植源码须保留版权与许可全文及来源声明。当前 `src/plugins/ink-fluid.ts` 为独立实现。 |
 
 ## 审查记录
 
 - 2026-10-08：建立本清单。p5.js 以 LGPL-2.1 分发，本项目**未修改**其源码，仅作为 npm 依赖引入。
+- 2026-10-08：按仓库所有者的说明，把 inkEngine 的笔刷与反馈结构移植进 `src/core/ink-wash*.ts` 与 `ink-brush.ts`。书面授权未附在仓库中。
 - 发布前须重新核对：依赖版本、许可文本、`dist/` 内容清单，以及 `thirdparty/` 是否被排除。

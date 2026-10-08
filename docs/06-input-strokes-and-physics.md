@@ -1,23 +1,58 @@
-# 06 · 输入、Matter 候选物理、FSM 与水刷
+# 06 · 输入、笔和碰撞
 
 [目录](./README.md) · [上一章](./05-world-scene-and-assets.md) · [下一章](./07-ink-rendering.md)
 
-## 已实现 API（旧原型）
+权威几何在 CPU。像素着色器不决定能不能站上去。
 
-`DrawStroke`/`EraseStroke`、`createStrokePlugin()`、`createWaterErosionPlugin()` 与 `createPhysicsPlugin()` 已实现 CPU 笔画裁切、圆—胶囊碰撞及球的重力。现有水刷 path 是**离散圆点**，非连续扫掠；当前物理不是 Matter.js，没有摩擦/通用 hurtbox，不能把旧测试当横版角色战斗的证明。
+## 2.0 输入
 
-## 2.0 迁移中（仅基础实现）
+`InkStage.installInput` 监听 `keydown` / `keyup` 和画布上的 `pointerdown` / `pointermove` / `pointerup`。监听都放进 `observers`，`dispose` 时成对卸掉。
 
-`InkWorld` 已提供 Matter 固定步、角色五态基础 FSM、墨桥局部裁切与碰撞体替换，以及弓/墨弹共用的 `launchProjectile()` / `drainImpacts()`；投射物首次命中非玩家物体后移除，只把命中坐标交给视觉层。可通过 `./build.sh check` 运行 `tests/v2-core.test.ts` 验证 CPU 路径。**这不等于实现了高速武器 sweep、伤害/格挡、连续水刷、回放或浏览器中的 Pixi 效果**；2.0 阶段门槛以 [当前计划](../plan/10-v2-pixi-matter-ink-game-engine-plan.md) 为准。
+| 输入 | 效果 |
+|---|---|
+| `A` / `D`（或左右箭头） | 固定步里 `move(-1)` / `move(1)`，都按住则不动 |
+| `W`（或上箭头） | `jump()`，仅当 `InkWorld` 认为角色着地 |
+| `Space` | `preventDefault` 后 `act()`，落点默认在角色右侧 |
+| 指针（剑、刀） | 拖动：`beginStroke` / `addPoint` / `endStroke`，湿墨跟着显示帧扩散 |
+| 指针（水刷） | 拖动：`wipe`，半径 52 |
+| 指针（其余） | 点下即 `act(x, y)`，用页面坐标换到 1280×720 |
 
-## 设计目标
+`local()` 用画布的 `getBoundingClientRect` 把 CSS 像素除回舞台像素。画布被 `object-fit: contain` 留空时，点在留白上会得到 `undefined`，这次输入丢掉。
 
-采集键盘、指针与可用的合并事件，转换为固定步的世界坐标意图；FSM 用 Idle/Run/Jump/Attack/Hurt 管理速度、跳跃宽限/缓冲、攻击窗、硬直与受击无敌帧，切换时仅发完成事件供墨效消费，不由动画决定是否命中。首选 Matter.js 固定步世界做角色、地面、平台、摩擦与击退；禁用 Matter Runner，在每一步明确积分与碰撞/回调顺序。Planck.js 仅作形状重建 spike 备选。
+## 2.0 笔：`InkBrush`
 
-**可破坏墨障优先保留 CPU 权威算法**：在本步对水刷扫掠路径求侵蚀区间、验证锁定/干燥规则，得到有稳定 ID 的残段；再撤销/替换相应物理碰撞体、更新宽阶段与接触缓存语义，再执行物理和武器命中。Matter 对固定胶囊链/变宽笔画不必然提供原生等价形状：先测试多个静态细分/多边形近似的厚度、连接处、短碎段与重建成本，验证失败才重选实现或求解器，**不允许仅擦视觉**。权威形状只由 CPU 计算；GPU 不参与胜负。
+`src/core/ink-brush.ts`。`mode`：`'brush'`（大笔）、`'pen'`（枯笔）、`'fly'`（飞白刷）。`effect`：`'mix' | 'sharpen' | 'flyingWhite' | 'wet'`。`size` 必须为正，否则构造抛错。
 
-攻击使用武器轨迹与稳定 ID hurtbox，在固定步对扫掠、相切、同一步水刷/接触先后、重击飞出与多目标去重做测试；物理随机性和不同平台的数值差异使跨机回放成为待验证目标，而非自动保证。
+每收到一个采样点：
 
-## 未实现项与验收
+```text
+vel += (target - pos) * spring
+vel *= friction
+再把这段拆成 interp 个小步
+```
 
-Matter/FSM 的基础原型已接入，但完整战斗命中/受击、连续水刷、通用 hitbox 与浏览器验收尚未实现。V1/V2 用“画桥→擦断→角色或球落下”“锁定/交叠桥水刷不留隐形平台”“高速刀光与水刷同一步”等回归案例；30/60/144Hz 可控驱动只对比固定步状态，跨浏览器严格一致需额外实测。参见 [2.0 计划](../plan/10-v2-pixi-matter-ink-game-engine-plan.md)。
+大笔 `spring = 0.6`、`friction = 0.5`、`interp = 8`。参考实现默认插值是 15；这里改小是为了 SwiftShader 上一条笔画能在一帧里盖完。枯笔和飞白刷 `interp = 6`。
+
+每个小步在垂直于速度的方向上铺 8 根笔毫（枯笔 5 根）。每根是 `BrushSegment`：`x0,y0,x1,y1,width,alpha`。坐标经 `quantize`（`src/core/ink-noise.ts`，步长 1/64）。飞白、枯笔、飞白刷随速度丢掉一部分笔毫。`strokeSegments(points, options)` 是同一支笔的同步版本，给 `strokePath` 用。
+
+这支笔**不是**碰撞体。剑扫木桩用折线点到桩心的 `hypot < 56`。枪用 `distanceToSegment < 28`，并且 `Mark.hit` 只允许第一次。弓和墨弹只认 Matter 碰撞。盾的墨环要来袭距离小于 120。这些都是几何，不是武器扫掠体。
+
+## 水刷
+
+`wipe(x, y)`：
+
+1. `world.eraseBridge(x, y, 52)` 改刚体。锁定桥跳过。
+2. `ink.wash(x, y, 52)` 只把 `committed` 往白色拉。`locked` 层不动，所以右侧青桥的墨还在。
+3. 记一个涟漪，画在 `props` 上，不写进墨层。
+
+人可以站上可擦的桥。桥段被裁掉之后，角色会掉下去。这是 Matter 的结果，不是着色器阈值。
+
+## v0.1 笔画
+
+`quantizeSample`、`startBrush`、`advanceBrush` 在 `src/plugins/brush-model.ts`。`createStrokePlugin` / `createWaterErosionPlugin`（`src/plugins/geometry.ts`）维护笔画存储和侵蚀。命令名是 `DrawStroke`、`EraseStroke`。侵蚀改的是 CPU 折线，再通知 `InkFluid` 重绘。冒烟测试比较的是这条管线的墨量，不是 `InkWash`。
+
+## 确定性边界
+
+笔画坐标、桥的裁切只用四则、`Math.sqrt` / `Math.hypot` 和量化。盾的墨环用常量表 `RING`（含 `0.707`），运行时不调用 `sin` / `cos`。`InkBrush` 的随机是 `InkRng`，种子来自调用方。同一组点、同一 `seed`，`strokeSegments` 的输出应一致，`tests/ink-brush.test.ts` 锁了这一点。
+
+GPU 上的纸纹噪声和反馈着色器不参与碰撞。不要用读回的像素去改刚体。
