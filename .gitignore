@@ -1,0 +1,63 @@
+# ---- 本地会话 / 编辑器 / 系统 ----
+.session_tmp/
+.session_tmps/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- 环境变量与密钥 ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ---- 依赖与包管理 ----
+node_modules/
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/patches
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+.npm/
+.pnpm-store/
+
+# ---- 构建产物与缓存 ----
+dist/
+build/
+.vite/
+.cache/
+.eslintcache
+*.tsbuildinfo
+coverage/
+.pytest_cache/
+__pycache__/
+
+# ---- 测试输出（Playwright / 截图）----
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# ---- 日志与临时文件 ----
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.tmp
+*.tgz
+
+# ---- 第三方参考快照（不进入仓库）----
+# inkField：自定义受限许可，不得随公开仓库再分发（见 THIRD_PARTY_NOTICES.md / AGENTS.md §6）
+thirdparty/inkField/
+# inkEngine：inkField 的可读还原版，授权文件不在仓库内，同样不入库
+thirdparty/inkEngine/
+# inkwash：MIT，但它是独立的 git 克隆，从上游获取：https://github.com/johnowhitaker/inkwash
+thirdparty/inkwash/

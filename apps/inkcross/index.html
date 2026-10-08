@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>InkGames · 墨渡</title>
+    <link rel="icon" href="data:," />
+    <style>
+      :root { color-scheme: light; }
+      html, body { margin: 0; height: 100%; background: #eae7e0; font-family: ui-sans-serif, system-ui, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      #app { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 24px; }
+      #stage { position: relative; width: 640px; height: 480px; background: #fff; box-shadow: 0 8px 32px rgba(0,0,0,.18); }
+      #stage canvas { display: block; width: 640px; height: 480px; }
+      #hud { display: flex; gap: 18px; align-items: center; font-size: 14px; color: #333; }
+      button { font: inherit; padding: 6px 14px; cursor: pointer; }
+      code { background: rgba(0,0,0,.06); padding: 1px 5px; border-radius: 3px; }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="stage"></div>
+      <div id="hud">
+        <span>状态：<code id="status">加载中…</code></span>
+        <span>墨量：<code id="ink">--</code></span>
+        <button id="tool">切换：笔（墨）</button>
+        <button id="reset">重置关卡</button>
+      </div>
+      <p style="max-width:640px;font-size:13px;line-height:1.7;color:#555">
+        按住鼠标左键<b>画桥</b>，墨珠落到印章（右下）即通关；切到<b>水刷</b>后擦断桥会让墨珠掉落。失败或卡住时点“重置关卡”。<br />
+        想看自动战斗？<a href="/wuxia/">进入《江湖夜行》</a>。
+      </p>
+    </div>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
