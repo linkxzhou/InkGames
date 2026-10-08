@@ -2,56 +2,51 @@
 
 [目录](./README.md) · [水墨实现](./07-ink-rendering.md) · [剩余工作](../plan/10-v2-pixi-matter-ink-game-engine-plan.md)
 
-对照对象是 `thirdparty/inkEngine/`（`ink-engine.js`、`NAME-MAP.md`、`README.md`）。它是 inkField 的可读还原，回放录制时与原版逐像素一致。本仓库的目标是让 `InkWash` 的观感沿同一条管线走，而不是把 `ink-engine.js` 嵌进页面，也不是宣称逐像素相同。
+对照对象是 `thirdparty/inkEngine/`（`ink-engine.js`、`NAME-MAP.md`、`README.md`、`index.html`）。它是 inkField 的可读还原，回放录制时与原版逐像素一致。本仓库把它的笔刷与着色器移植进 `src/`，在 Pixi 上跑同一条管线；不把 `ink-engine.js` 嵌进页面，也不宣称逐像素相同。
 
-书面授权由仓库所有者声明，授权书不在仓库内。`src/core/ink-brush.ts`、`src/core/ink-wash-filters.ts` 的文件头写了归属。`thirdparty/` 未改。
+书面授权由仓库所有者声明，授权书不在仓库内。移植的文件头写了归属：`src/core/ink-brush.ts`、`ink-random.ts`、`ink-palette.ts`、`ink-paper.ts`、`ink-shaders.ts`（由 `scripts/port-inkengine-shaders.mjs` 生成）、`ink-wash-filters.ts`、`ink-wash.ts`。`thirdparty/` 未改。
 
 状态用词：
 
 | 用词 | 含义 |
 |---|---|
-| 对齐 | 公式或数据流与指名的函数一致，常数可以不同，但步骤没有删 |
-| 部分 | 同一段管线在，但表、模式或 pass 被缩短 |
+| 移植 | 逐行转写，随机抽取顺序和常数都保留 |
+| 对齐 | 同一算法和数据流，实现方式换成 Pixi |
+| 不同 | 有意换成另一做法，原因写在证据栏 |
 | 缺失 | `src/` 里没有对应路径 |
-| 不同 | 有意换成另一套模型 |
 
-证据栏是阅读源码和 SwiftShader 截图，不是独立显卡上的实测。Safari / Firefox 未测。
+证据是读源码、单测，以及无头 Chromium + SwiftShader 的截图与像素统计。没有独立显卡实测，Safari / Firefox 未测。
 
 ## 总表
 
 | 能力 | inkEngine | 状态 | `src` 里的证据 |
 |---|---|---|---|
-| 弹簧笔尖 | `drawBrushStroke`（`_j58`）。`vel += (target-pos)*spring`，`vel *= friction`，再插值。大笔默认 spring 0.6、friction 0.5、插值 15，`baseBrushSize` 大档约 2 | 部分 | `InkBrush.sample` 用同一组 spring/friction。插值改为 8（枯笔/飞白刷为 6），避免 SwiftShader 上一帧盖不完。`tests/ink-brush.test.ts` 断言笔尖滞后 |
-| 笔毫 / 分叉 | `drawBranch`（`_j56`），以及 `BRANCH_OFFSETS_*`、路径旋转、笔压分档 | 部分 | 垂直于速度铺 8 根（枯笔 5 根），宽度和 alpha 由自有 LCG 抖动。没有分叉表，没有旋转模式，没有笔压 |
-| 飞白、枯笔 | 笔模式 4 `pen`、6 `fly`，以及效果 2；速度高时断墨 | 部分 | `keepMark` 随速度丢笔毫。反馈里 `uEffect` 2 用噪声把缝抬亮。`drawDryBrush` / `drawFlyBrush` 的完整形状没有搬 |
-| 其余笔 | 模式 `marker` / `gothic` / `dots` / `brushSP` | 缺失 | `InkBrushOptions.mode` 只有 `brush` / `pen` / `fly` |
-| 扩散 | `runFeedbackPass`（`_j30`）跑 `feedback.frag`：`min(当前, 力场偏移采样)`，`useSharpen < 0.5` 时四邻渗色 | 部分 | `feedbackFragment` 的 mix 分支是同一结构。四邻距离放到 1.6 个纹素（参考更紧），否则半分辨率下几乎看不出洇。`indiffusion` 固定走 0.45，湿笔 0.62 |
-| 锐化 | 效果 1 | 部分 | 邻域减完再加回 0.08，不是完整 unsharp 链 |
-| 湿墨 | 效果 3，沿笔势拉丝 | 部分 | 一组方向噪声把暗部再压暗 |
-| 边缘压暗 | 合成阶段按轮廓压暗 | 部分 | `compositeFragment` 用干墨亮度的四邻梯度，`shown *= 1 - edge * 0.85` |
-| 力场 | `updateForceMap`（`_j179`）跑 `mapFrag`，含时间项。原版有的均匀量在演示里并未全部赋值 | 不同 | `forcePixels()` 用 `valueNoise` 烘焙一次，约 128±45，之后不变。固定步可以复现，画面不会随墙钟流动 |
-| 类型图 | `typeMapEncodeShader`（`_j522`），`commitStroke`（`_j39`）写入 | 部分 | `typeFragment`：暗度 > 0.08 且该像素还没写过时，R 写 0.5 或 1（看颜料亮度是否 > 0.75），G 写暗度，B 写笔画序号。没有原版的完整类型编码 |
-| 颜料 | `encode.frag` / `realtime.frag` 的光谱混合、36 色、色相饱和明度 | 不同 | `commitFragment` 把灰度暗度染成 `uPigment` 再 `min` 进干层。重叠时更暗的颜色留下。没有光谱 |
-| 纸 | `generatePaperTexture`（`_j9`），p5 拼贴 | 不同 | `paperPixels`：底 222（`neutral`）或暖宣（`xuan`），`valueNoise` 纤维幅度约 34。种子独立 |
-| 合成 | `compositeShader`（`_j520`）：纸乘墨；浅色走另一支混合 | 部分 | 纸乘 `min(干, 锁定, 湿墨染色)`。类型 R > 0.75 时改为滤色。没有原版的多层 buffer 链 |
-| 盖章方式 | 笔迹画进缓冲再交给 feedback 的 `min` | 不同 | 笔毫先以 alpha 覆盖率画在透明 `stamp` 上，`depositFragment` 做 `wet *= (1 - cover * 0.92)`。不透明灰笔直接 `min` 会糊成马克笔，所以改成覆盖率累加 |
-| 随机 | `crandom` 包一层 p5 `random` | 不同 | `InkRng` 用同一组 LCG 常数（1664525, 1013904223），调用次序是自己的，序列对不上 p5 |
-| 录制 | `mp` / `md` / `mr` 与 `demoRecording` | 不同 | `src/plugins/recording.ts` 只记录 v0.1 命令。`InkWash` 不读那份 JSON |
-| 后处理 | flow、distort、虫蚀 metallic | 缺失 | 合成之后没有这三支 pass |
-| 镜头 | EasyCam，构图会偏大约数个百分点 | 缺失 | 对照页关掉 EasyCam，坐标才能并排。游戏页没有这台相机 |
-| 旧流体 | 无。inkEngine 不是纳维–斯托克斯场 | 不同 | `src/plugins/ink-fluid.ts` 仍服务 `/inkcross/`。水刷剪刀现在连 `fixedInk` 一起清，避免桥面沉墨后擦不掉；模型本身没有改成 `min()` 扩散 |
-| 碰撞 | 无游戏刚体 | 不同 | 水刷改的是 `InkWorld` 矩形。`wash` 只减淡 `committed`。这是玩法，不是墨色 pass |
+| 七种笔刷 | `drawBrushStroke`、`drawBranch`、`drawSprayDots`、`drawDryBrush`、`drawMarker`、`drawGothic`、`drawFlyBrush`，`BRANCH_OFFSETS_5/8/12`、`MARKER_LINES`、`buildFlyBranchConfig` | 移植 | `InkBrushEngine`。同一条测试笔画（`p.randomSeed(100)`，40 帧）两边的笔画种子都是 347340893；去掉 inkEngine 自己画的红色虚线路径后，大笔、marker、gothic、fly、brushSP 每帧的线段数逐帧相同，大笔第 6 帧的线段坐标与线宽差 ≤ 0.001px |
+| 落笔参数 | `mousePressed` 按模式设 `initialSize`、`interpSteps`、`spring`、`friction`、`maxUpdates`，以及一串随机量 | 移植 | `press()`。被原版覆盖或丢弃的随机量（如 `indiffusionStrength` 先随机后固定为 0.45）照样抽取，保证后续数值对得上 |
+| 每帧状态 | `draw()`：`inkGray`、墨量递减、笔压分档、笔尖偏移 −10px、哥特不偏移 | 移植 | `frame()` / `drawFrame()`。笔压梯度里的 `pow(·, 0.6)` 用牛顿法 `pow06` 代替 |
+| 随机与噪声 | `crandom` → p5 `random`（LCG）与 `noise`（4 层倍频、余弦插值） | 移植 | `P5Random`、`P5Noise`。余弦用多项式，与 `Math.cos` 相差 < 1e-8（单测） |
+| 线、点、矩形的光栅化 | p5 WEBGL，帧缓冲带 MSAA | 对齐 | Pixi `Graphics` 画进带 MSAA 的 `stamp`，再叠到湿层。只看笔触、不跑 feedback 时，同一笔 10 帧后湿层平均灰度 239.5（inkEngine）对 239.4（src） |
+| 扩散 | `runFeedbackPass` + `feedback.frag` 的 6 个墨效分支 | 移植 | `INK_FEEDBACK_FRAGMENT`。输出 alpha < 1 时按 p5 的 `(ONE, ONE_MINUS_SRC_ALPHA)` 叠在专用 ping-pong 上再叠回湿层；同一笔 10 帧后湿层平均灰度 241.8 对 239.8，逐像素平均差 2.6 级 |
+| 倒计时与提交 | `maxUpdates` 帧力度递减，`commitStroke`：encode → typeMap → final | 移植 | `INK_ENCODE_FRAGMENT`、`INK_TYPE_MAP_FRAGMENT`。p5 把编码结果拷到不透明白底时 alpha 变成 1、颜色加上 `1 − alpha`，编码 pass 末尾照做 |
+| 36 色与色相抖动 | `COLOR_PALETTE`、`hueShift` / `satShift` / `briShift`，明度 > 0.6 推到 0.95 | 移植 | `INK_PALETTE`，encode/realtime 原样 |
+| 混色 | mix / multiply / darken / spectral（38 段反射率） | 移植 | 都在 encode 着色器里；道具表目前只用 mix |
+| 合成 | `composite.frag`：纸 × 墨，白墨走滤色 | 移植 | `INK_COMPOSITE_FRAGMENT` |
+| 实时湿墨 | `realtime.frag` | 移植 | 拖动时 `update()` 用它叠出未提交的湿墨 |
+| 纸 | `generatePaperTexture(40, 20, 15, 0.2)`，P2D 拼贴后乘到底色 ×1.1 | 移植 | `inkPaperPixels`，同样的 Canvas 2D 调用和种子 |
+| 力场 | `updateForceMap` 每帧跑 `mapFrag`，时间来自 `millis()` | 不同 | 着色器移植，但每张墨层只在建表时画一次（时间 0）。它只让采样偏移约 ±0.1px，逐帧重画在 SwiftShader 上让每笔多一倍开销。原版从未上传的 6 个 uniform 同样为 0 |
+| 全屏 pass | 每帧对整个画布跑 feedback | 不同 | 只跑笔画外接矩形。墨效 0–3 下矩形外像素原版也不变；墨效 4/5 的外扩按每帧 3px 预留 |
+| 重叠处的残影 | 新笔第一帧与上一笔的 ping-pong 内容混合 | 不同 | 落笔时把上一笔的矩形填回白色，只在新旧笔重叠的第一帧略浅 |
+| 镜头与分层 | EasyCam、4 层 z 平面、景深模糊 | 缺失 | 游戏页是平面画布。对照截图时宿主页打开 EasyCam（关掉时 inkEngine 的整幅画会缩到约 65% 并居中） |
+| 后处理 | flow、distort、虫蚀 metallic、遮罩 | 缺失 | 合成之后没有这些 pass |
+| 录制 | `mp` / `md` / `mr`、回放 | 不同 | `src/plugins/recording.ts` 只记录 v0.1 命令。2.0 的笔画用 `PropStroke`（笔刷、颜色、每帧指针点、种子）表达，对照页把它交给宿主页重画 |
+| 旧流体 | 无 | 不同 | `src/plugins/ink-fluid.ts` 仍服务 `/inkcross/`，不是这条管线 |
 
-## 这次为了靠近观感改了什么
+## 道具怎么画
 
-1. 删掉原先的模糊加阈值（`ink-effects.ts`、`ink-fusion-filter.ts`）。那两支会把笔画收成色块，和参考的笔毫不是一条路。
-2. 笔尖改成弹簧阻尼，一笔拆成多根细毫，飞白随速度断墨。
-3. 湿层用覆盖率变暗，再跑 `min` 扩散，然后染色提交。
-4. 纸、力场、类型图、边缘压暗按上表接到合成里。
-5. 对照页 `apps/compare/` 固定三条笔画、种子 `1234567890`、800×600、`paper: 'neutral'`、`scale: 1`。
+每个道具是一组指针笔画，笔刷取自 `src/plugins/prop-brushes.ts` 的 `PROP_BRUSHES`，路径在 `src/plugins/prop-paintings.ts`，见 [第 8 章](./08-gameplay-and-persistence.md)。对照页 `/compare/?prop=<id>` 用公共 API 画一个道具，并把笔画按 inkEngine API 导出（模式编号、尺寸、墨效、混色、颜色、指针坐标、种子）。`scripts/capture-parity.mjs` 让宿主页逐笔执行 `p.randomSeed(seed)`、`setBrush`、`setColor`、`strokePath`、`step`，两边同尺寸、同纸色、同纸纹种子，再并排截图。
 
 ## 并排时应该看到什么，以及不该声称什么
 
-同一组折线下，两边都应有：发丝状的笔芯、斜向飞白的断口、青墨相对黑墨更「透」、纸纹露在淡处。参考边的渗开更宽，飞白更碎，纸是另一套纹理。本边的力场不动，插值更少，半分辨率的十卡页还会再糊一档。
+同一组笔画下，两边的每一笔应落在同一位置，有同样的笔势、分叉、飞白断口、点画分布和颜色。差别来自三处：力场不随时间流动，Pixi 与 p5 的线段光栅化和 MSAA 不同，以及着色器噪声的取样细节。所以墨色深浅和斑驳的位置会有出入，构图和笔性应当一致。
 
-未实测：独立显卡、Safari、Firefox、以及「和 inkField 原版逐像素一致」。SwiftShader 截图只说明着色器能跑、构图可对。
+未实测：独立显卡、Safari、Firefox、以及「和 inkField 原版逐像素一致」。SwiftShader 截图只说明着色器能跑、构图和笔性可对。

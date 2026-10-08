@@ -1,6 +1,6 @@
 # InkGames：PixiJS 水墨横版动作引擎
 
-桌面优先的横屏水墨动作演示。2.0 舞台用 PixiJS 8.22.0 画、Matter.js 0.20.0 做刚体；水墨层 `InkWash` 以 [inkEngine](./thirdparty/inkEngine/README.md) 的笔毫和 `min()` 扩散为参照，在自己的 RenderTexture 里实现。旧的 p5 + WebGL2 微内核仍保留在 `/inkcross/` 和 `/wuxia/`，供回归。
+桌面优先的横屏水墨动作演示。2.0 舞台用 PixiJS 8.22.0 画、Matter.js 0.20.0 做刚体；水墨层 `InkWash` 在 Pixi RenderTexture 上运行从 [inkEngine](./thirdparty/inkEngine/README.md) 逐行移植的七种笔刷和着色器；每个道具按 `PROP_BRUSHES` 里自己的笔刷一笔一笔画出来。旧的 p5 + WebGL2 微内核仍保留在 `/inkcross/` 和 `/wuxia/`，供回归。
 
 十卡能玩的范围、以及还没做完的部分，以代码和文档为准，不把 SwiftShader 冒烟写成真实 GPU 上的完成证明。
 
