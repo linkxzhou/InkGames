@@ -57,7 +57,6 @@ yarn-error.log*
 # ---- 第三方参考快照（不进入仓库）----
 # inkField：自定义受限许可，不得随公开仓库再分发（见 THIRD_PARTY_NOTICES.md / AGENTS.md §6）
 thirdparty/inkField/
-# inkEngine：inkField 的可读还原版，授权文件不在仓库内，同样不入库
-thirdparty/inkEngine/
+# inkEngine：inkField 的可读还原版（已获 inkField 作者授权），随仓库提交
 # inkwash：MIT，但它是独立的 git 克隆，从上游获取：https://github.com/johnowhitaker/inkwash
 thirdparty/inkwash/

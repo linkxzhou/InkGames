@@ -17,7 +17,7 @@ import {
   type StrokeStore,
   StrokeToken,
 } from '../src/index';
-import sceneData from '../apps/inkcross/scene.json';
+import sceneData from './fixtures/inkcross-scene.json';
 import { createFakeHost } from './helpers/fake-host';
 
 describe('场景 JSON', () => {

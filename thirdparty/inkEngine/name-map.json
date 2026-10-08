@@ -1,0 +1,4716 @@
+{
+ "topLevel": [
+  {
+   "old": "_j0",
+   "new": "RandomCheckpointDebugger",
+   "cat": "debug",
+   "note": "random() 调用计数检查点调试器（录制 vs 回放）",
+   "status": "kept",
+   "line": 98
+  },
+  {
+   "old": "_j1",
+   "new": "loadShaderFromSources",
+   "cat": "engine",
+   "note": "优先从内联 SHADER_SOURCES 创建 shader，否则 loadShader",
+   "status": "kept",
+   "line": 1
+  },
+  {
+   "old": "_j2",
+   "new": "buildColorTable",
+   "cat": "engine",
+   "note": "由 COLOR_PALETTE 生成 id→{name,rgb,channel}",
+   "status": "kept",
+   "line": 421
+  },
+  {
+   "old": "_j3",
+   "new": "colorChannelsOf",
+   "cat": "engine",
+   "note": "rgb 主通道分类",
+   "status": "kept",
+   "line": 432
+  },
+  {
+   "old": "_j4",
+   "new": "genGlslColorConsts",
+   "cat": "debug",
+   "note": "构建期：生成 GLSL 颜色常量（运行时不用）",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j5",
+   "new": "genGlslColorBranches",
+   "cat": "debug",
+   "note": "构建期：生成 GLSL if/else 颜色链（运行时不用）",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j6",
+   "new": "listColors",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 472
+  },
+  {
+   "old": "_j7",
+   "new": "getColorById",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 480
+  },
+  {
+   "old": "_j8",
+   "new": "getColorByName",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 483
+  },
+  {
+   "old": "_j9",
+   "new": "generatePaperTexture",
+   "cat": "engine",
+   "note": "生成纸纹（P2D createGraphics）",
+   "status": "kept",
+   "line": 500
+  },
+  {
+   "old": "_j10",
+   "new": "createPaperStampTile",
+   "cat": "engine",
+   "note": "纸纹印章小块（推测）",
+   "status": "kept",
+   "line": 548
+  },
+  {
+   "old": "_j11",
+   "new": "createBugShape",
+   "cat": "engine",
+   "note": "按 shapeType 生成蟲咬形状",
+   "status": "kept",
+   "line": 570
+  },
+  {
+   "old": "_j12",
+   "new": "bugShapeCluster",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 592
+  },
+  {
+   "old": "_j13",
+   "new": "bugShapeBlob",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 620
+  },
+  {
+   "old": "_j14",
+   "new": "bugShapeStrip",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 689
+  },
+  {
+   "old": "_j15",
+   "new": "bugShapeLightning",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 767
+  },
+  {
+   "old": "_j16",
+   "new": "bugShapeLightningAlt",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 900
+  },
+  {
+   "old": "_j17",
+   "new": "drawBugShape",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 1034
+  },
+  {
+   "old": "_j18",
+   "new": "scanBugBites",
+   "cat": "engine",
+   "note": "扫描画面深色像素生成蟲咬点（GPU 读回）",
+   "status": "kept",
+   "line": 1062
+  },
+  {
+   "old": "_j19",
+   "new": "scanBugBitesRandom",
+   "cat": "engine",
+   "note": "随机位置蟲咬",
+   "status": "kept",
+   "line": 1395
+  },
+  {
+   "old": "_j20",
+   "new": "updateBugTextures",
+   "cat": "engine",
+   "note": "蟲咬 data/mask 纹理",
+   "status": "kept",
+   "line": 1508
+  },
+  {
+   "old": "_j21",
+   "new": "applyMetallicPass",
+   "cat": "engine",
+   "note": "metallic.frag 后处理",
+   "status": "kept",
+   "line": 1562
+  },
+  {
+   "old": "_j22",
+   "new": "dashedLine",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 1602
+  },
+  {
+   "old": "_j23",
+   "new": "drawGridOverlay",
+   "cat": "engine",
+   "note": "笔尖周围网格叠加",
+   "status": "kept",
+   "line": 1623
+  },
+  {
+   "old": "_j24",
+   "new": "drawPathPointsTo",
+   "cat": "engine",
+   "note": "把路径点画到 buffer（pathToggle）",
+   "status": "kept",
+   "line": 1754
+  },
+  {
+   "old": "_j25",
+   "new": "drawMaskOutline",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 1808
+  },
+  {
+   "old": "_j26",
+   "new": "cameraReturnHome",
+   "cat": "engine",
+   "note": "EasyCam 回弹到初始位置",
+   "status": "kept",
+   "line": 1867
+  },
+  {
+   "old": "_j27",
+   "new": "initEasyCam",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 1988
+  },
+  {
+   "old": "_j28",
+   "new": "setUniformCached",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2058
+  },
+  {
+   "old": "_j29",
+   "new": "refreshRectCache",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2064
+  },
+  {
+   "old": "_j30",
+   "new": "runFeedbackPass",
+   "cat": "engine",
+   "note": "feedback.frag：写 pingPong 再拷回",
+   "status": "kept",
+   "line": 2077
+  },
+  {
+   "old": "_j31",
+   "new": "regeneratePaperTexture",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2122
+  },
+  {
+   "old": "_j32",
+   "new": "refreshBackgroundBuffers",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2142
+  },
+  {
+   "old": "_j33",
+   "new": "initBlurBuffers",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2221
+  },
+  {
+   "old": "_j34",
+   "new": "pressureMedian3",
+   "cat": "engine",
+   "note": "压感 3 点中值滤波",
+   "status": "kept",
+   "line": 2420
+  },
+  {
+   "old": "_j35",
+   "new": "perfMonitorTick",
+   "cat": "debug",
+   "note": "",
+   "status": "stub",
+   "line": 26
+  },
+  {
+   "old": "_j36",
+   "new": "perfMonitorReport",
+   "cat": "debug",
+   "note": "",
+   "status": "stub",
+   "line": 27
+  },
+  {
+   "old": "_j37",
+   "new": "updateLayerZ",
+   "cat": "engine",
+   "note": "4 层 z 偏移动画",
+   "status": "kept",
+   "line": 4317
+  },
+  {
+   "old": "_j38",
+   "new": "copyBufferInto",
+   "cat": "ui",
+   "note": "testMode 用",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j39",
+   "new": "commitStroke",
+   "cat": "engine",
+   "note": "把当前笔编码进 finalBuffer/typeMap/oldBuffer 并清空草稿",
+   "status": "kept",
+   "line": 4829
+  },
+  {
+   "old": "_j40",
+   "new": "commitIfPending",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 5075
+  },
+  {
+   "old": "_j41",
+   "new": "collectFutureStrokes",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 5082
+  },
+  {
+   "old": "_j42",
+   "new": "drawFuturePathPreview",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 5127
+  },
+  {
+   "old": "_j43",
+   "new": "drawScreenText",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 5290
+  },
+  {
+   "old": "_j44",
+   "new": "drawStrokeDividers",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 5345
+  },
+  {
+   "old": "_j45",
+   "new": "drawStrokeHighlight",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 5385
+  },
+  {
+   "old": "_j46",
+   "new": "wrapText",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 5459
+  },
+  {
+   "old": "_j47",
+   "new": "updateReferenceImageSize",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 28
+  },
+  {
+   "old": "_j48",
+   "new": "isPointOverUI",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 29
+  },
+  {
+   "old": "_j49",
+   "new": "lastStrokeBoundsNormalized",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 5545
+  },
+  {
+   "old": "_j50",
+   "new": "startFlowEffect",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 5569
+  },
+  {
+   "old": "_j51",
+   "new": "stopFlowEffect",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 5580
+  },
+  {
+   "old": "_j52",
+   "new": "updateFlowEffect",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 5605
+  },
+  {
+   "old": "_j53",
+   "new": "replayFlowEffect",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 5627
+  },
+  {
+   "old": "_j54",
+   "new": "setInkStroke",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 5663
+  },
+  {
+   "old": "_j55",
+   "new": "setInkFill",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 5672
+  },
+  {
+   "old": "_j56",
+   "new": "drawBranch",
+   "cat": "engine",
+   "note": "画一条飞白分叉",
+   "status": "kept",
+   "line": 5681
+  },
+  {
+   "old": "_j57",
+   "new": "drawSprayDots",
+   "cat": "engine",
+   "note": "喷点",
+   "status": "kept",
+   "line": 5888
+  },
+  {
+   "old": "_j58",
+   "new": "drawBrushStroke",
+   "cat": "engine",
+   "note": "毛笔主笔刷（弹簧阻尼+分叉）",
+   "status": "kept",
+   "line": 5976
+  },
+  {
+   "old": "_j59",
+   "new": "drawDryBrush",
+   "cat": "engine",
+   "note": "枯笔/Pen",
+   "status": "kept",
+   "line": 6333
+  },
+  {
+   "old": "_j60",
+   "new": "inkJitter",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 6402
+  },
+  {
+   "old": "_j61",
+   "new": "drawMarker",
+   "cat": "engine",
+   "note": "麦克笔",
+   "status": "kept",
+   "line": 6409
+  },
+  {
+   "old": "_j62",
+   "new": "buildFlyBranchConfig",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 6571
+  },
+  {
+   "old": "_j63",
+   "new": "resetFlyBrushCaches",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 6661
+  },
+  {
+   "old": "_j64",
+   "new": "drawGothic",
+   "cat": "engine",
+   "note": "Gothic/喷漆",
+   "status": "kept",
+   "line": 6669
+  },
+  {
+   "old": "_j65",
+   "new": "drawFlyBrush",
+   "cat": "engine",
+   "note": "刷笔/Fly",
+   "status": "kept",
+   "line": 6841
+  },
+  {
+   "old": "_j66",
+   "new": "isBuild",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j67",
+   "new": "uiCacheElements",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j68",
+   "new": "uiGetPanel",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j69",
+   "new": "uiOverlayDragStart",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j70",
+   "new": "uiOverlayDragMove",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j71",
+   "new": "uiOverlayDragEnd",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j72",
+   "new": "uiClampPanel",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j73",
+   "new": "uiOverlayShow",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j74",
+   "new": "uiOverlayToggle",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j75",
+   "new": "uiOverlayApplyPos",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j76",
+   "new": "uiControlDragStart",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j77",
+   "new": "uiControlDragMove",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j78",
+   "new": "uiControlDragEnd",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j79",
+   "new": "uiControlApplyPos",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j80",
+   "new": "uiEffectDragStart",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j81",
+   "new": "uiEffectDragMove",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j82",
+   "new": "uiEffectDragEnd",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j83",
+   "new": "uiEffectApplyPos",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j84",
+   "new": "uiFlowDragStart",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j85",
+   "new": "uiFlowDragMove",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j86",
+   "new": "uiFlowDragEnd",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j87",
+   "new": "uiFlowApplyPos",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j88",
+   "new": "uiMaskDragStart",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j89",
+   "new": "uiMaskDragMove",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j90",
+   "new": "uiMaskDragEnd",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j91",
+   "new": "uiMaskApplyPos",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j92",
+   "new": "uiMaskToolButtons",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j93",
+   "new": "uiMaskStatus",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 30
+  },
+  {
+   "old": "_j94",
+   "new": "uiControlPanelEl",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j95",
+   "new": "uiHintRecentlyDragged",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j96",
+   "new": "uiHintSetVisible",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j97",
+   "new": "uiHint97",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j98",
+   "new": "uiHint98",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j99",
+   "new": "uiHintSavePos",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j100",
+   "new": "uiHintLoadPos",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j101",
+   "new": "uiInitHints",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j102",
+   "new": "uiToggleOverlayHint",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j103",
+   "new": "uiToggleBrushPanel",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j104",
+   "new": "uiToggleEffectPanel",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j105",
+   "new": "uiToggleFlowPanel",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j106",
+   "new": "uiToggleMaskPanel",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j107",
+   "new": "uiToggleScreenText",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j108",
+   "new": "uiLoadPanelVisibility",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 1
+  },
+  {
+   "old": "_j109",
+   "new": "uiSavePanelVisibility",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j110",
+   "new": "uiLoadPanelPositions",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 2
+  },
+  {
+   "old": "_j111",
+   "new": "uiSavePanelPositions",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j112",
+   "new": "logMessage",
+   "cat": "engine",
+   "note": "原为写入 Art System Log 面板；引擎中转发到 options.log",
+   "status": "kept",
+   "line": 7708
+  },
+  {
+   "old": "_j113",
+   "new": "uiAppendLog",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 3
+  },
+  {
+   "old": "_j114",
+   "new": "uiLog114",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j115",
+   "new": "uiRenderMessages",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j116",
+   "new": "pickVideoMime",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j117",
+   "new": "startVideoRecording",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j118",
+   "new": "stopVideoRecording",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j119",
+   "new": "isVideoRecording",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j120",
+   "new": "uiUpdateRecordButtons",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 4
+  },
+  {
+   "old": "_j121",
+   "new": "refImgEdgeDetect",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j122",
+   "new": "refImgSetMode",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j123",
+   "new": "refImgLoad",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j124",
+   "new": "refImgPaste",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j125",
+   "new": "refImgToggle",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j126",
+   "new": "saveCanvasPNG",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 8032
+  },
+  {
+   "old": "_j127",
+   "new": "setBrushSizeName",
+   "cat": "engine",
+   "note": "UI 处理器去掉 DOM 后保留：'ultra-small'..'huge' → baseBrushSize",
+   "status": "kept",
+   "line": 8038
+  },
+  {
+   "old": "_j128",
+   "new": "uiSyncBrushSize",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 5
+  },
+  {
+   "old": "_j129",
+   "new": "setBrushModeValue",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 8087
+  },
+  {
+   "old": "_j130",
+   "new": "brushModeLabel",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 8096
+  },
+  {
+   "old": "_j131",
+   "new": "uiSyncBrushMode",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 6
+  },
+  {
+   "old": "_j132",
+   "new": "setInkEffectValue",
+   "cat": "engine",
+   "note": "useSharpen",
+   "status": "kept",
+   "line": 8121
+  },
+  {
+   "old": "_j133",
+   "new": "setBlendModeValue",
+   "cat": "engine",
+   "note": "0 Mix/1 Multiply/2 Darken/3 Spectral",
+   "status": "kept",
+   "line": 8148
+  },
+  {
+   "old": "_j134",
+   "new": "uiSyncBlendMode",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 7
+  },
+  {
+   "old": "_j135",
+   "new": "uiSyncInkEffect",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 8
+  },
+  {
+   "old": "_j136",
+   "new": "setBrushColorName",
+   "cat": "engine",
+   "note": "颜色名 → brushColorMode",
+   "status": "kept",
+   "line": 8201
+  },
+  {
+   "old": "_j137",
+   "new": "uiSyncBrushColor",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 9
+  },
+  {
+   "old": "_j138",
+   "new": "setPathRotationModeValue",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 8360
+  },
+  {
+   "old": "_j139",
+   "new": "uiSyncPathRotation",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 10
+  },
+  {
+   "old": "_j140",
+   "new": "uiUpdateBrushStatus",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 11
+  },
+  {
+   "old": "_j141",
+   "new": "resetBrushSettings",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 8459
+  },
+  {
+   "old": "_j142",
+   "new": "uiBindTap",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j143",
+   "new": "uiSyncBackgroundColor",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 12
+  },
+  {
+   "old": "_j144",
+   "new": "uiSyncCanvasSize",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 13
+  },
+  {
+   "old": "_j145",
+   "new": "uiInitControlPanel",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 14
+  },
+  {
+   "old": "_j146",
+   "new": "uiUpdateRecordingStatus",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 15
+  },
+  {
+   "old": "_j147",
+   "new": "uiRenderMessage",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j148",
+   "new": "uiToggleOverlay",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j149",
+   "new": "uiRefreshMessages",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j150",
+   "new": "uiRecordStatusText",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j151",
+   "new": "parseUrlParams",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j152",
+   "new": "uiApplyUrlToggles",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j153",
+   "new": "uiInit",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 16
+  },
+  {
+   "old": "_j155",
+   "new": "uiCreateZenButton",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j156",
+   "new": "uiCreateCollectButton",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j157",
+   "new": "uiCreateRefImageButton",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j158",
+   "new": "uiCyclePanelLayout",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j159",
+   "new": "uiToggleZen",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j160",
+   "new": "uiZenRestore",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j161",
+   "new": "uiInitMetallicControls",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j162",
+   "new": "uiSyncAllBrushButtons",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 17
+  },
+  {
+   "old": "_j163",
+   "new": "uiGetActiveShapeType",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 18
+  },
+  {
+   "old": "_j164",
+   "new": "uiSetActiveShapeType",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 19
+  },
+  {
+   "old": "_j165",
+   "new": "uiInitBugsSize",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j166",
+   "new": "uiInitStrokeSelector",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j168",
+   "new": "uiInitCustomColor",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j169",
+   "new": "uiInitCanvasSettings",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j170",
+   "new": "uiInitFlowPanel",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j171",
+   "new": "flowButtonDown",
+   "cat": "engine",
+   "note": "flow 效果开始（原按钮按下处理器）",
+   "status": "kept",
+   "line": 11017
+  },
+  {
+   "old": "_j172",
+   "new": "flowButtonUp",
+   "cat": "engine",
+   "note": "flow 效果结束（原按钮松开处理器）",
+   "status": "kept",
+   "line": 11072
+  },
+  {
+   "old": "_j173",
+   "new": "loadCommitShaders",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 11227
+  },
+  {
+   "old": "_j174",
+   "new": "clearCanvas",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 11232
+  },
+  {
+   "old": "_j175",
+   "new": "initPlaybackEnvironment",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 11322
+  },
+  {
+   "old": "_j176",
+   "new": "clearAllBuffers",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 11334
+  },
+  {
+   "old": "_j177",
+   "new": "primeFeedback",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 11372
+  },
+  {
+   "old": "_j178",
+   "new": "resetBrushState",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 11401
+  },
+  {
+   "old": "_j179",
+   "new": "updateForceMap",
+   "cat": "engine",
+   "note": "mapFrag.frag → forceMapBuffer",
+   "status": "kept",
+   "line": 11441
+  },
+  {
+   "old": "_j180",
+   "new": "randomizeForceMap",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 11469
+  },
+  {
+   "old": "_j181",
+   "new": "logTitle",
+   "cat": "engine",
+   "note": "原本即空函数",
+   "status": "kept",
+   "line": 11484
+  },
+  {
+   "old": "_j182",
+   "new": "warmUp",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 11485
+  },
+  {
+   "old": "_j183",
+   "new": "warmUpStroke",
+   "cat": "engine",
+   "note": "setup 时画一笔隐形笔触预热 shader",
+   "status": "kept",
+   "line": 11488
+  },
+  {
+   "old": "_j184",
+   "new": "startFrameRecording",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 20
+  },
+  {
+   "old": "_j185",
+   "new": "stopFrameRecording",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 21
+  },
+  {
+   "old": "_j186",
+   "new": "captureFrame",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 22
+  },
+  {
+   "old": "_j187",
+   "new": "finishFrameRecording",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j188",
+   "new": "round2",
+   "cat": "engine",
+   "note": "Math.round(v*100)/100",
+   "status": "kept",
+   "line": 11578
+  },
+  {
+   "old": "_j189",
+   "new": "recordEvent",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 11581
+  },
+  {
+   "old": "_j190",
+   "new": "startRecording",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 11620
+  },
+  {
+   "old": "_j191",
+   "new": "stopRecording",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 11685
+  },
+  {
+   "old": "_j192",
+   "new": "downloadRecording",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 23
+  },
+  {
+   "old": "_j193",
+   "new": "openRecordingFile",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j194",
+   "new": "stopPlayback",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 12251
+  },
+  {
+   "old": "_j195",
+   "new": "dispatchPlaybackEvent",
+   "cat": "engine",
+   "note": "mp/md/mr/kp/ec/flow/mask",
+   "status": "kept",
+   "line": 12349
+  },
+  {
+   "old": "_j197",
+   "new": "afterPlaybackEnded",
+   "cat": "ui",
+   "note": "继续录制对话框",
+   "status": "stub",
+   "line": 24
+  },
+  {
+   "old": "_j198",
+   "new": "continueRecordingFromPlayback",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j199",
+   "new": "applyRecordingCanvasSize",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j200",
+   "new": "captureVideoFrame",
+   "cat": "ui",
+   "note": "",
+   "status": "stub",
+   "line": 25
+  },
+  {
+   "old": "_j201",
+   "new": "finishVideoCapture",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j202",
+   "new": "crc32",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j203",
+   "new": "buildZip",
+   "cat": "ui",
+   "note": "",
+   "status": "removed(stub)"
+  },
+  {
+   "old": "_j222",
+   "new": "COLOR_PALETTE",
+   "cat": "data",
+   "note": "36 色表（id 0–35）",
+   "status": "kept",
+   "line": 210
+  },
+  {
+   "old": "_j223",
+   "new": "colorTable",
+   "cat": "data",
+   "note": "buildColorTable() 结果",
+   "status": "kept",
+   "line": 2332
+  },
+  {
+   "old": "_j229",
+   "new": "paperUnusedCache",
+   "cat": "engine",
+   "note": "未使用",
+   "status": "kept",
+   "line": 497
+  },
+  {
+   "old": "_j230",
+   "new": "paperUnusedCounter",
+   "cat": "engine",
+   "note": "未使用",
+   "status": "kept",
+   "line": 498
+  },
+  {
+   "old": "_j231",
+   "new": "PAPER_MAX_SIZE",
+   "cat": "data",
+   "note": "纸纹最大边长 2000",
+   "status": "kept",
+   "line": 499
+  },
+  {
+   "old": "_j241",
+   "new": "bugPoints",
+   "cat": "engine",
+   "note": "蟲咬点数组",
+   "status": "kept",
+   "line": 569
+  },
+  {
+   "old": "_j382",
+   "new": "prevGridParams",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 1600
+  },
+  {
+   "old": "_j446",
+   "new": "tipX",
+   "cat": "engine",
+   "note": "笔尖目标 x（含路径旋转偏移）",
+   "status": "kept",
+   "line": 2365
+  },
+  {
+   "old": "_j447",
+   "new": "tipY",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2365
+  },
+  {
+   "old": "_j476",
+   "new": "cachedRectUniform",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2048
+  },
+  {
+   "old": "_j477",
+   "new": "cachedInvResolution",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2049
+  },
+  {
+   "old": "_j478",
+   "new": "cachedRectW",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2050
+  },
+  {
+   "old": "_j479",
+   "new": "cachedRectH",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2051
+  },
+  {
+   "old": "_j480",
+   "new": "cachedRectDensity",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2052
+  },
+  {
+   "old": "_j481",
+   "new": "uniformCache",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2053
+  },
+  {
+   "old": "_j512",
+   "new": "canvasW",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2321
+  },
+  {
+   "old": "_j513",
+   "new": "canvasH",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2322
+  },
+  {
+   "old": "_j514",
+   "new": "density",
+   "cat": "engine",
+   "note": "pixelDensity（默认 1.6）",
+   "status": "kept",
+   "line": 2323
+  },
+  {
+   "old": "_j515",
+   "new": "forceMapBuffer",
+   "cat": "engine",
+   "note": "力场图（mapFrag）",
+   "status": "kept",
+   "line": 2324
+  },
+  {
+   "old": "_j516",
+   "new": "mapShader",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2329
+  },
+  {
+   "old": "_j517",
+   "new": "feedbackShader",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2329
+  },
+  {
+   "old": "_j518",
+   "new": "realtimeShader",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2329
+  },
+  {
+   "old": "_j519",
+   "new": "encodeShader",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2329
+  },
+  {
+   "old": "_j520",
+   "new": "compositeShader",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2329
+  },
+  {
+   "old": "_j521",
+   "new": "distortShader",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2329
+  },
+  {
+   "old": "_j522",
+   "new": "typeMapEncodeShader",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2330
+  },
+  {
+   "old": "_j523",
+   "new": "flowShader",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2331
+  },
+  {
+   "old": "_j524",
+   "new": "inkGray",
+   "cat": "engine",
+   "note": "每帧低通的灰度值（墨色深浅）",
+   "status": "kept",
+   "line": 2334
+  },
+  {
+   "old": "_j525",
+   "new": "whiteMaxOpacity",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2337
+  },
+  {
+   "old": "_j526",
+   "new": "hueShift",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2338
+  },
+  {
+   "old": "_j527",
+   "new": "satShift",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2339
+  },
+  {
+   "old": "_j528",
+   "new": "briShift",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2340
+  },
+  {
+   "old": "_j529",
+   "new": "interpSteps",
+   "cat": "engine",
+   "note": "strokeData.step：每帧插值子步数",
+   "status": "kept",
+   "line": 2342
+  },
+  {
+   "old": "_j530",
+   "new": "branchTypeInit",
+   "cat": "engine",
+   "note": "setup 中置 0；笔刷函数同名参数为分叉类型",
+   "status": "kept",
+   "line": 2342
+  },
+  {
+   "old": "_j531",
+   "new": "spring",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2342
+  },
+  {
+   "old": "_j532",
+   "new": "friction",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2342
+  },
+  {
+   "old": "_j533",
+   "new": "sizeNow",
+   "cat": "engine",
+   "note": "当前尺寸（= brushSize）",
+   "status": "kept",
+   "line": 2342
+  },
+  {
+   "old": "_j534",
+   "new": "velX",
+   "cat": "engine",
+   "note": "弹簧速度 x（ax）",
+   "status": "kept",
+   "line": 2343
+  },
+  {
+   "old": "_j535",
+   "new": "velY",
+   "cat": "engine",
+   "note": "弹簧速度 y（ay）",
+   "status": "kept",
+   "line": 2343
+  },
+  {
+   "old": "_j536",
+   "new": "speed",
+   "cat": "engine",
+   "note": "速度×系数",
+   "status": "kept",
+   "line": 2343
+  },
+  {
+   "old": "_j537",
+   "new": "strokeWidth",
+   "cat": "engine",
+   "note": "sizeNow - speed",
+   "status": "kept",
+   "line": 2343
+  },
+  {
+   "old": "_j538",
+   "new": "pathAngle",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2343
+  },
+  {
+   "old": "_j539",
+   "new": "brushSize",
+   "cat": "engine",
+   "note": "随帧衰减的尺寸（墨量）",
+   "status": "kept",
+   "line": 2346
+  },
+  {
+   "old": "_j540",
+   "new": "brushSizeMin",
+   "cat": "engine",
+   "note": "低于即进入收笔",
+   "status": "kept",
+   "line": 2347
+  },
+  {
+   "old": "_j541",
+   "new": "smoothedWidth",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2348
+  },
+  {
+   "old": "_j542",
+   "new": "brushSizeName",
+   "cat": "engine",
+   "note": "'large' 等",
+   "status": "kept",
+   "line": 2350
+  },
+  {
+   "old": "_j543",
+   "new": "prevInkEffect",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2355
+  },
+  {
+   "old": "_j544",
+   "new": "flyBrushPoints",
+   "cat": "engine",
+   "note": "仅 reset 使用",
+   "status": "kept",
+   "line": 2364
+  },
+  {
+   "old": "_j545",
+   "new": "legacyBrushX",
+   "cat": "engine",
+   "note": "仅 reset 使用",
+   "status": "kept",
+   "line": 2365
+  },
+  {
+   "old": "_j546",
+   "new": "legacyBrushY",
+   "cat": "engine",
+   "note": "仅 reset 使用",
+   "status": "kept",
+   "line": 2365
+  },
+  {
+   "old": "_j547",
+   "new": "lineWidth",
+   "cat": "engine",
+   "note": "当前绘制线宽",
+   "status": "kept",
+   "line": 2365
+  },
+  {
+   "old": "_j548",
+   "new": "prevTipX",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2365
+  },
+  {
+   "old": "_j549",
+   "new": "prevTipY",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2366
+  },
+  {
+   "old": "_j550",
+   "new": "springInitialized",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2367
+  },
+  {
+   "old": "_j551",
+   "new": "cursorX",
+   "cat": "engine",
+   "note": "实时笔位置（round2）",
+   "status": "kept",
+   "line": 2368
+  },
+  {
+   "old": "_j552",
+   "new": "cursorY",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2369
+  },
+  {
+   "old": "_j553",
+   "new": "lastTipX",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2370
+  },
+  {
+   "old": "_j554",
+   "new": "lastTipY",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2371
+  },
+  {
+   "old": "_j555",
+   "new": "gridCellSize",
+   "cat": "engine",
+   "note": "= initialSize",
+   "status": "kept",
+   "line": 2372
+  },
+  {
+   "old": "_j556",
+   "new": "isDrawing",
+   "cat": "engine",
+   "note": "笔按下中",
+   "status": "kept",
+   "line": 2373
+  },
+  {
+   "old": "_j557",
+   "new": "isReleasing",
+   "cat": "engine",
+   "note": "松笔后的 feedback 倒计时中",
+   "status": "kept",
+   "line": 2374
+  },
+  {
+   "old": "_j558",
+   "new": "strokeActive",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2375
+  },
+  {
+   "old": "_j559",
+   "new": "strokeCommitted",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2376
+  },
+  {
+   "old": "_j560",
+   "new": "pressureEnabled",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2377
+  },
+  {
+   "old": "_j561",
+   "new": "maskBuffer",
+   "cat": "engine",
+   "note": "白=可画",
+   "status": "kept",
+   "line": 2379
+  },
+  {
+   "old": "_j562",
+   "new": "maskDrawMode",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2380
+  },
+  {
+   "old": "_j563",
+   "new": "maskActive",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2394
+  },
+  {
+   "old": "_j564",
+   "new": "maskTool",
+   "cat": "engine",
+   "note": "'rect'|'polygon'",
+   "status": "kept",
+   "line": 2395
+  },
+  {
+   "old": "_j565",
+   "new": "maskRectDraft",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2396
+  },
+  {
+   "old": "_j566",
+   "new": "maskPolygonPoints",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2397
+  },
+  {
+   "old": "_j567",
+   "new": "currentMaskData",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2398
+  },
+  {
+   "old": "_j568",
+   "new": "pressureNorm",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2416
+  },
+  {
+   "old": "_j569",
+   "new": "stylusDetected",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2417
+  },
+  {
+   "old": "_j570",
+   "new": "penPressure",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2418
+  },
+  {
+   "old": "_j571",
+   "new": "pressureHistory",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2419
+  },
+  {
+   "old": "_j572",
+   "new": "pressureBaseBrushSize",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2427
+  },
+  {
+   "old": "_j573",
+   "new": "pointerOnUI",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2428
+  },
+  {
+   "old": "_j574",
+   "new": "pathToggle",
+   "cat": "engine",
+   "note": "initialPathToggle",
+   "status": "kept",
+   "line": 2429
+  },
+  {
+   "old": "_j575",
+   "new": "compositeDirty",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2430
+  },
+  {
+   "old": "_j576",
+   "new": "agentPathActive",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2431
+  },
+  {
+   "old": "_j577",
+   "new": "agentPaths",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2432
+  },
+  {
+   "old": "_j578",
+   "new": "countdownFrame",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2433
+  },
+  {
+   "old": "_j579",
+   "new": "strokeFrame",
+   "cat": "engine",
+   "note": "mouseCount：本笔帧数",
+   "status": "kept",
+   "line": 2436
+  },
+  {
+   "old": "_j580",
+   "new": "feedbackFrame",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2437
+  },
+  {
+   "old": "_j581",
+   "new": "mouseCountStart",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2438
+  },
+  {
+   "old": "_j582",
+   "new": "autoBugScan",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2440
+  },
+  {
+   "old": "_j583",
+   "new": "lastStrokeBounds",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2442
+  },
+  {
+   "old": "_j584",
+   "new": "collectPathPoints",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2445
+  },
+  {
+   "old": "_j585",
+   "new": "pathRotationMode",
+   "cat": "engine",
+   "note": "1|2|3",
+   "status": "kept",
+   "line": 2446
+  },
+  {
+   "old": "_j586",
+   "new": "step2",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2449
+  },
+  {
+   "old": "_j587",
+   "new": "MAX_STORED_STROKES",
+   "cat": "data",
+   "note": "",
+   "status": "kept",
+   "line": 2453
+  },
+  {
+   "old": "_j588",
+   "new": "demoRecording",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2461
+  },
+  {
+   "old": "_j589",
+   "new": "futurePathCache",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2463
+  },
+  {
+   "old": "_j590",
+   "new": "rsFrequency",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2472
+  },
+  {
+   "old": "_j591",
+   "new": "rsWaveSpeed",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2473
+  },
+  {
+   "old": "_j592",
+   "new": "rsStrength",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2474
+  },
+  {
+   "old": "_j593",
+   "new": "rsGradientMix",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2475
+  },
+  {
+   "old": "_j594",
+   "new": "rsScale",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2476
+  },
+  {
+   "old": "_j595",
+   "new": "cellularScale",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2478
+  },
+  {
+   "old": "_j596",
+   "new": "cellularSeed",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2479
+  },
+  {
+   "old": "_j597",
+   "new": "whiteDotDensity",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2481
+  },
+  {
+   "old": "_j598",
+   "new": "grainAmount",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2483
+  },
+  {
+   "old": "_j599",
+   "new": "bypassFeedback",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2486
+  },
+  {
+   "old": "_j600",
+   "new": "flowActive",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2487
+  },
+  {
+   "old": "_j601",
+   "new": "flowBlendType",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2488
+  },
+  {
+   "old": "_j602",
+   "new": "flowStartMillis",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2489
+  },
+  {
+   "old": "_j603",
+   "new": "flowIterations",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2490
+  },
+  {
+   "old": "_j604",
+   "new": "flowUnused",
+   "cat": "engine",
+   "note": "未使用",
+   "status": "kept",
+   "line": 2491
+  },
+  {
+   "old": "_j605",
+   "new": "flowSeed",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2492
+  },
+  {
+   "old": "_j606",
+   "new": "flowCommitPending",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2494
+  },
+  {
+   "old": "_j607",
+   "new": "flowCommitData",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2495
+  },
+  {
+   "old": "_j608",
+   "new": "flowFrames",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2496
+  },
+  {
+   "old": "_j609",
+   "new": "flowTargetFrames",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2497
+  },
+  {
+   "old": "_j610",
+   "new": "flowTargetIterations",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2498
+  },
+  {
+   "old": "_j611",
+   "new": "flowIsReplay",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2499
+  },
+  {
+   "old": "_j612",
+   "new": "FLOW_FRAMES_PER_ITERATION",
+   "cat": "data",
+   "note": "",
+   "status": "kept",
+   "line": 2500
+  },
+  {
+   "old": "_j613",
+   "new": "flowParams",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2501
+  },
+  {
+   "old": "_j614",
+   "new": "flowLastStrokeOnly",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2517
+  },
+  {
+   "old": "_j615",
+   "new": "fmRandomSeeds",
+   "cat": "engine",
+   "note": "forceMapParams.randomSeed1..4",
+   "status": "kept",
+   "line": 2518
+  },
+  {
+   "old": "_j616",
+   "new": "fmScales",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2519
+  },
+  {
+   "old": "_j617",
+   "new": "fmAmplitudes",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2520
+  },
+  {
+   "old": "_j618",
+   "new": "fmPhases",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2521
+  },
+  {
+   "old": "_j619",
+   "new": "fmVortexScales",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2522
+  },
+  {
+   "old": "_j620",
+   "new": "fmClusterScales",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2523
+  },
+  {
+   "old": "_j621",
+   "new": "textOverlayGfx",
+   "cat": "engine",
+   "note": "createGraphics(WEBGL) 文字/分隔叠加（z=120）",
+   "status": "kept",
+   "line": 2525
+  },
+  {
+   "old": "_j622",
+   "new": "finalOut",
+   "cat": "engine",
+   "note": "后处理后的最终图（z=0）",
+   "status": "kept",
+   "line": 2525
+  },
+  {
+   "old": "_j623",
+   "new": "futurePathGfx",
+   "cat": "engine",
+   "note": "createGraphics(WEBGL) 未来路径预览（z=80）",
+   "status": "kept",
+   "line": 2525
+  },
+  {
+   "old": "_j624",
+   "new": "screenBuffer",
+   "cat": "engine",
+   "note": "composite+realtime 工作区/临时目标",
+   "status": "kept",
+   "line": 2525
+  },
+  {
+   "old": "_j625",
+   "new": "cursorBuffer",
+   "cat": "engine",
+   "note": "光标/网格（z=40）",
+   "status": "kept",
+   "line": 2526
+  },
+  {
+   "old": "_j626",
+   "new": "paperTextureBuffer",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2526
+  },
+  {
+   "old": "_j627",
+   "new": "plainBgBuffer",
+   "cat": "engine",
+   "note": "纯背景色",
+   "status": "kept",
+   "line": 2526
+  },
+  {
+   "old": "_j628",
+   "new": "realtimeIntermediateBuffer",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2527
+  },
+  {
+   "old": "_j629",
+   "new": "lastStrokeBuffer",
+   "cat": "engine",
+   "note": "flow 用 lastStrokeTex",
+   "status": "kept",
+   "line": 2528
+  },
+  {
+   "old": "_j630",
+   "new": "isRecording",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2530
+  },
+  {
+   "old": "_j631",
+   "new": "recordStartMillis",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2531
+  },
+  {
+   "old": "_j632",
+   "new": "currentStrokeData",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2532
+  },
+  {
+   "old": "_j633",
+   "new": "lastStrokeEndMillis",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2533
+  },
+  {
+   "old": "_j634",
+   "new": "recordedStrokeCount",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2534
+  },
+  {
+   "old": "_j635",
+   "new": "pausedAccum",
+   "cat": "engine",
+   "note": "自动压缩停顿",
+   "status": "kept",
+   "line": 2535
+  },
+  {
+   "old": "_j636",
+   "new": "firstStrokePending",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2536
+  },
+  {
+   "old": "_j637",
+   "new": "autoFrameCapture",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2537
+  },
+  {
+   "old": "_j638",
+   "new": "isPlaying",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2544
+  },
+  {
+   "old": "_j639",
+   "new": "playbackStartMillis",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2545
+  },
+  {
+   "old": "_j640",
+   "new": "playbackEventIndex",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2546
+  },
+  {
+   "old": "_j641",
+   "new": "playbackSpeed",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2547
+  },
+  {
+   "old": "_j642",
+   "new": "playX",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2548
+  },
+  {
+   "old": "_j643",
+   "new": "playY",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2549
+  },
+  {
+   "old": "_j644",
+   "new": "playPrevX",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2550
+  },
+  {
+   "old": "_j645",
+   "new": "playPrevY",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2551
+  },
+  {
+   "old": "_j646",
+   "new": "playMouseDown",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2552
+  },
+  {
+   "old": "_j647",
+   "new": "loopWaitStart",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2554
+  },
+  {
+   "old": "_j648",
+   "new": "countdownPauseStart",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2555
+  },
+  {
+   "old": "_j649",
+   "new": "countdownPausing",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2556
+  },
+  {
+   "old": "_j650",
+   "new": "playbackOffsetX",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2557
+  },
+  {
+   "old": "_j651",
+   "new": "playbackOffsetY",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2558
+  },
+  {
+   "old": "_j652",
+   "new": "easycam",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2559
+  },
+  {
+   "old": "_j653",
+   "new": "easycamEnabled",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2560
+  },
+  {
+   "old": "_j654",
+   "new": "easycamTracking",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2561
+  },
+  {
+   "old": "_j655",
+   "new": "camCenterLerp",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2562
+  },
+  {
+   "old": "_j656",
+   "new": "camZoomLerp",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2563
+  },
+  {
+   "old": "_j657",
+   "new": "camStrokeCounter",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2564
+  },
+  {
+   "old": "_j658",
+   "new": "camZoomStrokeMark",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2565
+  },
+  {
+   "old": "_j659",
+   "new": "camZoomLevel",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2566
+  },
+  {
+   "old": "_j660",
+   "new": "camZoomIn",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2567
+  },
+  {
+   "old": "_j661",
+   "new": "camDistMin",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2568
+  },
+  {
+   "old": "_j662",
+   "new": "camDistMax",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2569
+  },
+  {
+   "old": "_j663",
+   "new": "camResetFromCenter",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2572
+  },
+  {
+   "old": "_j664",
+   "new": "camResetToCenter",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2573
+  },
+  {
+   "old": "_j665",
+   "new": "camResetting",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2574
+  },
+  {
+   "old": "_j666",
+   "new": "camResetStart",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2575
+  },
+  {
+   "old": "_j667",
+   "new": "camResetFromDist",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2576
+  },
+  {
+   "old": "_j668",
+   "new": "camResetToDist",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2577
+  },
+  {
+   "old": "_j669",
+   "new": "CAMERA_RESET_MS",
+   "cat": "data",
+   "note": "",
+   "status": "kept",
+   "line": 2578
+  },
+  {
+   "old": "_j670",
+   "new": "layerZAnimating",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2579
+  },
+  {
+   "old": "_j671",
+   "new": "layerZAnimStart",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2580
+  },
+  {
+   "old": "_j672",
+   "new": "layerZFrom",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2581
+  },
+  {
+   "old": "_j673",
+   "new": "layerZTarget",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2587
+  },
+  {
+   "old": "_j674",
+   "new": "layerZ",
+   "cat": "engine",
+   "note": "4 层 z 偏移 {0,40,80,120}",
+   "status": "kept",
+   "line": 2593
+  },
+  {
+   "old": "_j675",
+   "new": "layerBlurTarget",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2599
+  },
+  {
+   "old": "_j676",
+   "new": "layerBlur",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2605
+  },
+  {
+   "old": "_j677",
+   "new": "blurStartMillis",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2611
+  },
+  {
+   "old": "_j678",
+   "new": "BLUR_RAMP_MS",
+   "cat": "data",
+   "note": "",
+   "status": "kept",
+   "line": 2612
+  },
+  {
+   "old": "_j679",
+   "new": "blurActive",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2613
+  },
+  {
+   "old": "_j680",
+   "new": "blurNeedsRegen",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2614
+  },
+  {
+   "old": "_j681",
+   "new": "isFrameRecording",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2615
+  },
+  {
+   "old": "_j682",
+   "new": "frameRecordStart",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2616
+  },
+  {
+   "old": "_j683",
+   "new": "frameRecordList",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2618
+  },
+  {
+   "old": "_j684",
+   "new": "frameRecordSkip",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2619
+  },
+  {
+   "old": "_j685",
+   "new": "unused085",
+   "cat": "engine",
+   "note": "未使用",
+   "status": "kept",
+   "line": 2620
+  },
+  {
+   "old": "_j686",
+   "new": "overlayVisible",
+   "cat": "ui",
+   "note": "",
+   "status": "kept",
+   "line": 2621
+  },
+  {
+   "old": "_j687",
+   "new": "messageLog",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j688",
+   "new": "MESSAGE_LOG_MAX",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j689",
+   "new": "overlayDragOffset",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j690",
+   "new": "overlayPos",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j691",
+   "new": "controlPanelDragging",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j692",
+   "new": "controlPanelDragOffset",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j693",
+   "new": "controlPanelPos",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j694",
+   "new": "controlPanelVisible",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j695",
+   "new": "effectPanelDragging",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j696",
+   "new": "effectPanelDragOffset",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j697",
+   "new": "effectPanelPos",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j698",
+   "new": "effectPanelVisible",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j699",
+   "new": "flowPanelDragging",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j700",
+   "new": "flowPanelDragOffset",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j701",
+   "new": "flowPanelPos",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j702",
+   "new": "flowPanelVisible",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j703",
+   "new": "maskPanelDragging",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j704",
+   "new": "maskPanelDragOffset",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j705",
+   "new": "maskPanelPos",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j706",
+   "new": "maskPanelVisible",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j707",
+   "new": "unused707",
+   "cat": "engine",
+   "note": "未使用",
+   "status": "kept",
+   "line": 2673
+  },
+  {
+   "old": "_j708",
+   "new": "screenTextLines",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2675
+  },
+  {
+   "old": "_j709",
+   "new": "SCREEN_TEXT_MAX_LINES",
+   "cat": "data",
+   "note": "",
+   "status": "kept",
+   "line": 2676
+  },
+  {
+   "old": "_j710",
+   "new": "screenTextCounter",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2677
+  },
+  {
+   "old": "_j711",
+   "new": "screenTextX",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2678
+  },
+  {
+   "old": "_j712",
+   "new": "screenTextY0",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2679
+  },
+  {
+   "old": "_j713",
+   "new": "screenTextLineH",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2680
+  },
+  {
+   "old": "_j714",
+   "new": "screenTextAlpha",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2681
+  },
+  {
+   "old": "_j715",
+   "new": "SCREEN_TEXT_BUFFER_MAX",
+   "cat": "data",
+   "note": "",
+   "status": "kept",
+   "line": 2682
+  },
+  {
+   "old": "_j716",
+   "new": "pendingBugScan",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2683
+  },
+  {
+   "old": "_j717",
+   "new": "bugScanSeed",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 2684
+  },
+  {
+   "old": "_j761",
+   "new": "perfFrameCounter",
+   "cat": "debug",
+   "note": "",
+   "status": "kept",
+   "line": 3372
+  },
+  {
+   "old": "_j762",
+   "new": "PERF_SAMPLE_EVERY",
+   "cat": "debug",
+   "note": "",
+   "status": "kept",
+   "line": 3373
+  },
+  {
+   "old": "_j851",
+   "new": "testModeSnapshot",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j887",
+   "new": "dashTravelled",
+   "cat": "engine",
+   "note": "dash pattern state: distance travelled in current segment (was implicit global)",
+   "status": "kept",
+   "line": 1
+  },
+  {
+   "old": "_j912",
+   "new": "dashPenDown",
+   "cat": "engine",
+   "note": "dash pattern state: currently in the drawn segment (was implicit global)",
+   "status": "kept",
+   "line": 1
+  },
+  {
+   "old": "_j920",
+   "new": "BRANCH_FLIP_TABLE",
+   "cat": "data",
+   "note": "分叉首条 X/Y 翻转表（brushDir）",
+   "status": "kept",
+   "line": 5650
+  },
+  {
+   "old": "_j928",
+   "new": "BRANCH_OFFSETS_5",
+   "cat": "data",
+   "note": "5 条分叉偏移表",
+   "status": "kept",
+   "line": 5730
+  },
+  {
+   "old": "_j929",
+   "new": "BRANCH_OFFSETS_8",
+   "cat": "data",
+   "note": "8 条分叉（45°）",
+   "status": "kept",
+   "line": 5766
+  },
+  {
+   "old": "_j930",
+   "new": "BRANCH_OFFSETS_12",
+   "cat": "data",
+   "note": "12 条分叉（30°）",
+   "status": "kept",
+   "line": 5815
+  },
+  {
+   "old": "_j1027",
+   "new": "MARKER_LINES",
+   "cat": "data",
+   "note": "麦克笔平行线表",
+   "status": "kept",
+   "line": 6386
+  },
+  {
+   "old": "_j1052",
+   "new": "sprayParticles",
+   "cat": "engine",
+   "note": "Gothic/喷漆粒子（推测）",
+   "status": "kept",
+   "line": 6569
+  },
+  {
+   "old": "_j1053",
+   "new": "sprayParticleCounter",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 6570
+  },
+  {
+   "old": "_j1161",
+   "new": "buildInfoCache",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1166",
+   "new": "hintPositions",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1167",
+   "new": "hintDrag",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1188",
+   "new": "videoRecorder",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1189",
+   "new": "videoChunks",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1190",
+   "new": "videoStream",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1196",
+   "new": "refImgFlag",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1197",
+   "new": "refImgA",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1198",
+   "new": "refImgB",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1199",
+   "new": "REF_IMG_C",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1200",
+   "new": "refImgD",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1201",
+   "new": "refImgE",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1202",
+   "new": "refImgSrc",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1203",
+   "new": "refImgEdgeSrc",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1204",
+   "new": "refImgMode",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1387",
+   "new": "zenActive",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1388",
+   "new": "zenState",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1393",
+   "new": "PANEL_LAYOUTS",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1394",
+   "new": "panelLayoutIndex",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1421",
+   "new": "activeFlowButton",
+   "cat": "engine",
+   "note": "flow 按住期间的按钮/令牌",
+   "status": "kept",
+   "line": 10953
+  },
+  {
+   "old": "_j1422",
+   "new": "flowUiTimer",
+   "cat": "engine",
+   "note": "",
+   "status": "kept",
+   "line": 10954
+  },
+  {
+   "old": "_j1430",
+   "new": "performanceMonitor",
+   "cat": "debug",
+   "note": "",
+   "status": "kept",
+   "line": 11106
+  },
+  {
+   "old": "_j1519",
+   "new": "videoCaptureConfig",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  },
+  {
+   "old": "_j1525",
+   "new": "crc32Table",
+   "cat": "ui",
+   "note": "",
+   "status": "removed"
+  }
+ ],
+ "locals": {
+  "_j1533": [
+   "vertPath"
+  ],
+  "_j1534": [
+   "fragPath"
+  ],
+  "_j204": [
+   "vertSrc"
+  ],
+  "_j205": [
+   "fragSrc"
+  ],
+  "_j219": [
+   "nextPt",
+   "nextPt",
+   "nextPt",
+   "nextPt",
+   "nextPt",
+   "nextPt",
+   "nextPt"
+  ],
+  "_j224": [
+   "hasR"
+  ],
+  "_j225": [
+   "hasG"
+  ],
+  "_j226": [
+   "hasB"
+  ],
+  "_j533": [
+   "tileSize"
+  ],
+  "_j1537": [
+   "contrastPow",
+   "contrastPow"
+  ],
+  "_j232": [
+   "paperW"
+  ],
+  "_j233": [
+   "paperH"
+  ],
+  "_j235": [
+   "tile",
+   "tile"
+  ],
+  "_j237": [
+   "paperGfx"
+  ],
+  "_j1538": [
+   "stampSize"
+  ],
+  "_j243": [
+   "items",
+   "items",
+   "items",
+   "items",
+   "items",
+   "items",
+   "items",
+   "items"
+  ],
+  "_j253": [
+   "blobCfg",
+   "blobCfg",
+   "blobCfg",
+   "blobCfg"
+  ],
+  "_j254": [
+   "blobSize",
+   "blobSize"
+  ],
+  "_j255": [
+   "numVerts",
+   "numVerts"
+  ],
+  "_j256": [
+   "vertices",
+   "vertices"
+  ],
+  "_j264": [
+   "prevPt",
+   "prevPt",
+   "prevPt",
+   "prevPt",
+   "prevPt",
+   "prevPt"
+  ],
+  "_j265": [
+   "curPt",
+   "curPt"
+  ],
+  "_j277": [
+   "branchCfg",
+   "branchCfg",
+   "branchCfg",
+   "branchCfg"
+  ],
+  "_j282": [
+   "angle",
+   "angle",
+   "angle",
+   "angle"
+  ],
+  "_j1539": [
+   "buf",
+   "buf"
+  ],
+  "_j1540": [
+   "targetPoints_"
+  ],
+  "_j309": [
+   "target",
+   "target",
+   "target",
+   "target",
+   "target"
+  ],
+  "_j339": [
+   "sx",
+   "sx",
+   "sx"
+  ],
+  "_j340": [
+   "sy",
+   "sy",
+   "sy"
+  ],
+  "_j366": [
+   "recRandomCount"
+  ],
+  "_j370": [
+   "radius"
+  ],
+  "_j371": [
+   "cx",
+   "cx",
+   "cx"
+  ],
+  "_j372": [
+   "cy",
+   "cy",
+   "cy"
+  ],
+  "_j1543": [
+   "dashLength"
+  ],
+  "_j1544": [
+   "gapLength"
+  ],
+  "_j508": [
+   "cellSize",
+   "cellSize"
+  ],
+  "_j509": [
+   "flowActive_",
+   "flowActive_"
+  ],
+  "_j392": [
+   "labelX"
+  ],
+  "_j393": [
+   "labelY"
+  ],
+  "_j406": [
+   "isFramebuffer"
+  ],
+  "_j407": [
+   "dashOn",
+   "dashOn",
+   "dashOn"
+  ],
+  "_j408": [
+   "dashOff",
+   "dashOff",
+   "dashOff"
+  ],
+  "_j409": [
+   "segLen",
+   "segLen",
+   "segLen"
+  ],
+  "_j410": [
+   "travelled",
+   "travelled",
+   "travelled"
+  ],
+  "_j411": [
+   "dashLen",
+   "dashLen",
+   "dashLen"
+  ],
+  "_j412": [
+   "stepLen",
+   "stepLen",
+   "stepLen"
+  ],
+  "_j413": [
+   "segX",
+   "segX",
+   "segX"
+  ],
+  "_j414": [
+   "segY",
+   "segY",
+   "segY"
+  ],
+  "_j415": [
+   "lastPt",
+   "lastPt",
+   "lastPt"
+  ],
+  "_j416": [
+   "inset",
+   "inset"
+  ],
+  "_j417": [
+   "outX1"
+  ],
+  "_j418": [
+   "outY1"
+  ],
+  "_j419": [
+   "outX2"
+  ],
+  "_j420": [
+   "outY2"
+  ],
+  "_j421": [
+   "polyPts"
+  ],
+  "_j424": [
+   "draftX1"
+  ],
+  "_j425": [
+   "draftY1"
+  ],
+  "_j426": [
+   "draftX2"
+  ],
+  "_j427": [
+   "draftY2"
+  ],
+  "_j428": [
+   "homeCenter",
+   "homeCenter",
+   "homeCenter"
+  ],
+  "_j429": [
+   "fov",
+   "fov",
+   "fov",
+   "fov",
+   "fov"
+  ],
+  "_j431": [
+   "homeDist",
+   "homeDist",
+   "homeDist"
+  ],
+  "_j432": [
+   "camCenter",
+   "camCenter",
+   "camCenter"
+  ],
+  "_j433": [
+   "camDist",
+   "camDist",
+   "camDist",
+   "camDist"
+  ],
+  "_j436": [
+   "elapsed",
+   "elapsed",
+   "elapsed",
+   "elapsed"
+  ],
+  "_j437": [
+   "progress",
+   "progress",
+   "progress",
+   "progress",
+   "progress"
+  ],
+  "_j440": [
+   "curCenter",
+   "curCenter"
+  ],
+  "_j441": [
+   "curDist",
+   "curDist"
+  ],
+  "_j446": [
+   "tipX_",
+   "tipX_",
+   "tipX_",
+   "tipX_"
+  ],
+  "_j447": [
+   "tipY_",
+   "tipY_",
+   "tipY_",
+   "tipY_"
+  ],
+  "_j448": [
+   "defaultCamDist",
+   "defaultCamDist",
+   "defaultCamDist"
+  ],
+  "_j469": [
+   "cameraTracking",
+   "cameraTracking",
+   "cameraTracking",
+   "cameraTracking"
+  ],
+  "_j1545": [
+   "targetShader"
+  ],
+  "_j1546": [
+   "shaderKey"
+  ],
+  "_j1547": [
+   "force_"
+  ],
+  "_j483": [
+   "colorModeFlag",
+   "colorModeFlag"
+  ],
+  "_j487": [
+   "bgColor",
+   "bgColor",
+   "bgColor",
+   "bgColor"
+  ],
+  "_j488": [
+   "paperImg",
+   "paperImg"
+  ],
+  "_j498": [
+   "maskOn",
+   "maskOn"
+  ],
+  "_j499": [
+   "testModeOn",
+   "testModeOn"
+  ],
+  "_j500": [
+   "tipOffset",
+   "tipOffset"
+  ],
+  "_j501": [
+   "margin"
+  ],
+  "_j502": [
+   "frameX1"
+  ],
+  "_j503": [
+   "frameY1"
+  ],
+  "_j504": [
+   "frameX2"
+  ],
+  "_j505": [
+   "frameY2"
+  ],
+  "_j510": [
+   "drawX",
+   "drawX"
+  ],
+  "_j511": [
+   "drawY",
+   "drawY"
+  ],
+  "_j1568": [
+   "response"
+  ],
+  "_j739": [
+   "canvasEl"
+  ],
+  "_j740": [
+   "zenModeBtnEl"
+  ],
+  "_j741": [
+   "showPressure"
+  ],
+  "_j742": [
+   "onPenPointer"
+  ],
+  "_j743": [
+   "onTouchForce"
+  ],
+  "_j744": [
+   "isStylus"
+  ],
+  "_j745": [
+   "touchForce"
+  ],
+  "_j746": [
+   "canvasEl",
+   "canvasEl"
+  ],
+  "_j767": [
+   "defaultCanvas0El"
+  ],
+  "_j768": [
+   "fxDbgOvrEl"
+  ],
+  "_j769": [
+   "overlayCtx"
+  ],
+  "_j770": [
+   "fxhashCaptureCanvasEl"
+  ],
+  "_j771": [
+   "defaultCanvas0El_"
+  ],
+  "_j772": [
+   "frozenImg"
+  ],
+  "_j773": [
+   "captureCtx"
+  ],
+  "_j774": [
+   "lines",
+   "lines"
+  ],
+  "_j785": [
+   "isDown"
+  ],
+  "_j786": [
+   "canDraw"
+  ],
+  "_j787": [
+   "inBounds"
+  ],
+  "_j810": [
+   "isDown2"
+  ],
+  "_j811": [
+   "feedbackActive"
+  ],
+  "_j779": [
+   "nextEvent",
+   "nextEvent"
+  ],
+  "_j780": [
+   "eventKind",
+   "eventKind"
+  ],
+  "_j781": [
+   "isPress",
+   "isPress"
+  ],
+  "_j782": [
+   "evtTime"
+  ],
+  "_j783": [
+   "playbackElapsed",
+   "playbackElapsed"
+  ],
+  "_j784": [
+   "timeUntil",
+   "timeUntil"
+  ],
+  "_j788": [
+   "frameSeed"
+  ],
+  "_j806": [
+   "moved"
+  ],
+  "_j807": [
+   "minMove"
+  ],
+  "_j789": [
+   "roll",
+   "roll",
+   "roll"
+  ],
+  "_j790": [
+   "altValue",
+   "altValue",
+   "altValue"
+  ],
+  "_j791": [
+   "grayTarget",
+   "grayTarget"
+  ],
+  "_j792": [
+   "pressure"
+  ],
+  "_j793": [
+   "prevBaseSize"
+  ],
+  "_j794": [
+   "sizeLadder"
+  ],
+  "_j795": [
+   "strokeBaseSize"
+  ],
+  "_j796": [
+   "ladderIdx"
+  ],
+  "_j797": [
+   "ladderBoost"
+  ],
+  "_j798": [
+   "newLadderIdx"
+  ],
+  "_j800": [
+   "jitterSeed"
+  ],
+  "_j801": [
+   "jitterX"
+  ],
+  "_j802": [
+   "jitterY"
+  ],
+  "_j803": [
+   "recX"
+  ],
+  "_j804": [
+   "recY"
+  ],
+  "_j805": [
+   "mdEvent"
+  ],
+  "_j808": [
+   "strokeProgress",
+   "strokeProgress",
+   "strokeProgress",
+   "strokeProgress",
+   "strokeProgress",
+   "strokeProgress"
+  ],
+  "_j809": [
+   "sprayRoll",
+   "sprayRoll"
+  ],
+  "_j812": [
+   "savedSeed"
+  ],
+  "_j813": [
+   "scanJob",
+   "scanJob"
+  ],
+  "_j816": [
+   "savedSeed",
+   "savedSeed"
+  ],
+  "_j814": [
+   "bugsSizeEl",
+   "bugsSizeEl",
+   "bugsSizeEl",
+   "bugsSizeEl"
+  ],
+  "_j815": [
+   "bugsSizeValueEl",
+   "bugsSizeValueEl",
+   "bugsSizeValueEl",
+   "bugsSizeValueEl"
+  ],
+  "_j817": [
+   "outsideMargin"
+  ],
+  "_j820": [
+   "sinceLastStroke",
+   "sinceLastStroke",
+   "sinceLastStroke"
+  ],
+  "_j833": [
+   "zTargets"
+  ],
+  "_j835": [
+   "pressedNow"
+  ],
+  "_j869": [
+   "evtType",
+   "evtType",
+   "evtType",
+   "evtType_",
+   "evtType"
+  ],
+  "_j864": [
+   "strokes",
+   "strokes"
+  ],
+  "_j866": [
+   "scanIdx"
+  ],
+  "_j871": [
+   "futureStroke"
+  ],
+  "_j876": [
+   "polyline"
+  ],
+  "_j894": [
+   "firstPt",
+   "firstPt"
+  ],
+  "_j877": [
+   "segIdx"
+  ],
+  "_j878": [
+   "nextIdx"
+  ],
+  "_j882": [
+   "speedPx"
+  ],
+  "_j887": [
+   "dashTravelled_",
+   "dashTravelled_"
+  ],
+  "_j890": [
+   "segDist"
+  ],
+  "_j898": [
+   "visibleLines"
+  ],
+  "_j902": [
+   "dividerY"
+  ],
+  "_j909": [
+   "highlightMs"
+  ],
+  "_j910": [
+   "halfHighlightMs"
+  ],
+  "_j912": [
+   "dashPenDown_"
+  ],
+  "_j1548": [
+   "maxWidth"
+  ],
+  "_j913": [
+   "words"
+  ],
+  "_j914": [
+   "currentLine"
+  ],
+  "_j915": [
+   "testLine"
+  ],
+  "_j918": [
+   "pad",
+   "pad"
+  ],
+  "_j919": [
+   "flowIterationCountEl",
+   "flowIterationCountEl_",
+   "flowIterationCountEl"
+  ],
+  "_j931": [
+   "inkValue",
+   "inkValue",
+   "inkValue",
+   "inkValue",
+   "inkValue",
+   "inkValue",
+   "inkValue",
+   "inkValue"
+  ],
+  "_j975": [
+   "curX",
+   "curX",
+   "curX",
+   "curX"
+  ],
+  "_j976": [
+   "curY",
+   "curY",
+   "curY",
+   "curY"
+  ],
+  "_j922": [
+   "effBaseSize"
+  ],
+  "_j923": [
+   "isTinyBrush",
+   "isTinyBrush",
+   "isTinyBrush"
+  ],
+  "_j925": [
+   "clampedBase"
+  ],
+  "_j1550": [
+   "penX",
+   "penX",
+   "penX",
+   "penX",
+   "penX",
+   "penX"
+  ],
+  "_j1551": [
+   "penY",
+   "penY",
+   "penY",
+   "penY",
+   "penY",
+   "penY"
+  ],
+  "_j933": [
+   "fromX",
+   "fromX",
+   "fromX"
+  ],
+  "_j934": [
+   "fromY",
+   "fromY",
+   "fromY"
+  ],
+  "_j936": [
+   "effBaseSize"
+  ],
+  "_j938": [
+   "numDots"
+  ],
+  "_j939": [
+   "fadeIn",
+   "fadeIn",
+   "fadeIn"
+  ],
+  "_j940": [
+   "fadeOut",
+   "fadeOut",
+   "fadeOut"
+  ],
+  "_j942": [
+   "dotScale"
+  ],
+  "_j943": [
+   "dotAngle"
+  ],
+  "_j947": [
+   "manhattan"
+  ],
+  "_j530": [
+   "flyBrushType",
+   "flyBrushType",
+   "flyBrushType"
+  ],
+  "_j1552": [
+   "mainStrokeDir",
+   "mainStrokeDir",
+   "mainStrokeDir"
+  ],
+  "_j953": [
+   "effBaseSize"
+  ],
+  "_j955": [
+   "pressureScale"
+  ],
+  "_j963": [
+   "ctlNoiseByFrame"
+  ],
+  "_j971": [
+   "interpCount"
+  ],
+  "_j991": [
+   "mainAlpha",
+   "mainAlpha_",
+   "mainAlpha_"
+  ],
+  "_j998": [
+   "flipCfg"
+  ],
+  "_j999": [
+   "flipX1",
+   "flipX1"
+  ],
+  "_j1000": [
+   "flipY1",
+   "flipY1"
+  ],
+  "_j1001": [
+   "flipX2",
+   "flipX2"
+  ],
+  "_j1002": [
+   "flipY2",
+   "flipY2"
+  ],
+  "_j1016": [
+   "rotJitter",
+   "rotJitter"
+  ],
+  "_j1553": [
+   "prevPenX",
+   "prevPenX"
+  ],
+  "_j1554": [
+   "prevPenY",
+   "prevPenY"
+  ],
+  "_j1019": [
+   "effBaseSize"
+  ],
+  "_j1020": [
+   "baseSizeNow"
+  ],
+  "_j1028": [
+   "effBaseSize"
+  ],
+  "_j1031": [
+   "moveDx",
+   "moveDx"
+  ],
+  "_j1032": [
+   "moveDy",
+   "moveDy"
+  ],
+  "_j1033": [
+   "moveLen",
+   "moveLen"
+  ],
+  "_j1039": [
+   "numSteps",
+   "numSteps"
+  ],
+  "_j1041": [
+   "moveFactor",
+   "moveFactor"
+  ],
+  "_j1043": [
+   "item",
+   "item"
+  ],
+  "_j1046": [
+   "heading",
+   "heading"
+  ],
+  "_j1049": [
+   "markerLine",
+   "markerLine"
+  ],
+  "_j1050": [
+   "flyWhiteRand",
+   "flyWhiteRand"
+  ],
+  "_j1058": [
+   "flySeed"
+  ],
+  "_j1069": [
+   "gdx"
+  ],
+  "_j1070": [
+   "gdy"
+  ],
+  "_j1071": [
+   "moveDist"
+  ],
+  "_j1092": [
+   "particle"
+  ],
+  "_j1097": [
+   "speedScale"
+  ],
+  "_j1109": [
+   "effBaseSize"
+  ],
+  "_j1111": [
+   "isTinyFly"
+  ],
+  "_j1112": [
+   "isSmallFly"
+  ],
+  "_j1113": [
+   "cacheKey"
+  ],
+  "_j1125": [
+   "nearEnd"
+  ],
+  "_j1134": [
+   "offsetNoise"
+  ],
+  "_j1150": [
+   "widthNoise"
+  ],
+  "_j1157": [
+   "prevWeight"
+  ],
+  "_j1251": [
+   "sizeName"
+  ],
+  "_j1215": [
+   "newEffect"
+  ],
+  "_j1218": [
+   "blendValue"
+  ],
+  "_j1223": [
+   "colorLabels",
+   "colorLabels"
+  ],
+  "_j1224": [
+   "namedColor"
+  ],
+  "_j1225": [
+   "customBrushColorEl"
+  ],
+  "_j1226": [
+   "customBrushColorTextEl"
+  ],
+  "_j1257": [
+   "modeValue"
+  ],
+  "_j1428": [
+   "flowResult"
+  ],
+  "_j1563": [
+   "value"
+  ],
+  "_j1442": [
+   "recSeed"
+  ],
+  "_j1446": [
+   "tint"
+  ],
+  "_j1448": [
+   "lastEventT"
+  ],
+  "_j1457": [
+   "panelToggles"
+  ],
+  "_j1476": [
+   "firstEvent"
+  ],
+  "_j1458": [
+   "toggleCfg",
+   "toggleCfg",
+   "toggleCfg"
+  ],
+  "_j1459": [
+   "toggleValue"
+  ],
+  "_j1460": [
+   "toggleEl",
+   "toggleEl",
+   "toggleEl"
+  ],
+  "_j1400": [
+   "metallicStrengthEl",
+   "metallicStrengthEl"
+  ],
+  "_j1401": [
+   "metallicStrengthValueEl",
+   "metallicStrengthPct"
+  ],
+  "_j1402": [
+   "metallicFlowEl",
+   "metallicFlowEl"
+  ],
+  "_j1403": [
+   "metallicFlowValueEl",
+   "metallicFlowPct"
+  ],
+  "_j1467": [
+   "slidersEl",
+   "slidersEl"
+  ],
+  "_j1468": [
+   "distortFbmPreviewToggleEl",
+   "distortFbmPreviewToggleEl"
+  ],
+  "_j1470": [
+   "flowStrengthEl"
+  ],
+  "_j1471": [
+   "flowStrengthValueEl"
+  ],
+  "_j1472": [
+   "distortDisplacementBEl"
+  ],
+  "_j1473": [
+   "distortDisplacementBValueEl"
+  ],
+  "_j1474": [
+   "distortDisplacementCEl"
+  ],
+  "_j1475": [
+   "distortDisplacementCValueEl"
+  ],
+  "_j1489": [
+   "strokeIdxLabel"
+  ],
+  "_j1492": [
+   "evShapeType",
+   "evShapeType"
+  ],
+  "_j1410": [
+   "bugsSizeValue",
+   "bugsSizeValue",
+   "bugsSizeValue"
+  ],
+  "_j1495": [
+   "metallicStrengthValueEl"
+  ],
+  "_j1496": [
+   "metallicFlowValueEl"
+  ],
+  "_j1510": [
+   "isRelease"
+  ],
+  "_j1511": [
+   "isEc"
+  ],
+  "_j1513": [
+   "isMask"
+  ],
+  "_j1514": [
+   "isDrag",
+   "isDrag"
+  ]
+ },
+ "removedStatements": [
+  "window.Crandom@208",
+  "_j4@446",
+  "_j5@458",
+  "module.exports@486",
+  "window.gridCommitPrev@1622",
+  "_j35@3185",
+  "_j36@3225",
+  "keyPressed@4290",
+  "testMaskRect@4753",
+  "window.testMaskRect@4763",
+  "window.clearMask@4764",
+  "window.drawMaskRect@4765",
+  "window.drawMaskPolygon@4766",
+  "_j38@4769",
+  "enterTestMode@4779",
+  "exitTestMode@4801",
+  "window.enterTestMode@4827",
+  "window.exitTestMode@4828",
+  "_j47@5478",
+  "touchStarted@5489",
+  "touchMoved@5505",
+  "touchEnded@5512",
+  "_j48@5525",
+  "_j66@7053",
+  "_j67@7056",
+  "_j68@7086",
+  "_j69@7092",
+  "_j70@7103",
+  "_j71@7113",
+  "_j72@7123",
+  "_j73@7142",
+  "_j74@7156",
+  "_j75@7174",
+  "_j76@7182",
+  "_j77@7194",
+  "_j78@7204",
+  "_j79@7214",
+  "_j80@7222",
+  "_j81@7234",
+  "_j82@7244",
+  "_j83@7254",
+  "_j84@7262",
+  "_j85@7274",
+  "_j86@7284",
+  "_j87@7294",
+  "_j88@7302",
+  "_j89@7314",
+  "_j90@7324",
+  "_j91@7334",
+  "_j92@7342",
+  "_j93@7348",
+  "_j94@7363",
+  "_j95@7377",
+  "_j96@7380",
+  "_j97@7387",
+  "_j98@7397",
+  "_j99@7412",
+  "_j100@7430",
+  "_j101@7436",
+  "_j102@7493",
+  "_j103@7541",
+  "_j104@7566",
+  "_j105@7591",
+  "_j106@7616",
+  "_j107@7641",
+  "_j108@7655",
+  "_j109@7669",
+  "_j110@7675",
+  "_j111@7701",
+  "_j113@7728",
+  "_j114@7758",
+  "_j115@7773",
+  "_j116@7783",
+  "_j117@7795",
+  "_j118@7815",
+  "_j119@7846",
+  "_j120@7849",
+  "_j121@7895",
+  "_j122@7935",
+  "_j123@7948",
+  "_j124@7994",
+  "_j125@8019",
+  "_j128@8074",
+  "_j131@8108",
+  "_j134@8169",
+  "_j135@8186",
+  "_j137@8301",
+  "_j139@8374",
+  "_j140@8387",
+  "_j142@8485",
+  "_j143@8537",
+  "_j144@8552",
+  "_j145@8563",
+  "_j146@8914",
+  "_j147@8979",
+  "_j148@9015",
+  "_j149@9038",
+  "_j150@9042",
+  "_j151@9054",
+  "_j152@9095",
+  "_j153@9164",
+  "_j155@10373",
+  "_j156@10386",
+  "_j157@10395",
+  "_j158@10449",
+  "_j159@10464",
+  "_j160@10535",
+  "activateZenMode@10557",
+  "window.activateZenMode@10561",
+  "scheduleMobilePhoneZenMode@10562",
+  "window.scheduleMobilePhoneZenMode@10586",
+  "_j161@10587",
+  "_j162@10698",
+  "_j163@10706",
+  "_j164@10713",
+  "_j165@10724",
+  "_j166@10753",
+  "_j168@10814",
+  "_j169@10855",
+  "_j170@10955",
+  "window.testPerformanceMonitor@11218",
+  "_j184@11516",
+  "_j185@11529",
+  "_j186@11541",
+  "_j187@11564",
+  "_j192@11721",
+  "_j193@11758",
+  "window.startPlayback@12348",
+  "_j197@13279",
+  "_j198@13334",
+  "_j199@13382",
+  "startVideoFrameCapture@13419",
+  "_j200@13457",
+  "_j201@13484",
+  "_j202@13547",
+  "_j203@13562",
+  "window.startVideoFrameCapture@13627"
+ ],
+ "freeToWin": {
+  "crandom": 262,
+  "doSpotNoise": 1,
+  "boidSpawners": 5,
+  "doBoids": 2,
+  "doEffect": 4,
+  "doDemo": 1,
+  "fxhashDebugMode": 2,
+  "$fx": 14,
+  "crandomDebugger": 18,
+  "_playbackPenPressure": 4,
+  "loopToggle": 7,
+  "boidsSeed": 4,
+  "playbackLastStrokeEndTime": 3,
+  "playbackLastStrokeEndEventTime": 6,
+  "playbackStrokeIndex": 5,
+  "playbackLastStrokeBrushMode": 5,
+  "loopWaitDuration": 4
+ }
+}

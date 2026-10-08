@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>InkEngine demo (inkField restoration)</title>
+<style>
+  html { overflow-y: scroll; } /* always reserve the scrollbar so clientWidth is stable */
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { font: 13px/1.4 system-ui, sans-serif; background: #f2efe9; color: #333; }
+  header { padding: 8px 12px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; background: #fff; border-bottom: 1px solid #ddd; }
+  header label { display: inline-flex; gap: 4px; align-items: center; }
+  #stage { margin: 0; padding: 0; line-height: 0; }
+  #stage canvas { display: block; }
+  #status { color: #777; margin-left: auto; }
+  #status.err { color: #b00020; font-weight: 600; }
+  button { cursor: pointer; }
+</style>
+</head>
+<body>
+<header>
+  <label>笔刷 <select id="mode">
+    <option value="1">1 brush 大筆</option><option value="2">2 marker 小筆</option><option value="3">3 gothic 特大筆</option>
+    <option value="4">4 pen 速寫</option><option value="5">5 dots 點畫</option><option value="6">6 fly 飛白</option><option value="7">7 brushSP</option>
+  </select></label>
+  <label>尺寸 <select id="size">
+    <option>ultra-small</option><option>extra-small</option><option>small</option><option>medium</option>
+    <option selected>large</option><option>extra-large</option><option>extra-extra-large</option><option>huge</option>
+  </select></label>
+  <label>墨效 <select id="effect">
+    <option value="0">0 Mix Diffusion</option><option value="1">1 Sharpen Edge</option><option value="2">2 Flying White</option>
+    <option value="3">3 Wet Ink</option><option value="4">4 Effect 4</option><option value="5">5 Hair Texture</option>
+  </select></label>
+  <label>混色 <select id="blend"><option value="0">mix</option><option value="1">multiply</option><option value="2">darken</option><option value="3">spectral</option></select></label>
+  <label>颜色 <select id="color"></select></label>
+  <label>自定义 <input type="color" id="custom" value="#8a2a1f"></label>
+  <label><input type="checkbox" id="grid"> 网格</label>
+  <label><input type="checkbox" id="paper"> 纸纹</label>
+  <button id="clear" disabled>清空</button>
+  <button id="play" disabled>播放 demo.json</button>
+  <label>载入录制 <input type="file" id="file" accept=".json,application/json" disabled></label>
+  <button id="stop" disabled>停止</button>
+  <button id="rec" disabled>录制</button>
+  <span id="status">loading…</span>
+</header>
+<div id="stage"></div>
+<script src="p5.min.js"></script>
+<script src="ink-engine.js"></script>
+<!-- the demo recording as a script: works from file:// (double-click) where fetch('demo.json') is blocked -->
+<script src="demo-data.js"></script>
+<script>
+  const $ = (id) => document.getElementById(id);
+  const status = (t, isErr) => { const el = $('status'); el.textContent = t; el.className = isErr ? 'err' : ''; };
+  const HEIGHT = 1200; // 2× the original 600 px demo height
+  // full page width without a horizontal scrollbar (clientWidth excludes the vertical scrollbar that the
+  // 1200 px tall canvas causes; window.innerWidth would include it and overflow horizontally)
+  const pageWidth = () => document.documentElement.clientWidth || window.innerWidth;
+  const ink = InkEngine.create({ container: 'stage', width: pageWidth(), height: HEIGHT, pixelDensity: 1, toggles: { grid: false } });
+  window.ink = ink;
+  InkEngine.COLOR_NAMES.forEach((n) => { if (n !== 'custom') $('color').add(new Option(n, n)); });
+  const enable = (on) => ['clear', 'play', 'file', 'stop', 'rec'].forEach((id) => ($(id).disabled = !on));
+  const report = (err) => { console.warn(err); status('出错：' + (err && err.message ? err.message : err), true); };
+  ink.on('error', report);
+  ink.on('playbackEnded', () => status('playback ended'));
+  ink.ready.then(() => { enable(true); status('ready — 在画布上拖动鼠标作画（' + ink.p.width + '×' + ink.p.height + '）'); });
+  $('mode').onchange = (e) => ink.setBrush({ mode: +e.target.value });
+  $('size').onchange = (e) => ink.setBrush({ size: e.target.value });
+  $('effect').onchange = (e) => ink.setBrush({ effect: +e.target.value });
+  $('blend').onchange = (e) => ink.setBrush({ blend: +e.target.value });
+  $('color').onchange = (e) => ink.setColor(e.target.value);
+  $('custom').oninput = (e) => ink.setColor(e.target.value);
+  $('grid').onchange = (e) => ink.setOptions({ grid: e.target.checked });
+  $('paper').onchange = (e) => ink.setOptions({ paper: e.target.checked });
+  $('clear').onclick = () => { ink.stop(); ink.clear(); status('cleared'); };
+  const toggles = () => ({ grid: $('grid').checked, paper: $('paper').checked });
+  async function playScene(scene, label) {
+    try {
+      ink.stop();
+      ink.clear();
+      await ink.play(scene, { toggles: toggles() });
+      const cs = ink.core.state.recordingData.canvasSize || {};
+      status('playing ' + label + (cs.width ? '（录制尺寸 ' + cs.width + '×' + cs.height + '，按原版规则以绝对像素坐标、不缩放播放）' : ''));
+    } catch (err) { report(err); }
+  }
+  // prefer the embedded object (file:// safe); fall back to fetching demo.json over http
+  $('play').onclick = () => playScene(window.INK_DEMO_RECORDING || 'demo.json', 'demo.json');
+  $('file').onchange = (e) => {
+    const f = e.target.files[0];
+    if (!f) return;
+    const r = new FileReader();
+    r.onload = () => { let data; try { data = JSON.parse(r.result); } catch (err) { report(new Error(f.name + ' 不是有效的 JSON：' + err.message)); return; } playScene(data, f.name); };
+    r.onerror = () => report(new Error('无法读取 ' + f.name));
+    r.readAsText(f);
+    e.target.value = '';
+  };
+  $('stop').onclick = () => { ink.stop(); status('stopped'); };
+  let recording = false;
+  $('rec').onclick = () => {
+    if (!recording) { ink.record(); recording = true; $('rec').textContent = '停止录制'; status('recording…'); return; }
+    const data = ink.stopRecording(); recording = false; $('rec').textContent = '录制';
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(data)], { type: 'application/json' }));
+    a.download = 'ink-recording.json'; a.click();
+    status('recorded ' + data.events.length + ' events');
+  };
+  // keep the canvas as wide as the page (height fixed at 1200). resize() recreates the engine, so debounce it
+  // and only react to real width changes; the drawing on the canvas is lost on resize.
+  let lastW = pageWidth(), timer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(timer);
+    timer = setTimeout(async () => {
+      const w = pageWidth();
+      if (w === lastW || w < 200) return;
+      lastW = w;
+      recording = false; $('rec').textContent = '录制';
+      enable(false); status('resizing to ' + w + '×' + HEIGHT + '…');
+      try { await ink.resize(w, HEIGHT); enable(true); status('resized to ' + w + '×' + HEIGHT + '（画面已重建）'); } catch (err) { report(err); }
+    }, 300);
+  });
+</script>
+</body>
+</html>

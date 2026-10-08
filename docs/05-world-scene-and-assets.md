@@ -4,7 +4,7 @@
 
 ## 已实现 API（旧原型）
 
-`createScenePlugin()`、`createCameraPlugin()`、`createInputPlugin()`、`parseSceneJSON()` 与 `loadSceneJSON()` 提供圆体/笔画的最小场景格式；加载前会解析校验，但写入不是事务回滚。可对照 [墨渡场景](../apps/inkcross/scene.json)；目前没有通用角色组件/异步资源管理或 Pixi 显示树。
+`createScenePlugin()`、`createCameraPlugin()`、`createInputPlugin()`、`parseSceneJSON()` 与 `loadSceneJSON()` 提供圆体/笔画的最小场景格式；加载前会解析校验，但写入不是事务回滚。可对照 [旧墨渡场景测试数据](../tests/fixtures/inkcross-scene.json)；目前没有通用角色组件/异步资源管理或 Pixi 显示树。
 
 ## 设计目标
 

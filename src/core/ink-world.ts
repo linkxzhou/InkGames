@@ -25,6 +25,7 @@ export class InkWorld {
   private readonly platforms = new Map<number, Body[]>();
   private readonly bridges = new Map<number, InkBridge[]>();
   private readonly shots = new Map<number, InkProjectile>();
+  private readonly shotAge = new Map<number, number>();
   private readonly pendingImpacts: InkImpact[] = [];
   private nextId = 1;
   private movement = 0;
@@ -54,6 +55,7 @@ export class InkWorld {
         if (other === this.player) continue;
         this.pendingImpacts.push({ id: shot.id, x: body.position.x, y: body.position.y });
         this.shots.delete(body.id);
+        this.shotAge.delete(body.id);
         Composite.remove(this.physics.world, body);
       }
     }
@@ -70,6 +72,7 @@ export class InkWorld {
     });
     const id = this.nextId++;
     this.shots.set(body.id, { id, body });
+    this.shotAge.set(body.id, 0);
     Composite.add(this.physics.world, body);
     const dx = toX - fromX;
     const dy = toY - fromY;
@@ -149,6 +152,17 @@ export class InkWorld {
   step(dt: number): void {
     if (!Number.isFinite(dt) || dt <= 0) throw new Error('Invalid physics step');
     MatterEngine.update(this.physics, dt * 1000);
+    for (const [bodyId, shot] of this.shots) {
+      const age = (this.shotAge.get(bodyId) ?? 0) + 1;
+      if (age < 150 && shot.body.position.x >= -50 && shot.body.position.x <= 1330 &&
+          shot.body.position.y >= -50 && shot.body.position.y <= 770) {
+        this.shotAge.set(bodyId, age);
+        continue;
+      }
+      Composite.remove(this.physics.world, shot.body);
+      this.shots.delete(bodyId);
+      this.shotAge.delete(bodyId);
+    }
     if (this.actionSteps > 0) {
       this.actionSteps--;
       this.stateValue = this.action ?? 'idle';
@@ -169,6 +183,7 @@ export class InkWorld {
   resetPlayer(): void {
     for (const shot of this.shots.values()) Composite.remove(this.physics.world, shot.body);
     this.shots.clear();
+    this.shotAge.clear();
     this.pendingImpacts.length = 0;
     Body.setPosition(this.player, { x: 180, y: 135 });
     Body.setVelocity(this.player, { x: 0, y: 0 });
@@ -181,6 +196,7 @@ export class InkWorld {
   dispose(): void {
     Events.off(this.physics, 'collisionStart', this.handleCollision);
     this.shots.clear();
+    this.shotAge.clear();
     this.pendingImpacts.length = 0;
     Composite.clear(this.physics.world, false);
     MatterEngine.clear(this.physics);

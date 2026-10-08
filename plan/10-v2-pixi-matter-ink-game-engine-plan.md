@@ -99,7 +99,7 @@ apps/
 
 ## 6. 阶段、依赖与验收（按实际证据更新，未验收不标完成）
 
-> 2026-10-08 迁移记录：`pixi.js@8.22.0` / `matter-js@0.20.0` 已安装并登记；已新增 `InkWorld` Matter 桥碎段/FSM 单测、`InkStage` Pixi 单画布原型、十张卡与十子路由；`./build.sh check` 41 项测试通过、`./build.sh build` 成功；弓/墨弹已接入 Matter 投射物首碰撞事实，碰撞后才生成墨喷与涟漪（CPU 单测通过，新页面仍未实测）。`./build.sh browser` 当前**仅验证旧 p5 两页**，同时报告旧墨量路径对账偏差约 72%，**没有验证新 Pixi 页面**；内嵌浏览器控制桥不可用，Pixi 滤镜/Shader、真实 GPU 性能和十页交互均未实测。参考版授权书不在仓库，采用独立实现但公开发布门槛未满足。旧 `apps/inkcross`、`apps/wuxia` 与旧 API 暂留作迁移基线，不能提前删除。
+> 2026-10-08 迁移记录：`pixi.js@8.22.0` / `matter-js@0.20.0` 已安装并登记；已新增 `InkWorld` Matter 桥碎段/FSM 单测、`InkStage` Pixi 单画布原型、十张卡与十子路由；`./build.sh check` 42 项测试通过、`./build.sh build` 成功；弓/墨弹已接入 Matter 首碰撞事实与未命中投射物回收，撞击后才生成墨喷与涟漪；`ItemPreset.action` 已分出枪直刺、马奔跑/蹄迹、旗风/旗面、舟行/水纹等页面行为（CPU 单测通过，新页面仍未实测，旗面为 Graphics 草图非 Mesh）。`./build.sh browser` 当前**仅验证旧 p5 两页**，同时报告旧墨量路径对账偏差约 72%，**没有验证新 Pixi 页面**；内嵌浏览器控制桥不可用，Pixi 滤镜/Shader、真实 GPU 性能和十页交互均未实测。参考版授权书不在仓库，采用独立实现但公开发布门槛未满足。旧 `apps/inkcross`、`apps/wuxia` 与旧 API 暂留作迁移基线，不能提前删除。
 
 | 阶段 | 前置与落地工作 | 退出条件 |
 |---|---|---|

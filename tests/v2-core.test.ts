@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { InkWorld } from '../src/core/ink-world';
-import { ITEM_PRESETS } from '../src/plugins/items';
+import { ITEM_PRESETS, getItemPreset, validateItemPreset } from '../src/plugins/items';
 
 describe('2.0 内建物理与道具', () => {
   it('固定步使角色落在平台上且只维护一个物理世界', () => {
@@ -63,9 +63,35 @@ describe('2.0 内建物理与道具', () => {
     world.dispose();
   });
 
+  it('未命中的投射物离开世界后清理且不会伪造溅墨', () => {
+    const world = new InkWorld();
+    world.launchProjectile(640, 80, 640, -100);
+    world.physics.gravity.y = 0;
+    for (let i = 0; i < 180; i++) world.step(1 / 60);
+    expect(world.projectiles).toHaveLength(0);
+    expect(world.drainImpacts()).toEqual([]);
+    world.dispose();
+  });
+
+  it('道具协议拒绝缺失效果、重复 ID 与不兼容版本', () => {
+    const sword = getItemPreset('sword');
+    expect(() => validateItemPreset(sword)).not.toThrow();
+    expect(() => validateItemPreset({ ...sword, version: '2.0.0' })).toThrow(/version/i);
+    expect(() => validateItemPreset({ ...sword, effects: ['slash', 'unknown'] })).toThrow(/effect/i);
+    expect(() => validateItemPreset({ ...sword, effects: ['slash', 'slash'] })).toThrow(/duplicate/i);
+    expect(() => validateItemPreset({ ...sword, action: 'projectile', effects: ['slash'] })).toThrow(/projectile/i);
+  });
+
   it('十个道具各有独立路由和实际效果组合', () => {
     expect(ITEM_PRESETS).toHaveLength(10);
     expect(new Set(ITEM_PRESETS.map(item => item.id)).size).toBe(10);
-    for (const item of ITEM_PRESETS) expect(item.effects.length).toBeGreaterThan(0);
+    for (const item of ITEM_PRESETS) {
+      expect(item.effects.length).toBeGreaterThan(0);
+      expect(item.action).toBeDefined();
+    }
+    expect(ITEM_PRESETS.find(item => item.id === 'spear')?.action).toBe('thrust');
+    expect(ITEM_PRESETS.find(item => item.id === 'bow')?.action).toBe('projectile');
+    expect(ITEM_PRESETS.find(item => item.id === 'war-horse')?.action).toBe('gallop');
+    expect(ITEM_PRESETS.find(item => item.id === 'banner')?.action).toBe('wind');
   });
 });
