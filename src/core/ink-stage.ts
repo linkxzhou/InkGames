@@ -5,6 +5,11 @@ import {
   INK_BLACK, INK_CINNABAR, INK_INDIGO, INK_PINE, INK_TEA, InkWash,
   type InkPigment, type InkStrokeStyle,
 } from './ink-wash';
+import {
+  aimMotif, arrowMotif, bannerMotif, bladeMotif, boatMotif, bowMotif, buttMotif,
+  dashMotif, horseMotif, inkBombMotif, shieldMotif, spearMotif, splashMotif, spillMotif,
+  swordMotif, targetMotif, waterBody, waterBrushMotif, type MotifStroke,
+} from './ink-motifs';
 import type { ItemPreset } from '../plugins/items';
 
 export interface InkStageOptions {
@@ -14,12 +19,7 @@ export interface InkStageOptions {
 }
 
 interface Mark { readonly id: number; readonly x: number; readonly y: number; hit: boolean }
-interface Ripple { readonly x: number; readonly y: number; age: number }
 interface BridgeSpec { readonly x: number; readonly y: number; readonly width: number; readonly locked: boolean }
-
-const RING: readonly (readonly [number, number])[] = [
-  [1, 0], [0.707, 0.707], [0, 1], [-0.707, 0.707], [-1, 0], [-0.707, -0.707], [0, -1], [0.707, -0.707],
-];
 
 /**
  * One Pixi canvas, one Matter world, one ink sheet.
@@ -48,7 +48,6 @@ export class InkStage {
   private threatWait = 30;
   private readonly keys = new Set<string>();
   private readonly observers: Array<() => void> = [];
-  private readonly ripples: Ripple[] = [];
   private readonly marks: Mark[] = [];
   private readonly bridges: BridgeSpec[] = [];
   private readonly pigment: InkPigment;
@@ -120,30 +119,41 @@ export class InkStage {
       for (let i = 0; i <= 10; i++) points.push({ x: left + bridge.width * i / 10, y: bridge.y });
       this.ink.strokePath(points, style('brush', 0.85, 'mix', bridge.locked ? INK_INDIGO : INK_BLACK, 8 + bridge.x), bridge.locked ? 'locked' : 'erasable', 5);
     }
-    if (this.options.item.id === 'sword') {
-      this.ink.strokePath([{ x: this.post.x, y: 630 }, { x: this.post.x, y: 430 }], style('pen', 0.8, 'mix', INK_BLACK, 9), 'locked', 4);
+    const id = this.options.item.id;
+    if (id === 'boat' || id === 'water-brush') this.paintMotif(waterBody(40, 1240, 545, 160), 'locked', 60, 2);
+    if (id === 'sword') {
+      this.ink.strokePath([{ x: this.post.x, y: 640 }, { x: this.post.x, y: 420 }], style('pen', 0.7, 'mix', INK_TEA, 9), 'locked', 3);
     }
-    if (this.options.item.id === 'blade') {
-      this.ink.blot(560, 430, 54, style('brush', 2, 'wet', INK_INDIGO, 11), 'erasable', 6);
-      this.ink.blot(700, 470, 48, style('brush', 2, 'wet', INK_CINNABAR, 12), 'erasable', 6);
-    }
-    if (this.options.item.id === 'bow') this.ink.blot(1040, 480, 34, style('brush', 1, 'mix', INK_TEA, 13), 'locked', 4);
-    for (const mark of this.marks) this.ink.blot(mark.x, mark.y, 16, style('pen', 1, 'mix', INK_BLACK, 20 + mark.id), 'erasable', 3);
-    this.paintSignature();
+    for (const mark of this.marks) this.paintMotif(targetMotif(mark.x, mark.y, 1.15), 'erasable', 20 + mark.id, 2);
+    if (id === 'bow') this.paintMotif(buttMotif(1040, 470, 1.35), 'locked', 13, 2);
+    this.paintProp();
   }
 
-  private paintSignature(): void {
+  /** The page's object, drawn with the ink brush into the sheet. */
+  private paintProp(): void {
     const id = this.options.item.id;
-    const origin = { x: 240, y: 520 };
-    if (id === 'sword') this.ink.strokePath(quad(origin, { x: 360, y: 400 }, { x: 520, y: 530 }, 18), style('brush', 1.15, 'flyingWhite', INK_BLACK, 30), 'erasable', 8);
-    else if (id === 'blade') this.ink.strokePath(quad({ x: 280, y: 500 }, { x: 520, y: 360 }, { x: 780, y: 500 }, 20), style('brush', 2.1, 'wet', INK_BLACK, 31), 'erasable', 8);
-    else if (id === 'spear') this.ink.strokePath([{ x: 240, y: 500 }, { x: 560, y: 490 }], style('pen', 0.7, 'flyingWhite', INK_BLACK, 32), 'erasable', 5);
-    else if (id === 'ink-bomb') {
-      this.ink.blot(640, 420, 46, style('brush', 2, 'wet', INK_BLACK, 33), 'erasable', 6);
-      this.ink.blot(690, 400, 36, style('brush', 2, 'wet', INK_CINNABAR, 34), 'erasable', 6);
-    } else if (id === 'banner') {
-      this.ink.strokePath([{ x: 180, y: 160 }, { x: 460, y: 140 }, { x: 720, y: 180 }], style('brush', 0.6, 'mix', INK_TEA, 35), 'erasable', 4);
-    }
+    if (id === 'sword') this.paintMotif(swordMotif(760, 505, 1.2, 0.12), 'erasable', 30, 3);
+    else if (id === 'blade') {
+      this.paintMotif(bladeMotif(640, 490, 1.25), 'erasable', 31, 3);
+      this.paintMotif(spillMotif(520, 400, INK_INDIGO), 'erasable', 41, 2);
+      this.paintMotif(spillMotif(760, 450, INK_CINNABAR), 'erasable', 42, 2);
+    } else if (id === 'spear') this.paintMotif(spearMotif(500, 430, 1.35, 0.42), 'erasable', 32, 3);
+    else if (id === 'bow') this.paintMotif(bowMotif(560, 400, 1.15), 'erasable', 33, 3);
+    else if (id === 'shield') this.paintMotif(shieldMotif(740, 430, 1.3), 'erasable', 34, 3);
+    else if (id === 'war-horse') this.paintMotif(horseMotif(this.horseX + 20, 545, 1.35, 0), 'erasable', 35, 3);
+    else if (id === 'banner') this.paintMotif(bannerMotif(300, 390, 1.05, this.wind * 56), 'erasable', 36, 3);
+    else if (id === 'ink-bomb') this.paintMotif(inkBombMotif(700, 450, 1.45), 'erasable', 37, 3);
+    else if (id === 'water-brush') this.paintMotif(waterBrushMotif(560, 470, 1.5), 'erasable', 38, 3);
+    else if (id === 'boat') this.paintMotif(boatMotif(this.boatX, 590, 1.2), 'erasable', 39, 3);
+  }
+
+  private paintMotif(strokes: readonly MotifStroke[], layer: 'erasable' | 'locked', seed: number, settle: number): void {
+    strokes.forEach((stroke, index) => {
+      if (stroke.points.length < 2) return;
+      this.ink.strokePath(stroke.points, {
+        mode: stroke.mode, size: stroke.size, effect: stroke.effect, pigment: stroke.pigment, seed: (seed + index * 17) >>> 0,
+      }, layer, settle);
+    });
   }
 
   private installInput(): void {
@@ -243,17 +253,22 @@ export class InkStage {
     this.steps += 1;
     if (this.options.item.id === 'shield') this.tickThreat();
     if (this.horseRunning) {
+      const previous = this.horseX;
       this.horseX = 140 + ((this.horseX + 7 - 140) % 980);
-      if (this.steps % 8 === 0) {
-        this.ink.blot(this.horseX - 18, 600, 7, style('pen', 0.45, 'flyingWhite', INK_TEA, this.steps), 'erasable', 2);
-        this.ripples.push({ x: this.horseX + 10, y: 590, age: 0 });
+      if (this.steps % 10 === 0) {
+        this.ink.wash(previous + 20, 560, 130);
+        this.ink.wash(previous + 80, 590, 70);
+        this.paintMotif(horseMotif(this.horseX + 20, 545, 1.35, this.steps % 20 < 10 ? 8 : -8), 'erasable', 35 + this.steps, 1);
+        this.paintMotif(dashMotif(this.horseX - 10, 628, this.horseX + 24, 634, INK_TEA, 'flyingWhite'), 'erasable', this.steps, 1);
       }
     }
     if (this.boatMoving) {
+      const previous = this.boatX;
       this.boatX = 120 + ((this.boatX + 2.2 - 120) % 1000);
-      if (this.steps % 10 === 0) {
-        this.ink.blot(this.boatX - 40, 648, 10, style('brush', 0.5, 'wet', INK_INDIGO, this.steps), 'erasable', 2);
-        this.ripples.push({ x: this.boatX - 36, y: 650, age: 0 });
+      if (this.steps % 12 === 0) {
+        this.ink.wash(previous, 600, 120);
+        this.paintMotif(boatMotif(this.boatX, 590, 1.2), 'erasable', 39 + this.steps, 1);
+        this.paintMotif(dashMotif(this.boatX - 90, 640, this.boatX - 20, 628, INK_INDIGO, 'wet'), 'erasable', this.steps + 3, 1);
       }
     }
     if (this.wind && this.steps % 18 === 0) {
@@ -263,8 +278,6 @@ export class InkStage {
         style('pen', 0.4, 'mix', INK_PINE, this.steps), 'erasable', 2,
       );
     }
-    for (const ripple of this.ripples) ripple.age += 1;
-    if (this.ripples.length > 24) this.ripples.splice(0, this.ripples.length - 24);
   }
 
   act(x = this.world.player.position.x + 160, y = this.world.player.position.y - 40): void {
@@ -277,7 +290,7 @@ export class InkStage {
         const path = quad(origin, { x: (origin.x + x) / 2, y: Math.min(origin.y, y) - (wide ? 70 : 48) }, { x, y }, wide ? 16 : 14);
         this.ink.strokePath(path, style('brush', wide ? 2.2 : 1.2, wide ? 'wet' : 'flyingWhite', wide ? INK_BLACK : this.pigment, this.steps + 7), 'erasable', 6);
         if (!wide && path.some(point => Math.hypot(point.x - this.post.x, point.y - this.post.y) < 56)) {
-          this.ink.blot(this.post.x, this.post.y + 20, 18, style('brush', 1, 'mix', INK_BLACK, this.steps), 'erasable', 4);
+          this.paintMotif(splashMotif(this.post.x, this.post.y + 16, 28, INK_BLACK), 'erasable', this.steps, 1);
           this.options.onStatus?.('剑锋扫过木桩，命中后才溅出墨点。');
         } else if (wide) this.options.onStatus?.('宽刃穿过两团色墨，重叠处按更暗的颜色压住。');
         else this.options.onStatus?.('挥出一道飞白。剑锋没有碰到木桩，所以没有溅墨。');
@@ -289,7 +302,7 @@ export class InkStage {
         const hit = this.marks.filter(mark => !mark.hit && distanceToSegment(mark.x, mark.y, origin.x, origin.y, x, y) < 28);
         for (const mark of hit) {
           mark.hit = true;
-          this.ink.blot(mark.x, mark.y, 14, style('brush', 0.8, 'mix', INK_CINNABAR, mark.id + this.steps), 'erasable', 3);
+          this.paintMotif(splashMotif(mark.x, mark.y, 18, INK_CINNABAR), 'erasable', mark.id + this.steps, 1);
         }
         this.options.onStatus?.(hit.length ? `刺中 ${hit.map(mark => mark.id).join('、')}，同一目标不会再次计数。` : '这一刺没有碰到靶点。');
         break;
@@ -309,6 +322,8 @@ export class InkStage {
         break;
       case 'wind':
         this.wind = this.wind >= 1 ? -1 : this.wind <= -1 ? 0 : 1;
+        this.ink.wash(430, 300, 220);
+        this.paintMotif(bannerMotif(300, 390, 1.05, this.wind * 56), 'erasable', 36 + this.steps, 2);
         this.options.onStatus?.(this.wind === 0 ? '风停了。' : `风向改为${this.wind > 0 ? '东' : '西'}，旗面和空中墨丝跟着偏。`);
         break;
       case 'erase':
@@ -336,7 +351,6 @@ export class InkStage {
   private wipe(x: number, y: number): void {
     const changed = this.world.eraseBridge(x, y, 52);
     this.ink.wash(x, y, 52);
-    this.ripples.push({ x, y, age: 0 });
     this.options.onStatus?.(changed.length ? '可擦的墨桥被水刷断开，碰撞体跟着换了。锁住的那段还在。' : '这一刷没碰到可擦的桥，锁定桥的墨和碰撞都留着。');
   }
 
@@ -355,10 +369,8 @@ export class InkStage {
     this.world.removeBody(threat);
     this.threat = undefined;
     this.threatWait = 50;
-    for (const [dx, dy] of RING) {
-      this.ink.blot(player.x + dx * 46, player.y + dy * 28, 8, style('brush', 0.7, 'mix', INK_INDIGO, this.steps + dx * 10), 'erasable', 2);
-    }
-    this.options.onStatus?.('格挡成立，墨环只在这一下出现。');
+    this.paintMotif(shieldMotif(player.x + 36, player.y - 8, 0.55), 'erasable', this.steps + 4, 1);
+    this.options.onStatus?.('格挡成立，盾面只在这一下又印上一层。');
   }
 
   private tickThreat(): void {
@@ -382,15 +394,15 @@ export class InkStage {
 
   private onImpact(x: number, y: number): void {
     if (this.options.item.id === 'ink-bomb') {
-      this.ink.blot(x, y, 40, style('brush', 2, 'wet', INK_BLACK, this.steps), 'erasable', 5);
-      this.ink.blot(x + 28, y - 12, 30, style('brush', 1.6, 'wet', INK_CINNABAR, this.steps + 1), 'erasable', 5);
-      this.ink.blot(x - 16, y + 18, 26, style('brush', 1.4, 'wet', INK_INDIGO, this.steps + 2), 'erasable', 5);
-      this.options.onStatus?.('墨弹落地。几团颜色叠在一起，更暗的压住更浅的。');
+      this.paintMotif(splashMotif(x, y, 46, INK_BLACK), 'erasable', this.steps, 1);
+      this.paintMotif(splashMotif(x + 16, y - 8, 28, INK_CINNABAR), 'erasable', this.steps + 1, 1);
+      this.paintMotif(inkBombMotif(x, y, 0.7), 'erasable', this.steps + 2, 1);
+      this.options.onStatus?.('墨弹落地。墨从裂开的器形里泼出来。');
     } else {
-      this.ink.blot(x, y, 22, style('brush', 1.2, 'wet', INK_INDIGO, this.steps), 'erasable', 5);
+      this.paintMotif(aimMotif(arrowMotif(1.1), x, y, 1, 0.2), 'erasable', this.steps, 1);
+      this.paintMotif(splashMotif(x, y, 24, INK_INDIGO), 'erasable', this.steps + 1, 1);
       this.options.onStatus?.('箭落到实体上，落点才开始晕开。');
     }
-    this.ripples.push({ x, y: y + 8, age: 0 });
   }
 
   private draw(): void {
@@ -398,58 +410,62 @@ export class InkStage {
     this.ink.update();
     this.props.clear();
     this.actor.clear();
-    this.drawProps();
     this.drawActor();
-    for (let i = this.ripples.length - 1; i >= 0; i--) {
-      const ripple = this.ripples[i];
-      if (!ripple || ripple.age > 36) { this.ripples.splice(i, 1); continue; }
-      this.props.ellipse(ripple.x, ripple.y, 10 + ripple.age * 2.4, 4 + ripple.age * 0.7)
-        .stroke({ width: 1.5, color: 0x355c62, alpha: 0.45 * (1 - ripple.age / 36) });
+    if (this.threat) {
+      const velocity = this.threat.velocity;
+      this.traceMotif(aimMotif(arrowMotif(0.85), this.threat.position.x, this.threat.position.y, velocity.x || -1, velocity.y), this.props);
     }
-    if (this.threat) this.props.circle(this.threat.position.x, this.threat.position.y, 8).fill({ color: 0x1a1a1a, alpha: 0.85 });
     for (const shot of this.world.projectiles) {
-      this.props.circle(shot.body.position.x, shot.body.position.y, 5).fill(0x1c1c1c);
+      const velocity = shot.body.velocity;
+      const motif = this.options.item.id === 'ink-bomb'
+        ? inkBombMotif(shot.body.position.x, shot.body.position.y, 0.35)
+        : aimMotif(arrowMotif(0.9), shot.body.position.x, shot.body.position.y, velocity.x || 1, velocity.y);
+      this.traceMotif(motif, this.props);
     }
     this.app.render();
   }
 
-  private drawProps(): void {
-    if (this.options.item.action === 'gallop') {
-      const stride = this.horseRunning ? (this.steps % 16 < 8 ? 6 : -3) : 0;
-      const x = this.horseX;
-      this.props.moveTo(x - 36, 575).quadraticCurveTo(x, 548 + stride, x + 40, 572)
-        .stroke({ width: 8, color: 0x2a241e, cap: 'round' });
-      this.props.moveTo(x - 20, 578).lineTo(x - 28, 612 - stride).moveTo(x + 16, 578).lineTo(x + 26, 612 + stride)
-        .stroke({ width: 4, color: 0x2a241e, cap: 'round' });
-      this.props.moveTo(x + 30, 558).quadraticCurveTo(x + 70, 540 - stride, x + 48, 590)
-        .stroke({ width: 3, color: 0x2a241e, cap: 'round' });
-    }
-    if (this.options.item.action === 'wake') {
-      this.props.moveTo(this.boatX - 58, 636).quadraticCurveTo(this.boatX, 688, this.boatX + 58, 636)
-        .stroke({ width: 6, color: 0x243433, cap: 'round' });
-      this.props.moveTo(this.boatX - 10, 636).lineTo(this.boatX + 16, 600).stroke({ width: 3, color: 0x243433 });
-    }
-    if (this.options.item.action === 'wind') {
-      const sway = ((this.steps % 48) / 48) * 2;
-      const wave = sway < 1 ? sway : 2 - sway;
-      const lean = this.wind * (28 + wave * 18);
-      this.props.moveTo(180, 620).lineTo(180, 250).stroke({ width: 5, color: 0x3a332c });
-      this.props.moveTo(186, 270).quadraticCurveTo(280 + lean, 300 + wave * 16, 390 + lean, 280)
-        .lineTo(186, 360).fill({ color: 0x6e3b32, alpha: 0.82 });
+  private traceMotif(strokes: readonly MotifStroke[], target: Graphics): void {
+    for (const stroke of strokes) {
+      const first = stroke.points[0];
+      if (!first || stroke.points.length < 2) continue;
+      target.moveTo(first.x, first.y);
+      for (let i = 1; i < stroke.points.length; i++) {
+        const point = stroke.points[i];
+        if (point) target.lineTo(point.x, point.y);
+      }
+      const pigment = stroke.pigment;
+      const color = (Math.round(pigment.r * 255) << 16) | (Math.round(pigment.g * 255) << 8) | Math.round(pigment.b * 255);
+      target.stroke({ width: 1.2 + stroke.size * 2.6, color, alpha: 0.92, cap: 'round', join: 'round' });
     }
   }
 
   private drawActor(): void {
     const { x, y } = this.world.player.position;
     const ink = this.world.state === 'hurt' ? 0x7a332c : 0x1a1a1a;
-    this.actor.circle(x, y - 26, 10).stroke({ width: 2.5, color: ink });
-    this.actor.moveTo(x, y - 16).lineTo(x, y + 18).stroke({ width: 3.5, color: ink, cap: 'round' });
-    this.actor.moveTo(x, y - 2).lineTo(x - 16, y + 12).moveTo(x, y - 2).lineTo(x + 18, y + 8)
-      .moveTo(x, y + 18).lineTo(x - 10, y + 40).moveTo(x, y + 18).lineTo(x + 12, y + 40)
-      .stroke({ width: 3, color: ink, cap: 'round' });
-    if (this.world.state === 'attack') {
-      this.actor.moveTo(x + 8, y - 8).lineTo(x + 46, y - 24).stroke({ width: 3, color: 0x1a1a1a, cap: 'round' });
-    }
+    this.actor.moveTo(x - 8, y - 34).quadraticCurveTo(x + 1, y - 46, x + 10, y - 30)
+      .quadraticCurveTo(x + 2, y - 20, x - 6, y - 26)
+      .stroke({ width: 2.2, color: ink, cap: 'round', join: 'round' });
+    this.actor.moveTo(x, y - 22).lineTo(x, y + 16).stroke({ width: 3.2, color: ink, cap: 'round' });
+    this.actor.moveTo(x, y - 6).lineTo(x - 16, y + 10).moveTo(x, y - 4).lineTo(x + 16, y + 6)
+      .moveTo(x, y + 16).lineTo(x - 10, y + 40).moveTo(x, y + 16).lineTo(x + 12, y + 40)
+      .stroke({ width: 2.6, color: ink, cap: 'round' });
+    this.traceMotif(this.heldMotif(x, y), this.actor);
+  }
+
+  /** Small copy of the page's object in the hand, same silhouette as the ink painting. */
+  private heldMotif(x: number, y: number): MotifStroke[] {
+    const attack = this.world.state === 'attack';
+    const id = this.options.item.id;
+    if (id === 'sword') return swordMotif(x + 36, y - 6, 0.42, attack ? 0.85 : 0.35);
+    if (id === 'blade') return bladeMotif(x + 30, y + 4, attack ? 0.48 : 0.36);
+    if (id === 'spear') return spearMotif(x + 28, y + 8, 0.42, attack ? 0.9 : 0.55);
+    if (id === 'bow') return bowMotif(x + 26, y - 4, 0.32);
+    if (id === 'shield') return shieldMotif(x + 34, y - 4, 0.32);
+    if (id === 'water-brush') return waterBrushMotif(x + 30, y - 8, 0.4);
+    if (id === 'ink-bomb') return inkBombMotif(x + 28, y - 6, 0.32);
+    if (id === 'banner') return bannerMotif(x + 24, y + 10, 0.22, this.wind * 20);
+    return [];
   }
 
   togglePause(): boolean {
@@ -472,7 +488,6 @@ export class InkStage {
     this.horseX = 240;
     this.boatX = 280;
     this.threatWait = 30;
-    this.ripples.length = 0;
     this.drawing = false;
     this.restoreCourse(true);
     this.options.onStatus?.('角色和墨层已回到这一页的开场。');
