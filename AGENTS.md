@@ -1,8 +1,8 @@
 # AGENTS.md · InkGames 工程规范
 
 > 本文件约束 AI 协作与人类贡献者在 `/Volumes/my/github/InkGames` 内的目录结构、命名、代码与文档约定。
-> 冲突优先级：本文件 → `plan/10-v2-pixi-matter-ink-game-engine-plan.md`（现行 2.0 实施目标）→ `docs/01..10`（尚待同步的 v0.1 使用资料）→ `plan/07` 及其余历史研究/审计。
-> 新设计目标：**桌面优先的 PixiJS（WebGL）+ Matter.js 横屏水墨动作引擎**；场景、物理、战斗、水墨与常见效果为内建核心，`src/plugins/` 组合道具/载具效果，`apps/` 展示十张效果卡。水刷必须改变 CPU 权威碰撞几何。当前旧 p5.js + 原生 WebGL2 原型与 PixiJS/Matter.js 2.0 基础实现并存；十卡页面与内核尚未通过独立的浏览器效果验收，不得写成完整实现。
+> 冲突优先级：本文件 → `plan/10-v2-pixi-matter-ink-game-engine-plan.md`（尚未完成的工作）→ `docs/01..10`（已实现行为）→ `docs/11`（历史检索，不作现行承诺）。
+> 新设计目标：**桌面优先的 PixiJS（WebGL）+ Matter.js 横屏水墨动作引擎**；场景、物理、战斗、水墨与常见效果为内建核心，`src/plugins/` 放 v0.1 能力插件和十卡道具预设，`apps/` 展示十张效果卡。水刷必须改变 CPU 权威碰撞几何。水墨观感以 `thirdparty/inkEngine` 为参照，在 `InkWash` 自己的缓冲里复现；逐项差距见 `docs/12`。旧 p5.js + 原生 WebGL2 原型与 PixiJS/Matter.js 舞台并存。无头 SwiftShader 冒烟通过不等于真实 GPU 验收，不得把未测项写成已验证。
 
 ## 1. 目录结构（权威）
 
@@ -91,5 +91,5 @@ InkGames/
 
 - `thirdparty/inkwash` 为 MIT，可移植：保留版权与许可声明。
 - `thirdparty/inkField` 为自定义受限许可：**不得复制代码/shader/常量表，不得随公开仓库或发布物再分发**，只能借鉴公开文档描述的通用思想并独立实现。
-- `thirdparty/inkEngine` 为 inkField 可读还原版，其 LICENSE 提及但未附书面授权；在核验许可主体和移植/再分发范围前，不复制 JS、shader、内嵌字体/第三方组件或 `demo.json` 进 `src/`/`apps/`。公开仓库须审计受限快照与提交历史。
+- `thirdparty/inkEngine` 为 inkField 可读还原版。仓库所有者声明已取得 inkField 作者的书面授权，允许把其中算法和着色器逻辑移植进 `src/`，使水墨效果对齐；授权书本身不在仓库内，本文件不能代替该授权。移植时在源文件头保留归属说明。仍禁止修改 `thirdparty/` 内的文件，禁止把该快照、内嵌字体或 `demo.json` 打进发布物或再分发。公开仓库仍须审计快照是否应留在历史中。
 - 新增依赖仅允许 MIT / BSD / Apache / LGPL（不修改、独立分发），并在 `THIRD_PARTY_NOTICES.md` 登记。

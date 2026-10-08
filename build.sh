@@ -85,7 +85,7 @@ cmd_check() {
 
 cmd_browser() {
   ensure_deps
-  log "构建后在 Chromium(headless + SwiftShader) 中冒烟验证墨渡页面"
+  log "构建后在 Chromium(headless + SwiftShader) 中冒烟：十卡、对照页、墨渡、江湖"
   yarn build
   node scripts/browser-smoke.mjs
 }

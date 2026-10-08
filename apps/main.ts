@@ -13,6 +13,6 @@ for (const item of ITEM_PRESETS) {
   anchor.className = 'effect-card';
   anchor.href = `./${item.id}/`;
   anchor.style.setProperty('--accent', `#${item.accent.toString(16).padStart(6, '0')}`);
-  anchor.innerHTML = `<span class="card-number">${item.subtitle}</span><span class="card-art" aria-hidden="true"><span>${glyphs[item.id]}</span></span><span class="card-bottom"><strong>${item.title}</strong><span class="card-arrow" aria-hidden="true">↗</span></span><span class="card-description">${item.description}</span><span class="card-tags">${item.effects.join('  ·  ').toUpperCase()}</span>`;
+  anchor.innerHTML = `<span class="card-number">${item.subtitle}</span><span class="card-art" aria-hidden="true"><span>${glyphs[item.id] ?? '墨'}</span></span><span class="card-bottom"><strong>${item.title}</strong><span class="card-arrow" aria-hidden="true">↗</span></span><span class="card-description">${item.description}</span><span class="card-tags">${item.actionLabel} · ${item.effects.join(' / ')}</span>`;
   cards.appendChild(anchor);
 }

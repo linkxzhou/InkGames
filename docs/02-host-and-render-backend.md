@@ -1,19 +1,40 @@
-# 02 · PixiJS WebGL 宿主与渲染
+# 02 · 宿主与渲染
 
 [目录](./README.md) · [上一章](./01-scope-and-engine-map.md) · [下一章](./03-microkernel-and-loop.md)
 
-## 已实现 API（旧原型）
+## 2.0：`InkStage` 拥有唯一的 Pixi 应用
 
-`createP5Host()` 和 `createWebGL2RendererPlugin()` 提供旧单画布 p5/原生 GL 原型；`./build.sh dev` 可查看旧演示。**不是 PixiJS 的初始化示例**；旧版 `withGLState()`、R16F FBO 探测和 context-loss 暂停不证明新方案兼容或恢复成功。
+`InkStage.create` 调用 `Application.init`，参数写死在 `src/core/ink-stage.ts`：
 
-## 设计目标
+| 字段 | 值 | 原因 |
+|---|---|---|
+| `width` / `height` | 1280 / 720 | 横屏舞台。Matter 世界用同一套像素，测试里角色落在 y≈580–615。 |
+| `preference` | `'webgl'` | 滤镜是 GLSL 300 ES，不走 WebGPU。 |
+| `autoStart` | `false` | 关掉 Pixi ticker。权威步由舞台自己的 `requestAnimationFrame` 推进。 |
+| `backgroundColor` | `0xf4efe4` | 纸色外的画布底。纸纹本身在 `InkWash` 的纹理里。 |
+| `antialias` | `false` | 墨层是 RenderTexture，抗锯齿会把笔画边缘和纸纹搅在一起。 |
+| `resolution` | `1` | 模拟分辨率另由 `InkWash` 的 `scale` 决定，不跟设备像素比走。 |
 
-锁定并安装 PixiJS 版本后以 Pixi `Application`/Renderer 创建**一个** WebGL 画布（显式选择 WebGL 后端，不悄悄切到 WebGPU），用同一个 `Engine` 宿主帧驱动固定步、显示树更新和单次呈现；禁用 Pixi 自动启动的 ticker 更新逻辑，避免两个 RAF。先在锁定版本核实 `Application.init`、自动 ticker、渲染调用、滤镜资源及销毁接口，文档中的 Pixi 类名均为设计意图而非已交付 API。
+画布插进 `options.parent`，样式是 `width/height: 100%`、`objectFit: contain`。显示树只有三层，从下到上：`ink.view`（整张纸）、`props`（桥、靶、旗、舟）、`actor`（人物）。
 
-Pixi 管理画布、Renderer、RenderTexture 与 Shader/Filter；不要让旧原生 GL pass 越过 Pixi 的状态/缓存直接改同一 context。确需底层 pass 时验证 Pixi 扩展点与资源重建，先做可失败的最小兼容 spike。resize/DPR 时重设渲染分辨率与离屏纹理，不修改 CPU 世界或物理尺寸；context lost 时暂停固定步、重建/验证资源后才恢复，不能仅监听事件就认为已恢复。
+`webglcontextlost` 时舞台暂停并清空累加器，状态文字提示刷新或重置。恢复事件**不会**重建 RenderTexture 和滤镜。这是已知缺口，见计划 P0。
 
-坐标：DOM `clientX/Y` 经画布 bounds 变为 CSS 坐标，再按相机逆矩阵转 world；Pixi 显示树只读相机快照，碰撞仍在 world。用缩放/平移/resize/CSS 缩放下四角和中心的往返测试保证输入、墨障与 collider 对齐。纸张、场景、墨层、刀光、UI 定序；混合模式只在指定墨层上试验预乘透明结果。
+`dispose()` 幂等：取消 RAF、卸监听、`world.dispose()`、`ink.dispose()`、`app.destroy(true, { children: true })`。
 
-## 未实现项与门槛
+## 2.0 墨层不是第二条 GL 管线
 
-未实现 Pixi 宿主、WebGL/Filter 能力探测、资源重建、相机对齐实测。P1 先验证空场景、无墨角色、resize/销毁/上下文丢失后单画布可运行；记录 Pixi 版本、浏览器、GL 后端和错误，失败不要静默回退其他后端。现有浏览器 smoke 只适用于旧 p5 页面。
+`InkWash` 只用 Pixi 的 `renderer.render({ container, target, clear })` 写 RenderTexture。滤镜在 `src/core/ink-wash-filters.ts`，顶点着色器和旧滤镜同一套 Pixi v8 约定。不要在这些 pass 外面再调 `withGLState()`，也不要读 Pixi 私有字段。
+
+十卡的模拟分辨率是画面的一半：`new InkWash(app, { width: 1280, height: 720, scale: 0.5, paper: 'xuan' })`。`/compare/` 用 `scale: 1`、800×600、`paper: 'neutral'`，方便和 inkEngine 对坐标。
+
+## v0.1：p5 宿主和原生 WebGL2
+
+`createP5Host()`（`src/plugins/p5-host.ts`）实现 `HostPort`：提供 `canvas`、`now`、`requestFrame`、`cancelFrame`，以及 `onContextLost` / `onContextRestored`。`Engine` 在 `init()` 成功后挂上这两个回调：丢失时若正在跑就 `pause()`，不产生半步；恢复时调用 `EngineOptions.onContextRestored`。GPU 资源要由应用重建，引擎不会自动重放插件的 `init`。
+
+`createWebGL2RendererPlugin()` 和 `InkFluid`（`src/plugins/ink-fluid.ts`）仍是 `/inkcross/` 的墨水。原生 pass 包在 `withGLState()`（`src/plugins/gl-state.ts`）里，离开时恢复 p5 期望的混合状态。这条管线和 `InkWash` 无关，冒烟测试仍断言它的像素和墨量曲线。
+
+## 容易踩的地方
+
+- 再开一个 Pixi ticker 或 `Matter.Runner`，角色和墨就会各走各的步。
+- 在 `apps/` 里拿 `stage.app.renderer.gl` 改状态。页面只应调用 `InkStage` 的 `act` / `replay` / `togglePause` / `reset` / `dispose`。
+- 把 `resolution` 改成 `devicePixelRatio` 却不改 `InkWorld` 的米制。碰撞仍是 1280×720 的像素坐标。
