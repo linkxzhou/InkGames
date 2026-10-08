@@ -1,17 +1,37 @@
-# 10 · 横版竖切片交付与许可
+# 10 · 交付与许可
 
-[目录](./README.md) · [上一章](./09-tooling-and-quality.md) · [旧研究附录](./11-references-and-research.md)
+[目录](./README.md) · [上一章](./09-tooling-and-quality.md) · [附录](./11-references-and-research.md)
 
-## 已实现（旧原型）
+## 构建产物
 
-当前有 p5《墨渡》可运行示例与应用层《江湖夜行》演示；`package.json` 仍为 `private: true`，没有 PixiJS/Matter.js，不能称作已发布的 Pixi 横版动作引擎。可用公共接口见 `src/index.ts`。
+`vite.config.ts` 的 `root` 是 `apps/`。`build.outDir` 是仓库根的 `dist/`。多页入口：
 
-## 设计目标与交付顺序
+- `apps/index.html` → 十卡首页
+- `apps/<道具>/index.html` → 十个演示
+- `apps/inkcross/index.html`、`apps/wuxia/index.html` → 旧演示，仍打进包，供冒烟
+- `apps/compare/index.html` → 水墨对照，不在首页卡片里
 
-先交付 P1 单画布无墨关卡；P2 固定步 FSM/平台/命中；P3 可破坏墨障碰撞；P4 墨融合、纸张、刀光；P5 一关可玩、失败重试/录制、桌面兼容与打包。每阶段必须有源码、测试、示例和文档证据；旧 p5 关卡可留作迁移对照，但不能冒充 Pixi 新版。完整准入见 [实施基线](../plan/07-microkernel-plugin-plan.md)。
+别名 `@inkgames/engine` 指向 `src/index.ts`。生产包不复制 `thirdparty/`。
 
-PixiJS、Matter.js、Filters 或其它新依赖确定安装版本后逐一审计许可证及传递依赖，并更新 `THIRD_PARTY_NOTICES.md`；纸纹、噪声图、音频、字体都要有可发布授权。`thirdparty/inkField` 为自定义受限许可：不得复制代码、shader、常量表、不得公开再分发本地快照；公开仓库及 Git 历史同样需要审核，不能只从 npm 包排除。`thirdparty/inkwash` 是 MIT，若实际移植须保留版权和许可声明；旧独立原型不能伪称为原版代码移植。Mixbox 非商业授权不适用于默认商用引擎依赖。
+`package.json` 的 `version` 仍是 `0.1.0`，`private: true`。依赖：PixiJS 8.22.0（MIT）、Matter.js 0.20.0（MIT）、p5 ^2.3.4（LGPL-2.1，未改其源码）。登记在 [第三方清单](../THIRD_PARTY_NOTICES.md)。
 
-## 未实现项与发布门槛
+## 现在可以交付的用法
 
-Pixi/Matter 依赖、横版完整关卡、GPU 性能、跨浏览器兼容、正式打包与许可审计均未完成。发布前以 `./build.sh check` 和独立浏览器测试核验逻辑/视觉，在目标桌面真实 GPU 测性能并注明环境；功能、60 FPS 与 context 恢复仅在实际测试通过后声明支持。未达门槛只称设计/迁移中原型。
+桌面浏览器打开 `./build.sh dev`，从首页进入任意一卡，用键盘和指针完成该页文案里的那一个动作。嵌入方若只用库，从 `@inkgames/engine` 引 `InkStage` 或单独引 `InkWash`。不要把 `apps/demo.ts` 当成引擎的一部分拷进别的项目后再改内部类。
+
+## 还不能当成发布完成的部分
+
+- 真实 GPU 上的帧时间和上下文恢复。
+- 道具各自的插件包和资源租约。
+- 2.0 录制、武器扫掠、除矩形以外的墨障。
+- 把 `thirdparty/inkField` 或 `thirdparty/inkEngine` 的快照打进发布物。快照留在仓库里只供对照，构建不复制它们。
+
+## 许可
+
+`thirdparty/inkwash` 是 MIT。若把其中源码搬进 `src/`，保留版权与许可全文。当前 `InkFluid` 是独立实现。
+
+`thirdparty/inkField` 是自定义受限许可。不复制其中代码、着色器、常量表，不把它放进发布物。
+
+`thirdparty/inkEngine` 是 inkField 的可读还原。仓库所有者说明已有 inkField 作者的书面授权，允许把其中算法移植进本仓库的 `src/`，以便水墨效果对齐。授权书本身不在仓库里，本文件不能代替那份授权。移植进 `src/` 的着色器和笔刷在文件头保留归属说明。不要修改 `thirdparty/` 里的文件，也不要把该快照再发布出去。细节以 [第三方清单](../THIRD_PARTY_NOTICES.md) 为准。
+
+新增依赖仍只接受 MIT / BSD / Apache / LGPL（不修改、可独立分发），并写进清单。

@@ -2,16 +2,40 @@
 
 [目录](./README.md) · [下一章](./02-host-and-render-backend.md)
 
-## 已实现 API（旧原型）
+仓库里同时有两套能跑的运行时。它们不共享时钟，也不共享墨层。
 
-`src/index.ts` 导出微内核、p5 宿主、原生 WebGL2 墨层、CPU 笔画/圆—胶囊碰撞与录制。《墨渡》可画桥/擦桥；《江湖夜行》是应用层自动战斗。**当前没有 PixiJS、Matter.js 宿主或通用横版战斗插件**。
+| 运行时 | 入口 | 画面 | 物理 | 页面 |
+|---|---|---|---|---|
+| v0.1 微内核 | `Engine`（`src/core/engine.ts`） | p5 宿主 + 原生 WebGL2 `InkFluid` | 圆—胶囊，插件 `src/plugins/physics.ts` | `/inkcross/`、`/wuxia/` |
+| 2.0 舞台 | `InkStage.create`（`src/core/ink-stage.ts`） | PixiJS 8.22.0，单画布 1280×720 | Matter.js 0.20.0，`InkWorld` | `/` 十卡，以及十个道具页、`/compare/` |
 
-## 设计目标（PixiJS 迁移）
+公共类型和函数只从 [`src/index.ts`](../src/index.ts) 导出。应用侧用别名 `@inkgames/engine`（见 `vite.config.ts`），不要从 `src/core/` 或 `src/plugins/` 直接 import。
 
-桌面浏览器单 WebGL 画布的横版动作竖切片：PixiJS 负责画面、资源、RenderTexture、Filter/Mesh；Matter.js 首选负责重力、平台、动态角色和受击位移；FSM 控制 Idle→Run→Jump→Attack→Hurt；微内核只调度固定步及依赖；纸/墨/刀光独立视觉插件。Planck.js 是备选，不同时参与同一权威世界。首版先一关、单角色、一个攻击、可破坏墨障与重试，不承诺复杂 ECS、联机、移动端或完整流体。
+## 2.0 从 `src/index.ts` 能拿到什么
 
-水刷必须在 CPU 侧更新笔画、物理 collider，再驱动墨迹变化；阈值 shader/流场不能定义碰撞。60 FPS 是目标，必须在明确桌面硬件与真实 GPU 下实测，不因采用 PixiJS 就自动成立。
+- `InkStage`、`InkStageOptions`：一页一个舞台。`create({ parent, item, onStatus })` 自己 `await app.init`，失败会 `dispose`。
+- `InkWash`、`InkWashOptions`、`InkStrokeStyle`、`InkPigment`，以及颜料常量 `INK_BLACK`、`INK_INDIGO`、`INK_CINNABAR`、`INK_PINE`、`INK_TEA`。
+- `InkBrush`、`strokeSegments`、`BrushPoint`、`BrushSegment`、`InkBrushOptions`：弹簧笔尖和笔毫，纯 CPU，不碰 GPU。
+- `InkWorld`、`InkBridge`、`InkImpact`、`InkProjectile`：Matter 世界、墨桥、投射物命中。
+- `ITEM_PRESETS`、`getItemPreset`、`ItemPreset`、`ItemAction`：十张卡片的文案和动作种类。
 
-## 未实现项与实践
+## v0.1 仍导出、仍被旧页面使用的部分
 
-未实现 PixiJS 宿主/滤镜、物理适配、FSM、通用 hitbox、资产缓存和跨浏览器恢复。先画“键盘输入→固定步→状态→碰撞→事实事件→Pixi 显示”依赖图；对照 [迁移阶段](../plan/07-microkernel-plugin-plan.md)为每个能力指定所有者和验收。旧代码入口可通过 `./build.sh dev` 检查，但不代表新链路可运行。
+`Engine`、`createToken`、`resolvePlugins`、`satisfies`、`FIXED_PHASES`、`RENDER_PHASES`，以及宿主、场景、笔画、侵蚀、物理、录制、`InkFluid`、`createInkCrossPlugin` 的插件工厂。这些服务的对象契约在 `src/core/types.ts` 和 `src/plugins/tokens.ts`。新页面不要再组装这条插件链。
+
+## 数据怎么走
+
+十卡页面的依赖是单向的：
+
+```text
+键盘 / 指针
+  → InkStage.frame（唯一 RAF）
+      → 固定步：InkWorld.step、道具动作、eraseBridge
+      → 显示步：InkWash.update、Graphics 重画人物和道具
+```
+
+墨的碰撞不读像素。水刷先改 `InkWorld` 里的矩形刚体，再在已提交的墨层上做视觉减淡。`InkWash` 不拥有物理世界。
+
+## 还不能当成完成的部分
+
+真实桌面 GPU 的帧率、WebGL 上下文自动重建、七种笔刷里未移植的四种、光谱混色、2.0 自己的录制格式、按道具拆开的插件文件。清单在 [剩余工作](../plan/10-v2-pixi-matter-ink-game-engine-plan.md)。和 inkEngine 的逐项差距在 [第 12 章](./12-inkengine-parity-audit.md)。

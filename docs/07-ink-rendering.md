@@ -1,19 +1,80 @@
-# 07 · PixiJS 墨迹融合、宣纸和刀光
+# 07 · 水墨
 
 [目录](./README.md) · [上一章](./06-input-strokes-and-physics.md) · [下一章](./08-gameplay-and-persistence.md)
 
-## 已实现 API（旧原型）
+2.0 的画面在 `InkWash`（`src/core/ink-wash.ts`）和 `src/core/ink-wash-filters.ts`。算法结构对照 inkEngine 的反馈、类型图和正片叠底，着色器文件头写了归属。逐项哪些对齐、哪些没有，见 [第 12 章](./12-inkengine-parity-audit.md)。旧的 `InkFluid` 仍只服务 `/inkcross/`，本节后面单列。
 
-`createInkFluidPlugin()` 使用**原生 WebGL2** 的 R/RG16F 墨/湿度/速度原型和固定层，**不是 Pixi 滤镜实现**。现有水刷视觉按请求清理局部活动墨，可能冲淡锁定或交叠笔画；[旧审计](../plan/09-src-contract-gap-and-apps-rework-plan.md)的局部重绘墨量偏差需重新核查。旧 p5/GL 的半浮点条件不直接套用 Pixi RenderTexture。
+## 缓冲
 
-## 设计目标：先可控融合，后高级流体
+模拟宽高是 `round(width * scale)`、`round(height * scale)`，至少 2。十卡 `scale` 为 0.5，对照页为 1。
 
-墨粒/笔迹集中画入受控分辨率的 Pixi RenderTexture（仅墨层）；以模糊 Filter 让相近 alpha 区域重叠，再以自定义阈值/色阶 Filter 对模糊后 alpha 做 `smoothstep` 边缘截断，合成为一张有浓淡边缘的墨迹 Sprite。阈值需保留少量纸边渗润，但噪声纹理与随机边缘只能改变显示；**metaball 融合是美术近似，不等于真实液体或质量守恒**。用双目标/显式渲染顺序避免同纹理读写；确认 Pixi 固定版本的 Filter shader、采样器绑定、预乘 alpha、滤镜 padding 与多次 render 用法。
+| 纹理 | 内容 | 清空色 |
+|---|---|---|
+| `wet` | 正在画的灰度湿墨，越黑越浓 | 白 |
+| `scratch` | 读写分离的临时目标 | — |
+| `stamp` | 这一笔的笔毫，RGB 黑、alpha 为覆盖率 | 画之前 clear |
+| `committed` | 可被水刷减淡的干墨 RGB | 白 |
+| `locked` | 山、地面、锁定桥，水刷不改 | 白 |
+| `typeMap` | R 类别，G 浓度，B 笔画序号 | 黑 |
+| `paperTexture` | 纸纹，线性采样 | — |
+| `forceTexture` | 静态力场，RG 约在 128±45 | — |
 
-场景底层使用许可清楚的静态纸纹及暖纸色；指定墨迹容器试验 multiply，验证预乘 alpha/叠层顺序、颜色较浅/较深的叠加，不让 UI/人物全部跟着 multiply。受击飞墨、攻击挥洒各有时间/粒子上限，粒子复用或批处理需以真实数据测，不能承诺“数千粒子稳定 60fps”。墨障显示由 `StrokeChanged` 等**几何提交事实**按笔 ID 同步：无几何变化（锁桥/未命中）不得清掉碰撞桥上的视觉墨；交叠要可单独处理。
+`view` 是一张铺满显示尺寸的 `Sprite`，滤镜只有合成。人物和道具画在它上面，不进这些纹理。
 
-刀光从武器轨迹构建 Pixi Mesh，按曲线采样/构网格，噪声纹理调制飞白，速度决定干湿/宽度，短暂残影后淡出；先在当前版本核实 Mesh API，不把旧 `SimpleRope` 名称当成可用接口。远山雾、植被 Mesh、Perlin 噪声风场是后续独立视觉 spike，若 CPU 粒子受风影响必须在固定步另写可重放规则。旧高级流体场仅当 Pixi 资源/Pass 能力与预算明确后才另立阶段。
+## 一条笔画的寿命
 
-## 未实现项与验收
+`strokePath(points, style, layer, settleFrames)` 是同步的，开场落墨用它：
 
-RenderTexture→blur→threshold、纸纹、Mesh 刀光、流场均**尚未实现**。P4 量测不同尺寸/滤镜半径的纹理内存、draw calls、GPU 帧耗；截图验证透明边、滤镜裁切、纸色与 CPU 缺口对齐，真实桌面 GPU 验证目标帧率，SwiftShader 只做功能测试。未做性能/兼容实测时不得宣称高性能。
+1. 若还有未提交的实时笔，先 `commit`。
+2. `strokeSegments` 得到笔毫。
+3. 笔毫画进 `stamp`（线宽至少 0.9 个模拟像素，避免半分辨率下发丝消失），`deposit` 用 `wet *= (1 - cover * 0.92)` 叠上去。重叠越叠越暗。
+4. `settleFrames` 次 `feedback`。`wet` 效果的扩散系数是 0.62，其余 0.45。
+5. `commit`：按颜料把暗度染进 `committed` 或 `locked`，`min` 进已有干墨；类型图只在「有墨且该像素还没写过」时写入；湿层填回白色。
+
+`beginStroke` / `addPoint` / `endStroke` 给拖动用。`addPoint` 只盖章，不扩散。之后每一显示帧 `update()` 扩散一次。`endStroke` 之后再空转 14 帧就提交。暂停会立刻 `endStroke`。
+
+`blot(x, y, radius, style, layer, settleFrames)` 画三个错开的黑圆（alpha 0.55 / 0.35 / 0.28），再走同一套扩散和提交。坐标和半径乘 `scale`。
+
+`wash(x, y, radius)` 只读 `committed`，按距离 `smoothstep` 往白色混。锁定层不受影响。
+
+`clear()` 把湿、干、锁定填白，类型图填黑，笔画序号回到 1。`dispose()` 幂等，销毁纹理和滤镜。
+
+## 颜料
+
+```ts
+interface InkPigment { readonly r: number; readonly g: number; readonly b: number }
+interface InkStrokeStyle extends InkBrushOptions {
+  readonly pigment: InkPigment;
+}
+```
+
+提交时 `tinted = mix(白, pigment, 暗度)`，再和目标层取 `min`。后画上去的更暗颜色会压住更浅的。没有光谱混合，也没有 36 色表。常量：
+
+| 名字 | RGB |
+|---|---|
+| `INK_BLACK` | 0.07, 0.07, 0.08 |
+| `INK_INDIGO` | 0.12, 0.16, 0.28 |
+| `INK_CINNABAR` | 0.42, 0.16, 0.12 |
+| `INK_PINE` | 0.16, 0.24, 0.20 |
+| `INK_TEA` | 0.38, 0.28, 0.16 |
+
+类型图：颜料亮度 `0.299r+0.587g+0.114b > 0.75` 时类别写 1，否则 0.5。合成时类别大于 0.75 走滤色（浅墨），否则纸色乘墨色。边缘按干墨亮度梯度再压暗一档。
+
+## 反馈在做什么
+
+`feedback.frag` 的 mix 分支（`uEffect < 0.5`）移植了「先 `min(当前, 力场偏移采样)`，再向四邻渗」的结构。四邻偏移是 1.6 个纹素，参考着色器更紧。力场采样是静态噪声，不随时间变，所以同一条 `strokePath` 在同一种子下不会自己流动。
+
+`sharpen` 是邻域反差的一小步。`flyingWhite` 用噪声把缝隙抬亮。`wet` 沿一个方向压暗并加少量颗粒。这三支都比参考 pass 短。
+
+纸纹：`paper: 'neutral'` 底是 222 灰，`'xuan'` 底是 `(236, 228, 210)`。纤维用 `valueNoise`，幅度约 34，再加点斑。这不是 inkEngine 的 p5 拼贴纸。
+
+## 旧墨水：`InkFluid`
+
+`src/plugins/ink-fluid.ts` 是纳维–斯托克斯风格的 R/RG16F 场，由 `createInkFluidPlugin()` 接到 v0.1 渲染阶段。它和 `InkWash` 的 `min()` 扩散不是同一个模型。水刷的剪刀矩形会清掉活动墨、湿场和已经沉下去的 `fixedInk`，否则固定步跑得快时桥面擦完仍是深色；矩形外面的湿墨还会回渗。锁定笔画不走这条擦除。
+
+## 调用时注意
+
+- `strokePath` 在主线程里连续渲染多帧。开场若堆太多 `settleFrames`，SwiftShader 上会卡住首帧。十卡开场因此把大多数笔画的结算压在 8 帧以内，模拟分辨率减半。
+- 实时笔的颜料要等 `commit` 才进入干层。`update` 期间合成用的是当前 `uPigment`。
+- `wash` 不改类型图。被洗掉的区域类型仍可能记着旧笔画号，但亮度为白，乘上纸色后看不出来。
+- 着色器里的 `hash` 用了 `sin`，只影响显示。CPU 笔毫不调用它。
