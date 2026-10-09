@@ -189,7 +189,7 @@
          "id": "pick.canon",
          "label": "scene.qin.shuwen.pick.canon",
          "seal": "canon",
-         "to": "c.title"
+         "to": "c.intro"
         },
         {
          "id": "pick.legend",
@@ -212,6 +212,35 @@
            }
           ]
          }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": -221,
+        "precision": "year",
+        "display": "前 221 年",
+        "era": "秦王政二十六年",
+        "verify": "done"
+       },
+       "dialogue": "scene.qin.shuwen.canon.intro",
+       "next": [
+        "c.title"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "classic",
+         "title": "说文解字",
+         "section": "叙",
+         "notes": "李斯作《仓颉篇》之说"
         }
        ]
       },
@@ -369,9 +398,16 @@
        ],
        "sources": [
         {
-         "kind": "folk",
-         "title": "传国玺之说",
-         "notes": "见于汉以后诸书，玺文与来历均待核验"
+         "kind": "classic",
+         "title": "太平御览",
+         "section": "卷六百八十二 引崔浩《汉纪音义》",
+         "notes": "“传国玺是和氏璧作之”，北魏人说法"
+        },
+        {
+         "kind": "classic",
+         "title": "三国志",
+         "section": "吴书·孙破虏讨逆传 裴注引《吴书》",
+         "notes": "孙坚得玺，载玺文“受命于天，既寿永昌”"
         }
        ]
       },
@@ -406,9 +442,16 @@
        ],
        "sources": [
         {
-         "kind": "folk",
-         "title": "传国玺之说",
-         "notes": "见于汉以后诸书，玺文与来历均待核验"
+         "kind": "classic",
+         "title": "太平御览",
+         "section": "卷六百八十二 引崔浩《汉纪音义》",
+         "notes": "“传国玺是和氏璧作之”，北魏人说法"
+        },
+        {
+         "kind": "classic",
+         "title": "三国志",
+         "section": "吴书·孙破虏讨逆传 裴注引《吴书》",
+         "notes": "孙坚得玺，载玺文“受命于天，既寿永昌”"
         }
        ]
       },
@@ -443,9 +486,16 @@
        ],
        "sources": [
         {
-         "kind": "folk",
-         "title": "传国玺之说",
-         "notes": "见于汉以后诸书，玺文与来历均待核验"
+         "kind": "classic",
+         "title": "太平御览",
+         "section": "卷六百八十二 引崔浩《汉纪音义》",
+         "notes": "“传国玺是和氏璧作之”，北魏人说法"
+        },
+        {
+         "kind": "classic",
+         "title": "三国志",
+         "section": "吴书·孙破虏讨逆传 裴注引《吴书》",
+         "notes": "孙坚得玺，载玺文“受命于天，既寿永昌”"
         }
        ]
       },
@@ -493,9 +543,16 @@
       "cutscene": "cutscene.qin.shuwen.end-legend",
       "sources": [
        {
-        "kind": "folk",
-        "title": "传国玺之说",
-        "notes": "见于汉以后诸书，玺文与来历均待核验"
+        "kind": "classic",
+        "title": "太平御览",
+        "section": "卷六百八十二 引崔浩《汉纪音义》",
+        "notes": "“传国玺是和氏璧作之”，北魏人说法"
+       },
+       {
+        "kind": "classic",
+        "title": "三国志",
+        "section": "吴书·孙破虏讨逆传 裴注引《吴书》",
+        "notes": "孙坚得玺，载玺文“受命于天，既寿永昌”"
        }
       ],
       "kind": "legend",
@@ -529,16 +586,23 @@
          "notes": "李斯作《仓颉篇》之说"
         },
         {
-         "kind": "folk",
-         "title": "传国玺之说",
-         "notes": "见于汉以后诸书，玺文与来历均待核验"
+         "kind": "classic",
+         "title": "太平御览",
+         "section": "卷六百八十二 引崔浩《汉纪音义》",
+         "notes": "“传国玺是和氏璧作之”，北魏人说法"
+        },
+        {
+         "kind": "classic",
+         "title": "三国志",
+         "section": "吴书·孙破虏讨逆传 裴注引《吴书》",
+         "notes": "孙坚得玺，载玺文“受命于天，既寿永昌”"
         }
        ]
       },
       {
        "topic": "传国玺",
-       "canon": "正史不载其由和氏璧琢成",
-       "legend": "后世诸书所载（待核验）",
+       "canon": "《史记》不载其由和氏璧琢成",
+       "legend": "北魏崔浩始有此说（《太平御览》卷六八二引）",
        "sources": [
         {
          "kind": "canon",
@@ -552,9 +616,16 @@
          "notes": "李斯作《仓颉篇》之说"
         },
         {
-         "kind": "folk",
-         "title": "传国玺之说",
-         "notes": "见于汉以后诸书，玺文与来历均待核验"
+         "kind": "classic",
+         "title": "太平御览",
+         "section": "卷六百八十二 引崔浩《汉纪音义》",
+         "notes": "“传国玺是和氏璧作之”，北魏人说法"
+        },
+        {
+         "kind": "classic",
+         "title": "三国志",
+         "section": "吴书·孙破虏讨逆传 裴注引《吴书》",
+         "notes": "孙坚得玺，载玺文“受命于天，既寿永昌”"
         }
        ]
       }
@@ -1391,10 +1462,11 @@
      "anchor.mieqi": "秦灭齐",
      "anchor.sanshiliujun": "分天下为三十六郡",
      "scene.qin.shuwen.pick.canon": "正史 · 《史记》、《说文解字》所载",
+     "scene.qin.shuwen.canon.intro": "六国已灭。秦王令群臣议帝号，丞相王绾等请立诸子为王，廷尉李斯以为不可。",
      "scene.qin.shuwen.end.canon": "天下为三十六郡，文字以小篆为准，度量衡归于一制。",
      "scene.qin.shuwen.pick.legend": "野史 · 传国玺",
-     "scene.qin.shuwen.legend.disclaimer": "以下是后世说法：传国玺由和氏璧琢成、玺文为李斯所书，见于汉以后的书，真伪难考。",
-     "scene.qin.shuwen.legend.intro": "后世相传：始皇得和氏璧，命人琢为玉玺，李斯以篆书写下八字玺文。此玺此后历代相传，下落成谜。",
+     "scene.qin.shuwen.legend.disclaimer": "以下是后世说法：传国玺由和氏璧琢成，最早见于北魏崔浩之说；玺文八字见于三国时的记载。真伪难考。",
+     "scene.qin.shuwen.legend.intro": "后世相传：始皇得和氏璧，命人琢为玉玺，刻篆文八字：受命于天，既寿永昌。此玺此后历代相传，下落成谜。",
      "scene.qin.shuwen.end.legend": "玉玺的下落成了千年悬案。传说汇回正史：天下已定于一统。",
      "scene.qin.shuwen.pick.whatif": "推演 · 若行分封（未开放）",
      "scene.qin.shuwen.end.whatif": "异闻 · 未开放"
@@ -1733,9 +1805,9 @@
   {
    "outlineId": "06-02",
    "v1": false,
-   "detail": "outline",
+   "detail": "full",
    "scene": {
-    "format": "inkgames.scene-outline",
+    "format": "inkgames.scene",
     "version": 1,
     "id": "qin.changcheng",
     "chapter": "qin",
@@ -1745,60 +1817,1535 @@
     "when": {
      "start": -214,
      "precision": "year",
-     "display": "前 214 前后",
-     "verify": "done"
+     "display": "前 214 年",
+     "era": "秦始皇三十三年",
+     "verify": "done",
+     "notes": "《史记·秦始皇本纪》三十三年略取陆梁地、西北斥逐匈奴；长城与灵渠均为多年工程，取其始见之年"
     },
     "key": false,
     "template": "engineering",
     "props": [
+     "water-brush",
+     "water",
      "shield",
-     "water-brush"
+     "landscape",
+     "figure"
     ],
     "characters": [
      "mengtian",
-     "shilu"
+     "shilu",
+     "shihuang",
+     "fusu"
     ],
-    "hooks": {
-     "canon": "scene.qin.changcheng.hook.canon",
-     "legend": "scene.qin.changcheng.hook.legend",
-     "play": "scene.qin.changcheng.play"
+    "anchors": {
+     "entry": {
+      "id": "anchor.qin.mengtian-bei",
+      "title": "anchor.mengtian-bei",
+      "when": {
+       "start": -215,
+       "precision": "year",
+       "display": "前 215 年",
+       "era": "秦始皇三十二年",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "秦始皇本纪"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.qin.hejiang",
+      "title": "anchor.hejiang",
+      "when": {
+       "start": -214,
+       "precision": "year",
+       "display": "前 214 年",
+       "era": "秦始皇三十三年",
+       "verify": "done",
+       "notes": "置桂林、象郡、南海三郡见《秦始皇本纪》；灵渠竣工年史无明文"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "蒙恬列传"
+       }
+      ]
+     }
     },
-    "sources": [
+    "opening": "cutscene.qin.changcheng.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.qin.changcheng.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.qin.changcheng.opening",
+       "when": {
+        "start": -214,
+        "precision": "year",
+        "display": "前 214 年",
+        "era": "秦始皇三十三年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十三年略取陆梁地、西北斥逐匈奴；长城与灵渠均为多年工程，取其始见之年"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "蒙恬列传"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "classic",
+         "title": "淮南子",
+         "section": "人间训"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": -214,
+        "precision": "year",
+        "display": "前 214 年",
+        "era": "秦始皇三十三年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十三年略取陆梁地、西北斥逐匈奴；长城与灵渠均为多年工程，取其始见之年"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.qin.changcheng.pick.canon",
+         "seal": "canon",
+         "to": "c.intro"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.qin.changcheng.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.qin.changcheng.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "qin.changcheng/canon"
+           },
+           {
+            "cleared": "qin.changcheng/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": -214,
+        "precision": "year",
+        "display": "前 214 年",
+        "era": "秦始皇三十三年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十三年略取陆梁地、西北斥逐匈奴；长城与灵渠均为多年工程，取其始见之年"
+       },
+       "dialogue": "scene.qin.changcheng.canon.intro",
+       "next": [
+        "c.zhusai"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "蒙恬列传"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "classic",
+         "title": "淮南子",
+         "section": "人间训"
+        }
+       ]
+      },
+      {
+       "id": "c.zhusai",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -214,
+        "precision": "year",
+        "display": "前 214 年",
+        "era": "秦始皇三十三年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十三年略取陆梁地、西北斥逐匈奴；长城与灵渠均为多年工程，取其始见之年"
+       },
+       "gameplay": {
+        "template": "engineering",
+        "params": {
+         "goal": "因山势筑塞：避开平地，把城墙落在险要处，用最少的人工连起烽燧",
+         "beats": [
+          "survey",
+          "follow-ridge",
+          "link-beacons"
+         ],
+         "failTo": "c.zhusai",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.shouzhu"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "蒙恬列传"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "classic",
+         "title": "淮南子",
+         "section": "人间训"
+        }
+       ]
+      },
+      {
+       "id": "c.shouzhu",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -214,
+        "precision": "year",
+        "display": "前 214 年",
+        "era": "秦始皇三十三年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十三年略取陆梁地、西北斥逐匈奴；长城与灵渠均为多年工程，取其始见之年"
+       },
+       "gameplay": {
+        "template": "siege",
+        "params": {
+         "goal": "以盾阵护住筑城的役卒，抵挡胡骑的突袭",
+         "beats": [
+          "shield-wall",
+          "hold",
+          "repair"
+         ],
+         "failTo": "c.shouzhu",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.lingqu"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "蒙恬列传"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "classic",
+         "title": "淮南子",
+         "section": "人间训"
+        }
+       ]
+      },
+      {
+       "id": "c.lingqu",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -214,
+        "precision": "year",
+        "display": "前 214 年",
+        "era": "秦始皇三十三年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十三年略取陆梁地、西北斥逐匈奴；长城与灵渠均为多年工程，取其始见之年"
+       },
+       "gameplay": {
+        "template": "engineering",
+        "params": {
+         "goal": "以水笔在分水处分开湘水，引一支入漓水，让粮船翻越山岭",
+         "beats": [
+          "measure-water",
+          "split-flow",
+          "lock-boats"
+         ],
+         "failTo": "c.lingqu",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "蒙恬列传"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "classic",
+         "title": "淮南子",
+         "section": "人间训"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.qin.changcheng.legend-intro",
+       "when": {
+        "start": -214,
+        "precision": "year",
+        "display": "前 214 年",
+        "era": "秦始皇三十三年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十三年略取陆梁地、西北斥逐匈奴；长城与灵渠均为多年工程，取其始见之年"
+       },
+       "label": "scene.qin.changcheng.legend.disclaimer",
+       "dialogue": "scene.qin.changcheng.legend.intro",
+       "next": [
+        "l.hanyi"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "左传",
+         "section": "襄公二十三年",
+         "notes": "齐杞梁战死，其妻辞郊吊"
+        },
+        {
+         "kind": "classic",
+         "title": "列女传",
+         "section": "卷四 贞顺传·齐杞梁妻",
+         "notes": "哭夫于城下，城为之崩"
+        },
+        {
+         "kind": "classic",
+         "title": "贯休·杞梁妻",
+         "notes": "唐诗，已把杞梁妻与秦筑长城相连"
+        },
+        {
+         "kind": "folk",
+         "title": "孟姜女哭长城",
+         "notes": "后世民间故事与说唱"
+        }
+       ]
+      },
+      {
+       "id": "l.hanyi",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -214,
+        "precision": "year",
+        "display": "前 214 年",
+        "era": "秦始皇三十三年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十三年略取陆梁地、西北斥逐匈奴；长城与灵渠均为多年工程，取其始见之年"
+       },
+       "gameplay": {
+        "template": "journey",
+        "params": {
+         "goal": "背着寒衣北上，穿过关隘与荒原",
+         "beats": [
+          "travel",
+          "ask-way",
+          "cold"
+         ],
+         "failTo": "l.hanyi",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "l.kucheng"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "左传",
+         "section": "襄公二十三年",
+         "notes": "齐杞梁战死，其妻辞郊吊"
+        },
+        {
+         "kind": "classic",
+         "title": "列女传",
+         "section": "卷四 贞顺传·齐杞梁妻",
+         "notes": "哭夫于城下，城为之崩"
+        },
+        {
+         "kind": "classic",
+         "title": "贯休·杞梁妻",
+         "notes": "唐诗，已把杞梁妻与秦筑长城相连"
+        },
+        {
+         "kind": "folk",
+         "title": "孟姜女哭长城",
+         "notes": "后世民间故事与说唱"
+        }
+       ]
+      },
+      {
+       "id": "l.kucheng",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -214,
+        "precision": "year",
+        "display": "前 214 年",
+        "era": "秦始皇三十三年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十三年略取陆梁地、西北斥逐匈奴；长城与灵渠均为多年工程，取其始见之年"
+       },
+       "gameplay": {
+        "template": "calligraphy",
+        "params": {
+         "goal": "以墨色写哭声：哭到墨尽，城墙裂开一道缝",
+         "beats": [
+          "weep",
+          "ink-spread",
+          "wall-crack"
+         ],
+         "failTo": "l.kucheng",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "左传",
+         "section": "襄公二十三年",
+         "notes": "齐杞梁战死，其妻辞郊吊"
+        },
+        {
+         "kind": "classic",
+         "title": "列女传",
+         "section": "卷四 贞顺传·齐杞梁妻",
+         "notes": "哭夫于城下，城为之崩"
+        },
+        {
+         "kind": "classic",
+         "title": "贯休·杞梁妻",
+         "notes": "唐诗，已把杞梁妻与秦筑长城相连"
+        },
+        {
+         "kind": "folk",
+         "title": "孟姜女哭长城",
+         "notes": "后世民间故事与说唱"
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
      {
+      "id": "end.canon",
       "kind": "canon",
-      "title": "史记"
+      "title": "scene.qin.changcheng.end.canon",
+      "cutscene": "cutscene.qin.changcheng.end-canon",
+      "mergeTo": "anchor.qin.hejiang",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "蒙恬列传"
+       },
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "秦始皇本纪"
+       },
+       {
+        "kind": "classic",
+        "title": "淮南子",
+        "section": "人间训"
+       }
+      ]
      },
      {
-      "kind": "modern",
-      "title": "五千年演义·秦汉兴替",
-      "section": "第3回",
-      "notes": "现代演义，仅作叙事线索；回次据目录 OCR 对位，待核对"
+      "id": "end.legend",
+      "title": "scene.qin.changcheng.end.legend",
+      "cutscene": "cutscene.qin.changcheng.end-legend",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "左传",
+        "section": "襄公二十三年",
+        "notes": "齐杞梁战死，其妻辞郊吊"
+       },
+       {
+        "kind": "classic",
+        "title": "列女传",
+        "section": "卷四 贞顺传·齐杞梁妻",
+        "notes": "哭夫于城下，城为之崩"
+       },
+       {
+        "kind": "classic",
+        "title": "贯休·杞梁妻",
+        "notes": "唐诗，已把杞梁妻与秦筑长城相连"
+       },
+       {
+        "kind": "folk",
+        "title": "孟姜女哭长城",
+        "notes": "后世民间故事与说唱"
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.qin.hejiang",
+      "notes": "野史线结局与正史出口一致，属于汇流"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.qin.changcheng.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
      }
     ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "长城长度",
+       "canon": "《史记·蒙恬列传》：起临洮，至辽东，延袤万余里",
+       "legend": "—",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "蒙恬列传"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "classic",
+         "title": "淮南子",
+         "section": "人间训"
+        },
+        {
+         "kind": "canon",
+         "title": "左传",
+         "section": "襄公二十三年",
+         "notes": "齐杞梁战死，其妻辞郊吊"
+        },
+        {
+         "kind": "classic",
+         "title": "列女传",
+         "section": "卷四 贞顺传·齐杞梁妻",
+         "notes": "哭夫于城下，城为之崩"
+        },
+        {
+         "kind": "classic",
+         "title": "贯休·杞梁妻",
+         "notes": "唐诗，已把杞梁妻与秦筑长城相连"
+        },
+        {
+         "kind": "folk",
+         "title": "孟姜女哭长城",
+         "notes": "后世民间故事与说唱"
+        }
+       ]
+      },
+      {
+       "topic": "孟姜女",
+       "canon": "正史不载",
+       "legend": "源自春秋杞梁妻故事，唐以后附会于秦长城",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "蒙恬列传"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "classic",
+         "title": "淮南子",
+         "section": "人间训"
+        },
+        {
+         "kind": "canon",
+         "title": "左传",
+         "section": "襄公二十三年",
+         "notes": "齐杞梁战死，其妻辞郊吊"
+        },
+        {
+         "kind": "classic",
+         "title": "列女传",
+         "section": "卷四 贞顺传·齐杞梁妻",
+         "notes": "哭夫于城下，城为之崩"
+        },
+        {
+         "kind": "classic",
+         "title": "贯休·杞梁妻",
+         "notes": "唐诗，已把杞梁妻与秦筑长城相连"
+        },
+        {
+         "kind": "folk",
+         "title": "孟姜女哭长城",
+         "notes": "后世民间故事与说唱"
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.changcheng",
+       "person.mengtian",
+       "person.shilu"
+      ],
+      "seal": "seal.changcheng"
+     }
+    },
     "verify": "pending",
-    "v1": false
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.qin.changcheng.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      206,
+      200,
+      186
+     ],
+     "seed": 50044
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "北方群山之脊，烽燧相望"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "蒙恬率三十万众，因地形筑塞"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "南方山岭之间，两水相背"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "史禄量水，凿渠连接湘、漓"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "闸开，粮船越岭南下"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 360,
+         "variant": 1
+        }
+       },
+       "label": "远山"
+      },
+      {
+       "at": 160,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "nearHill",
+         "ground"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 420
+        }
+       },
+       "label": "近山与地面"
+      },
+      {
+       "at": 320,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "shield",
+        "placement": {
+         "x": 640,
+         "y": 500
+        }
+       },
+       "label": "盾墙"
+      },
+      {
+       "at": 660,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 690,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 720,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 750,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 810,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "spear",
+        "placement": {
+         "x": 600,
+         "y": 480,
+         "angle": -0.4
+        }
+       },
+       "label": "长兵如林"
+      },
+      {
+       "at": 940,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "shield",
+        "placement": {
+         "x": 640,
+         "y": 500
+        }
+       },
+       "label": "盾墙"
+      },
+      {
+       "at": 1220,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "蒙恬"
+      },
+      {
+       "at": 1620,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 360,
+         "variant": 3
+        }
+       },
+       "label": "远山"
+      },
+      {
+       "at": 2060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "water",
+        "placement": {
+         "x": 0,
+         "y": 548,
+         "width": 1280
+        }
+       },
+       "label": "河水"
+      },
+      {
+       "at": 2500,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "nearHill",
+         "ground"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 420
+        }
+       },
+       "label": "近山与地面"
+      },
+      {
+       "at": 3060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "water",
+        "placement": {
+         "x": 0,
+         "y": 548,
+         "width": 1280
+        }
+       },
+       "label": "河水"
+      },
+      {
+       "at": 3580,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "史禄"
+      },
+      {
+       "at": 4100,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "tan",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           720,
+           600
+          ],
+          [
+           900,
+           610
+          ]
+         ]
+        },
+        "speed": 3
+       },
+       "label": "地图卷"
+      },
+      {
+       "at": 4740,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "boat",
+        "placement": {
+         "x": 420,
+         "y": 540
+        }
+       },
+       "label": "舟"
+      },
+      {
+       "at": 4820,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "boat",
+        "placement": {
+         "x": 860,
+         "y": 556,
+         "mirror": true
+        }
+       },
+       "label": "舟"
+      },
+      {
+       "at": 4940,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "water",
+        "placement": {
+         "x": 0,
+         "y": 548,
+         "width": 1280
+        }
+       },
+       "label": "河水"
+      },
+      {
+       "at": 5140,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "分水"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "still"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.qin.changcheng.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.qin.changcheng.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 2700,
+       "until": 3000,
+       "kind": "caption",
+       "key": "scene.qin.changcheng.quote",
+       "style": "kaiti",
+       "orientation": "vertical",
+       "x": 160,
+       "y": 120,
+       "source": {
+        "kind": "canon",
+        "title": "史记",
+        "section": "蒙恬列传"
+       }
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 2080,
+       "kind": "flow",
+       "layer": "sheet",
+       "target": "lastStroke",
+       "params": {
+        "blendType": 0,
+        "iterations": 4
+       }
+      },
+      {
+       "at": 3080,
+       "kind": "flow",
+       "layer": "sheet",
+       "target": "lastStroke",
+       "params": {
+        "blendType": 0,
+        "iterations": 4
+       }
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 4960,
+       "kind": "flow",
+       "layer": "sheet",
+       "target": "lastStroke",
+       "params": {
+        "blendType": 0,
+        "iterations": 4
+       }
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/xun-ancient.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/wind-high.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/wind-plain.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/changcheng-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/changcheng-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1080,
+       "bus": "sfx",
+       "asset": "audio/sfx/earth-thud.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/river-calm.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/changcheng-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/water-drip.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/river-calm.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/changcheng-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3840,
+       "bus": "sfx",
+       "asset": "audio/sfx/stone-crack.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/river-calm.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/river-release.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/changcheng-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/river-release.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
    },
    "strings": {
     "locale": "zh-Hans",
     "strings": {
      "scene.qin.changcheng.title": "长城与灵渠",
-     "scene.qin.changcheng.subtitle": "长城与灵渠",
-     "scene.qin.changcheng.hook.canon": "北筑长城，南凿灵渠",
-     "scene.qin.changcheng.hook.legend": "孟姜女哭长城（民间传说）",
-     "scene.qin.changcheng.play": "工程：water-brush（灵渠）、shield"
+     "scene.qin.changcheng.subtitle": "北筑南凿",
+     "scene.qin.changcheng.when": "万里长城",
+     "vo.01": "天下初定，北有匈奴，南有百越。",
+     "vo.02": "始皇使蒙恬将三十万众北逐戎狄，收河南地，筑长城，起临洮，至辽东，延袤万余里。",
+     "vo.03": "南征之军转饷艰难。监御史史禄受命凿渠，通粮道。",
+     "vo.04": "后世把这条渠叫作灵渠，湘水与漓水由此相通。",
+     "vo.05": "北边的城墙与南方的水渠，同时在动工——",
+     "scene.qin.changcheng.quote": "筑长城，因地形，用制险塞，起临洮，至辽东，延袤万余里",
+     "scene.qin.changcheng.fork.prompt": "此刻落笔，循哪一卷而书？",
+     "anchor.mengtian-bei": "蒙恬将三十万众北击胡",
+     "anchor.hejiang": "灵渠通漕，南定三郡",
+     "scene.qin.changcheng.pick.canon": "正史 · 《史记》所载",
+     "scene.qin.changcheng.canon.intro": "北方的山脊上，烽燧一座接一座立起。南方的岭下，粮船在两水之间停住，过不去。",
+     "scene.qin.changcheng.end.canon": "北方城塞连成一线，南方粮道打通，桂林、象郡、南海三郡设立。代价是无数役卒的劳苦。",
+     "scene.qin.changcheng.pick.legend": "民间 · 孟姜女哭长城",
+     "scene.qin.changcheng.legend.disclaimer": "以下是民间传说。其源头是《左传》《列女传》所载春秋齐国杞梁妻哭夫之事，唐代贯休诗始把它和秦筑长城连在一起，后来才有孟姜女之名。与秦史无关。",
+     "scene.qin.changcheng.legend.intro": "传说孟姜女的丈夫被征去筑长城，死在城下。她千里送寒衣，到了城下只见白骨。她放声痛哭，长城崩塌了一段。",
+     "scene.qin.changcheng.end.legend": "传说止于城崩。历史里的长城仍在，役卒的名字大多没有留下。汇流。",
+     "scene.qin.changcheng.pick.whatif": "推演 · 若不筑长城（未开放）",
+     "scene.qin.changcheng.end.whatif": "异闻 · 未开放"
     }
    },
    "cast": [
     {
      "id": "mengtian",
-     "name": "蒙恬"
+     "name": "蒙恬",
+     "title": "秦将",
+     "camp": "秦",
+     "type": "general",
+     "bio": "将三十万众北逐戎狄，筑长城"
     },
     {
      "id": "shilu",
-     "name": "史禄"
+     "name": "史禄",
+     "title": "秦监御史",
+     "camp": "秦",
+     "type": "minister",
+     "bio": "监禄，凿渠通粮道，即后世所称灵渠"
+    },
+    {
+     "id": "shihuang",
+     "name": "秦始皇",
+     "title": "嬴政",
+     "camp": "秦",
+     "type": "ruler",
+     "bio": "使蒙恬北筑长城，又发兵南取陆梁地"
+    },
+    {
+     "id": "fusu",
+     "name": "扶苏",
+     "title": "秦长子",
+     "camp": "秦",
+     "type": "royal",
+     "bio": "谏坑儒，被遣往上郡监蒙恬军"
     }
    ],
-   "relations": [],
+   "relations": [
+    {
+     "from": "shihuang",
+     "to": "mengtian",
+     "relation": "命筑长城",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "shihuang",
+     "to": "shilu",
+     "relation": "命凿渠",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "fusu",
+     "to": "mengtian",
+     "relation": "同在上郡",
+     "type": "ally"
+    },
+    {
+     "from": "shihuang",
+     "to": "fusu",
+     "relation": "父子",
+     "type": "family"
+    }
+   ],
    "artPrompts": [
     {
      "id": "qin.changcheng.sheet.cast.1",
@@ -1814,8 +3361,9 @@
       {
        "slot": 1,
        "id": "qin.changcheng.art.cast.mengtian",
-       "name": "蒙恬",
+       "name": "蒙恬（秦将）",
        "kind": "figure",
+       "note": "秦·武将",
        "ref": {
         "prop": "figure",
         "actor": "mengtian"
@@ -1824,15 +3372,38 @@
       {
        "slot": 2,
        "id": "qin.changcheng.art.cast.shilu",
-       "name": "史禄",
+       "name": "史禄（秦监御史）",
        "kind": "figure",
+       "note": "秦·文臣",
        "ref": {
         "prop": "figure",
         "actor": "shilu"
        }
+      },
+      {
+       "slot": 3,
+       "id": "qin.changcheng.art.cast.shihuang",
+       "name": "秦始皇（嬴政）",
+       "kind": "figure",
+       "note": "秦·君主",
+       "ref": {
+        "prop": "figure",
+        "actor": "shihuang"
+       }
+      },
+      {
+       "slot": 4,
+       "id": "qin.changcheng.art.cast.fusu",
+       "name": "扶苏（秦长子）",
+       "kind": "figure",
+       "note": "秦·宗室后妃",
+       "ref": {
+        "prop": "figure",
+        "actor": "fusu"
+       }
       }
      ],
-     "prompt": "中国水墨写意素材图（人物立绘），题材：长城与灵渠·长城与灵渠（前 214 前后）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 蒙恬；2. 史禄。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（人物立绘），题材：长城与灵渠·北筑南凿（前 214 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 蒙恬（秦将）（秦·武将）；2. 史禄（秦监御史）（秦·文臣）。\n第 2 行：3. 秦始皇（嬴政）（秦·君主）；4. 扶苏（秦长子）（秦·宗室后妃）。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
@@ -1860,6 +3431,16 @@
       {
        "slot": 1,
        "id": "qin.changcheng.art.props.1",
+       "name": "水刷",
+       "kind": "prop",
+       "note": "大号毛笔，笔锋含墨将滴",
+       "ref": {
+        "prop": "water-brush"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "qin.changcheng.art.props.2",
        "name": "盾牌",
        "kind": "prop",
        "note": "圆盾，墨色包边，正面徽记",
@@ -1868,17 +3449,14 @@
        }
       },
       {
-       "slot": 2,
-       "id": "qin.changcheng.art.props.2",
-       "name": "水刷",
+       "slot": 3,
+       "id": "qin.changcheng.art.props.3",
+       "name": "地图卷",
        "kind": "prop",
-       "note": "大号毛笔，笔锋含墨将滴",
-       "ref": {
-        "prop": "water-brush"
-       }
+       "note": "过场笔画所绘"
       }
      ],
-     "prompt": "中国水墨写意素材图（道具器物），题材：长城与灵渠·长城与灵渠（前 214 前后）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 盾牌（圆盾，墨色包边，正面徽记）；2. 水刷（大号毛笔，笔锋含墨将滴）。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（道具器物），题材：长城与灵渠·北筑南凿（前 214 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 水刷（大号毛笔，笔锋含墨将滴）；2. 盾牌（圆盾，墨色包边，正面徽记）。\n第 2 行：3. 地图卷（过场笔画所绘）；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
@@ -1899,43 +3477,85 @@
      "segment": 1,
      "segmentsInCategory": 1,
      "grid": {
-      "cols": 2,
-      "rows": 2
+      "cols": 4,
+      "rows": 3
      },
      "assets": [
       {
        "slot": 1,
        "id": "qin.changcheng.art.scenery.1",
-       "name": "河渠",
+       "name": "远山（淡墨）",
        "kind": "scenery"
       },
       {
        "slot": 2,
        "id": "qin.changcheng.art.scenery.2",
-       "name": "堤坝",
+       "name": "近坡（中墨）",
        "kind": "scenery"
       },
       {
        "slot": 3,
        "id": "qin.changcheng.art.scenery.3",
-       "name": "木石料",
+       "name": "土坡地线",
        "kind": "scenery"
       },
       {
        "slot": 4,
        "id": "qin.changcheng.art.scenery.4",
+       "name": "草丛（枯笔）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 5,
+       "id": "qin.changcheng.art.scenery.5",
+       "name": "大江水面",
+       "kind": "scenery"
+      },
+      {
+       "slot": 6,
+       "id": "qin.changcheng.art.scenery.6",
+       "name": "白色飞白浪花",
+       "kind": "scenery"
+      },
+      {
+       "slot": 7,
+       "id": "qin.changcheng.art.scenery.7",
+       "name": "涟漪",
+       "kind": "scenery"
+      },
+      {
+       "slot": 8,
+       "id": "qin.changcheng.art.scenery.8",
+       "name": "河渠",
+       "kind": "scenery"
+      },
+      {
+       "slot": 9,
+       "id": "qin.changcheng.art.scenery.9",
+       "name": "堤坝",
+       "kind": "scenery"
+      },
+      {
+       "slot": 10,
+       "id": "qin.changcheng.art.scenery.10",
+       "name": "木石料",
+       "kind": "scenery"
+      },
+      {
+       "slot": 11,
+       "id": "qin.changcheng.art.scenery.11",
        "name": "山石",
        "kind": "scenery"
       }
      ],
-     "prompt": "中国水墨写意素材图（场景环境），题材：长城与灵渠·长城与灵渠（前 214 前后）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 河渠；2. 堤坝。\n第 2 行：3. 木石料；4. 山石。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（场景环境），题材：长城与灵渠·北筑南凿（前 214 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：4×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 远山（淡墨）；2. 近坡（中墨）；3. 土坡地线；4. 草丛（枯笔）。\n第 2 行：5. 大江水面；6. 白色飞白浪花；7. 涟漪；8. 河渠。\n第 3 行：9. 堤坝；10. 木石料；11. 山石；12. 留空。\n排版参考尺寸：2048×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
       "apiVerified": false,
       "sizePx": [
-       1024,
-       1024
+       2048,
+       1536
       ],
       "cellPx": 512,
       "background": "transparent",
@@ -1978,7 +3598,7 @@
        "kind": "fx"
       }
      ],
-     "prompt": "中国水墨写意素材图（水墨特效），题材：长城与灵渠·长城与灵渠（前 214 前后）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触。\n第 2 行：3. 水流笔迹；4. 墨滴下坠。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（水墨特效），题材：长城与灵渠·北筑南凿（前 214 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触。\n第 2 行：3. 水流笔迹；4. 墨滴下坠。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
@@ -1997,9 +3617,9 @@
   {
    "outlineId": "06-03",
    "v1": false,
-   "detail": "outline",
+   "detail": "full",
    "scene": {
-    "format": "inkgames.scene-outline",
+    "format": "inkgames.scene",
     "version": 1,
     "id": "qin.xufu",
     "chapter": "qin",
@@ -2008,60 +3628,1655 @@
     "subtitle": "scene.qin.xufu.subtitle",
     "when": {
      "start": -219,
+     "end": -210,
      "precision": "year",
-     "display": "前 219、前 210 年",
+     "display": "前 219—前 210 年",
+     "era": "秦始皇二十八年至三十七年",
      "verify": "done"
     },
     "key": false,
     "template": "naval",
     "props": [
-     "boat"
+     "boat",
+     "water",
+     "bow",
+     "landscape",
+     "figure"
     ],
     "characters": [
-     "xufu"
+     "xufu",
+     "shihuang",
+     "lusheng",
+     "wubei"
     ],
-    "hooks": {
-     "canon": "scene.qin.xufu.hook.canon",
-     "legend": "scene.qin.xufu.hook.legend",
-     "play": "scene.qin.xufu.play"
+    "anchors": {
+     "entry": {
+      "id": "anchor.qin.shangshu",
+      "title": "anchor.shangshu",
+      "when": {
+       "start": -219,
+       "precision": "year",
+       "display": "前 219 年",
+       "era": "秦始皇二十八年",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "秦始皇本纪"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.qin.zhifu",
+      "title": "anchor.zhifu",
+      "when": {
+       "start": -210,
+       "precision": "year",
+       "display": "前 210 年",
+       "era": "秦始皇三十七年",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "秦始皇本纪"
+       }
+      ]
+     }
     },
-    "sources": [
+    "opening": "cutscene.qin.xufu.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.qin.xufu.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.qin.xufu.opening",
+       "when": {
+        "start": -219,
+        "end": -210,
+        "precision": "year",
+        "display": "前 219—前 210 年",
+        "era": "秦始皇二十八年至三十七年",
+        "verify": "done"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "淮南衡山列传"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": -219,
+        "end": -210,
+        "precision": "year",
+        "display": "前 219—前 210 年",
+        "era": "秦始皇二十八年至三十七年",
+        "verify": "done"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.qin.xufu.pick.canon",
+         "seal": "canon",
+         "to": "c.intro"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.qin.xufu.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.qin.xufu.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "qin.xufu/canon"
+           },
+           {
+            "cleared": "qin.xufu/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": -219,
+        "end": -210,
+        "precision": "year",
+        "display": "前 219—前 210 年",
+        "era": "秦始皇二十八年至三十七年",
+        "verify": "done"
+       },
+       "dialogue": "scene.qin.xufu.canon.intro",
+       "next": [
+        "c.shangshu"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "淮南衡山列传"
+        }
+       ]
+      },
+      {
+       "id": "c.shangshu",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -219,
+        "end": -210,
+        "precision": "year",
+        "display": "前 219—前 210 年",
+        "era": "秦始皇二十八年至三十七年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "court",
+        "params": {
+         "goal": "以徐市的身份对答，让始皇相信海中有三神山",
+         "beats": [
+          "audience",
+          "describe",
+          "convince"
+         ],
+         "failTo": "c.shangshu",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.haishang"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "淮南衡山列传"
+        }
+       ]
+      },
+      {
+       "id": "c.haishang",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -219,
+        "precision": "year",
+        "display": "前 219 年",
+        "era": "秦始皇二十八年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "naval",
+        "params": {
+         "goal": "率船队出海，在风浪中保住船只与童男女",
+         "beats": [
+          "set-sail",
+          "storm",
+          "steer"
+         ],
+         "failTo": "c.haishang",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.julyu"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "淮南衡山列传"
+        }
+       ]
+      },
+      {
+       "id": "c.julyu",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -210,
+        "precision": "year",
+        "display": "前 210 年",
+        "era": "秦始皇三十七年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "naval",
+        "params": {
+         "goal": "随始皇船队自琅邪北至之罘，以连弩射杀巨鱼",
+         "beats": [
+          "search",
+          "sight",
+          "crossbow"
+         ],
+         "failTo": "c.julyu",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "淮南衡山列传"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.qin.xufu.legend-intro",
+       "when": {
+        "start": -219,
+        "end": -210,
+        "precision": "year",
+        "display": "前 219—前 210 年",
+        "era": "秦始皇二十八年至三十七年",
+        "verify": "done"
+       },
+       "label": "scene.qin.xufu.legend.disclaimer",
+       "dialogue": "scene.qin.xufu.legend.intro",
+       "next": [
+        "l.dongdu"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "淮南衡山列传",
+         "notes": "伍被：徐福得平原广泽，止王不来"
+        },
+        {
+         "kind": "classic",
+         "title": "欧阳修·日本刀歌",
+         "notes": "北宋诗：“其先徐福诈秦民，采药淹留丱童老”"
+        }
+       ]
+      },
+      {
+       "id": "l.dongdu",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -219,
+        "end": -210,
+        "precision": "year",
+        "display": "前 219—前 210 年",
+        "era": "秦始皇二十八年至三十七年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "naval",
+        "params": {
+         "goal": "带着百工与五谷种子东行，在海上辨认星象与洋流",
+         "beats": [
+          "stars",
+          "current",
+          "landfall"
+         ],
+         "failTo": "l.dongdu",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "l.pingyuan"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "淮南衡山列传",
+         "notes": "伍被：徐福得平原广泽，止王不来"
+        },
+        {
+         "kind": "classic",
+         "title": "欧阳修·日本刀歌",
+         "notes": "北宋诗：“其先徐福诈秦民，采药淹留丱童老”"
+        }
+       ]
+      },
+      {
+       "id": "l.pingyuan",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -219,
+        "end": -210,
+        "precision": "year",
+        "display": "前 219—前 210 年",
+        "era": "秦始皇二十八年至三十七年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "engineering",
+        "params": {
+         "goal": "在“平原广泽”开垦落脚，教人耕种",
+         "beats": [
+          "clear-land",
+          "plant",
+          "settle"
+         ],
+         "failTo": "l.pingyuan",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "淮南衡山列传",
+         "notes": "伍被：徐福得平原广泽，止王不来"
+        },
+        {
+         "kind": "classic",
+         "title": "欧阳修·日本刀歌",
+         "notes": "北宋诗：“其先徐福诈秦民，采药淹留丱童老”"
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
      {
+      "id": "end.canon",
       "kind": "canon",
-      "title": "史记",
-      "section": "秦始皇本纪"
+      "title": "scene.qin.xufu.end.canon",
+      "cutscene": "cutscene.qin.xufu.end-canon",
+      "mergeTo": "anchor.qin.zhifu",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "秦始皇本纪"
+       },
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "淮南衡山列传"
+       }
+      ]
      },
      {
-      "kind": "classic",
-      "title": "淮南衡山列传"
+      "id": "end.legend",
+      "title": "scene.qin.xufu.end.legend",
+      "cutscene": "cutscene.qin.xufu.end-legend",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "淮南衡山列传",
+        "notes": "伍被：徐福得平原广泽，止王不来"
+       },
+       {
+        "kind": "classic",
+        "title": "欧阳修·日本刀歌",
+        "notes": "北宋诗：“其先徐福诈秦民，采药淹留丱童老”"
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.qin.zhifu",
+      "notes": "野史线结局与正史出口一致，属于汇流"
      },
      {
-      "kind": "modern",
-      "title": "五千年演义·秦汉兴替",
-      "section": "第2回",
-      "notes": "现代演义，仅作叙事线索；回次据目录 OCR 对位，待核对"
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.qin.xufu.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
      }
     ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "徐福去向",
+       "canon": "《史记·淮南衡山列传》：得平原广泽，止王不来",
+       "legend": "北宋欧阳修《日本刀歌》等以为至日本",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "淮南衡山列传"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "淮南衡山列传",
+         "notes": "伍被：徐福得平原广泽，止王不来"
+        },
+        {
+         "kind": "classic",
+         "title": "欧阳修·日本刀歌",
+         "notes": "北宋诗：“其先徐福诈秦民，采药淹留丱童老”"
+        }
+       ]
+      },
+      {
+       "topic": "童男女之数",
+       "canon": "《秦始皇本纪》：数千人",
+       "legend": "《淮南衡山列传》：振男女三千人，资之五谷种种百工",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "淮南衡山列传"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "淮南衡山列传",
+         "notes": "伍被：徐福得平原广泽，止王不来"
+        },
+        {
+         "kind": "classic",
+         "title": "欧阳修·日本刀歌",
+         "notes": "北宋诗：“其先徐福诈秦民，采药淹留丱童老”"
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.xufu",
+       "person.xufu",
+       "person.shihuang"
+      ],
+      "seal": "seal.xufu"
+     }
+    },
     "verify": "pending",
-    "v1": false
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.qin.xufu.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      206,
+      200,
+      186
+     ],
+     "seed": 52802
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "琅邪台下，东海无边"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "徐市上书，言海中三神山"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "童男女数千，登船入海"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "九年后，方士诈称大鲛鱼所苦"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "之罘：连弩射杀一巨鱼"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 360,
+         "variant": 1
+        }
+       },
+       "label": "远山"
+      },
+      {
+       "at": 160,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "water",
+        "placement": {
+         "x": 0,
+         "y": 548,
+         "width": 1280
+        }
+       },
+       "label": "江海"
+      },
+      {
+       "at": 220,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "water.crest",
+        "color": "white",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           100,
+           520
+          ],
+          [
+           400,
+           510
+          ],
+          [
+           760,
+           524
+          ],
+          [
+           1180,
+           512
+          ]
+         ]
+        },
+        "speed": 12
+       },
+       "label": "浪头"
+      },
+      {
+       "at": 320,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "brush": "banner.gust",
+        "color": "light_gray_new",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           160,
+           160
+          ],
+          [
+           420,
+           130
+          ],
+          [
+           700,
+           170
+          ],
+          [
+           1000,
+           140
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "云"
+      },
+      {
+       "at": 660,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 750,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 840,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 870,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "徐福"
+      },
+      {
+       "at": 1080,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "秦始皇"
+      },
+      {
+       "at": 1290,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "tan",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           720,
+           600
+          ],
+          [
+           900,
+           610
+          ]
+         ]
+        },
+        "speed": 3
+       },
+       "label": "卷轴"
+      },
+      {
+       "at": 1620,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "boat",
+        "placement": {
+         "x": 420,
+         "y": 540
+        }
+       },
+       "label": "舟"
+      },
+      {
+       "at": 1700,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "boat",
+        "placement": {
+         "x": 860,
+         "y": 556,
+         "mirror": true
+        }
+       },
+       "label": "舟"
+      },
+      {
+       "at": 2060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "water",
+        "placement": {
+         "x": 0,
+         "y": 548,
+         "width": 1280
+        }
+       },
+       "label": "江海"
+      },
+      {
+       "at": 2120,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "water.crest",
+        "color": "white",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           100,
+           520
+          ],
+          [
+           400,
+           510
+          ],
+          [
+           760,
+           524
+          ],
+          [
+           1180,
+           512
+          ]
+         ]
+        },
+        "speed": 12
+       },
+       "label": "浪头"
+      },
+      {
+       "at": 2500,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 2530,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 2560,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 2590,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 3060,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 460,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 1
+        }
+       },
+       "label": "徐福"
+      },
+      {
+       "at": 3580,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "water",
+        "placement": {
+         "x": 0,
+         "y": 548,
+         "width": 1280
+        }
+       },
+       "label": "江海"
+      },
+      {
+       "at": 3640,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "water.crest",
+        "color": "white",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           100,
+           520
+          ],
+          [
+           400,
+           510
+          ],
+          [
+           760,
+           524
+          ],
+          [
+           1180,
+           512
+          ]
+         ]
+        },
+        "speed": 12
+       },
+       "label": "浪头"
+      },
+      {
+       "at": 4100,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "water.current",
+        "color": "blue_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           0,
+           560
+          ],
+          [
+           320,
+           540
+          ],
+          [
+           640,
+           566
+          ],
+          [
+           960,
+           544
+          ],
+          [
+           1280,
+           560
+          ]
+         ]
+        },
+        "speed": 8
+       },
+       "label": "潮"
+      },
+      {
+       "at": 4740,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "water",
+        "placement": {
+         "x": 0,
+         "y": 548,
+         "width": 1280
+        }
+       },
+       "label": "江海"
+      },
+      {
+       "at": 4800,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "water.crest",
+        "color": "white",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           100,
+           520
+          ],
+          [
+           400,
+           510
+          ],
+          [
+           760,
+           524
+          ],
+          [
+           1180,
+           512
+          ]
+         ]
+        },
+        "speed": 12
+       },
+       "label": "浪头"
+      },
+      {
+       "at": 4940,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "bow",
+        "placement": {
+         "x": 560,
+         "y": 480
+        }
+       },
+       "label": "bow"
+      },
+      {
+       "at": 5140,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "巨鱼"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "still"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.qin.xufu.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.qin.xufu.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 2700,
+       "until": 3000,
+       "kind": "caption",
+       "key": "scene.qin.xufu.quote",
+       "style": "kaiti",
+       "orientation": "vertical",
+       "x": 160,
+       "y": 120,
+       "source": {
+        "kind": "canon",
+        "title": "史记",
+        "section": "秦始皇本纪"
+       }
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 180,
+       "kind": "flow",
+       "layer": "sheet",
+       "target": "lastStroke",
+       "params": {
+        "blendType": 0,
+        "iterations": 4
+       }
+      },
+      {
+       "at": 2080,
+       "kind": "flow",
+       "layer": "sheet",
+       "target": "lastStroke",
+       "params": {
+        "blendType": 0,
+        "iterations": 4
+       }
+      },
+      {
+       "at": 3600,
+       "kind": "flow",
+       "layer": "sheet",
+       "target": "lastStroke",
+       "params": {
+        "blendType": 0,
+        "iterations": 4
+       }
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 4760,
+       "kind": "flow",
+       "layer": "sheet",
+       "target": "lastStroke",
+       "params": {
+        "blendType": 0,
+        "iterations": 4
+       }
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/xun-ancient.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/wave-sea.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/palace-hall.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xufu-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xufu-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1080,
+       "bus": "sfx",
+       "asset": "audio/sfx/bamboo-slip.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/wave-sea.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xufu-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/oar.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/wave-sea.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xufu-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3840,
+       "bus": "sfx",
+       "asset": "audio/sfx/murmur.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/wave-sea.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/wave-crash.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xufu-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/wave-crash.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
    },
    "strings": {
     "locale": "zh-Hans",
     "strings": {
      "scene.qin.xufu.title": "徐福东渡",
-     "scene.qin.xufu.subtitle": "徐福东渡",
-     "scene.qin.xufu.hook.canon": "《史记》载徐福入海求仙药",
-     "scene.qin.xufu.hook.legend": "东渡日本之说（传说，待核验）",
-     "scene.qin.xufu.play": "航海：boat"
+     "scene.qin.xufu.subtitle": "入海求仙",
+     "scene.qin.xufu.when": "东海求仙",
+     "vo.01": "始皇东巡至琅邪，齐人徐市上书，说海中有三神山：蓬莱、方丈、瀛洲，有仙人居之。",
+     "vo.02": "始皇遣徐市发童男女数千人，入海求仙人。",
+     "vo.03": "数年过去，花费巨万，药却没有求到。",
+     "vo.04": "始皇三十七年再巡琅邪，徐市等怕被责罚，诈称蓬莱药可得，只是常为大鲛鱼所苦。",
+     "vo.05": "始皇梦与海神战——",
+     "scene.qin.xufu.quote": "蓬莱药可得，然常为大鲛鱼所苦，故不得至",
+     "scene.qin.xufu.fork.prompt": "此刻落笔，循哪一卷而书？",
+     "anchor.shangshu": "徐市上书言海中三神山",
+     "anchor.zhifu": "始皇射巨鱼于之罘",
+     "scene.qin.xufu.pick.canon": "正史 · 《史记·秦始皇本纪》所载",
+     "scene.qin.xufu.canon.intro": "琅邪台下，东海一望无际。一个齐地方士捧着上书，等候召见。",
+     "scene.qin.xufu.end.canon": "始皇射杀巨鱼，西行至平原津而病，崩于沙丘。徐福此后的去向，《史记》只在伍被的话里提了一句。",
+     "scene.qin.xufu.pick.legend": "后世 · 东渡日本",
+     "scene.qin.xufu.legend.disclaimer": "以下是后世说法。《史记》伍被之语只说徐福“得平原广泽，止王不来”，未说是何地；北宋欧阳修诗已以日本为徐福所至，此后流传渐广，并无可靠史证。",
+     "scene.qin.xufu.legend.intro": "后世相传：徐福带着童男女与百工、五谷，东渡到了日本，在那里定居，再也没有回来。",
+     "scene.qin.xufu.end.legend": "徐福不归。始皇的船队已经回到岸边，西行之路通向沙丘。汇流。",
+     "scene.qin.xufu.pick.whatif": "推演 · 若徐福归来（未开放）",
+     "scene.qin.xufu.end.whatif": "异闻 · 未开放"
     }
    },
    "cast": [
     {
      "id": "xufu",
-     "name": "徐福"
+     "name": "徐福",
+     "title": "徐市，齐方士",
+     "camp": "齐",
+     "type": "other",
+     "bio": "上书言海中有三神山，率童男女入海求仙药"
+    },
+    {
+     "id": "shihuang",
+     "name": "秦始皇",
+     "title": "嬴政",
+     "camp": "秦",
+     "type": "ruler",
+     "bio": "求不死之药，遣徐市入海"
+    },
+    {
+     "id": "lusheng",
+     "name": "卢生",
+     "title": "燕方士",
+     "camp": "秦",
+     "type": "other",
+     "bio": "亦为始皇求仙，后亡去"
+    },
+    {
+     "id": "wubei",
+     "name": "伍被",
+     "title": "淮南王门客",
+     "camp": "汉",
+     "type": "other",
+     "bio": "劝谏淮南王时，追述徐福“止王不来”"
     }
    ],
-   "relations": [],
+   "relations": [
+    {
+     "from": "shihuang",
+     "to": "xufu",
+     "relation": "遣其入海",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "shihuang",
+     "to": "lusheng",
+     "relation": "求仙",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "xufu",
+     "to": "lusheng",
+     "relation": "同为方士",
+     "type": "other"
+    }
+   ],
    "artPrompts": [
     {
      "id": "qin.xufu.sheet.cast.1",
@@ -2077,15 +5292,49 @@
       {
        "slot": 1,
        "id": "qin.xufu.art.cast.xufu",
-       "name": "徐福",
+       "name": "徐福（徐市，齐方士）",
        "kind": "figure",
+       "note": "齐·其他",
        "ref": {
         "prop": "figure",
         "actor": "xufu"
        }
+      },
+      {
+       "slot": 2,
+       "id": "qin.xufu.art.cast.shihuang",
+       "name": "秦始皇（嬴政）",
+       "kind": "figure",
+       "note": "秦·君主",
+       "ref": {
+        "prop": "figure",
+        "actor": "shihuang"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "qin.xufu.art.cast.lusheng",
+       "name": "卢生（燕方士）",
+       "kind": "figure",
+       "note": "秦·其他",
+       "ref": {
+        "prop": "figure",
+        "actor": "lusheng"
+       }
+      },
+      {
+       "slot": 4,
+       "id": "qin.xufu.art.cast.wubei",
+       "name": "伍被（淮南王门客）",
+       "kind": "figure",
+       "note": "汉·其他",
+       "ref": {
+        "prop": "figure",
+        "actor": "wubei"
+       }
       }
      ],
-     "prompt": "中国水墨写意素材图（人物立绘），题材：徐福东渡·徐福东渡（前 219、前 210 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 徐福；2. 留空。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（人物立绘），题材：徐福东渡·入海求仙（前 219—前 210 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 徐福（徐市，齐方士）（齐·其他）；2. 秦始皇（嬴政）（秦·君主）。\n第 2 行：3. 卢生（燕方士）（秦·其他）；4. 伍被（淮南王门客）（汉·其他）。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
@@ -2119,9 +5368,26 @@
        "ref": {
         "prop": "boat"
        }
+      },
+      {
+       "slot": 2,
+       "id": "qin.xufu.art.props.2",
+       "name": "角弓与箭",
+       "kind": "prop",
+       "note": "弯弓与箭矢，弓弦紧绷",
+       "ref": {
+        "prop": "bow"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "qin.xufu.art.props.3",
+       "name": "卷轴",
+       "kind": "prop",
+       "note": "过场笔画所绘"
       }
      ],
-     "prompt": "中国水墨写意素材图（道具器物），题材：徐福东渡·徐福东渡（前 219、前 210 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 舟船（木舟与船夫，船尾水痕）；2. 留空。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（道具器物），题材：徐福东渡·入海求仙（前 219—前 210 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 舟船（木舟与船夫，船尾水痕）；2. 角弓与箭（弯弓与箭矢，弓弦紧绷）。\n第 2 行：3. 卷轴（过场笔画所绘）；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
@@ -2142,43 +5408,91 @@
      "segment": 1,
      "segmentsInCategory": 1,
      "grid": {
-      "cols": 2,
-      "rows": 2
+      "cols": 4,
+      "rows": 3
      },
      "assets": [
       {
        "slot": 1,
        "id": "qin.xufu.art.scenery.1",
-       "name": "大江水面",
+       "name": "远山（淡墨）",
        "kind": "scenery"
       },
       {
        "slot": 2,
        "id": "qin.xufu.art.scenery.2",
-       "name": "白色飞白浪花",
+       "name": "近坡（中墨）",
        "kind": "scenery"
       },
       {
        "slot": 3,
        "id": "qin.xufu.art.scenery.3",
-       "name": "涟漪",
+       "name": "土坡地线",
        "kind": "scenery"
       },
       {
        "slot": 4,
        "id": "qin.xufu.art.scenery.4",
+       "name": "草丛（枯笔）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 5,
+       "id": "qin.xufu.art.scenery.5",
+       "name": "大江水面",
+       "kind": "scenery"
+      },
+      {
+       "slot": 6,
+       "id": "qin.xufu.art.scenery.6",
+       "name": "白色飞白浪花",
+       "kind": "scenery"
+      },
+      {
+       "slot": 7,
+       "id": "qin.xufu.art.scenery.7",
+       "name": "涟漪",
+       "kind": "scenery"
+      },
+      {
+       "slot": 8,
+       "id": "qin.xufu.art.scenery.8",
        "name": "风帆",
+       "kind": "scenery"
+      },
+      {
+       "slot": 9,
+       "id": "qin.xufu.art.scenery.9",
+       "name": "江海",
+       "kind": "scenery"
+      },
+      {
+       "slot": 10,
+       "id": "qin.xufu.art.scenery.10",
+       "name": "殿柱",
+       "kind": "scenery"
+      },
+      {
+       "slot": 11,
+       "id": "qin.xufu.art.scenery.11",
+       "name": "屋檐",
+       "kind": "scenery"
+      },
+      {
+       "slot": 12,
+       "id": "qin.xufu.art.scenery.12",
+       "name": "潮",
        "kind": "scenery"
       }
      ],
-     "prompt": "中国水墨写意素材图（场景环境），题材：徐福东渡·徐福东渡（前 219、前 210 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 大江水面；2. 白色飞白浪花。\n第 2 行：3. 涟漪；4. 风帆。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（场景环境），题材：徐福东渡·入海求仙（前 219—前 210 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：4×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 远山（淡墨）；2. 近坡（中墨）；3. 土坡地线；4. 草丛（枯笔）。\n第 2 行：5. 大江水面；6. 白色飞白浪花；7. 涟漪；8. 风帆。\n第 3 行：9. 江海；10. 殿柱；11. 屋檐；12. 潮。\n排版参考尺寸：2048×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
       "apiVerified": false,
       "sizePx": [
-       1024,
-       1024
+       2048,
+       1536
       ],
       "cellPx": 512,
       "background": "transparent",
@@ -2192,7 +5506,7 @@
      "segment": 1,
      "segmentsInCategory": 1,
      "grid": {
-      "cols": 2,
+      "cols": 3,
       "rows": 2
      },
      "assets": [
@@ -2217,17 +5531,29 @@
       {
        "slot": 4,
        "id": "qin.xufu.art.effects.4",
+       "name": "箭矢破空",
+       "kind": "fx"
+      },
+      {
+       "slot": 5,
+       "id": "qin.xufu.art.effects.5",
+       "name": "命中靶心墨点",
+       "kind": "fx"
+      },
+      {
+       "slot": 6,
+       "id": "qin.xufu.art.effects.6",
        "name": "巨浪拍船",
        "kind": "fx"
       }
      ],
-     "prompt": "中国水墨写意素材图（水墨特效），题材：徐福东渡·徐福东渡（前 219、前 210 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触。\n第 2 行：3. 船行尾迹；4. 巨浪拍船。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（水墨特效），题材：徐福东渡·入海求仙（前 219—前 210 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触；3. 船行尾迹。\n第 2 行：4. 箭矢破空；5. 命中靶心墨点；6. 巨浪拍船。\n排版参考尺寸：1536×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
       "apiVerified": false,
       "sizePx": [
-       1024,
+       1536,
        1024
       ],
       "cellPx": 512,
@@ -2365,7 +5691,7 @@
          "id": "pick.canon",
          "label": "scene.qin.shaqiu.pick.canon",
          "seal": "canon",
-         "to": "c.edict"
+         "to": "c.intro"
         },
         {
          "id": "pick.legend",
@@ -2388,6 +5714,35 @@
            }
           ]
          }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": -210,
+        "end": -207,
+        "precision": "year",
+        "display": "前 210—前 207 年",
+        "era": "秦始皇三十七年至秦二世三年",
+        "verify": "done"
+       },
+       "dialogue": "scene.qin.shaqiu.canon.intro",
+       "next": [
+        "c.edict"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "李斯列传"
         }
        ]
       },
@@ -2506,8 +5861,8 @@
         {
          "kind": "excavated",
          "title": "赵正书",
-         "section": "北京大学藏西汉竹书",
-         "notes": "释文与解读待核验"
+         "section": "北京大学藏西汉竹书（叁）",
+         "notes": "北京大学出土文献研究所编，上海古籍出版社 2015 年整理本；其性质与可信度学界仍有讨论"
         }
        ]
       },
@@ -2544,8 +5899,8 @@
         {
          "kind": "excavated",
          "title": "赵正书",
-         "section": "北京大学藏西汉竹书",
-         "notes": "释文与解读待核验"
+         "section": "北京大学藏西汉竹书（叁）",
+         "notes": "北京大学出土文献研究所编，上海古籍出版社 2015 年整理本；其性质与可信度学界仍有讨论"
         }
        ]
       },
@@ -2582,8 +5937,8 @@
         {
          "kind": "excavated",
          "title": "赵正书",
-         "section": "北京大学藏西汉竹书",
-         "notes": "释文与解读待核验"
+         "section": "北京大学藏西汉竹书（叁）",
+         "notes": "北京大学出土文献研究所编，上海古籍出版社 2015 年整理本；其性质与可信度学界仍有讨论"
         }
        ]
       },
@@ -2632,8 +5987,8 @@
        {
         "kind": "excavated",
         "title": "赵正书",
-        "section": "北京大学藏西汉竹书",
-        "notes": "释文与解读待核验"
+        "section": "北京大学藏西汉竹书（叁）",
+        "notes": "北京大学出土文献研究所编，上海古籍出版社 2015 年整理本；其性质与可信度学界仍有讨论"
        }
       ],
       "kind": "legend",
@@ -2653,7 +6008,7 @@
       {
        "topic": "胡亥如何即位",
        "canon": "《史记》：赵高、李斯、胡亥矫诏，赐扶苏死",
-       "legend": "《赵正书》：秦王病中同意立胡亥（释文待核验）",
+       "legend": "《赵正书》：秦王病中同意李斯等人立胡亥之请，无矫诏情节",
        "sources": [
         {
          "kind": "canon",
@@ -2668,8 +6023,8 @@
         {
          "kind": "excavated",
          "title": "赵正书",
-         "section": "北京大学藏西汉竹书",
-         "notes": "释文与解读待核验"
+         "section": "北京大学藏西汉竹书（叁）",
+         "notes": "北京大学出土文献研究所编，上海古籍出版社 2015 年整理本；其性质与可信度学界仍有讨论"
         }
        ]
       }
@@ -3509,6 +6864,7 @@
      "anchor.shaqiu-beng": "始皇崩于沙丘",
      "anchor.wangyi": "望夷宫之变",
      "scene.qin.shaqiu.pick.canon": "正史 · 《史记》、《史记》所载",
+     "scene.qin.shaqiu.canon.intro": "始皇崩于沙丘，秘不发丧。辒辌车里散出鲍鱼的腥气，赵高的手里握着那封给扶苏的书。",
      "scene.qin.shaqiu.end.canon": "言鹿者被赵高暗中陷害。不久，赵高逼二世自杀于望夷宫，秦亡在即。",
      "scene.qin.shaqiu.pick.legend": "异说 · 北大汉简《赵正书》",
      "scene.qin.shaqiu.legend.disclaimer": "以下取自出土文献北京大学藏西汉竹书《赵正书》，它对胡亥即位的叙述与《史记》不同。整理与解读仍有争议。",
@@ -4029,7 +7385,7 @@
          "id": "pick.canon",
          "label": "scene.qin.dazexiang.pick.canon",
          "seal": "canon",
-         "to": "c.omen"
+         "to": "c.intro"
         },
         {
          "id": "pick.legend",
@@ -4052,6 +7408,29 @@
            }
           ]
          }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": -209,
+        "precision": "year",
+        "display": "前 209 年",
+        "era": "秦二世元年七月",
+        "verify": "done"
+       },
+       "dialogue": "scene.qin.dazexiang.canon.intro",
+       "next": [
+        "c.omen"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "陈涉世家"
         }
        ]
       },
@@ -4198,7 +7577,7 @@
          "kind": "excavated",
          "title": "睡虎地秦简",
          "section": "秦律十八种·徭律",
-         "notes": "条文适用范围待核验"
+         "notes": "“失期三日到五日，谇；六日到旬，赀一盾；过旬，赀一甲”，见《睡虎地秦墓竹简》整理本；此条针对徭役征发"
         }
        ]
       },
@@ -4236,7 +7615,7 @@
          "kind": "excavated",
          "title": "睡虎地秦简",
          "section": "秦律十八种·徭律",
-         "notes": "条文适用范围待核验"
+         "notes": "“失期三日到五日，谇；六日到旬，赀一盾；过旬，赀一甲”，见《睡虎地秦墓竹简》整理本；此条针对徭役征发"
         }
        ]
       },
@@ -4273,7 +7652,7 @@
          "kind": "excavated",
          "title": "睡虎地秦简",
          "section": "秦律十八种·徭律",
-         "notes": "条文适用范围待核验"
+         "notes": "“失期三日到五日，谇；六日到旬，赀一盾；过旬，赀一甲”，见《睡虎地秦墓竹简》整理本；此条针对徭役征发"
         }
        ]
       },
@@ -4318,7 +7697,7 @@
         "kind": "excavated",
         "title": "睡虎地秦简",
         "section": "秦律十八种·徭律",
-        "notes": "条文适用范围待核验"
+        "notes": "“失期三日到五日，谇；六日到旬，赀一盾；过旬，赀一甲”，见《睡虎地秦墓竹简》整理本；此条针对徭役征发"
        }
       ],
       "kind": "legend",
@@ -4338,7 +7717,7 @@
       {
        "topic": "失期是否当斩",
        "canon": "《史记·陈涉世家》：失期，法皆斩",
-       "legend": "睡虎地秦简《徭律》：失期按日数申斥或罚甲盾；是否同样适用于屯戍，学界有争议（待核验）",
+       "legend": "睡虎地秦简《徭律》：失期按日数申斥或罚甲盾；此条针对徭役，是否同样适用于屯戍，学界有争议",
        "sources": [
         {
          "kind": "canon",
@@ -4349,7 +7728,7 @@
          "kind": "excavated",
          "title": "睡虎地秦简",
          "section": "秦律十八种·徭律",
-         "notes": "条文适用范围待核验"
+         "notes": "“失期三日到五日，谇；六日到旬，赀一盾；过旬，赀一甲”，见《睡虎地秦墓竹简》整理本；此条针对徭役征发"
         }
        ]
       },
@@ -4367,7 +7746,7 @@
          "kind": "excavated",
          "title": "睡虎地秦简",
          "section": "秦律十八种·徭律",
-         "notes": "条文适用范围待核验"
+         "notes": "“失期三日到五日，谇；六日到旬，赀一盾；过旬，赀一甲”，见《睡虎地秦墓竹简》整理本；此条针对徭役征发"
         }
        ]
       }
@@ -5192,6 +8571,7 @@
      "anchor.tunshu": "闾左屯戍渔阳",
      "anchor.zhangchu": "陈胜立为王，号张楚",
      "scene.qin.dazexiang.pick.canon": "正史 · 《史记》所载",
+     "scene.qin.dazexiang.canon.intro": "九百戍卒屯于大泽乡，天下大雨，道路不通，已经误了期。陈胜、吴广在雨夜里商量。",
      "scene.qin.dazexiang.end.canon": "陈胜至陈，立为王，号为张楚。天下响应。",
      "scene.qin.dazexiang.pick.legend": "异说 · 秦简中的“失期”",
      "scene.qin.dazexiang.legend.disclaimer": "以下是史料之间的讨论：湖北云梦睡虎地出土的秦简中有关于徭役失期的条文，罚则与“失期当斩”不同。是否适用于戍边，学界有不同意见。",
@@ -5697,7 +9077,7 @@
          "id": "pick.canon",
          "label": "scene.qin.julu.pick.canon",
          "seal": "canon",
-         "to": "c.cross"
+         "to": "c.intro"
         },
         {
          "id": "pick.legend",
@@ -5720,6 +9100,29 @@
            }
           ]
          }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": -207,
+        "precision": "year",
+        "display": "前 207 年",
+        "era": "秦二世三年",
+        "verify": "done"
+       },
+       "dialogue": "scene.qin.julu.canon.intro",
+       "next": [
+        "c.cross"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "项羽本纪"
         }
        ]
       },
@@ -5865,7 +9268,8 @@
         {
          "kind": "novel",
          "title": "西汉通俗演义",
-         "notes": "明甄伟撰，回次待核验"
+         "section": "第十四回 项羽杀宋义救赵、第十五回 楚项羽九败章邯",
+         "notes": "明甄伟撰，据维基文库本"
         }
        ]
       },
@@ -5902,7 +9306,8 @@
         {
          "kind": "novel",
          "title": "西汉通俗演义",
-         "notes": "明甄伟撰，回次待核验"
+         "section": "第十四回 项羽杀宋义救赵、第十五回 楚项羽九败章邯",
+         "notes": "明甄伟撰，据维基文库本"
         }
        ]
       },
@@ -5938,7 +9343,8 @@
         {
          "kind": "novel",
          "title": "西汉通俗演义",
-         "notes": "明甄伟撰，回次待核验"
+         "section": "第十四回 项羽杀宋义救赵、第十五回 楚项羽九败章邯",
+         "notes": "明甄伟撰，据维基文库本"
         }
        ]
       },
@@ -5982,7 +9388,8 @@
        {
         "kind": "novel",
         "title": "西汉通俗演义",
-        "notes": "明甄伟撰，回次待核验"
+        "section": "第十四回 项羽杀宋义救赵、第十五回 楚项羽九败章邯",
+        "notes": "明甄伟撰，据维基文库本"
        }
       ],
       "kind": "legend",
@@ -6012,7 +9419,8 @@
         {
          "kind": "novel",
          "title": "西汉通俗演义",
-         "notes": "明甄伟撰，回次待核验"
+         "section": "第十四回 项羽杀宋义救赵、第十五回 楚项羽九败章邯",
+         "notes": "明甄伟撰，据维基文库本"
         }
        ]
       },
@@ -6029,7 +9437,8 @@
         {
          "kind": "novel",
          "title": "西汉通俗演义",
-         "notes": "明甄伟撰，回次待核验"
+         "section": "第十四回 项羽杀宋义救赵、第十五回 楚项羽九败章邯",
+         "notes": "明甄伟撰，据维基文库本"
         }
        ]
       }
@@ -6967,9 +10376,10 @@
      "anchor.songyi": "项羽杀宋义",
      "anchor.zhanghan-xiang": "章邯降楚",
      "scene.qin.julu.pick.canon": "正史 · 《史记》所载",
+     "scene.qin.julu.canon.intro": "宋义在安阳停留四十六日不进。天寒大雨，士卒冻饥。项羽晨朝上将军，在帐中斩其头。",
      "scene.qin.julu.end.canon": "王离被俘，苏角战死，涉间自烧。诸侯将入辕门，无不膝行而前，莫敢仰视。章邯随后降楚。",
      "scene.qin.julu.pick.legend": "演义 · 诸侯壁上观",
-     "scene.qin.julu.legend.disclaimer": "以下以《史记》为本，换作诸侯军的视角，并参考明代通俗小说《西汉通俗演义》的铺陈（回次与细节待核验）。对话为本作原创。",
+     "scene.qin.julu.legend.disclaimer": "以下以《史记》为本，换作诸侯军的视角，并参考明代甄伟《西汉通俗演义》第十四、十五回的铺陈；“壁上观”一节以《史记》为本。对话为本作原创。",
      "scene.qin.julu.legend.intro": "诸侯救巨鹿者十余壁，无一敢纵兵。楚兵出击之时，诸侯将皆从壁上观战。",
      "scene.qin.julu.end.legend": "诸侯尊项羽为上将军，皆属焉。视角不同，结局相同。",
      "scene.qin.julu.pick.whatif": "推演 · 若宋义北上（未开放）",

@@ -385,7 +385,7 @@
          "id": "pick.canon",
          "label": "scene.donghan.kunyang.pick.canon",
          "seal": "canon",
-         "to": "c.ride"
+         "to": "c.intro"
         },
         {
          "id": "pick.legend",
@@ -408,6 +408,34 @@
            }
           ]
          }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": 23,
+        "precision": "year",
+        "display": "23 年",
+        "era": "更始元年，新地皇四年",
+        "verify": "done"
+       },
+       "dialogue": "scene.donghan.kunyang.canon.intro",
+       "next": [
+        "c.ride"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "后汉书",
+         "section": "光武帝纪"
+        },
+        {
+         "kind": "canon",
+         "title": "汉书",
+         "section": "王莽传"
         }
        ]
       },
@@ -568,7 +596,7 @@
         {
          "kind": "folk",
          "title": "王莽赶刘秀",
-         "notes": "民间故事，各地版本不一，待核验"
+         "notes": "民间故事，各地版本不一，不见于史籍"
         }
        ]
       },
@@ -606,7 +634,7 @@
         {
          "kind": "folk",
          "title": "王莽赶刘秀",
-         "notes": "民间故事，各地版本不一，待核验"
+         "notes": "民间故事，各地版本不一，不见于史籍"
         }
        ]
       },
@@ -643,7 +671,7 @@
         {
          "kind": "folk",
          "title": "王莽赶刘秀",
-         "notes": "民间故事，各地版本不一，待核验"
+         "notes": "民间故事，各地版本不一，不见于史籍"
         }
        ]
       },
@@ -692,7 +720,7 @@
        {
         "kind": "folk",
         "title": "王莽赶刘秀",
-        "notes": "民间故事，各地版本不一，待核验"
+        "notes": "民间故事，各地版本不一，不见于史籍"
        }
       ],
       "kind": "legend",
@@ -727,14 +755,14 @@
         {
          "kind": "folk",
          "title": "王莽赶刘秀",
-         "notes": "民间故事，各地版本不一，待核验"
+         "notes": "民间故事，各地版本不一，不见于史籍"
         }
        ]
       },
       {
        "topic": "刘秀被追",
-       "canon": "正史不载此类情节",
-       "legend": "民间“王莽赶刘秀”故事（待核验）",
+       "canon": "《后汉书》不载此类情节",
+       "legend": "民间“王莽赶刘秀”故事，属后世附会",
        "sources": [
         {
          "kind": "canon",
@@ -749,7 +777,7 @@
         {
          "kind": "folk",
          "title": "王莽赶刘秀",
-         "notes": "民间故事，各地版本不一，待核验"
+         "notes": "民间故事，各地版本不一，不见于史籍"
         }
        ]
       }
@@ -1677,6 +1705,7 @@
      "anchor.gengshi": "刘玄称帝，年号更始",
      "anchor.wangmang-si": "王莽败死",
      "scene.donghan.kunyang.pick.canon": "正史 · 《后汉书》、《汉书》所载",
+     "scene.donghan.kunyang.canon.intro": "新军四十余万围昆阳，城中只有八九千人。刘秀与十三骑夜出南门，去外面搬兵。",
      "scene.donghan.kunyang.end.canon": "王寻战死，新军大溃，赴水而死者以万数，滍水为之不流。同年，王莽败死。",
      "scene.donghan.kunyang.pick.legend": "野史 · 王莽赶刘秀",
      "scene.donghan.kunyang.legend.disclaimer": "以下是各地流传的民间故事，版本众多，与史实无关。",
@@ -2362,8 +2391,9 @@
        "start": 62,
        "precision": "circa",
        "display": "约 62 年",
-       "verify": "pending",
-       "notes": "班超随兄至洛阳、投笔之年待核验"
+       "era": "永平五年",
+       "verify": "done",
+       "notes": "《后汉书·班超传》：永平五年兄固被召诣校书郎，超与母随至洛阳，为官佣书，久劳苦而投笔；投笔之年在其后，故标“约”"
       },
       "sources": [
        {
@@ -2441,7 +2471,7 @@
          "id": "pick.canon",
          "label": "scene.donghan.banchao.pick.canon",
          "seal": "canon",
-         "to": "c.probe"
+         "to": "c.intro"
         },
         {
          "id": "pick.legend",
@@ -2464,6 +2494,30 @@
            }
           ]
          }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": 73,
+        "end": 102,
+        "precision": "year",
+        "display": "73—102 年",
+        "era": "汉明帝永平十六年至和帝永元十四年",
+        "verify": "done"
+       },
+       "dialogue": "scene.donghan.banchao.canon.intro",
+       "next": [
+        "c.probe"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "后汉书",
+         "section": "班超传"
         }
        ]
       },
@@ -3640,6 +3694,7 @@
      "anchor.toubi": "班超投笔",
      "anchor.duhu": "班超为西域都护",
      "scene.donghan.banchao.pick.canon": "正史 · 《后汉书》所载",
+     "scene.donghan.banchao.canon.intro": "班超带三十六人到了鄯善。国王起初礼敬备至，忽然疏懈下来——匈奴的使者也到了。",
      "scene.donghan.banchao.end.canon": "鄯善一国震怖，纳子为质。此后班超经营西域三十年，官至西域都护。",
      "scene.donghan.banchao.pick.legend": "野史 · 万里侯相",
      "scene.donghan.banchao.legend.disclaimer": "以下取自《后汉书》中带传奇色彩的记载：相面之说并非史实依据，本作把它当作野史式的演出。",
@@ -4851,8 +4906,8 @@
        "start": 172,
        "precision": "circa",
        "display": "约 170 年代",
-       "verify": "pending",
-       "notes": "张角传道起始年无确记"
+       "verify": "done",
+       "notes": "《后汉书·皇甫嵩传》：张角以善道教化天下，“十余年间，众徒数十万”；由 184 年起事上推，故标“约”"
       },
       "sources": [
        {
@@ -4933,7 +4988,7 @@
          "id": "pick.canon",
          "label": "scene.donghan.huangjin.pick.canon",
          "seal": "canon",
-         "to": "c.signal"
+         "to": "c.intro"
         },
         {
          "id": "pick.legend",
@@ -4956,6 +5011,34 @@
            }
           ]
          }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": 184,
+        "precision": "year",
+        "display": "184 年",
+        "era": "东汉灵帝中平元年",
+        "verify": "done"
+       },
+       "dialogue": "scene.donghan.huangjin.canon.intro",
+       "next": [
+        "c.signal"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "后汉书",
+         "section": "皇甫嵩传"
+        },
+        {
+         "kind": "canon",
+         "title": "后汉书",
+         "section": "灵帝纪"
         }
        ]
       },
@@ -6136,6 +6219,7 @@
      "anchor.taipingdao": "张角传太平道",
      "anchor.guangzong": "广宗之战，黄巾主力覆灭",
      "scene.donghan.huangjin.pick.canon": "正史 · 《后汉书》、《后汉书》所载",
+     "scene.donghan.huangjin.canon.intro": "三十六方约定甲子年同起，头裹黄巾。还没到约期，弟子唐周上书告密。",
      "scene.donghan.huangjin.end.canon": "张角病死，张梁、张宝先后战败身死。黄巾主力覆灭，但天下从此大乱。",
      "scene.donghan.huangjin.pick.legend": "演义 · 桃园结义",
      "scene.donghan.huangjin.legend.disclaimer": "以下取自明代小说《三国演义》第一回，刘关张桃园结义是小说情节，正史不载。",
