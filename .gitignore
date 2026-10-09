@@ -60,3 +60,6 @@ thirdparty/inkField/
 # inkEngine：inkField 的可读还原版（已获 inkField 作者授权），随仓库提交
 # inkwash：MIT，但它是独立的 git 克隆，从上游获取：https://github.com/johnowhitaker/inkwash
 thirdparty/inkwash/
+
+# Chinese-History 史料语料（含现代版权作品 PDF，仅本地研究用，不进入公开仓库）
+thirdparty/Chinese_History-master*

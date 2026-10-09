@@ -17,3 +17,15 @@
 | `09-src-contract-gap-and-apps-rework-plan.md` | 2026-10-08 对旧《墨渡》的审计。其中「球与印章不绘制」「水刷视觉未接线」已在旧页面补上，并由 `scripts/browser-smoke.mjs` 断言。十卡演示已按现行公共 API 重写，该返工单不再是待办。 |
 
 `docs/11` 仍保留当日的检索附录。文中出现「plan/07」是历史叙述，不是仍然有效的计划链接。
+
+## 历史水墨游戏（2026-10-09 草案）
+
+以 InkGames 为引擎、一个朝代一章的中国历史游戏设计。目标引擎按 three.js + Matter.js 写；当前 `src/` 仍是 PixiJS，迁移另行规划。下列文件不修改上面的现行计划。
+
+| 文件 | 内容 |
+|---|---|
+| [11 · 故事与玩法设计](./11-history-game-story-design.md) | 章、场景、剧情图与时间线；正史/野史分支、汇流与结局；解锁；写作规范与工作流；语料分析结论；待决问题 |
+| [11 · 章节大纲](./11-history-game-chapter-outline.md) | 上古至清的章节与场景表（民国可选），道具与笔刷映射，史源 |
+| [11 · 内容数据格式](./11-history-game-content-schema.md) | JSON 数据契约、荆轲刺秦王完整样例、校验与测试 |
+| [12 · 开场动画管线与引擎缺口](./12-history-game-engine-gaps.md) | 开场动画管线、P0/P1/P2 缺口清单、里程碑与垂直切片 |
+| [11-history-game-data/](./11-history-game-data/) | 语料目录（不含 PDF）、荆轲关系图、场景样例 JSON |
