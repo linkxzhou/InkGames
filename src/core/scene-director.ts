@@ -1,5 +1,6 @@
 import { AudioBus } from './audio-bus';
 import { CutscenePlayer, type CutsceneTick, type StrokePulse } from './cutscene-player';
+import { defineGameplay } from './gameplay';
 import type { ChoiceDef, CutsceneDef, PlotNode, ScenePackage } from './narrative-types';
 import { SaveStore, sceneClearedKeys, type SaveStorage } from './save-store';
 import { StoryRuntime } from './story-runtime';
@@ -177,5 +178,5 @@ function stringList(value: unknown): string[] {
 function goalText(node: PlotNode): string {
   const goal = node.gameplay?.params.goal;
   const template = node.gameplay?.template ?? 'gameplay';
-  return typeof goal === 'string' ? `${template}：${goal}` : template;
+  return defineGameplay(template, typeof goal === 'string' ? goal : '').label;
 }

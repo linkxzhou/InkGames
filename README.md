@@ -4,26 +4,28 @@
 
 依赖只剩 `three@0.186.1` 与 `matter-js@0.20.0`。曾经的 PixiJS 十卡舞台、p5 微内核与原生 WebGL2 渲染插件已于 2026-10-09 从 `src/`、`apps/` 和 `package.json` 中删除。
 
-## 三条入口
+## 入口
 
 | 入口 | 页面 | 说明 |
 |---|---|---|
 | 横版切片 | `/scroll/` | 坡、洇染、皴法、断竹。M0–M4 已落地 |
 | 叙事宿主 | `/story/` | 只读播放「易水寒」开场，可走正史 / 野史，支持检查点恢复。M5 部分完成 |
 | 历史动画 | `/history/` | 上古「混沌开卷」五幕，30 fps，画面全部由引擎笔刷生成，不加载参考图 |
+| 参照画廊 | `/gallery/` | 五张程序水墨，旁边是参照图。不是描图，也不是逐像素重合 |
+| 历史道具 | `/props/<id>/` | 二十件道具各自一页，Matter.js 做砍、落、燃、流 |
 
 水墨层：切片用 `InkView` + `InkSurface`（three.js 渲染目标上跑从 [inkEngine](./thirdparty/inkEngine/README.md) 逐行移植的七种笔刷与着色器）；叙事用 `StoryStage` 的多层墨面；历史动画用 `InkScene` 的程序分件墨层。
 
-玩法模板、`PostStack`、景深、2.0 录制回放、`InkScene` 的上下文恢复、真实配音与真实 GPU 验收都还没完成，以代码和文档为准。SwiftShader 截图只证明着色器能编过，不能写成真实 GPU 上的完成证明。
+`defineGameplay` 只给剧情节点贴动词和目标，不模拟决斗。`PostStack`、景深、2.0 录制回放、`InkScene` 的上下文恢复、真实配音与真实 GPU 验收都还没完成。SwiftShader 截图只证明着色器能编过，不能写成真实 GPU 上的完成证明。
 
 ## 怎么跑
 
 ```bash
 ./build.sh install
-./build.sh dev       # http://127.0.0.1:5173/  三入口导航；/scroll/、/story/、/history/
+./build.sh dev       # http://127.0.0.1:5173/  首页；/scroll/、/story/、/history/、/gallery/、/props/
 ./build.sh check     # 类型检查 + 单元测试 + 相对链接
 ./build.sh browser   # 构建后的无头 Chromium 冒烟（SwiftShader，三页 + 零图片请求）
-node scripts/gpu-check.mjs   # 本机打开切片与叙事。加 --shots 做无头截图
+node scripts/gpu-check.mjs   # 本机打开切片、叙事、历史、画廊与道具。加 --shots 做无头截图
 ```
 
 统一入口是 `build.sh`，约定见 [AGENTS.md](./AGENTS.md)。

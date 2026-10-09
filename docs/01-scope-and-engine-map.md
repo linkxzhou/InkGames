@@ -54,6 +54,8 @@
 
 - `PROP_BRUSHES`、`PropBrush`、`PropPaintingId`、`PropPart`。
 - `paintProp`、`actionStroke`、`PropStroke`、`PropPlacement`、`resolveStrokeCue`、`samplePolyline`。
+- `HISTORY_PROPS`、`historyProp`、`paintHistoryProp`、`HistoryProp`、`PropDemo`。
+- `defineGameplay`、`GameplaySetup`。它只给模板贴动词和目标文字，不另开一场决斗。
 
 **叙事与内容**
 

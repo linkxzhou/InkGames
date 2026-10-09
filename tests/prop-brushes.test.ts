@@ -45,7 +45,7 @@ describe('道具画法', () => {
         expect(strokes.length, item.id).toBeGreaterThanOrEqual(6);
       }
       for (const stroke of strokes) {
-        const preset = (PROP_BRUSHES[stroke.prop] as Record<string, PropBrush>)[stroke.part]!;
+        const preset = (PROP_BRUSHES[stroke.prop as PropPaintingId] as Record<string, PropBrush>)[stroke.part]!;
         expect(stroke.points.length).toBeGreaterThanOrEqual(3);
         for (let i = 1; i < stroke.points.length; i++) {
           const a = stroke.points[i - 1]!;

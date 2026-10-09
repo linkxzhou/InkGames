@@ -9,8 +9,8 @@
 | 目录 | 内容 |
 |---|---|
 | `src/core/` | 引擎内核：笔刷、调色、墨面、分件墨层、物理与玩法、三项画面、叙事宿主、时钟、内容解析 |
-| `src/plugins/` | 道具笔画：`prop-brushes.ts`（笔刷表）、`prop-paintings.ts`（画法）、`items.ts`（道具元数据） |
-| `apps/` | HTML + TS 示例：入口导航、横版切片、叙事宿主、历史动画 |
+| `src/plugins/` | 道具笔画：`prop-brushes.ts`、`prop-paintings.ts`、`history-paintings.ts`、`history-props.ts`、`items.ts` |
+| `apps/` | 首页、横版切片、叙事宿主、历史动画、参照画廊、`props/<id>/` 二十个道具页 |
 | `tests/` | 纯逻辑单测，不创建 GL |
 
 新增公共能力只从 `src/index.ts` 导出，对象契约用 TypeScript `interface`。
@@ -36,7 +36,7 @@ interface ItemPreset {
 
 十个 id：`sword`、`blade`、`spear`、`bow`、`shield`、`war-horse`、`banner`、`ink-bomb`、`water-brush`、`boat`。
 
-**这些 id 现在只作为笔画语义与文档映射使用**：原先各自一页的十卡演示（`apps/sword/` 等）已删除，`InkStage` 的 `switch (item.action)` 行为也随 `InkStage` 一起删除。道具行为在切片里由 `Playfield` 承担，在历史动画里由 `PROP_BRUSHES` + 分件墨层承担。
+原先各自一页的十卡演示（`apps/sword/` 等）已删除，`InkStage` 的 `switch (item.action)` 行为也随 `InkStage` 一起删除。这十个 id 仍是笔刷表。历史章节另外用 `HISTORY_PROPS` 的二十个 id，页面在 `apps/props/<id>/`。七个直接复用上表（剑、刀、矛、盾、旗、马、水），其余十三件的笔刷在 `history-paintings.ts`，每件部件各自的 mode、size、effect、color、speed 不同。物理动词在道具页里由 Matter.js 演示，不是十卡舞台的 `ItemAction`。
 
 ## 笔刷表：`PROP_BRUSHES`（`src/plugins/prop-brushes.ts`）
 

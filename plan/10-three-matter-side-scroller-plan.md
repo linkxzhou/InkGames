@@ -1,6 +1,6 @@
 # 10 · three.js + Matter.js 横版水墨动作引擎
 
-状态：**M0–M4 已完成，M5 部分完成，Pixi/p5/原生 WebGL2 已清理**（见 §7）。渲染栈只剩 `three@0.186.1` + `matter-js@0.20.0`。入口：`apps/scroll/`（切片）、`apps/story/`（叙事）、`apps/history/`（历史动画）。公共 API 从 `src/index.ts` 导出。真实 GPU 未实测。
+状态：**M0–M4 已完成，M5 部分完成，Pixi/p5/原生 WebGL2 已清理**（见 §7）。渲染栈只剩 `three@0.186.1` + `matter-js@0.20.0`。入口：`apps/scroll/`（切片）、`apps/story/`（叙事）、`apps/history/`（历史动画）、`apps/gallery/`（参照画廊）、`apps/props/`（二十个道具页）。公共 API 从 `src/index.ts` 导出。真实 GPU 未实测。
 
 历史游戏的叙事、过场数据和缺口优先级在 [12 · 引擎缺口](./12-history-game-engine-gaps.md)，故事结构在 [11 · 故事与玩法](./11-history-game-story-design.md)。本文写引擎怎么搭，并与第 12 章的模块名对齐。剧情正文不在这里展开。两边若措辞不一致，以 §11 已确认的条目为准，其余模块名以本文与第 12 章已经对齐的名字为准。
 
@@ -444,7 +444,7 @@ Playfield 碰撞（角色 × 地面）
 | `PostStack` 类与景深 | 未完成 | 无类；`dof` 键只被解析，没有散景 pass |
 | 2.0 录制回放（`inkgames.ink-recording`） | 未完成 | `recording.ts` 已删；`recording` 来源返回空笔画 |
 | 真实配音 / BGM | 未完成 | `AudioBus` 仍用振荡器，无 `decodeAudioData` |
-| 玩法模板（对决等） | 未完成 | 无 `defineGameplay`；玩法节点只显示目标 |
+| 玩法模板（对决等） | 部分 | `defineGameplay` 把模板映成动词和「标签：目标」；叙事节点仍点继续，不模拟决斗。道具页单独演示砍、落、燃、流 |
 | 两次播放末帧逐像素一致 | 未完成 | 现只覆盖三段式路径的确定性回归 |
 
 ## 9. 验收
