@@ -7,7 +7,7 @@ import { BambooView } from './bamboo-rig';
 import { CameraRig } from './camera-rig';
 import { createCunRock, cunOutlineWidth, type CunKind, type CunRock } from './cun-material';
 import { INK_LAYER_Z, inkCameraDistance } from './ink-camera';
-import { InkSurface } from './ink-surface';
+import { InkSurface, type InkSurfaceOptions, type InkSurfaceSnapshot } from './ink-surface';
 import { Playfield } from './playfield';
 import { TerrainSeep, terrainRibbonGeometry } from './terrain-seep';
 import type { TerrainPoint } from './terrain-field';
@@ -18,6 +18,7 @@ export interface InkViewOptions {
   readonly height?: number;
   readonly seed?: number;
   readonly pixelRatio?: number;
+  readonly onContext?: (state: 'lost' | 'restored') => void;
 }
 
 const PAPER: readonly [number, number, number] = [214, 206, 188];
@@ -80,7 +81,7 @@ interface BambooSlot { id: number; view: BambooView }
  */
 export class InkView {
   readonly playfield = new Playfield();
-  readonly surface: InkSurface;
+  private surfaceSlot: InkSurface;
   readonly cameraRig: CameraRig;
   readonly scene = new Scene();
   readonly width: number;
@@ -103,7 +104,13 @@ export class InkView {
   private lost = false;
   private disposed = false;
   private lastError = 0;
+  private restoreCount = 0;
+  private restorePoint: InkSurfaceSnapshot | undefined;
+  private loseExt: WEBGL_lose_context | null = null;
+  private readonly surfaceOptions: InkSurfaceOptions;
+  private readonly onContext: ((state: 'lost' | 'restored') => void) | undefined;
   private readonly onLost: (event: Event) => void;
+  private readonly onRestored: () => void;
 
   constructor(options: InkViewOptions) {
     this.canvas = options.canvas;
@@ -125,11 +132,12 @@ export class InkView {
     this.renderer.setSize(this.width, this.height, false);
     this.renderer.autoClear = true;
     this.cameraRig = new CameraRig(this.width, this.height, this.width / 2, this.height / 2);
-    this.surface = new InkSurface(this.renderer, {
+    this.surfaceOptions = {
       width: this.width, height: this.height, seed: options.seed ?? 1234567890,
       paper: true, background: PAPER, transparent: false,
-    });
-    this.backdrop = new Mesh(centeredQuad(), backdropMaterial(this.surface.texture));
+    };
+    this.surfaceSlot = new InkSurface(this.renderer, this.surfaceOptions);
+    this.backdrop = new Mesh(centeredQuad(), backdropMaterial(this.surfaceSlot.texture));
     this.backdrop.frustumCulled = false;
     this.backdrop.renderOrder = 0;
     this.scene.add(this.backdrop);
@@ -138,12 +146,37 @@ export class InkView {
     this.hero.position.z = INK_LAYER_Z.actor;
     this.hero.renderOrder = 5;
     this.scene.add(this.hero);
+    this.onContext = options.onContext;
+    this.loseExt = this.renderer.getContext().getExtension('WEBGL_lose_context');
     this.onLost = event => {
       event.preventDefault();
       this.lost = true;
       this.playfield.pausedClock = true;
+      this.onContext?.('lost');
+    };
+    this.onRestored = () => {
+      this.rebuildGpu();
+      this.onContext?.('restored');
     };
     this.canvas.addEventListener('webglcontextlost', this.onLost);
+    this.canvas.addEventListener('webglcontextrestored', this.onRestored);
+  }
+
+  get surface(): InkSurface { return this.surfaceSlot; }
+  get restores(): number { return this.restoreCount; }
+
+  captureRestorePoint(): void {
+    if (this.lost || this.disposed) return;
+    this.restorePoint = this.surfaceSlot.snapshot();
+  }
+
+  simulateContextLoss(): void {
+    this.captureRestorePoint();
+    this.loseExt?.loseContext();
+  }
+
+  simulateContextRestore(): void {
+    this.loseExt?.restoreContext();
   }
 
   get contextLost(): boolean { return this.lost; }
@@ -195,7 +228,7 @@ export class InkView {
   /** Rigid body first, then the ink sheet. */
   washAt(x: number, y: number, radius: number): void {
     this.playfield.washBridge(x, y, radius);
-    this.surface.wash(x, y, radius);
+    this.surfaceSlot.wash(x, y, radius);
   }
 
   pointer(clientX: number, clientY: number): { x: number; y: number } | undefined {
@@ -234,7 +267,7 @@ export class InkView {
     this.placeBackdrop();
     const width = cunOutlineWidth(inkCameraDistance(this.height), this.cameraRig.distance);
     for (const rock of this.rocks) rock.setOutlineWidth(width);
-    this.surface.update();
+    this.surfaceSlot.update();
     this.renderer.setRenderTarget(null);
     const buffer = this.renderer.domElement;
     this.renderer.setViewport(0, 0, buffer.width, buffer.height);
@@ -246,7 +279,8 @@ export class InkView {
     if (this.disposed) return;
     this.disposed = true;
     this.canvas.removeEventListener('webglcontextlost', this.onLost);
-    this.surface.dispose();
+    this.canvas.removeEventListener('webglcontextrestored', this.onRestored);
+    this.surfaceSlot.dispose();
     this.seep?.dispose();
     this.ground?.geometry.dispose();
     this.groundMat?.dispose();
@@ -255,6 +289,23 @@ export class InkView {
     this.backdrop.geometry.dispose();
     disposeMaterial(this.backdrop.material);
     this.renderer.dispose();
+  }
+
+  private rebuildGpu(): void {
+    const snap = this.restorePoint;
+    try { this.surfaceSlot.dispose(); } catch { /* buffers are already invalid after the loss */ }
+    this.surfaceSlot = new InkSurface(this.renderer, this.surfaceOptions);
+    if (snap) this.surfaceSlot.restore(snap);
+    const backdrop = this.backdrop.material;
+    if (backdrop instanceof RawShaderMaterial && backdrop.uniforms.uMap) backdrop.uniforms.uMap.value = this.surfaceSlot.texture;
+    if (this.playfield.terrainPoints.length > 1) {
+      try { this.seep?.dispose(); } catch { /* lost with the context */ }
+      this.seep = new TerrainSeep(this.renderer, this.playfield.terrainPoints);
+      if (this.groundMat?.uniforms.uSeep) this.groundMat.uniforms.uSeep.value = this.seep.texture;
+    }
+    this.playfield.pausedClock = false;
+    this.lost = false;
+    this.restoreCount += 1;
   }
 
   private syncHero(): void {

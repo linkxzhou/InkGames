@@ -333,6 +333,12 @@ export class InkSurface {
     this.pass.draw(this.composite, this.display, this.fullRect());
   }
 
+  /** Flow, distort, or metallic on the last committed stroke. Used by cutscene effect cues. */
+  replayEffect(finish: InkFinish): void {
+    if (this.disposed) return;
+    this.applyFinish(finish);
+  }
+
   clear(): void {
     if (this.disposed) return;
     this.live = undefined;
