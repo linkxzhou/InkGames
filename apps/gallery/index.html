@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>参照画廊 · InkGames</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .plates { display: grid; gap: 28px; max-width: 1320px; margin: 0 auto; }
+    .plate h2 { font: 500 22px 'WenQuanYi Micro Hei', serif; letter-spacing: .12em; margin: 0 0 8px; }
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .pair figure { margin: 0; }
+    .pair figcaption { font-size: 12px; letter-spacing: .08em; color: #b69c79; margin-bottom: 6px; }
+    .pair canvas, .pair img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; background: #d6cebc; }
+    .metric { font-size: 13px; color: #d6c5a6; line-height: 1.6; }
+    @media (max-width: 800px) { .pair { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body class="demo">
+  <header class="demo-header">
+    <a href="../" class="brand"><span class="brand-seal">墨</span><span>INKGAMES <small>参照画廊</small></span></a>
+    <a href="../" class="back">← 返回首页</a>
+  </header>
+  <main class="demo-layout">
+    <div class="demo-heading">
+      <div>
+        <span class="demo-index">画廊</span>
+        <h1>程序水墨对照</h1>
+      </div>
+      <p>左边是引擎自己画的，右边是参照图。没有把参照图描进画布。差数是平均绝对 RGB（每像素 0–765）。SwiftShader 不能代替真实 GPU，未实测。</p>
+    </div>
+    <div class="plates" id="plates">
+      <section class="plate" data-plate="chaos-1">
+        <h2>上古 · 留白</h2>
+        <div class="pair">
+          <figure><figcaption>引擎</figcaption><canvas width="720" height="720"></canvas></figure>
+          <figure><figcaption>参照 上古-混沌-1</figcaption><img alt="参照：上古混沌 1" data-ref="chaos-1" /></figure>
+        </div>
+        <p class="metric"></p>
+      </section>
+      <section class="plate" data-plate="chaos-2">
+        <h2>上古 · 撑天</h2>
+        <div class="pair">
+          <figure><figcaption>引擎</figcaption><canvas width="720" height="720"></canvas></figure>
+          <figure><figcaption>参照 上古-混沌-2</figcaption><img alt="参照：上古混沌 2" data-ref="chaos-2" /></figure>
+        </div>
+        <p class="metric"></p>
+      </section>
+      <section class="plate" data-plate="chaos-3">
+        <h2>上古 · 山水与人</h2>
+        <div class="pair">
+          <figure><figcaption>引擎</figcaption><canvas width="720" height="720"></canvas></figure>
+          <figure><figcaption>参照 上古-混沌-3</figcaption><img alt="参照：上古混沌 3" data-ref="chaos-3" /></figure>
+        </div>
+        <p class="metric"></p>
+      </section>
+      <section class="plate" data-plate="chaos-4">
+        <h2>上古 · 补天</h2>
+        <div class="pair">
+          <figure><figcaption>引擎</figcaption><canvas width="720" height="720"></canvas></figure>
+          <figure><figcaption>参照 上古-混沌-4</figcaption><img alt="参照：上古混沌 4" data-ref="chaos-4" /></figure>
+        </div>
+        <p class="metric"></p>
+      </section>
+      <section class="plate" data-plate="chuhan">
+        <h2>楚汉</h2>
+        <div class="pair">
+          <figure><figcaption>引擎</figcaption><canvas width="720" height="720"></canvas></figure>
+          <figure><figcaption>参照 楚汉之争水墨</figcaption><img alt="参照：楚汉之争水墨" data-ref="chuhan" /></figure>
+        </div>
+        <p class="metric"></p>
+      </section>
+    </div>
+    <p class="demo-status" id="status" role="status">正在铺墨…</p>
+  </main>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

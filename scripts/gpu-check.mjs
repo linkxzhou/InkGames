@@ -51,6 +51,8 @@ if (!shots) {
   console.log(`横版切片：${base}/scroll/`);
   console.log(`叙事演示：${base}/story/`);
   console.log(`历史动画：${base}/history/`);
+  console.log(`参照画廊：${base}/gallery/`);
+  console.log(`历史道具：${base}/props/sword/`);
   console.log('在 Mac（Apple Silicon）的 Chrome 里打开这些页。无头 SwiftShader 不能代替这次验收，文档保持「未实测」。');
   console.log('Ctrl+C 结束。');
   await new Promise(() => {});
@@ -194,6 +196,47 @@ try {
       await page.screenshot({ path: file });
       console.log(file);
       if (errors.length) failures.push(`history-${frame}: ${errors.join(' | ')}`);
+      await page.close();
+    }
+    const props = [
+      'sword', 'dagger', 'slip', 'ding', 'chariot', 'crossbow', 'warship', 'water',
+      'beacon', 'wall', 'horse', 'banner', 'seal', 'inkstone', 'lantern', 'cannon',
+      'treasure', 'shield', 'spear', 'blade',
+    ];
+    for (const id of props) {
+      const page = await browser.newPage({ viewport: { width: 1200, height: 900 } });
+      const errors = [];
+      page.on('pageerror', error => errors.push(error.message));
+      page.on('console', message => {
+        if (message.type() === 'error') errors.push(message.text());
+      });
+      await page.goto(`${base}/props/${id}/?pose=still`, { waitUntil: 'domcontentloaded', timeout: 120000 });
+      await page.waitForFunction(() => window.__propReady === true, undefined, { timeout: 180000 });
+      const gl = await page.evaluate(() => window.__propGl ?? 0);
+      console.log('prop', id, await page.title());
+      if (gl !== 0) errors.push(`gl error ${gl}`);
+      const file = join(outDir, `prop-${id}.png`);
+      await page.screenshot({ path: file });
+      console.log(file);
+      if (errors.length) failures.push(`prop-${id}: ${errors.join(' | ')}`);
+      await page.close();
+    }
+    {
+      const page = await browser.newPage({ viewport: { width: 1400, height: 1100 } });
+      const errors = [];
+      page.on('pageerror', error => errors.push(error.message));
+      page.on('console', message => {
+        if (message.type() === 'error' && !/Failed to load resource/.test(message.text())) errors.push(message.text());
+      });
+      await page.goto(`${base}/gallery/`, { waitUntil: 'domcontentloaded', timeout: 120000 });
+      await page.waitForFunction(() => window.__galleryReady === true, undefined, { timeout: 300000 });
+      const gl = await page.evaluate(() => window.__galleryGl ?? 0);
+      console.log('gallery', await page.locator('#status').textContent());
+      if (gl !== 0) errors.push(`gl error ${gl}`);
+      const file = join(outDir, 'gallery.png');
+      await page.screenshot({ path: file, fullPage: true });
+      console.log(file);
+      if (errors.length) failures.push(`gallery: ${errors.join(' | ')}`);
       await page.close();
     }
   } finally {

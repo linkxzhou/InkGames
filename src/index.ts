@@ -24,6 +24,12 @@ export { PROP_BRUSHES } from './plugins/prop-brushes';
 export type { PropBrush, PropPaintingId, PropPart } from './plugins/prop-brushes';
 export { paintProp, actionStroke } from './plugins/prop-paintings';
 export type { PropStroke, PropPlacement } from './plugins/prop-paintings';
+export { HISTORY_PROPS, historyProp, paintHistoryProp } from './plugins/history-props';
+export type { HistoryProp, HistoryPropId, PropPhysics } from './plugins/history-props';
+export { PropDemo } from './core/prop-demo';
+export type { PropDemoOptions } from './core/prop-demo';
+export { defineGameplay } from './core/gameplay';
+export type { GameplaySetup, GameplayVerb } from './core/gameplay';
 
 export { Playfield, ACTOR_RADIUS, MOVE_SPEED, JUMP_VY, KNOCKBACK_CAP, KNOCKBACK_LOCK, ATTACK_STEPS } from './core/playfield';
 export type { Footing, SweepHit } from './core/playfield';

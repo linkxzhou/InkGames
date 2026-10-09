@@ -7,16 +7,16 @@
 | 命令 | 做什么 |
 |---|---|
 | `install` | `yarn install`。失败时脚本直接退出并提示检查网络，不会跳过。 |
-| `dev` | Vite，`apps/` 为根，默认 `127.0.0.1:5173`。`/` 是三入口导航。 |
+| `dev` | Vite，`apps/` 为根，默认 `127.0.0.1:5173`。`/` 是首页，链到切片、叙事、历史、画廊和二十个道具页。 |
 | `typecheck` | `tsc --noEmit`，`strict`。 |
-| `build` | 类型检查后 `vite build`，产物在 `dist/`。入口只剩 `scroll`、`story`、`history`。 |
+| `build` | 类型检查后 `vite build`，产物在 `dist/`。入口含首页、切片、叙事、历史、画廊和二十个道具页。 |
 | `test` | `vitest run`。 |
 | `links` | `scripts/check-links.mjs` 检查 README、AGENTS、`docs/`、`plan/` 的相对链接。 |
 | `check` | `typecheck` + `test` + `links`。提交前跑这个。 |
 | `browser` | 先 `build`，再 `scripts/browser-smoke.mjs`。 |
 | `clean` | 删 `dist/` 和 Vite/Vitest 缓存。 |
 
-## 单测覆盖什么（11 个文件，61 项）
+## 单测覆盖什么（12 个文件，64 项）
 
 | 文件 | 覆盖 |
 |---|---|
@@ -28,7 +28,8 @@
 | `ink-clip.test.ts` | 裁剪矩形的保留、按关键帧切换、拒绝零尺寸 |
 | `ink-brush.test.ts` | p5 兼容随机与噪声、面板取值、笔刷移植与 inkEngine 对齐（同一测试笔画的种子与逐帧线段数） |
 | `prop-brushes.test.ts` | 每个道具的笔刷行都是 inkEngine/index.html 能选到的值、各道具配置互不相同、每笔每帧一个指针点 |
-| `narrative.test.ts` | 21 章都能解析；荆轲开场在第 140 帧停在 `s1.title` 并出现「易水寒」；快进后只有正史/野史可选；正史走到结局后 `resume()` 回到该节点；推演在两条线都通关前不可选 |
+| `narrative.test.ts` | 21 章都能解析；荆轲开场在第 140 帧停在 `s1.title` 并出现「易水寒」；快进后只有正史/野史可选；正史走到结局后 `resume()` 回到该节点；推演在两条线都通关前不可选；玩法说明仍含「稳住秦舞阳」 |
+| `history-props.test.ts` | 二十件道具、笔画外接框宽高都超过 30、落下位移、砍断木桩、`defineGameplay` 保留目标原文 |
 | `ink-camera.test.ts` | 层深缩放与虫蚀采样的确定性 |
 | `ink-animation.test.ts` | 图片显影镜头的边界、seek 求值与非法镜头（对照实验用） |
 
@@ -64,4 +65,4 @@ node scripts/gpu-check.mjs --shots
 
 ## 对照素材
 
-`/compare/` 页面与 `scripts/capture-parity.mjs` 原先在 640×480 上把 Pixi `InkWash` 与 inkEngine 宿主页并排。**Pixi 一侧已随 `InkWash` 删除，这条自动对照链路当前不可运行**；`scripts/inkengine-host.html` 与 `port-inkengine-shaders.mjs` 只用于生成/核对 `ink-shaders.ts`。差异结论留在 [第 12 章](./12-inkengine-parity-audit.md)，其中 Pixi 列的数值属于历史记录。
+`/compare/` 页面与 `scripts/capture-parity.mjs` 原先在 640×480 上把 Pixi `InkWash` 与 inkEngine 宿主页并排。**Pixi 一侧已随 `InkWash` 删除，这条自动对照链路当前不可运行**。`scripts/inkengine-host.html` 仍可重放道具页导出的笔画。`gpu-check.mjs --shots` 截切片、叙事、历史、画廊和二十个道具静帧。差异结论留在 [第 12 章](./12-inkengine-parity-audit.md)，其中 Pixi 列的数值属于历史记录。

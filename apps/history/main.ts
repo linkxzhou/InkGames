@@ -44,7 +44,8 @@ const buttons = shots.map((shot, index) => {
 });
 function clock(value: number): string { const sec = Math.floor(value / 60); return `${String(Math.floor(sec / 60)).padStart(2, '0')}:${String(sec % 60).padStart(2, '0')}`; }
 function refresh(): void {
-  stage?.render(frame);
+  if (disposed || !stage || stage.contextLost) return;
+  stage.render(frame);
   const index = Math.max(0, shots.findIndex(shot => frame >= shot.from && frame < shot.to));
   buttons.forEach((button, i) => button.classList.toggle('active', i === index));
   seek.value = String(frame);
@@ -96,7 +97,14 @@ function loop(now: number): void {
   last = now;
   raf = requestAnimationFrame(loop);
 }
-window.addEventListener('pagehide', () => { disposed = true; cancelAnimationFrame(raf); stage?.dispose(); oscillator?.stop(); void ambient?.close(); });
+window.addEventListener('pagehide', () => {
+  // Flag first so an in-flight refresh does not pose layers after the slots are cleared.
+  disposed = true;
+  cancelAnimationFrame(raf);
+  stage?.dispose();
+  oscillator?.stop();
+  void ambient?.close();
+});
 async function boot(): Promise<void> {
   try {
     stage = await createChaos(canvas, { shapes: chaosShapes(), presentation: chaosPresentation() }, text => { element("loading").textContent = text; });

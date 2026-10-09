@@ -3,7 +3,7 @@
 > 本文件约束 AI 协作与人类贡献者在 `/Volumes/my/github/InkGames` 内的目录结构、命名、代码与文档约定。
 > 冲突优先级：本文件 → [`plan/10-three-matter-side-scroller-plan.md`](plan/10-three-matter-side-scroller-plan.md)（three.js + Matter.js；M0–M4 已完成，M5 部分完成，§7 记录 Pixi/p5 清理）→ `docs/01..10`（现行代码：切片、叙事与历史动画）→ [`plan/11`](plan/11-history-game-story-design.md) 与 [`plan/12`](plan/12-history-game-engine-gaps.md)（历史游戏草案：叙事与缺口优先级以它们为准，模块名与 plan/10 对齐）→ [`plan/12` 动画计划](plan/12-history-game-ink-animation-production-plan.md)（纯程序水墨的执行状态）→ `docs/11`（资料附录，不作现行承诺）。
 > 现行架构：**桌面优先的 three.js（WebGL）+ Matter.js 横屏水墨动作引擎**。玩法在 X/Y 平面碰撞，Z 固定；Matter.js 的刚体 x、y 写入 three.js 模型。依赖只有 `three@0.186.1` 与 `matter-js@0.20.0`。
-> **单一渲染栈（2026-10-09 起）**：PixiJS 十卡舞台、p5 微内核与原生 WebGL2 插件已从 `src/`、`apps/` 和 `package.json` 删除，不得再引入。三条入口都在 three.js 路径上：切片 `apps/scroll/`（`InkView`、`Playfield`、`InkSurface`、洇染、皴法、断竹）、叙事 `apps/story/`（`StoryStage`、`SceneDirector`、`CutscenePlayer`）、历史动画 `apps/history/`（`InkScene`、`ink-presentation`）。`src/plugins/` 只放道具笔画表与展示（`prop-brushes`、`prop-paintings`、`items`）。水刷必须改变 CPU 权威碰撞几何。水墨观感以 `thirdparty/inkEngine` 为参照；逐项差距见 `docs/12`（总表是 Pixi 时代的历史记录，文末有 three.js 的 SwiftShader 并排差）。参考 PNG 只作人工对照，运行时不加载。无头 SwiftShader 冒烟通过不等于真实 GPU 验收，不得把未测项写成已验证。
+> **单一渲染栈（2026-10-09 起）**：PixiJS 十卡舞台、p5 微内核与原生 WebGL2 插件已从 `src/`、`apps/` 和 `package.json` 删除，不得再引入。入口都在 three.js 路径上：切片 `apps/scroll/`、叙事 `apps/story/`、历史动画 `apps/history/`、参照画廊 `apps/gallery/`、二十个道具页 `apps/props/<id>/`。`src/plugins/` 放道具笔画表（`prop-brushes`、`prop-paintings`、`history-paintings`、`history-props`、`items`）。水刷必须改变 CPU 权威碰撞几何。水墨观感以 `thirdparty/inkEngine` 为参照；逐项差距见 `docs/12`。切片、叙事和历史动画运行时不加载参照 PNG。画廊把五张参照图放在画布旁边，不描进 WebGL。无头 SwiftShader 冒烟通过不等于真实 GPU 验收，不得把未测项写成已验证。
 
 ## 1. 目录结构（权威）
 
@@ -19,12 +19,14 @@ InkGames/
 ├── src/                      引擎源码（可发布为包，禁止放示例数据）
 │   ├── index.ts              唯一的公共 API 出口（新增能力必须在此导出）
 │   ├── core/                 引擎内核：时钟、Matter 物理与玩法、笔刷与墨面、分件墨层、三项画面、叙事宿主
-│   └── plugins/              道具笔画表与展示：prop-brushes / prop-paintings / items
+│   └── plugins/              道具笔画：prop-brushes / prop-paintings / history-paintings / history-props / items
 ├── apps/                     示例页面（只依赖 @inkgames/engine）
-│   ├── index.html            三入口导航
+│   ├── index.html            首页
 │   ├── scroll/               横版切片：坡、洇染、皴法、断竹
 │   ├── story/                叙事宿主：易水寒样例
-│   └── history/              历史动画：混沌开卷（含 chaos-data / procedural）
+│   ├── history/              历史动画：混沌开卷（含 chaos-data / procedural）
+│   ├── gallery/              参照画廊：程序水墨与五张参照图并排
+│   └── props/<id>/           二十个历史道具页
 ├── tests/                    自动化测试（vitest）：与 src 结构对应
 ├── docs/                     现行 API；11 为资料附录，12 为 inkEngine 对照
 ├── plan/                     10 为现行引擎计划；11–12 为历史游戏草案与动画制作计划

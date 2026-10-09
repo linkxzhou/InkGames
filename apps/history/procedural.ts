@@ -26,12 +26,20 @@ export async function createChaos(canvas: HTMLCanvasElement, options: ChaosOptio
       await scene.add({ id: shape.id, width: shape.width, height: shape.height, strokes: shape.strokes, ...(shape.pivot === undefined ? {} : { pivot: shape.pivot }) });
     }
   } catch (error) { scene.dispose(); throw error; }
+  for (const layer of presentation.layers) {
+    if (!scene.has(layer.id)) {
+      const missing = layer.id;
+      scene.dispose();
+      throw new Error(`未知墨层 ${missing}`);
+    }
+  }
   const applied = new Set<number>();
   let lastFrame = -1;
   return {
-    contextLost: false,
+    get contextLost() { return scene.contextLost; },
     dispose: () => scene.dispose(),
     render(frame: number): void {
+      if (scene.contextLost) return;
       // Wet-spread impulses are destructive and one-shot. A backward seek cannot
       // undo them, so the set is only cleared when the timeline restarts.
       if (frame < lastFrame) applied.clear();
