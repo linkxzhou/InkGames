@@ -67,6 +67,17 @@ function loadPlaywright() {
 }
 
 function findChromium() {
+  const direct = [
+    process.env.CHROME_PATH,
+    '/usr/local/bin/chrome',
+    '/opt/google/chrome/chrome',
+    '/usr/bin/google-chrome',
+    '/usr/bin/chromium',
+    '/usr/bin/chromium-browser',
+  ];
+  for (const candidate of direct) {
+    if (candidate && existsSync(candidate)) return candidate;
+  }
   const caches = [
     join(process.env.HOME ?? '', '.cache/ms-playwright'),
     join(process.env.HOME ?? '', 'Library/Caches/ms-playwright'),
@@ -113,6 +124,7 @@ try {
       });
       await page.goto(`${base}/scroll/?pose=${pose}`, { waitUntil: 'domcontentloaded', timeout: 120000 });
       await page.waitForFunction(() => window.__sliceReady === true, undefined, { timeout: 120000 });
+      console.log(pose, await page.title());
       const gl = await page.evaluate(() => window.__sliceGl ?? 0);
       if (gl !== 0) errors.push(`gl error ${gl}`);
       const file = join(outDir, `slice-${pose}.png`);

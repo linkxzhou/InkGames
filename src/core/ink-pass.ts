@@ -8,12 +8,12 @@ import type { PixelRect } from './ink-raster';
 
 const VERT = `
 precision highp float;
-in vec2 position;
+in vec3 position;
 uniform vec4 uRect;
 uniform vec2 uCanvas;
 out vec2 vPixel;
 void main() {
-  vec2 uv = position * 0.5 + 0.5;
+  vec2 uv = position.xy * 0.5 + 0.5;
   vPixel = uRect.xy + uv * uRect.zw;
   gl_Position = vec4(
     vPixel.x / uCanvas.x * 2.0 - 1.0,
@@ -80,7 +80,9 @@ export class InkPass {
     this.width = width;
     this.height = height;
     const geometry = new BufferGeometry();
-    geometry.setAttribute('position', new Float32BufferAttribute([-1, -1, 1, -1, 1, 1, -1, -1, 1, 1, -1, 1], 2));
+    geometry.setAttribute('position', new Float32BufferAttribute([
+      -1, -1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0,
+    ], 3));
     this.fillMat = this.material(FILL, { uColor: { value: new Vector3(1, 1, 1) } });
     this.blitMat = this.material(BLIT, {
       uStamp: { value: whiteTexture() },

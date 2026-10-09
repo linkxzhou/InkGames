@@ -73,12 +73,18 @@ export class CameraRig {
 
   private place(): void {
     const z = this.distance;
+    // up (0,-1,0) rolls the view 180°, which also mirrors X. A negative local
+    // scale puts world +x back on the right while world +y stays down the screen.
     this.camera.up.set(0, -1, 0);
+    this.camera.scale.set(-1, 1, 1);
     this.camera.position.set(this.focusX, this.focusY, z);
     this.camera.lookAt(this.focusX, this.focusY, 0);
+    this.camera.scale.set(-1, 1, 1);
     this.ortho.up.set(0, -1, 0);
+    this.ortho.scale.set(-1, 1, 1);
     this.ortho.position.set(this.focusX, this.focusY, z);
     this.ortho.lookAt(this.focusX, this.focusY, 0);
+    this.ortho.scale.set(-1, 1, 1);
   }
 }
 

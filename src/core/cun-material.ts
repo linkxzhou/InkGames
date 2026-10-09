@@ -1,6 +1,5 @@
 import {
-  BackSide, BufferGeometry, Float32BufferAttribute, FrontSide, GLSL3, Group, Matrix4, Mesh, RawShaderMaterial,
-  type WebGLRenderer,
+  BackSide, BufferGeometry, DoubleSide, Float32BufferAttribute, GLSL3, Group, Mesh, ShaderMaterial,
 } from 'three';
 import { CLASSIC_NOISE_GLSL } from './classic-noise';
 
@@ -22,12 +21,6 @@ export interface CunRock {
 }
 
 const VERT = `
-precision highp float;
-in vec3 position;
-in vec3 normal;
-uniform mat4 uModel;
-uniform mat4 uView;
-uniform mat4 uProj;
 uniform float uWidth;
 uniform float uShell;
 out vec3 vWorld;
@@ -35,14 +28,13 @@ ${CLASSIC_NOISE_GLSL}
 void main() {
   float bristle = 0.65 + 0.35 * cnoise(position.xy * 0.18);
   vec3 displaced = position + normal * uWidth * uShell * bristle;
-  vec4 world = uModel * vec4(displaced, 1.0);
+  vec4 world = modelMatrix * vec4(displaced, 1.0);
   vWorld = world.xyz;
-  gl_Position = uProj * uView * world;
+  gl_Position = projectionMatrix * viewMatrix * world;
 }
 `;
 
 const FILL = `
-precision highp float;
 in vec3 vWorld;
 out vec4 finalColor;
 uniform float uKind;
@@ -60,7 +52,6 @@ void main() {
 `;
 
 const EDGE = `
-precision highp float;
 out vec4 finalColor;
 void main() { finalColor = vec4(0.07, 0.06, 0.05, 1.0); }
 `;
@@ -77,7 +68,7 @@ export function createCunRock(kind: CunKind, seed: number, radius: number): CunR
   const fill = meshMaterial(FILL, 0);
   shell.side = BackSide;
   shell.depthWrite = false;
-  fill.side = FrontSide;
+  fill.side = DoubleSide;
   const kindSlot = fill.uniforms.uKind;
   if (kindSlot) kindSlot.value = kind === 'axe' ? 1 : 0;
   const outline = new Mesh(geometry, shell);
@@ -104,15 +95,12 @@ export function createCunRock(kind: CunKind, seed: number, radius: number): CunR
   };
 }
 
-function meshMaterial(fragment: string, shell: number): RawShaderMaterial {
-  const material = new RawShaderMaterial({
+function meshMaterial(fragment: string, shell: number): ShaderMaterial {
+  return new ShaderMaterial({
     glslVersion: GLSL3,
     vertexShader: VERT,
-    fragmentShader: `precision highp float;\n${fragment}`,
+    fragmentShader: fragment,
     uniforms: {
-      uModel: { value: new Matrix4() },
-      uView: { value: new Matrix4() },
-      uProj: { value: new Matrix4() },
       uWidth: { value: 3.4 },
       uShell: { value: shell },
       uKind: { value: 0 },
@@ -120,15 +108,6 @@ function meshMaterial(fragment: string, shell: number): RawShaderMaterial {
     depthTest: true,
     toneMapped: false,
   });
-  material.onBeforeRender = (_renderer: WebGLRenderer, _scene, camera, _geometry, object) => {
-    const model = material.uniforms.uModel;
-    const view = material.uniforms.uView;
-    const proj = material.uniforms.uProj;
-    if (model?.value instanceof Matrix4) model.value.copy(object.matrixWorld);
-    if (view?.value instanceof Matrix4) view.value.copy(camera.matrixWorldInverse);
-    if (proj?.value instanceof Matrix4) proj.value.copy(camera.projectionMatrix);
-  };
-  return material;
 }
 
 function rockGeometry(seed: number, radius: number): BufferGeometry {

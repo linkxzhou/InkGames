@@ -1,7 +1,6 @@
 import {
-  BufferAttribute, BufferGeometry, DoubleSide, DynamicDrawUsage, Float32BufferAttribute, GLSL3, Group, Matrix4, Mesh, Points,
-  RawShaderMaterial,
-  type WebGLRenderer,
+  BufferAttribute, BufferGeometry, DoubleSide, DynamicDrawUsage, Float32BufferAttribute, GLSL3, Group, Mesh, Points,
+  ShaderMaterial,
 } from 'three';
 
 export const DROPLET_CAP = 256;
@@ -27,11 +26,6 @@ interface BambooSync {
 }
 
 const VERT = `
-precision highp float;
-in vec3 position;
-uniform mat4 uModel;
-uniform mat4 uView;
-uniform mat4 uProj;
 uniform float uTime;
 uniform float uAmp;
 uniform float uHalf;
@@ -41,12 +35,11 @@ void main() {
   vAlong = along;
   vec3 displaced = position;
   displaced.x += sin(uTime * 1.6 + position.y * 0.01) * uAmp * along * along;
-  gl_Position = uProj * uView * uModel * vec4(displaced, 1.0);
+  gl_Position = projectionMatrix * modelViewMatrix * vec4(displaced, 1.0);
 }
 `;
 
 const FILL = `
-precision highp float;
 in float vAlong;
 out vec4 finalColor;
 void main() {
@@ -57,20 +50,14 @@ void main() {
 `;
 
 const POINT_VERT = `
-precision highp float;
-in vec3 position;
 in float life;
-uniform mat4 uModel;
-uniform mat4 uView;
-uniform mat4 uProj;
 void main() {
-  gl_Position = uProj * uView * uModel * vec4(position, 1.0);
-  gl_PointSize = life > 0.0 ? 4.0 : 0.0;
+  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  gl_PointSize = life > 0.0 ? 5.0 : 0.0;
 }
 `;
 
 const POINT_FILL = `
-precision highp float;
 out vec4 finalColor;
 void main() {
   vec2 p = gl_PointCoord * 2.0 - 1.0;
@@ -151,7 +138,7 @@ export class BambooView {
     if (points instanceof Points) {
       points.geometry.dispose();
       const material = points.material;
-      if (material instanceof RawShaderMaterial) material.dispose();
+      if (material instanceof ShaderMaterial) material.dispose();
     }
   }
 
@@ -215,7 +202,7 @@ export class BambooView {
 
   private setTime(mesh: Mesh, time: number): void {
     const material = mesh.material;
-    if (!(material instanceof RawShaderMaterial)) return;
+    if (!(material instanceof ShaderMaterial)) return;
     const slot = material.uniforms.uTime;
     if (slot && typeof slot.value === 'number') slot.value = time;
   }
@@ -239,15 +226,12 @@ function stalkGeometry(height: number, width: number): BufferGeometry {
   return geometry;
 }
 
-function swayMaterial(half: number, amp: number): RawShaderMaterial {
-  const material = new RawShaderMaterial({
+function swayMaterial(half: number, amp: number): ShaderMaterial {
+  return new ShaderMaterial({
     glslVersion: GLSL3,
     vertexShader: VERT,
     fragmentShader: FILL,
     uniforms: {
-      uModel: { value: new Matrix4() },
-      uView: { value: new Matrix4() },
-      uProj: { value: new Matrix4() },
       uTime: { value: 0 },
       uAmp: { value: amp },
       uHalf: { value: half },
@@ -256,40 +240,20 @@ function swayMaterial(half: number, amp: number): RawShaderMaterial {
     side: DoubleSide,
     toneMapped: false,
   });
-  bindMatrices(material);
-  return material;
 }
 
-function pointMaterial(): RawShaderMaterial {
-  const material = new RawShaderMaterial({
+function pointMaterial(): ShaderMaterial {
+  return new ShaderMaterial({
     glslVersion: GLSL3,
     vertexShader: POINT_VERT,
     fragmentShader: POINT_FILL,
-    uniforms: {
-      uModel: { value: new Matrix4() },
-      uView: { value: new Matrix4() },
-      uProj: { value: new Matrix4() },
-    },
     depthTest: true,
     toneMapped: false,
   });
-  bindMatrices(material);
-  return material;
-}
-
-function bindMatrices(material: RawShaderMaterial): void {
-  material.onBeforeRender = (_renderer: WebGLRenderer, _scene, camera, _geometry, object) => {
-    const model = material.uniforms.uModel;
-    const view = material.uniforms.uView;
-    const proj = material.uniforms.uProj;
-    if (model?.value instanceof Matrix4) model.value.copy(object.matrixWorld);
-    if (view?.value instanceof Matrix4) view.value.copy(camera.matrixWorldInverse);
-    if (proj?.value instanceof Matrix4) proj.value.copy(camera.projectionMatrix);
-  };
 }
 
 function disposeMesh(mesh: Mesh): void {
   mesh.geometry.dispose();
   const material = mesh.material;
-  if (material instanceof RawShaderMaterial) material.dispose();
+  if (material instanceof ShaderMaterial) material.dispose();
 }
