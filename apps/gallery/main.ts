@@ -146,13 +146,20 @@ for (const section of document.querySelectorAll<HTMLElement>('.plate')) {
     renderer.setRenderTarget(null);
     renderer.render(scene, camera);
     let index = 0;
-    const step = (): void => {
+    let last = 0;
+    const step = (now: number): void => {
       const stroke = strokes[index];
       if (!stroke) {
         publish();
         finish();
         return;
       }
+      // Hold each gesture so a short sheet reads as a few decisive strokes.
+      if (now - last < 320) {
+        requestAnimationFrame(step);
+        return;
+      }
+      last = now;
       surface.paint(stroke);
       index += 1;
       renderer.setRenderTarget(null);

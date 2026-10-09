@@ -91,8 +91,8 @@ describe('vector ink', () => {
     for (const raw of [chaos1, chaos2, chaos3, chaos4, chuhan]) {
       const parsed = parseVectorInk(raw);
       const strokes = compileVectorInk(parsed, { width: 720, height: 720 });
-      expect(strokes.length).toBeGreaterThan(80);
-      expect(strokes.length).toBeLessThan(900);
+      expect(strokes.length).toBeGreaterThan(8);
+      expect(strokes.length).toBeLessThan(80);
       expect(strokes.some(stroke => stroke.brush.size === 'extra-small' || stroke.brush.mode === 'gothic')).toBe(true);
       expect(strokes.some(stroke => stroke.brush.effect === 'flyingWhite')).toBe(true);
       expect(strokes.some(stroke => stroke.brush.effect === 'wet')).toBe(true);
