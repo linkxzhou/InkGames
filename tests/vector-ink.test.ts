@@ -28,7 +28,7 @@ describe('vector ink', () => {
     expect(() => parseVectorInk(sheet([{ id: 'a', role: 'contour', color: 'black', d: 'M0 0 A 10 10 0 0 1 10 0' }]))).toThrow(/圆弧/);
     expect(() => parseVectorInk({ ...sheet([{ id: 'a', role: 'contour', color: 'black', d: 'M0 0 L 1 1' }]), format: 'other' })).toThrow(/格式/);
     expect(() => parseVectorInk(sheet([{ id: 'a', role: 'contour', color: 'black', d: 'M0 0 L 1 1' }, { id: 'a', role: 'contour', color: 'black', d: 'M0 0 L 2 2' }]))).toThrow(/重复/);
-    expect(() => parseVectorInk(sheet([{ id: 'a', role: 'splash' as 'contour', color: 'black', d: 'M0 0 L 1 1' }]))).toThrow(/墨路/);
+    expect(() => parseVectorInk(sheet([{ id: 'a', role: 'ribbon' as 'contour', color: 'black', d: 'M0 0 L 1 1' }]))).toThrow(/墨路/);
     expect(() => parseVectorInk(sheet([{ id: 'a', role: 'contour', color: 'nope' as 'black', d: 'M0 0 L 1 1' }]))).toThrow(/墨色/);
   });
 
@@ -44,7 +44,7 @@ describe('vector ink', () => {
     expect(new Set(pressures).size).toBeGreaterThan(1);
     expect(Math.max(...pressures)).toBeLessThan(0.5);
     const fills = strokes.filter(stroke => stroke.brush.effect === 'wet' || stroke.brush.effect === 'effect4');
-    expect(fills.length).toBeGreaterThanOrEqual(3);
+    expect(fills.length).toBeGreaterThanOrEqual(2);
     for (const stroke of fills) {
       for (const point of stroke.points) {
         expect(point.x).toBeGreaterThanOrEqual(8);
@@ -63,6 +63,19 @@ describe('vector ink', () => {
     expect(Math.abs(b.x - a.x)).toBeGreaterThan(Math.abs(b.y - a.y));
   });
 
+  it('maps fold, strand, hemp and splash onto one stroke each', () => {
+    const strokes = compileVectorInk(sheet([
+      { id: 'fold', role: 'fold', color: 'black', d: 'M0 0 L 40 12' },
+      { id: 'strand', role: 'strand', color: 'black', d: 'M0 0 L 8 36' },
+      { id: 'hemp', role: 'hemp', color: 'dark_gray', d: 'M0 0 L 28 16' },
+      { id: 'splash', role: 'splash', color: 'black', d: 'M4 4 L 14 9' },
+    ]));
+    expect(strokes).toHaveLength(4);
+    expect(strokes.map(stroke => stroke.brush.size)).toEqual(['small', 'extra-small', 'small', 'small']);
+    expect(strokes[3]?.brush.mode).toBe('gothic');
+    expect(strokes[0]?.points.some(point => point.pressure !== undefined)).toBe(true);
+  });
+
   it('scales onto the plate and repeats exactly', () => {
     const parsed = parseVectorInk(sheet([{ id: 'edge', role: 'accent', color: 'wine_red', d: 'M0 0 L 100 0' }]));
     const once = compileVectorInk(parsed, { width: 50, height: 50 });
@@ -78,8 +91,9 @@ describe('vector ink', () => {
     for (const raw of [chaos1, chaos2, chaos3, chaos4, chuhan]) {
       const parsed = parseVectorInk(raw);
       const strokes = compileVectorInk(parsed, { width: 720, height: 720 });
-      expect(strokes.length).toBeGreaterThan(24);
-      expect(strokes.length).toBeLessThan(360);
+      expect(strokes.length).toBeGreaterThan(80);
+      expect(strokes.length).toBeLessThan(900);
+      expect(strokes.some(stroke => stroke.brush.size === 'extra-small' || stroke.brush.mode === 'gothic')).toBe(true);
       expect(strokes.some(stroke => stroke.brush.effect === 'flyingWhite')).toBe(true);
       expect(strokes.some(stroke => stroke.brush.effect === 'wet')).toBe(true);
       expect(strokes.some(stroke => stroke.brush.size === 'small')).toBe(true);

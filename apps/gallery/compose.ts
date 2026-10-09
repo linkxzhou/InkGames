@@ -21,33 +21,9 @@ const SHEETS: Readonly<Record<GalleryId, unknown>> = {
   chuhan,
 };
 
-function splash(x: number, y: number, seed: number, count: number): InkStrokeRequest[] {
-  const strokes: InkStrokeRequest[] = [];
-  for (let i = 0; i < count; i++) {
-    const dx = ((i * 37) % 17) - 8;
-    const dy = ((i * 19) % 13) - 6;
-    strokes.push({
-      brush: { mode: 'gothic', size: i % 2 === 0 ? 'large' : 'medium', effect: 'wet', blend: 'mix' },
-      color: i % 3 === 0 ? 'black' : 'dark_gray',
-      seed: seed + i,
-      points: [
-        { x: x + dx * 4, y: y + dy * 3 },
-        { x: x + dx * 9, y: y + dy * 8 - 18 },
-        { x: x + dx * 3 + 10, y: y + 16 + (i % 4) * 6 },
-      ],
-    });
-  }
-  return strokes;
-}
-
-/** Vector sheet plus a few procedural splash strokes. Splash is not traced from the reference. */
+/** The sheet already carries splash paths. Nothing here samples a reference. */
 export function galleryStrokes(id: GalleryId): InkStrokeRequest[] {
-  const drawn = compileVectorInk(parseVectorInk(SHEETS[id]), { width: PLATE, height: PLATE });
-  if (id === 'chaos-1') return [...drawn, ...splash(460, 250, 70, 6), ...splash(160, 420, 80, 4)];
-  if (id === 'chaos-2') return [...drawn, ...splash(190, 110, 40, 4), ...splash(560, 100, 50, 4)];
-  if (id === 'chaos-3') return [...drawn, ...splash(180, 520, 33, 4), ...splash(620, 560, 36, 4)];
-  if (id === 'chaos-4') return [...drawn, ...splash(470, 80, 90, 5), ...splash(360, 560, 100, 4)];
-  return [...drawn, ...splash(280, 80, 200, 8), ...splash(620, 120, 220, 6), ...splash(400, 360, 240, 5)];
+  return compileVectorInk(parseVectorInk(SHEETS[id]), { width: PLATE, height: PLATE });
 }
 
 function paintAll(surface: InkSurface, strokes: readonly InkStrokeRequest[]): void {

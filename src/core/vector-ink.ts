@@ -5,13 +5,17 @@
  * Paths are hand-authored outlines. The compiler only does arithmetic and
  * square roots, then emits `InkStrokeRequest`s for the inkEngine-derived brush.
  * It never reads a reference bitmap.
+ * Each path is one stroke: contour, fold, strand, hemp, wash, accent, splash.
+ * A closed fill only insets; it does not lay vertical columns.
  */
 
 import { INK_EFFECTS, INK_SIZES, type InkBrushSettings, type InkEffect, type InkPoint, type InkSizeName } from './ink-brush';
 import { INK_COLOR_NAMES, type InkColorName } from './ink-palette';
 import type { InkStrokeRequest } from './ink-stroke';
 
-export type VectorInkRole = 'contour' | 'fill' | 'hatch' | 'accent' | 'wash';
+export type VectorInkRole =
+  | 'contour' | 'fill' | 'hatch' | 'accent' | 'wash'
+  | 'fold' | 'strand' | 'hemp' | 'splash';
 
 export interface VectorInkPath {
   readonly id: string;
@@ -53,7 +57,9 @@ export interface InkRasterScore {
 interface Pt { readonly x: number; readonly y: number; }
 interface Poly { readonly points: Pt[]; readonly closed: boolean; }
 
-const ROLES: readonly VectorInkRole[] = ['contour', 'fill', 'hatch', 'accent', 'wash'];
+const ROLES: readonly VectorInkRole[] = [
+  'contour', 'fill', 'hatch', 'accent', 'wash', 'fold', 'strand', 'hemp', 'splash',
+];
 const SIZES = Object.keys(INK_SIZES);
 const EFFECTS = Object.keys(INK_EFFECTS);
 
@@ -357,48 +363,6 @@ function resample(points: readonly Pt[], step: number, max: number): Pt[] {
   return out;
 }
 
-function inside(points: readonly Pt[], x: number, y: number): boolean {
-  let hit = false;
-  for (let i = 0, j = points.length - 1; i < points.length; j = i++) {
-    const pi = points[i];
-    const pj = points[j];
-    if (!pi || !pj || pi.y === pj.y) continue;
-    if ((pi.y > y) !== (pj.y > y) && x < ((pj.x - pi.x) * (y - pi.y)) / (pj.y - pi.y) + pi.x) hit = !hit;
-  }
-  return hit;
-}
-
-function interiorColumns(points: readonly Pt[]): Pt[][] {
-  const ring = ringOf(points);
-  if (ring.length < 3) return [];
-  let minX = ring[0]?.x ?? 0;
-  let maxX = minX;
-  let minY = ring[0]?.y ?? 0;
-  let maxY = minY;
-  for (const p of ring) {
-    if (p.x < minX) minX = p.x;
-    if (p.x > maxX) maxX = p.x;
-    if (p.y < minY) minY = p.y;
-    if (p.y > maxY) maxY = p.y;
-  }
-  const columns: Pt[][] = [];
-  // Large wet strokes are only a few dozen pixels wide, so the columns have to overlap.
-  const n = Math.max(2, Math.min(16, Math.round((maxX - minX) / 18)));
-  for (let c = 1; c <= n; c++) {
-    const x = minX + ((maxX - minX) * c) / (n + 1);
-    const run: Pt[] = [];
-    const span = maxY - minY;
-    const samples = span > 12 ? 28 : 8;
-    for (let s = 0; s <= samples; s++) {
-      const y = minY + (span * s) / samples;
-      if (inside(ring, x, y)) run.push({ x, y });
-      else if (run.length >= 2) break;
-    }
-    if (run.length >= 2) columns.push(resample(run, 8, 16));
-  }
-  return columns;
-}
-
 function hatchLines(points: readonly Pt[], closed: boolean, seed: number): Pt[][] {
   const ring = closed ? [...ringOf(points), ringOf(points)[0]].filter((p): p is Pt => p !== undefined) : points;
   const lines: Pt[][] = [];
@@ -459,7 +423,11 @@ function pressureOf(count: number, seed: number, profile: 'tail' | 'dry' | 'wet'
 
 function brushFor(path: VectorInkPath): InkBrushSettings {
   if (path.role === 'contour') return { mode: 'brush', size: path.size ?? 'medium', effect: path.effect ?? 'flyingWhite', blend: 'mix' };
-  if (path.role === 'fill') return { mode: 'brush', size: path.size ?? 'extra-large', effect: path.effect ?? 'wet', blend: 'mix' };
+  if (path.role === 'fold') return { mode: 'brush', size: path.size ?? 'small', effect: path.effect ?? 'flyingWhite', blend: 'mix' };
+  if (path.role === 'strand') return { mode: 'brush', size: path.size ?? 'extra-small', effect: path.effect ?? 'flyingWhite', blend: 'mix' };
+  if (path.role === 'hemp') return { mode: 'brush', size: path.size ?? 'small', effect: path.effect ?? 'flyingWhite', blend: 'mix' };
+  if (path.role === 'splash') return { mode: 'gothic', size: path.size ?? 'small', effect: path.effect ?? 'wet', blend: 'mix' };
+  if (path.role === 'fill') return { mode: 'brush', size: path.size ?? 'large', effect: path.effect ?? 'wet', blend: 'mix' };
   if (path.role === 'hatch') return { mode: 'brush', size: path.size ?? 'small', effect: path.effect ?? 'flyingWhite', blend: 'mix' };
   if (path.role === 'accent') return { mode: 'brush', size: path.size ?? 'medium', effect: path.effect ?? 'wet', blend: 'mix' };
   return { mode: 'brush', size: path.size ?? 'extra-large', effect: path.effect ?? 'wet', blend: 'mix' };
@@ -485,8 +453,16 @@ function scalePoly(poly: Poly, sx: number, sy: number): Poly {
   return { closed: poly.closed, points: poly.points.map(p => ({ x: p.x * sx, y: p.y * sy })) };
 }
 
+function profileOf(role: VectorInkRole): 'tail' | 'dry' | 'wet' {
+  if (role === 'contour') return 'tail';
+  if (role === 'fold' || role === 'strand' || role === 'hemp' || role === 'hatch') return 'dry';
+  return 'wet';
+}
+
 function compilePoly(path: VectorInkPath, poly: Poly, seed: number): InkStrokeRequest[] {
-  const layers = path.layers ?? (path.role === 'fill' ? 2 : path.role === 'contour' ? 2 : 1);
+  // One authored path is one stroke. Closed fills inset instead of laying vertical columns,
+  // which read as bars rather than a body.
+  const layers = path.layers ?? 1;
   const out: InkStrokeRequest[] = [];
   const push = (stroke: InkStrokeRequest | undefined): void => {
     if (stroke) out.push(stroke);
@@ -495,23 +471,20 @@ function compilePoly(path: VectorInkPath, poly: Poly, seed: number): InkStrokeRe
     for (const line of hatchLines(poly.points, poly.closed, seed)) push(request(path, line, seed + out.length * 13, 'dry'));
     return out;
   }
+  const profile = profileOf(path.role);
   if (path.role === 'fill' && poly.closed) {
     for (let layer = 0; layer < layers; layer++) {
-      const inset = offsetPoly(poly.points, 8 + layer * 12, true);
+      const inset = offsetPoly(poly.points, 6 + layer * 8, true);
       const close = inset[0];
       if (inset.length >= 3 && close) {
         push(request(path, [...inset, close], seed + layer * 17, 'wet', layer === layers - 1 ? 'effect4' : path.effect ?? 'wet'));
       }
-    }
-    for (const column of interiorColumns(poly.points)) {
-      push(request({ ...path, size: 'extra-large' }, column, seed + 200 + out.length, 'wet', 'wet'));
     }
     return out;
   }
   for (let layer = 0; layer < layers; layer++) {
     const shifted = layer === 0 ? poly.points : offsetPoly(poly.points, 3 + layer * 2, poly.closed);
     const ring = poly.closed ? [...shifted, shifted[0] ?? { x: 0, y: 0 }] : shifted;
-    const profile = path.role === 'contour' ? 'tail' : 'wet';
     const effect = path.role === 'wash' && layer > 0 ? 'effect4' : undefined;
     push(request(path, ring, seed + layer * 17, profile, effect));
   }
