@@ -5596,7 +5596,7 @@
          "id": "pick.canon",
          "label": "scene.chunqiu.chengpu.pick.canon",
          "seal": "canon",
-         "to": "c.retreat"
+         "to": "c.intro"
         },
         {
          "id": "pick.legend",
@@ -5619,6 +5619,39 @@
            }
           ]
          }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": -632,
+        "precision": "year",
+        "display": "前 632 年",
+        "era": "晋文公五年",
+        "verify": "done"
+       },
+       "dialogue": "scene.chunqiu.chengpu.canon.intro",
+       "next": [
+        "c.retreat"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "左传",
+         "section": "僖公二十三年"
+        },
+        {
+         "kind": "canon",
+         "title": "左传",
+         "section": "僖公二十八年"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "晋世家"
         }
        ]
       },
@@ -6874,6 +6907,7 @@
      "anchor.chongerwang": "重耳出亡",
      "anchor.jiantu": "践土之盟",
      "scene.chunqiu.chengpu.pick.canon": "正史 · 《左传》、《左传》所载",
+     "scene.chunqiu.chengpu.canon.intro": "晋军与楚军相遇于城濮。当年流亡时，重耳曾对楚成王许诺：若两军相遇，退避三舍。",
      "scene.chunqiu.chengpu.end.canon": "楚师败绩，子玉自杀。晋文公会诸侯于践土，周王策命为侯伯。",
      "scene.chunqiu.chengpu.pick.legend": "野史 · 介子推",
      "scene.chunqiu.chengpu.legend.disclaimer": "以下是后世传说。《左传》只说介之推不言禄而隐，“割股”“焚山”出自《庄子》及更晚的书。",
@@ -11289,7 +11323,7 @@
          "id": "pick.canon",
          "label": "scene.chunqiu.wuyue.pick.canon",
          "seal": "canon",
-         "to": "c.peace"
+         "to": "c.intro"
         },
         {
          "id": "pick.legend",
@@ -11312,6 +11346,40 @@
            }
           ]
          }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": -494,
+        "end": -473,
+        "precision": "year",
+        "display": "前 494—前 473 年",
+        "era": "越王勾践三年至二十四年",
+        "verify": "done"
+       },
+       "dialogue": "scene.chunqiu.wuyue.canon.intro",
+       "next": [
+        "c.peace"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "越王勾践世家"
+        },
+        {
+         "kind": "canon",
+         "title": "国语",
+         "section": "越语上"
+        },
+        {
+         "kind": "canon",
+         "title": "左传",
+         "section": "哀公元年"
         }
        ]
       },
@@ -12566,6 +12634,7 @@
      "anchor.fujiao": "夫椒之战",
      "anchor.miewu": "越灭吴",
      "scene.chunqiu.wuyue.pick.canon": "正史 · 《史记》、《国语》所载",
+     "scene.chunqiu.wuyue.canon.intro": "夫椒一战，越军大败。勾践带着残兵五千退保会稽山，吴军围了上来。",
      "scene.chunqiu.wuyue.end.canon": "前 473 年，越灭吴，夫差自杀。范蠡辞官而去，文种后被赐死。",
      "scene.chunqiu.wuyue.pick.legend": "野史 · 西施与五湖",
      "scene.chunqiu.wuyue.legend.disclaimer": "以下是后世传说。西施之名不见于《左传》《史记》，故事出自《吴越春秋》《越绝书》等东汉以后的书。",

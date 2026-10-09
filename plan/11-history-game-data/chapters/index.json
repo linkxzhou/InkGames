@@ -120,8 +120,8 @@
    "span": "266—420 年",
    "scenes": 8,
    "v1": 3,
-   "full": 3,
-   "outline": 5
+   "full": 8,
+   "outline": 0
   },
   {
    "no": "11",
@@ -131,8 +131,8 @@
    "span": "420—589 年",
    "scenes": 5,
    "v1": 2,
-   "full": 2,
-   "outline": 3
+   "full": 5,
+   "outline": 0
   },
   {
    "no": "12",
@@ -142,8 +142,8 @@
    "span": "581—618 年",
    "scenes": 4,
    "v1": 2,
-   "full": 2,
-   "outline": 2
+   "full": 4,
+   "outline": 0
   },
   {
    "no": "13",
@@ -237,7 +237,7 @@
  "totals": {
   "scenes": 157,
   "v1": 66,
-  "full": 104,
-  "outline": 53
+  "full": 114,
+  "outline": 43
  }
 }
