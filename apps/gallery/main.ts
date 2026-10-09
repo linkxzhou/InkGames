@@ -130,6 +130,9 @@ function compare(canvas: HTMLCanvasElement, img: HTMLImageElement): GalleryStat 
   off.height = h;
   const ctx = off.getContext('2d', { willReadFrequently: true });
   if (!ctx) throw new Error('无法读取参照图');
+  // Reference PNGs are mostly transparent. Composite them on the same paper as the engine.
+  ctx.fillStyle = '#d6cebc';
+  ctx.fillRect(0, 0, w, h);
   ctx.drawImage(img, 0, 0, w, h);
   const ref = ctx.getImageData(0, 0, w, h).data;
   ctx.clearRect(0, 0, w, h);

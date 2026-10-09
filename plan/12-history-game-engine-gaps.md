@@ -136,7 +136,7 @@
 | G-11 | 镜头：推拉、景深 | 开场镜头语言 | 推拉/抖动已有（`CameraRig` + 过场关键帧）；**景深仍缺**（Pixi 舞台与其 48×36 限制已删除） | `cameraRig.key({ at, x, y, zoom, dof })`；three.js 透视相机 + 后处理 | P1（切片里用一次推近，可先不做景深） | three.js 迁移 | 1.5 |
 | G-12 | 遮罩 pass | 暗角、留白、局部显示 | 没有（inkEngine 有 `drawMaskRect / drawMaskPolygon`） | `post.mask({ rect | polygon, feather })` | P1 | G-01 | 1 |
 | G-13 | 角色与 NPC | 人物姿态、行走、对话时的动作；同一人物不同服色 | 人物是 `figure` 笔画精灵，`pose` 只有 0/1；马两种步态，旗三幅 | 迁移后：骨骼模型 + 墨描边（与断竹的骨骼摇摆同一套），或“姿态库笔画 + 插值”；`actor.pose(name)`、`actor.say(lineKey)`；笔刷颜色覆盖（如白衣） | P1 | three.js 迁移、断竹骨骼 | 4 |
-| G-14 | 玩法模板插件 | 决斗、战阵、守城、水战、治水、奔袭、庙堂、解谜、竹林（见故事与玩法 §5） | 未做；`InkStage` 与其 `switch` 已删除，`Playfield` 有扫掠与砍断 | `defineGameplay({ id, requires, setup(ctx, params), onEvent })`；剧情图通过 `gameplay.template/params` 调用 | P0（决斗、对话时机、解谜各一个）／P1（其余） | G-02、G-03 | 切片 3；全部 8+ |
+| G-14 | 玩法模板插件 | 决斗、战阵、守城、水战、治水、奔袭、庙堂、解谜、竹林（见故事与玩法 §5） | **部分**：`defineGameplay` 只返回动词和说明；道具页用 Matter 演示砍、落、燃、流。叙事节点仍等待继续，没有可玩的决斗 | `defineGameplay(template, goal)` 现为标签；完整形态仍是 `defineGameplay({ id, requires, setup(ctx, params), onEvent })` | P0（决斗、对话时机、解谜各一个）／P1（其余） | G-02、G-03 | 切片 3；全部 8+ |
 | G-15 | 群体单位 | 战阵、骑兵、鸟群；inkEngine 的 boid | 没有 boid | `crowd.spawn(formation, count)`；Matter 只给少量代表体，大量单位做纯视觉 | P1 | three.js 迁移 | 2–3 |
 | G-16 | 地形墨散与山石、断竹接入叙事 | 让三项新效果能被过场和剧情触发（马蹄墨散、刀过断竹、山石入画） | 画面本身已有（`TerrainSeep` / `createCunRock` / `BambooView`）；**接入 `EffectCue` 仍没有** | `effects.inkDisperse(at, params)`、`effects.bambooBreak(id, impulse)`；过场 `EffectCue.kind = 'inkDisperse' | 'bambooBreak'` | P1 | 新引擎效果 | 1（接入） |
 | G-17 | 内容管线与加载 | 内容目录、校验 CLI、资源清单、按章懒加载、缓存 | 有 `scene-json.ts`（v0.1 场景 JSON 解析），没有内容管线 | `loadChapter(id)`、`content.validate()`；构建期生成 `timeline.json` 与资源清单 | P0（校验 CLI）／P1（懒加载） | 内容格式 | 2 |
@@ -167,7 +167,7 @@ three.js 迁移（G-01 墨面、物理驱动模型）  [x] 已完成，Pixi/p5/W
    ├─▶ G-04 录制 ──┐                        [ ] 未做
    ├─▶ G-06 音频 ──┼─▶ G-05 过场播放器 ─▶ G-20 预览工具   [~] 播放器有；预览页有 /history/
    ├─▶ G-07 文字 ──┘                        [~] 字幕/题字有；竖排长文无
-   └─▶ G-02 场景管理 ─▶ G-14 玩法模板        [~] / [ ]
+   └─▶ G-02 场景管理 ─▶ G-14 玩法模板        [~] 只有动词标签和道具页演示
 内容格式 ─▶ G-03 剧情运行时、G-09 存档、G-17 校验 ─▶ G-10 UI   [~] 前三者有基础
 ```
 
@@ -175,7 +175,7 @@ three.js 迁移（G-01 墨面、物理驱动模型）  [x] 已完成，Pixi/p5/W
 
 ## 4. 路线与里程碑
 
-> **状态核对（2026-10-09 按代码核实）**：`M0` 未通过（内容校验与 157 场景数据在，但垂直切片三场景仍有 6 处 `verify: pending`，场景级人工复核与史学签字未做）；`M1`–`M5` 全部未开始。已实现的是**前置能力**，不是里程碑本身：`InkSurface`（G-01）、`SceneDirector`（G-02）、`StoryRuntime`（G-03）、`CutscenePlayer`（G-05，含 live/并发/收笔修复）、`AudioBus`（G-06，仅振荡器占位）、`InkText`（G-07，字幕/题字）、`SaveStore`（G-09）、内容校验器（G-17 的校验部分）。仍未做：G-04 录制、G-08 预烘焙、G-10 UI、G-11 景深、G-12 多边形遮罩、G-13 角色骨骼、G-14 玩法模板、G-15 群体、G-20 预览工具、G-21 独显实测。**四个里程碑的验收项没有一条被满足。**
+> **状态核对（2026-10-09 按代码核实）**：`M0` 未通过（内容校验与 157 场景数据在，但垂直切片三场景仍有 6 处 `verify: pending`，场景级人工复核与史学签字未做）；`M1`–`M5` 全部未开始。已实现的是**前置能力**，不是里程碑本身：`InkSurface`（G-01）、`SceneDirector`（G-02）、`StoryRuntime`（G-03）、`CutscenePlayer`（G-05，含 live/并发/收笔修复）、`AudioBus`（G-06，仅振荡器占位）、`InkText`（G-07，字幕/题字）、`SaveStore`（G-09）、内容校验器（G-17 的校验部分）。仍未做或只做了标签：G-04 录制、G-08 预烘焙、G-10 完整 UI、G-11 景深、G-12 多边形遮罩、G-13 角色骨骼、G-14 可玩模板（现仅 `defineGameplay` 标签 + 道具页物理演示）、G-15 群体、G-19 `InkScene` 上下文恢复、G-21 独显实测。`/history/` 与 `/gallery/` 是预览，不是 157 场创作工具。**四个里程碑的验收项没有一条被满足。**
 
 
 ### M0 · 准备（1–2 周；three.js 迁移已完成）
