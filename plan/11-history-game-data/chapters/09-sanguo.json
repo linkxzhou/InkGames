@@ -490,7 +490,7 @@
          "id": "pick.canon",
          "label": "scene.sanguo.guandu.pick.canon",
          "seal": "canon",
-         "to": "c.hold"
+         "to": "c.intro"
         },
         {
          "id": "pick.legend",
@@ -513,6 +513,34 @@
            }
           ]
          }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": 200,
+        "precision": "year",
+        "display": "200 年",
+        "era": "建安五年",
+        "verify": "done"
+       },
+       "dialogue": "scene.sanguo.guandu.canon.intro",
+       "next": [
+        "c.hold"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "三国志",
+         "section": "魏书·武帝纪"
+        },
+        {
+         "kind": "canon",
+         "title": "三国志",
+         "section": "魏书·荀彧传"
         }
        ]
       },
@@ -1694,6 +1722,7 @@
      "anchor.baima": "白马之围",
      "anchor.cangting": "袁绍病死",
      "scene.sanguo.guandu.pick.canon": "正史 · 《三国志》、《三国志》所载",
+     "scene.sanguo.guandu.canon.intro": "两军相持于官渡，曹军粮少，士卒疲乏。袁绍的谋士许攸夜里投奔曹营。",
      "scene.sanguo.guandu.end.canon": "乌巢粮尽，张郃、高览来降，袁军大溃。两年后，袁绍病死。",
      "scene.sanguo.guandu.pick.legend": "演义 · 三国演义",
      "scene.sanguo.guandu.legend.disclaimer": "以下取自明代小说《三国演义》第三十回，主干同正史，细节与对话为小说铺陈。",
@@ -2759,7 +2788,7 @@
          "id": "pick.canon",
          "label": "scene.sanguo.chibi.pick.canon",
          "seal": "canon",
-         "to": "c.alliance"
+         "to": "c.intro"
         },
         {
          "id": "pick.legend",
@@ -2782,6 +2811,39 @@
            }
           ]
          }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": 208,
+        "precision": "year",
+        "display": "208 年",
+        "era": "建安十三年",
+        "verify": "done"
+       },
+       "dialogue": "scene.sanguo.chibi.canon.intro",
+       "next": [
+        "c.alliance"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "三国志",
+         "section": "吴书·周瑜传"
+        },
+        {
+         "kind": "canon",
+         "title": "三国志",
+         "section": "蜀书·诸葛亮传"
+        },
+        {
+         "kind": "canon",
+         "title": "三国志",
+         "section": "魏书·武帝纪"
         }
        ]
       },
@@ -2964,7 +3026,8 @@
         {
          "kind": "classic",
          "title": "魏略",
-         "notes": "裴注引，孙权濡须口受箭，待核验"
+         "section": "《三国志·吴主传》建安十八年裴注引",
+         "notes": "孙权乘大船观曹营，船一面受箭偏重，回船以另一面受箭，箭均船平而还"
         }
        ]
       },
@@ -3011,7 +3074,8 @@
         {
          "kind": "classic",
          "title": "魏略",
-         "notes": "裴注引，孙权濡须口受箭，待核验"
+         "section": "《三国志·吴主传》建安十八年裴注引",
+         "notes": "孙权乘大船观曹营，船一面受箭偏重，回船以另一面受箭，箭均船平而还"
         }
        ]
       },
@@ -3057,7 +3121,8 @@
         {
          "kind": "classic",
          "title": "魏略",
-         "notes": "裴注引，孙权濡须口受箭，待核验"
+         "section": "《三国志·吴主传》建安十八年裴注引",
+         "notes": "孙权乘大船观曹营，船一面受箭偏重，回船以另一面受箭，箭均船平而还"
         }
        ]
       },
@@ -3120,7 +3185,8 @@
        {
         "kind": "classic",
         "title": "魏略",
-        "notes": "裴注引，孙权濡须口受箭，待核验"
+        "section": "《三国志·吴主传》建安十八年裴注引",
+        "notes": "孙权乘大船观曹营，船一面受箭偏重，回船以另一面受箭，箭均船平而还"
        }
       ],
       "kind": "legend",
@@ -3169,7 +3235,8 @@
         {
          "kind": "classic",
          "title": "魏略",
-         "notes": "裴注引，孙权濡须口受箭，待核验"
+         "section": "《三国志·吴主传》建安十八年裴注引",
+         "notes": "孙权乘大船观曹营，船一面受箭偏重，回船以另一面受箭，箭均船平而还"
         }
        ]
       },
@@ -3205,7 +3272,8 @@
         {
          "kind": "classic",
          "title": "魏略",
-         "notes": "裴注引，孙权濡须口受箭，待核验"
+         "section": "《三国志·吴主传》建安十八年裴注引",
+         "notes": "孙权乘大船观曹营，船一面受箭偏重，回船以另一面受箭，箭均船平而还"
         }
        ]
       },
@@ -3241,7 +3309,8 @@
         {
          "kind": "classic",
          "title": "魏略",
-         "notes": "裴注引，孙权濡须口受箭，待核验"
+         "section": "《三国志·吴主传》建安十八年裴注引",
+         "notes": "孙权乘大船观曹营，船一面受箭偏重，回船以另一面受箭，箭均船平而还"
         }
        ]
       }
@@ -4044,6 +4113,7 @@
      "anchor.changban": "长坂之败",
      "anchor.sanfen": "曹操北还，三分渐成",
      "scene.sanguo.chibi.pick.canon": "正史 · 《三国志》、《三国志》所载",
+     "scene.sanguo.chibi.canon.intro": "曹操得荆州水军，顺江东下，遗书孙权：今治水军八十万众，方与将军会猎于吴。",
      "scene.sanguo.chibi.end.canon": "曹军烧溺死者甚众，曹操引军北还。孙刘各得荆州之地，三分之势渐成。",
      "scene.sanguo.chibi.pick.legend": "演义 · 草船借箭与借东风",
      "scene.sanguo.chibi.legend.disclaimer": "以下取自《三国演义》第四十六至四十九回，草船借箭、借东风都是小说情节；《魏略》载孙权乘船受箭之事，在建安十八年濡须口。",
@@ -5110,11 +5180,11 @@
       "title": "anchor.guanyu-si",
       "when": {
        "start": 220,
-       "precision": "year",
-       "display": "220 年",
+       "precision": "month",
+       "display": "220 年初",
        "era": "建安二十四年十二月",
-       "verify": "pending",
-       "notes": "关羽遇害在建安二十四年末，公历已入 220 年初"
+       "verify": "done",
+       "notes": "《三国志·吴主传》：建安二十四年十二月，璋司马马忠获羽；阴历十二月折合公历已入 220 年初"
       },
       "sources": [
        {
@@ -5195,7 +5265,7 @@
          "id": "pick.canon",
          "label": "scene.sanguo.yiling.pick.canon",
          "seal": "canon",
-         "to": "c.wait"
+         "to": "c.intro"
         },
         {
          "id": "pick.legend",
@@ -5218,6 +5288,34 @@
            }
           ]
          }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": 222,
+        "precision": "year",
+        "display": "222 年",
+        "era": "蜀章武二年，吴黄武元年",
+        "verify": "done"
+       },
+       "dialogue": "scene.sanguo.yiling.canon.intro",
+       "next": [
+        "c.wait"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "三国志",
+         "section": "吴书·陆逊传"
+        },
+        {
+         "kind": "canon",
+         "title": "三国志",
+         "section": "蜀书·先主传"
         }
        ]
       },
@@ -5383,6 +5481,12 @@
           "file": "野史/三国演义.pdf",
           "pages": "p.251–253"
          }
+        },
+        {
+         "kind": "classic",
+         "title": "水经注",
+         "section": "卷三十三 江水",
+         "notes": "“江水又东迳诸葛亮图垒南……有亮所造八阵图”"
         }
        ]
       },
@@ -5424,6 +5528,12 @@
           "file": "野史/三国演义.pdf",
           "pages": "p.251–253"
          }
+        },
+        {
+         "kind": "classic",
+         "title": "水经注",
+         "section": "卷三十三 江水",
+         "notes": "“江水又东迳诸葛亮图垒南……有亮所造八阵图”"
         }
        ]
       },
@@ -5465,6 +5575,12 @@
           "file": "野史/三国演义.pdf",
           "pages": "p.251–253"
          }
+        },
+        {
+         "kind": "classic",
+         "title": "水经注",
+         "section": "卷三十三 江水",
+         "notes": "“江水又东迳诸葛亮图垒南……有亮所造八阵图”"
         }
        ]
       },
@@ -5518,6 +5634,12 @@
          "file": "野史/三国演义.pdf",
          "pages": "p.251–253"
         }
+       },
+       {
+        "kind": "classic",
+        "title": "水经注",
+        "section": "卷三十三 江水",
+        "notes": "“江水又东迳诸葛亮图垒南……有亮所造八阵图”"
        }
       ],
       "kind": "legend",
@@ -5557,6 +5679,12 @@
           "file": "野史/三国演义.pdf",
           "pages": "p.251–253"
          }
+        },
+        {
+         "kind": "classic",
+         "title": "水经注",
+         "section": "卷三十三 江水",
+         "notes": "“江水又东迳诸葛亮图垒南……有亮所造八阵图”"
         }
        ]
       },
@@ -5583,6 +5711,12 @@
           "file": "野史/三国演义.pdf",
           "pages": "p.251–253"
          }
+        },
+        {
+         "kind": "classic",
+         "title": "水经注",
+         "section": "卷三十三 江水",
+         "notes": "“江水又东迳诸葛亮图垒南……有亮所造八阵图”"
         }
        ]
       }
@@ -6504,9 +6638,10 @@
      "anchor.guanyu-si": "关羽败亡",
      "anchor.baidi": "刘备托孤于白帝城",
      "scene.sanguo.yiling.pick.canon": "正史 · 《三国志》、《三国志》所载",
+     "scene.sanguo.yiling.canon.intro": "刘备为关羽之死伐吴，连营数百里。陆逊坚守不战，从正月等到了六月。",
      "scene.sanguo.yiling.end.canon": "蜀军土崩，刘备退入白帝城。次年，刘备病逝于永安，托孤于诸葛亮。",
      "scene.sanguo.yiling.pick.legend": "演义 · 八阵图",
-     "scene.sanguo.yiling.legend.disclaimer": "以下取自《三国演义》第八十四回，陆逊被困八阵图是小说情节。鱼腹浦八阵图遗迹之说见于后世记载，待核验。",
+     "scene.sanguo.yiling.legend.disclaimer": "以下取自《三国演义》第八十四回，陆逊被困八阵图是小说情节。鱼复江边的八阵图石垒，北魏《水经注·江水》已有记载。",
      "scene.sanguo.yiling.legend.intro": "演义写陆逊追击至鱼腹浦，误入诸葛亮早年布下的乱石阵，风沙大作，不得出；幸得黄承彦引路而出。",
      "scene.sanguo.yiling.end.legend": "陆逊收兵东还。演义的插曲之后，故事汇回正史：刘备退守白帝。",
      "scene.sanguo.yiling.pick.whatif": "推演 · 若蜀军不移营入林（未开放）",
@@ -7873,7 +8008,7 @@
          "id": "pick.canon",
          "label": "scene.sanguo.gaopingling.pick.canon",
          "seal": "canon",
-         "to": "c.feign"
+         "to": "c.intro"
         },
         {
          "id": "pick.legend",
@@ -7896,6 +8031,40 @@
            }
           ]
          }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": 249,
+        "end": 280,
+        "precision": "year",
+        "display": "249—280 年",
+        "era": "魏正始十年至晋太康元年",
+        "verify": "done"
+       },
+       "dialogue": "scene.sanguo.gaopingling.canon.intro",
+       "next": [
+        "c.feign"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "三国志",
+         "section": "魏书·曹爽传"
+        },
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "宣帝纪"
+        },
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "武帝纪"
         }
        ]
       },
@@ -9108,6 +9277,7 @@
      "anchor.chenbing": "司马懿称病",
      "anchor.miewu": "晋灭吴",
      "scene.sanguo.gaopingling.pick.canon": "正史 · 《三国志》、《晋书》所载",
+     "scene.sanguo.gaopingling.canon.intro": "司马懿称病，卧床不起。正始十年正月，曹爽兄弟随少帝出城谒高平陵。",
      "scene.sanguo.gaopingling.end.canon": "曹爽投降，旋被夷三族。263 年魏灭蜀，266 年司马炎代魏建晋，280 年晋灭吴，三国归于一统。",
      "scene.sanguo.gaopingling.pick.legend": "演义 · 司马懿诈病",
      "scene.sanguo.gaopingling.legend.disclaimer": "以下取自《三国演义》第一百六至一百七回，诈病情节本于《晋书》等史料，对话与细节为小说铺陈。",

@@ -76,8 +76,8 @@
    "span": "前 221—前 207 年",
    "scenes": 6,
    "v1": 4,
-   "full": 4,
-   "outline": 2
+   "full": 6,
+   "outline": 0
   },
   {
    "no": "07",
@@ -87,8 +87,8 @@
    "span": "前 206—公元 8 年",
    "scenes": 12,
    "v1": 4,
-   "full": 4,
-   "outline": 8
+   "full": 12,
+   "outline": 0
   },
   {
    "no": "08",
@@ -237,7 +237,7 @@
  "totals": {
   "scenes": 157,
   "v1": 66,
-  "full": 81,
-  "outline": 76
+  "full": 91,
+  "outline": 66
  }
 }
