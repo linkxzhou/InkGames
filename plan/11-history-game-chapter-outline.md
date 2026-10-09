@@ -3,7 +3,7 @@
 > 状态：**规划草案；场景数据已全部落地**（2026-10）。一章 = 一个朝代或时期，一行 = 一个场景（一个故事、一段玩法）。**加粗**的是解锁下一章的关键场景。结构规则见 [11](./11-history-game-story-design.md)，数据格式见 [内容数据格式](./11-history-game-content-schema.md)。
 > 年代写公元，“前”表示公元前。先秦早期年代采用夏商周断代工程年表等主流说法，一律加“约”（断代工程本身在学界有争议，场景数据里在 `notes` 中注明）。写“待核验”的条目，进脚本前必须回查原典。
 > 场景数据：每章的完整数据在 [`11-history-game-data/chapters/`](./11-history-game-data/chapters/index.json)。**当前 157 个场景全部为完整场景，其中首版发布批次 66 个**，见 §21。
-> “道具/笔刷”一列对应当前 PixiJS 版 `src/plugins/prop-brushes.ts` 的 `PROP_BRUSHES` 键（迁到 three.js 后预设表名称可能变化，语义不变）：sword、blade、spear、bow、shield、war-horse、banner、ink-bomb、water-brush、boat，以及背景用的 landscape、water、figure。
+> “道具/笔刷”一列对应现行 `src/plugins/prop-brushes.ts` 的 `PROP_BRUSHES` 键（three.js 路径沿用同一张表，语义不变）：sword、blade、spear、bow、shield、war-horse、banner、ink-bomb、water-brush、boat，以及背景用的 landscape、water、figure。
 > “语料”一列的回次来自对各册目录页的 OCR 与人工对位：《上古志》《战国争雄》《秦汉兴替》《后汉沉浮》《三国兴亡》《两晋变乱》《隋唐新传》《辽金英烈》《大明盛衰》《前清盛世》已按回目逐行对位，写“约”的是对位不完全的；其余册子 OCR 质量不足，只写书名。**所有回次进脚本前须对照原书核对**。
 > “语料”一列只写本地语料库的书名（简称，见 [书目](./11-history-game-data/history-corpus-catalog.json)），供研究定位；正史线的依据以“原典”一列为准。语料书名对照：《上古志》=五千年演义·华夏上古志，《春秋逐鹿》《战国争雄》《秦汉兴替》《后汉沉浮》《三国兴亡》《两晋变乱》《隋唐新传》《五代纷争》《两宋春秋》《辽金英烈》《元史百年》《大明盛衰》《前清盛世》《晚清血泪》同为五千年演义丛书；《列国志》=东周列国志；《上下五千年》=中国上下五千年；蔡东藩各部按文件名实际内容写（如“蔡·宋史演义（南宋.pdf）”）。
 

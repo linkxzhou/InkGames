@@ -16,7 +16,7 @@ import {
   INK_FLOW_FRAGMENT, INK_FORCE_MAP_FRAGMENT, INK_METALLIC_FRAGMENT, INK_REALTIME_FRAGMENT,
   INK_TYPE_MAP_FRAGMENT,
 } from './ink-shaders';
-import type { InkColor, InkFinish, InkStrokeRequest } from './ink-wash';
+import type { InkColor, InkFinish, InkStrokeRequest } from './ink-stroke';
 
 export interface InkSurfaceOptions {
   readonly width: number;
@@ -59,7 +59,7 @@ void main() {
 
 /**
  * inkEngine's sheet on three.js render targets.
- * The brush stays in InkBrushEngine. Pass order matches InkWash: stamp, one feedback,
+ * The brush stays in InkBrushEngine. Pass order matches the inkEngine pipeline: stamp, one feedback,
  * falling force after lift, then encode, type map, composite. Live wet ink uses realtime.
  * Collision is not read back from these targets.
  */

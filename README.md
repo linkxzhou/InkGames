@@ -1,29 +1,40 @@
 # InkGames：水墨横版动作引擎
 
-桌面优先的横屏水墨动作演示。横版切片用 **three.js 0.186.1 + Matter.js**（见 [引擎计划](./plan/10-three-matter-side-scroller-plan.md)）：位移和碰撞在 X/Y 平面，刚体的 x、y 写到模型上。页面在 `/scroll/`。叙事演示在 `/story/`，只读播放「易水寒」开场并让玩家选正史 / 野史。玩法模板和真实 GPU 验收仍未完成。
+桌面优先的横屏水墨动作引擎，**three.js + Matter.js**（见 [引擎计划](./plan/10-three-matter-side-scroller-plan.md)）。位移和碰撞在 X/Y 平面，Matter 的刚体 x、y 每帧写到 three.js 模型上，Z 固定。
 
-十卡首页仍用 PixiJS 8.22.0 画、Matter.js 0.20.0 做刚体。水墨层 `InkWash` 在 Pixi RenderTexture 上运行从 [inkEngine](./thirdparty/inkEngine/README.md) 逐行移植的七种笔刷和着色器；每个道具按 `PROP_BRUSHES` 里自己的笔刷一笔一笔画出来。切片的 `InkSurface` 把同一条笔刷接到 three.js 渲染目标。旧的 p5 + WebGL2 微内核仍保留在 `/inkcross/` 和 `/wuxia/`，供回归。
+依赖只剩 `three@0.186.1` 与 `matter-js@0.20.0`。曾经的 PixiJS 十卡舞台、p5 微内核与原生 WebGL2 渲染插件已于 2026-10-09 从 `src/`、`apps/` 和 `package.json` 中删除。
 
-十卡能玩的范围、以及还没做完的部分，以代码和文档为准。SwiftShader 截图只证明着色器能编过，不能写成真实 GPU 上的完成证明。
+## 三条入口
+
+| 入口 | 页面 | 说明 |
+|---|---|---|
+| 横版切片 | `/scroll/` | 坡、洇染、皴法、断竹。M0–M4 已落地 |
+| 叙事宿主 | `/story/` | 只读播放「易水寒」开场，可走正史 / 野史，支持检查点恢复。M5 部分完成 |
+| 历史动画 | `/history/` | 上古「混沌开卷」五幕，30 fps，画面全部由引擎笔刷生成，不加载参考图 |
+
+水墨层：切片用 `InkView` + `InkSurface`（three.js 渲染目标上跑从 [inkEngine](./thirdparty/inkEngine/README.md) 逐行移植的七种笔刷与着色器）；叙事用 `StoryStage` 的多层墨面；历史动画用 `InkScene` 的程序分件墨层。
+
+玩法模板、`PostStack`、景深、2.0 录制回放、`InkScene` 的上下文恢复、真实配音与真实 GPU 验收都还没完成，以代码和文档为准。SwiftShader 截图只证明着色器能编过，不能写成真实 GPU 上的完成证明。
 
 ## 怎么跑
 
 ```bash
 ./build.sh install
-./build.sh dev       # http://127.0.0.1:5173/  十卡首页；横版切片在 /scroll/；叙事在 /story/
+./build.sh dev       # http://127.0.0.1:5173/  三入口导航；/scroll/、/story/、/history/
 ./build.sh check     # 类型检查 + 单元测试 + 相对链接
-./build.sh browser   # 构建后的无头 Chromium 冒烟（SwiftShader）
-node scripts/gpu-check.mjs   # 本机打开切片。加 --shots 做无头截图
+./build.sh browser   # 构建后的无头 Chromium 冒烟（SwiftShader，三页 + 零图片请求）
+node scripts/gpu-check.mjs   # 本机打开切片与叙事。加 --shots 做无头截图
 ```
 
 统一入口是 `build.sh`，约定见 [AGENTS.md](./AGENTS.md)。
 
 ## 阅读顺序
 
-- [文档](./docs/README.md)：01–10 写十卡现行 API，文末写已导出的横版切片和叙事宿主；[第 12 章](./docs/12-inkengine-parity-audit.md) 含 Pixi 审计和 three.js 并排差
-- [引擎计划](./plan/10-three-matter-side-scroller-plan.md)：M0–M4 已落地，M5 叙事宿主已能播「易水寒」，玩法模板与 `PostStack` 仍开着
-- [历史游戏草案](./plan/README.md)：`plan/11` 故事与数据，`plan/12` 开场动画和引擎缺口
+- [文档](./docs/README.md)：01–10 写现行 API；[第 12 章](./docs/12-inkengine-parity-audit.md) 是与 inkEngine 的对照（总表为 Pixi 时代的历史记录）
+- [引擎计划](./plan/10-three-matter-side-scroller-plan.md)：M0–M4 已完成，M5 部分完成，§7 记录 Pixi/p5 清理结果
+- [历史游戏草案](./plan/README.md)：`plan/11` 故事与数据，`plan/12` 开场动画与引擎缺口
+- [历史动画制作计划](./plan/12-history-game-ink-animation-production-plan.md)：纯程序水墨的实施与 E0–E4 状态
 - [资料附录](./docs/11-references-and-research.md)：p5 时代的笔记，以及 2026-10-09 补上的 three.js / Matter.js 出处
 - [第三方与许可](./THIRD_PARTY_NOTICES.md)
 
-`thirdparty/inkField` 的自定义许可禁止把该快照放进发布物。`thirdparty/inkEngine` 的算法可以按所有者声明的书面授权移植进 `src/`（授权书不在仓库里），快照本身仍然不要打进 `dist/`。`thirdparty/inkwash` 为 MIT。
+`thirdparty/inkField` 的自定义许可禁止把该快照放进发布物。`thirdparty/inkEngine` 的算法可以按所有者声明的书面授权移植进 `src/`（授权书不在仓库里），快照本身仍然不要打进 `dist/`。`thirdparty/inkwash` 为 MIT。`thirdparty/` 下的参考 PNG 只作人工视觉对照，不进运行时也不进发布物。

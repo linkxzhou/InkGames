@@ -1,26 +1,28 @@
 # 12 · 历史游戏：开场动画管线、引擎缺口与路线（草案）
 
 > 状态：**规划草案**。目标引擎是 **three.js + Matter.js**：横版动作，Matter.js 在 X/Y 平面做 2D 物理，驱动 three.js 模型的 `position.x/y`，Z 固定。新引擎计划里的效果包括：地形上的 3D 墨散（动态纹理）、皴法山石（随相机距离变化的笔触描边 + Perlin 噪声）、墨溅断竹（骨骼摇摆，顶点着色器把网格撕裂成粒子）。引擎规划与 `docs/` 由另一份改写负责，本文不改 `plan/10` 与 `docs/`，只从历史游戏的需求出发列缺口。
-> **当前 `src/` 仍是 PixiJS 8 + Matter.js 实现**，会迁移。本文的“现状”一栏全部来自 2026-10-09 读到的代码（`main` = b38acde），说明哪些可以直接带到 three.js，哪些要重写。
+> **现行 `src/` 只有 three.js + Matter.js**：横版切片、叙事宿主、历史动画三条路径；Pixi 十卡、p5 微内核与原生 WebGL2 插件已于 2026-10-09 删除（见 [plan/10 §7](./10-three-matter-side-scroller-plan.md#7-从-pixijs-迁走2026-10-09-已完成)）。§1 迁移表与 §3 原缺口表是旧基线，其「现状」列已被实现或文件删除，**不代表当前状态**；2026-10-09 最新能力与纯引擎实现方案以 §6 为准。
+> **制作方向纠正（2026-10-09）**：参考图片只用于视觉对照，开场画面及动效必须由 `src/` 的笔刷、程序几何、材质和动画系统生成；不加载原图、抠图、图片序列或外部视频代替程序场景。上一轮 `InkAnimation` 图片预览不满足该目标，不计入完成项。
 > 相关：[故事与玩法](./11-history-game-story-design.md) · [章节大纲](./11-history-game-chapter-outline.md) · [内容数据格式](./11-history-game-content-schema.md) · [10 · three.js 引擎计划](./10-three-matter-side-scroller-plan.md)
 >
 > 引擎架构、三项画面的技术设计和待确认问题在 [plan/10](./10-three-matter-side-scroller-plan.md)。两边模块名对齐为 `InkSurface`、`CameraRig`、`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`PostStack`。本文的缺口编号、优先级和验收不因那份计划改写。
 
 ## 1. 现有代码里能带走什么
 
-| 模块（当前文件） | 依赖 | 迁到 three.js 时 | 依据 |
-|---|---|---|---|
-| `InkBrushEngine`（`src/core/ink-brush.ts`，1308 行） | 只依赖 `ink-palette`、`ink-random`，**不依赖 Pixi** | 原样保留。它每帧输出 `InkDrawOp`（line / dot / rect）和 `InkShaderState`，与渲染库无关 | 文件头 import |
-| `P5Random` / `P5Noise`（`ink-random.ts`）、`INK_PALETTE`（`ink-palette.ts`）、`inkPaperPixels`（`ink-paper.ts`） | 无 / Canvas 2D | 原样保留 | — |
-| GLSL 片元着色器（`ink-shaders.ts` 由脚本从 inkEngine 生成，`ink-wash-filters.ts` 包装） | 着色器文本无依赖；包装层依赖 Pixi `Filter` / `GlProgram` | 着色器文本保留；包装层改成 three.js `ShaderMaterial` + 全屏三角形，ping-pong 用 `WebGLRenderTarget` | `ink-wash-filters.ts` 第 1 行 import pixi.js |
-| `InkWash`（`ink-wash.ts`，755 行）：stamp / wet / pingPong / final / typeMap / display 等 11 张 RenderTexture，feedback → encode → typeMap → composite 流程，flow / distort / metallic，`wash()` | Pixi `RenderTexture`、`Graphics`、`Sprite` | **重写渲染层，保留流程**。`drawOps` 现在用 Pixi `Graphics` 光栅化线段，three.js 下要自己做（实例化圆头四边形或 SDF 线段） | `drawOps()` |
-| `InkWorld`（`ink-world.ts`）：Matter 世界、墨桥、投射物 | 只依赖 matter-js | 原样保留，作为“物理权威”，three.js 只读它的位置 | 文件头 import |
-| `inkLayerScale` / `INK_LAYER_Z`（`ink-camera.ts`） | 无 | 数学保留；在 three.js 中直接用透视相机和真实 Z，不再手算缩放 | — |
-| `PROP_BRUSHES` / `paintProp` / `actionStroke`（`src/plugins/`） | 只依赖 ink-brush 类型 | 保留，道具仍是“一组指针笔画” | — |
-| `InkStage`（`ink-stage.ts`，654 行） | Pixi `Application`、`Container` | 重写。它绑定单个 `ItemPreset`，道具行为写在 `switch (item.action)` 里，画布固定 1280×720 | 第 362 行 `switch` |
-| `recording.ts` | v0.1 `Engine` 命令 | 不能用于 2.0 笔画；需要新格式 | docs/12 “录制”一行 |
+> **本节已归档（2026-10-09）**。它写于 PixiJS → three.js 迁移之前，表中「迁到 three.js 时」一列的事项现已办完：Pixi 包装层与 `InkWash`、`InkStage` 已删除，墨面改为 `InkSurface` / `InkScene`，共享笔画类型移到 `core/ink-stroke.ts`。**当前能力与实际限制见 §6，不再阅读本节作为现状。**
 
-结论：**笔刷算法、调色板、噪声、物理都能带走；渲染层（InkWash、InkStage、滤镜包装）要按 three.js 重写**。上面这张表写于叙事宿主合入之前，当时 `src/` 与 `apps/` 里没有叙事、过场、音频、文字、存档、UI。
+| 模块（当时的文件） | 迁移结果 |
+|---|---|
+| `InkBrushEngine`（`ink-brush.ts`） | 保留，仍与渲染库无关 |
+| `ink-random` / `ink-palette` / `ink-paper` | 保留 |
+| GLSL 片元（`ink-shaders.ts`） | 保留文本，宿主改为 `ink-pass.ts` + `RawShaderMaterial`（GLSL3） |
+| Pixi `InkWash`（`ink-wash.ts`） | **已删除**，由 `InkSurface`（three.js 渲染目标）取代 |
+| Pixi 滤镜包装（`ink-wash-filters.ts`） | **已删除** |
+| `InkWorld` | 保留，仍只依赖 matter-js |
+| `ink-camera.ts` 距离/层深 | 保留常数，供 `CameraRig` / `ink-view` / `InkSurface` 使用 |
+| `PROP_BRUSHES` / `paintProp` / `actionStroke` | 保留 |
+| Pixi `InkStage`（`ink-stage.ts`） | **已删除**；横版用 `InkView`，叙事用 `StoryStage`，历史动画用 `InkScene` |
+| `recording.ts`（v0.1） | **已删除**；2.0 录制格式（G-04）仍未做 |
 
 **更新（2026-10）：M5 叙事宿主模块已在 main 上**（PR #5，提交 5d14320 / 8395e96）。下表“现状”一栏中 G-02、G-03、G-05、G-06、G-07、G-09 的“没有”已不成立，以本段为准：
 
@@ -102,7 +104,9 @@
 | 内容校验 CLI | 见内容数据格式 §4 | P0 |
 | 素材提示词生成 | 由场景数据合成水墨素材提示词（`node tools/build-art-prompts.mjs`，写回 `chapters/*.json` 的 `artPrompts`），见 §2.8 | P0 |
 
-### 2.8 水墨素材出图与抠图
+### 2.8 水墨素材出图与抠图（历史方案，本轮停用）
+
+**本节仅保留历史数据说明，不再作为开场运行时实现方案。** `artPrompts` 可以辅助理解人物、器物与构图，不能用于加载生成图片代替引擎绘制；本轮不建设出图/抠图管线，优先实现 §6 的路径造型与程序动效。
 
 内容侧已经给每个场景写好 `artPrompts`（见[内容数据格式 §2.10](./11-history-game-content-schema.md#210-水墨素材提示词artprompts)）：**一段 = 一张图 = 最多 16 件独立素材的网格，透明背景**，按“人物立绘 / 道具器物 / 场景环境 / 水墨特效”分类分段。走法是：
 
@@ -119,25 +123,25 @@
 
 | # | 模块 | 用途 | 现状（读代码） | API 草案 | 优先级 | 依赖 | 工作量 |
 |---|---|---|---|---|---|---|---|
-| G-01 | 墨面渲染层 `InkSurface` | 把 inkEngine 管线跑在 three.js 渲染目标上；墨面既能是平面（纸、远山），也能是地形的动态纹理 | Pixi 版 `InkWash` 完整；three.js 版没有 | `new InkSurface(renderer, { width, height, seed, paper })`；`paint(stroke)`、`begin/add/end/update`、`wash`、`snapshot()`、`texture` | P0 | three.js 迁移本身 | 4–6（属迁移主线） |
-| G-02 | 场景管理 `SceneDirector` | 加载场景、切换剧情节点、转场（墨洗、卷轴），统一资源生命周期 | 没有。`InkStage` 一页一个道具，行为在 `switch` 里 | `director.load(sceneId)`、`director.enter(nodeId)`、`director.transition('wash'|'scroll', frames)`；资源随场景登记、随场景释放 | P0 | G-01 | 2–3 |
-| G-03 | 剧情运行时 `StoryRuntime` | 执行剧情图：选择、条件、旗标、汇流与歧出、检查点 | 没有 | `story.start(scene)`、`story.choose(choiceId)`、`story.on('node', cb)`、`story.snapshot()/restore()` | P0 | 内容格式 | 1.5–2 |
-| G-04 | 2.0 笔画录制与回放 | 画师手绘段落的录制、过场里的回放；导入 inkEngine 录制 | `recording.ts` 只录 v0.1 命令；2.0 笔画只有 `PropStroke` | `{ format: 'inkgames.ink-recording', version: 2, seed, canvas, events: [{ t, m: 'mp'|'md'|'mr'|'flow'|'ec'|'mask', ... }] }`；`recordInk(surface)`、`playInk(surface, rec, { from, to })`；`importInkEngine(json)` | P0 | G-01 | 2 |
-| G-05 | 过场播放器 `CutscenePlayer` | 执行过场 JSON 的六条轨道，帧时钟，同步点，跳过与关键帧缓存 | 没有 | `const p = await CutscenePlayer.load(def, ctx)`；`p.play()`、`p.pause()`、`p.seek(frame)`、`p.skip()`、事件 `shot`、`sync`、`end` | P0 | G-01、G-04、G-06、G-07、G-09 | 3–4 |
-| G-06 | 音频系统 `AudioBus` | BGM、环境声、音效、旁白四条总线；淡入淡出、交叉淡化、闪避；首次交互解锁；与帧时钟同步 | 没有 | `audio.play(cue)`、`audio.stop(bus, fadeFrames)`、`audio.duck(bus, db)`、`audio.voEnded(key)`；可基于 three.js `AudioListener`/`Audio`（Web Audio） | P0 | — | 2 |
-| G-07 | 文字与字幕 `InkText` | 字幕、竖排题字、印章、选项文字 | 没有（`INK_LAYER_Z.overlay = 120` 定义了文字层深度，但没有任何文字渲染） | `text.show(cue)`、`text.hide(id)`；竖排排版；字体子集加载 | P0（字幕、竖排）／P2（笔顺书写） | 字体许可 | 1.5（P0）+ 3（P2） |
+| G-01 | 墨面渲染层 `InkSurface` | 把 inkEngine 管线跑在 three.js 渲染目标上；墨面既能是平面（纸、远山），也能是地形的动态纹理 | **已实现**：`core/ink-surface.ts` 已从 `src/index.ts` 导出；另有 `InkScene` 分件墨层。Pixi 版 `InkWash` 已删除 | `new InkSurface(renderer, { width, height, seed, paper })`；`paint(stroke)`、`begin/add/end/update`、`wash`、`snapshot()`、`texture` | P0 | three.js 迁移本身 | 4–6（属迁移主线） |
+| G-02 | 场景管理 `SceneDirector` | 加载场景、切换剧情节点、转场（墨洗、卷轴），统一资源生命周期 | **已实现**（单包）；多包懒加载与 `InkStage` 的 `switch` 行为已随 `InkStage` 删除 | `director.load(sceneId)`、`director.enter(nodeId)`、`director.transition('wash'|'scroll', frames)`；资源随场景登记、随场景释放 | P0 | G-01 | 2–3 |
+| G-03 | 剧情运行时 `StoryRuntime` | 执行剧情图：选择、条件、旗标、汇流与歧出、检查点 | **已实现**：`core/story-runtime.ts` + `content-catalog.ts` | `story.start(scene)`、`story.choose(choiceId)`、`story.on('node', cb)`、`story.snapshot()/restore()` | P0 | 内容格式 | 1.5–2 |
+| G-04 | 2.0 笔画录制与回放 | 画师手绘段落的录制、过场里的回放；导入 inkEngine 录制 | 未做；v0.1 `recording.ts` 已随旧微内核删除 | `{ format: 'inkgames.ink-recording', version: 2, seed, canvas, events: [{ t, m: 'mp'|'md'|'mr'|'flow'|'ec'|'mask', ... }] }`；`recordInk(surface)`、`playInk(surface, rec, { from, to })`；`importInkEngine(json)` | P0 | G-01 | 2 |
+| G-05 | 过场播放器 `CutscenePlayer` | 执行过场 JSON 的六条轨道，帧时钟，同步点，跳过与关键帧缓存 | **基础已实现**；live/并发/收笔已修（2026-10-09），跳过仍不等于顺播 | `const p = await CutscenePlayer.load(def, ctx)`；`p.play()`、`p.pause()`、`p.seek(frame)`、`p.skip()`、事件 `shot`、`sync`、`end` | P0 | G-01、G-04、G-06、G-07、G-09 | 3–4 |
+| G-06 | 音频系统 `AudioBus` | BGM、环境声、音效、旁白四条总线；淡入淡出、交叉淡化、闪避；首次交互解锁；与帧时钟同步 | **基础已有**；仍用振荡器占位，没有真实 asset 解码与淡入淡出 | `audio.play(cue)`、`audio.stop(bus, fadeFrames)`、`audio.duck(bus, db)`、`audio.voEnded(key)`；可基于 three.js `AudioListener`/`Audio`（Web Audio） | P0 | — | 2 |
+| G-07 | 文字与字幕 `InkText` | 字幕、竖排题字、印章、选项文字 | **基础已实现**（Canvas 纹理字幕与题字）；竖排长文仍缺 | `text.show(cue)`、`text.hide(id)`；竖排排版；字体子集加载 | P0（字幕、竖排）／P2（笔顺书写） | 字体许可 | 1.5（P0）+ 3（P2） |
 | G-08 | 开场性能：预烘焙与分帧 | 解决几十笔开场的等待时间 | plan/10 P0 已记录十卡开场 18–35 秒（SwiftShader），真实 GPU 未测 | `surface.snapshot()/restore(tex)`、`bakeQueue.add(strokes, budgetMsPerFrame)` | P0 | G-01 | 2 |
-| G-09 | 存档与进度 `SaveStore` | 场景进度、结局、收集、设置；版本迁移 | 没有 | `save.load()`、`save.commit(patch)`、`save.migrate(from, to)`；IndexedDB，退化到 localStorage | P0 | 内容格式 | 1 |
+| G-09 | 存档与进度 `SaveStore` | 场景进度、结局、收集、设置；版本迁移 | **基础已实现**（`localStorage` + 迁移） | `save.load()`、`save.commit(patch)`、`save.migrate(from, to)`；IndexedDB，退化到 localStorage | P0 | 内容格式 | 1 |
 | G-10 | UI 层 | 主菜单、时间线长卷、选择印章、史评卷轴、卡片册、设置 | 没有（十卡首页是静态 HTML） | 建议 DOM 覆盖层做菜单和长文本，three.js 做长卷和印章动画；`ui.choice(options) → Promise<id>` | P0（选择、字幕、简版时间线）／P1（完整长卷与卡册） | G-02、G-07 | 3 + 3 |
-| G-11 | 镜头：推拉、景深 | 开场镜头语言 | Pixi 版没有 EasyCam 的回放变焦和景深；相机偏移限制在 48×36 px | `cameraRig.key({ at, x, y, zoom, dof })`；three.js 透视相机 + 后处理 | P1（切片里用一次推近，可先不做景深） | three.js 迁移 | 1.5 |
+| G-11 | 镜头：推拉、景深 | 开场镜头语言 | 推拉/抖动已有（`CameraRig` + 过场关键帧）；**景深仍缺**（Pixi 舞台与其 48×36 限制已删除） | `cameraRig.key({ at, x, y, zoom, dof })`；three.js 透视相机 + 后处理 | P1（切片里用一次推近，可先不做景深） | three.js 迁移 | 1.5 |
 | G-12 | 遮罩 pass | 暗角、留白、局部显示 | 没有（inkEngine 有 `drawMaskRect / drawMaskPolygon`） | `post.mask({ rect | polygon, feather })` | P1 | G-01 | 1 |
 | G-13 | 角色与 NPC | 人物姿态、行走、对话时的动作；同一人物不同服色 | 人物是 `figure` 笔画精灵，`pose` 只有 0/1；马两种步态，旗三幅 | 迁移后：骨骼模型 + 墨描边（与断竹的骨骼摇摆同一套），或“姿态库笔画 + 插值”；`actor.pose(name)`、`actor.say(lineKey)`；笔刷颜色覆盖（如白衣） | P1 | three.js 迁移、断竹骨骼 | 4 |
-| G-14 | 玩法模板插件 | 决斗、战阵、守城、水战、治水、奔袭、庙堂、解谜、竹林（见故事与玩法 §5） | 十个道具行为写在 `InkStage` 的 `switch` 里；剑、枪、刀的命中是几何距离，不是扫掠体 | `defineGameplay({ id, requires, setup(ctx, params), onEvent })`；剧情图通过 `gameplay.template/params` 调用 | P0（决斗、对话时机、解谜各一个）／P1（其余） | G-02、G-03 | 切片 3；全部 8+ |
+| G-14 | 玩法模板插件 | 决斗、战阵、守城、水战、治水、奔袭、庙堂、解谜、竹林（见故事与玩法 §5） | 未做；`InkStage` 与其 `switch` 已删除，`Playfield` 有扫掠与砍断 | `defineGameplay({ id, requires, setup(ctx, params), onEvent })`；剧情图通过 `gameplay.template/params` 调用 | P0（决斗、对话时机、解谜各一个）／P1（其余） | G-02、G-03 | 切片 3；全部 8+ |
 | G-15 | 群体单位 | 战阵、骑兵、鸟群；inkEngine 的 boid | 没有 boid | `crowd.spawn(formation, count)`；Matter 只给少量代表体，大量单位做纯视觉 | P1 | three.js 迁移 | 2–3 |
-| G-16 | 地形墨散与山石、断竹接入叙事 | 让三项新效果能被过场和剧情触发（马蹄墨散、刀过断竹、山石入画） | 属于新引擎计划，当前代码没有 | `effects.inkDisperse(at, params)`、`effects.bambooBreak(id, impulse)`；过场 `EffectCue.kind = 'inkDisperse' | 'bambooBreak'` | P1 | 新引擎效果 | 1（接入） |
+| G-16 | 地形墨散与山石、断竹接入叙事 | 让三项新效果能被过场和剧情触发（马蹄墨散、刀过断竹、山石入画） | 画面本身已有（`TerrainSeep` / `createCunRock` / `BambooView`）；**接入 `EffectCue` 仍没有** | `effects.inkDisperse(at, params)`、`effects.bambooBreak(id, impulse)`；过场 `EffectCue.kind = 'inkDisperse' | 'bambooBreak'` | P1 | 新引擎效果 | 1（接入） |
 | G-17 | 内容管线与加载 | 内容目录、校验 CLI、资源清单、按章懒加载、缓存 | 有 `scene-json.ts`（v0.1 场景 JSON 解析），没有内容管线 | `loadChapter(id)`、`content.validate()`；构建期生成 `timeline.json` 与资源清单 | P0（校验 CLI）／P1（懒加载） | 内容格式 | 2 |
 | G-18 | 本地化 | 简体基准，繁体与英文 | 没有 | 字符串表 + `t(key)`；字体子集按语言分包；旁白分语言目录 | P1 | G-07、G-17 | 1.5 |
-| G-19 | WebGL 上下文恢复 | 长时间游玩时恢复墨面 | plan/10 P0 已记录：只暂停并提示重置，不重建 | 迁移后：上下文丢失时从最近关键帧快照（G-08）和存档恢复 | P1 | G-08、G-09 | 1.5 |
+| G-19 | WebGL 上下文恢复 | 长时间游玩时恢复墨面 | `InkView` / `StoryStage` 会重建并贴回 `snapshot`；`InkScene`（`apps/history/`）不重建 | 迁移后：上下文丢失时从最近关键帧快照（G-08）和存档恢复 | P1 | G-08、G-09 | 1.5 |
 | G-20 | 创作工具 | 过场预览、笔画采集、时间轴编辑、对稿 | 有 `apps/compare` 对照页，可借鉴 | 见 §2.7 | P0（预览）／P1／P2 | G-05 | 1 + 2 + 4 |
 | G-21 | 测试与性能 | 确定性回放截图、真实 GPU 性能矩阵、Safari/Firefox | 只有无头 Chromium + SwiftShader 冒烟；真实 GPU 未测 | 过场关键帧截图基线；性能预算：开场每帧墨面计算 ≤ 8 ms（目标值，未实测） | P0（切片前在一台独显桌面实测）／P1 | G-05 | 2 |
 | G-22 | 无障碍与设置 | 字幕字号、跳过、音量分轨、色弱友好的线色 | 没有 | 设置项写进存档 | P1 | G-09、G-10 | 1 |
@@ -148,38 +152,43 @@
 |---|---|---|---|---|---|---|---|
 | G-23 | 庙堂 / 应对时机通用 UI | court 与 dialogue-timing 合计 230 个节点，占三成；需要一套可配置的“陈词—反驳—时机窗”界面，而不是逐场写 | `SceneDirector` 只显示目标文字 | `gameplay('court', { beats, grades })`：节拍列表驱动选项与时间窗，评分写回墨评 | P0 | G-03、G-10、G-14 | 2–3 |
 | G-24 | 分镜预设库 | 157 个开场都是五镜（题字、远景、人物、冲突、岔口），镜头参数高度相似 | 每个过场 JSON 自带完整轨道 | `shotPreset('establish' | 'portrait' | 'clash' | 'fork', overrides)`，构建期展开成轨道 | P1 | G-05 | 1.5 |
-| G-25 | water-brush 解谜 / 寻迹 | riddle、trace、riddle-escape 合计 104 个节点：洗出隐藏墨迹、比对笔迹、沿线索追踪（包公断案、马可·波罗行纪、燕然摩崖等） | Pixi 版有水刷改碰撞；没有“隐藏层 + 线索判定” | `hiddenLayer.add(id, strokes)`、`clue.on('revealed', id)`；与遮罩 pass（G-12）共用 | P1 | G-12、G-14 | 2 |
+| G-25 | water-brush 解谜 / 寻迹 | riddle、trace、riddle-escape 合计 104 个节点：洗出隐藏墨迹、比对笔迹、沿线索追踪（包公断案、马可·波罗行纪、燕然摩崖等） | 水刷改碰撞几何在 `Playfield`/`InkWorld`；没有“隐藏层 + 线索判定” | `hiddenLayer.add(id, strokes)`、`clue.on('revealed', id)`；与遮罩 pass（G-12）共用 | P1 | G-12、G-14 | 2 |
 | G-26 | 书法节点 | calligraphy 43 个节点（勒石、题壁、正气歌、万言书）；P0 先做“描红”，P2 再做笔顺比对 | 没有 | `calligraphy.trace(glyphs, { tolerance })` | P1（描红）／P2（笔顺） | G-07 | 2 + 3 |
 | G-27 | 水战与风浪 | naval 40 个节点：火船、风向、潮汐与风暴（赤壁、崖山、元军东征、鹿耳门、甲午） | 有 boat 尾迹；无风向、风暴 | `weather.wind(dir, strength)`、`sea.storm(level)`；舟体受力仍走 Matter | P1 | G-15、three.js 迁移 | 2–3 |
 | G-28 | 护送 / 撤离 / 求生 | survival 与 evacuate 26 个节点（靖康北迁、崖山、扬州、崇祯出走等），按 §6.4 不以平民为目标 | 没有 | `escort.follow(actors)`、资源计数、失败重试从检查点开始 | P1 | G-13、G-15 | 2 |
 | G-29 | 章节选择与时间线数据接入 | 从 `chapters/index.json` 选章选场；时间线按 `when`、锚点和 `v1` 生成 | `/story/` 只播一个样例 | `loadChapter(id)`、`timeline.fromIndex(index, { shipOnly: true })` | P0 | G-10、G-17 | 1.5 |
 | G-30 | 史评与对照卡排版 | 每个场景都有史评、对照（compare）、卡片（cards）与出处列表，多为竖排长文 | `InkText` 只做字幕与题字 | DOM 覆盖层排长文，出处可点开；竖排与横排可切换 | P1 | G-07、G-10 | 1.5 |
 
-### 3.1 依赖顺序
+### 3.1 依赖顺序（原始规划，已按现行代码修订）
 
 ```text
-three.js 迁移（G-01 墨面、物理驱动模型）
-   ├─▶ G-08 预烘焙 ─▶ G-19 上下文恢复
-   ├─▶ G-04 录制 ──┐
-   ├─▶ G-06 音频 ──┼─▶ G-05 过场播放器 ─▶ G-20 预览工具
-   ├─▶ G-07 文字 ──┘
-   └─▶ G-02 场景管理 ─▶ G-14 玩法模板
-内容格式 ─▶ G-03 剧情运行时、G-09 存档、G-17 校验 ─▶ G-10 UI
+three.js 迁移（G-01 墨面、物理驱动模型）  [x] 已完成，Pixi/p5/WebGL2 已删除
+   ├─▶ G-08 预烘焙 ─▶ G-19 上下文恢复        [~] InkView/StoryStage 有重建；InkScene 无
+   ├─▶ G-04 录制 ──┐                        [ ] 未做
+   ├─▶ G-06 音频 ──┼─▶ G-05 过场播放器 ─▶ G-20 预览工具   [~] 播放器有；预览页有 /history/
+   ├─▶ G-07 文字 ──┘                        [~] 字幕/题字有；竖排长文无
+   └─▶ G-02 场景管理 ─▶ G-14 玩法模板        [~] / [ ]
+内容格式 ─▶ G-03 剧情运行时、G-09 存档、G-17 校验 ─▶ G-10 UI   [~] 前三者有基础
 ```
 
-迁移完成前，可以先做与渲染无关的部分：内容格式、校验器、剧情运行时、存档、音频总线。这些用纯逻辑单测覆盖，不碰 Pixi 也不碰 three.js。
+图例：`[x]` 完成、`[~]` 部分、`[ ]` 未做。**原先「迁移完成前先做与渲染无关的部分」的排序已不适用**：迁移已完成，`package.json` 只剩 `three` 与 `matter-js`。
 
 ## 4. 路线与里程碑
 
-### M0 · 准备（1–2 周，可与 three.js 迁移并行）
+> **状态核对（2026-10-09 按代码核实）**：`M0` 未通过（内容校验与 157 场景数据在，但垂直切片三场景仍有 6 处 `verify: pending`，场景级人工复核与史学签字未做）；`M1`–`M5` 全部未开始。已实现的是**前置能力**，不是里程碑本身：`InkSurface`（G-01）、`SceneDirector`（G-02）、`StoryRuntime`（G-03）、`CutscenePlayer`（G-05，含 live/并发/收笔修复）、`AudioBus`（G-06，仅振荡器占位）、`InkText`（G-07，字幕/题字）、`SaveStore`（G-09）、内容校验器（G-17 的校验部分）。仍未做：G-04 录制、G-08 预烘焙、G-10 UI、G-11 景深、G-12 多边形遮罩、G-13 角色骨骼、G-14 玩法模板、G-15 群体、G-20 预览工具、G-21 独显实测。**四个里程碑的验收项没有一条被满足。**
+
+
+### M0 · 准备（1–2 周；three.js 迁移已完成）
 
 - 定稿内容格式；写校验 CLI 与剧情运行时（G-03、G-09、G-17 的校验部分），样例 `scene-zhanguo-jingke.example.json` 作为测试夹具通过校验。
+（状态：迁移不阻塞本里程碑；内容与校验仍按下方执行。）
+
 - 用 history-santi 对《东周列国志》第九十八至一百八回做完整三体笔记，并对照《史记》相关列传核对垂直切片三个场景的事实，清掉 `verify: pending`。（2026-10 进展：全部 157 个场景的日期与出处已回查，待核验只剩 6 处，都在 20-12 的野史线；易水寒的入口 / 出口锚点已按《史记·六国年表》《秦始皇本纪》定为前 232 / 前 226 年。场景级人工复核仍未做。）
 - ~~决定 `skills/` 是否提交~~（已提交，见故事与玩法 §9）。
 
 **验收**：`./build.sh check` 跑过校验器与新单测；三个切片场景的正史节点全部 `verify: done`，由史学顾问签字。
 
-### M1 · 垂直切片：战国末三幕（6–8 周，需 three.js 迁移的墨面层可用）
+### M1 · 垂直切片：战国末三幕（未开始；墨面层 `InkSurface` 已可用，但三幕内容与玩法模板均未做）
 
 | 场景 | 内容范围 | 开场 | 分支 |
 |---|---|---|---|
@@ -199,25 +208,25 @@ three.js 迁移（G-01 墨面、物理驱动模型）
 6. 内容校验器零错误；字符串表的版权比对（本地）零命中；全部旁白为原创文字，引用古籍处有出处。
 7. 史评卷轴展示“秦王如何脱身”“太子丹归燕”两条正野对照，出处可点开。
 
-### M2 · 三章（战国、秦、楚汉·西汉）完整版（10–12 周）
+### M2 · 三章（战国、秦、楚汉·西汉）完整版（未开始）
 
-- 补 G-11、G-12、G-13、G-15、G-16、G-18、G-19、G-22；玩法模板补到 6 个。
+- 补 G-11（景深）、G-12（遮罩）、G-13（角色/NPC）、G-15（群体）、G-16（叙事接入）、G-18（本地化）、G-19（`InkScene` 恢复）、G-22（无障碍）；玩法模板补到 6 个。
 - 每章 4–6 个场景，每个场景都有完整开场。
 - 笔画采集工具（G-20 P1）上线，画师开始手绘关键镜头。
 
 **验收**：三章共 12–18 个场景，章节解锁、收集、异闻录可用；繁体与英文字幕可切换。
 
-### M3 · 量产管线（与 M2 后半并行）
+### M3 · 量产管线（未开始）
 
 - 时间轴编辑器（G-20 P2）、对稿工具、视频后备导出。
 - 书法笔顺题字（G-07 P2，先核验笔顺数据许可）。
 - 每个场景的生产周期目标：研究 3 天 + 脚本 3 天 + 开场 5 天 + 玩法接入 3 天 + 复核 2 天（目标值，用 M2 数据校正）。
 
-### M4 · 全朝代内容波次
+### M4 · 全朝代内容波次（未开始）
 
 按章节大纲分批：上古—春秋、汉末三国、两晋南北朝隋、唐五代、宋辽金、元明、清。每批结束做一次史学与版权复核。
 
-### M5 · 打磨与发布
+### M5 · 打磨与发布（未开始）
 
 （注：叙事宿主模块虽以“M5”的名义先行合入 main，见 §1 末的更新；本节指发布前的打磨。）
 
@@ -227,8 +236,84 @@ three.js 迁移（G-01 墨面、物理驱动模型）
 
 | 风险 | 影响 | 应对 |
 |---|---|---|
-| three.js 迁移进度 | 墨面层（G-01）不可用时，过场与玩法都无法验收 | M0 先做与渲染无关的部分；过场播放器对墨面只依赖一个接口，便于先用 Pixi 版验证调度逻辑 |
-| 开场性能 | 几十笔逐帧扩散在中低端机上过慢 | 关键帧缓存、分帧、视频后备；质量档控制每帧追赶步数 |
+| ~~three.js 迁移进度~~ | 迁移已完成（2026-10-09），Pixi/p5/WebGL2 已删除，此风险关闭 | 现行风险是 `InkScene` 无上下文恢复、无逐层内存预算，见 §6 |
+| 开场性能 | 几十笔逐帧扩散在中低端机上过慢 | 关键帧缓存、分帧、视频后备；**逻辑帧按墙钟追赶（每帧最多 90 步）**，慢机只跳渲染不拖长成片 |
 | 史实争议 | 正史线被指不准确 | 每节点有出处，`pending` 不能发布，史学顾问签字，史评列“考异” |
 | 版权 | 语料库多为现代作品 | 文字全部原创，本地 n-gram 比对，语料不入库不入发布物 |
 | 敏感题材 | 屠城、民族关系、近现代 | 按故事与玩法 §6.4 处理；民国默认不做 |
+
+## 6. 纯引擎水墨动画实现方案（2026-10-09 重新评估）
+
+### 6.1 目标与结论
+
+**现有引擎不能直接完成全部目标；基础水墨渲染已具备，但复杂造型、对象运动、连续环境特效和正确回放还缺关键能力。** 不因此改用图片，改为补齐通用引擎能力，再用人工编排的路径/几何数据制作场景。
+
+- 输入：剧本、分镜、原创控制点/笔画路径、角色关节与姿态、地形参数、特效种子、时间轨道；输出：引擎实时渲染的水墨场景。
+- 允许程序生成的纸纹、噪声、墨面 RT、动态 Canvas 文字纹理；它们不是加载参考画作。禁止把原图变成内嵌像素、Canvas 临摹采样、描图贴图或序列帧绕过目标。
+- three.js 负责几何、材质和合成，InkSurface 负责真实笔刷与墨反馈；Matter 仅用于确需碰撞/碎片的局部，不承担画面生成，也不为纯过场启动第二个 Runner。
+- 要复现的是参考的水墨语言和运动逻辑，不承诺算法自动复制原图。五张参考图尚未完成视觉核对，具体人物、构图与风格相似度待人工审片；以下依据实际代码和混沌剧本，而非臆测图片内容。
+- 不把本轮 `/history/` 图片显影视为纯引擎成果；该原型保留作为错误路线记录，下一版替换其渲染入口。当前请求只修订计划，不删除代码、不宣称已修复引擎。
+
+### 6.2 按画面任务核对现有能力
+
+| 任务 | 当前能力证据 | 能否直接完成 | 必须补齐 |
+|---|---|---|---|
+| 纸、浓淡墨、枯笔、飞白、局部洇染 | InkBrushEngine / InkSurface / ink-paper / ink-shaders | 基础可用，参考级观感未实测 | 笔刷配方、构图密度、颜色层次与样例调参；不是重新造墨面 |
+| 墨滴落下、混沌团扩散 | 墨点笔刷、InkSurface 反馈、ink-bomb 笔画 | 可以画点与墨团，未有完整可控开卷效果 | 下坠轨道、落点发射、边界/浓度控制、分层墨云；真实反馈与氛围雾分开 |
+| 远山、近坡、皴法岩石 | landscapeGestures 的折线山峰；createCunRock 程序网格与勾边噪声 | 简单山水可用，不是复杂山水构图生成器 | 多尺度轮廓/皴线数据、层深和构图参数；将山石网格挂入叙事宿主 |
+| 盘古/女娲专属人物 | figure 只有两套头、袍、四肢和腰带路径 | **不能**，同一通用小人不表达身份与动作 | 原创分件轮廓、五官/发饰/衣纹笔画、关节锚点、姿态与比例；不从图片提取像素 |
+| 撑天、俯身、炼石、补天 | prop placement 支持静态 pose/scale 等 | **不能连续完成** | 对象 transform 轨、关节/路径形变；动态身体与静态墨底分离，不反复累积旧姿态 |
+| 天地升降、天缺合拢 | StoryStage 多张墨面平面和相机 | 可分层，但无独立对象运动与缺口遮罩 | 分层对象生命周期、显隐/清除/替换、局部 mask 与动画关键帧 |
+| 洪水、浪花、烟火 | waterGestures 为固定波纹路径；flow/distort 为有限墨面事件 | 能画静态水与局部变化，不能当完整连续模拟 | 参数化浪线/流速场、白墨浪花、程序粒子烟火与局部作用域；不把全画面扭曲当水墨 |
+| 五色石、补天 | 调色板、通用 ink-bomb/water-brush | **缺专属造型和语义** | 程序石块轮廓/皴法、五色配方、飞行轨与缺口收合；必须实际画出石与缺口 |
+| 楚汉群阵与战斗 | war-horse/banner/兵器预设、Matter 物理基础 | 道具可用，完整群阵与人物动作不可用 | 阵列布局、少量姿态变体、实例化墨剪影、旗布局部形变、前景冲突动作；G-15/G-13 |
+| 回看、跳过、恢复 | CutscenePlayer.fastForward；墨面 snapshot | 不是可靠完整重建 | 修参数/并发/末点、统一帧钟、检查点重放与效果副作用策略 |
+
+### 6.3 通用引擎增量与数据职责
+
+沿用 G-01..G-30，不另建平行引擎。下面名称为拟议接口，尚未实现：
+
+1. **G-01 / G-05：先修笔画调度**。live 开始设置 brush/color，结束执行 finish 并提交末点；同一 InkSurface 只允许一个活动笔画。同层笔画按编排串行，确需并发时分临时墨面，禁止无意交叉 begin/add/end。无效 prop/part/recording 显式诊断。
+2. **G-04 / G-13：路径造型与分件角色**。支持独立笔刷配方和原创多段路径，不再要求所有内联路径冒充 `sword.slash` 等道具键。拟议 `InkShapeDef` 描述轮廓、填墨路径、皴线、分件和锚点；`InkActorRig` 用关节关键帧变换路径或分件墨面。角色身份数据放 apps，通用求值/渲染放 src。
+3. **G-05 / G-11：对象轨道**。每帧输出 objectId 对应 position/scale/rotation/opacity/pose；采用确定的插值和顺序。镜头不替代对象运动，字幕使用屏幕空间。增加 spawn/show/hide/clear/dispose，禁止旧角色与上一镜头的墨迹无条件残留。
+4. **G-12：局部遮罩**。实现矩形/多边形与程序轮廓 mask、feather、reveal；明确逻辑坐标、局部/世界空间、target 与 frames。优先图片无关的墨面合成材质；PostStack 不接管 InkSurface ping-pong。
+5. **G-16 / G-27：连续环境特效**。拟议 `InkAtmosphere` 管理墨云/雾，`InkWater` 输出流动墨线与浪花，`InkParticles` 管理火星、烟、墨点。各自声明生命周期、局部边界与种子，使用同一帧钟；不要求上来实现三维流体或全屏 Navier–Stokes。
+6. **G-08 / G-19：安全缓存**。静态原创背景可由引擎在加载时分帧画入 RT 并缓存，不是读入外部背景图。现 snapshot 不含完整活动笔画/随机/中间状态，首版仅在笔画提交且反馈稳定处建安全点；任意帧通过安全点重放。seek 不重播存档、成就和音效副作用。
+7. **G-06 / G-17：音频与校验**。AudioBus 目前用振荡器而非实际 asset 解码播放，需真实音频结束事件与同步处理；content-catalog 是浅校验，须深校验 shape/rig/object/effect 的引用、帧区间、数值、并发与能力支持。无录音时可先提供静音字幕审片，不用假旁白声冒充配音。
+
+程序数据采用版本化表现扩展或新轨道适配层，保留原故事与字符串；绑定原 shotId 和时间范围，显式禁用旧占位 cue，避免双重绘制。新增公共接口从 src/index.ts 导出并同步 docs/plan/10。所有新增 GPU/监听器通过资源契约登记且幂等释放；权威几何遵守量化与确定性规则，视觉 shader 随机不参与碰撞。
+
+### 6.4 混沌开卷五镜头实施分解
+
+沿用 `shanggu.hundun` 的 5400 帧、60 fps（名义 90 秒；同步等待另计），不改原旁白、史源、神话标签与分支。
+
+| 镜头 | 帧范围 | 纯程序实现 | 验收关键动作 |
+|---|---|---|---|
+| s1 | [0,600) | inkPaperPixels 纸底；程序墨滴轨道落点触发真实笔画反馈，多层淡墨云缓扩 | 从白纸开始，一点墨落下，不提前出现远山 |
+| s2 | [600,1560) | 盘古原创分件路径逐步绘出；举臂姿态驱动；上/下墨云独立运动 | 可识别人形且有举臂撑开的动作，不是缩放通用 figure |
+| s3 | [1560,3000) | 淡墨天层上移、浓墨地层下移；原创山体路径 + 皴线/网格；墨河逐步形成 | 清浊分层、天地分离、山水形成的因果清晰 |
+| s4 | [3000,4680) | 天缺轮廓 mask；连续洪水墨线与白浪；女娲专属 rig；程序炉石与烟火 | 盘古退场，女娲可辨；缺口、洪水、炼石实际可见 |
+| s5 | [4680,5400) | 五个彩墨石块沿轨道入缺口；mask 合拢；原创收笔路径 | 五色石完成补天，水势收缓，最后一笔定格 |
+
+先做 s1 墨扩散和 s2 人物运动两个短实验，分别审墨感和造型；通过后再组装五幕。手工设计路径属于必要美术工作，不把“引擎具备绘制工具”等同于“专属画面已完成”。全部场景用 src API 渲染；apps 仅编排原创数据，不再另写只为一个场景服务的图片 shader。
+
+### 6.5 修订执行顺序
+
+- **E0：正确性基座**：补 live、同层并发、末点、效果语义、60 Hz 累加器、可暂停与有界追赶；静音审片允许暂缓真实音频，不阻塞视觉原型。
+- **E1：纯墨验证**：s1 白纸落墨 + 扩散；至少一种浓淡层次、飞白/边缘洇染，真实 InkSurface 反馈，不是噪声 reveal 模拟。
+- **E2：造型/动作验证**：盘古和女娲原创路径分件，至少举臂/炼石两种动作；天地独立运动、局部 mask。未验收人物可辨识性前不扩至全部历史角色。
+- **E3：五镜头成片**：补水、烟火、五色石、转场/退场；替换 history 图片入口，原 90 秒五幕与字幕可观看。
+- **E4：复杂样例**：再做楚汉程序军阵，评估角色数量、实例化、远近墨层和动作复用；不先实现所有玩法模板。
+- **E5：量产与回放**：章场加载、录制/路径工具、缓存与恢复、真实音频、批量验收；如需导出，导出对象只能是引擎自己生成的帧，不作为本轮实时预览替代。
+
+原 §4 的历史游戏里程碑继续保留；当前动画工作按 E0–E3 优先执行，不以完璧归赵等完整玩法通关作为混沌审片前置。原 §3 中 G-01/G-02/G-03/G-05/G-07/G-09 的“没有”是旧状态；本轮按补缺而非全部重写。G-13/G-12/G-27 对混沌提升为视觉 P0，G-15 留到楚汉。
+
+### 6.6 无图片与观感验收
+
+- 网络/代码审计：不请求参考 PNG、不使用 TextureLoader 加载人物/背景、不嵌入参考像素或序列帧；关闭/移走参考图后动画仍能运行。字体、音频与程序纹理不列为画作替代。
+- 每项画面建立“路径/网格 → src 渲染 API → 对应帧”的证据；能单独关闭墨反馈、角色、雾水和遮罩观察各自作用，不能靠一张全屏贴图掩盖缺项。
+- 关键帧审片关注构图、人物轮廓、焦浓淡墨、枯笔飞白、留白和颜色；同时验收举臂、天地分离、洪水、炼石、补天的运动，不把 camera 缩放算角色动画。
+- 两次播放同环境同种子关键帧比对；正常播放/seek/skip 按声明的安全点策略一致。累计墨面不可直接降频跳 update，质量档改变模拟需另行验收。
+- `./build.sh check` / `./build.sh build`；无头只验编译和错误。Apple Silicon + Chrome 真机审片与性能未实测前不写通过；先测 1280×720、少量活跃墨面，再定 1080p 与对象数量预算。
+
+**完成判断：已有能力足够成为纯程序水墨动画的底座，但尚不足以完成全部参考目标。补齐造型/动作/环境特效和可靠调度是必要工程与美术工作；下一步应补引擎，而不是再次选择直接加载图片。**

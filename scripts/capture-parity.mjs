@@ -94,7 +94,7 @@ async function captureInk(scene, data) {
       ink.step(stroke.points.length + tails[i]);
       const finish = stroke.finish;
       if (!finish) return;
-      // Same order as InkWash.applyFinish: metallic, distort, then the flow commit.
+      // Same order as InkSurface.applyFinish: metallic, distort, then the flow commit.
       if (finish.metallic) {
         ink.core.win.bugsSize = finish.metallic.size == null ? 10 : finish.metallic.size;
         ink.p.randomSeed(stroke.seed);
@@ -162,7 +162,7 @@ async function compose(scene, data) {
     <h1>${LABEL[scene] ?? scene} · 同一组指针路径、笔刷与种子 · ${data.strokes.length} 笔 · SwiftShader · 非逐像素</h1>
     <div class="row">
       <figure><figcaption>inkEngine（thirdparty/inkEngine，参照）</figcaption><img src="${origin}/shots/${scene}-ink.png?${Date.now()}"></figure>
-      <figure><figcaption>InkGames src（InkWash + PROP_BRUSHES）</figcaption><img src="${origin}/shots/${scene}-src.png?${Date.now()}"></figure>
+      <figure><figcaption>InkGames src（InkSurface + PROP_BRUSHES）</figcaption><img src="${origin}/shots/${scene}-src.png?${Date.now()}"></figure>
     </div>`);
   await page.waitForFunction(() => [...document.images].every(image => image.complete && image.naturalWidth > 0));
   await page.screenshot({ path: join(outDir, `${scene}-compare.png`) });

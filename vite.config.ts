@@ -13,17 +13,9 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        index: resolve(__dirname, 'apps/index.html'),
-        ...Object.fromEntries([
-          'sword', 'blade', 'spear', 'bow', 'shield', 'war-horse', 'banner', 'ink-bomb', 'water-brush', 'boat',
-        ].map(id => [id, resolve(__dirname, `apps/${id}/index.html`)])),
-        inkcross: resolve(__dirname, 'apps/inkcross/index.html'),
-        wuxia: resolve(__dirname, 'apps/wuxia/index.html'),
-        compare: resolve(__dirname, 'apps/compare/index.html'),
-        'compare-three': resolve(__dirname, 'apps/compare/three.html'),
-        'compare-parity': resolve(__dirname, 'apps/compare/parity.html'),
         scroll: resolve(__dirname, 'apps/scroll/index.html'),
         story: resolve(__dirname, 'apps/story/index.html'),
+        history: resolve(__dirname, 'apps/history/index.html'),
       },
     },
     target: 'es2022',

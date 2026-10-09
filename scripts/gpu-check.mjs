@@ -50,7 +50,7 @@ if (!shots) {
   await waitForServer();
   console.log(`横版切片：${base}/scroll/`);
   console.log(`叙事演示：${base}/story/`);
-  console.log(`three.js 对照：${base}/compare/parity.html?scene=modes`);
+  console.log(`历史动画：${base}/history/`);
   console.log('在 Mac（Apple Silicon）的 Chrome 里打开这些页。无头 SwiftShader 不能代替这次验收，文档保持「未实测」。');
   console.log('Ctrl+C 结束。');
   await new Promise(() => {});
@@ -176,23 +176,24 @@ try {
       if (errors.length) failures.push(`story-${pose}: ${errors.join(' | ')}`);
       await page.close();
     }
-    {
-      const page = await browser.newPage({ viewport: { width: 1700, height: 900 } });
+    for (const frame of [0, 1200, 3800, 5300]) {
+      const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
       const errors = [];
       page.on('pageerror', error => errors.push(error.message));
       page.on('console', message => {
-        if (message.type() === 'error') errors.push(message.text());
+        if (message.type() === 'error' && !/Failed to load resource/.test(message.text())) errors.push(message.text());
       });
-      await page.goto(`${base}/compare/parity.html?scene=modes`, { waitUntil: 'domcontentloaded', timeout: 120000 });
-      await page.waitForFunction(() => window.__parityReady === true, undefined, { timeout: 180000 });
-      const stats = await page.evaluate(() => ({ mean: window.__parityMean ?? -1, max: window.__parityMax ?? -1, gl: window.__parityGl ?? 0 }));
-      console.log('parity', stats);
-      if (stats.gl !== 0) errors.push(`gl error ${stats.gl}`);
-      if (!(stats.mean >= 0)) errors.push('missing diff');
-      const file = join(outDir, 'parity-modes.png');
+      const images = [];
+      page.on('request', request => { if (/thirdparty|\.png|\.jpe?g|\.webp/.test(request.url())) images.push(request.url()); });
+      await page.goto(`${base}/history/?frame=${frame}`, { waitUntil: 'domcontentloaded', timeout: 120000 });
+      await page.waitForFunction(() => document.querySelector('#play') && !document.querySelector('#play').disabled, undefined, { timeout: 300000 });
+      await page.waitForTimeout(600);
+      console.log('history frame', frame, await page.locator('#status').textContent());
+      if (images.length) errors.push(`图片请求 ${images.join(' ')}`);
+      const file = join(outDir, `history-${frame}.png`);
       await page.screenshot({ path: file });
       console.log(file);
-      if (errors.length) failures.push(`parity: ${errors.join(' | ')}`);
+      if (errors.length) failures.push(`history-${frame}: ${errors.join(' | ')}`);
       await page.close();
     }
   } finally {

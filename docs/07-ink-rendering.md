@@ -2,20 +2,20 @@
 
 [目录](./README.md) · [上一章](./06-input-strokes-and-physics.md) · [下一章](./08-gameplay-and-persistence.md)
 
-> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主能播「易水寒」并走正史 / 野史；玩法模板、`PostStack`、景深和真实 GPU 验收仍未完成。
-
-2.0 的画面由 `InkWash`（`src/core/ink-wash.ts`）在 Pixi RenderTexture 上运行 inkEngine 的整条笔刷管线。笔刷逐帧移植自 `thirdparty/inkEngine/ink-engine.js`，着色器由 `scripts/port-inkengine-shaders.mjs` 从同一快照转换而来，文件头写了归属。逐项对照见 [第 12 章](./12-inkengine-parity-audit.md)。旧的 `InkFluid` 仍只服务 `/inkcross/`，本节最后单列。
+画面全部由 three.js 路径产生。笔刷逐帧移植自 `thirdparty/inkEngine/ink-engine.js`，着色器由 `scripts/port-inkengine-shaders.mjs` 从同一快照转换而来，文件头写了归属。逐项对照见 [第 12 章](./12-inkengine-parity-audit.md)。Pixi 版 `InkWash` 与滤镜包装 `ink-wash-filters.ts` 已删除，管线现由 `InkSurface` 在 `WebGLRenderTarget` 上跑；`InkFluid`（原生 WebGL2 场）也已删除。
 
 ## 模块
 
 | 文件 | 内容 | 对应 inkEngine |
 |---|---|---|
 | `src/core/ink-brush.ts` | `InkBrushEngine`：落笔初始化、每帧画什么、何时扩散/倒计时/提交 | `mousePressed`、`draw()`、`drawBrushStroke`、`drawBranch`、`drawSprayDots`、`drawDryBrush`、`drawMarker`、`drawGothic`、`drawFlyBrush` |
-| `src/core/ink-random.ts` | p5 兼容的 `P5Random`（LCG）与 `P5Noise`（4 层倍频）、多项式 `inkSin` / `inkCos` | p5 `randomSeed` / `random` / `noise` |
+| `src/core/ink-random.ts` | 与 p5 数值兼容的 `P5Random`（LCG）与 `P5Noise`（4 层倍频）、多项式 `inkSin` / `inkCos`。**不依赖 p5 包** | p5 `randomSeed` / `random` / `noise` |
 | `src/core/ink-palette.ts` | 36 色 `INK_PALETTE`，名字与 id 和 inkEngine/index.html 的颜色菜单一致 | `COLOR_PALETTE`、`setBrushColorName` |
 | `src/core/ink-shaders.ts` | 生成的 GLSL 3.00：feedback、encode、typeMapEncode、composite、realtime、mapFrag | 同名 `.frag` |
-| `src/core/ink-wash-filters.ts` | 把上面的着色器包成 Pixi 滤镜，另加水刷用的 `wash` | — |
-| `src/core/ink-paper.ts` | 纸纹：40px 纤维小块按页宽 1/500 的步长拼贴，再乘到底色 ×1.1 上 | `generatePaperTexture`、`createPaperStampTile` |
+| `src/core/ink-pass.ts` | three.js 宿主：`RawShaderMaterial` + 全屏三角形 + ping-pong 目标 | 原 Pixi 滤镜包装的替代 |
+| `src/core/ink-raster.ts` | 把 `InkDrawOp` 光栅化进 `stamp`（线段、点、描边矩形） | Pixi `Graphics` 的替代 |
+| `src/core/ink-paper.ts` | 纸纹：40px 纤维小块按页宽 1/500 的步长拼贴，再乘到底色 ×1.1 上 | `generatePaperTexture` |
+| `src/core/ink-stroke.ts` | 与渲染库无关的笔画契约：`InkStrokeRequest`、`InkColor`、`InkFinish`、`inkPointerPath` | — |
 
 ## 一帧做什么
 
@@ -31,7 +31,7 @@
 
 ## 缓冲
 
-全部是画面尺寸的 RGBA8 RenderTexture，分辨率 1。
+全部是画面尺寸的 RGBA8 `WebGLRenderTarget`，分辨率 1。
 
 | 纹理 | 内容 | 初值 |
 |---|---|---|
@@ -40,7 +40,7 @@
 | `pingPong` | feedback 的输出，下一帧再与新输出混合 | 白 |
 | `final` | 已提交的颜色（`finalBuffer`） | 白 |
 | `typeMap` | R 0.5 普通墨 / 1 白墨，G 白墨不透明度 | 黑 |
-| `display` | 纸 × 墨的合成结果，`view` 显示它 | 合成一次 |
+| `display` | 纸 × 墨的合成结果，显示它 | 合成一次 |
 | `force` | `mapFrag` 力场，每次 feedback 前按帧时钟重画笔画矩形 | — |
 | `lastStroke` | 刚提交的湿墨，给 flow 的 `lastStrokeTex` | 白 |
 | `bugsMask` / `bugsData` | 虫蚀轮廓的颜色和中心 | 透明 |
@@ -48,35 +48,38 @@
 
 每个 pass 只覆盖当前笔画的外接矩形（加 3px，墨效 4/5 每帧再扩 3px）。在矩形外 inkEngine 的全屏 pass 不会改动像素，所以结果相同，SwiftShader 上快得多。
 
-feedback 的输出 alpha 常小于 1。p5 以 `(ONE, ONE_MINUS_SRC_ALPHA)` 把它叠在上一帧的 ping-pong 上，再叠回湿层。这一步决定了老墨会越压越深而不是越来越淡，所以 `pingPong` 是专用纹理，不能和别的 pass 共用。编码 pass 也照 p5 的拷贝方式把 alpha 写回 1，并把 `1 − alpha` 加到颜色上。
+feedback 的输出 alpha 常小于 1。原版以 `(ONE, ONE_MINUS_SRC_ALPHA)` 把它叠在上一帧的 ping-pong 上，再叠回湿层。这一步决定了老墨会越压越深而不是越来越淡，所以 `pingPong` 是专用纹理，不能和别的 pass 共用。编码 pass 也照原版把 alpha 写回 1，并把 `1 − alpha` 加到颜色上。
 
 ## API
 
 ```ts
-const wash = new InkWash(app, { width: 640, height: 480, seed: 1234567890, background: [214, 206, 188], paper: true });
-app.stage.addChild(wash.view);
-wash.paint({
+import { InkSurface } from '@inkgames/engine';
+
+const surface = new InkSurface(renderer, { width: 640, height: 480, seed: 1234567890, background: [214, 206, 188], paper: true });
+surface.paint({
   brush: { mode: 'brush', size: 'large', effect: 'wet', blend: 'mix' },
   color: 'sage_gray',
   points: [{ x: 100, y: 200 }, { x: 109, y: 199 } /* 每帧一个点 */],
   seed: 42,
 });
+scene.add(new Mesh(new PlaneGeometry(640, 480), new MeshBasicMaterial({ map: surface.texture, transparent: true })));
 ```
 
-- `InkWashOptions`：`width`、`height`、`seed`（纸、力场和默认笔画种子）、`background`（inkEngine 的 `canvasBackgroundColor`，纸是它 ×1.1）、`paper`（纸纹开关）、`transparent`（白底无纸，给用 `blendMode = 'multiply'` 叠在别的纸上的图层）。
-- `setBrush({ mode, size, effect, blend })`、`setColor(name | [r, g, b])`、`strokePath(points, seed?)`、`paint(stroke)`：与 inkEngine 的 `setBrush().setColor().strokePath()` 对应。`points` 是笔尖落点；`inkPointerPath(points, mode)` 换算成 inkEngine 要的指针坐标（加 10px，gothic 不加）。
+- `InkSurfaceOptions`：`width`、`height`、`seed`（纸、力场和默认笔画种子）、`background`、`paper`（纸纹开关）、`transparent`（白底无纸，供叠在别的纸上）。
+- `setBrush({ mode, size, effect, blend })`、`setColor(name | [r, g, b])`、`strokePath(points, seed?)`、`paint(stroke)`。`points` 是笔尖落点；`inkPointerPath(points, mode)` 换算成 inkEngine 要的指针坐标（加 10px，gothic 不加）。
 - `strokePath` 是同步的：按下、每帧一个点、停一帧、提起、倒计时、提交，全部在一次调用里跑完。
-- `beginStroke` / `addPoint` / `endStroke` 给拖动用，每个显示帧调一次 `update()`。和 inkEngine 一样每帧只取最新的指针位置，提交前用 `realtime.frag` 在 `display` 上叠出湿墨。
-- `finish`（可选）：笔画提交后按 inkEngine 的顺序跑 metallic、distort、flow。见下。
+- `beginStroke` / `addPoint` / `endStroke` 给拖动用，每个显示帧调一次 `update()`。和 inkEngine 一样每帧只取最新的指针位置，提交前用 `realtime.frag` 在 `display` 上叠出湿墨。同一张墨面只允许一个活动笔画，宿主（`StoryStage.paintPulses`）负责拒绝并发并计数。
+- `finish`（可选）：笔画提交后按 inkEngine 的顺序跑 metallic、distort、flow。
 - `wash(x, y, radius)`：水刷。按距离把 `final` 往白色混，类型图在圈心清零，再重画这一块。
-- `clear()`、`dispose()`（幂等）。
+- `snapshot()` / `restore()`、`replayEffect(finish)`、`clear()`、`dispose()`（幂等）。
+- `texture`：交给 three.js 材质作为 `map`。
 
 `InkFinish`：
 
 | 字段 | 行为 |
 |---|---|
 | `flow: { blendType, iterations, seed? }` | 一次 flow 提交。`blendVol = 100 * (1 + iterations * 0.1)`，写入 `final` 和 `typeMap` 后再合成。种子缺省时用笔画种子对 1000000 取余 |
-| `distort: { displacementB?, displacementC?, extent? }` | `extent: 'frame'` 扭曲整幅，`'stroke'`（默认）只扭曲这一笔的矩形及其上下镜像。B 默认 20，C 默认 50 |
+| `distort: { displacementB?, displacementC?, extent? }` | `extent: 'frame'`（叙事里由 `StoryStage` 按 `params.extent` 传入）扭曲整幅，`'stroke'` 只扭曲这一笔的矩形及其上下镜像。B 默认 20，C 默认 50 |
 | `metallic: { size?, tint? }` | 按 inkEngine 的阈值在已合成的画面上找深色点，画闪电形咬痕，再跑 `metallic.frag`。`size` 默认 10，`tint` 默认 `[0.72, 0.5, 0.35]` |
 
 笔刷取值与 inkEngine/index.html 的菜单相同：
@@ -104,39 +107,36 @@ wash.paint({
 
 ## 力场与纸
 
-`force` 用移植的 `mapFrag`。每次 feedback 前把当前笔画矩形重画一遍，时间是 `frameCount / 60`，对应 `clock: 'frame'` 下的 `millis() * 0.001`。新墨层的 `frameCount` 从 2 开始，因为对照用的宿主页在 `ready` 之后先 `step(2)`。矩形以外的力场留着上一次的值；feedback 只采样矩形内部。`mapFrag` 里那 6 个从未被上传的 uniform 仍然是 0。空闲时不重画整幅，所以游戏进行中纸上的旧墨不会自己继续流动。
+`force` 用移植的 `mapFrag`。每次 feedback 前把当前笔画矩形重画一遍，时间是 `frameCount / 60`，对应 `clock: 'frame'` 下的 `millis() * 0.001`。新墨层的 `frameCount` 从 2 开始（`InkSurface` 构造时）。矩形以外的力场留着上一次的值；feedback 只采样矩形内部。空闲时不重画整幅，所以游戏进行中纸上的旧墨不会自己继续流动。
 
-纸纹按 `generatePaperTexture(40, 20, 15, 0.2)`：用 Canvas 2D 画 100 个半径 0.75 的浅点做小块，横向每 `宽/500` 像素、纵向每 20 像素盖一次，纵向按 `noise` 抖 15px，最后以 MULTIPLY 乘到 `min(255, 底色 × 1.1)` 上。种子相同、浏览器相同时，纸与 inkEngine 宿主页一致。
+纸纹按 `generatePaperTexture(40, 20, 15, 0.2)`：用 Canvas 2D 画 100 个半径 0.75 的浅点做小块，横向每 `宽/500` 像素、纵向每 20 像素盖一次，纵向按 `noise` 抖 15px，最后以 MULTIPLY 乘到 `min(255, 底色 × 1.1)` 上。
 
-## 游戏里的分层
+## 分层
 
-`InkStage` 用三类墨层，见 [第 8 章](./08-gameplay-and-persistence.md)：
+三个宿主各有一套分层，都沿用 `INK_LAYER_Z`（远景 −80、纸面 0、角色 40、文字 120）：
 
-- 远山：单独一张透明墨层，放在 z = −80，绕画面中心缩放，相机移动时比纸层少跟一段。
-- 纸层（z = 0，不缩放）：近山、地面、河、靶和本页道具，开场画一次，水刷不改。屏幕坐标等于世界坐标减去相机偏移。
-- 可擦层：同样在 z = 0。`transparent` 的 `InkWash`，`multiply` 叠在纸层上，放可擦桥、挥击、溅墨、尘迹、水纹。重播和重置只清这一层。
-- 精灵（z = 40）：会动或拿在手里的东西各自画在一张小的透明墨层上。缩放绕落点（脚、蹄、龙骨、旗杆根、箭镞），所以脚还踩在 z = 0 的地面上。飞行中的箭和墨罐绕刚体中心缩放。
+- **切片**（`InkView`）：远山 / 背景平面、`InkSurface` 墨面（洇染与笔画）、角色与竹落在 z = 40。相机以 0.05 的比例跟上角色，再夹进关卡包围盒；没有景深模糊。
+- **叙事**（`StoryStage`）：按 `opening.layers` 建墨层平面，另有 `InkText`（z = 1，字幕题字）与淡出平面（z = 2）。
+- **历史动画**（`InkScene`）：每个分件一张透明墨面，`order` 决定遮挡先后。
 
-`inkLayerScale(height, z)` 和 `INK_LAYER_Z` 是这套深度。相机以 0.05 的比例跟上角色，偏移限制在水平 48 px、垂直 36 px，避免纸的边缘露出太多。指针换算会把这个偏移加回去。没有景深模糊，也没有 EasyCam 在回放时收到的 1.1 倍变焦。
+## 图片显影（对照实验）
 
-## 旧墨水：`InkFluid`
+`InkAnimation`、`animationPose`、`validateAnimation` 仍从 `src/index.ts` 导出（图片显影材质、镜头边界求值、镜头数据校验），供对照实验使用；它不是现行历史动画方向，`/history/` 已不再调用。
 
-`src/plugins/ink-fluid.ts` 是纳维–斯托克斯风格的 R/RG16F 场，由 `createInkFluidPlugin()` 接到 v0.1 渲染阶段。它和 `InkWash` 不是同一个模型。水刷的剪刀矩形会清掉活动墨、湿场和已经沉下去的 `fixedInk`，否则固定步跑得快时桥面擦完仍是深色；矩形外面的湿墨还会回渗。锁定笔画不走这条擦除。
+## 程序水墨分件场景（2026-10-09）
+
+`InkScene` 从 `src/index.ts` 导出：`new InkScene(canvas)` 固定 1280×720 正交画布；`await add({ id, width, height, strokes, pivot? })` 用真实 `InkSurface.paint` 把原创路径画到透明墨面，并在层间让出一帧，避免一次性阻塞；`pose(id, { x, y, scale, rotation, opacity, order })` 设置分件变换，`clip(id, rect | null)` 设矩形遮罩，`wash(id, steps)` 在图层自己的墨面上跑真实漫水，`render()` 出图，`dispose()` 幂等释放墨面、几何与材质。它不加载任何外部图片，输入只是 `InkStrokeRequest[]` 与 `pivot`。
+
+局限必须写明：墨层是**预绘制的确定性笔画结果**，播放中只做分件变换与一次性漫水，没有逐帧新反馈；`InkScene` 未接入 `StoryStage`、`CutscenePlayer` 轨道或 `CutsceneTick`；每层各保留一张 `InkSurface`（内部多张 RT），GPU 内存按层累加；上下文丢失后不重建墨面，也没有活动笔画或随机状态。这些是待办，不是已完成能力。
+
+`LayerKey` 的 `clip` 与 `order` 在关键帧处**切换而非插值**，避免出现半个开口的遮罩或半透明的遮挡顺序。天裂当前用矩形收缩表现，任意多边形遮罩仍未实现。
+
+`/history/` 用 `InkScene` 展示上古「混沌开卷」五幕：30 fps 展示、名义 90 秒、保留原剧本字幕，提供播放/暂停/重播/进度拖动/跳镜与 `?frame=` 定位。人物、山水、火与五色石均为原创路径分件，不用参考图。分件与关键帧抽在 `apps/history/chaos-data.ts`，是原创表现数据；`validatePresentation` / `poseAt`（`src/core/ink-presentation.ts`，已导出）负责校验与求值，`apps/history/procedural.ts` 只做“校验 → 逐层绘制 → 每帧按帧号求位”。求值纯由帧号决定、不累计积分，因此跳帧与顺播同值。
+
+无头 Chromium + SwiftShader 已验证三页绘制完成、无 JS/shader 错误、无图片请求，且跨镜头跳转（s2、s5）字幕与姿态正确；真实 GPU 观感、性能、连续墨扩散、关节绑定与遮罩质量均未实测。
 
 ## 调用时注意
 
-- `strokePath` 在主线程里连续跑完整笔（几十到上百帧的 pass）。十卡开场在 SwiftShader 上要 18–35 秒；真实 GPU 上快得多，但没有实测。
+- `strokePath` 在主线程里连续跑完整笔（几十到上百帧的 pass）。SwiftShader 上很慢，真实 GPU 上快得多，但没有实测数据。
 - 着色器里的 `hash` 用了 `sin`，只影响显示。CPU 侧的笔刷只用四则、`Math.sqrt` / `Math.hypot` 和多项式正余弦。
-- 透明墨层叠在纸上时用 `multiply`，等价于直接画在纸上，只在与纸层笔画重叠处少了一次编码混色。
-
-## 横版切片：`InkSurface` 与三样画面
-
-`InkSurface`（`src/core/ink-surface.ts`）按 `InkWash` 的缓冲和 pass 顺序，把宿主换成 `WebGLRenderTarget`。`InkBrushEngine`、调色板、纸纹、36 色和 `ink-shaders.ts` 的片元文本仍共用。pass 用 `RawShaderMaterial` 和 GLSL3。`paint(stroke)`、`beginStroke` / `addPoint` / `endStroke`、`update()`、`texture`、`wash(x, y, radius)`、`snapshot()` / `restore()`、`replayEffect(finish)` 已导出。中间目标是线性色彩，不做额外 sRGB 往返。同一组笔画在 Pixi `InkWash` 与 three `InkSurface` 上的并排见 [第 12 章](./12-inkengine-parity-audit.md) 的 three.js 一节。那是无头 SwiftShader 的平均绝对差，不是逐像素一致，真实 GPU 未实测。
-
-盖章矩形的第 0 行是笔画上方。`readRenderTargetPixels` 读回的缓冲已经是上到下，调用方不要再翻行。远景平面贴 `texture`，采样与这套行序一致。
-
-1. **洇染。** `TerrainSeep` 使用 512×256。`bakeHeightField` 把地面高度写进 B，干燥度在 R。接触点经 `contactsToStamps` 盖进纹理（最多 8 个），再沿更低的邻像素做一次 `min` 渗流。墨滴不写这张纹理，也不进 Matter。不同 GPU 的渗流像素不要求一致。
-2. **皴法与勾边。** `createCunRock(kind, x, y, radius, seed)` 的 `kind` 是 `'hemp'` 或 `'axe'`。外壳沿法线挤出，宽度是 `cunOutlineWidth(inkCameraDistance(height), cameraRig.distance)`，拉近更粗，夹在 1.2 到 7。毛边用 `src/core/classic-noise.ts` 里的 classic Perlin（Stefan Gustavson，MIT）。山石不用 `OutlinePass`。
-3. **断竹。** `BambooView` 在顶点着色器里做正弦摆动，只影响显示。`Playfield.cutBamboo` 把刚体拆成静态根和动态上段。断口墨滴不超过 `DROPLET_CAP`（256），受重力下落，不写回地面纹理。
-
-过场里的 `inkDisperse` 与 `bambooBreak` 仍没有单独画面。切片里的洇染来自脚步接触，断竹来自 `attack()`。字幕 `InkText` 把标题、旁白和印章画进 `CanvasTexture`（`flipY` 为假），不引入文字库。印章的圆弧只用在显示画布上。
+- 透明墨层叠在纸上时用 `multiply`（在 three.js 里由材质透明度与合成顺序表达），等价于直接画在纸上。

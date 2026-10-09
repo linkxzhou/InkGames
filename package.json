@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "InkGames：three.js 横版切片与 PixiJS 十卡舞台",
+  "description": "InkGames：three.js + Matter.js 水墨动作引擎",
   "license": "MIT",
   "engines": {
     "node": ">=20"
@@ -18,8 +18,6 @@
   },
   "dependencies": {
     "matter-js": "0.20.0",
-    "p5": "^2.3.4",
-    "pixi.js": "8.22.0",
     "three": "0.186.1"
   },
   "devDependencies": {

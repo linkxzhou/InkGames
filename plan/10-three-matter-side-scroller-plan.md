@@ -1,12 +1,12 @@
 # 10 · three.js + Matter.js 横版水墨动作引擎
 
-状态：**M0–M4 已落地，M5 部分落地**。本文件取代 2026-10-08 的 PixiJS 舞台未完成清单（`10-v2-pixi-matter-ink-game-engine-plan.md`，已删除）。十卡舞台仍是 PixiJS 8.22.0 + Matter.js 0.20.0。横版切片是 `three@0.186.1`，入口 `apps/scroll/`；叙事演示在 `apps/story/`。公共 API 从 `src/index.ts` 导出。真实 GPU 未实测。
+状态：**M0–M4 已完成，M5 部分完成，Pixi/p5/原生 WebGL2 已清理**（见 §7）。渲染栈只剩 `three@0.186.1` + `matter-js@0.20.0`。入口：`apps/scroll/`（切片）、`apps/story/`（叙事）、`apps/history/`（历史动画）。公共 API 从 `src/index.ts` 导出。真实 GPU 未实测。
 
 历史游戏的叙事、过场数据和缺口优先级在 [12 · 引擎缺口](./12-history-game-engine-gaps.md)，故事结构在 [11 · 故事与玩法](./11-history-game-story-design.md)。本文写引擎怎么搭，并与第 12 章的模块名对齐。剧情正文不在这里展开。两边若措辞不一致，以 §11 已确认的条目为准，其余模块名以本文与第 12 章已经对齐的名字为准。
 
 ## 0. 所有者已经定下的事
 
-现行 v2 渲染（PixiJS 8 + Matter.js）观感不够。引擎改为 **three.js + Matter.js**：
+所有者判定 v2 的 PixiJS 8 渲染观感不够，引擎改为 **three.js + Matter.js**（旧栈已于 2026-10-09 删除，见 §7）：
 
 - 玩法是横版动作。位移和碰撞都在 X/Y 平面，Z 不参与物理。
 - Matter.js 跑一个不可见的二维刚体世界。每帧把它算出的 x、y 写到 three.js 模型的 `position.x` / `position.y`。
@@ -228,12 +228,12 @@ interface InkEffects {
 
 ### 3.1 原样留下的 CPU
 
-这些文件不依赖 Pixi，计划里不重写算法：
+这些文件与渲染库无关，算法不重写：
 
 | 文件 | 留下什么 |
 |---|---|
 | `src/core/ink-brush.ts` | 七种笔刷、弹簧阻尼、分叉、飞白、笔压分档。输出 `InkDrawOp` 和 `InkShaderState` |
-| `src/core/ink-random.ts` | p5 兼容的随机和噪声、多项式 `inkSin` / `inkCos` |
+| `src/core/ink-random.ts` | 与 p5 数值兼容的随机和噪声、多项式 `inkSin` / `inkCos`（不依赖 p5 包） |
 | `src/core/ink-palette.ts` | 36 色 |
 | `src/core/ink-paper.ts` | 纸纹像素 |
 | `src/core/ink-metallic.ts` | `scanInkBites` 的虫蚀采样 |
@@ -247,17 +247,17 @@ interface InkEffects {
 
 | 现行 | 计划 |
 |---|---|
-| `ink-wash-filters.ts` 把片元包成 Pixi `Filter` | `RawShaderMaterial`，`glslVersion` 用 three.js 的 `GLSL3`。不用普通 `ShaderMaterial`，避免 three 注入的属性块和移植着色器的 `in` / `out` 撞名 |
-| Pixi `RenderTexture` | `WebGLRenderTarget`。feedback 的 ping-pong 是两张专用目标，不能和别的 pass 共用。原因与现在一样：输出 alpha 小于 1，要按 `(ONE, ONE_MINUS_SRC_ALPHA)` 叠在上一帧上，老墨才会越压越深 |
-| `Graphics` 画进带 MSAA 的 `stamp` | 全屏三角形或笔画矩形上的 SDF 线段 / 圆头四边形，画进 `stamp` 目标。线段光栅化和现行 Pixi 不会逐像素相同，这是已知差异，对照页继续记在 [第 12 章](../docs/12-inkengine-parity-audit.md) |
+| 旧 `ink-wash-filters.ts` 曾把片元包成 Pixi `Filter`（已删除） | `RawShaderMaterial`，`glslVersion` 用 three.js 的 `GLSL3`。不用普通 `ShaderMaterial`，避免 three 注入的属性块和移植着色器的 `in` / `out` 撞名 |
+| 旧 Pixi `RenderTexture` → `WebGLRenderTarget`。feedback 的 ping-pong 是两张专用目标，不能和别的 pass 共用。原因与现在一样：输出 alpha 小于 1，要按 `(ONE, ONE_MINUS_SRC_ALPHA)` 叠在上一帧上，老墨才会越压越深 |
+| 旧 `Graphics` 画进带 MSAA 的 `stamp` → 全屏三角形或笔画矩形上的 SDF 线段 / 圆头四边形，画进 `stamp` 目标。线段光栅化与 inkEngine 原版不逐像素相同，这是已知差异，记在 [第 12 章](../docs/12-inkengine-parity-audit.md) |
 | 每个 pass 一张铺在笔画外接矩形上的精灵 | 视口或 scissor 限制在外接矩形（加 3 px，墨效 4/5 再外扩）。不要每帧对整张 1280×720 跑 feedback |
-| `ink-stage.ts` 的 Pixi `Application` | `InkView`。十卡页面在迁移完成前仍走旧类 |
+| ~~`ink-stage.ts` 的 Pixi `Application`~~ | 已删除；切片与叙事都走 `InkView` / `StoryStage` |
 
 pass 顺序不改：[第 7 章](../docs/07-ink-rendering.md) 的按下、逐帧出笔、一次 feedback、提笔后 `maxUpdates` 次力度递减、然后 encode → typeMap → composite。实时湿墨仍走 realtime。flow、distort、metallic 仍是提交之后的 `InkFinish`，同时也可以被 `EffectCue` 触发。
 
 纸纹：`inkPaperPixels` 的 `Uint8Array` 上传为 `DataTexture`。中间缓冲不做额外的 sRGB 往返；只有最后上屏的那一张按画布输出。three.js 从某个版本起会给纹理套色彩空间，实现时对照 `/compare/` 的一笔，确认没有被伽马再处理一次。这一步还没有实测。
 
-坐标：现行片元用 `inkFragCoord()` 把 Pixi 的上左原点翻成 inkEngine 的下左原点。three.js 的渲染目标默认方向不一定相同。迁移时保留这个翻折函数，用对照页的一笔决定翻或不翻，不凭文档猜测。
+坐标：原 Pixi 版本用 `inkFragCoord()` 把上左原点翻成 inkEngine 的下左原点。three.js 渲染目标方向不同，`InkSurface` 已按现行实现处理翻折；真实 GPU 的最终取向仍未实测。
 
 力场 `mapFrag`、着色器里的 `sin` / `pow` 只影响画面，不回读去改刚体。水刷 `wash` 若擦的是墨桥，仍先改 `Playfield` 里的刚体，再淡化墨面。这一点和现行水刷相同，也是历史游戏「治水」模板要保住的行为。
 
@@ -379,36 +379,43 @@ Playfield 碰撞（角色 × 地面）
 
 历史游戏的 M1（完璧归赵、窃符救赵、易水寒）可以在 `InkSurface` 能按帧画画、`CutscenePlayer` 能跑通一条轨道之后开始。引擎自己的垂直切片更早：一条能走的坡、地面上的墨、两块皴法石头、一竿可砍的竹。两件事共用 `InkView` 和 `InkSurface`，不共用验收标准。史实、旁白和史评的验收只写在 plan/12。
 
-## 7. 从 PixiJS 迁走
+## 7. 从 PixiJS 迁走（2026-10-09 已完成）
 
-### 留下
+**迁移已结束，且比原计划更彻底**：不是保留 Pixi 十卡，而是把 Pixi / p5 / 原生 WebGL2 整条旧栈从 `src/`、`apps/` 和依赖中删除。当前 `package.json` 只剩 `three@0.186.1` 与 `matter-js@0.20.0`。
 
-- §3.1 的 CPU 文件和它们的单测。
-- `Engine`、p5 宿主、`InkFluid`、`/inkcross/`、`/wuxia/`，直到另有一次删除。plan/12 没有要求这次拆掉它们。
-- 十卡页面和 `/compare/`，在 three.js 页能代替之前继续可玩。
-- `InkWorld` 的像素世界，直到十卡改接到 `Playfield`。
+### 留下（three.js 路径继续使用）
 
-### 改写
+- 与渲染库无关的 CPU 层：`InkBrushEngine`（`ink-brush.ts`）、`ink-random`、`ink-palette`、`ink-paper`、`ink-metallic`、`ink-raster`、`ink-camera`（距离/层深常数）、`classic-noise`。
+- inkEngine 的片元文本：`ink-shaders.ts`（归属注释保留），由 `InkSurface` 通过 `RawShaderMaterial` 使用；`ink-pass.ts` 是它的 three.js 宿主。
+- 物理与玩法：`playfield.ts`、`ink-world.ts`、`body-link.ts`、`slope.ts`。
+- 三项画面：`terrain-seep.ts`、`cun-material.ts`、`bamboo-rig.ts`、`terrain-field.ts`。
+- 叙事宿主：`scene-director.ts`、`story-runtime.ts`、`cutscene-player.ts`、`audio-bus.ts`、`ink-text.ts`、`save-store.ts`、`story-stage.ts`、`content-catalog.ts`、`narrative-types.ts`、`stroke-cues.ts`、`fixed-clock.ts`。
+- 道具笔画预设：`plugins/prop-brushes.ts`、`plugins/prop-paintings.ts`；`plugins/items.ts` 保留为道具元数据。
 
-- `ink-wash.ts` 的渲染后端变成 `InkSurface`。缓冲名字和 pass 顺序留下。
-- `ink-camera.ts` 的距离和层深常数留下。跟随和变焦放到 `CameraRig`。
-- `ink-stage.ts` 在十卡还活着的时候不删。新关用 `InkView`，不把 three.js 塞进 Pixi 应用。
+### 已删除（Pixi / p5 / 原生 WebGL2）
 
-### 迁移完成后再删
+| 文件 | 原因 |
+|---|---|
+| `core/ink-stage.ts`、`core/ink-wash.ts`、`core/ink-wash-filters.ts` | Pixi 舞台与 Pixi 滤镜；three.js 版由 `InkSurface` / `InkScene` 取代 |
+| `plugins/p5-host.ts` | p5 宿主，p5 已不依赖 |
+| `plugins/gl-state.ts`、`plugins/renderer-webgl2.ts`、`plugins/scene-renderer.ts`、`plugins/canvas-surface.ts` | 原生 WebGL2 / Canvas2D 渲染插件与 `withGLState` |
+| `plugins/ink-fluid.ts`、`plugins/ink-fluid-plugin.ts` | 只服务 `/inkcross/` 的 NS 场 |
+| `plugins/inkcross.ts`、`plugins/scene-json.ts`、`plugins/world.ts` | 旧微内核插件与 v0.1 场景 JSON |
+| `core/engine.ts`、`core/types.ts`、`core/plugin-graph.ts`、`plugins/tokens.ts`、`plugins/brush-model.ts`、`plugins/geometry.ts`、`plugins/physics.ts` | p5 时代的微内核、服务 token、画笔模型、侵蚀与物理插件、v0.1 命令录制 |
+| `apps/sword`…`apps/boat` 十卡、`apps/inkcross`、`apps/wuxia`、`apps/compare`、`apps/main.ts`、`apps/demo.ts` | 旧舞台页面；首页改为三条 three.js 入口的导航 |
+| `tests/core-loop`、`core-plugins`、`game`、`water-erosion`、`v2-core`、`fixtures/`、`helpers/` | 只对已删模块有意义 |
 
-- `ink-wash-filters.ts`。
-- `package.json` 里的 `pixi.js`。删之前十卡、对照页和冒烟要有新的入口，或者明确保留一条 Pixi 构建。
-- 本计划不删除这些文件。
+`ink-wash.ts` 里的共享笔画类型（`InkColor`、`InkFinish`、`InkStrokeRequest`、`inkPointerPath`）已移到新的 `core/ink-stroke.ts`，因为 `InkSurface`、`InkScene`、`StoryStage` 与道具表都依赖它们，不能继续挂在 Pixi 模块上。
 
-### 步骤
+### 步骤（全部完成）
 
-1. 文档（本提交）。
-2. `InkView` + `Playfield` + 一条坡。新页面，例如 `apps/scroll/`。十卡不动。
-3. `InkSurface` 跑通现行的一笔（七种模式里至少大笔），对照页可以并排，不要求逐像素。
-4. 地面洇染、一块斧劈、一块披麻、一竿竹。引擎切片到此算齐。
-5. 单向平台、击退、扫掠、砍断接上 `bambooBreak`。
-6. 按 plan/12 的依赖顺序接 `SceneDirector`、录制、`AudioBus`、`InkText`、`CutscenePlayer`、`SaveStore`。内容校验和剧情运行时可以与第 2 步并行，因为它们不碰 GL。
-7. 首页是否改成横版关卡，等切片能玩再定。在那之前 `/` 仍是十卡。
+1. [x] 文档。
+2. [x] `InkView` + `Playfield` + 一条坡，`apps/scroll/`。
+3. [x] `InkSurface` 跑通现行笔画。
+4. [x] 地面洇染、斧劈/披麻、一竿竹。
+5. [x] 单向平台、击退、扫掠、砍断。
+6. [x] `SceneDirector`、`AudioBus`、`InkText`、`CutscenePlayer`、`SaveStore`（录制回放仍未做）。
+7. [x] 首页改为入口导航；删掉 Pixi 十卡。
 
 ## 8. 里程碑
 
@@ -419,7 +426,26 @@ Playfield 碰撞（角色 × 地面）
 - [x] **M4 动作补全。** 单向平台、击退、扫掠、可砍。`InkView.washAt` 先 `washBridge` 再 `InkSurface.wash`。演示页 `apps/scroll/`。
 - [~] **M5 叙事宿主。** `SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`StoryStage` 已从 `src/index.ts` 导出。`apps/story/` 只读荆轲样例：正史开场按帧时钟走，Canvas 字幕画出「易水寒」，选择处可进正史或野史，检查点可 `resume`。`PostStack` 没有类；flow / distort / metallic / wash / fade 由 `StoryStage` 写到墨面或淡出平面，遮罩是画布暗角。玩法节点只显示目标并等待继续。配音文件不在仓库里，`AudioBus` 用振荡器占位。景深、录制回放、plan/12 M1 的三场景通关、两次播放末帧逐像素一致、独显帧时都未做。CPU 证据是 `tests/narrative.test.ts`。无头截图只证明着色器能编过。
 
-坡度行走、击退和扫掠写在 `Playfield` 上，没有单独的 `ActorController` 或 `Combat` 类。竹的显示类名是 `BambooView`。Pixi `InkStage` 在上下文丢失后仍只暂停。three.js 的 `InkView` 与 `StoryStage` 在 `webglcontextrestored` 后重建渲染目标，并从丢失前的 `snapshot` 贴回。真实 GPU 未实测。
+坡度行走、击退和扫掠写在 `Playfield` 上，没有单独的 `ActorController` 或 `Combat` 类。竹的显示类名是 `BambooView`。`InkView` 与 `StoryStage` 在 `webglcontextrestored` 后重建渲染目标并从丢失前的 `snapshot` 贴回；`InkScene`（`apps/history/`）目前不重建。真实 GPU 未实测。
+
+### M5 子项状态（2026-10-09 按代码核对）
+
+`M5` 整体保持 `[~]`，因为它包含未完成的玩法与性能项。逐项如下：
+
+| 子项 | 状态 | 证据 |
+|---|---|---|
+| 场景与剧情运行时（`SceneDirector` / `StoryRuntime` / `content-catalog`） | 完成 | `tests/narrative.test.ts`：21 章解析、分支、`resume` |
+| 过场播放器六轨与帧时钟 | 完成 | `tests/cutscene-pulses.test.ts`、`tests/frame-clock.test.ts` |
+| live 笔画参数 / 并发 / 收笔 | 完成 | 同上；`StoryStage.rejectedPulses` 暴露拒绝计数 |
+| 字幕与题字（Canvas 纹理） | 完成（CPU 断言） | `tests/narrative.test.ts` 断言第 140 帧出现「易水寒」文本；`/story/?pose=title` 截图只证明页面能渲染，未逐像素核对字形 |
+| 存档与检查点 | 完成 | `tests/narrative.test.ts` 的 `resume()` 断言 |
+| 过场效果（flow / distort / metallic / wash / fade） | 完成 | `StoryStage` 写到墨面；`impulses` 一次性漫水 |
+| 短镜头跳过与顺播等价 | 未完成 | `fastForward` 不重建中间效果；需 G-08 安全点重放 |
+| `PostStack` 类与景深 | 未完成 | 无类；`dof` 键只被解析，没有散景 pass |
+| 2.0 录制回放（`inkgames.ink-recording`） | 未完成 | `recording.ts` 已删；`recording` 来源返回空笔画 |
+| 真实配音 / BGM | 未完成 | `AudioBus` 仍用振荡器，无 `decodeAudioData` |
+| 玩法模板（对决等） | 未完成 | 无 `defineGameplay`；玩法节点只显示目标 |
+| 两次播放末帧逐像素一致 | 未完成 | 现只覆盖三段式路径的确定性回归 |
 
 ## 9. 验收
 
@@ -434,13 +460,13 @@ Playfield 碰撞（角色 × 地面）
 - 击退后速度在封顶内，锁定步数内移动输入不改速度。
 - 竹从完整到已断，刚体从一个变成根部加上段。
 - 接触点变成 UV 盖章列表。高度纹理能从顶点哈希，重复计算一致。
-- 现有 `tests/ink-brush.test.ts`、`tests/prop-brushes.test.ts`、`tests/v2-core.test.ts` 继续通过。
+- 现有 `tests/ink-brush.test.ts`、`tests/prop-brushes.test.ts`、`tests/narrative.test.ts` 继续通过。（`v2-core` / `game` / `core-loop` / `core-plugins` / `water-erosion` 随旧栈删除，见 §7。）
 
 **浏览器**
 
 - 新页面有画布、没有未捕获异常。
 - Playwright 截一张：人在坡上、地面有墨、石头有边缘、竹在断开前后各一张。SwiftShader 只证明着色器能编过、没有 GL 错误。
-- 同一台机器、同一个浏览器上，固定种子的一笔 `InkSurface` 连截两次，用于回归。不把 SwiftShader 的像素当成和 inkEngine 逐像素相同。
+- 同一台机器、同一个浏览器上，固定种子的一笔 `InkSurface` 连截两次，用于回归。不把 SwiftShader 的像素当成和 inkEngine 逐像素相同。**已按可验证形式落地**：`scripts/browser-smoke.mjs` 在 `/history/` 上调用 `window.__historyHash(frame)`，判定「连续两次渲染同一帧逐字节一致、不同帧必须不同」；2026-10-09 实测通过（同帧 3603028584，异帧 2396843167）。这是三段式渲染路径的确定性回归，仍未覆盖 `InkSurface` 反馈的逐像素一致性。
 
 **性能（真实 GPU，未做之前一律写未实测）**
 
@@ -457,21 +483,24 @@ Playfield 碰撞（角色 × 地面）
 | Y 向下和 three.js 的习惯相反，`camera.up` 会让部分控件不好用 | 切片不用 OrbitControls。若所有者改选 Y 向上，只改 `Playfield` 到网格的那一个写入函数，笔刷点在边界上翻转 |
 | 透视下 z ≠ 0 的网格看起来比碰撞体更宽 | 玩法轮廓以刚体为准。网格的 Z 起伏是厚度，不是加宽碰撞 |
 | 色彩空间把墨洗淡或洗灰 | 中间目标线性写入，上屏再对照一笔 |
-| 片元 Y 翻折和 Pixi 不一致 | 对照页决定翻折，单测锁 CPU 笔触 |
-| 开场笔数多，SwiftShader 上现行十卡就要 18–35 秒 | 矩形 scissor、分帧、`snapshot` 关键帧（G-08）。真实 GPU 未测 |
-| 上下文丢失 | Pixi `InkStage` 仍只暂停。three.js 的 `InkView` / `StoryStage` 已在恢复时重建渲染目标并贴回最近的 `snapshot`。无头路径用 `WEBGL_lose_context`。真实 GPU 与跨章节存档回放未实测（G-19） |
+| 片元 Y 翻折在无头与真机可能不一致 | 单测锁 CPU 笔触；真实 GPU 未实测 |
+| 开场笔数多，SwiftShader 首次绘制慢 | 分帧绘制（实现中每次绘制让出一帧）、`snapshot` 关键帧（G-08）。真实 GPU 未测 |
+| 上下文丢失 | `InkView` / `StoryStage` 在恢复时重建渲染目标并贴回最近的 `snapshot`；`InkScene`/`apps/history` **不重建**。无头路径用 `WEBGL_lose_context`。真实 GPU 与跨章节存档回放未实测（G-19） |
 | 3D 场景看起来像默认示例，不像水墨 | 纸色底、无 PBR、墨面 multiply 到纸上。皴和勾边失败时退回 §4 的后退路径 |
 | Matter 跨版本不是逐位确定 | 玩法回放锁 matter-js 0.20.0。不承诺跨浏览器逐位相同 |
 | 过场帧时钟和玩法固定步互相多推墨 | `SceneDirector` 同一时刻只跑一个时钟 |
 
-从删除的 Pixi 计划结转、而且 plan/12 仍在引用的事实：
+从已删除的 Pixi 计划结转、且动画工作仍在引用的事实（Pixi 专有项已随 §7 清理，不再适用）：
 
 - 无头 Chromium + SwiftShader 不能代替独立显卡，也不能代替 Safari / Firefox。
-- `InkStage` 在 `webglcontextlost` 时暂停，恢复后不重建渲染纹理。
-- 十卡开场在 SwiftShader 上约 18–35 秒，真实 GPU 未测。
-- 遮罩、景深、EasyCam 的 1.1 倍变焦，在现行 Pixi 舞台上没有。过场侧分别对应 G-12、G-11。
+- 遮罩、景深、EasyCam 的 1.1 倍变焦在 three.js 路径上仍缺。过场侧对应 G-12、G-11。
 - 2.0 笔画还没有录制格式。新格式就是 G-04 的 `inkgames.ink-recording`。
-- 十卡命中大多是距离，不是扫掠。新关用 `Combat`。
+- 玩法命中仍是几何距离，不是扫掠体；扫掠体是 G-14 的待办。
+
+已作废、不再作为待办：
+
+- ~~Pixi `InkStage` 上下文丢失只暂停~~ —— `InkStage` 已删除。
+- ~~十卡开场 18–35 秒~~ —— 十卡已删除；当前开场性能以 `apps/history/` 的 `InkScene` 为准，仍未实测真实 GPU。
 
 ## 11. 所有者确认（2026-10-09）
 
@@ -488,10 +517,19 @@ Playfield 碰撞（角色 × 地面）
 9. **勾边。已确认。** 外壳挤出加 Perlin 毛边。拉近更粗，拉远更细。山石不用 `OutlinePass`。
 10. **噪声实现。已确认。** 移植 [stegu/webgl-noise](https://github.com/stegu/webgl-noise) 的 classic Perlin（MIT），并登记许可。
 11. **竹。已确认。** 顶点着色器摆动；上段进 Matter；墨滴不写回地面。`Skeleton` 留给以后的人物。
-12. **十卡。已确认。** 迁移完成前保持 Pixi 可玩，首页仍是十卡。
+12. **十卡。已变更（2026-10-09）。** 原决定是迁移完成前保持 Pixi 可玩；所有者随后要求彻底清理 Pixi/p5/原生 WebGL2，十卡页面已删除，首页改为三条 three.js 入口导航。
 13. **three.js 用法。已确认。** `WebGLRenderer` + `RawShaderMaterial` + GLSL3。不用 WebGPU / TSL。版本锁定为 2026-10-09 查询到的 npm latest **0.186.1**。
 14. **两套时钟。已确认。** 玩法固定步带插值；过场用帧时钟并且不跳笔；过场期间物理暂停。确认当时过场播放器还没写。随后 `CutscenePlayer` 按帧推进，`StoryStage` 播过场时不调用 `Playfield`。跳过会把实时笔画收成一次 `paint`。
 15. **两条切片。已确认。** 引擎切片包含坡、洇染、皴法、断竹。历史游戏 M1 等 `InkSurface` 可用再开始，G-16 的叙事触发保持 P1。
 16. **字幕。已确认。** P0 用 Canvas 纹理，不引入 troika-three-text 或其它文字依赖。`InkText` 已在 `/story/` 的过场里画标题和旁白，关卡页 `/scroll/` 仍没有字幕。
 17. **模块名。已确认。** 与 plan/12 对齐为 `InkSurface`、`CameraRig`、`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`PostStack`。
 18. **真实 GPU。已确认。** 由所有者在自己的 Mac（Apple Silicon，Chrome）上验收。在那之前文档保持「未实测」。仓库提供一条本地命令 `node scripts/gpu-check.mjs`：无头时只证明着色器能编过、没有 GL 错误；真实 GPU 的画面以所有者那次为准。
+
+
+## 历史动画进展（2026-10-09）
+
+新增 `InkScene`（`src/core/ink-scene.ts`，已从 `src/index.ts` 导出）：用真实 `InkSurface.paint` 把原创笔画画到透明墨面分件，支持位置/旋转/缩放/透明度与幂等释放，不加载图片。`apps/history/` 以 30 fps 展示纯程序「混沌开卷」五幕并保留原字幕。
+
+它是独立预演：未接入 `StoryStage` / `CutscenePlayer` 轨道，墨层为预绘制结果、播放中无逐帧新反馈，天裂用墨线淡出而非遮罩，关节为刚性分件旋转，上下文丢失不重建，也无真实音频。真实 GPU 观感与性能未实测。
+
+图片显影用的 `InkAnimation` 仍导出，但不是现行历史动画方向，`/history/` 已不再调用。计划与状态见 [历史动画专项](./12-history-game-ink-animation-production-plan.md) 与 [缺口 §6](./12-history-game-engine-gaps.md#6-纯引擎水墨动画实现方案2026-10-09-重新评估)。M0–M5 状态不变：`PostStack`、景深、录制、玩法模板仍开着。
