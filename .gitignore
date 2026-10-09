@@ -63,3 +63,8 @@ thirdparty/inkwash/
 
 # Chinese-History 史料语料（含现代版权作品 PDF，仅本地研究用，不进入公开仓库）
 thirdparty/Chinese_History-master*
+
+# Local third-party clones (not tracked)
+thirdparty/awesome-opus5-5-videos/
+thirdparty/awesome-opus5.5-frontend-showcases/
+thirdparty/story-to-handdrawn-video/
