@@ -164,8 +164,8 @@
    "span": "907—960 年",
    "scenes": 5,
    "v1": 2,
-   "full": 2,
-   "outline": 3
+   "full": 5,
+   "outline": 0
   },
   {
    "no": "15",
@@ -237,7 +237,7 @@
  "totals": {
   "scenes": 157,
   "v1": 66,
-  "full": 121,
-  "outline": 36
+  "full": 124,
+  "outline": 33
  }
 }

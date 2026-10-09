@@ -65,9 +65,9 @@
   {
    "outlineId": "14-01",
    "v1": false,
-   "detail": "outline",
+   "detail": "full",
    "scene": {
-    "format": "inkgames.scene-outline",
+    "format": "inkgames.scene",
     "version": 1,
     "id": "wudai.sanshi",
     "chapter": "wudai",
@@ -76,69 +76,1803 @@
     "subtitle": "scene.wudai.sanshi.subtitle",
     "when": {
      "start": 908,
+     "end": 926,
      "precision": "year",
-     "end": 923,
-     "display": "908—923 年",
+     "display": "908—926 年",
+     "era": "后梁开平二年至后唐同光四年",
      "verify": "done"
     },
     "key": false,
-    "template": "court",
+    "template": "battle",
     "props": [
-     "bow"
+     "bow",
+     "war-horse",
+     "banner",
+     "landscape",
+     "figure"
     ],
     "characters": [
+     "licunxu",
      "likeyong",
-     "licunxu"
+     "zhuwen",
+     "jingjin",
+     "guocongqian",
+     "lisiyuan"
     ],
-    "hooks": {
-     "canon": "scene.wudai.sanshi.hook.canon",
-     "legend": "scene.wudai.sanshi.hook.legend",
-     "play": "scene.wudai.sanshi.play"
-    },
-    "sources": [
-     {
-      "kind": "canon",
-      "title": "新五代史"
-     },
-     {
-      "kind": "modern",
-      "title": "五千年演义·五代纷争",
-      "notes": "现代演义，仅作叙事线索；回次据目录 OCR 对位，待核对"
-     },
-     {
-      "kind": "novel",
-      "title": "蔡东藩·五代史演义",
-      "corpus": {
-       "file": "野史/北宋.pdf",
-       "pages": "待定位"
+    "anchors": {
+     "entry": {
+      "id": "anchor.wudai.keyongzu",
+      "title": "anchor.keyongzu",
+      "when": {
+       "start": 908,
+       "precision": "month",
+       "display": "908 年正月",
+       "era": "天祐五年正月",
+       "verify": "done"
       },
-      "notes": "文件名与内容不一致，见书目；版权状态待核验"
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "旧五代史",
+        "section": "唐书·武皇纪下"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.wudai.xingjiaomen",
+      "title": "anchor.xingjiaomen",
+      "when": {
+       "start": 926,
+       "precision": "month",
+       "display": "926 年四月",
+       "era": "同光四年四月",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "新五代史",
+        "section": "唐本纪五·庄宗下"
+       }
+      ]
+     }
+    },
+    "opening": "cutscene.wudai.sanshi.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.wudai.sanshi.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.wudai.sanshi.opening",
+       "when": {
+        "start": 908,
+        "end": 926,
+        "precision": "year",
+        "display": "908—926 年",
+        "era": "后梁开平二年至后唐同光四年",
+        "verify": "done"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "唐本纪五·庄宗"
+        },
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "伶官传"
+        },
+        {
+         "kind": "canon",
+         "title": "旧五代史",
+         "section": "唐书·庄宗纪"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": 908,
+        "end": 926,
+        "precision": "year",
+        "display": "908—926 年",
+        "era": "后梁开平二年至后唐同光四年",
+        "verify": "done"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.wudai.sanshi.pick.canon",
+         "seal": "canon",
+         "to": "c.intro"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.wudai.sanshi.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.wudai.sanshi.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "wudai.sanshi/canon"
+           },
+           {
+            "cleared": "wudai.sanshi/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": 908,
+        "end": 926,
+        "precision": "year",
+        "display": "908—926 年",
+        "era": "后梁开平二年至后唐同光四年",
+        "verify": "done"
+       },
+       "dialogue": "scene.wudai.sanshi.canon.intro",
+       "next": [
+        "c.jiazhai"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "唐本纪五·庄宗"
+        },
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "伶官传"
+        },
+        {
+         "kind": "canon",
+         "title": "旧五代史",
+         "section": "唐书·庄宗纪"
+        }
+       ]
+      },
+      {
+       "id": "c.jiazhai",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 908,
+        "precision": "month",
+        "display": "908 年五月",
+        "era": "天祐五年五月",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "night-raid",
+        "params": {
+         "goal": "借大雾突入夹寨，烧其营垒，解潞州之围",
+         "beats": [
+          "fog",
+          "breach",
+          "burn"
+         ],
+         "failTo": "c.jiazhai",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.miliang"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "唐本纪五·庄宗"
+        },
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "伶官传"
+        },
+        {
+         "kind": "canon",
+         "title": "旧五代史",
+         "section": "唐书·庄宗纪"
+        }
+       ]
+      },
+      {
+       "id": "c.miliang",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 923,
+        "precision": "month",
+        "display": "923 年十月",
+        "era": "同光元年十月",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "cavalry",
+        "params": {
+         "goal": "自郓州长驱入汴，直取梁都",
+         "beats": [
+          "dash",
+          "cross",
+          "enter"
+         ],
+         "failTo": "c.miliang",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.lingren"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "唐本纪五·庄宗"
+        },
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "伶官传"
+        },
+        {
+         "kind": "canon",
+         "title": "旧五代史",
+         "section": "唐书·庄宗纪"
+        }
+       ]
+      },
+      {
+       "id": "c.lingren",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 908,
+        "end": 926,
+        "precision": "year",
+        "display": "908—926 年",
+        "era": "后梁开平二年至后唐同光四年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "court",
+        "params": {
+         "goal": "在宫中看伶人一步步干政，在你能劝谏的时候劝谏",
+         "beats": [
+          "observe",
+          "advise",
+          "ignored"
+         ],
+         "failTo": "c.lingren",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "唐本纪五·庄宗"
+        },
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "伶官传"
+        },
+        {
+         "kind": "canon",
+         "title": "旧五代史",
+         "section": "唐书·庄宗纪"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.wudai.sanshi.legend-intro",
+       "when": {
+        "start": 908,
+        "end": 926,
+        "precision": "year",
+        "display": "908—926 年",
+        "era": "后梁开平二年至后唐同光四年",
+        "verify": "done"
+       },
+       "label": "scene.wudai.sanshi.legend.disclaimer",
+       "dialogue": "scene.wudai.sanshi.legend.intro",
+       "next": [
+        "l.cangshi"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "伶官传序",
+         "notes": "欧阳修称“世言”，本纪不载"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·五代史演义",
+         "section": "第四回 李存勗督兵破夹寨",
+         "corpus": {
+          "file": "野史/北宋.pdf",
+          "pages": "p.12"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.cangshi",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 908,
+        "end": 926,
+        "precision": "year",
+        "display": "908—926 年",
+        "era": "后梁开平二年至后唐同光四年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "riddle",
+        "params": {
+         "goal": "把三支箭藏于宗庙，每次出征请出一支，凯旋时再纳回",
+         "beats": [
+          "store",
+          "take",
+          "return"
+         ],
+         "failTo": "l.cangshi",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.huanshi"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "伶官传序",
+         "notes": "欧阳修称“世言”，本纪不载"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·五代史演义",
+         "section": "第四回 李存勗督兵破夹寨",
+         "corpus": {
+          "file": "野史/北宋.pdf",
+          "pages": "p.12"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.huanshi",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 908,
+        "end": 926,
+        "precision": "year",
+        "display": "908—926 年",
+        "era": "后梁开平二年至后唐同光四年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "calligraphy",
+        "params": {
+         "goal": "以墨写三矢各自的结局：燕、契丹、梁",
+         "beats": [
+          "arrow-one",
+          "arrow-two",
+          "arrow-three"
+         ],
+         "failTo": "l.huanshi",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "伶官传序",
+         "notes": "欧阳修称“世言”，本纪不载"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·五代史演义",
+         "section": "第四回 李存勗督兵破夹寨",
+         "corpus": {
+          "file": "野史/北宋.pdf",
+          "pages": "p.12"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
+     {
+      "id": "end.canon",
+      "kind": "canon",
+      "title": "scene.wudai.sanshi.end.canon",
+      "cutscene": "cutscene.wudai.sanshi.end-canon",
+      "mergeTo": "anchor.wudai.xingjiaomen",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "新五代史",
+        "section": "唐本纪五·庄宗"
+       },
+       {
+        "kind": "canon",
+        "title": "新五代史",
+        "section": "伶官传"
+       },
+       {
+        "kind": "canon",
+        "title": "旧五代史",
+        "section": "唐书·庄宗纪"
+       }
+      ]
+     },
+     {
+      "id": "end.legend",
+      "title": "scene.wudai.sanshi.end.legend",
+      "cutscene": "cutscene.wudai.sanshi.end-legend",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "新五代史",
+        "section": "伶官传序",
+        "notes": "欧阳修称“世言”，本纪不载"
+       },
+       {
+        "kind": "novel",
+        "title": "蔡东藩·五代史演义",
+        "section": "第四回 李存勗督兵破夹寨",
+        "corpus": {
+         "file": "野史/北宋.pdf",
+         "pages": "p.12"
+        }
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.wudai.xingjiaomen",
+      "notes": "野史线结局与正史出口一致，属于汇流"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.wudai.sanshi.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
      }
     ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "三矢",
+       "canon": "本纪不载",
+       "legend": "《新五代史·伶官传序》：世言",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "唐本纪五·庄宗"
+        },
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "伶官传"
+        },
+        {
+         "kind": "canon",
+         "title": "旧五代史",
+         "section": "唐书·庄宗纪"
+        },
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "伶官传序",
+         "notes": "欧阳修称“世言”，本纪不载"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·五代史演义",
+         "section": "第四回 李存勗督兵破夹寨",
+         "corpus": {
+          "file": "野史/北宋.pdf",
+          "pages": "p.12"
+         }
+        }
+       ]
+      },
+      {
+       "topic": "庄宗之死",
+       "canon": "《新五代史》：中流矢，伶人善友聚乐器焚之",
+       "legend": "演义同",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "唐本纪五·庄宗"
+        },
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "伶官传"
+        },
+        {
+         "kind": "canon",
+         "title": "旧五代史",
+         "section": "唐书·庄宗纪"
+        },
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "伶官传序",
+         "notes": "欧阳修称“世言”，本纪不载"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·五代史演义",
+         "section": "第四回 李存勗督兵破夹寨",
+         "corpus": {
+          "file": "野史/北宋.pdf",
+          "pages": "p.12"
+         }
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.sanshi",
+       "person.licunxu",
+       "person.likeyong"
+      ],
+      "seal": "seal.sanshi"
+     }
+    },
     "verify": "pending",
-    "v1": false
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.wudai.sanshi.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      210,
+      204,
+      192
+     ],
+     "seed": 94024
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "太原晋阳宫，灵前三支箭"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "夹寨大雾，晋军突入"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "入汴，灭梁"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "宫中优伶，粉墨登场"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "兴教门外，流矢"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 360,
+         "variant": 1
+        }
+       },
+       "label": "远山"
+      },
+      {
+       "at": 160,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 250,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 320,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "bow",
+        "placement": {
+         "x": 640,
+         "y": 480
+        }
+       },
+       "label": "bow"
+      },
+      {
+       "at": 340,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 660,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "brush": "banner.gust",
+        "color": "light_gray_new",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           160,
+           160
+          ],
+          [
+           420,
+           130
+          ],
+          [
+           700,
+           170
+          ],
+          [
+           1000,
+           140
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "云"
+      },
+      {
+       "at": 870,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "brown",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           200,
+           520
+          ],
+          [
+           260,
+           440
+          ],
+          [
+           320,
+           520
+          ]
+         ]
+        },
+        "speed": 4
+       },
+       "label": "营帐"
+      },
+      {
+       "at": 930,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "brown",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           880,
+           520
+          ],
+          [
+           940,
+           440
+          ],
+          [
+           1000,
+           520
+          ]
+         ]
+        },
+        "speed": 4
+       },
+       "label": "营帐"
+      },
+      {
+       "at": 1080,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 420,
+         "y": 540,
+         "gait": 1
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 1140,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 760,
+         "y": 560,
+         "gait": 0,
+         "mirror": true
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 1290,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 300,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 4
+        }
+       },
+       "label": "李存勖"
+      },
+      {
+       "at": 1620,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "dark_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           80,
+           470
+          ],
+          [
+           80,
+           430
+          ],
+          [
+           140,
+           430
+          ],
+          [
+           140,
+           450
+          ],
+          [
+           200,
+           450
+          ],
+          [
+           200,
+           430
+          ],
+          [
+           260,
+           430
+          ],
+          [
+           260,
+           450
+          ],
+          [
+           1020,
+           450
+          ],
+          [
+           1020,
+           430
+          ],
+          [
+           1080,
+           430
+          ],
+          [
+           1080,
+           450
+          ],
+          [
+           1200,
+           450
+          ],
+          [
+           1200,
+           470
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "城墙雉堞"
+      },
+      {
+       "at": 2060,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 2090,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 2120,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 2150,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 2210,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "spear",
+        "placement": {
+         "x": 600,
+         "y": 480,
+         "angle": -0.4
+        }
+       },
+       "label": "长兵如林"
+      },
+      {
+       "at": 2500,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "banner",
+        "placement": {
+         "x": 980,
+         "y": 480
+        }
+       },
+       "label": "banner"
+      },
+      {
+       "at": 3060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 3150,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 3240,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 3580,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 3610,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 3640,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 3670,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 4100,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "景进"
+      },
+      {
+       "at": 4740,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "dark_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           520,
+           600
+          ],
+          [
+           520,
+           380
+          ],
+          [
+           760,
+           380
+          ],
+          [
+           760,
+           600
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "关门"
+      },
+      {
+       "at": 4940,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "bow",
+        "placement": {
+         "x": 560,
+         "y": 480
+        }
+       },
+       "label": "bow"
+      },
+      {
+       "at": 5140,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "兴教门"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "still"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.wudai.sanshi.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.wudai.sanshi.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 2700,
+       "until": 3000,
+       "kind": "caption",
+       "key": "scene.wudai.sanshi.quote",
+       "style": "kaiti",
+       "orientation": "vertical",
+       "x": 160,
+       "y": 120,
+       "source": {
+        "kind": "canon",
+        "title": "新五代史",
+        "section": "伶官传序"
+       }
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 1170,
+       "kind": "inkDisperse",
+       "layer": "terrain",
+       "params": {
+        "origin": [
+         600,
+         600
+        ],
+        "radius": 260,
+        "frames": 180
+       },
+       "label": "马蹄墨散（新引擎：地形动态纹理）"
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/pipa.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/palace-hall.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/battle-far.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/sanshi-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/sanshi-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1080,
+       "bus": "sfx",
+       "asset": "audio/sfx/hoofbeats.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/crowd-roar.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/sanshi-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/drum-far.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/crowd-murmur.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/sanshi-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3840,
+       "bus": "sfx",
+       "asset": "audio/sfx/cup-clink.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/battle-far.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/arrow-release.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/sanshi-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/arrow-release.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
    },
    "strings": {
     "locale": "zh-Hans",
     "strings": {
      "scene.wudai.sanshi.title": "三矢",
      "scene.wudai.sanshi.subtitle": "李存勖",
-     "scene.wudai.sanshi.hook.canon": "灭后梁，建后唐；伶人之祸",
-     "scene.wudai.sanshi.hook.legend": "三矢遗命（欧阳修《伶官传序》，真实性有疑，待核验）",
-     "scene.wudai.sanshi.play": "弓：bow（三矢）"
+     "scene.wudai.sanshi.when": "三矢",
+     "vo.01": "晋王李克用卒，其子李存勖嗣位，年方二十出头。",
+     "vo.02": "他首先救潞州。夹寨下大雾，晋军突入梁营，大破之。朱温闻之叹道：生子当如李亚子。",
+     "vo.03": "十五年间，他北破契丹，西败刘守光，南与梁军夹河而战。同光元年称帝，同年十月入汴，梁亡。",
+     "vo.04": "得天下之后，他宠信伶人，自傅粉墨，与优伶共戏于庭，伶人出入宫掖，侮弄缙绅。",
+     "vo.05": "同光四年，魏州兵变，从马直指挥使郭从谦也在洛阳作乱——",
+     "scene.wudai.sanshi.quote": "忧劳可以兴国，逸豫可以亡身",
+     "scene.wudai.sanshi.fork.prompt": "此刻落笔，循哪一卷而书？",
+     "anchor.keyongzu": "晋王李克用卒",
+     "anchor.xingjiaomen": "兴教门之变，庄宗遇弑",
+     "scene.wudai.sanshi.pick.canon": "正史 · 新旧《五代史》所载",
+     "scene.wudai.sanshi.canon.intro": "潞州被梁军的夹寨围了一年。新嗣位的晋王说：救潞州，就在今日。",
+     "scene.wudai.sanshi.end.canon": "郭从谦作乱，庄宗中流矢而死，宫人取乐器覆其尸焚之。李嗣源入洛阳即位。从破夹寨到身死，十八年。",
+     "scene.wudai.sanshi.pick.legend": "后世 · 三矢遗命",
+     "scene.wudai.sanshi.legend.disclaimer": "以下取自欧阳修《新五代史·伶官传序》，他自己说是“世言”：晋王临终以三矢赐庄宗。新旧《五代史》本纪都不载此事。",
+     "scene.wudai.sanshi.legend.intro": "世言：晋王将终，以三矢赐庄宗，说：梁，吾仇也；燕王，吾所立；契丹与吾约为兄弟，而皆背晋以归梁。此三者，吾遗恨也。",
+     "scene.wudai.sanshi.end.legend": "三矢都还了，人却亡于伶人之手。汇流。",
+     "scene.wudai.sanshi.pick.whatif": "推演 · 若庄宗远伶人（未开放）",
+     "scene.wudai.sanshi.end.whatif": "异闻 · 未开放"
     }
    },
    "cast": [
     {
-     "id": "likeyong",
-     "name": "李克用"
+     "id": "licunxu",
+     "name": "李存勖",
+     "title": "后唐庄宗",
+     "camp": "后唐",
+     "type": "ruler",
+     "bio": "继父志破夹寨、灭后梁，称帝后宠信伶人，死于兵变"
     },
     {
-     "id": "licunxu",
-     "name": "李存勖"
+     "id": "likeyong",
+     "name": "李克用",
+     "title": "晋王",
+     "camp": "晋",
+     "type": "ruler",
+     "bio": "沙陀首领，临终遗恨三事"
+    },
+    {
+     "id": "zhuwen",
+     "name": "朱温",
+     "title": "后梁太祖",
+     "camp": "后梁",
+     "type": "ruler",
+     "bio": "李克用的宿敌"
+    },
+    {
+     "id": "jingjin",
+     "name": "景进",
+     "title": "伶人",
+     "camp": "后唐",
+     "type": "other",
+     "bio": "庄宗宠信的伶人，干预朝政"
+    },
+    {
+     "id": "guocongqian",
+     "name": "郭从谦",
+     "title": "从马直指挥使",
+     "camp": "后唐",
+     "type": "other",
+     "bio": "伶人出身，率兵作乱，庄宗中流矢而死"
+    },
+    {
+     "id": "lisiyuan",
+     "name": "李嗣源",
+     "title": "蕃汉总管",
+     "camp": "后唐",
+     "type": "general",
+     "bio": "兵变中被拥立，是为明宗"
     }
    ],
-   "relations": [],
+   "relations": [
+    {
+     "from": "likeyong",
+     "to": "licunxu",
+     "relation": "父子",
+     "type": "family"
+    },
+    {
+     "from": "likeyong",
+     "to": "zhuwen",
+     "relation": "宿敌",
+     "type": "rival"
+    },
+    {
+     "from": "jingjin",
+     "to": "licunxu",
+     "relation": "宠伶",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "guocongqian",
+     "to": "licunxu",
+     "relation": "兴教门之变",
+     "type": "rival"
+    },
+    {
+     "from": "lisiyuan",
+     "to": "licunxu",
+     "relation": "义兄，后代之",
+     "type": "family",
+     "directed": true
+    }
+   ],
    "artPrompts": [
     {
      "id": "wudai.sanshi.sheet.cast.1",
@@ -147,38 +1881,84 @@
      "segment": 1,
      "segmentsInCategory": 1,
      "grid": {
-      "cols": 2,
+      "cols": 3,
       "rows": 2
      },
      "assets": [
       {
        "slot": 1,
-       "id": "wudai.sanshi.art.cast.likeyong",
-       "name": "李克用",
+       "id": "wudai.sanshi.art.cast.licunxu",
+       "name": "李存勖（后唐庄宗）",
        "kind": "figure",
+       "note": "后唐·君主",
+       "ref": {
+        "prop": "figure",
+        "actor": "licunxu"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "wudai.sanshi.art.cast.likeyong",
+       "name": "李克用（晋王）",
+       "kind": "figure",
+       "note": "晋·君主",
        "ref": {
         "prop": "figure",
         "actor": "likeyong"
        }
       },
       {
-       "slot": 2,
-       "id": "wudai.sanshi.art.cast.licunxu",
-       "name": "李存勖",
+       "slot": 3,
+       "id": "wudai.sanshi.art.cast.zhuwen",
+       "name": "朱温（后梁太祖）",
        "kind": "figure",
+       "note": "后梁·君主",
        "ref": {
         "prop": "figure",
-        "actor": "licunxu"
+        "actor": "zhuwen"
+       }
+      },
+      {
+       "slot": 4,
+       "id": "wudai.sanshi.art.cast.jingjin",
+       "name": "景进（伶人）",
+       "kind": "figure",
+       "note": "后唐·其他",
+       "ref": {
+        "prop": "figure",
+        "actor": "jingjin"
+       }
+      },
+      {
+       "slot": 5,
+       "id": "wudai.sanshi.art.cast.guocongqian",
+       "name": "郭从谦（从马直指挥使）",
+       "kind": "figure",
+       "note": "后唐·其他",
+       "ref": {
+        "prop": "figure",
+        "actor": "guocongqian"
+       }
+      },
+      {
+       "slot": 6,
+       "id": "wudai.sanshi.art.cast.lisiyuan",
+       "name": "李嗣源（蕃汉总管）",
+       "kind": "figure",
+       "note": "后唐·武将",
+       "ref": {
+        "prop": "figure",
+        "actor": "lisiyuan"
        }
       }
      ],
-     "prompt": "中国水墨写意素材图（人物立绘），题材：三矢·李存勖（908—923 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 李克用；2. 李存勖。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（人物立绘），题材：三矢·李存勖（908—926 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 李存勖（后唐庄宗）（后唐·君主）；2. 李克用（晋王）（晋·君主）；3. 朱温（后梁太祖）（后梁·君主）。\n第 2 行：4. 景进（伶人）（后唐·其他）；5. 郭从谦（从马直指挥使）（后唐·其他）；6. 李嗣源（蕃汉总管）（后唐·武将）。\n排版参考尺寸：1536×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
       "apiVerified": false,
       "sizePx": [
-       1024,
+       1536,
        1024
       ],
       "cellPx": 512,
@@ -206,9 +1986,29 @@
        "ref": {
         "prop": "bow"
        }
+      },
+      {
+       "slot": 2,
+       "id": "wudai.sanshi.art.props.2",
+       "name": "战马",
+       "kind": "prop",
+       "note": "奔马侧影，鬃尾飞扬，四蹄腾空",
+       "ref": {
+        "prop": "war-horse"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "wudai.sanshi.art.props.3",
+       "name": "旌旗",
+       "kind": "prop",
+       "note": "高杆大旗，旗面被风鼓起，穗带飘动",
+       "ref": {
+        "prop": "banner"
+       }
       }
      ],
-     "prompt": "中国水墨写意素材图（道具器物），题材：三矢·李存勖（908—923 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 角弓与箭（弯弓与箭矢，弓弦紧绷）；2. 留空。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（道具器物），题材：三矢·李存勖（908—926 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 角弓与箭（弯弓与箭矢，弓弦紧绷）；2. 战马（奔马侧影，鬃尾飞扬，四蹄腾空）。\n第 2 行：3. 旌旗（高杆大旗，旗面被风鼓起，穗带飘动）；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
@@ -229,43 +2029,97 @@
      "segment": 1,
      "segmentsInCategory": 1,
      "grid": {
-      "cols": 2,
-      "rows": 2
+      "cols": 4,
+      "rows": 4
      },
      "assets": [
       {
        "slot": 1,
        "id": "wudai.sanshi.art.scenery.1",
-       "name": "宫殿台基",
+       "name": "远山（淡墨）",
        "kind": "scenery"
       },
       {
        "slot": 2,
        "id": "wudai.sanshi.art.scenery.2",
-       "name": "朱漆立柱",
+       "name": "近坡（中墨）",
        "kind": "scenery"
       },
       {
        "slot": 3,
        "id": "wudai.sanshi.art.scenery.3",
-       "name": "仕宦屏风",
+       "name": "土坡地线",
        "kind": "scenery"
       },
       {
        "slot": 4,
        "id": "wudai.sanshi.art.scenery.4",
-       "name": "几案与席",
+       "name": "草丛（枯笔）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 5,
+       "id": "wudai.sanshi.art.scenery.5",
+       "name": "军营帐幕",
+       "kind": "scenery"
+      },
+      {
+       "slot": 6,
+       "id": "wudai.sanshi.art.scenery.6",
+       "name": "旌旗阵列",
+       "kind": "scenery"
+      },
+      {
+       "slot": 7,
+       "id": "wudai.sanshi.art.scenery.7",
+       "name": "拒马鹿角",
+       "kind": "scenery"
+      },
+      {
+       "slot": 8,
+       "id": "wudai.sanshi.art.scenery.8",
+       "name": "远山烟岚",
+       "kind": "scenery"
+      },
+      {
+       "slot": 9,
+       "id": "wudai.sanshi.art.scenery.9",
+       "name": "殿柱",
+       "kind": "scenery"
+      },
+      {
+       "slot": 10,
+       "id": "wudai.sanshi.art.scenery.10",
+       "name": "屋檐",
+       "kind": "scenery"
+      },
+      {
+       "slot": 11,
+       "id": "wudai.sanshi.art.scenery.11",
+       "name": "营帐",
+       "kind": "scenery"
+      },
+      {
+       "slot": 12,
+       "id": "wudai.sanshi.art.scenery.12",
+       "name": "城墙雉堞",
+       "kind": "scenery"
+      },
+      {
+       "slot": 13,
+       "id": "wudai.sanshi.art.scenery.13",
+       "name": "关门",
        "kind": "scenery"
       }
      ],
-     "prompt": "中国水墨写意素材图（场景环境），题材：三矢·李存勖（908—923 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 宫殿台基；2. 朱漆立柱。\n第 2 行：3. 仕宦屏风；4. 几案与席。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（场景环境），题材：三矢·李存勖（908—926 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：4×4 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 远山（淡墨）；2. 近坡（中墨）；3. 土坡地线；4. 草丛（枯笔）。\n第 2 行：5. 军营帐幕；6. 旌旗阵列；7. 拒马鹿角；8. 远山烟岚。\n第 3 行：9. 殿柱；10. 屋檐；11. 营帐；12. 城墙雉堞。\n第 4 行：13. 关门；14. 留空；15. 留空；16. 留空。\n排版参考尺寸：2048×2048 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
       "apiVerified": false,
       "sizePx": [
-       1024,
-       1024
+       2048,
+       2048
       ],
       "cellPx": 512,
       "background": "transparent",
@@ -279,8 +2133,8 @@
      "segment": 1,
      "segmentsInCategory": 1,
      "grid": {
-      "cols": 2,
-      "rows": 2
+      "cols": 3,
+      "rows": 3
      },
      "assets": [
       {
@@ -306,16 +2160,40 @@
        "id": "wudai.sanshi.art.effects.4",
        "name": "命中靶心墨点",
        "kind": "fx"
+      },
+      {
+       "slot": 5,
+       "id": "wudai.sanshi.art.effects.5",
+       "name": "蹄下墨尘",
+       "kind": "fx"
+      },
+      {
+       "slot": 6,
+       "id": "wudai.sanshi.art.effects.6",
+       "name": "鬃毛飞扬",
+       "kind": "fx"
+      },
+      {
+       "slot": 7,
+       "id": "wudai.sanshi.art.effects.7",
+       "name": "风卷旗影",
+       "kind": "fx"
+      },
+      {
+       "slot": 8,
+       "id": "wudai.sanshi.art.effects.8",
+       "name": "冲阵烟尘",
+       "kind": "fx"
       }
      ],
-     "prompt": "中国水墨写意素材图（水墨特效），题材：三矢·李存勖（908—923 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触。\n第 2 行：3. 箭矢破空；4. 命中靶心墨点。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（水墨特效），题材：三矢·李存勖（908—926 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触；3. 箭矢破空。\n第 2 行：4. 命中靶心墨点；5. 蹄下墨尘；6. 鬃毛飞扬。\n第 3 行：7. 风卷旗影；8. 冲阵烟尘；9. 留空。\n排版参考尺寸：1536×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
       "apiVerified": false,
       "sizePx": [
-       1024,
-       1024
+       1536,
+       1536
       ],
       "cellPx": 512,
       "background": "transparent",
@@ -365,17 +2243,17 @@
       "id": "anchor.wudai.hedong",
       "title": "anchor.hedong",
       "when": {
-       "start": 933,
-       "precision": "circa",
-       "display": "约 933 年",
-       "verify": "pending",
-       "notes": "石敬瑭出镇河东之年待核验"
+       "start": 932,
+       "precision": "month",
+       "display": "932 年十一月",
+       "era": "后唐长兴三年十一月",
+       "verify": "done"
       },
       "sources": [
        {
         "kind": "canon",
-        "title": "旧五代史",
-        "section": "晋高祖纪"
+        "title": "资治通鉴",
+        "section": "后唐纪七"
        }
       ]
      },
@@ -457,7 +2335,7 @@
          "id": "pick.canon",
          "label": "scene.wudai.yanyun.pick.canon",
          "seal": "canon",
-         "to": "c.council"
+         "to": "c.intro"
         },
         {
          "id": "pick.legend",
@@ -480,6 +2358,40 @@
            }
           ]
          }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": 936,
+        "end": 938,
+        "precision": "year",
+        "display": "936—938 年",
+        "era": "后唐清泰三年至后晋天福三年",
+        "verify": "done"
+       },
+       "dialogue": "scene.wudai.yanyun.canon.intro",
+       "next": [
+        "c.council"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧五代史",
+         "section": "晋高祖纪"
+        },
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "晋本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "后晋纪"
         }
        ]
       },
@@ -1726,9 +3638,10 @@
      "anchor.hedong": "石敬瑭镇河东",
      "anchor.xian-tu": "献燕云十六州图籍",
      "scene.wudai.yanyun.pick.canon": "正史 · 《旧五代史》、《新五代史》所载",
+     "scene.wudai.yanyun.canon.intro": "太原城被后唐军围住了。石敬瑭让桑维翰起草给契丹的表文，上面写着：称臣、称子，割卢龙一道及雁门以北诸州。",
      "scene.wudai.yanyun.end.canon": "燕云十六州入于契丹，此后四百余年，中原王朝的北方屏障洞开。",
      "scene.wudai.yanyun.pick.legend": "演义 · 五代史演义",
-     "scene.wudai.yanyun.legend.disclaimer": "以下参考蔡东藩《五代史演义》（本地文件名为“北宋.pdf”）的敷演，版权状态待核验，只作情节线索；“儿皇帝”之称见于史书。",
+     "scene.wudai.yanyun.legend.disclaimer": "以下参考蔡东藩《五代史演义》（本地文件名为“北宋.pdf”）的敷演（原作已属公有领域），只作情节线索，不引用文字；“儿皇帝”之称见于史书。",
      "scene.wudai.yanyun.legend.intro": "演义写石敬瑭年长于耶律德光十岁，却以父事之，时人称为“儿皇帝”。",
      "scene.wudai.yanyun.end.legend": "典礼结束，称号流传。演义汇回正史：燕云十六州入于契丹。",
      "scene.wudai.yanyun.pick.whatif": "推演 · 若石敬瑭听刘知远（未开放）",
@@ -2122,9 +4035,9 @@
   {
    "outlineId": "14-03",
    "v1": false,
-   "detail": "outline",
+   "detail": "full",
    "scene": {
-    "format": "inkgames.scene-outline",
+    "format": "inkgames.scene",
     "version": 1,
     "id": "wudai.gaoping",
     "chapter": "wudai",
@@ -2133,71 +4046,1556 @@
     "subtitle": "scene.wudai.gaoping.subtitle",
     "when": {
      "start": 954,
-     "precision": "year",
-     "display": "954 年",
+     "precision": "month",
+     "display": "954 年三月",
+     "era": "后周显德元年三月",
      "verify": "done"
     },
     "key": false,
     "template": "battle",
     "props": [
+     "war-horse",
+     "banner",
      "spear",
-     "war-horse"
+     "landscape",
+     "figure"
     ],
     "characters": [
      "chairong",
      "zhaokuangyin",
-     "beihan",
-     "liao"
+     "zhangyongde",
+     "liuchong",
+     "fanaineng",
+     "fengdao"
     ],
-    "hooks": {
-     "canon": "scene.wudai.gaoping.hook.canon",
-     "legend": "scene.wudai.gaoping.hook.legend",
-     "play": "scene.wudai.gaoping.play"
+    "anchors": {
+     "entry": {
+      "id": "anchor.wudai.liuchongnan",
+      "title": "anchor.liuchongnan",
+      "when": {
+       "start": 954,
+       "precision": "month",
+       "display": "954 年二月",
+       "era": "显德元年二月",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "旧五代史",
+        "section": "周书·世宗纪一"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.wudai.banshi",
+      "title": "anchor.banshi",
+      "when": {
+       "start": 954,
+       "precision": "month",
+       "display": "954 年六月",
+       "era": "显德元年六月",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "旧五代史",
+        "section": "周书·世宗纪一"
+       }
+      ]
+     }
     },
-    "sources": [
+    "opening": "cutscene.wudai.gaoping.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.wudai.gaoping.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.wudai.gaoping.opening",
+       "when": {
+        "start": 954,
+        "precision": "month",
+        "display": "954 年三月",
+        "era": "后周显德元年三月",
+        "verify": "done"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧五代史",
+         "section": "周书·世宗纪一"
+        },
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "周本纪·世宗"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "后周纪二"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": 954,
+        "precision": "month",
+        "display": "954 年三月",
+        "era": "后周显德元年三月",
+        "verify": "done"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.wudai.gaoping.pick.canon",
+         "seal": "canon",
+         "to": "c.intro"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.wudai.gaoping.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.wudai.gaoping.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "wudai.gaoping/canon"
+           },
+           {
+            "cleared": "wudai.gaoping/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": 954,
+        "precision": "month",
+        "display": "954 年三月",
+        "era": "后周显德元年三月",
+        "verify": "done"
+       },
+       "dialogue": "scene.wudai.gaoping.canon.intro",
+       "next": [
+        "c.qinzheng"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧五代史",
+         "section": "周书·世宗纪一"
+        },
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "周本纪·世宗"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "后周纪二"
+        }
+       ]
+      },
+      {
+       "id": "c.qinzheng",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 954,
+        "precision": "month",
+        "display": "954 年三月",
+        "era": "后周显德元年三月",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "court",
+        "params": {
+         "goal": "在冯道的谏阻前坚持亲征，定下出兵的日子",
+         "beats": [
+          "debate",
+          "insist"
+         ],
+         "failTo": "c.qinzheng",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.dushi"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧五代史",
+         "section": "周书·世宗纪一"
+        },
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "周本纪·世宗"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "后周纪二"
+        }
+       ]
+      },
+      {
+       "id": "c.dushi",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 954,
+        "precision": "month",
+        "display": "954 年三月",
+        "era": "后周显德元年三月",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "battle",
+        "params": {
+         "goal": "右军溃逃时冒矢石督战，稳住中军",
+         "beats": [
+          "rally",
+          "hold",
+          "signal"
+         ],
+         "failTo": "c.dushi",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.chongzhen"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧五代史",
+         "section": "周书·世宗纪一"
+        },
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "周本纪·世宗"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "后周纪二"
+        }
+       ]
+      },
+      {
+       "id": "c.chongzhen",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 954,
+        "precision": "month",
+        "display": "954 年三月",
+        "era": "后周显德元年三月",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "cavalry",
+        "params": {
+         "goal": "以赵匡胤的身份率二千人冲击北汉右翼",
+         "beats": [
+          "charge",
+          "break",
+          "pursue"
+         ],
+         "failTo": "c.chongzhen",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧五代史",
+         "section": "周书·世宗纪一"
+        },
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "周本纪·世宗"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "后周纪二"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.wudai.gaoping.legend-intro",
+       "when": {
+        "start": 954,
+        "precision": "month",
+        "display": "954 年三月",
+        "era": "后周显德元年三月",
+        "verify": "done"
+       },
+       "label": "scene.wudai.gaoping.legend.disclaimer",
+       "dialogue": "scene.wudai.gaoping.legend.intro",
+       "next": [
+        "l.zhangzhong"
+       ],
+       "sources": [
+        {
+         "kind": "novel",
+         "title": "蔡东藩·五代史演义",
+         "section": "第五十一回 高平县敌忾奏奇勋",
+         "corpus": {
+          "file": "野史/北宋.pdf",
+          "pages": "p.166–168"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.zhangzhong",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 954,
+        "precision": "month",
+        "display": "954 年三月",
+        "era": "后周显德元年三月",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "court",
+        "params": {
+         "goal": "帐中议战：分配兵力，决定谁守中军、谁冲两翼",
+         "beats": [
+          "plan",
+          "assign"
+         ],
+         "failTo": "l.zhangzhong",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.zhanjiang"
+       ],
+       "sources": [
+        {
+         "kind": "novel",
+         "title": "蔡东藩·五代史演义",
+         "section": "第五十一回 高平县敌忾奏奇勋",
+         "corpus": {
+          "file": "野史/北宋.pdf",
+          "pages": "p.166–168"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.zhanjiang",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 954,
+        "precision": "month",
+        "display": "954 年三月",
+        "era": "后周显德元年三月",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "court",
+        "params": {
+         "goal": "战后处置逃将：杀与不杀，关系到禁军的军纪",
+         "beats": [
+          "judge",
+          "execute"
+         ],
+         "failTo": "l.zhanjiang",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "novel",
+         "title": "蔡东藩·五代史演义",
+         "section": "第五十一回 高平县敌忾奏奇勋",
+         "corpus": {
+          "file": "野史/北宋.pdf",
+          "pages": "p.166–168"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
      {
+      "id": "end.canon",
       "kind": "canon",
-      "title": "旧五代史",
-      "section": "世宗纪"
+      "title": "scene.wudai.gaoping.end.canon",
+      "cutscene": "cutscene.wudai.gaoping.end-canon",
+      "mergeTo": "anchor.wudai.banshi",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "旧五代史",
+        "section": "周书·世宗纪一"
+       },
+       {
+        "kind": "canon",
+        "title": "新五代史",
+        "section": "周本纪·世宗"
+       },
+       {
+        "kind": "canon",
+        "title": "资治通鉴",
+        "section": "后周纪二"
+       }
+      ]
      },
      {
-      "kind": "modern",
-      "title": "五千年演义·五代纷争",
-      "notes": "现代演义，仅作叙事线索；回次据目录 OCR 对位，待核对"
+      "id": "end.legend",
+      "title": "scene.wudai.gaoping.end.legend",
+      "cutscene": "cutscene.wudai.gaoping.end-legend",
+      "sources": [
+       {
+        "kind": "novel",
+        "title": "蔡东藩·五代史演义",
+        "section": "第五十一回 高平县敌忾奏奇勋",
+        "corpus": {
+         "file": "野史/北宋.pdf",
+         "pages": "p.166–168"
+        }
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.wudai.banshi",
+      "notes": "野史线结局与正史出口一致，属于汇流"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.wudai.gaoping.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
      }
     ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "冯道之谏",
+       "canon": "《资治通鉴》：未审陛下能为山否",
+       "legend": "演义同",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧五代史",
+         "section": "周书·世宗纪一"
+        },
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "周本纪·世宗"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "后周纪二"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·五代史演义",
+         "section": "第五十一回 高平县敌忾奏奇勋",
+         "corpus": {
+          "file": "野史/北宋.pdf",
+          "pages": "p.166–168"
+         }
+        }
+       ]
+      },
+      {
+       "topic": "斩逃将",
+       "canon": "《旧五代史》：斩樊爱能、何徽等七十余人",
+       "legend": "演义同",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧五代史",
+         "section": "周书·世宗纪一"
+        },
+        {
+         "kind": "canon",
+         "title": "新五代史",
+         "section": "周本纪·世宗"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "后周纪二"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·五代史演义",
+         "section": "第五十一回 高平县敌忾奏奇勋",
+         "corpus": {
+          "file": "野史/北宋.pdf",
+          "pages": "p.166–168"
+         }
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.gaoping",
+       "person.chairong",
+       "person.zhaokuangyin"
+      ],
+      "seal": "seal.gaoping"
+     }
+    },
     "verify": "pending",
-    "v1": false
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.wudai.gaoping.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      210,
+      204,
+      192
+     ],
+     "seed": 32308
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "泽州高平，巴公原"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "冯道谏：未审陛下能为山否"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "右军先溃，樊爱能引骑南走"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "世宗亲冒矢石督战"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "赵匡胤率二千人冲阵"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 360,
+         "variant": 1
+        }
+       },
+       "label": "远山"
+      },
+      {
+       "at": 160,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "nearHill",
+         "ground"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 420
+        }
+       },
+       "label": "近山与地面"
+      },
+      {
+       "at": 320,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "grass"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 560
+        }
+       },
+       "label": "草"
+      },
+      {
+       "at": 660,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 750,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 840,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 940,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "冯道"
+      },
+      {
+       "at": 1220,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "柴荣"
+      },
+      {
+       "at": 1620,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 1650,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 1680,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 1710,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 1770,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "spear",
+        "placement": {
+         "x": 600,
+         "y": 480,
+         "angle": -0.4
+        }
+       },
+       "label": "长兵如林"
+      },
+      {
+       "at": 2060,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 420,
+         "y": 540,
+         "gait": 1
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 2120,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 760,
+         "y": 560,
+         "gait": 0,
+         "mirror": true
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 2500,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "ink-bomb.spill",
+        "color": "medium_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           200,
+           500
+          ],
+          [
+           420,
+           380
+          ],
+          [
+           640,
+           420
+          ],
+          [
+           900,
+           300
+          ],
+          [
+           1100,
+           340
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "烟"
+      },
+      {
+       "at": 3060,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "banner",
+        "placement": {
+         "x": 300,
+         "y": 480
+        }
+       },
+       "label": "banner"
+      },
+      {
+       "at": 3580,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "柴荣"
+      },
+      {
+       "at": 4100,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 560,
+         "y": 480
+        }
+       },
+       "label": "war-horse"
+      },
+      {
+       "at": 4740,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 420,
+         "y": 540,
+         "gait": 1
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 4800,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 760,
+         "y": 560,
+         "gait": 0,
+         "mirror": true
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 4940,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "赵匡胤"
+      },
+      {
+       "at": 5140,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "高平"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "still"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.wudai.gaoping.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.wudai.gaoping.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 2700,
+       "until": 3000,
+       "kind": "caption",
+       "key": "scene.wudai.gaoping.quote",
+       "style": "kaiti",
+       "orientation": "vertical",
+       "x": 160,
+       "y": 120,
+       "source": {
+        "kind": "canon",
+        "title": "资治通鉴",
+        "section": "后周纪二"
+       }
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 2150,
+       "kind": "inkDisperse",
+       "layer": "terrain",
+       "params": {
+        "origin": [
+         600,
+         600
+        ],
+        "radius": 260,
+        "frames": 180
+       },
+       "label": "马蹄墨散（新引擎：地形动态纹理）"
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 4830,
+       "kind": "inkDisperse",
+       "layer": "terrain",
+       "params": {
+        "origin": [
+         600,
+         600
+        ],
+        "radius": 260,
+        "frames": 180
+       },
+       "label": "马蹄墨散（新引擎：地形动态纹理）"
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/bronze-drum.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/wind-plain.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/palace-hall.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/gaoping-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/gaoping-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1080,
+       "bus": "sfx",
+       "asset": "audio/sfx/bamboo-slip.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/battle-far.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/gaoping-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/hoofbeats.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/battle-far.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/gaoping-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3840,
+       "bus": "sfx",
+       "asset": "audio/sfx/drum-burst.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/battle-far.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/war-cry.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/gaoping-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/war-cry.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
    },
    "strings": {
     "locale": "zh-Hans",
     "strings": {
      "scene.wudai.gaoping.title": "高平之战",
      "scene.wudai.gaoping.subtitle": "周世宗",
-     "scene.wudai.gaoping.hook.canon": "临阵督战，反败为胜",
-     "scene.wudai.gaoping.hook.legend": "无",
-     "scene.wudai.gaoping.play": "战阵：war-horse、spear"
+     "scene.wudai.gaoping.when": "高平",
+     "vo.01": "周太祖郭威驾崩，养子柴荣即位。北汉刘崇以为有机可乘，引契丹兵南下。",
+     "vo.02": "世宗要亲征。太师冯道说：陛下未可比唐太宗。世宗说：刘崇犹如以泰山压卵。冯道说：未审陛下能为山否？",
+     "vo.03": "世宗还是去了。两军战于高平，刚一接战，右军樊爱能、何徽便引骑兵南逃，步兵千余人解甲投降。",
+     "vo.04": "世宗见军势危急，亲自冒矢石督战。",
+     "vo.05": "宿卫将赵匡胤对同列说：主危如此，吾属何得不致死——",
+     "scene.wudai.gaoping.quote": "主危如此，吾属何得不致死",
+     "scene.wudai.gaoping.fork.prompt": "此刻落笔，循哪一卷而书？",
+     "anchor.liuchongnan": "北汉刘崇联辽南下",
+     "anchor.banshi": "围太原不克班师",
+     "scene.wudai.gaoping.pick.canon": "正史 · 《旧五代史》《资治通鉴》所载",
+     "scene.wudai.gaoping.canon.intro": "高平的原野上，北汉军列阵东西。世宗刚刚即位两个月，朝中还有人不服。",
+     "scene.wudai.gaoping.end.canon": "北汉大败，刘崇仅以百余骑逃归。世宗斩樊爱能、何徽及将校七十余人，军威大振，从此整顿禁军。赵匡胤因功擢升。",
+     "scene.wudai.gaoping.pick.legend": "演义 · 五代史演义",
+     "scene.wudai.gaoping.legend.disclaimer": "以下按蔡东藩《五代史演义》第五十一回改编，主干同正史，对话与细节为小说增饰。",
+     "scene.wudai.gaoping.legend.intro": "演义写世宗在帐中连夜召见诸将，赵匡胤自请冲锋，张永德与他约定分左右进击。",
+     "scene.wudai.gaoping.end.legend": "军纪一振，后周由此强盛。演义汇回正史。",
+     "scene.wudai.gaoping.pick.whatif": "推演 · 若世宗听冯道之谏（未开放）",
+     "scene.wudai.gaoping.end.whatif": "异闻 · 未开放"
     }
    },
    "cast": [
     {
      "id": "chairong",
-     "name": "柴荣"
+     "name": "柴荣",
+     "title": "周世宗",
+     "camp": "后周",
+     "type": "ruler",
+     "bio": "即位之初亲征，临阵督战，反败为胜"
     },
     {
      "id": "zhaokuangyin",
-     "name": "赵匡胤"
+     "name": "赵匡胤",
+     "title": "宿卫将",
+     "camp": "后周",
+     "type": "general",
+     "bio": "与张永德各将二千人冲阵"
     },
     {
-     "id": "beihan",
-     "name": "北汉"
+     "id": "zhangyongde",
+     "name": "张永德",
+     "title": "殿前都虞候",
+     "camp": "后周",
+     "type": "general",
+     "bio": "与赵匡胤分左右进击"
     },
     {
-     "id": "liao",
-     "name": "辽"
+     "id": "liuchong",
+     "name": "刘崇",
+     "title": "北汉主",
+     "camp": "北汉",
+     "type": "ruler",
+     "bio": "乘周太祖新丧，联辽南下"
+    },
+    {
+     "id": "fanaineng",
+     "name": "樊爱能",
+     "title": "马军都指挥使",
+     "camp": "后周",
+     "type": "general",
+     "bio": "临阵先遁，战后被斩"
+    },
+    {
+     "id": "fengdao",
+     "name": "冯道",
+     "title": "太师",
+     "camp": "后周",
+     "type": "minister",
+     "bio": "谏阻亲征"
     }
    ],
-   "relations": [],
+   "relations": [
+    {
+     "from": "chairong",
+     "to": "liuchong",
+     "relation": "高平之战",
+     "type": "rival"
+    },
+    {
+     "from": "zhaokuangyin",
+     "to": "chairong",
+     "relation": "宿卫",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "zhangyongde",
+     "to": "chairong",
+     "relation": "宿卫",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "fanaineng",
+     "to": "chairong",
+     "relation": "先遁被斩",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "fengdao",
+     "to": "chairong",
+     "relation": "谏阻",
+     "type": "rival"
+    }
+   ],
    "artPrompts": [
     {
      "id": "wudai.gaoping.sheet.cast.1",
@@ -2206,15 +5604,16 @@
      "segment": 1,
      "segmentsInCategory": 1,
      "grid": {
-      "cols": 2,
+      "cols": 3,
       "rows": 2
      },
      "assets": [
       {
        "slot": 1,
        "id": "wudai.gaoping.art.cast.chairong",
-       "name": "柴荣",
+       "name": "柴荣（周世宗）",
        "kind": "figure",
+       "note": "后周·君主",
        "ref": {
         "prop": "figure",
         "actor": "chairong"
@@ -2223,8 +5622,9 @@
       {
        "slot": 2,
        "id": "wudai.gaoping.art.cast.zhaokuangyin",
-       "name": "赵匡胤",
+       "name": "赵匡胤（宿卫将）",
        "kind": "figure",
+       "note": "后周·武将",
        "ref": {
         "prop": "figure",
         "actor": "zhaokuangyin"
@@ -2232,32 +5632,56 @@
       },
       {
        "slot": 3,
-       "id": "wudai.gaoping.art.cast.beihan",
-       "name": "北汉",
+       "id": "wudai.gaoping.art.cast.zhangyongde",
+       "name": "张永德（殿前都虞候）",
        "kind": "figure",
+       "note": "后周·武将",
        "ref": {
         "prop": "figure",
-        "actor": "beihan"
+        "actor": "zhangyongde"
        }
       },
       {
        "slot": 4,
-       "id": "wudai.gaoping.art.cast.liao",
-       "name": "辽",
+       "id": "wudai.gaoping.art.cast.liuchong",
+       "name": "刘崇（北汉主）",
        "kind": "figure",
+       "note": "北汉·君主",
        "ref": {
         "prop": "figure",
-        "actor": "liao"
+        "actor": "liuchong"
+       }
+      },
+      {
+       "slot": 5,
+       "id": "wudai.gaoping.art.cast.fanaineng",
+       "name": "樊爱能（马军都指挥使）",
+       "kind": "figure",
+       "note": "后周·武将",
+       "ref": {
+        "prop": "figure",
+        "actor": "fanaineng"
+       }
+      },
+      {
+       "slot": 6,
+       "id": "wudai.gaoping.art.cast.fengdao",
+       "name": "冯道（太师）",
+       "kind": "figure",
+       "note": "后周·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "fengdao"
        }
       }
      ],
-     "prompt": "中国水墨写意素材图（人物立绘），题材：高平之战·周世宗（954 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 柴荣；2. 赵匡胤。\n第 2 行：3. 北汉；4. 辽。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（人物立绘），题材：高平之战·周世宗（954 年三月）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 柴荣（周世宗）（后周·君主）；2. 赵匡胤（宿卫将）（后周·武将）；3. 张永德（殿前都虞候）（后周·武将）。\n第 2 行：4. 刘崇（北汉主）（北汉·君主）；5. 樊爱能（马军都指挥使）（后周·武将）；6. 冯道（太师）（后周·文臣）。\n排版参考尺寸：1536×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
       "apiVerified": false,
       "sizePx": [
-       1024,
+       1536,
        1024
       ],
       "cellPx": 512,
@@ -2279,25 +5703,35 @@
       {
        "slot": 1,
        "id": "wudai.gaoping.art.props.1",
-       "name": "长枪",
-       "kind": "prop",
-       "note": "枪身修长，锋尖寒芒，红缨垂坠",
-       "ref": {
-        "prop": "spear"
-       }
-      },
-      {
-       "slot": 2,
-       "id": "wudai.gaoping.art.props.2",
        "name": "战马",
        "kind": "prop",
        "note": "奔马侧影，鬃尾飞扬，四蹄腾空",
        "ref": {
         "prop": "war-horse"
        }
+      },
+      {
+       "slot": 2,
+       "id": "wudai.gaoping.art.props.2",
+       "name": "旌旗",
+       "kind": "prop",
+       "note": "高杆大旗，旗面被风鼓起，穗带飘动",
+       "ref": {
+        "prop": "banner"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "wudai.gaoping.art.props.3",
+       "name": "长枪",
+       "kind": "prop",
+       "note": "枪身修长，锋尖寒芒，红缨垂坠",
+       "ref": {
+        "prop": "spear"
+       }
       }
      ],
-     "prompt": "中国水墨写意素材图（道具器物），题材：高平之战·周世宗（954 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 长枪（枪身修长，锋尖寒芒，红缨垂坠）；2. 战马（奔马侧影，鬃尾飞扬，四蹄腾空）。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（道具器物），题材：高平之战·周世宗（954 年三月）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 战马（奔马侧影，鬃尾飞扬，四蹄腾空）；2. 旌旗（高杆大旗，旗面被风鼓起，穗带飘动）。\n第 2 行：3. 长枪（枪身修长，锋尖寒芒，红缨垂坠）；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
@@ -2318,43 +5752,85 @@
      "segment": 1,
      "segmentsInCategory": 1,
      "grid": {
-      "cols": 2,
-      "rows": 2
+      "cols": 4,
+      "rows": 3
      },
      "assets": [
       {
        "slot": 1,
        "id": "wudai.gaoping.art.scenery.1",
-       "name": "军营帐幕",
+       "name": "远山（淡墨）",
        "kind": "scenery"
       },
       {
        "slot": 2,
        "id": "wudai.gaoping.art.scenery.2",
-       "name": "旌旗阵列",
+       "name": "近坡（中墨）",
        "kind": "scenery"
       },
       {
        "slot": 3,
        "id": "wudai.gaoping.art.scenery.3",
-       "name": "拒马鹿角",
+       "name": "土坡地线",
        "kind": "scenery"
       },
       {
        "slot": 4,
        "id": "wudai.gaoping.art.scenery.4",
+       "name": "草丛（枯笔）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 5,
+       "id": "wudai.gaoping.art.scenery.5",
+       "name": "军营帐幕",
+       "kind": "scenery"
+      },
+      {
+       "slot": 6,
+       "id": "wudai.gaoping.art.scenery.6",
+       "name": "旌旗阵列",
+       "kind": "scenery"
+      },
+      {
+       "slot": 7,
+       "id": "wudai.gaoping.art.scenery.7",
+       "name": "拒马鹿角",
+       "kind": "scenery"
+      },
+      {
+       "slot": 8,
+       "id": "wudai.gaoping.art.scenery.8",
        "name": "远山烟岚",
+       "kind": "scenery"
+      },
+      {
+       "slot": 9,
+       "id": "wudai.gaoping.art.scenery.9",
+       "name": "草",
+       "kind": "scenery"
+      },
+      {
+       "slot": 10,
+       "id": "wudai.gaoping.art.scenery.10",
+       "name": "殿柱",
+       "kind": "scenery"
+      },
+      {
+       "slot": 11,
+       "id": "wudai.gaoping.art.scenery.11",
+       "name": "屋檐",
        "kind": "scenery"
       }
      ],
-     "prompt": "中国水墨写意素材图（场景环境），题材：高平之战·周世宗（954 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 军营帐幕；2. 旌旗阵列。\n第 2 行：3. 拒马鹿角；4. 远山烟岚。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（场景环境），题材：高平之战·周世宗（954 年三月）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：4×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 远山（淡墨）；2. 近坡（中墨）；3. 土坡地线；4. 草丛（枯笔）。\n第 2 行：5. 军营帐幕；6. 旌旗阵列；7. 拒马鹿角；8. 远山烟岚。\n第 3 行：9. 草；10. 殿柱；11. 屋檐；12. 留空。\n排版参考尺寸：2048×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
       "apiVerified": false,
       "sizePx": [
-       1024,
-       1024
+       2048,
+       1536
       ],
       "cellPx": 512,
       "background": "transparent",
@@ -2387,35 +5863,48 @@
       {
        "slot": 3,
        "id": "wudai.gaoping.art.effects.3",
-       "name": "突刺枪花",
+       "name": "蹄下墨尘",
        "kind": "fx"
       },
       {
        "slot": 4,
        "id": "wudai.gaoping.art.effects.4",
-       "name": "命中溅墨",
+       "name": "鬃毛飞扬",
        "kind": "fx"
       },
       {
        "slot": 5,
        "id": "wudai.gaoping.art.effects.5",
-       "name": "蹄下墨尘",
+       "name": "风卷旗影",
        "kind": "fx"
       },
       {
        "slot": 6,
        "id": "wudai.gaoping.art.effects.6",
-       "name": "鬃毛飞扬",
+       "name": "突刺枪花",
        "kind": "fx"
       },
       {
        "slot": 7,
        "id": "wudai.gaoping.art.effects.7",
+       "name": "命中溅墨",
+       "kind": "fx"
+      },
+      {
+       "slot": 8,
+       "id": "wudai.gaoping.art.effects.8",
        "name": "冲阵烟尘",
        "kind": "fx"
+      },
+      {
+       "slot": 9,
+       "id": "wudai.gaoping.art.effects.9",
+       "name": "烟",
+       "kind": "fx",
+       "note": "过场笔画所绘"
       }
      ],
-     "prompt": "中国水墨写意素材图（水墨特效），题材：高平之战·周世宗（954 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触；3. 突刺枪花。\n第 2 行：4. 命中溅墨；5. 蹄下墨尘；6. 鬃毛飞扬。\n第 3 行：7. 冲阵烟尘；8. 留空；9. 留空。\n排版参考尺寸：1536×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（水墨特效），题材：高平之战·周世宗（954 年三月）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触；3. 蹄下墨尘。\n第 2 行：4. 鬃毛飞扬；5. 风卷旗影；6. 突刺枪花。\n第 3 行：7. 命中溅墨；8. 冲阵烟尘；9. 烟（过场笔画所绘）。\n排版参考尺寸：1536×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
@@ -2556,7 +6045,7 @@
          "id": "pick.canon",
          "label": "scene.wudai.chenqiao.pick.canon",
          "seal": "canon",
-         "to": "c.night"
+         "to": "c.intro"
         },
         {
          "id": "pick.legend",
@@ -2579,6 +6068,34 @@
            }
           ]
          }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": 960,
+        "precision": "year",
+        "display": "960 年",
+        "era": "后周显德七年，宋建隆元年",
+        "verify": "done"
+       },
+       "dialogue": "scene.wudai.chenqiao.canon.intro",
+       "next": [
+        "c.night"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "宋史",
+         "section": "太祖纪"
+        },
+        {
+         "kind": "canon",
+         "title": "续资治通鉴长编",
+         "section": "卷一"
         }
        ]
       },
@@ -2735,10 +6252,10 @@
        ],
        "sources": [
         {
-         "kind": "canon",
+         "kind": "classic",
          "title": "续资治通鉴长编",
-         "section": "卷一",
-         "notes": "李焘注引诸说，待核验"
+         "section": "卷一 建隆元年正月",
+         "notes": "李焘撰，正文与注文并存诸说"
         },
         {
          "kind": "novel",
@@ -2782,10 +6299,10 @@
        ],
        "sources": [
         {
-         "kind": "canon",
+         "kind": "classic",
          "title": "续资治通鉴长编",
-         "section": "卷一",
-         "notes": "李焘注引诸说，待核验"
+         "section": "卷一 建隆元年正月",
+         "notes": "李焘撰，正文与注文并存诸说"
         },
         {
          "kind": "novel",
@@ -2828,10 +6345,10 @@
        ],
        "sources": [
         {
-         "kind": "canon",
+         "kind": "classic",
          "title": "续资治通鉴长编",
-         "section": "卷一",
-         "notes": "李焘注引诸说，待核验"
+         "section": "卷一 建隆元年正月",
+         "notes": "李焘撰，正文与注文并存诸说"
         },
         {
          "kind": "novel",
@@ -2887,10 +6404,10 @@
       "cutscene": "cutscene.wudai.chenqiao.end-legend",
       "sources": [
        {
-        "kind": "canon",
+        "kind": "classic",
         "title": "续资治通鉴长编",
-        "section": "卷一",
-        "notes": "李焘注引诸说，待核验"
+        "section": "卷一 建隆元年正月",
+        "notes": "李焘撰，正文与注文并存诸说"
        },
        {
         "kind": "novel",
@@ -2919,7 +6436,7 @@
       {
        "topic": "兵变是否预谋",
        "canon": "《宋史》：诸将拥立，太祖不得已",
-       "legend": "后世史家多以为事先有所准备（待核验）",
+       "legend": "后世多有疑其预谋者，《长编》注亦存异说",
        "sources": [
         {
          "kind": "canon",
@@ -2932,10 +6449,10 @@
          "section": "卷一"
         },
         {
-         "kind": "canon",
+         "kind": "classic",
          "title": "续资治通鉴长编",
-         "section": "卷一",
-         "notes": "李焘注引诸说，待核验"
+         "section": "卷一 建隆元年正月",
+         "notes": "李焘撰，正文与注文并存诸说"
         },
         {
          "kind": "novel",
@@ -2964,10 +6481,10 @@
          "section": "卷一"
         },
         {
-         "kind": "canon",
+         "kind": "classic",
          "title": "续资治通鉴长编",
-         "section": "卷一",
-         "notes": "李焘注引诸说，待核验"
+         "section": "卷一 建隆元年正月",
+         "notes": "李焘撰，正文与注文并存诸说"
         },
         {
          "kind": "novel",
@@ -3869,6 +7386,7 @@
      "anchor.chaironsi": "周世宗病逝",
      "anchor.songjian": "赵匡胤即位，国号宋",
      "scene.wudai.chenqiao.pick.canon": "正史 · 《宋史》、《续资治通鉴长编》所载",
+     "scene.wudai.chenqiao.canon.intro": "显德七年正月初三，大军出汴京北上，宿于陈桥驿。夜里，军中有人议论：主上幼弱，不如先立点检为天子。",
      "scene.wudai.chenqiao.end.canon": "周恭帝禅位。赵匡胤即位，国号宋。兵变中京城秩序未乱。",
      "scene.wudai.chenqiao.pick.legend": "异说 · 预谋说",
      "scene.wudai.chenqiao.legend.disclaimer": "以下是史家的考辨：陈桥兵变是否事先策划，北汉契丹来犯的军报是否属实，史书记载与后世史家意见不一。",
@@ -4255,9 +7773,9 @@
   {
    "outlineId": "14-05",
    "v1": false,
-   "detail": "outline",
+   "detail": "full",
    "scene": {
-    "format": "inkgames.scene-outline",
+    "format": "inkgames.scene",
     "version": 1,
     "id": "wudai.liyu",
     "chapter": "wudai",
@@ -4266,61 +7784,1716 @@
     "subtitle": "scene.wudai.liyu.subtitle",
     "when": {
      "start": 961,
-     "precision": "year",
      "end": 978,
+     "precision": "year",
      "display": "961—978 年",
+     "era": "南唐建隆二年至宋太平兴国三年",
      "verify": "done"
     },
     "key": false,
     "template": "calligraphy",
     "props": [
-     "boat"
+     "water-brush",
+     "boat",
+     "landscape",
+     "figure"
     ],
     "characters": [
      "liyu",
-     "xiaozhouhou"
+     "xiaozhouhou",
+     "zhaokuangyin",
+     "caobin",
+     "fanruoshui",
+     "xuxuan"
     ],
-    "hooks": {
-     "canon": "scene.wudai.liyu.hook.canon",
-     "legend": "scene.wudai.liyu.hook.legend",
-     "play": "scene.wudai.liyu.play"
+    "anchors": {
+     "entry": {
+      "id": "anchor.wudai.jiwei",
+      "title": "anchor.jiwei",
+      "when": {
+       "start": 961,
+       "precision": "month",
+       "display": "961 年七月",
+       "era": "宋建隆二年七月",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "宋史",
+        "section": "世家一·南唐李氏"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.wudai.liyuzu",
+      "title": "anchor.liyuzu",
+      "when": {
+       "start": 978,
+       "precision": "month",
+       "display": "978 年七月",
+       "era": "太平兴国三年七月",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "宋史",
+        "section": "世家一·南唐李氏"
+       }
+      ]
+     }
     },
-    "sources": [
+    "opening": "cutscene.wudai.liyu.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.wudai.liyu.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.wudai.liyu.opening",
+       "when": {
+        "start": 961,
+        "end": 978,
+        "precision": "year",
+        "display": "961—978 年",
+        "era": "南唐建隆二年至宋太平兴国三年",
+        "verify": "done"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "宋史",
+         "section": "世家一·南唐李氏"
+        },
+        {
+         "kind": "canon",
+         "title": "续资治通鉴长编",
+         "section": "卷十六 开宝八年"
+        },
+        {
+         "kind": "classic",
+         "title": "陆游·南唐书",
+         "section": "后主本纪"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": 961,
+        "end": 978,
+        "precision": "year",
+        "display": "961—978 年",
+        "era": "南唐建隆二年至宋太平兴国三年",
+        "verify": "done"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.wudai.liyu.pick.canon",
+         "seal": "canon",
+         "to": "c.intro"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.wudai.liyu.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.wudai.liyu.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "wudai.liyu/canon"
+           },
+           {
+            "cleared": "wudai.liyu/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": 961,
+        "end": 978,
+        "precision": "year",
+        "display": "961—978 年",
+        "era": "南唐建隆二年至宋太平兴国三年",
+        "verify": "done"
+       },
+       "dialogue": "scene.wudai.liyu.canon.intro",
+       "next": [
+        "c.liangjiang"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "宋史",
+         "section": "世家一·南唐李氏"
+        },
+        {
+         "kind": "canon",
+         "title": "续资治通鉴长编",
+         "section": "卷十六 开宝八年"
+        },
+        {
+         "kind": "classic",
+         "title": "陆游·南唐书",
+         "section": "后主本纪"
+        }
+       ]
+      },
+      {
+       "id": "c.liangjiang",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 961,
+        "end": 978,
+        "precision": "year",
+        "display": "961—978 年",
+        "era": "南唐建隆二年至宋太平兴国三年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "trace",
+        "params": {
+         "goal": "以樊若水的身份泛舟采石，以丝绳一段段量出江面的宽度",
+         "beats": [
+          "row",
+          "measure",
+          "record"
+         ],
+         "failTo": "c.liangjiang",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.fuliang"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "宋史",
+         "section": "世家一·南唐李氏"
+        },
+        {
+         "kind": "canon",
+         "title": "续资治通鉴长编",
+         "section": "卷十六 开宝八年"
+        },
+        {
+         "kind": "classic",
+         "title": "陆游·南唐书",
+         "section": "后主本纪"
+        }
+       ]
+      },
+      {
+       "id": "c.fuliang",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 961,
+        "end": 978,
+        "precision": "year",
+        "display": "961—978 年",
+        "era": "南唐建隆二年至宋太平兴国三年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "engineering",
+        "params": {
+         "goal": "宋军以预制的竹筏大舰架起浮梁，三日而成",
+         "beats": [
+          "assemble",
+          "anchor",
+          "cross"
+         ],
+         "failTo": "c.fuliang",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.chujiang"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "宋史",
+         "section": "世家一·南唐李氏"
+        },
+        {
+         "kind": "canon",
+         "title": "续资治通鉴长编",
+         "section": "卷十六 开宝八年"
+        },
+        {
+         "kind": "classic",
+         "title": "陆游·南唐书",
+         "section": "后主本纪"
+        }
+       ]
+      },
+      {
+       "id": "c.chujiang",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 961,
+        "end": 978,
+        "precision": "year",
+        "display": "961—978 年",
+        "era": "南唐建隆二年至宋太平兴国三年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "calligraphy",
+        "params": {
+         "goal": "城破之后，以李煜的笔写下离开金陵时的心境",
+         "beats": [
+          "farewell",
+          "write"
+         ],
+         "failTo": "c.chujiang",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "宋史",
+         "section": "世家一·南唐李氏"
+        },
+        {
+         "kind": "canon",
+         "title": "续资治通鉴长编",
+         "section": "卷十六 开宝八年"
+        },
+        {
+         "kind": "classic",
+         "title": "陆游·南唐书",
+         "section": "后主本纪"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.wudai.liyu.legend-intro",
+       "when": {
+        "start": 961,
+        "end": 978,
+        "precision": "year",
+        "display": "961—978 年",
+        "era": "南唐建隆二年至宋太平兴国三年",
+        "verify": "done"
+       },
+       "label": "scene.wudai.liyu.legend.disclaimer",
+       "dialogue": "scene.wudai.liyu.legend.intro",
+       "next": [
+        "l.xuxuan"
+       ],
+       "sources": [
+        {
+         "kind": "biji",
+         "title": "默记",
+         "section": "卷上",
+         "notes": "北宋王铚撰，笔记，真伪难定"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·宋史演义",
+         "section": "第十一至十二回",
+         "corpus": {
+          "file": "野史/南宋.pdf",
+          "pages": "p.29–34"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.xuxuan",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 961,
+        "end": 978,
+        "precision": "year",
+        "display": "961—978 年",
+        "era": "南唐建隆二年至宋太平兴国三年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "dialogue-timing",
+        "params": {
+         "goal": "以徐铉的身份探视旧主，在他叹息时不知该如何回答",
+         "beats": [
+          "visit",
+          "listen",
+          "silence"
+         ],
+         "failTo": "l.xuxuan",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.qixi"
+       ],
+       "sources": [
+        {
+         "kind": "biji",
+         "title": "默记",
+         "section": "卷上",
+         "notes": "北宋王铚撰，笔记，真伪难定"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·宋史演义",
+         "section": "第十一至十二回",
+         "corpus": {
+          "file": "野史/南宋.pdf",
+          "pages": "p.29–34"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.qixi",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 961,
+        "end": 978,
+        "precision": "year",
+        "display": "961—978 年",
+        "era": "南唐建隆二年至宋太平兴国三年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "calligraphy",
+        "params": {
+         "goal": "七夕之夜，写下最后一首词",
+         "beats": [
+          "night",
+          "write"
+         ],
+         "failTo": "l.qixi",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "biji",
+         "title": "默记",
+         "section": "卷上",
+         "notes": "北宋王铚撰，笔记，真伪难定"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·宋史演义",
+         "section": "第十一至十二回",
+         "corpus": {
+          "file": "野史/南宋.pdf",
+          "pages": "p.29–34"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
      {
+      "id": "end.canon",
       "kind": "canon",
-      "title": "宋史",
-      "section": "南唐世家"
+      "title": "scene.wudai.liyu.end.canon",
+      "cutscene": "cutscene.wudai.liyu.end-canon",
+      "mergeTo": "anchor.wudai.liyuzu",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "宋史",
+        "section": "世家一·南唐李氏"
+       },
+       {
+        "kind": "canon",
+        "title": "续资治通鉴长编",
+        "section": "卷十六 开宝八年"
+       },
+       {
+        "kind": "classic",
+        "title": "陆游·南唐书",
+        "section": "后主本纪"
+       }
+      ]
      },
      {
-      "kind": "modern",
-      "title": "如果这是宋史",
-      "notes": "现代作品，仅作灵感，不引用文字"
+      "id": "end.legend",
+      "title": "scene.wudai.liyu.end.legend",
+      "cutscene": "cutscene.wudai.liyu.end-legend",
+      "sources": [
+       {
+        "kind": "biji",
+        "title": "默记",
+        "section": "卷上",
+        "notes": "北宋王铚撰，笔记，真伪难定"
+       },
+       {
+        "kind": "novel",
+        "title": "蔡东藩·宋史演义",
+        "section": "第十一至十二回",
+        "corpus": {
+         "file": "野史/南宋.pdf",
+         "pages": "p.29–34"
+        }
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.wudai.liyuzu",
+      "notes": "野史线结局与正史出口一致，属于汇流"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.wudai.liyu.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
      }
     ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "李煜之死",
+       "canon": "《宋史》：太平兴国三年七月卒",
+       "legend": "王铚《默记》：太宗赐牵机药",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "宋史",
+         "section": "世家一·南唐李氏"
+        },
+        {
+         "kind": "canon",
+         "title": "续资治通鉴长编",
+         "section": "卷十六 开宝八年"
+        },
+        {
+         "kind": "classic",
+         "title": "陆游·南唐书",
+         "section": "后主本纪"
+        },
+        {
+         "kind": "biji",
+         "title": "默记",
+         "section": "卷上",
+         "notes": "北宋王铚撰，笔记，真伪难定"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·宋史演义",
+         "section": "第十一至十二回",
+         "corpus": {
+          "file": "野史/南宋.pdf",
+          "pages": "p.29–34"
+         }
+        }
+       ]
+      },
+      {
+       "topic": "樊若水",
+       "canon": "《宋史》《长编》：献策造浮梁于采石",
+       "legend": "演义同",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "宋史",
+         "section": "世家一·南唐李氏"
+        },
+        {
+         "kind": "canon",
+         "title": "续资治通鉴长编",
+         "section": "卷十六 开宝八年"
+        },
+        {
+         "kind": "classic",
+         "title": "陆游·南唐书",
+         "section": "后主本纪"
+        },
+        {
+         "kind": "biji",
+         "title": "默记",
+         "section": "卷上",
+         "notes": "北宋王铚撰，笔记，真伪难定"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·宋史演义",
+         "section": "第十一至十二回",
+         "corpus": {
+          "file": "野史/南宋.pdf",
+          "pages": "p.29–34"
+         }
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.liyu",
+       "person.liyu",
+       "person.xiaozhouhou"
+      ],
+      "seal": "seal.liyu"
+     }
+    },
     "verify": "pending",
-    "v1": false
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.wudai.liyu.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      210,
+      204,
+      192
+     ],
+     "seed": 38053
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "金陵宫苑，春花满树"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "樊若水泛舟采石，量江面"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "浮梁成，宋军过江如履平地"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "金陵城破，后主肉袒出降"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "小楼昨夜又东风"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 360,
+         "variant": 1
+        }
+       },
+       "label": "远山"
+      },
+      {
+       "at": 160,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 250,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 320,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.grass",
+        "color": "green_dark",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           640,
+           620
+          ],
+          [
+           646,
+           300
+          ]
+         ]
+        },
+        "speed": 7
+       },
+       "label": "树"
+      },
+      {
+       "at": 340,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 360,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.grass",
+        "color": "green_dark",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           580,
+           340
+          ],
+          [
+           640,
+           300
+          ],
+          [
+           710,
+           330
+          ]
+         ]
+        },
+        "speed": 7
+       },
+       "label": "树冠"
+      },
+      {
+       "at": 660,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "water",
+        "placement": {
+         "x": 0,
+         "y": 548,
+         "width": 1280
+        }
+       },
+       "label": "河水"
+      },
+      {
+       "at": 940,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "boat",
+        "placement": {
+         "x": 420,
+         "y": 540
+        }
+       },
+       "label": "舟"
+      },
+      {
+       "at": 1220,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "樊若水"
+      },
+      {
+       "at": 1620,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "water",
+        "placement": {
+         "x": 0,
+         "y": 548,
+         "width": 1280
+        }
+       },
+       "label": "河水"
+      },
+      {
+       "at": 2060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "boat",
+        "placement": {
+         "x": 420,
+         "y": 540
+        }
+       },
+       "label": "舟"
+      },
+      {
+       "at": 2140,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "boat",
+        "placement": {
+         "x": 860,
+         "y": 556,
+         "mirror": true
+        }
+       },
+       "label": "舟"
+      },
+      {
+       "at": 2500,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 2530,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 2560,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 2590,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 2650,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "spear",
+        "placement": {
+         "x": 600,
+         "y": 480,
+         "angle": -0.4
+        }
+       },
+       "label": "长兵如林"
+      },
+      {
+       "at": 3060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "dark_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           80,
+           470
+          ],
+          [
+           80,
+           430
+          ],
+          [
+           140,
+           430
+          ],
+          [
+           140,
+           450
+          ],
+          [
+           200,
+           450
+          ],
+          [
+           200,
+           430
+          ],
+          [
+           260,
+           430
+          ],
+          [
+           260,
+           450
+          ],
+          [
+           1020,
+           450
+          ],
+          [
+           1020,
+           430
+          ],
+          [
+           1080,
+           430
+          ],
+          [
+           1080,
+           450
+          ],
+          [
+           1200,
+           450
+          ],
+          [
+           1200,
+           470
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "城墙雉堞"
+      },
+      {
+       "at": 3450,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "dark_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           520,
+           600
+          ],
+          [
+           520,
+           380
+          ],
+          [
+           760,
+           380
+          ],
+          [
+           760,
+           600
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "关门"
+      },
+      {
+       "at": 3840,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "李煜"
+      },
+      {
+       "at": 4230,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 300,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 4
+        }
+       },
+       "label": "曹彬"
+      },
+      {
+       "at": 4740,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "brush": "water.ripple",
+        "color": "white",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           1040,
+           140
+          ],
+          [
+           1080,
+           110
+          ],
+          [
+           1120,
+           140
+          ],
+          [
+           1080,
+           170
+          ],
+          [
+           1040,
+           140
+          ]
+         ]
+        },
+        "speed": 3
+       },
+       "label": "月"
+      },
+      {
+       "at": 4940,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "water-brush.stroke",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           640,
+           180
+          ],
+          [
+           640,
+           260
+          ],
+          [
+           620,
+           330
+          ],
+          [
+           660,
+           400
+          ]
+         ]
+        },
+        "speed": 2
+       },
+       "label": "几多愁"
+      },
+      {
+       "at": 5140,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "春水"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "still"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.wudai.liyu.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.wudai.liyu.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 2700,
+       "until": 3000,
+       "kind": "caption",
+       "key": "scene.wudai.liyu.quote",
+       "style": "kaiti",
+       "orientation": "vertical",
+       "x": 160,
+       "y": 120,
+       "source": {
+        "kind": "canon",
+        "title": "续资治通鉴长编",
+        "section": "卷十六"
+       }
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 680,
+       "kind": "flow",
+       "layer": "sheet",
+       "target": "lastStroke",
+       "params": {
+        "blendType": 0,
+        "iterations": 4
+       }
+      },
+      {
+       "at": 1640,
+       "kind": "flow",
+       "layer": "sheet",
+       "target": "lastStroke",
+       "params": {
+        "blendType": 0,
+        "iterations": 4
+       }
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/song-flute.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/forest-birds.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/river-calm.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/liyu-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/liyu-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1080,
+       "bus": "sfx",
+       "asset": "audio/sfx/oar.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/river-calm.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/liyu-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/drum-far.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/wind-after.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/liyu-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3840,
+       "bus": "sfx",
+       "asset": "audio/sfx/gate-close.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/night-wind.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/brush-drop.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/liyu-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/brush-drop.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
    },
    "strings": {
     "locale": "zh-Hans",
     "strings": {
      "scene.wudai.liyu.title": "春花秋月",
      "scene.wudai.liyu.subtitle": "李煜",
-     "scene.wudai.liyu.hook.canon": "南唐降宋，李煜死于汴京",
-     "scene.wudai.liyu.hook.legend": "牵机药之说（王铚《默记》，笔记）",
-     "scene.wudai.liyu.play": "文人场景：书写词句（笔画玩法）、boat"
+     "scene.wudai.liyu.when": "问君能有几多愁",
+     "vo.01": "李煜嗣位时，南唐已对宋称臣，去帝号，称江南国主。他工书画，善填词，不习政事。",
+     "vo.02": "宋太祖遣使召他入朝，他称病不去。太祖说：卧榻之侧，岂容他人鼾睡乎？",
+     "vo.03": "南唐落第士人樊若水，曾在采石江上泛舟，以丝绳量江面宽窄，献策造浮桥。宋军过江，如履平地。",
+     "vo.04": "开宝八年十一月，金陵城破。李煜率百官出降，被送往汴京，封违命侯。",
+     "vo.05": "他在汴京的小楼里写词——",
+     "scene.wudai.liyu.quote": "卧榻之侧，岂容他人鼾睡乎",
+     "scene.wudai.liyu.fork.prompt": "此刻落笔，循哪一卷而书？",
+     "anchor.jiwei": "李煜嗣位",
+     "anchor.liyuzu": "李煜卒于汴京",
+     "scene.wudai.liyu.pick.canon": "正史 · 《宋史·南唐世家》所载",
+     "scene.wudai.liyu.canon.intro": "金陵宫中，后主正在填一首新词。宋朝的使者已经第三次来催他入朝了。",
+     "scene.wudai.liyu.end.canon": "李煜在汴京度过了生命的最后三年。太平兴国三年七月，他卒于汴京，宋廷追封吴王。他亡国后所作的词，流传千年。",
+     "scene.wudai.liyu.pick.legend": "笔记 · 牵机药",
+     "scene.wudai.liyu.legend.disclaimer": "以下取自北宋王铚《默记》：太宗派徐铉探视李煜，李煜叹悔之语传入宫中，太宗遂赐牵机药。《宋史》只说李煜卒，不言死因。笔记所载，真伪难定。",
+     "scene.wudai.liyu.legend.intro": "《默记》说：七夕那天是李煜生日，他在寓所命故伎作乐，又有“一江春水向东流”之词。太宗闻之大怒，赐牵机药。",
+     "scene.wudai.liyu.end.legend": "笔记里的牵机药与史书里的“卒”，指向同一个七月。汇流。",
+     "scene.wudai.liyu.pick.whatif": "推演 · 若南唐守住长江（未开放）",
+     "scene.wudai.liyu.end.whatif": "异闻 · 未开放"
     }
    },
    "cast": [
     {
      "id": "liyu",
-     "name": "李煜"
+     "name": "李煜",
+     "title": "南唐后主",
+     "camp": "南唐",
+     "type": "ruler",
+     "bio": "工书画，善词；国破入宋，封违命侯"
     },
     {
      "id": "xiaozhouhou",
-     "name": "小周后"
+     "name": "小周后",
+     "title": "周氏",
+     "camp": "南唐",
+     "type": "royal",
+     "bio": "大周后之妹，随李煜入宋"
+    },
+    {
+     "id": "zhaokuangyin",
+     "name": "宋太祖",
+     "title": "赵匡胤",
+     "camp": "宋",
+     "type": "ruler",
+     "bio": "遣曹彬伐南唐：卧榻之侧，岂容他人鼾睡"
+    },
+    {
+     "id": "caobin",
+     "name": "曹彬",
+     "title": "宋将",
+     "camp": "宋",
+     "type": "general",
+     "bio": "率军渡江，克金陵而不妄杀"
+    },
+    {
+     "id": "fanruoshui",
+     "name": "樊若水",
+     "title": "南唐落第士人",
+     "camp": "南唐→宋",
+     "type": "other",
+     "bio": "测量采石江面，献浮桥之策"
+    },
+    {
+     "id": "xuxuan",
+     "name": "徐铉",
+     "title": "南唐旧臣",
+     "camp": "南唐→宋",
+     "type": "minister",
+     "bio": "奉使入宋求缓兵；入宋后奉命探视李煜"
     }
    ],
-   "relations": [],
+   "relations": [
+    {
+     "from": "liyu",
+     "to": "xiaozhouhou",
+     "relation": "夫妇",
+     "type": "family"
+    },
+    {
+     "from": "zhaokuangyin",
+     "to": "liyu",
+     "relation": "灭国",
+     "type": "rival"
+    },
+    {
+     "from": "zhaokuangyin",
+     "to": "caobin",
+     "relation": "任将",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "fanruoshui",
+     "to": "caobin",
+     "relation": "献浮桥之策",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "xuxuan",
+     "to": "liyu",
+     "relation": "旧臣",
+     "type": "sub",
+     "directed": true
+    }
+   ],
    "artPrompts": [
     {
      "id": "wudai.liyu.sheet.cast.1",
@@ -4329,15 +9502,16 @@
      "segment": 1,
      "segmentsInCategory": 1,
      "grid": {
-      "cols": 2,
+      "cols": 3,
       "rows": 2
      },
      "assets": [
       {
        "slot": 1,
        "id": "wudai.liyu.art.cast.liyu",
-       "name": "李煜",
+       "name": "李煜（南唐后主）",
        "kind": "figure",
+       "note": "南唐·君主",
        "ref": {
         "prop": "figure",
         "actor": "liyu"
@@ -4346,21 +9520,66 @@
       {
        "slot": 2,
        "id": "wudai.liyu.art.cast.xiaozhouhou",
-       "name": "小周后",
+       "name": "小周后（周氏）",
        "kind": "figure",
+       "note": "南唐·宗室后妃",
        "ref": {
         "prop": "figure",
         "actor": "xiaozhouhou"
        }
+      },
+      {
+       "slot": 3,
+       "id": "wudai.liyu.art.cast.zhaokuangyin",
+       "name": "宋太祖（赵匡胤）",
+       "kind": "figure",
+       "note": "宋·君主",
+       "ref": {
+        "prop": "figure",
+        "actor": "zhaokuangyin"
+       }
+      },
+      {
+       "slot": 4,
+       "id": "wudai.liyu.art.cast.caobin",
+       "name": "曹彬（宋将）",
+       "kind": "figure",
+       "note": "宋·武将",
+       "ref": {
+        "prop": "figure",
+        "actor": "caobin"
+       }
+      },
+      {
+       "slot": 5,
+       "id": "wudai.liyu.art.cast.fanruoshui",
+       "name": "樊若水（南唐落第士人）",
+       "kind": "figure",
+       "note": "南唐→宋·其他",
+       "ref": {
+        "prop": "figure",
+        "actor": "fanruoshui"
+       }
+      },
+      {
+       "slot": 6,
+       "id": "wudai.liyu.art.cast.xuxuan",
+       "name": "徐铉（南唐旧臣）",
+       "kind": "figure",
+       "note": "南唐→宋·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "xuxuan"
+       }
       }
      ],
-     "prompt": "中国水墨写意素材图（人物立绘），题材：春花秋月·李煜（961—978 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 李煜；2. 小周后。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（人物立绘），题材：春花秋月·李煜（961—978 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 李煜（南唐后主）（南唐·君主）；2. 小周后（周氏）（南唐·宗室后妃）；3. 宋太祖（赵匡胤）（宋·君主）。\n第 2 行：4. 曹彬（宋将）（宋·武将）；5. 樊若水（南唐落第士人）（南唐→宋·其他）；6. 徐铉（南唐旧臣）（南唐→宋·文臣）。\n排版参考尺寸：1536×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
       "apiVerified": false,
       "sizePx": [
-       1024,
+       1536,
        1024
       ],
       "cellPx": 512,
@@ -4382,6 +9601,16 @@
       {
        "slot": 1,
        "id": "wudai.liyu.art.props.1",
+       "name": "水刷",
+       "kind": "prop",
+       "note": "大号毛笔，笔锋含墨将滴",
+       "ref": {
+        "prop": "water-brush"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "wudai.liyu.art.props.2",
        "name": "舟船",
        "kind": "prop",
        "note": "木舟与船夫，船尾水痕",
@@ -4390,7 +9619,7 @@
        }
       }
      ],
-     "prompt": "中国水墨写意素材图（道具器物），题材：春花秋月·李煜（961—978 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 舟船（木舟与船夫，船尾水痕）；2. 留空。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（道具器物），题材：春花秋月·李煜（961—978 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 水刷（大号毛笔，笔锋含墨将滴）；2. 舟船（木舟与船夫，船尾水痕）。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
@@ -4409,7 +9638,7 @@
      "category": "scenery",
      "categoryLabel": "场景环境",
      "segment": 1,
-     "segmentsInCategory": 1,
+     "segmentsInCategory": 2,
      "grid": {
       "cols": 3,
       "rows": 3
@@ -4418,47 +9647,139 @@
       {
        "slot": 1,
        "id": "wudai.liyu.art.scenery.1",
-       "name": "大江水面",
+       "name": "远山（淡墨）",
        "kind": "scenery"
       },
       {
        "slot": 2,
        "id": "wudai.liyu.art.scenery.2",
-       "name": "白色飞白浪花",
+       "name": "近坡（中墨）",
        "kind": "scenery"
       },
       {
        "slot": 3,
        "id": "wudai.liyu.art.scenery.3",
-       "name": "涟漪",
+       "name": "土坡地线",
        "kind": "scenery"
       },
       {
        "slot": 4,
        "id": "wudai.liyu.art.scenery.4",
-       "name": "书案",
+       "name": "草丛（枯笔）",
        "kind": "scenery"
       },
       {
        "slot": 5,
        "id": "wudai.liyu.art.scenery.5",
-       "name": "宣纸卷轴",
+       "name": "大江水面",
        "kind": "scenery"
       },
       {
        "slot": 6,
        "id": "wudai.liyu.art.scenery.6",
-       "name": "笔架与砚台",
+       "name": "白色飞白浪花",
        "kind": "scenery"
       },
       {
        "slot": 7,
        "id": "wudai.liyu.art.scenery.7",
-       "name": "屏风",
+       "name": "涟漪",
+       "kind": "scenery"
+      },
+      {
+       "slot": 8,
+       "id": "wudai.liyu.art.scenery.8",
+       "name": "书案",
+       "kind": "scenery"
+      },
+      {
+       "slot": 9,
+       "id": "wudai.liyu.art.scenery.9",
+       "name": "宣纸卷轴",
        "kind": "scenery"
       }
      ],
-     "prompt": "中国水墨写意素材图（场景环境），题材：春花秋月·李煜（961—978 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 大江水面；2. 白色飞白浪花；3. 涟漪。\n第 2 行：4. 书案；5. 宣纸卷轴；6. 笔架与砚台。\n第 3 行：7. 屏风；8. 留空；9. 留空。\n排版参考尺寸：1536×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（场景环境），题材：春花秋月·李煜（961—978 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 远山（淡墨）；2. 近坡（中墨）；3. 土坡地线。\n第 2 行：4. 草丛（枯笔）；5. 大江水面；6. 白色飞白浪花。\n第 3 行：7. 涟漪；8. 书案；9. 宣纸卷轴。\n排版参考尺寸：1536×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1536
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "wudai.liyu.sheet.scenery.2",
+     "category": "scenery",
+     "categoryLabel": "场景环境",
+     "segment": 2,
+     "segmentsInCategory": 2,
+     "grid": {
+      "cols": 3,
+      "rows": 3
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "wudai.liyu.art.scenery.10",
+       "name": "笔架与砚台",
+       "kind": "scenery"
+      },
+      {
+       "slot": 2,
+       "id": "wudai.liyu.art.scenery.11",
+       "name": "屏风",
+       "kind": "scenery"
+      },
+      {
+       "slot": 3,
+       "id": "wudai.liyu.art.scenery.12",
+       "name": "殿柱",
+       "kind": "scenery"
+      },
+      {
+       "slot": 4,
+       "id": "wudai.liyu.art.scenery.13",
+       "name": "树",
+       "kind": "scenery"
+      },
+      {
+       "slot": 5,
+       "id": "wudai.liyu.art.scenery.14",
+       "name": "屋檐",
+       "kind": "scenery"
+      },
+      {
+       "slot": 6,
+       "id": "wudai.liyu.art.scenery.15",
+       "name": "树冠",
+       "kind": "scenery"
+      },
+      {
+       "slot": 7,
+       "id": "wudai.liyu.art.scenery.16",
+       "name": "城墙雉堞",
+       "kind": "scenery"
+      },
+      {
+       "slot": 8,
+       "id": "wudai.liyu.art.scenery.17",
+       "name": "关门",
+       "kind": "scenery"
+      },
+      {
+       "slot": 9,
+       "id": "wudai.liyu.art.scenery.18",
+       "name": "月",
+       "kind": "scenery"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（场景环境），题材：春花秋月·李煜（961—978 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 笔架与砚台；2. 屏风；3. 殿柱。\n第 2 行：4. 树；5. 屋檐；6. 树冠。\n第 3 行：7. 城墙雉堞；8. 关门；9. 月。\n排版参考尺寸：1536×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
@@ -4479,7 +9800,7 @@
      "segment": 1,
      "segmentsInCategory": 1,
      "grid": {
-      "cols": 2,
+      "cols": 3,
       "rows": 2
      },
      "assets": [
@@ -4498,17 +9819,29 @@
       {
        "slot": 3,
        "id": "wudai.liyu.art.effects.3",
+       "name": "水流笔迹",
+       "kind": "fx"
+      },
+      {
+       "slot": 4,
+       "id": "wudai.liyu.art.effects.4",
+       "name": "墨滴下坠",
+       "kind": "fx"
+      },
+      {
+       "slot": 5,
+       "id": "wudai.liyu.art.effects.5",
        "name": "船行尾迹",
        "kind": "fx"
       }
      ],
-     "prompt": "中国水墨写意素材图（水墨特效），题材：春花秋月·李煜（961—978 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触。\n第 2 行：3. 船行尾迹；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（水墨特效），题材：春花秋月·李煜（961—978 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、灰褐色 #807d72、雾玫瑰色 #cbf3fb。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触；3. 水流笔迹。\n第 2 行：4. 墨滴下坠；5. 船行尾迹；6. 留空。\n排版参考尺寸：1536×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
       "apiVerified": false,
       "sizePx": [
-       1024,
+       1536,
        1024
       ],
       "cellPx": 512,
