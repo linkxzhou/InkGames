@@ -368,7 +368,7 @@ function inside(points: readonly Pt[], x: number, y: number): boolean {
   return hit;
 }
 
-function interiorColumns(points: readonly Pt[], count: number): Pt[][] {
+function interiorColumns(points: readonly Pt[]): Pt[][] {
   const ring = ringOf(points);
   if (ring.length < 3) return [];
   let minX = ring[0]?.x ?? 0;
@@ -382,7 +382,8 @@ function interiorColumns(points: readonly Pt[], count: number): Pt[][] {
     if (p.y > maxY) maxY = p.y;
   }
   const columns: Pt[][] = [];
-  const n = Math.max(1, Math.min(4, count));
+  // Large wet strokes are only a few dozen pixels wide, so the columns have to overlap.
+  const n = Math.max(2, Math.min(16, Math.round((maxX - minX) / 18)));
   for (let c = 1; c <= n; c++) {
     const x = minX + ((maxX - minX) * c) / (n + 1);
     const run: Pt[] = [];
@@ -502,8 +503,8 @@ function compilePoly(path: VectorInkPath, poly: Poly, seed: number): InkStrokeRe
         push(request(path, [...inset, close], seed + layer * 17, 'wet', layer === layers - 1 ? 'effect4' : path.effect ?? 'wet'));
       }
     }
-    for (const column of interiorColumns(poly.points, layers)) {
-      push(request({ ...path, size: path.size ?? 'large' }, column, seed + 200 + out.length, 'wet', 'wet'));
+    for (const column of interiorColumns(poly.points)) {
+      push(request({ ...path, size: 'extra-large' }, column, seed + 200 + out.length, 'wet', 'wet'));
     }
     return out;
   }
