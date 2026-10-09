@@ -42,7 +42,7 @@
   "width": 1024,
   "height": 1024,
   "paths": [
-    { "id": "robe", "role": "fill", "color": "black", "layers": 3, "d": "M 400 500 C 640 480 760 900 270 880 Z" }
+    { "id": "handle", "role": "contour", "color": "black", "d": "M 470 40 C 430 120 360 200 300 250" }
   ]
 }
 ```
@@ -52,11 +52,11 @@
 | `format` / `version` | 必须是 `inkgames.vector-ink` 和 `1` |
 | `width` / `height` | 路径坐标系。`compileVectorInk(sheet, { width, height })` 再缩放到画布 |
 | `paths[].d` | SVG 路径：`M L H V C Q Z`，大小写分别是绝对和相对。圆弧 `A` 会拒绝 |
-| `role` | `contour` 飞白轮廓，`fill` 向内湿墨加纸上渗开，`hatch` 沿路径的披麻枯笔，`accent` 朱砂，`wash` 沿路径的一层湿墨（雾、天、水） |
+| `role` | `contour` 飞白轮廓，`fold` 衣纹，`strand` 发丝，`hemp` 披麻（一笔一条），`splash` 哥特泼点，`fill` 闭合形向内收一圈湿墨，`hatch` 沿路径再排几条披麻，`accent` 朱砂，`wash` 沿路径的湿墨 |
 | `color` | `INK_COLOR_NAMES` 里的名字。`medium_gray` 在编码里是橡皮，不要用 |
-| `size` / `effect` / `layers` / `seed` | 可选。`layers` 为 1..4。不写笔压时大笔保持原尺寸；轮廓和披麻的笔压停在 0.5 以下，避免尺寸升到 4 以后主线消失 |
+| `size` / `effect` / `layers` / `seed` | 可选。`layers` 为 1..4，默认 1。不写笔压时大笔保持原尺寸；轮廓、衣纹、发丝和披麻的笔压停在 0.5 以下，避免尺寸升到 4 以后主线消失 |
 
-轮廓走 `flyingWhite`，填色走 `wet`，最后一圈填色用 `effect4` 做纸边渗化。头发、胡须、衣纹用 `hatch`。泼墨颗粒不写进路径，由画面自己补。留白就是路径没有盖到的纸。
+一条路径对应一笔（`hatch` 除外，它会沿路径拆成几条短枯笔）。闭合 `fill` 只向内收，不再铺竖直色柱。暗部用多条重叠的 `wash`，从浅洗到重墨。发丝用 `strand`，衣纹用 `fold`，山石皴用 `hemp`，泼点用 `splash`。留白就是路径没有盖到的纸。
 
 ## 分层与坐标
 
