@@ -77,7 +77,8 @@ interface BambooSlot { id: number; view: BambooView }
 /**
  * three.js side-scroller view. Matter stays in Playfield. This class copies interpolated
  * body positions onto meshes and does not run a second clock.
- * A lost WebGL context pauses the playfield. Rebuilding targets is still the later restore work.
+ * A lost WebGL context pauses the playfield. webglcontextrestored rebuilds the ink
+ * targets, copies the last CPU snapshots back, and draws one frame.
  */
 export class InkView {
   readonly playfield = new Playfield();
@@ -106,6 +107,7 @@ export class InkView {
   private lastError = 0;
   private restoreCount = 0;
   private restorePoint: InkSurfaceSnapshot | undefined;
+  private seepPixels: Uint8Array | undefined;
   private loseExt: WEBGL_lose_context | null = null;
   private readonly surfaceOptions: InkSurfaceOptions;
   private readonly onContext: ((state: 'lost' | 'restored') => void) | undefined;
@@ -168,6 +170,7 @@ export class InkView {
   captureRestorePoint(): void {
     if (this.lost || this.disposed) return;
     this.restorePoint = this.surfaceSlot.snapshot();
+    this.seepPixels = this.seep?.snapshot();
   }
 
   simulateContextLoss(): void {
@@ -253,26 +256,8 @@ export class InkView {
     if (this.disposed || this.lost) return;
     this.playfield.step(dt);
     this.seep?.update(this.playfield.stamps());
-    if (this.groundMat && this.seep) {
-      const slot = this.groundMat.uniforms.uSeep;
-      if (slot) slot.value = this.seep.texture;
-    }
-    this.syncHero();
-    this.syncBamboo(dt);
-    this.syncBridges();
-    const pose = this.playfield.sample(this.playfield.actor.id, this.playfield.alpha);
-    if (pose && this.playfield.terrainPoints.length > 1) {
-      this.cameraRig.follow(pose.x, pose.y, this.playfield.bounds());
-    }
-    this.placeBackdrop();
-    const width = cunOutlineWidth(inkCameraDistance(this.height), this.cameraRig.distance);
-    for (const rock of this.rocks) rock.setOutlineWidth(width);
-    this.surfaceSlot.update();
-    this.renderer.setRenderTarget(null);
-    const buffer = this.renderer.domElement;
-    this.renderer.setViewport(0, 0, buffer.width, buffer.height);
-    this.renderer.render(this.scene, this.cameraRig.active);
-    this.lastError = this.renderer.getContext().getError();
+    this.bindSeep();
+    this.draw(dt, true);
   }
 
   dispose(): void {
@@ -301,11 +286,49 @@ export class InkView {
     if (this.playfield.terrainPoints.length > 1) {
       try { this.seep?.dispose(); } catch { /* lost with the context */ }
       this.seep = new TerrainSeep(this.renderer, this.playfield.terrainPoints);
-      if (this.groundMat?.uniforms.uSeep) this.groundMat.uniforms.uSeep.value = this.seep.texture;
+      if (this.seepPixels) this.seep.restore(this.seepPixels);
+      this.bindSeep();
     }
+    this.scene.traverse(obj => {
+      if (!('material' in obj)) return;
+      const material = obj.material;
+      const list = Array.isArray(material) ? material : [material];
+      for (const item of list) item.needsUpdate = true;
+    });
     this.playfield.pausedClock = false;
     this.lost = false;
     this.restoreCount += 1;
+    this.draw(0, false, true);
+  }
+
+  private bindSeep(): void {
+    if (this.groundMat && this.seep) {
+      const slot = this.groundMat.uniforms.uSeep;
+      if (slot) slot.value = this.seep.texture;
+    }
+  }
+
+  private draw(dt: number, advanceInk: boolean, drain = false): void {
+    this.syncHero();
+    this.syncBamboo(dt);
+    this.syncBridges();
+    const pose = this.playfield.sample(this.playfield.actor.id, this.playfield.alpha);
+    if (pose && this.playfield.terrainPoints.length > 1) {
+      this.cameraRig.follow(pose.x, pose.y, this.playfield.bounds());
+    }
+    this.placeBackdrop();
+    const width = cunOutlineWidth(inkCameraDistance(this.height), this.cameraRig.distance);
+    for (const rock of this.rocks) rock.setOutlineWidth(width);
+    if (advanceInk) this.surfaceSlot.update();
+    this.renderer.setRenderTarget(null);
+    const buffer = this.renderer.domElement;
+    this.renderer.setViewport(0, 0, buffer.width, buffer.height);
+    const gl = this.renderer.getContext();
+    if (drain) {
+      for (let i = 0; i < 8 && gl.getError() !== 0; i++) { /* disposing a lost context leaves INVALID_OPERATION */ }
+    }
+    this.renderer.render(this.scene, this.cameraRig.active);
+    this.lastError = gl.getError();
   }
 
   private syncHero(): void {

@@ -1,6 +1,6 @@
 # 规划索引
 
-引擎架构的现行计划是 [10 · three.js + Matter.js 横版水墨动作引擎](./10-three-matter-side-scroller-plan.md)。历史游戏的叙事和引擎缺口是另一组草案，见下面「历史水墨游戏」。使用说明在 [docs](../docs/README.md)。M1–M4 的横版切片已经在 `src/` 和 `apps/scroll/`。叙事宿主（M5）还没有。
+引擎架构的现行计划是 [10 · three.js + Matter.js 横版水墨动作引擎](./10-three-matter-side-scroller-plan.md)。历史游戏的叙事和引擎缺口是另一组草案，见下面「历史水墨游戏」。使用说明在 [docs](../docs/README.md)。M1–M4 的横版切片已经在 `src/` 和 `apps/scroll/`。M5 叙事宿主已能在 `/story/` 播「易水寒」；玩法模板和 `PostStack` 仍开着。
 
 `plan/11`、`plan/12` 的编号留给历史游戏，引擎计划继续用 `plan/10`，不再另起 `plan/13`。
 
@@ -11,7 +11,7 @@
 | 文件 | 处理 |
 |---|---|
 | `10-v2-pixi-matter-ink-game-engine-plan.md` | 整份删除。它是 PixiJS 舞台的未完成清单（真实 GPU、上下文恢复、水墨缺口、十卡玩法还薄）。这些缺口里仍然适用于现行 Pixi 代码的条目，已收进新计划的「结转」一节。plan/12 里提到的「plan/10 P0」（开场 18–35 秒、上下文不重建）指的就是这些事实。 |
-| [10 · three.js + Matter.js](./10-three-matter-side-scroller-plan.md) | 现行引擎计划。M0–M4 已落地：`InkView`、`Playfield`、`InkSurface` 与 `apps/scroll/`。M5 叙事宿主未实现。真实 GPU 未实测。 |
+| [10 · three.js + Matter.js](./10-three-matter-side-scroller-plan.md) | 现行引擎计划。M0–M4 已落地：`InkView`、`Playfield`、`InkSurface` 与 `apps/scroll/`。M5 为 `[~]`：叙事宿主能播荆轲开场并走正史 / 野史，玩法模板与 `PostStack` 未做。真实 GPU 未实测。 |
 
 ## 历史水墨游戏（2026-10-09 草案）
 

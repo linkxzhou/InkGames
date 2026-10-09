@@ -173,7 +173,7 @@ export class StoryStage {
     this.present(view);
   }
 
-  private present(view: DirectorView): void {
+  private present(view: DirectorView, drain = false): void {
     const tick = view.tick;
     this.text.render(tick?.texts ?? [], this.director.subtitles);
     const fade = tick?.fade ?? 1;
@@ -189,8 +189,12 @@ export class StoryStage {
     this.renderer.setRenderTarget(null);
     const buffer = this.renderer.domElement;
     this.renderer.setViewport(0, 0, buffer.width, buffer.height);
+    const gl = this.renderer.getContext();
+    if (drain) {
+      for (let i = 0; i < 8 && gl.getError() !== 0; i++) { /* disposing a lost context leaves INVALID_OPERATION */ }
+    }
     this.renderer.render(this.scene, this.cameraRig.active);
-    this.lastError = this.renderer.getContext().getError();
+    this.lastError = gl.getError();
   }
 
   private paintPulses(pulses: readonly StrokePulse[]): void {
@@ -241,8 +245,18 @@ export class StoryStage {
         material.needsUpdate = true;
       }
     }
+    this.text.texture.needsUpdate = true;
+    const textMat = this.textMesh.material;
+    if (textMat instanceof MeshBasicMaterial) textMat.needsUpdate = true;
+    this.scene.traverse(obj => {
+      if (!('material' in obj)) return;
+      const material = obj.material;
+      const list = Array.isArray(material) ? material : [material];
+      for (const item of list) item.needsUpdate = true;
+    });
     this.lost = false;
     this.restoreCount += 1;
+    this.present(this.director.view(), true);
   }
 }
 

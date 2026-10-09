@@ -2,7 +2,7 @@
 
 [目录](./README.md) · [上一章](./05-world-scene-and-assets.md) · [下一章](./07-ink-rendering.md)
 
-> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主能播「易水寒」并走正史 / 野史；玩法模板、`PostStack`、景深和真实 GPU 验收仍未完成。
 
 权威几何在 CPU。像素着色器不决定能不能站上去。
 
@@ -73,4 +73,4 @@ GPU 上的纸纹噪声和反馈着色器不参与碰撞。不要用读回的像�
 | 可砍 | `cutBamboo` 去掉整根，留下 35% 高的静态根和带初速的上段。 |
 | 水刷 | `InkView.washAt` 先 `washBridge`，再 `InkSurface.wash`。 |
 
-渗流、皴法噪声和竹的顶点摆动不回读成碰撞。叙事触发 `inkDisperse` / `bambooBreak` 还没有接到过场。
+渗流、皴法噪声和竹的顶点摆动不回读成碰撞。过场里的 `inkDisperse` / `bambooBreak` 仍没有单独的视觉。`StoryStage` 会把 flow / distort / metallic 交给 `InkSurface.replayEffect`，`wash` 调用 `surface.wash`。

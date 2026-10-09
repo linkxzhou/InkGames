@@ -2,7 +2,7 @@
 
 [目录](./README.md) · [上一章](./09-tooling-and-quality.md) · [附录](./11-references-and-research.md)
 
-> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主能播「易水寒」并走正史 / 野史；玩法模板、`PostStack`、景深和真实 GPU 验收仍未完成。
 
 ## 构建产物
 
@@ -11,11 +11,14 @@
 - `apps/index.html` → 十卡首页
 - `apps/<道具>/index.html` → 十个演示
 - `apps/inkcross/index.html`、`apps/wuxia/index.html` → 旧演示，仍打进包，供冒烟
-- `apps/compare/index.html` → 水墨对照，不在首页卡片里
+- `apps/compare/index.html` → Pixi 水墨对照，不在首页卡片里
+- `apps/compare/three.html`、`apps/compare/parity.html` → three.js 一侧，以及和 Pixi 的并排
+- `apps/scroll/index.html` → 横版切片
+- `apps/story/index.html` → 「易水寒」叙事演示
 
 别名 `@inkgames/engine` 指向 `src/index.ts`。生产包不复制 `thirdparty/`。
 
-`package.json` 的 `version` 仍是 `0.1.0`，`private: true`。依赖：PixiJS 8.22.0（MIT）、Matter.js 0.20.0（MIT）、p5 ^2.3.4（LGPL-2.1，未改其源码）。登记在 [第三方清单](../THIRD_PARTY_NOTICES.md)。three.js 是计划中的渲染器，本提交没有安装。2026-10-09 查到的 npm latest 是 0.186.1，实现时再锁定。
+`package.json` 的 `version` 仍是 `0.1.0`，`private: true`。依赖：PixiJS 8.22.0（MIT）、Matter.js 0.20.0（MIT）、p5 ^2.3.4（LGPL-2.1，未改其源码）、three.js 0.186.1（MIT）。登记在 [第三方清单](../THIRD_PARTY_NOTICES.md)。
 
 ## 现在可以交付的用法
 
@@ -42,6 +45,6 @@
 
 运行依赖已锁定 `three@0.186.1`（MIT）。类型在开发依赖 `@types/three@0.186.0`，因为这个版本的 npm 包没有自带 `.d.ts`。十卡、对照页和旧冒烟仍用 PixiJS 8.22.0，所以 Pixi 还在依赖里。p5 仍只服务 `/inkcross/` 与 `/wuxia/`。
 
-皴法勾边用的 classic Perlin 在 `src/core/classic-noise.ts`，来自 [stegu/webgl-noise](https://github.com/stegu/webgl-noise)（Stefan Gustavson，MIT），文件头保留版权说明。字幕定为 Canvas 纹理，没有安装 troika-three-text。登记见 [第三方清单](../THIRD_PARTY_NOTICES.md)。
+皴法勾边用的 classic Perlin 在 `src/core/classic-noise.ts`，来自 [stegu/webgl-noise](https://github.com/stegu/webgl-noise)（Stefan Gustavson，MIT），文件头保留版权说明。字幕 `InkText` 用 Canvas 纹理，没有安装 troika-three-text。登记见 [第三方清单](../THIRD_PARTY_NOTICES.md)。
 
 `thirdparty/inkEngine` 的快照、内嵌字体和 `demo.json` 仍然不进 `dist/`。历史游戏的语料 PDF 不进仓库。真实 GPU 未实测。
