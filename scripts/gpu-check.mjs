@@ -49,7 +49,9 @@ async function waitForServer() {
 if (!shots) {
   await waitForServer();
   console.log(`横版切片：${base}/scroll/`);
-  console.log('在 Mac（Apple Silicon）的 Chrome 里打开这一页。无头 SwiftShader 不能代替这次验收，文档保持「未实测」。');
+  console.log(`叙事演示：${base}/story/`);
+  console.log(`three.js 对照：${base}/compare/parity.html?scene=modes`);
+  console.log('在 Mac（Apple Silicon）的 Chrome 里打开这些页。无头 SwiftShader 不能代替这次验收，文档保持「未实测」。');
   console.log('Ctrl+C 结束。');
   await new Promise(() => {});
 }
@@ -131,6 +133,66 @@ try {
       await page.screenshot({ path: file });
       console.log(file);
       if (errors.length) failures.push(`${pose}: ${errors.join(' | ')}`);
+      await page.close();
+    }
+    {
+      const page = await browser.newPage({ viewport: { width: 1400, height: 900 } });
+      const errors = [];
+      page.on('pageerror', error => errors.push(error.message));
+      page.on('console', message => {
+        if (message.type() === 'error') errors.push(message.text());
+      });
+      await page.goto(`${base}/scroll/?pose=rest`, { waitUntil: 'domcontentloaded', timeout: 120000 });
+      await page.waitForFunction(() => window.__sliceReady === true, undefined, { timeout: 120000 });
+      await page.evaluate(() => window.__sliceLose?.());
+      await page.waitForFunction(() => window.__sliceLost === true, undefined, { timeout: 10000 });
+      await page.evaluate(() => window.__sliceRestore?.());
+      await page.waitForFunction(() => window.__sliceRestored === true && window.__sliceLost !== true, undefined, { timeout: 10000 });
+      const gl = await page.evaluate(() => window.__sliceGl ?? 0);
+      if (gl !== 0) errors.push(`gl error ${gl}`);
+      const file = join(outDir, 'slice-restored.png');
+      await page.screenshot({ path: file });
+      console.log('context-restore', file);
+      if (errors.length) failures.push(`restore: ${errors.join(' | ')}`);
+      await page.close();
+    }
+    for (const pose of ['title', 'fork']) {
+      const page = await browser.newPage({ viewport: { width: 1400, height: 1100 } });
+      const errors = [];
+      page.on('pageerror', error => errors.push(error.message));
+      page.on('console', message => {
+        if (message.type() === 'error') errors.push(message.text());
+      });
+      await page.goto(`${base}/story/?pose=${pose}`, { waitUntil: 'domcontentloaded', timeout: 120000 });
+      await page.waitForFunction(() => window.__storyReady === true, undefined, { timeout: 300000 });
+      const gl = await page.evaluate(() => window.__storyGl ?? 0);
+      const phase = await page.evaluate(() => window.__storyPhase ?? '');
+      console.log('story', pose, phase, await page.title());
+      if (gl !== 0) errors.push(`gl error ${gl}`);
+      if (pose === 'fork' && phase !== 'choice') errors.push(`phase ${phase}`);
+      const file = join(outDir, `story-${pose}.png`);
+      await page.screenshot({ path: file });
+      console.log(file);
+      if (errors.length) failures.push(`story-${pose}: ${errors.join(' | ')}`);
+      await page.close();
+    }
+    {
+      const page = await browser.newPage({ viewport: { width: 1700, height: 900 } });
+      const errors = [];
+      page.on('pageerror', error => errors.push(error.message));
+      page.on('console', message => {
+        if (message.type() === 'error') errors.push(message.text());
+      });
+      await page.goto(`${base}/compare/parity.html?scene=modes`, { waitUntil: 'domcontentloaded', timeout: 120000 });
+      await page.waitForFunction(() => window.__parityReady === true, undefined, { timeout: 180000 });
+      const stats = await page.evaluate(() => ({ mean: window.__parityMean ?? -1, max: window.__parityMax ?? -1, gl: window.__parityGl ?? 0 }));
+      console.log('parity', stats);
+      if (stats.gl !== 0) errors.push(`gl error ${stats.gl}`);
+      if (!(stats.mean >= 0)) errors.push('missing diff');
+      const file = join(outDir, 'parity-modes.png');
+      await page.screenshot({ path: file });
+      console.log(file);
+      if (errors.length) failures.push(`parity: ${errors.join(' | ')}`);
       await page.close();
     }
   } finally {

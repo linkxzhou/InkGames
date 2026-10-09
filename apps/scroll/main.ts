@@ -4,6 +4,10 @@ interface SliceWindow extends Window {
   __sliceReady?: boolean;
   __sliceError?: string;
   __sliceGl?: number;
+  __sliceLost?: boolean;
+  __sliceRestored?: boolean;
+  __sliceLose?: () => void;
+  __sliceRestore?: () => void;
 }
 
 const canvas = document.querySelector<HTMLCanvasElement>('#view');
@@ -18,6 +22,14 @@ const view = new InkView({
   height: 720,
   seed: 42,
   ...(pose ? { pixelRatio: 1 } : {}),
+  onContext: state => {
+    host.__sliceLost = state === 'lost';
+    if (state === 'restored') {
+      host.__sliceRestored = true;
+      host.__sliceLost = false;
+      host.__sliceGl = view.glError;
+    }
+  },
 });
 
 const ground = [
@@ -101,6 +113,8 @@ if (pose === 'rest') {
 }
 
 host.__sliceGl = view.glError;
+host.__sliceLose = () => view.simulateContextLoss();
+host.__sliceRestore = () => view.simulateContextRestore();
 host.__sliceReady = true;
 paintStatus();
 
