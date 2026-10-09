@@ -73,6 +73,7 @@ scene.add(new Mesh(new PlaneGeometry(640, 480), new MeshBasicMaterial({ map: sur
 - `wash(x, y, radius)`：水刷。按距离把 `final` 往白色混，类型图在圈心清零，再重画这一块。
 - `snapshot()` / `restore()`、`replayEffect(finish)`、`clear()`、`dispose()`（幂等）。
 - `texture`：交给 three.js 材质作为 `map`。
+- `parseVectorInk` / `compileVectorInk`：把手写的 `inkgames.vector-ink` 路径收成上面的 `paint` 笔画。格式见 [第 5 章](./05-world-scene-and-assets.md)。`scoreInkRgba` 在已经铺好纸色的两张 RGBA 上算平均绝对 RGB、16 像素窗的 SSIM，以及亮度梯度差。
 
 `InkFinish`：
 

@@ -4,6 +4,8 @@ export type {
 } from './core/ink-brush';
 export type { InkColor, InkFinish, InkFlowFinish, InkDistortFinish, InkMetallicFinish, InkStrokeRequest } from './core/ink-stroke';
 export { inkPointerPath } from './core/ink-stroke';
+export { parseVectorInk, compileVectorInk, scoreInkRgba } from './core/vector-ink';
+export type { VectorInkSheet, VectorInkPath, VectorInkFit, VectorInkRole, InkRasterScore } from './core/vector-ink';
 export { INK_PALETTE, INK_COLOR_NAMES, inkColorId, inkColorRgb } from './core/ink-palette';
 export type { InkColorName, InkColorEntry } from './core/ink-palette';
 export { scanInkBites } from './core/ink-metallic';

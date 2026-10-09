@@ -1,0 +1,32 @@
+{
+  "format": "inkgames.vector-ink",
+  "version": 1,
+  "id": "chaos-3",
+  "width": 1024,
+  "height": 1024,
+  "paths": [
+    { "id": "peaks", "role": "wash", "color": "light_gray_new", "d": "M 0 280 C 120 140 220 240 340 160 C 480 70 600 220 760 140 C 880 90 960 180 1024 160" },
+    { "id": "mist", "role": "wash", "color": "sage_gray", "effect": "effect4", "d": "M 80 240 C 220 200 300 270 420 220" },
+    { "id": "rock-l", "role": "fill", "color": "gray_brown", "layers": 2, "d": "M 40 620 C 10 700 40 860 150 900 C 260 930 340 820 280 700 C 230 600 100 560 40 620 Z" },
+    { "id": "rock-l-edge", "role": "contour", "color": "black", "size": "small", "d": "M 60 660 C 120 600 220 640 300 760 C 250 700 140 680 80 740" },
+    { "id": "rock-r", "role": "fill", "color": "dark_gray", "layers": 2, "d": "M 700 680 C 660 760 700 900 840 940 C 980 960 1040 840 980 720 C 930 620 780 600 700 680 Z" },
+    { "id": "rock-r-edge", "role": "hatch", "color": "black", "d": "M 740 720 C 820 680 920 740 980 860 C 900 780 800 760 760 840" },
+    { "id": "figure-l", "role": "fill", "color": "black", "layers": 3, "d": "M 220 300 C 280 280 360 300 400 360 C 470 470 490 640 450 820 C 420 940 250 960 190 860 C 130 740 150 480 220 300 Z" },
+    { "id": "figure-l-edge", "role": "contour", "color": "black", "d": "M 230 310 C 290 290 360 310 400 370 C 460 480 480 650 440 830 C 410 930 260 950 200 860 C 150 740 160 480 230 310 Z" },
+    { "id": "drape-l", "role": "hatch", "color": "dark_gray", "d": "M 250 420 C 230 560 210 720 250 880 M 320 400 C 340 560 320 740 360 900 M 380 430 C 400 600 390 760 420 900" },
+    { "id": "head-l", "role": "contour", "color": "black", "d": "M 340 250 C 380 220 410 250 400 300 C 390 340 340 350 310 320 C 290 290 300 250 340 250 Z" },
+    { "id": "face-l", "role": "contour", "color": "dark_gray", "size": "small", "d": "M 360 270 C 400 280 410 320 380 340" },
+    { "id": "hair-l", "role": "hatch", "color": "black", "effect": "hair", "d": "M 300 240 C 260 180 320 140 380 180 C 340 160 290 190 300 250" },
+    { "id": "beard-l", "role": "hatch", "color": "black", "effect": "hair", "d": "M 330 330 C 310 400 340 480 390 450 C 360 410 340 360 360 320" },
+    { "id": "arm-l", "role": "contour", "color": "black", "d": "M 390 420 C 480 450 560 430 620 400" },
+    { "id": "sash-l", "role": "accent", "color": "wine_red", "d": "M 230 520 C 320 560 420 530 480 490" },
+    { "id": "figure-r", "role": "fill", "color": "dark_gray", "layers": 2, "d": "M 640 420 C 700 400 780 430 810 500 C 860 620 840 760 780 840 C 700 920 600 860 590 740 C 580 600 580 480 640 420 Z" },
+    { "id": "figure-r-edge", "role": "contour", "color": "black", "d": "M 650 430 C 710 410 780 440 810 510 C 850 630 830 760 770 840 C 700 900 610 850 600 740 C 590 610 590 490 650 430 Z" },
+    { "id": "drape-r", "role": "hatch", "color": "black", "d": "M 660 500 C 650 620 640 740 690 860 M 740 490 C 760 630 740 760 780 870" },
+    { "id": "head-r", "role": "contour", "color": "black", "d": "M 760 360 C 800 340 830 380 810 420 C 790 460 740 450 730 410 C 720 370 730 350 760 360 Z" },
+    { "id": "hair-r", "role": "hatch", "color": "dark_gray", "effect": "hair", "d": "M 730 370 C 700 320 760 280 820 320 C 780 300 740 340 750 390" },
+    { "id": "arm-r", "role": "contour", "color": "dark_gray", "d": "M 650 520 C 580 540 540 500 560 460" },
+    { "id": "water", "role": "wash", "color": "sage_gray", "layers": 2, "d": "M 0 940 C 200 880 380 990 560 930 C 760 860 900 980 1024 940" },
+    { "id": "water-line", "role": "contour", "color": "black", "size": "small", "d": "M 0 980 C 220 940 420 1020 640 960 C 840 910 960 990 1024 970" }
+  ]
+}

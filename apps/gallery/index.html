@@ -14,6 +14,12 @@
     .pair figcaption { font-size: 12px; letter-spacing: .08em; color: #b69c79; margin-bottom: 6px; }
     .pair canvas, .pair img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; background: #d6cebc; }
     .metric { font-size: 13px; color: #d6c5a6; line-height: 1.6; }
+    body[data-build] .plate { display: none; }
+    body[data-build="chaos-1"] .plate[data-plate="chaos-1"],
+    body[data-build="chaos-2"] .plate[data-plate="chaos-2"],
+    body[data-build="chaos-3"] .plate[data-plate="chaos-3"],
+    body[data-build="chaos-4"] .plate[data-plate="chaos-4"],
+    body[data-build="chuhan"] .plate[data-plate="chuhan"] { display: block; }
     @media (max-width: 800px) { .pair { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -28,7 +34,7 @@
         <span class="demo-index">画廊</span>
         <h1>程序水墨对照</h1>
       </div>
-      <p>左边是引擎自己画的，右边是参照图。没有把参照图描进画布。差数是平均绝对 RGB（每像素 0–765）。SwiftShader 不能代替真实 GPU，未实测。</p>
+      <p>左边是手写矢量轮廓，经引擎笔刷铺成湿墨、飞白和披麻。右边是参照图。没有把参照像素描进画布。差数是平均绝对 RGB（每像素 0–765），另有 SSIM 和边缘差。SwiftShader 不能代替真实 GPU，未实测。</p>
     </div>
     <div class="plates" id="plates">
       <section class="plate" data-plate="chaos-1">

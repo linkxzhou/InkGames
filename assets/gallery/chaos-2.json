@@ -1,0 +1,27 @@
+{
+  "format": "inkgames.vector-ink",
+  "version": 1,
+  "id": "chaos-2",
+  "width": 1024,
+  "height": 1024,
+  "paths": [
+    { "id": "sky-hint-l", "role": "wash", "color": "light_gray_new", "effect": "effect4", "d": "M 0 160 C 80 90 140 150 200 110" },
+    { "id": "sky-hint-r", "role": "wash", "color": "sage_gray", "effect": "effect4", "d": "M 820 140 C 900 80 970 150 1024 100" },
+    { "id": "far-ground", "role": "wash", "color": "light_gray_new", "d": "M 0 860 C 160 760 280 820 420 740 C 560 660 700 800 860 720 C 940 680 990 760 1024 800" },
+    { "id": "mist", "role": "wash", "color": "sage_gray", "effect": "effect4", "d": "M 40 700 C 180 660 260 730 360 680" },
+    { "id": "robe", "role": "fill", "color": "black", "layers": 3, "d": "M 400 500 C 470 520 560 510 640 500 C 720 620 790 740 760 900 C 700 990 340 1000 270 880 C 220 760 300 600 400 500 Z" },
+    { "id": "robe-edge", "role": "contour", "color": "black", "d": "M 400 500 C 470 520 560 510 640 500 C 720 620 790 740 760 900 C 700 990 340 1000 270 880 C 220 760 300 600 400 500 Z" },
+    { "id": "drape", "role": "hatch", "color": "dark_gray", "d": "M 360 560 C 330 700 300 820 340 960 M 470 540 C 450 700 470 840 500 980 M 580 550 C 620 700 650 840 610 970" },
+    { "id": "head", "role": "fill", "color": "dark_gray", "layers": 2, "d": "M 580 390 C 580 340 540 300 500 300 C 450 300 410 350 420 400 C 430 460 480 490 530 470 C 570 450 580 420 580 390 Z" },
+    { "id": "head-edge", "role": "contour", "color": "black", "d": "M 575 395 C 570 345 535 305 495 305 C 450 305 415 355 425 405 C 435 455 485 485 530 465 C 568 448 578 418 575 395 Z" },
+    { "id": "hair", "role": "hatch", "color": "black", "effect": "hair", "d": "M 450 330 C 400 250 340 220 280 260 C 360 240 420 280 450 340 C 520 250 640 200 740 250 C 640 230 540 270 500 340" },
+    { "id": "beard", "role": "hatch", "color": "black", "effect": "hair", "d": "M 460 450 C 440 540 480 640 540 600 C 500 560 470 500 500 450 C 530 500 560 580 520 660" },
+    { "id": "arm-l", "role": "contour", "color": "black", "size": "large", "d": "M 430 520 C 360 400 300 260 240 140" },
+    { "id": "arm-r", "role": "contour", "color": "black", "size": "large", "d": "M 610 510 C 690 380 740 250 800 120" },
+    { "id": "hand-l", "role": "contour", "color": "dark_gray", "d": "M 200 160 C 230 110 280 100 300 150 C 270 130 230 150 220 180" },
+    { "id": "hand-r", "role": "contour", "color": "dark_gray", "d": "M 770 150 C 810 90 870 90 890 140 C 850 110 800 140 790 180" },
+    { "id": "sash", "role": "accent", "color": "wine_red", "d": "M 380 620 C 500 660 640 630 730 580" },
+    { "id": "leg-l", "role": "contour", "color": "black", "size": "small", "d": "M 400 820 C 390 900 420 980 450 1020" },
+    { "id": "leg-r", "role": "contour", "color": "black", "size": "small", "d": "M 620 830 C 640 910 600 990 570 1020" }
+  ]
+}
