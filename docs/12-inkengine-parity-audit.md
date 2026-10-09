@@ -2,7 +2,7 @@
 
 [目录](./README.md) · [水墨实现](./07-ink-rendering.md) · [引擎计划](../plan/10-three-matter-side-scroller-plan.md)
 
-> 本章审计的是 **Pixi 上的 `InkWash`**。`InkSurface` 已按同一条笔刷和反馈顺序接到 three.js 渲染目标，见 [引擎计划](../plan/10-three-matter-side-scroller-plan.md)。本章的灰度差不能写成 three.js 上已经对齐：对照还没有在 three.js 上重跑，真实 GPU 未实测。
+> 本章总表审计的是 **Pixi 上的 `InkWash`**。`InkSurface` 按同一条笔刷和反馈顺序接到 three.js 渲染目标。文末「three.js 后端」是同一次笔画在两个宿主上的 SwiftShader 并排，不是逐像素一致，真实 GPU 未实测。
 
 对照对象是 `thirdparty/inkEngine/`（`ink-engine.js`、`NAME-MAP.md`、`README.md`、`index.html`）。它是 inkField 的可读还原，回放录制时与原版逐像素一致。本仓库把它的笔刷与着色器移植进 `src/`，在 Pixi 上跑同一条管线；不把 `ink-engine.js` 嵌进页面，也不宣称逐像素相同。
 
@@ -57,3 +57,13 @@
 flow、distort、metallic 各有一张对照页（`/compare/?scene=flow|distort|metallic`），分层镜头是 `/compare/?scene=camera`（整幅在 z = 40）。剑刃、刀身、枪头在道具表里打开 metallic，水面打开 flow，水面深处打开只作用于该笔矩形的 distort。游戏页的纸层保持 1:1，人物和手持物在 z = 40 放大，远山在 z = −80 缩小并少跟一点相机。
 
 未实测：独立显卡、Safari、Firefox、以及「和 inkField 原版逐像素一致」。SwiftShader 截图只说明着色器能跑、构图和笔性可对。
+
+## three.js 后端
+
+`/compare/parity.html?scene=modes` 用 `apps/compare/strokes.ts` 里的同一组笔画。左边是 Pixi `InkWash`，右边是 three.js `InkSurface`。尺寸 800×600，种子 `1234567890`，底色 222 灰，`pixelRatio` 为 1。`readPixels` 两边都从画布左下角读起。差值是每个像素 R、G、B 绝对差之和（单通道 0–255，三项相加 0–765），再对全部像素取平均；最大是单个像素的这项和。
+
+无头 Chromium + SwiftShader 这一次：平均 **64.54**（精确值 64.53543125），最大 **666**，GL 错误 0。七种笔刷的位置和笔势在并排里对得上。这个数字不是逐像素一致，也不能写成已经对齐 inkEngine 或真实 GPU。Pixi 与 three.js 的线段光栅化、MSAA 和色彩空间不一样，纸纹和笔缘会差出几十级。Safari、Firefox、独立显卡未实测。
+
+![modes 场景：左边 Pixi，右边 three.js](./images/parity-modes-swiftshader.png)
+
+同一页也有 `/compare/three.html`，只画 three.js 一侧。`scripts/gpu-check.mjs --shots` 会再截这张并排。截图里的页面说明同样写着 SwiftShader、真实 GPU 未实测。

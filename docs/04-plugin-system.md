@@ -2,7 +2,7 @@
 
 [目录](./README.md) · [上一章](./03-microkernel-and-loop.md) · [下一章](./05-world-scene-and-assets.md)
 
-> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主能播「易水寒」并走正史 / 野史；玩法模板、`PostStack`、景深和真实 GPU 验收仍未完成。
 
 「插件」这个词在仓库里有两套意思。
 
@@ -69,6 +69,6 @@ interface ItemPreset {
 
 ## 横版切片已导出的模块
 
-十卡的 `ItemPreset` 不变，切片不走插件图。已经从 `src/index.ts` 导出的是 `InkView`、`Playfield`、`CameraRig`、`InkSurface`、`TerrainSeep`、`createCunRock`、`BambooView`。坡度行走、击退、扫掠和砍断写在 `Playfield` 的方法上。皴法在 `src/core/cun-material.ts`，竹的显示在 `src/core/bamboo-rig.ts` 的 `BambooView`。
+十卡的 `ItemPreset` 不变，切片不走插件图。已经从 `src/index.ts` 导出的是 `InkView`、`Playfield`、`CameraRig`、`InkSurface`、`TerrainSeep`、`createCunRock`、`BambooView`，以及叙事宿主 `SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`StoryStage`。坡度行走、击退、扫掠和砍断写在 `Playfield` 的方法上。皴法在 `src/core/cun-material.ts`，竹的显示在 `src/core/bamboo-rig.ts` 的 `BambooView`。
 
-还没有导出、也还没有类的名字：`PostStack`、`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`，以及 `defineGameplay`。字幕播放算在这一组里。历史游戏的优先级仍以 [plan/12 的缺口表](../plan/12-history-game-engine-gaps.md#3-引擎缺口清单) 为准。
+还没有类的名字：`PostStack`、`defineGameplay`。过场效果由 `StoryStage` 直接写到墨面。历史游戏的优先级仍以 [plan/12 的缺口表](../plan/12-history-game-engine-gaps.md#3-引擎缺口清单) 为准。

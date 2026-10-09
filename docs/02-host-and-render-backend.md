@@ -2,7 +2,7 @@
 
 [目录](./README.md) · [上一章](./01-scope-and-engine-map.md) · [下一章](./03-microkernel-and-loop.md)
 
-> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主能播「易水寒」并走正史 / 野史；玩法模板、`PostStack`、景深和真实 GPU 验收仍未完成。
 
 ## 2.0：`InkStage` 拥有唯一的 Pixi 应用
 
@@ -49,4 +49,4 @@
 
 `CameraRig` 的透视相机 fov 为 60°，放在 `z = inkCameraDistance(高度) / zoom`，默认 zoom 为 1。`camera.up` 是 `(0, -1, 0)`。`lookAt` 在这个 up 下会把视野滚 180° 并镜像 X，所以 `place()` 在 `lookAt` 之后把 `camera.scale.x` 设为 `-1`：世界 +x 在画面右侧，世界 +y 仍向下。负缩放会反转缠绕，角色、地面、竹和皴法填充用 `DoubleSide`，勾边外壳仍是 `BackSide`。正交相机只在 `useOrthographic` 打开时使用。层深仍是 `INK_LAYER_Z`：远景 −80、纸面 0、角色 40、文字 120。
 
-`webglcontextlost` 把 `playfield.pausedClock` 设为真。恢复事件不重建渲染目标，也不能从 `snapshot()` 自动贴回。`dispose()` 幂等。Pixi 舞台和这张画布各用各的，不要共用一张 canvas。
+`webglcontextlost` 把 `playfield.pausedClock` 设为真并停住 `frame`。`webglcontextrestored` 调用 `rebuildGpu`：丢掉旧的 `InkSurface` 与 `TerrainSeep`，新建一套，把丢失前的墨面 `snapshot()` 和洇染干缓冲贴回去，再把远景的 `uMap` 和地面的 `uSeep` 指到新纹理，然后画一帧，不推进物理。拆掉失效缓冲时留下的 `INVALID_OPERATION` 会在这一帧之前清掉，`glError` 只记这一帧自己的错误。`simulateContextLoss` 必须先拍快照再 `loseContext`，丢失之后读不回像素。`WEBGL_lose_context` 在创建渲染器时就取好。`apps/scroll/` 把这两步挂在 `window.__sliceLose` / `__sliceRestore`。`StoryStage` 对每个墨层做同样的事，并重画当前过场帧。`dispose()` 幂等。Pixi 舞台和这张画布各用各的，不要共用一张 canvas。真实 GPU 上的丢失恢复未实测。

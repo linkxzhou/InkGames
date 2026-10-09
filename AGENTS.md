@@ -1,8 +1,8 @@
 # AGENTS.md · InkGames 工程规范
 
 > 本文件约束 AI 协作与人类贡献者在 `/Volumes/my/github/InkGames` 内的目录结构、命名、代码与文档约定。
-> 冲突优先级：本文件 → [`plan/10-three-matter-side-scroller-plan.md`](plan/10-three-matter-side-scroller-plan.md)（three.js + Matter.js；M0–M4 已落地，M5 未做）→ `docs/01..10`（现行代码：十卡 Pixi 与横版切片）→ [`plan/11`](plan/11-history-game-story-design.md) 与 [`plan/12`](plan/12-history-game-engine-gaps.md)（历史游戏草案：叙事和缺口优先级以它们为准，模块名与 plan/10 对齐）→ `docs/11`（资料附录，不作现行承诺）。
-> 新设计目标：**桌面优先的 three.js（WebGL）+ Matter.js 横屏水墨动作引擎**。玩法在 X/Y 平面碰撞，Z 固定；Matter.js 的刚体 x、y 写入 three.js 模型。横版切片在 `src/core/` 与 `apps/scroll/`：`InkView`、`Playfield`、`InkSurface`、洇染、皴法、断竹。叙事宿主（M5）未实现。`src/plugins/` 放 v0.1 能力插件和十卡道具预设，`apps/` 首页仍是十张效果卡。水刷必须改变 CPU 权威碰撞几何。水墨观感以 `thirdparty/inkEngine` 为参照：十卡宿主是 `InkWash` 的 Pixi 缓冲，切片宿主是 `InkSurface` 的 three.js 渲染目标；逐项差距见 `docs/12`（对照仍是 Pixi，three.js 未重跑）。仓库里仍能跑 p5.js + 原生 WebGL2 原型，以及 PixiJS 8 + Matter.js 十卡舞台。无头 SwiftShader 冒烟通过不等于真实 GPU 验收，不得把未测项写成已验证。
+> 冲突优先级：本文件 → [`plan/10-three-matter-side-scroller-plan.md`](plan/10-three-matter-side-scroller-plan.md)（three.js + Matter.js；M0–M4 已落地，M5 叙事宿主已能播「易水寒」，玩法模板与 `PostStack` 仍开着）→ `docs/01..10`（现行代码：十卡 Pixi、横版切片与 `/story/`）→ [`plan/11`](plan/11-history-game-story-design.md) 与 [`plan/12`](plan/12-history-game-engine-gaps.md)（历史游戏草案：叙事和缺口优先级以它们为准，模块名与 plan/10 对齐）→ `docs/11`（资料附录，不作现行承诺）。
+> 新设计目标：**桌面优先的 three.js（WebGL）+ Matter.js 横屏水墨动作引擎**。玩法在 X/Y 平面碰撞，Z 固定；Matter.js 的刚体 x、y 写入 three.js 模型。横版切片在 `src/core/` 与 `apps/scroll/`：`InkView`、`Playfield`、`InkSurface`、洇染、皴法、断竹。叙事宿主在 `SceneDirector` 等类与 `apps/story/`，只读播放 plan/11 的荆轲样例。`src/plugins/` 放 v0.1 能力插件和十卡道具预设，`apps/` 首页仍是十张效果卡。水刷必须改变 CPU 权威碰撞几何。水墨观感以 `thirdparty/inkEngine` 为参照：十卡宿主是 `InkWash` 的 Pixi 缓冲，切片宿主是 `InkSurface` 的 three.js 渲染目标；逐项差距见 `docs/12`（总表是 Pixi，文末有 three.js 的 SwiftShader 并排差）。仓库里仍能跑 p5.js + 原生 WebGL2 原型，以及 PixiJS 8 + Matter.js 十卡舞台。无头 SwiftShader 冒烟通过不等于真实 GPU 验收，不得把未测项写成已验证。
 
 ## 1. 目录结构（权威）
 
@@ -58,8 +58,8 @@ InkGames/
 
 ## 3. 文档约定
 
-- `docs/` 面向**使用者**：01..10 前半是 p5 原型与 Pixi 十卡，文末「横版切片」只写已经从 `src/index.ts` 导出的 API。叙事宿主仍标未实现。11 为有日期的资料附录。12 是 Pixi 移植与 inkEngine 的对照，three.js 对照未实测。
-- `plan/` 面向**规划**：`plan/10` 是 three.js + Matter.js 引擎计划（M0–M4 为 `[x]`，M5 为 `[ ]`）。`plan/11`、`plan/12` 是历史游戏草案，不覆盖引擎架构。01..09 已删除，原因见 `plan/README.md`。
+- `docs/` 面向**使用者**：01..10 前半是 p5 原型与 Pixi 十卡，文末「横版切片」只写已经从 `src/index.ts` 导出的 API，包括叙事宿主里已经能调用的部分。玩法模板、`PostStack`、景深仍标未完成。11 为有日期的资料附录。12 是 Pixi 移植与 inkEngine 的对照，文末记 three.js 并排的 SwiftShader 差值。
+- `plan/` 面向**规划**：`plan/10` 是 three.js + Matter.js 引擎计划（M0–M4 为 `[x]`，M5 为 `[~]`）。`plan/11`、`plan/12` 是历史游戏草案，不覆盖引擎架构。01..09 已删除，原因见 `plan/README.md`。
 - 新增公共 API → 同步更新：`src/index.ts`、对应 `docs/NN-*.md` 与 `plan/10` 状态；完成 2.0 后更新目录/启动入口描述。
 - 所有本地链接使用相对路径，改文件后必须校验无死链。
 - 未在本机浏览器实测的结论必须写明“未实测”，不得声称已通过验证。

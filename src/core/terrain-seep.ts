@@ -98,6 +98,29 @@ export class TerrainSeep {
 
   get texture(): Texture { return this.front.texture; }
 
+  /** CPU copy of the visible dry buffer. Read it before the context is lost. */
+  snapshot(): Uint8Array {
+    const pixels = new Uint8Array(SEEP_WIDTH * SEEP_HEIGHT * 4);
+    this.pass.read(this.front, pixels);
+    return pixels;
+  }
+
+  restore(pixels: Uint8Array): void {
+    if (this.disposed || pixels.length !== SEEP_WIDTH * SEEP_HEIGHT * 4) return;
+    const texture = new DataTexture(pixels, SEEP_WIDTH, SEEP_HEIGHT, RGBAFormat, UnsignedByteType);
+    texture.flipY = false;
+    texture.colorSpace = NoColorSpace;
+    texture.magFilter = NearestFilter;
+    texture.minFilter = NearestFilter;
+    texture.generateMipmaps = false;
+    texture.needsUpdate = true;
+    const full = this.full();
+    this.pass.blitTexture(texture, this.dryA, full);
+    this.pass.blitTexture(texture, this.dryB, full);
+    this.front = this.dryA;
+    texture.dispose();
+  }
+
   update(stamps: readonly InkStamp[]): void {
     if (this.disposed) return;
     const count = Math.min(SEEP_STAMP_LIMIT, stamps.length);
