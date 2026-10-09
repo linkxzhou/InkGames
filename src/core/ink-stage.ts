@@ -1,5 +1,6 @@
 import { Body, type Body as MatterBody } from 'matter-js';
-import { Application, Container, Matrix } from 'pixi.js';
+import { Application, Container, Matrix, type Sprite } from 'pixi.js';
+import { INK_LAYER_Z, inkLayerScale } from './ink-camera';
 import { InkWorld } from './ink-world';
 import { InkWash } from './ink-wash';
 import type { ItemPreset } from '../plugins/items';
@@ -21,6 +22,9 @@ interface InkSprite {
   /** Where the painting's own origin sits inside the sprite. */
   readonly anchorX: number;
   readonly anchorY: number;
+  /** Texture point that stays on the z = 0 plane (feet, keel, pole base, or a projectile's nose). */
+  readonly plantX: number;
+  readonly plantY: number;
 }
 
 type Vec = { x: number; y: number };
@@ -48,13 +52,21 @@ const HERO: Readonly<Partial<Record<string, PropPlacement>>> = {
  * the landscape, river and the page's prop; a transparent sheet multiplied on top takes the strokes
  * that can be washed away; moving things (horse, boat, banner, the figure and what it holds,
  * arrows and jars in flight) are small ink sheets moved as sprites. Bodies stay circles and boxes.
+ * The sheet stays at z = 0 so physics and the pointer stay in 1280×720. Far hills sit behind it and
+ * actors sit in front, at inkEngine's layer depths, scaled about the point that touches the ground.
  */
 export class InkStage {
   readonly world = new InkWorld();
   readonly app = new Application();
   private sheet!: InkWash;
   private marks!: InkWash;
+  private far!: InkWash;
+  private readonly farLayer = new Container();
+  private readonly playLayer = new Container();
+  private readonly actorLayer = new Container();
   private readonly layer = new Container();
+  /** Camera center offset in sheet pixels. z = 0 maps screen = world − cam. */
+  private readonly cam = { x: 0, y: 0 };
   private readonly sprites: InkSprite[] = [];
   private figure: InkSprite[] = [];
   private held: InkSprite | undefined;
@@ -109,7 +121,12 @@ export class InkStage {
     this.sheet = new InkWash(this.app, { width: 1280, height: 720, seed, background: INK_STAGE_PAPER, paper: true });
     this.marks = new InkWash(this.app, { width: 1280, height: 720, seed: seed + 1, transparent: true });
     this.marks.view.blendMode = 'multiply';
-    this.app.stage.addChild(this.sheet.view, this.marks.view, this.layer);
+    this.far = new InkWash(this.app, { width: 1280, height: 720, seed, transparent: true });
+    this.far.view.blendMode = 'multiply';
+    this.farLayer.addChild(this.far.view);
+    this.playLayer.addChild(this.sheet.view, this.marks.view);
+    this.actorLayer.addChild(this.layer);
+    this.app.stage.addChild(this.farLayer, this.playLayer, this.actorLayer);
     this.installInput();
     this.mountPhysics(true);
     this.paintSheet();
@@ -141,7 +158,8 @@ export class InkStage {
     const ink = this.sheet;
     const river = this.id === 'boat' || this.id === 'water-brush';
     const land = paintProp('landscape', { x: 0, y: 500, width: 1280 });
-    this.paint(ink, river ? land.filter(stroke => stroke.part !== 'ground' && stroke.part !== 'grass') : land);
+    this.paint(this.far, land.filter(stroke => stroke.part === 'farHill'));
+    this.paint(ink, land.filter(stroke => stroke.part !== 'farHill' && (!river || (stroke.part !== 'ground' && stroke.part !== 'grass'))));
     if (river) this.paint(ink, paintProp('water', { x: 0, y: 548, width: 1280 }));
     const hero = HERO[this.id];
     if (hero) this.paint(ink, paintProp(this.id as PropPaintingId, hero));
@@ -175,15 +193,16 @@ export class InkStage {
 
   /** Sprites: the figure and what it holds, plus whatever moves on this page. */
   private paintSprites(): void {
-    this.figure = [0, 1].map(pose => this.sprite('figure', { x: 80, y: 110, pose, scale: FIGURE_SCALE }, 170, 210));
+    const feetY = 110 + 62 * FIGURE_SCALE;
+    this.figure = [0, 1].map(pose => this.sprite('figure', { x: 80, y: 110, pose, scale: FIGURE_SCALE }, 170, 210, undefined, undefined, { x: 80, y: feetY }));
     const heldScale: Readonly<Partial<Record<string, number>>> = {
       sword: 0.34, blade: 0.36, spear: 0.3, bow: 0.3, shield: 0.32, 'ink-bomb': 0.32, 'water-brush': 0.32, banner: 0.24,
     };
     const scale = heldScale[this.id];
     if (scale) this.held = this.sprite(this.id as PropPaintingId, { x: 110, y: 110, scale, pose: 0 }, 220, 220);
-    if (this.id === 'war-horse') this.horse = [0, 1].map(pose => this.sprite('war-horse', { x: 230, y: 160, pose }, 440, 300));
-    if (this.id === 'boat') this.boat = this.sprite('boat', { x: 230, y: 130 }, 460, 220);
-    if (this.id === 'banner') this.banner = [-1, 0, 1].map(lean => this.sprite('banner', { x: 30, y: 250, pose: lean }, 380, 500));
+    if (this.id === 'war-horse') this.horse = [0, 1].map(pose => this.sprite('war-horse', { x: 230, y: 160, pose }, 440, 300, undefined, undefined, { x: 230, y: 282 }));
+    if (this.id === 'boat') this.boat = this.sprite('boat', { x: 230, y: 130 }, 460, 220, undefined, undefined, { x: 230, y: 164 });
+    if (this.id === 'banner') this.banner = [-1, 0, 1].map(lean => this.sprite('banner', { x: 30, y: 250, pose: lean }, 380, 500, undefined, undefined, { x: 30, y: 470 }));
     // Arrows pivot on the head (where the projectile body is), jars on the belly.
     const arrow = (mirror: boolean): InkSprite => this.sprite('bow', { x: mirror ? 112 : 24, y: 40, scale: 0.42, mirror }, 140, 80,
       { x: mirror ? 112 - 178 * 0.42 : 24 + 178 * 0.42, y: 40 }, ARROW_PARTS);
@@ -194,13 +213,15 @@ export class InkStage {
     for (const sprite of [this.shot, this.threatArrow]) if (sprite) sprite.wash.view.visible = false;
   }
 
-  private sprite(id: PropPaintingId, at: PropPlacement, width: number, height: number, pivot?: Vec, parts?: ReadonlySet<string>): InkSprite {
+  private sprite(id: PropPaintingId, at: PropPlacement, width: number, height: number, pivot?: Vec, parts?: ReadonlySet<string>, plant?: Vec): InkSprite {
     const wash = new InkWash(this.app, { width, height, seed: hashId(`${id}:${at.pose ?? 0}:${at.scale ?? 1}`), transparent: true });
     wash.view.blendMode = 'multiply';
     const strokes = paintProp(id, at);
     this.paint(wash, parts ? strokes.filter(stroke => parts.has(stroke.part)) : strokes);
     this.layer.addChild(wash.view);
-    const sprite = { wash, anchorX: pivot?.x ?? at.x, anchorY: pivot?.y ?? at.y };
+    const anchorX = pivot?.x ?? at.x;
+    const anchorY = pivot?.y ?? at.y;
+    const sprite = { wash, anchorX, anchorY, plantX: plant?.x ?? anchorX, plantY: plant?.y ?? anchorY };
     this.sprites.push(sprite);
     return sprite;
   }
@@ -279,10 +300,10 @@ export class InkStage {
     const rect = this.app.canvas.getBoundingClientRect();
     const scale = Math.min(rect.width / 1280, rect.height / 720);
     if (!scale) return undefined;
-    return {
-      x: (event.clientX - rect.left - (rect.width - 1280 * scale) / 2) / scale,
-      y: (event.clientY - rect.top - (rect.height - 720 * scale) / 2) / scale,
-    };
+    const sx = (event.clientX - rect.left - (rect.width - 1280 * scale) / 2) / scale;
+    const sy = (event.clientY - rect.top - (rect.height - 720 * scale) / 2) / scale;
+    // The playfield is shifted by the camera and is not scaled, so the world point is screen + cam.
+    return { x: sx + this.cam.x, y: sy + this.cam.y };
   }
 
   private readonly frame = (now: number): void => {
@@ -466,36 +487,38 @@ export class InkStage {
   private draw(): void {
     if (!this.sheet) return;
     this.marks.update();
+    this.layoutCamera();
     const { x, y } = this.world.player.position;
     const attack = this.world.state === 'attack';
+    const depth = inkLayerScale(720, INK_LAYER_Z.actor);
+    const feetX = x;
+    const feetY = y + 18;
     this.figure.forEach((sprite, pose) => {
       sprite.wash.view.visible = (pose === 1) === attack;
       // The painted feet sit 62px (×scale) below the figure's origin; the body's bottom is 18px below its centre.
-      place(sprite, x, y + 18 - 62 * FIGURE_SCALE);
+      placeDepth(sprite, x, y + 18 - 62 * FIGURE_SCALE, depth);
       sprite.wash.view.tint = this.world.state === 'hurt' ? 0xffb0a0 : 0xffffff;
     });
     if (this.held) {
-      const view = this.held.wash.view;
       const hx = x + (attack ? 26 : 18);
       const hy = y - (attack ? 18 : 4);
-      // Held copy tilts forward while attacking; set the transform from a basis, no trig.
+      // The hand is on the scaled body, so its offset from the feet grows with the layer.
       const tilt = attack ? { c: 0.6, s: 0.8 } : { c: 0.97, s: 0.24 };
-      view.setFromMatrix(new Matrix(tilt.c, tilt.s, -tilt.s, tilt.c, 0, 0)
-        .append(new Matrix(1, 0, 0, 1, -this.held.anchorX, -this.held.anchorY))
-        .prepend(new Matrix(1, 0, 0, 1, hx, hy)));
+      aimed(this.held.wash.view, this.held.anchorX, this.held.anchorY,
+        feetX + (hx - feetX) * depth, feetY + (hy - feetY) * depth, tilt.c, tilt.s, depth);
     }
     this.horse.forEach((sprite, pose) => {
       sprite.wash.view.visible = this.horseRunning ? Math.floor(this.steps / 8) % 2 === pose : pose === 0;
-      place(sprite, this.horseX, 500);
+      placeDepth(sprite, this.horseX, 500, depth);
     });
-    if (this.boat) place(this.boat, this.boatX, 580);
+    if (this.boat) placeDepth(this.boat, this.boatX, 580, depth);
     this.banner.forEach((sprite, index) => {
       sprite.wash.view.visible = index - 1 === this.wind;
-      place(sprite, 300, 400);
+      placeDepth(sprite, 300, 400, depth);
     });
     if (this.threatArrow) {
       this.threatArrow.wash.view.visible = Boolean(this.threat);
-      if (this.threat) place(this.threatArrow, this.threat.position.x, this.threat.position.y);
+      if (this.threat) placeDepth(this.threatArrow, this.threat.position.x, this.threat.position.y, depth);
     }
     const shots = this.world.projectiles;
     if (this.shot) {
@@ -507,12 +530,26 @@ export class InkStage {
         const len = Math.hypot(v.x, v.y) || 1;
         const c = this.id === 'bow' ? v.x / len : 1;
         const s = this.id === 'bow' ? v.y / len : 0;
-        view.setFromMatrix(new Matrix(c, s, -s, c, 0, 0)
-          .append(new Matrix(1, 0, 0, 1, -this.shot.anchorX, -this.shot.anchorY))
-          .prepend(new Matrix(1, 0, 0, 1, shot.body.position.x, shot.body.position.y)));
+        // Scale about the nose, which is the Matter body, so the hit point stays on the physics position.
+        aimed(view, this.shot.anchorX, this.shot.anchorY, shot.body.position.x, shot.body.position.y, c, s, depth);
       }
     }
     this.app.render();
+  }
+
+  /** Follow the player a little, then stop, so the z = 0 sheet still covers the stage. */
+  private layoutCamera(): void {
+    const player = this.world.player.position;
+    const tx = Math.max(-48, Math.min(48, player.x - 640));
+    const ty = Math.max(-36, Math.min(36, player.y - 360));
+    this.cam.x += (tx - this.cam.x) * 0.05;
+    this.cam.y += (ty - this.cam.y) * 0.05;
+    this.playLayer.position.set(-this.cam.x, -this.cam.y);
+    this.actorLayer.position.set(-this.cam.x, -this.cam.y);
+    const far = inkLayerScale(720, INK_LAYER_Z.far);
+    this.farLayer.pivot.set(640, 360);
+    this.farLayer.scale.set(far);
+    this.farLayer.position.set(640 - this.cam.x * far, 360 - this.cam.y * far);
   }
 
   togglePause(): boolean {
@@ -557,13 +594,32 @@ export class InkStage {
     this.world.dispose();
     for (const sprite of this.sprites.splice(0)) sprite.wash.dispose();
     this.marks?.dispose();
+    this.far?.dispose();
     this.sheet?.dispose();
     this.app.destroy(true, { children: true });
   }
 }
 
-function place(sprite: InkSprite, x: number, y: number): void {
-  sprite.wash.view.position.set(x - sprite.anchorX, y - sprite.anchorY);
+/** Scale about the planted point so the feet stay where the z = 0 ground says they are. */
+function placeDepth(sprite: InkSprite, originX: number, originY: number, scale: number): void {
+  const view = sprite.wash.view;
+  view.rotation = 0;
+  view.pivot.set(sprite.plantX, sprite.plantY);
+  view.scale.set(scale);
+  view.position.set(
+    originX + (sprite.plantX - sprite.anchorX),
+    originY + (sprite.plantY - sprite.anchorY),
+  );
+}
+
+/** Rotation and uniform scale about the anchor, in the actor layer (the parent applies the camera). */
+function aimed(view: Sprite, anchorX: number, anchorY: number, worldX: number, worldY: number, c: number, s: number, scale: number): void {
+  view.pivot.set(0, 0);
+  view.scale.set(1);
+  view.rotation = 0;
+  view.setFromMatrix(new Matrix(c * scale, s * scale, -s * scale, c * scale, 0, 0)
+    .append(new Matrix(1, 0, 0, 1, -anchorX, -anchorY))
+    .prepend(new Matrix(1, 0, 0, 1, worldX, worldY)));
 }
 
 function ringPath(cx: number, cy: number, rx: number, ry: number): Array<readonly [number, number]> {
