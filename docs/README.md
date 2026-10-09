@@ -7,7 +7,7 @@
 | 横版切片 | `/scroll/` | `InkView`、`Playfield`、`CameraRig`、`TerrainSeep`、`CunRock`、`BambooView` |
 | 叙事宿主 | `/story/` | `StoryStage`、`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`InkText`、`AudioBus`、`SaveStore` |
 | 历史动画 | `/history/` | `InkScene`、`validatePresentation` / `poseAt`、`advanceFrameClock` |
-| 参照画廊 | `/gallery/` | `InkSurface`、`paintProp`，旁边显示参照 PNG |
+| 参照画廊 | `/gallery/` | `InkSurface`、`compileVectorInk`，旁边显示参照 PNG |
 | 历史道具 | `/props/<id>/` | `PropDemo`、`HISTORY_PROPS`、`paintHistoryProp` |
 
 首页 `/` 列出这些入口和二十张道具卡。

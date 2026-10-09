@@ -30,6 +30,34 @@
 
 `apps/history/` 把分件数据写在 `chaos-data.ts`，关键帧写在 `inkgames.presentation` 数据里，由 `validatePresentation` / `poseAt` 校验与求值。
 
+## 矢量墨稿 `inkgames.vector-ink`
+
+画廊和以后的开场分镜共用这一份路径。文件放在 `assets/gallery/`，游戏场景以后也可以按同一格式加载。公共入口是 `parseVectorInk` 和 `compileVectorInk`。编译结果是一组 `InkStrokeRequest`，交给 `InkSurface.paint`。编译器只做加减乘除和开方，不读参照位图，也不把像素自动描成路径。
+
+```json
+{
+  "format": "inkgames.vector-ink",
+  "version": 1,
+  "id": "chaos-2",
+  "width": 1024,
+  "height": 1024,
+  "paths": [
+    { "id": "robe", "role": "fill", "color": "black", "layers": 3, "d": "M 400 500 C 640 480 760 900 270 880 Z" }
+  ]
+}
+```
+
+| 字段 | 含义 |
+|---|---|
+| `format` / `version` | 必须是 `inkgames.vector-ink` 和 `1` |
+| `width` / `height` | 路径坐标系。`compileVectorInk(sheet, { width, height })` 再缩放到画布 |
+| `paths[].d` | SVG 路径：`M L H V C Q Z`，大小写分别是绝对和相对。圆弧 `A` 会拒绝 |
+| `role` | `contour` 飞白轮廓，`fill` 向内湿墨加纸上渗开，`hatch` 沿路径的披麻枯笔，`accent` 朱砂，`wash` 沿路径的一层湿墨（雾、天、水） |
+| `color` | `INK_COLOR_NAMES` 里的名字。`medium_gray` 在编码里是橡皮，不要用 |
+| `size` / `effect` / `layers` / `seed` | 可选。`layers` 为 1..4。不写笔压时大笔保持原尺寸；轮廓和披麻的笔压停在 0.5 以下，避免尺寸升到 4 以后主线消失 |
+
+轮廓走 `flyingWhite`，填色走 `wet`，最后一圈填色用 `effect4` 做纸边渗化。头发、胡须、衣纹用 `hatch`。泼墨颗粒不写进路径，由画面自己补。留白就是路径没有盖到的纸。
+
 ## 分层与坐标
 
 - 层深沿用 `INK_LAYER_Z`：远景 −80、纸面 0、角色 40、文字 120。`CameraRig` 的透视相机用这个层深产生视差。

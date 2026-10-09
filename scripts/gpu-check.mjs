@@ -229,7 +229,7 @@ try {
         if (message.type() === 'error' && !/Failed to load resource/.test(message.text())) errors.push(message.text());
       });
       await page.goto(`${base}/gallery/`, { waitUntil: 'domcontentloaded', timeout: 120000 });
-      await page.waitForFunction(() => window.__galleryReady === true, undefined, { timeout: 300000 });
+      await page.waitForFunction(() => window.__galleryReady === true, undefined, { timeout: 480000 });
       const gl = await page.evaluate(() => window.__galleryGl ?? 0);
       console.log('gallery', await page.locator('#status').textContent());
       if (gl !== 0) errors.push(`gl error ${gl}`);
