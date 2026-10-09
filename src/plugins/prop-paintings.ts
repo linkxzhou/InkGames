@@ -12,7 +12,7 @@ import { PROP_BRUSHES, type PropBrush, type PropPaintingId } from './prop-brushe
 
 /** One stroke, ready for InkSurface.paint() or for the inkEngine host (setBrush/setColor/strokePath). */
 export interface PropStroke {
-  readonly prop: PropPaintingId;
+  readonly prop: string;
   readonly part: string;
   readonly brush: InkBrushSettings;
   readonly color: InkColorName;
@@ -40,7 +40,7 @@ export interface PropPlacement {
 
 type Pt = readonly [number, number];
 
-interface Gesture {
+export interface Gesture {
   readonly part: string;
   readonly path: readonly Pt[];
   readonly pressure?: number;
@@ -375,14 +375,23 @@ function settingsFor(preset: PropBrush, scale: number): InkBrushSettings {
 
 /** Strokes for one prop, in painting order (washes first, line work on top). */
 export function paintProp(id: PropPaintingId, at: PropPlacement): PropStroke[] {
-  const scale = at.scale ?? 1;
-  const flip = at.mirror ? -1 : 1;
   const gestures = id === 'water'
     ? waterGestures(at.width ?? 1280)
     : id === 'landscape'
       ? landscapeGestures(at.width ?? 1280)
       : PAINTERS[id](at.pose ?? 0);
-  const table = PROP_BRUSHES[id] as Readonly<Record<string, PropBrush>>;
+  return strokesFrom(id, PROP_BRUSHES[id] as Readonly<Record<string, PropBrush>>, gestures, at);
+}
+
+/** Shared by the ten-card table and the history props that are not in that table. */
+export function strokesFrom(
+  id: string,
+  table: Readonly<Record<string, PropBrush>>,
+  gestures: readonly Gesture[],
+  at: PropPlacement,
+): PropStroke[] {
+  const scale = at.scale ?? 1;
+  const flip = at.mirror ? -1 : 1;
   return gestures.flatMap((gesture, index) => {
     const preset = table[gesture.part];
     if (!preset) return [];
