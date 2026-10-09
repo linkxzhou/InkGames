@@ -1,0 +1,6977 @@
+{
+ "format": "inkgames.chapter-bundle",
+ "version": 1,
+ "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "chapter": {
+  "format": "inkgames.chapter",
+  "version": 1,
+  "id": "tang",
+  "order": 13,
+  "title": "chapter.tang.title",
+  "span": {
+   "start": 618,
+   "end": 907,
+   "precision": "year",
+   "display": "618—907 年",
+   "verify": "done"
+  },
+  "scenes": [
+   "tang.hulao",
+   "tang.xuanwu",
+   "tang.weishui",
+   "tang.xuanzang",
+   "tang.wencheng",
+   "tang.wuzetian",
+   "tang.anshi",
+   "tang.suiyang",
+   "tang.guoziyi",
+   "tang.caizhou",
+   "tang.huangchao"
+  ],
+  "keyScenes": [
+   "tang.xuanwu",
+   "tang.wuzetian",
+   "tang.anshi",
+   "tang.huangchao"
+  ],
+  "unlock": {
+   "all": [
+    {
+     "cleared": "sui.miechen/canon"
+    },
+    {
+     "cleared": "sui.wagang/canon"
+    }
+   ]
+  },
+  "look": {
+   "palette": [
+    "black",
+    "gold_orange",
+    "wine_red"
+   ],
+   "paper": [
+    220,
+    210,
+    190
+   ]
+  }
+ },
+ "strings": {
+  "locale": "zh-Hans",
+  "strings": {
+   "chapter.tang.title": "唐"
+  }
+ },
+ "scenes": [
+  {
+   "outlineId": "13-01",
+   "v1": false,
+   "scene": {
+    "format": "inkgames.scene-outline",
+    "version": 1,
+    "id": "tang.hulao",
+    "chapter": "tang",
+    "order": 1,
+    "title": "scene.tang.hulao.title",
+    "subtitle": "scene.tang.hulao.subtitle",
+    "when": {
+     "start": 621,
+     "precision": "year",
+     "display": "621 年",
+     "verify": "done"
+    },
+    "key": false,
+    "template": "cavalry",
+    "props": [
+     "spear",
+     "war-horse"
+    ],
+    "characters": [
+     "lishimin",
+     "doujiande",
+     "wangshichong"
+    ],
+    "hooks": {
+     "canon": "scene.tang.hulao.hook.canon",
+     "legend": "scene.tang.hulao.hook.legend",
+     "play": "scene.tang.hulao.play"
+    },
+    "sources": [
+     {
+      "kind": "canon",
+      "title": "旧唐书",
+      "section": "太宗纪"
+     },
+     {
+      "kind": "modern",
+      "title": "五千年演义·隋唐新传",
+      "section": "第20回",
+      "notes": "现代演义，仅作叙事线索；回次据目录 OCR 对位，待核对"
+     }
+    ],
+    "verify": "pending",
+    "v1": false
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.tang.hulao.title": "虎牢",
+     "scene.tang.hulao.subtitle": "一战擒两王",
+     "scene.tang.hulao.hook.canon": "虎牢关破窦建德，王世充降",
+     "scene.tang.hulao.hook.legend": "演义：李元霸等虚构猛将",
+     "scene.tang.hulao.play": "骑兵突击：war-horse、spear"
+    }
+   },
+   "cast": [
+    {
+     "id": "lishimin",
+     "name": "李世民"
+    },
+    {
+     "id": "doujiande",
+     "name": "窦建德"
+    },
+    {
+     "id": "wangshichong",
+     "name": "王世充"
+    }
+   ],
+   "relations": []
+  },
+  {
+   "outlineId": "13-02",
+   "v1": true,
+   "scene": {
+    "format": "inkgames.scene",
+    "version": 1,
+    "id": "tang.xuanwu",
+    "chapter": "tang",
+    "order": 2,
+    "title": "scene.tang.xuanwu.title",
+    "subtitle": "scene.tang.xuanwu.subtitle",
+    "when": {
+     "start": 626,
+     "precision": "year",
+     "display": "626 年",
+     "era": "唐武德九年六月",
+     "verify": "done"
+    },
+    "key": true,
+    "template": "ambush",
+    "props": [
+     "bow",
+     "blade",
+     "war-horse",
+     "landscape",
+     "figure"
+    ],
+    "characters": [
+     "lishimin",
+     "lijiancheng",
+     "liyuanji",
+     "yuchijingde",
+     "liyuan",
+     "zhangsunwuji",
+     "fangxuanling"
+    ],
+    "anchors": {
+     "entry": {
+      "id": "anchor.tang.hulao-gong",
+      "title": "anchor.hulao-gong",
+      "when": {
+       "start": 621,
+       "precision": "year",
+       "display": "621 年",
+       "era": "武德四年",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "旧唐书",
+        "section": "太宗纪"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.tang.zhenguan",
+      "title": "anchor.zhenguan",
+      "when": {
+       "start": 626,
+       "precision": "year",
+       "display": "626 年",
+       "era": "武德九年八月",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "旧唐书",
+        "section": "太宗纪"
+       }
+      ]
+     }
+    },
+    "opening": "cutscene.tang.xuanwu.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.tang.xuanwu.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.tang.xuanwu.opening",
+       "when": {
+        "start": 626,
+        "precision": "year",
+        "display": "626 年",
+        "era": "唐武德九年六月",
+        "verify": "done"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "太宗纪"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪"
+        },
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "太宗纪"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": 626,
+        "precision": "year",
+        "display": "626 年",
+        "era": "唐武德九年六月",
+        "verify": "done"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.tang.xuanwu.pick.canon",
+         "seal": "canon",
+         "to": "c.plan"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.tang.xuanwu.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.tang.xuanwu.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "tang.xuanwu/canon"
+           },
+           {
+            "cleared": "tang.xuanwu/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.plan",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 626,
+        "precision": "year",
+        "display": "626 年",
+        "era": "唐武德九年六月",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "court",
+        "params": {
+         "goal": "在秦王府的夜议中权衡各方意见，决定是否举事",
+         "failTo": "c.plan",
+         "beats": [
+          "debate",
+          "decision"
+         ],
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.gate"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "太宗纪"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪"
+        },
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "太宗纪"
+        }
+       ]
+      },
+      {
+       "id": "c.gate",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 626,
+        "precision": "year",
+        "display": "626 年",
+        "era": "唐武德九年六月",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "ambush",
+        "params": {
+         "goal": "在玄武门内设伏，判断建成、元吉回马的时机",
+         "failTo": "c.gate",
+         "beats": [
+          "ambush",
+          "timing"
+         ],
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.audience"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "太宗纪"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪"
+        },
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "太宗纪"
+        }
+       ]
+      },
+      {
+       "id": "c.audience",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 626,
+        "precision": "year",
+        "display": "626 年",
+        "era": "唐武德九年六月",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "dialogue-timing",
+        "params": {
+         "goal": "尉迟敬德擐甲持矛入见高祖，请降手敕",
+         "failTo": "c.audience",
+         "beats": [
+          "stare-down"
+         ],
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "太宗纪"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪"
+        },
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "太宗纪"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.tang.xuanwu.legend-intro",
+       "when": {
+        "start": 626,
+        "precision": "year",
+        "display": "626 年",
+        "era": "唐武德九年六月",
+        "verify": "done"
+       },
+       "label": "scene.tang.xuanwu.legend.disclaimer",
+       "dialogue": "scene.tang.xuanwu.legend.intro",
+       "next": [
+        "l.archive"
+       ],
+       "sources": [
+        {
+         "kind": "classic",
+         "title": "贞观政要",
+         "section": "文史",
+         "notes": "太宗观国史之事，待核验"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪",
+         "notes": "司马光考异"
+        }
+       ]
+      },
+      {
+       "id": "l.archive",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 626,
+        "precision": "year",
+        "display": "626 年",
+        "era": "唐武德九年六月",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "trace",
+        "params": {
+         "goal": "用水笔洗出史书中可能被改写的句子，标出可疑之处",
+         "failTo": "l.archive",
+         "beats": [
+          "wash-reveal",
+          "doubt-mark"
+         ],
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.judge"
+       ],
+       "sources": [
+        {
+         "kind": "classic",
+         "title": "贞观政要",
+         "section": "文史",
+         "notes": "太宗观国史之事，待核验"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪",
+         "notes": "司马光考异"
+        }
+       ]
+      },
+      {
+       "id": "l.judge",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 626,
+        "precision": "year",
+        "display": "626 年",
+        "era": "唐武德九年六月",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "court",
+        "params": {
+         "goal": "在几种叙述之间作出判断，并给出理由",
+         "failTo": "l.judge",
+         "beats": [
+          "reasoning"
+         ],
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "classic",
+         "title": "贞观政要",
+         "section": "文史",
+         "notes": "太宗观国史之事，待核验"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪",
+         "notes": "司马光考异"
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
+     {
+      "id": "end.canon",
+      "kind": "canon",
+      "title": "scene.tang.xuanwu.end.canon",
+      "cutscene": "cutscene.tang.xuanwu.end-canon",
+      "mergeTo": "anchor.tang.zhenguan",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "旧唐书",
+        "section": "太宗纪"
+       },
+       {
+        "kind": "canon",
+        "title": "资治通鉴",
+        "section": "唐纪"
+       },
+       {
+        "kind": "canon",
+        "title": "新唐书",
+        "section": "太宗纪"
+       }
+      ]
+     },
+     {
+      "id": "end.legend",
+      "title": "scene.tang.xuanwu.end.legend",
+      "cutscene": "cutscene.tang.xuanwu.end-legend",
+      "sources": [
+       {
+        "kind": "classic",
+        "title": "贞观政要",
+        "section": "文史",
+        "notes": "太宗观国史之事，待核验"
+       },
+       {
+        "kind": "canon",
+        "title": "资治通鉴",
+        "section": "唐纪",
+        "notes": "司马光考异"
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.tang.zhenguan",
+      "notes": "野史线结局与正史出口一致，属于汇流"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.tang.xuanwu.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
+     }
+    ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "事变的起因",
+       "canon": "新旧《唐书》：建成、元吉谋害秦王，秦王不得已而发",
+       "legend": "后世史家认为初唐史书可能经过修饰（待核验）",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "太宗纪"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪"
+        },
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "太宗纪"
+        },
+        {
+         "kind": "classic",
+         "title": "贞观政要",
+         "section": "文史",
+         "notes": "太宗观国史之事，待核验"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪",
+         "notes": "司马光考异"
+        }
+       ]
+      },
+      {
+       "topic": "太宗观史",
+       "canon": "《贞观政要》等载太宗要求看国史（待核验）",
+       "legend": "—",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "太宗纪"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪"
+        },
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "太宗纪"
+        },
+        {
+         "kind": "classic",
+         "title": "贞观政要",
+         "section": "文史",
+         "notes": "太宗观国史之事，待核验"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪",
+         "notes": "司马光考异"
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.xuanwu",
+       "person.lishimin",
+       "person.yuchijingde"
+      ],
+      "seal": "seal.xuanwu"
+     }
+    },
+    "verify": "pending",
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.tang.xuanwu.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      220,
+      210,
+      190
+     ],
+     "seed": 26103
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "长安宫城，北门玄武"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "秦王府中，夜议"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "清晨，建成、元吉入宫"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "临湖殿，觉变，回马"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "玄武门"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 360,
+         "variant": 1
+        }
+       },
+       "label": "远山"
+      },
+      {
+       "at": 160,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "dark_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           80,
+           470
+          ],
+          [
+           80,
+           430
+          ],
+          [
+           140,
+           430
+          ],
+          [
+           140,
+           450
+          ],
+          [
+           200,
+           450
+          ],
+          [
+           200,
+           430
+          ],
+          [
+           260,
+           430
+          ],
+          [
+           260,
+           450
+          ],
+          [
+           1020,
+           450
+          ],
+          [
+           1020,
+           430
+          ],
+          [
+           1080,
+           430
+          ],
+          [
+           1080,
+           450
+          ],
+          [
+           1200,
+           450
+          ],
+          [
+           1200,
+           470
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "城墙雉堞"
+      },
+      {
+       "at": 320,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "dark_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           520,
+           600
+          ],
+          [
+           520,
+           380
+          ],
+          [
+           760,
+           380
+          ],
+          [
+           760,
+           600
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "关门"
+      },
+      {
+       "at": 660,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 750,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 840,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 870,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "李世民"
+      },
+      {
+       "at": 1080,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "长孙无忌"
+      },
+      {
+       "at": 1290,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "brush": "water.ripple",
+        "color": "white",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           1040,
+           140
+          ],
+          [
+           1080,
+           110
+          ],
+          [
+           1120,
+           140
+          ],
+          [
+           1080,
+           170
+          ],
+          [
+           1040,
+           140
+          ]
+         ]
+        },
+        "speed": 3
+       },
+       "label": "月"
+      },
+      {
+       "at": 1620,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 640,
+         "y": 480
+        }
+       },
+       "label": "war-horse"
+      },
+      {
+       "at": 2060,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "李建成"
+      },
+      {
+       "at": 2500,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "李元吉"
+      },
+      {
+       "at": 3060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.grass",
+        "color": "green_dark",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           620
+          ],
+          [
+           306,
+           300
+          ]
+         ]
+        },
+        "speed": 7
+       },
+       "label": "树"
+      },
+      {
+       "at": 3100,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.grass",
+        "color": "green_dark",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           240,
+           340
+          ],
+          [
+           300,
+           300
+          ],
+          [
+           370,
+           330
+          ]
+         ]
+        },
+        "speed": 7
+       },
+       "label": "树冠"
+      },
+      {
+       "at": 3580,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 980,
+         "y": 480
+        }
+       },
+       "label": "war-horse"
+      },
+      {
+       "at": 4100,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "bow",
+        "placement": {
+         "x": 560,
+         "y": 480
+        }
+       },
+       "label": "bow"
+      },
+      {
+       "at": 4740,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "bow",
+        "placement": {
+         "x": 980,
+         "y": 480
+        }
+       },
+       "label": "bow"
+      },
+      {
+       "at": 5040,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "玄武门一箭"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "still"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "shake": {
+        "amp": 2,
+        "frames": 120
+       },
+       "label": "shake"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.tang.xuanwu.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.tang.xuanwu.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/pipa.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/wind-plain.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/night-wind.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xuanwu-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xuanwu-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1080,
+       "bus": "sfx",
+       "asset": "audio/sfx/murmur.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/wind-plain.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xuanwu-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/hoofbeats.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/wind-plain.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xuanwu-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3840,
+       "bus": "sfx",
+       "asset": "audio/sfx/arrow-release.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/wind-after.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/arrow-release.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xuanwu-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/arrow-release.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.tang.xuanwu.title": "玄武门之变",
+     "scene.tang.xuanwu.subtitle": "武德九年",
+     "scene.tang.xuanwu.when": "玄武门",
+     "vo.01": "唐初，秦王李世民功高，与太子李建成、齐王李元吉的嫌隙日深。",
+     "vo.02": "武德九年六月，秦王府僚属力劝先发制人。",
+     "vo.03": "六月四日清晨，建成、元吉入朝，行至临湖殿，察觉有变，拨马欲回。",
+     "vo.04": "秦王跃马追呼，引弓射之——",
+     "vo.05": "玄武门前——",
+     "scene.tang.xuanwu.fork.prompt": "此刻落笔，循哪一卷而书？",
+     "anchor.hulao-gong": "秦王功高",
+     "anchor.zhenguan": "唐太宗即位",
+     "scene.tang.xuanwu.pick.canon": "正史 · 《旧唐书》、《资治通鉴》所载",
+     "scene.tang.xuanwu.end.canon": "建成、元吉被杀。三日后，李世民被立为太子；八月，高祖传位，是为唐太宗。",
+     "scene.tang.xuanwu.pick.legend": "异说 · 史笔之疑",
+     "scene.tang.xuanwu.legend.disclaimer": "以下不是传说，而是史家的考辨：玄武门之变的记载经过唐初史官修订，后世史家对其中细节多有疑问。",
+     "scene.tang.xuanwu.legend.intro": "史书记载，唐太宗曾要求阅看本朝国史，史官因此对玄武门之事的写法有所斟酌。后世史家据此讨论：建成、元吉的“谋害”记载有几分可信？",
+     "scene.tang.xuanwu.end.legend": "史笔的疑点无法彻底解开。考辨之后，回到正史：贞观之治即将开始。",
+     "scene.tang.xuanwu.pick.whatif": "推演 · 若建成先发（未开放）",
+     "scene.tang.xuanwu.end.whatif": "异闻 · 未开放"
+    }
+   },
+   "cast": [
+    {
+     "id": "lishimin",
+     "name": "李世民",
+     "title": "秦王，后之唐太宗",
+     "camp": "唐",
+     "type": "royal",
+     "bio": "伏兵玄武门，射杀李建成"
+    },
+    {
+     "id": "lijiancheng",
+     "name": "李建成",
+     "title": "太子",
+     "camp": "唐",
+     "type": "royal",
+     "bio": "入朝途中被杀"
+    },
+    {
+     "id": "liyuanji",
+     "name": "李元吉",
+     "title": "齐王",
+     "camp": "唐",
+     "type": "royal",
+     "bio": "被尉迟敬德射杀"
+    },
+    {
+     "id": "yuchijingde",
+     "name": "尉迟敬德",
+     "title": "秦王府将",
+     "camp": "唐",
+     "type": "general",
+     "bio": "射杀李元吉，擐甲入见高祖"
+    },
+    {
+     "id": "liyuan",
+     "name": "唐高祖",
+     "title": "李渊",
+     "camp": "唐",
+     "type": "ruler",
+     "bio": "事变后立李世民为太子"
+    },
+    {
+     "id": "zhangsunwuji",
+     "name": "长孙无忌",
+     "title": "秦王府僚",
+     "camp": "唐",
+     "type": "minister",
+     "bio": "参与谋划"
+    },
+    {
+     "id": "fangxuanling",
+     "name": "房玄龄",
+     "title": "秦王府僚",
+     "camp": "唐",
+     "type": "minister",
+     "bio": "参与谋划"
+    }
+   ],
+   "relations": [
+    {
+     "from": "liyuan",
+     "to": "lishimin",
+     "relation": "父子",
+     "type": "family"
+    },
+    {
+     "from": "liyuan",
+     "to": "lijiancheng",
+     "relation": "父子",
+     "type": "family"
+    },
+    {
+     "from": "lishimin",
+     "to": "lijiancheng",
+     "relation": "兄弟相争",
+     "type": "rival"
+    },
+    {
+     "from": "lijiancheng",
+     "to": "liyuanji",
+     "relation": "同党",
+     "type": "ally"
+    },
+    {
+     "from": "yuchijingde",
+     "to": "lishimin",
+     "relation": "部将",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "zhangsunwuji",
+     "to": "lishimin",
+     "relation": "谋臣，妻兄",
+     "type": "ally",
+     "directed": true
+    },
+    {
+     "from": "fangxuanling",
+     "to": "lishimin",
+     "relation": "谋臣",
+     "type": "sub",
+     "directed": true
+    }
+   ]
+  },
+  {
+   "outlineId": "13-03",
+   "v1": false,
+   "scene": {
+    "format": "inkgames.scene-outline",
+    "version": 1,
+    "id": "tang.weishui",
+    "chapter": "tang",
+    "order": 3,
+    "title": "scene.tang.weishui.title",
+    "subtitle": "scene.tang.weishui.subtitle",
+    "when": {
+     "start": 626,
+     "precision": "year",
+     "display": "626、630 年",
+     "verify": "done"
+    },
+    "key": false,
+    "template": "journey",
+    "props": [
+     "war-horse"
+    ],
+    "characters": [
+     "tangtaizong",
+     "jielikehan",
+     "lijing"
+    ],
+    "hooks": {
+     "canon": "scene.tang.weishui.hook.canon",
+     "legend": "scene.tang.weishui.hook.legend",
+     "play": "scene.tang.weishui.play"
+    },
+    "sources": [
+     {
+      "kind": "canon",
+      "title": "旧唐书",
+      "section": "李靖传"
+     },
+     {
+      "kind": "modern",
+      "title": "五千年演义·隋唐新传",
+      "section": "第25回",
+      "notes": "现代演义，仅作叙事线索；回次据目录 OCR 对位，待核对"
+     }
+    ],
+    "verify": "pending",
+    "v1": false
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.tang.weishui.title": "渭水之盟",
+     "scene.tang.weishui.subtitle": "李靖破突厥",
+     "scene.tang.weishui.hook.canon": "渭水便桥会盟；阴山雪夜奔袭",
+     "scene.tang.weishui.hook.legend": "无",
+     "scene.tang.weishui.play": "雪夜奔袭：war-horse"
+    }
+   },
+   "cast": [
+    {
+     "id": "tangtaizong",
+     "name": "唐太宗"
+    },
+    {
+     "id": "jielikehan",
+     "name": "颉利可汗"
+    },
+    {
+     "id": "lijing",
+     "name": "李靖"
+    }
+   ],
+   "relations": []
+  },
+  {
+   "outlineId": "13-04",
+   "v1": false,
+   "scene": {
+    "format": "inkgames.scene-outline",
+    "version": 1,
+    "id": "tang.xuanzang",
+    "chapter": "tang",
+    "order": 4,
+    "title": "scene.tang.xuanzang.title",
+    "subtitle": "scene.tang.xuanzang.subtitle",
+    "when": {
+     "start": 629,
+     "end": 645,
+     "precision": "circa",
+     "display": "627 或 629 出发—645 归",
+     "verify": "pending",
+     "notes": "出发年两说"
+    },
+    "key": false,
+    "template": "journey",
+    "props": [
+     "war-horse",
+     "water-brush"
+    ],
+    "characters": [
+     "xuanzang"
+    ],
+    "hooks": {
+     "canon": "scene.tang.xuanzang.hook.canon",
+     "legend": "scene.tang.xuanzang.hook.legend",
+     "play": "scene.tang.xuanzang.play"
+    },
+    "sources": [
+     {
+      "kind": "canon",
+      "title": "大唐西域记"
+     },
+     {
+      "kind": "canon",
+      "title": "大慈恩寺三藏法师传"
+     },
+     {
+      "kind": "modern",
+      "title": "五千年演义·隋唐新传",
+      "section": "第23回",
+      "notes": "现代演义，仅作叙事线索；回次据目录 OCR 对位，待核对"
+     }
+    ],
+    "verify": "pending",
+    "v1": false
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.tang.xuanzang.title": "西行",
+     "scene.tang.xuanzang.subtitle": "玄奘取经",
+     "scene.tang.xuanzang.hook.canon": "偷渡出关，五万里求法",
+     "scene.tang.xuanzang.hook.legend": "《西游记》（明代神魔小说）作野史线",
+     "scene.tang.xuanzang.play": "行旅：war-horse（瘦马）、water-brush（沙暴）"
+    }
+   },
+   "cast": [
+    {
+     "id": "xuanzang",
+     "name": "玄奘"
+    }
+   ],
+   "relations": []
+  },
+  {
+   "outlineId": "13-05",
+   "v1": false,
+   "scene": {
+    "format": "inkgames.scene-outline",
+    "version": 1,
+    "id": "tang.wencheng",
+    "chapter": "tang",
+    "order": 5,
+    "title": "scene.tang.wencheng.title",
+    "subtitle": "scene.tang.wencheng.subtitle",
+    "when": {
+     "start": 641,
+     "precision": "year",
+     "display": "641 年",
+     "verify": "done"
+    },
+    "key": false,
+    "template": "riddle",
+    "props": [
+     "figure"
+    ],
+    "characters": [
+     "wenchenggongzhu",
+     "songzanganbu",
+     "ludongzan"
+    ],
+    "hooks": {
+     "canon": "scene.tang.wencheng.hook.canon",
+     "legend": "scene.tang.wencheng.hook.legend",
+     "play": "scene.tang.wencheng.play"
+    },
+    "sources": [
+     {
+      "kind": "canon",
+      "title": "旧唐书",
+      "section": "吐蕃传"
+     },
+     {
+      "kind": "modern",
+      "title": "五千年演义·隋唐新传",
+      "section": "第24回",
+      "notes": "现代演义，仅作叙事线索；回次据目录 OCR 对位，待核对"
+     }
+    ],
+    "verify": "pending",
+    "v1": false
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.tang.wencheng.title": "文成公主入藏",
+     "scene.tang.wencheng.subtitle": "文成公主入藏",
+     "scene.tang.wencheng.hook.canon": "和亲",
+     "scene.tang.wencheng.hook.legend": "禄东赞“五难婚使”（传说）",
+     "scene.tang.wencheng.play": "解谜：五道难题"
+    }
+   },
+   "cast": [
+    {
+     "id": "wenchenggongzhu",
+     "name": "文成公主"
+    },
+    {
+     "id": "songzanganbu",
+     "name": "松赞干布"
+    },
+    {
+     "id": "ludongzan",
+     "name": "禄东赞"
+    }
+   ],
+   "relations": []
+  },
+  {
+   "outlineId": "13-06",
+   "v1": true,
+   "scene": {
+    "format": "inkgames.scene",
+    "version": 1,
+    "id": "tang.wuzetian",
+    "chapter": "tang",
+    "order": 6,
+    "title": "scene.tang.wuzetian.title",
+    "subtitle": "scene.tang.wuzetian.subtitle",
+    "when": {
+     "start": 690,
+     "end": 705,
+     "precision": "year",
+     "display": "690—705 年",
+     "era": "武周天授元年至神龙元年",
+     "verify": "done"
+    },
+    "key": true,
+    "template": "court",
+    "props": [
+     "figure",
+     "banner",
+     "water-brush",
+     "landscape"
+    ],
+    "characters": [
+     "wuzetian",
+     "direnjie",
+     "shangguanwaner",
+     "zhangjianzhi",
+     "lixian",
+     "zhangyizhi"
+    ],
+    "anchors": {
+     "entry": {
+      "id": "anchor.tang.tianhou",
+      "title": "anchor.tianhou",
+      "when": {
+       "start": 684,
+       "precision": "year",
+       "display": "684 年",
+       "era": "光宅元年",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "旧唐书",
+        "section": "则天皇后纪"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.tang.shenlong",
+      "title": "anchor.shenlong",
+      "when": {
+       "start": 705,
+       "precision": "year",
+       "display": "705 年",
+       "era": "神龙元年",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "旧唐书",
+        "section": "则天皇后纪"
+       }
+      ]
+     }
+    },
+    "opening": "cutscene.tang.wuzetian.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.tang.wuzetian.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.tang.wuzetian.opening",
+       "when": {
+        "start": 690,
+        "end": 705,
+        "precision": "year",
+        "display": "690—705 年",
+        "era": "武周天授元年至神龙元年",
+        "verify": "done"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "则天皇后纪"
+        },
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "则天皇后纪"
+        },
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "狄仁杰传"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": 690,
+        "end": 705,
+        "precision": "year",
+        "display": "690—705 年",
+        "era": "武周天授元年至神龙元年",
+        "verify": "done"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.tang.wuzetian.pick.canon",
+         "seal": "canon",
+         "to": "c.court"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.tang.wuzetian.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.tang.wuzetian.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "tang.wuzetian/canon"
+           },
+           {
+            "cleared": "tang.wuzetian/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.court",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 690,
+        "end": 705,
+        "precision": "year",
+        "display": "690—705 年",
+        "era": "武周天授元年至神龙元年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "court",
+        "params": {
+         "goal": "以狄仁杰身份在朝堂上进言，劝复立庐陵王",
+         "failTo": "c.court",
+         "beats": [
+          "argument",
+          "timing"
+         ],
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.edict"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "则天皇后纪"
+        },
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "则天皇后纪"
+        },
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "狄仁杰传"
+        }
+       ]
+      },
+      {
+       "id": "c.edict",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 690,
+        "end": 705,
+        "precision": "year",
+        "display": "690—705 年",
+        "era": "武周天授元年至神龙元年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "calligraphy",
+        "params": {
+         "goal": "以上官婉儿身份草拟诏书，措辞要合乎体例",
+         "failTo": "c.edict",
+         "beats": [
+          "draft",
+          "write"
+         ],
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.shenlong"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "则天皇后纪"
+        },
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "则天皇后纪"
+        },
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "狄仁杰传"
+        }
+       ]
+      },
+      {
+       "id": "c.shenlong",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 690,
+        "end": 705,
+        "precision": "year",
+        "display": "690—705 年",
+        "era": "武周天授元年至神龙元年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "stealth",
+        "params": {
+         "goal": "神龙之夜，率羽林军进入玄武门",
+         "failTo": "c.shenlong",
+         "beats": [
+          "stealth",
+          "coordination"
+         ],
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "则天皇后纪"
+        },
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "则天皇后纪"
+        },
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "狄仁杰传"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.tang.wuzetian.legend-intro",
+       "when": {
+        "start": 690,
+        "end": 705,
+        "precision": "year",
+        "display": "690—705 年",
+        "era": "武周天授元年至神龙元年",
+        "verify": "done"
+       },
+       "label": "scene.tang.wuzetian.legend.disclaimer",
+       "dialogue": "scene.tang.wuzetian.legend.intro",
+       "next": [
+        "l.decree"
+       ],
+       "sources": [
+        {
+         "kind": "novel",
+         "title": "镜花缘",
+         "section": "第四至五回",
+         "notes": "清李汝珍撰，回次待核验"
+        }
+       ]
+      },
+      {
+       "id": "l.decree",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 690,
+        "end": 705,
+        "precision": "year",
+        "display": "690—705 年",
+        "era": "武周天授元年至神龙元年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "calligraphy",
+        "params": {
+         "goal": "写下令百花开放的诏书，笔势越狂，花开得越快",
+         "failTo": "l.decree",
+         "beats": [
+          "write",
+          "bloom"
+         ],
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.peony"
+       ],
+       "sources": [
+        {
+         "kind": "novel",
+         "title": "镜花缘",
+         "section": "第四至五回",
+         "notes": "清李汝珍撰，回次待核验"
+        }
+       ]
+      },
+      {
+       "id": "l.peony",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 690,
+        "end": 705,
+        "precision": "year",
+        "display": "690—705 年",
+        "era": "武周天授元年至神龙元年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "riddle",
+        "params": {
+         "goal": "在雪中的上苑找出那株迟迟不开的牡丹",
+         "failTo": "l.peony",
+         "beats": [
+          "search",
+          "snow"
+         ],
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "novel",
+         "title": "镜花缘",
+         "section": "第四至五回",
+         "notes": "清李汝珍撰，回次待核验"
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
+     {
+      "id": "end.canon",
+      "kind": "canon",
+      "title": "scene.tang.wuzetian.end.canon",
+      "cutscene": "cutscene.tang.wuzetian.end-canon",
+      "mergeTo": "anchor.tang.shenlong",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "旧唐书",
+        "section": "则天皇后纪"
+       },
+       {
+        "kind": "canon",
+        "title": "新唐书",
+        "section": "则天皇后纪"
+       },
+       {
+        "kind": "canon",
+        "title": "旧唐书",
+        "section": "狄仁杰传"
+       }
+      ]
+     },
+     {
+      "id": "end.legend",
+      "title": "scene.tang.wuzetian.end.legend",
+      "cutscene": "cutscene.tang.wuzetian.end-legend",
+      "sources": [
+       {
+        "kind": "novel",
+        "title": "镜花缘",
+        "section": "第四至五回",
+        "notes": "清李汝珍撰，回次待核验"
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.tang.shenlong",
+      "notes": "野史线结局与正史出口一致，属于汇流"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.tang.wuzetian.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
+     }
+    ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "无字碑",
+       "canon": "乾陵前有无字碑，后人有题刻；为何无字，诸说不一（待核验）",
+       "legend": "—",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "则天皇后纪"
+        },
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "则天皇后纪"
+        },
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "狄仁杰传"
+        },
+        {
+         "kind": "novel",
+         "title": "镜花缘",
+         "section": "第四至五回",
+         "notes": "清李汝珍撰，回次待核验"
+        }
+       ]
+      },
+      {
+       "topic": "牡丹贬洛阳",
+       "canon": "正史不载",
+       "legend": "《镜花缘》等小说与民间传说",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "则天皇后纪"
+        },
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "则天皇后纪"
+        },
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "狄仁杰传"
+        },
+        {
+         "kind": "novel",
+         "title": "镜花缘",
+         "section": "第四至五回",
+         "notes": "清李汝珍撰，回次待核验"
+        }
+       ]
+      },
+      {
+       "topic": "狄仁杰",
+       "canon": "新旧《唐书》有传，荐贤、劝立庐陵王",
+       "legend": "“狄公断案”出自现代荷兰作家高罗佩的小说，只作灵感",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "则天皇后纪"
+        },
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "则天皇后纪"
+        },
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "狄仁杰传"
+        },
+        {
+         "kind": "novel",
+         "title": "镜花缘",
+         "section": "第四至五回",
+         "notes": "清李汝珍撰，回次待核验"
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.wuzetian",
+       "person.wuzetian",
+       "person.direnjie"
+      ],
+      "seal": "seal.wuzetian"
+     }
+    },
+    "verify": "pending",
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.tang.wuzetian.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      220,
+      210,
+      190
+     ],
+     "seed": 1033
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "洛阳神都，明堂"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "天授元年，改唐为周"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "狄仁杰进言，荐张柬之"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "神龙元年正月，羽林军入宫"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "乾陵，一块无字之碑"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 360,
+         "variant": 1
+        }
+       },
+       "label": "远山"
+      },
+      {
+       "at": 160,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "dark_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           80,
+           470
+          ],
+          [
+           80,
+           430
+          ],
+          [
+           140,
+           430
+          ],
+          [
+           140,
+           450
+          ],
+          [
+           200,
+           450
+          ],
+          [
+           200,
+           430
+          ],
+          [
+           260,
+           430
+          ],
+          [
+           260,
+           450
+          ],
+          [
+           1020,
+           450
+          ],
+          [
+           1020,
+           430
+          ],
+          [
+           1080,
+           430
+          ],
+          [
+           1080,
+           450
+          ],
+          [
+           1200,
+           450
+          ],
+          [
+           1200,
+           470
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "城墙雉堞"
+      },
+      {
+       "at": 320,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 410,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 500,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 660,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 750,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 840,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 940,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "武则天"
+      },
+      {
+       "at": 1220,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "banner",
+        "placement": {
+         "x": 300,
+         "y": 480
+        }
+       },
+       "label": "banner"
+      },
+      {
+       "at": 1620,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 460,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 1
+        }
+       },
+       "label": "狄仁杰"
+      },
+      {
+       "at": 2280,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "tan",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           720,
+           600
+          ],
+          [
+           900,
+           610
+          ]
+         ]
+        },
+        "speed": 3
+       },
+       "label": "卷轴"
+      },
+      {
+       "at": 3060,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 3090,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 3120,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 3150,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 3210,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "spear",
+        "placement": {
+         "x": 600,
+         "y": 480,
+         "angle": -0.4
+        }
+       },
+       "label": "长兵如林"
+      },
+      {
+       "at": 3580,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "brush": "water.ripple",
+        "color": "white",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           1040,
+           140
+          ],
+          [
+           1080,
+           110
+          ],
+          [
+           1120,
+           140
+          ],
+          [
+           1080,
+           170
+          ],
+          [
+           1040,
+           140
+          ]
+         ]
+        },
+        "speed": 3
+       },
+       "label": "月"
+      },
+      {
+       "at": 4100,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "张柬之"
+      },
+      {
+       "at": 4740,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 980,
+         "y": 380,
+         "variant": 3
+        }
+       },
+       "label": "皴法山石（新引擎：随相机距离变化的笔触描边 + Perlin 噪声）"
+      },
+      {
+       "at": 4940,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "water-brush.stroke",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           640,
+           180
+          ],
+          [
+           640,
+           260
+          ],
+          [
+           620,
+           330
+          ],
+          [
+           660,
+           400
+          ]
+         ]
+        },
+        "speed": 2
+       },
+       "label": "无字"
+      },
+      {
+       "at": 5140,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "无字碑"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "still"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "shake": {
+        "amp": 2,
+        "frames": 120
+       },
+       "label": "shake"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.tang.wuzetian.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.tang.wuzetian.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/pipa.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/palace-hall.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/palace-hall.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/wuzetian-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/wuzetian-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1080,
+       "bus": "sfx",
+       "asset": "audio/sfx/bronze-bell.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/palace-hall.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/wuzetian-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/bamboo-slip.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/night-wind.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/wuzetian-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3840,
+       "bus": "sfx",
+       "asset": "audio/sfx/footsteps.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/wind-after.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/bronze-bell.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/wuzetian-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/bronze-bell.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.tang.wuzetian.title": "无字碑",
+     "scene.tang.wuzetian.subtitle": "武则天",
+     "scene.tang.wuzetian.when": "天授",
+     "vo.01": "唐高宗死后，武后临朝称制，先后废立中宗、睿宗。",
+     "vo.02": "天授元年，她改国号为周，自称圣神皇帝，成为中国历史上唯一的女皇帝。",
+     "vo.03": "晚年，宰相狄仁杰力劝复立庐陵王李显为太子，又举荐张柬之。",
+     "vo.04": "神龙元年正月，张柬之等率羽林军入宫，诛张易之、张昌宗，迫武则天传位。",
+     "vo.05": "她死后葬于乾陵，陵前立一碑——",
+     "scene.tang.wuzetian.fork.prompt": "此刻落笔，循哪一卷而书？",
+     "anchor.tianhou": "武后临朝",
+     "anchor.shenlong": "神龙政变",
+     "scene.tang.wuzetian.pick.canon": "正史 · 《旧唐书》、《新唐书》所载",
+     "scene.tang.wuzetian.end.canon": "中宗复位，恢复唐的国号。武则天同年病逝，遗制去帝号，称则天大圣皇后。",
+     "scene.tang.wuzetian.pick.legend": "野史 · 百花齐放",
+     "scene.tang.wuzetian.legend.disclaimer": "以下取自清代李汝珍的小说《镜花缘》，武则天令百花冬开、牡丹被贬洛阳是小说虚构。",
+     "scene.tang.wuzetian.legend.intro": "《镜花缘》写武则天醉后于寒冬下诏，令上苑百花一夜齐放；百花仙子不敢违命，唯牡丹迟开，被贬洛阳。",
+     "scene.tang.wuzetian.end.legend": "牡丹去了洛阳。小说的故事落在花园里，正史照常前行：神龙政变，李唐复辟。",
+     "scene.tang.wuzetian.pick.whatif": "推演 · 若武则天立武氏子侄（未开放）",
+     "scene.tang.wuzetian.end.whatif": "异闻 · 未开放"
+    }
+   },
+   "cast": [
+    {
+     "id": "wuzetian",
+     "name": "武则天",
+     "title": "武曌，圣神皇帝",
+     "camp": "武周",
+     "type": "ruler",
+     "bio": "改唐为周，称帝十五年"
+    },
+    {
+     "id": "direnjie",
+     "name": "狄仁杰",
+     "title": "宰相",
+     "camp": "武周",
+     "type": "minister",
+     "bio": "荐张柬之等，劝立庐陵王"
+    },
+    {
+     "id": "shangguanwaner",
+     "name": "上官婉儿",
+     "title": "掌制诰",
+     "camp": "武周",
+     "type": "minister",
+     "bio": "执掌宫中文书"
+    },
+    {
+     "id": "zhangjianzhi",
+     "name": "张柬之",
+     "title": "宰相",
+     "camp": "武周",
+     "type": "minister",
+     "bio": "发动神龙政变"
+    },
+    {
+     "id": "lixian",
+     "name": "李显",
+     "title": "庐陵王，后之唐中宗",
+     "camp": "唐",
+     "type": "royal",
+     "bio": "复立为太子，神龙复位"
+    },
+    {
+     "id": "zhangyizhi",
+     "name": "张易之",
+     "title": "宠臣",
+     "camp": "武周",
+     "type": "other",
+     "bio": "神龙政变中被杀"
+    }
+   ],
+   "relations": [
+    {
+     "from": "wuzetian",
+     "to": "direnjie",
+     "relation": "倚重",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "wuzetian",
+     "to": "shangguanwaner",
+     "relation": "掌诏命",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "direnjie",
+     "to": "zhangjianzhi",
+     "relation": "举荐",
+     "type": "ally",
+     "directed": true
+    },
+    {
+     "from": "wuzetian",
+     "to": "lixian",
+     "relation": "母子",
+     "type": "family"
+    },
+    {
+     "from": "zhangjianzhi",
+     "to": "zhangyizhi",
+     "relation": "诛之",
+     "type": "rival"
+    }
+   ]
+  },
+  {
+   "outlineId": "13-07",
+   "v1": true,
+   "scene": {
+    "format": "inkgames.scene",
+    "version": 1,
+    "id": "tang.anshi",
+    "chapter": "tang",
+    "order": 7,
+    "title": "scene.tang.anshi.title",
+    "subtitle": "scene.tang.anshi.subtitle",
+    "when": {
+     "start": 755,
+     "end": 756,
+     "precision": "year",
+     "display": "755—756 年",
+     "era": "唐天宝十四载至十五载",
+     "verify": "done"
+    },
+    "key": true,
+    "template": "evacuate",
+    "props": [
+     "shield",
+     "banner",
+     "war-horse",
+     "landscape",
+     "figure"
+    ],
+    "characters": [
+     "xuanzong",
+     "yangguifei",
+     "anlushan",
+     "yangguozhong",
+     "chenxuanli",
+     "gaolishi",
+     "geshuhan",
+     "lixiang"
+    ],
+    "anchors": {
+     "entry": {
+      "id": "anchor.tang.fanyang",
+      "title": "anchor.fanyang",
+      "when": {
+       "start": 751,
+       "precision": "year",
+       "display": "751 年",
+       "era": "天宝十载",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "旧唐书",
+        "section": "玄宗纪"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.tang.lingwu",
+      "title": "anchor.lingwu",
+      "when": {
+       "start": 756,
+       "precision": "year",
+       "display": "756 年",
+       "era": "至德元载",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "旧唐书",
+        "section": "玄宗纪"
+       }
+      ]
+     }
+    },
+    "opening": "cutscene.tang.anshi.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.tang.anshi.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.tang.anshi.opening",
+       "when": {
+        "start": 755,
+        "end": 756,
+        "precision": "year",
+        "display": "755—756 年",
+        "era": "唐天宝十四载至十五载",
+        "verify": "done"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "玄宗纪"
+        },
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "杨贵妃传"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": 755,
+        "end": 756,
+        "precision": "year",
+        "display": "755—756 年",
+        "era": "唐天宝十四载至十五载",
+        "verify": "done"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.tang.anshi.pick.canon",
+         "seal": "canon",
+         "to": "c.retreat"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.tang.anshi.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.tang.anshi.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "tang.anshi/canon"
+           },
+           {
+            "cleared": "tang.anshi/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.retreat",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 755,
+        "end": 756,
+        "precision": "year",
+        "display": "755—756 年",
+        "era": "唐天宝十四载至十五载",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "evacuate",
+        "params": {
+         "goal": "护送百官与宫人撤出长安，粮草与马匹都不够",
+         "failTo": "c.retreat",
+         "beats": [
+          "escort",
+          "scarcity"
+         ],
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.mawei"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "玄宗纪"
+        },
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "杨贵妃传"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪"
+        }
+       ]
+      },
+      {
+       "id": "c.mawei",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 755,
+        "end": 756,
+        "precision": "year",
+        "display": "755—756 年",
+        "era": "唐天宝十四载至十五载",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "dialogue-timing",
+        "params": {
+         "goal": "以高力士身份在玄宗与六军之间传话，局势一刻比一刻紧张",
+         "failTo": "c.mawei",
+         "beats": [
+          "timing",
+          "mediate"
+         ],
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "玄宗纪"
+        },
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "杨贵妃传"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.tang.anshi.legend-intro",
+       "when": {
+        "start": 755,
+        "end": 756,
+        "precision": "year",
+        "display": "755—756 年",
+        "era": "唐天宝十四载至十五载",
+        "verify": "done"
+       },
+       "label": "scene.tang.anshi.legend.disclaimer",
+       "dialogue": "scene.tang.anshi.legend.intro",
+       "next": [
+        "l.search"
+       ],
+       "sources": [
+        {
+         "kind": "classic",
+         "title": "长恨歌",
+         "notes": "白居易诗，文学作品"
+        },
+        {
+         "kind": "novel",
+         "title": "隋唐演义",
+         "section": "第八十六至八十七回",
+         "corpus": {
+          "file": "野史/隋唐演义.pdf",
+          "pages": "p.348–352"
+         }
+        },
+        {
+         "kind": "folk",
+         "title": "杨贵妃东渡日本",
+         "notes": "日本地方传说，待核验"
+        }
+       ]
+      },
+      {
+       "id": "l.search",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 755,
+        "end": 756,
+        "precision": "year",
+        "display": "755—756 年",
+        "era": "唐天宝十四载至十五载",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "journey",
+        "params": {
+         "goal": "随道士穿过云海，寻找仙山上的楼阁",
+         "failTo": "l.search",
+         "beats": [
+          "cloud-journey"
+         ],
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "l.token"
+       ],
+       "sources": [
+        {
+         "kind": "classic",
+         "title": "长恨歌",
+         "notes": "白居易诗，文学作品"
+        },
+        {
+         "kind": "novel",
+         "title": "隋唐演义",
+         "section": "第八十六至八十七回",
+         "corpus": {
+          "file": "野史/隋唐演义.pdf",
+          "pages": "p.348–352"
+         }
+        },
+        {
+         "kind": "folk",
+         "title": "杨贵妃东渡日本",
+         "notes": "日本地方传说，待核验"
+        }
+       ]
+      },
+      {
+       "id": "l.token",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 755,
+        "end": 756,
+        "precision": "year",
+        "display": "755—756 年",
+        "era": "唐天宝十四载至十五载",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "calligraphy",
+        "params": {
+         "goal": "写下贵妃托付的话，笔迹要淡如云雾",
+         "failTo": "l.token",
+         "beats": [
+          "write",
+          "ink-mood"
+         ],
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "classic",
+         "title": "长恨歌",
+         "notes": "白居易诗，文学作品"
+        },
+        {
+         "kind": "novel",
+         "title": "隋唐演义",
+         "section": "第八十六至八十七回",
+         "corpus": {
+          "file": "野史/隋唐演义.pdf",
+          "pages": "p.348–352"
+         }
+        },
+        {
+         "kind": "folk",
+         "title": "杨贵妃东渡日本",
+         "notes": "日本地方传说，待核验"
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
+     {
+      "id": "end.canon",
+      "kind": "canon",
+      "title": "scene.tang.anshi.end.canon",
+      "cutscene": "cutscene.tang.anshi.end-canon",
+      "mergeTo": "anchor.tang.lingwu",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "旧唐书",
+        "section": "玄宗纪"
+       },
+       {
+        "kind": "canon",
+        "title": "旧唐书",
+        "section": "杨贵妃传"
+       },
+       {
+        "kind": "canon",
+        "title": "资治通鉴",
+        "section": "唐纪"
+       }
+      ]
+     },
+     {
+      "id": "end.legend",
+      "title": "scene.tang.anshi.end.legend",
+      "cutscene": "cutscene.tang.anshi.end-legend",
+      "sources": [
+       {
+        "kind": "classic",
+        "title": "长恨歌",
+        "notes": "白居易诗，文学作品"
+       },
+       {
+        "kind": "novel",
+        "title": "隋唐演义",
+        "section": "第八十六至八十七回",
+        "corpus": {
+         "file": "野史/隋唐演义.pdf",
+         "pages": "p.348–352"
+        }
+       },
+       {
+        "kind": "folk",
+        "title": "杨贵妃东渡日本",
+        "notes": "日本地方传说，待核验"
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.tang.lingwu",
+      "notes": "野史线结局与正史出口一致，属于汇流"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.tang.anshi.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
+     }
+    ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "贵妃之死",
+       "canon": "《旧唐书》：缢死于佛室",
+       "legend": "《长恨歌》仙山相会；东渡日本之说为传说（待核验）",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "玄宗纪"
+        },
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "杨贵妃传"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪"
+        },
+        {
+         "kind": "classic",
+         "title": "长恨歌",
+         "notes": "白居易诗，文学作品"
+        },
+        {
+         "kind": "novel",
+         "title": "隋唐演义",
+         "section": "第八十六至八十七回",
+         "corpus": {
+          "file": "野史/隋唐演义.pdf",
+          "pages": "p.348–352"
+         }
+        },
+        {
+         "kind": "folk",
+         "title": "杨贵妃东渡日本",
+         "notes": "日本地方传说，待核验"
+        }
+       ]
+      },
+      {
+       "topic": "潼关之失",
+       "canon": "史书载玄宗与杨国忠催促哥舒翰出关",
+       "legend": "—",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "玄宗纪"
+        },
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "杨贵妃传"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪"
+        },
+        {
+         "kind": "classic",
+         "title": "长恨歌",
+         "notes": "白居易诗，文学作品"
+        },
+        {
+         "kind": "novel",
+         "title": "隋唐演义",
+         "section": "第八十六至八十七回",
+         "corpus": {
+          "file": "野史/隋唐演义.pdf",
+          "pages": "p.348–352"
+         }
+        },
+        {
+         "kind": "folk",
+         "title": "杨贵妃东渡日本",
+         "notes": "日本地方传说，待核验"
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.anshi",
+       "person.xuanzong",
+       "person.yangguifei"
+      ],
+      "seal": "seal.anshi"
+     }
+    },
+    "verify": "pending",
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.tang.anshi.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      220,
+      210,
+      190
+     ],
+     "seed": 47368
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "长安，华清宫"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "范阳鼙鼓"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "潼关失守"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "马嵬驿，六军不发"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "佛堂前"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 360,
+         "variant": 1
+        }
+       },
+       "label": "远山"
+      },
+      {
+       "at": 160,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "nearHill",
+         "ground"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 420
+        }
+       },
+       "label": "近山与地面"
+      },
+      {
+       "at": 320,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 410,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 500,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 660,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 690,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 720,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 750,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 810,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "spear",
+        "placement": {
+         "x": 600,
+         "y": 480,
+         "angle": -0.4
+        }
+       },
+       "label": "长兵如林"
+      },
+      {
+       "at": 940,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 420,
+         "y": 540,
+         "gait": 1
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 1000,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 760,
+         "y": 560,
+         "gait": 0,
+         "mirror": true
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 1220,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "安禄山"
+      },
+      {
+       "at": 1620,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "dark_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           80,
+           470
+          ],
+          [
+           80,
+           430
+          ],
+          [
+           140,
+           430
+          ],
+          [
+           140,
+           450
+          ],
+          [
+           200,
+           450
+          ],
+          [
+           200,
+           430
+          ],
+          [
+           260,
+           430
+          ],
+          [
+           260,
+           450
+          ],
+          [
+           1020,
+           450
+          ],
+          [
+           1020,
+           430
+          ],
+          [
+           1080,
+           430
+          ],
+          [
+           1080,
+           450
+          ],
+          [
+           1200,
+           450
+          ],
+          [
+           1200,
+           470
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "城墙雉堞"
+      },
+      {
+       "at": 2060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "ink-bomb.spill",
+        "color": "medium_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           200,
+           500
+          ],
+          [
+           420,
+           380
+          ],
+          [
+           640,
+           420
+          ],
+          [
+           900,
+           300
+          ],
+          [
+           1100,
+           340
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "烟"
+      },
+      {
+       "at": 2500,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "哥舒翰"
+      },
+      {
+       "at": 3060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "brown",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           200,
+           520
+          ],
+          [
+           260,
+           440
+          ],
+          [
+           320,
+           520
+          ]
+         ]
+        },
+        "speed": 4
+       },
+       "label": "营帐"
+      },
+      {
+       "at": 3120,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "brown",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           880,
+           520
+          ],
+          [
+           940,
+           440
+          ],
+          [
+           1000,
+           520
+          ]
+         ]
+        },
+        "speed": 4
+       },
+       "label": "营帐"
+      },
+      {
+       "at": 3580,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 3610,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 3640,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 3670,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 4100,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "陈玄礼"
+      },
+      {
+       "at": 4740,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.grass",
+        "color": "green_dark",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           620
+          ],
+          [
+           986,
+           300
+          ]
+         ]
+        },
+        "speed": 7
+       },
+       "label": "树"
+      },
+      {
+       "at": 4780,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.grass",
+        "color": "green_dark",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           920,
+           340
+          ],
+          [
+           980,
+           300
+          ],
+          [
+           1050,
+           330
+          ]
+         ]
+        },
+        "speed": 7
+       },
+       "label": "树冠"
+      },
+      {
+       "at": 5040,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "马嵬"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "still"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "shake": {
+        "amp": 2,
+        "frames": 120
+       },
+       "label": "shake"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.tang.anshi.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.tang.anshi.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 1030,
+       "kind": "inkDisperse",
+       "layer": "terrain",
+       "params": {
+        "origin": [
+         600,
+         600
+        ],
+        "radius": 260,
+        "frames": 180
+       },
+       "label": "马蹄墨散（新引擎：地形动态纹理）"
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/pipa.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/guqin-room.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/battle-far.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/anshi-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 920,
+       "bus": "sfx",
+       "asset": "audio/sfx/drum-far.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/anshi-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1240,
+       "bus": "sfx",
+       "asset": "audio/sfx/hoofbeats.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/battle-far.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/anshi-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/clash.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/crowd-murmur.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/anshi-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3840,
+       "bus": "sfx",
+       "asset": "audio/sfx/murmur.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/wind-after.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/silk-rustle.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/anshi-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/silk-rustle.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.tang.anshi.title": "渔阳鼙鼓",
+     "scene.tang.anshi.subtitle": "安史之乱与马嵬",
+     "scene.tang.anshi.when": "马嵬",
+     "vo.01": "天宝十四载十一月，安禄山在范阳起兵，以讨杨国忠为名，南下河北。",
+     "vo.02": "一个月后，洛阳失守。次年六月，哥舒翰被迫出潼关迎战，大败。",
+     "vo.03": "玄宗仓皇出奔。行至马嵬驿，将士饥疲，陈玄礼请诛杨国忠。",
+     "vo.04": "杨国忠被乱兵所杀。六军仍然不肯前行。",
+     "vo.05": "玄宗沉默良久——",
+     "scene.tang.anshi.fork.prompt": "此刻落笔，循哪一卷而书？",
+     "anchor.fanyang": "安禄山兼领三镇",
+     "anchor.lingwu": "肃宗即位于灵武",
+     "scene.tang.anshi.pick.canon": "正史 · 《旧唐书》、《旧唐书》所载",
+     "scene.tang.anshi.end.canon": "贵妃被缢死于佛堂。玄宗入蜀，太子北上灵武即位，是为肃宗。平叛之战还要持续七年。",
+     "scene.tang.anshi.pick.legend": "野史 · 长恨歌",
+     "scene.tang.anshi.legend.disclaimer": "以下取自白居易的诗《长恨歌》以及后世传说。仙山相会是诗人的想象；贵妃东渡日本之说也只是传说。",
+     "scene.tang.anshi.legend.intro": "《长恨歌》写玄宗回长安后思念贵妃，临邛道士上穷碧落下黄泉，在海上仙山找到了她。她托道士带回一枚钿合、一股金钗。",
+     "scene.tang.anshi.end.legend": "钿合金钗留在了诗里。诗与传说之外，正史依旧：安史之乱延续多年。",
+     "scene.tang.anshi.pick.whatif": "推演 · 若玄宗不出潼关（未开放）",
+     "scene.tang.anshi.end.whatif": "异闻 · 未开放"
+    }
+   },
+   "cast": [
+    {
+     "id": "xuanzong",
+     "name": "唐玄宗",
+     "title": "李隆基",
+     "camp": "唐",
+     "type": "ruler",
+     "bio": "出奔蜀中，途中马嵬兵变"
+    },
+    {
+     "id": "yangguifei",
+     "name": "杨贵妃",
+     "title": "杨玉环",
+     "camp": "唐",
+     "type": "royal",
+     "bio": "马嵬驿被缢死"
+    },
+    {
+     "id": "anlushan",
+     "name": "安禄山",
+     "title": "范阳、平卢、河东节度使",
+     "camp": "燕",
+     "type": "general",
+     "bio": "起兵叛唐"
+    },
+    {
+     "id": "yangguozhong",
+     "name": "杨国忠",
+     "title": "宰相",
+     "camp": "唐",
+     "type": "minister",
+     "bio": "马嵬兵变中被杀"
+    },
+    {
+     "id": "chenxuanli",
+     "name": "陈玄礼",
+     "title": "龙武大将军",
+     "camp": "唐",
+     "type": "general",
+     "bio": "率禁军请诛杨国忠"
+    },
+    {
+     "id": "gaolishi",
+     "name": "高力士",
+     "title": "宦官",
+     "camp": "唐",
+     "type": "other",
+     "bio": "奉命缢杀贵妃"
+    },
+    {
+     "id": "geshuhan",
+     "name": "哥舒翰",
+     "title": "潼关守将",
+     "camp": "唐",
+     "type": "general",
+     "bio": "被迫出关，兵败被俘"
+    },
+    {
+     "id": "lixiang",
+     "name": "李亨",
+     "title": "太子，后之唐肃宗",
+     "camp": "唐",
+     "type": "royal",
+     "bio": "北上灵武即位"
+    }
+   ],
+   "relations": [
+    {
+     "from": "xuanzong",
+     "to": "yangguifei",
+     "relation": "帝妃",
+     "type": "family"
+    },
+    {
+     "from": "yangguifei",
+     "to": "yangguozhong",
+     "relation": "从兄妹",
+     "type": "family"
+    },
+    {
+     "from": "anlushan",
+     "to": "yangguozhong",
+     "relation": "相恶",
+     "type": "rival"
+    },
+    {
+     "from": "chenxuanli",
+     "to": "xuanzong",
+     "relation": "禁军将领",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "gaolishi",
+     "to": "xuanzong",
+     "relation": "近侍",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "xuanzong",
+     "to": "lixiang",
+     "relation": "父子",
+     "type": "family"
+    }
+   ]
+  },
+  {
+   "outlineId": "13-08",
+   "v1": false,
+   "scene": {
+    "format": "inkgames.scene-outline",
+    "version": 1,
+    "id": "tang.suiyang",
+    "chapter": "tang",
+    "order": 8,
+    "title": "scene.tang.suiyang.title",
+    "subtitle": "scene.tang.suiyang.subtitle",
+    "when": {
+     "start": 757,
+     "precision": "year",
+     "display": "757 年",
+     "verify": "done"
+    },
+    "key": false,
+    "template": "siege",
+    "props": [
+     "bow",
+     "shield"
+    ],
+    "characters": [
+     "zhangxun",
+     "xuyuan",
+     "nanjiyun"
+    ],
+    "hooks": {
+     "canon": "scene.tang.suiyang.hook.canon",
+     "legend": "scene.tang.suiyang.hook.legend",
+     "play": "scene.tang.suiyang.play"
+    },
+    "sources": [
+     {
+      "kind": "canon",
+      "title": "新唐书",
+      "section": "张巡传"
+     },
+     {
+      "kind": "classic",
+      "title": "张中丞传后叙"
+     },
+     {
+      "kind": "modern",
+      "title": "五千年演义·隋唐新传",
+      "section": "第38回（待核对）",
+      "notes": "现代演义，仅作叙事线索；回次据目录 OCR 对位，待核对"
+     }
+    ],
+    "verify": "pending",
+    "v1": false
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.tang.suiyang.title": "睢阳",
+     "scene.tang.suiyang.subtitle": "睢阳",
+     "scene.tang.suiyang.hook.canon": "死守睢阳，城破殉国",
+     "scene.tang.suiyang.hook.legend": "南霁云射塔（韩愈记，属正史化笔记）",
+     "scene.tang.suiyang.play": "守城：bow、shield"
+    }
+   },
+   "cast": [
+    {
+     "id": "zhangxun",
+     "name": "张巡"
+    },
+    {
+     "id": "xuyuan",
+     "name": "许远"
+    },
+    {
+     "id": "nanjiyun",
+     "name": "南霁云"
+    }
+   ],
+   "relations": []
+  },
+  {
+   "outlineId": "13-09",
+   "v1": false,
+   "scene": {
+    "format": "inkgames.scene-outline",
+    "version": 1,
+    "id": "tang.guoziyi",
+    "chapter": "tang",
+    "order": 9,
+    "title": "scene.tang.guoziyi.title",
+    "subtitle": "scene.tang.guoziyi.subtitle",
+    "when": {
+     "start": 765,
+     "precision": "year",
+     "display": "765 年",
+     "verify": "done"
+    },
+    "key": false,
+    "template": "court",
+    "props": [
+     "war-horse"
+    ],
+    "characters": [
+     "guoziyi"
+    ],
+    "hooks": {
+     "canon": "scene.tang.guoziyi.hook.canon",
+     "legend": "scene.tang.guoziyi.hook.legend",
+     "play": "scene.tang.guoziyi.play"
+    },
+    "sources": [
+     {
+      "kind": "canon",
+      "title": "旧唐书",
+      "section": "郭子仪传"
+     },
+     {
+      "kind": "modern",
+      "title": "五千年演义·隋唐新传",
+      "section": "第42回",
+      "notes": "现代演义，仅作叙事线索；回次据目录 OCR 对位，待核对"
+     }
+    ],
+    "verify": "pending",
+    "v1": false
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.tang.guoziyi.title": "单骑退回纥",
+     "scene.tang.guoziyi.subtitle": "郭子仪",
+     "scene.tang.guoziyi.hook.canon": "免胄见回纥",
+     "scene.tang.guoziyi.hook.legend": "无",
+     "scene.tang.guoziyi.play": "庙堂：对答；war-horse"
+    }
+   },
+   "cast": [
+    {
+     "id": "guoziyi",
+     "name": "郭子仪"
+    }
+   ],
+   "relations": []
+  },
+  {
+   "outlineId": "13-10",
+   "v1": false,
+   "scene": {
+    "format": "inkgames.scene-outline",
+    "version": 1,
+    "id": "tang.caizhou",
+    "chapter": "tang",
+    "order": 10,
+    "title": "scene.tang.caizhou.title",
+    "subtitle": "scene.tang.caizhou.subtitle",
+    "when": {
+     "start": 817,
+     "precision": "year",
+     "display": "817 年",
+     "verify": "done"
+    },
+    "key": false,
+    "template": "stealth",
+    "props": [
+     "war-horse",
+     "banner"
+    ],
+    "characters": [
+     "lisu",
+     "wuyuanji"
+    ],
+    "hooks": {
+     "canon": "scene.tang.caizhou.hook.canon",
+     "legend": "scene.tang.caizhou.hook.legend",
+     "play": "scene.tang.caizhou.play"
+    },
+    "sources": [
+     {
+      "kind": "canon",
+      "title": "旧唐书",
+      "section": "李愬传"
+     },
+     {
+      "kind": "modern",
+      "title": "五千年演义·隋唐新传",
+      "section": "第46回",
+      "notes": "现代演义，仅作叙事线索；回次据目录 OCR 对位，待核对"
+     }
+    ],
+    "verify": "pending",
+    "v1": false
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.tang.caizhou.title": "雪夜入蔡州",
+     "scene.tang.caizhou.subtitle": "雪夜入蔡州",
+     "scene.tang.caizhou.hook.canon": "雪夜奇袭",
+     "scene.tang.caizhou.hook.legend": "无",
+     "scene.tang.caizhou.play": "雪夜潜行：war-horse、banner"
+    }
+   },
+   "cast": [
+    {
+     "id": "lisu",
+     "name": "李愬"
+    },
+    {
+     "id": "wuyuanji",
+     "name": "吴元济"
+    }
+   ],
+   "relations": []
+  },
+  {
+   "outlineId": "13-11",
+   "v1": true,
+   "scene": {
+    "format": "inkgames.scene",
+    "version": 1,
+    "id": "tang.huangchao",
+    "chapter": "tang",
+    "order": 11,
+    "title": "scene.tang.huangchao.title",
+    "subtitle": "scene.tang.huangchao.subtitle",
+    "when": {
+     "start": 875,
+     "end": 884,
+     "precision": "year",
+     "display": "875—884 年",
+     "era": "唐乾符二年至中和四年",
+     "verify": "done"
+    },
+    "key": true,
+    "template": "battle",
+    "props": [
+     "banner",
+     "war-horse",
+     "spear",
+     "ink-bomb",
+     "landscape",
+     "figure"
+    ],
+    "characters": [
+     "huangchao",
+     "wangxianzhi",
+     "zhuwen",
+     "likeyong",
+     "xizong"
+    ],
+    "anchors": {
+     "entry": {
+      "id": "anchor.tang.wangxianzhi",
+      "title": "anchor.wangxianzhi",
+      "when": {
+       "start": 874,
+       "precision": "year",
+       "display": "874 年",
+       "era": "乾符元年",
+       "verify": "pending",
+       "notes": "王仙芝起事有 874、875 两说"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "新唐书",
+        "section": "黄巢传"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.tang.langhugu",
+      "title": "anchor.langhugu",
+      "when": {
+       "start": 884,
+       "precision": "year",
+       "display": "884 年",
+       "era": "中和四年",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "新唐书",
+        "section": "黄巢传"
+       }
+      ]
+     }
+    },
+    "opening": "cutscene.tang.huangchao.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.tang.huangchao.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.tang.huangchao.opening",
+       "when": {
+        "start": 875,
+        "end": 884,
+        "precision": "year",
+        "display": "875—884 年",
+        "era": "唐乾符二年至中和四年",
+        "verify": "done"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "黄巢传"
+        },
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "黄巢传"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": 875,
+        "end": 884,
+        "precision": "year",
+        "display": "875—884 年",
+        "era": "唐乾符二年至中和四年",
+        "verify": "done"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.tang.huangchao.pick.canon",
+         "seal": "canon",
+         "to": "c.march"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.tang.huangchao.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.tang.huangchao.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "tang.huangchao/canon"
+           },
+           {
+            "cleared": "tang.huangchao/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.march",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 875,
+        "end": 884,
+        "precision": "year",
+        "display": "875—884 年",
+        "era": "唐乾符二年至中和四年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "battle",
+        "params": {
+         "goal": "率军转战千里，在地图上选择进军路线",
+         "failTo": "c.march",
+         "beats": [
+          "route",
+          "supply"
+         ],
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.tongguan"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "黄巢传"
+        },
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "黄巢传"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪"
+        }
+       ]
+      },
+      {
+       "id": "c.tongguan",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 875,
+        "end": 884,
+        "precision": "year",
+        "display": "875—884 年",
+        "era": "唐乾符二年至中和四年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "siege",
+        "params": {
+         "goal": "攻破潼关，打开入关之路",
+         "failTo": "c.tongguan",
+         "beats": [
+          "assault"
+         ],
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "黄巢传"
+        },
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "黄巢传"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.tang.huangchao.legend-intro",
+       "when": {
+        "start": 875,
+        "end": 884,
+        "precision": "year",
+        "display": "875—884 年",
+        "era": "唐乾符二年至中和四年",
+        "verify": "done"
+       },
+       "label": "scene.tang.huangchao.legend.disclaimer",
+       "dialogue": "scene.tang.huangchao.legend.intro",
+       "next": [
+        "l.exam"
+       ],
+       "sources": [
+        {
+         "kind": "folk",
+         "title": "不第后赋菊",
+         "notes": "作者归属见宋以后诗话笔记，待核验"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·唐史演义",
+         "section": "第九十一至九十二回",
+         "corpus": {
+          "file": "野史/唐朝.pdf",
+          "pages": "p.307–313"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.exam",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 875,
+        "end": 884,
+        "precision": "year",
+        "display": "875—884 年",
+        "era": "唐乾符二年至中和四年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "calligraphy",
+        "params": {
+         "goal": "以落第书生的心境写下咏菊诗，笔势由抑转扬",
+         "failTo": "l.exam",
+         "beats": [
+          "write",
+          "mood"
+         ],
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.gold"
+       ],
+       "sources": [
+        {
+         "kind": "folk",
+         "title": "不第后赋菊",
+         "notes": "作者归属见宋以后诗话笔记，待核验"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·唐史演义",
+         "section": "第九十一至九十二回",
+         "corpus": {
+          "file": "野史/唐朝.pdf",
+          "pages": "p.307–313"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.gold",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 875,
+        "end": 884,
+        "precision": "year",
+        "display": "875—884 年",
+        "era": "唐乾符二年至中和四年",
+        "verify": "done"
+       },
+       "gameplay": {
+        "template": "battle",
+        "params": {
+         "goal": "诗中的意象化为满城金甲",
+         "failTo": "l.gold",
+         "beats": [
+          "imagery"
+         ],
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "folk",
+         "title": "不第后赋菊",
+         "notes": "作者归属见宋以后诗话笔记，待核验"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·唐史演义",
+         "section": "第九十一至九十二回",
+         "corpus": {
+          "file": "野史/唐朝.pdf",
+          "pages": "p.307–313"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
+     {
+      "id": "end.canon",
+      "kind": "canon",
+      "title": "scene.tang.huangchao.end.canon",
+      "cutscene": "cutscene.tang.huangchao.end-canon",
+      "mergeTo": "anchor.tang.langhugu",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "新唐书",
+        "section": "黄巢传"
+       },
+       {
+        "kind": "canon",
+        "title": "旧唐书",
+        "section": "黄巢传"
+       },
+       {
+        "kind": "canon",
+        "title": "资治通鉴",
+        "section": "唐纪"
+       }
+      ]
+     },
+     {
+      "id": "end.legend",
+      "title": "scene.tang.huangchao.end.legend",
+      "cutscene": "cutscene.tang.huangchao.end-legend",
+      "sources": [
+       {
+        "kind": "folk",
+        "title": "不第后赋菊",
+        "notes": "作者归属见宋以后诗话笔记，待核验"
+       },
+       {
+        "kind": "novel",
+        "title": "蔡东藩·唐史演义",
+        "section": "第九十一至九十二回",
+        "corpus": {
+         "file": "野史/唐朝.pdf",
+         "pages": "p.307–313"
+        }
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.tang.langhugu",
+      "notes": "野史线结局与正史出口一致，属于汇流"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.tang.huangchao.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
+     }
+    ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "咏菊诗",
+       "canon": "正史不载",
+       "legend": "宋以后诗话笔记归于黄巢名下（待核验）",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "黄巢传"
+        },
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "黄巢传"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪"
+        },
+        {
+         "kind": "folk",
+         "title": "不第后赋菊",
+         "notes": "作者归属见宋以后诗话笔记，待核验"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·唐史演义",
+         "section": "第九十一至九十二回",
+         "corpus": {
+          "file": "野史/唐朝.pdf",
+          "pages": "p.307–313"
+         }
+        }
+       ]
+      },
+      {
+       "topic": "起事原因",
+       "canon": "史书载连年水旱、赋役沉重",
+       "legend": "—",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "新唐书",
+         "section": "黄巢传"
+        },
+        {
+         "kind": "canon",
+         "title": "旧唐书",
+         "section": "黄巢传"
+        },
+        {
+         "kind": "canon",
+         "title": "资治通鉴",
+         "section": "唐纪"
+        },
+        {
+         "kind": "folk",
+         "title": "不第后赋菊",
+         "notes": "作者归属见宋以后诗话笔记，待核验"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·唐史演义",
+         "section": "第九十一至九十二回",
+         "corpus": {
+          "file": "野史/唐朝.pdf",
+          "pages": "p.307–313"
+         }
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.huangchao",
+       "person.huangchao",
+       "person.zhuwen"
+      ],
+      "seal": "seal.huangchao"
+     }
+    },
+    "verify": "pending",
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.tang.huangchao.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      220,
+      210,
+      190
+     ],
+     "seed": 63927
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "灾荒之年，盐道上的人群"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "王仙芝、黄巢起事"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "转战千里，南下岭南又北上"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "广明元年冬，入长安"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "满城尽带黄金甲"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 360,
+         "variant": 1
+        }
+       },
+       "label": "远山"
+      },
+      {
+       "at": 160,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "grass"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 560
+        }
+       },
+       "label": "草"
+      },
+      {
+       "at": 320,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 350,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 380,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 410,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 660,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 690,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 720,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 750,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 810,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "spear",
+        "placement": {
+         "x": 600,
+         "y": 480,
+         "angle": -0.4
+        }
+       },
+       "label": "长兵如林"
+      },
+      {
+       "at": 940,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "banner",
+        "placement": {
+         "x": 640,
+         "y": 480
+        }
+       },
+       "label": "banner"
+      },
+      {
+       "at": 1220,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "黄巢"
+      },
+      {
+       "at": 1620,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 420,
+         "y": 540,
+         "gait": 1
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 1680,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 760,
+         "y": 560,
+         "gait": 0,
+         "mirror": true
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 2060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "water",
+        "placement": {
+         "x": 0,
+         "y": 548,
+         "width": 1280
+        }
+       },
+       "label": "河水"
+      },
+      {
+       "at": 2500,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "boat",
+        "placement": {
+         "x": 420,
+         "y": 540
+        }
+       },
+       "label": "舟"
+      },
+      {
+       "at": 2580,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "boat",
+        "placement": {
+         "x": 860,
+         "y": 556,
+         "mirror": true
+        }
+       },
+       "label": "舟"
+      },
+      {
+       "at": 3060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "dark_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           80,
+           470
+          ],
+          [
+           80,
+           430
+          ],
+          [
+           140,
+           430
+          ],
+          [
+           140,
+           450
+          ],
+          [
+           200,
+           450
+          ],
+          [
+           200,
+           430
+          ],
+          [
+           260,
+           430
+          ],
+          [
+           260,
+           450
+          ],
+          [
+           1020,
+           450
+          ],
+          [
+           1020,
+           430
+          ],
+          [
+           1080,
+           430
+          ],
+          [
+           1080,
+           450
+          ],
+          [
+           1200,
+           450
+          ],
+          [
+           1200,
+           470
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "城墙雉堞"
+      },
+      {
+       "at": 3580,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 3610,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 3640,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 3670,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 3730,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "spear",
+        "placement": {
+         "x": 600,
+         "y": 480,
+         "angle": -0.4
+        }
+       },
+       "label": "长兵如林"
+      },
+      {
+       "at": 4100,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "唐僖宗"
+      },
+      {
+       "at": 4740,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "banner",
+        "placement": {
+         "x": 980,
+         "y": 480
+        }
+       },
+       "label": "banner"
+      },
+      {
+       "at": 5040,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "入长安"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "still"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "shake": {
+        "amp": 2,
+        "frames": 120
+       },
+       "label": "shake"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.tang.huangchao.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.tang.huangchao.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 1710,
+       "kind": "inkDisperse",
+       "layer": "terrain",
+       "params": {
+        "origin": [
+         600,
+         600
+        ],
+        "radius": 260,
+        "frames": 180
+       },
+       "label": "马蹄墨散（新引擎：地形动态纹理）"
+      },
+      {
+       "at": 2080,
+       "kind": "flow",
+       "layer": "sheet",
+       "target": "lastStroke",
+       "params": {
+        "blendType": 0,
+        "iterations": 4
+       }
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/pipa.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/wind-plain.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/crowd-roar.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/huangchao-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/huangchao-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1080,
+       "bus": "sfx",
+       "asset": "audio/sfx/war-cry.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/battle-far.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/huangchao-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/hoofbeats.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/crowd-roar.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/huangchao-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3840,
+       "bus": "sfx",
+       "asset": "audio/sfx/crowd-roar.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/wind-after.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/war-cry.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/huangchao-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/war-cry.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.tang.huangchao.title": "冲天香阵",
+     "scene.tang.huangchao.subtitle": "黄巢入长安",
+     "scene.tang.huangchao.when": "冲天香阵",
+     "vo.01": "唐末，水旱连年，赋役沉重。盐贩王仙芝、黄巢先后起事。",
+     "vo.02": "王仙芝战死之后，黄巢号冲天大将军，转战江淮、岭南，又挥师北上。",
+     "vo.03": "广明元年冬，义军攻破潼关，唐僖宗仓皇出奔成都。",
+     "vo.04": "黄巢入长安，即皇帝位，国号大齐。",
+     "vo.05": "后人把一首咏菊的诗系于他的名下——",
+     "scene.tang.huangchao.fork.prompt": "此刻落笔，循哪一卷而书？",
+     "anchor.wangxianzhi": "王仙芝起事",
+     "anchor.langhugu": "黄巢死于狼虎谷",
+     "scene.tang.huangchao.pick.canon": "正史 · 《新唐书》、《旧唐书》所载",
+     "scene.tang.huangchao.end.canon": "数年后，唐军与沙陀李克用收复长安，部将朱温降唐。884 年，黄巢败死于狼虎谷。唐朝已名存实亡。",
+     "scene.tang.huangchao.pick.legend": "野史 · 不第后赋菊",
+     "scene.tang.huangchao.legend.disclaimer": "以下这首咏菊诗传为黄巢落第后所作，见于宋以后的笔记诗话，作者归属难以确证。“黄巢杀人八百万”之类民间夸张说法，本作不采。",
+     "scene.tang.huangchao.legend.intro": "传说黄巢应进士不第，写下一首咏菊诗，诗中有“冲天香阵透长安，满城尽带黄金甲”之句。",
+     "scene.tang.huangchao.end.legend": "诗句流传后世，作者之谜未解。传说汇回正史：大齐在长安只维持了两年多。",
+     "scene.tang.huangchao.pick.whatif": "推演 · 若黄巢中第（未开放）",
+     "scene.tang.huangchao.end.whatif": "异闻 · 未开放"
+    }
+   },
+   "cast": [
+    {
+     "id": "huangchao",
+     "name": "黄巢",
+     "title": "冲天大将军，大齐皇帝",
+     "camp": "大齐",
+     "type": "ruler",
+     "bio": "转战南北，入长安称帝"
+    },
+    {
+     "id": "wangxianzhi",
+     "name": "王仙芝",
+     "title": "起事首领",
+     "camp": "义军",
+     "type": "other",
+     "bio": "先起，878 年战死"
+    },
+    {
+     "id": "zhuwen",
+     "name": "朱温",
+     "title": "黄巢部将",
+     "camp": "大齐",
+     "type": "general",
+     "bio": "882 年降唐，赐名全忠"
+    },
+    {
+     "id": "likeyong",
+     "name": "李克用",
+     "title": "沙陀首领",
+     "camp": "唐",
+     "type": "general",
+     "bio": "率军收复长安"
+    },
+    {
+     "id": "xizong",
+     "name": "唐僖宗",
+     "title": "李儇",
+     "camp": "唐",
+     "type": "ruler",
+     "bio": "出奔成都"
+    }
+   ],
+   "relations": [
+    {
+     "from": "huangchao",
+     "to": "wangxianzhi",
+     "relation": "先后为首领",
+     "type": "ally"
+    },
+    {
+     "from": "huangchao",
+     "to": "zhuwen",
+     "relation": "部将，后叛降",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "likeyong",
+     "to": "huangchao",
+     "relation": "收复长安",
+     "type": "rival"
+    },
+    {
+     "from": "xizong",
+     "to": "huangchao",
+     "relation": "对立",
+     "type": "rival"
+    }
+   ]
+  }
+ ]
+}

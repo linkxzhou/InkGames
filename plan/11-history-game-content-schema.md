@@ -49,8 +49,9 @@ export interface HistoryDate {
 }
 
 export interface SourceRef {
-  /** canon 正史原典；excavated 出土文献；novel 演义小说；biji 笔记；folk 民间传说；opera 戏曲；modern 现代作品 */
-  readonly kind: 'canon' | 'excavated' | 'novel' | 'biji' | 'folk' | 'opera' | 'modern';
+  /** canon 正史原典；excavated 出土文献；novel 演义小说；biji 笔记；folk 民间传说；opera 戏曲；modern 现代作品；
+   *  classic 其他古籍（诸子、文集、诗文、兵书、别史，如《庄子》《贞观政要》《纪效新书》《圆圆曲》） */
+  readonly kind: 'canon' | 'excavated' | 'novel' | 'biji' | 'folk' | 'opera' | 'modern' | 'classic';
   readonly title: string;
   readonly section?: string;
   /** 本地语料库定位（只作研究线索，不随发布物分发）。 */
@@ -98,7 +99,7 @@ export interface SceneDef {
   readonly subtitle: string;
   readonly when: HistoryDate;
   readonly key: boolean;
-  readonly template: string;           // 主玩法模板
+  readonly template: string;           // 主玩法模板，取值见 §2.9
   readonly props: readonly string[];   // 用到的道具/笔刷预设
   readonly characters: readonly string[];
   readonly anchors: { readonly entry: TimelineAnchor; readonly exit: TimelineAnchor };
@@ -316,6 +317,97 @@ export interface SaveGame {
 
 存档带版本号，升级时按版本跑迁移函数，迁移函数要有单测。
 
+### 2.9 章节数据包、索引与大纲级场景
+
+规划阶段的数据放在 `plan/11-history-game-data/chapters/`，每章一个文件，外加一个索引。落地到运行时以后，可以按 §2.2–§2.7 把一个数据包拆成章、场景、过场和字符串表四类文件。
+
+```ts
+/** chapters/index.json */
+export interface ChapterIndex {
+  readonly format: 'inkgames.chapter-index';
+  readonly version: 1;
+  readonly chapters: readonly {
+    readonly no: string;          // '05'
+    readonly id: string;          // 'zhanguo'
+    readonly name: string;        // '战国'
+    readonly file: string;        // 'chapters/05-zhanguo.json'
+    readonly span: string;        // 显示用的起止年
+    readonly scenes: number; readonly v1: number; readonly outline: number;
+  }[];
+  readonly totals: { readonly chapters: number; readonly scenes: number; readonly v1: number; readonly outline: number };
+}
+
+/** chapters/NN-<id>.json */
+export interface ChapterBundle {
+  readonly format: 'inkgames.chapter-bundle';
+  readonly version: 1;
+  readonly chapter: ChapterDef;           // §2.2
+  readonly strings: StringTable;          // 章级字符串（章名等）
+  readonly scenes: readonly (FullSceneEntry | OutlineSceneEntry)[];  // 按章内顺序
+}
+
+/** 首版完整场景：深度与 §3 的易水寒样例相同 */
+export interface FullSceneEntry {
+  readonly outlineId: string;             // 大纲行号，如 '05-09'
+  readonly v1: true;
+  readonly example?: string;              // 只有易水寒：指回 ../scene-zhanguo-jingke.example.json（内容须完全一致）
+  readonly scene: SceneDef;               // §2.3
+  readonly opening: CutsceneDef;          // §2.6
+  readonly strings: StringTable;          // 本场景全部字符串
+  readonly cast: readonly CastMember[];   // 人物关系图用
+  readonly relations: readonly Relation[];
+}
+
+/** 大纲级场景：只有钩子，不做剧情图和过场 */
+export interface OutlineSceneEntry {
+  readonly outlineId: string;
+  readonly v1: false;
+  readonly scene: {
+    readonly format: 'inkgames.scene-outline';
+    readonly version: 1;
+    readonly id: string; readonly chapter: string; readonly order: number;
+    readonly title: string; readonly subtitle: string;  // 字符串键
+    readonly when: HistoryDate;
+    readonly key: boolean;
+    readonly template: string;
+    readonly props: readonly string[];
+    readonly characters: readonly string[];
+    readonly hooks: { readonly canon: string; readonly legend: string; readonly play: string };  // 字符串键
+    readonly sources: readonly SourceRef[];
+    readonly verify: 'done' | 'pending';
+    readonly v1: false;
+  };
+  readonly strings: StringTable;
+  readonly cast: readonly CastMember[];
+  readonly relations: readonly Relation[];
+}
+
+/** 与 history-santi 关系图模板（jing-ke-relation-graph.html）的 DATA 字段一致 */
+export interface CastMember {
+  readonly id: string; readonly name: string; readonly title?: string; readonly camp?: string;
+  readonly type?: 'ruler' | 'minister' | 'general' | 'scholar' | 'royal' | 'other';
+  readonly bio?: string;
+}
+export interface Relation {
+  readonly from: string; readonly to: string; readonly relation: string;
+  readonly type: 'family' | 'sub' | 'ally' | 'rival' | 'mentor' | 'other';
+  readonly directed?: boolean;
+}
+```
+
+**玩法模板**（`template`）取值：tutorial、duel、battle、siege、naval、engineering、journey、court、riddle、forest、stealth、dialogue-timing、riddle-escape、breakout、cavalry、calligraphy、banquet、ambush、night-raid、finale、trace、survival、evacuate。玩法节点的 `params` 至少要有 `goal`、`beats` 或 `clues` 之一。
+
+**第二条线的类型**。剧情线字段仍是 `line: 'legend'`，但选项文字的前缀要标明来源性质：
+
+| 前缀 | 含义 | 典型来源 kind |
+|---|---|---|
+| 野史 | 传说、民间故事、神话、笔记轶闻 | folk、biji、classic |
+| 演义 | 明清小说、蔡东藩历朝演义（蔡著版权状态待核验） | novel |
+| 异说 | 出土文献或别史与正史不同的记载 | excavated、classic |
+| 后世 | 后人的接受、评价与改写 | classic、opera、modern |
+
+第二条线的第一个节点必须带 `label`（声明文字）。结局与出口锚点一致的写 `mergeTo`（汇流）；与史实冲突的写 `kind: 'divergent'` 并 `archive: 'yiwenlu'`（如牧野之战的《封神演义》线）。推演（whatif）首版只留入口，要求正史与第二条线都通关后才显示。
+
 ## 3. 完整样例：易水寒 · 荆轲刺秦王
 
 完整文件见 [`11-history-game-data/scene-zhanguo-jingke.example.json`](./11-history-game-data/scene-zhanguo-jingke.example.json)，里面有场景定义、开场动画脚本和中文字符串表。下面讲它的结构。
@@ -380,6 +472,8 @@ export interface SaveGame {
 
 ### 4.1 内容校验器（构建期，`./build.sh check` 的一部分）
 
+规划阶段已有一个可运行的版本：`plan/11-history-game-data/tools/validate.mjs`（Node，无依赖）。在 `plan/11-history-game-data/` 下运行 `node tools/validate.mjs`，加 `--pending` 列出全部待核验的日期与出处。它实现了下表中除“版权”“字形”“发布构建核验”以外的检查，另外检查：索引与数据包一致、易水寒条目与样例文件完全相同、笔刷键 `prop.part` 与调色板颜色名存在、画面坐标在画布内、`whatif` 选项带条件、人物关系引用的人物存在。与下表的差异：章与章之间不检查起始年先后（辽金与北宋重叠）；玩法节点只要求 `goal`/`beats`/`clues` 之一。
+
 | 检查 | 规则 | 失败级别 |
 |---|---|---|
 | 格式 | 每个文件的 `format` / `version` 已知；字段类型正确 | 错误 |
@@ -408,3 +502,7 @@ export interface SaveGame {
 ### 4.4 浏览器验证
 
 过场的确定性回放用无头浏览器逐关键帧截图，与基线比对。按 AGENTS.md，无头 SwiftShader 的结果不代表真实 GPU，性能结论必须在真实显卡上测，没测的写“未实测”。
+
+### 4.5 数据浏览页
+
+`plan/11-history-game-data/index.html` 按章、按场景显示时间轴、剧情树（正史主干、第二条线、推演入口、汇流或归档）、人物关系图（沿用 `jing-ke-relation-graph.html` 的样式与类型配色）、开场分镜和音频提示。页面不使用 `fetch`，可以直接双击用 file:// 打开：数据由 `node tools/build-viewer-data.mjs` 从 `chapters/*.json` 生成到 `data/*.js`（设置 `window.HISTORY_GAME_INDEX` 和 `window.HISTORY_GAME_CHAPTERS`），用 `<script>` 标签加载，不依赖外部库与网络。

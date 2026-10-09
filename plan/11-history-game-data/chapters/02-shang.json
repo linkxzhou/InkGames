@@ -1,0 +1,3176 @@
+{
+ "format": "inkgames.chapter-bundle",
+ "version": 1,
+ "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "chapter": {
+  "format": "inkgames.chapter",
+  "version": 1,
+  "id": "shang",
+  "order": 2,
+  "title": "chapter.shang.title",
+  "span": {
+   "start": -1600,
+   "end": -1046,
+   "precision": "circa",
+   "display": "约前 1600—前 1046 年",
+   "verify": "pending",
+   "notes": "夏商周断代工程年表"
+  },
+  "scenes": [
+   "shang.tonggong",
+   "shang.pangeng",
+   "shang.fuhao",
+   "shang.muye"
+  ],
+  "keyScenes": [
+   "shang.pangeng",
+   "shang.muye"
+  ],
+  "unlock": {
+   "all": [
+    {
+     "cleared": "xia.shaokang/canon"
+    },
+    {
+     "cleared": "xia.mingtiao/canon"
+    }
+   ]
+  },
+  "look": {
+   "palette": [
+    "black",
+    "terra_cotta",
+    "brown"
+   ],
+   "paper": [
+    214,
+    206,
+    186
+   ]
+  }
+ },
+ "strings": {
+  "locale": "zh-Hans",
+  "strings": {
+   "chapter.shang.title": "商"
+  }
+ },
+ "scenes": [
+  {
+   "outlineId": "02-01",
+   "v1": false,
+   "scene": {
+    "format": "inkgames.scene-outline",
+    "version": 1,
+    "id": "shang.tonggong",
+    "chapter": "shang",
+    "order": 1,
+    "title": "scene.shang.tonggong.title",
+    "subtitle": "scene.shang.tonggong.subtitle",
+    "when": {
+     "start": -1550,
+     "precision": "circa",
+     "display": "约前 16 世纪",
+     "verify": "pending"
+    },
+    "key": false,
+    "template": "court",
+    "props": [
+     "figure"
+    ],
+    "characters": [
+     "yiyin",
+     "taijia"
+    ],
+    "hooks": {
+     "canon": "scene.shang.tonggong.hook.canon",
+     "legend": "scene.shang.tonggong.hook.legend",
+     "play": "scene.shang.tonggong.play"
+    },
+    "sources": [
+     {
+      "kind": "canon",
+      "title": "史记",
+      "section": "殷本纪"
+     },
+     {
+      "kind": "modern",
+      "title": "五千年演义·华夏上古志",
+      "section": "第17回",
+      "notes": "现代演义，仅作叙事线索；回次据目录 OCR 对位，待核对"
+     }
+    ],
+    "verify": "pending",
+    "v1": false
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.shang.tonggong.title": "桐宫",
+     "scene.shang.tonggong.subtitle": "伊尹放太甲",
+     "scene.shang.tonggong.hook.canon": "《殷本纪》：伊尹放太甲于桐宫，三年后迎回",
+     "scene.shang.tonggong.hook.legend": "《竹书纪年》“伊尹自立，太甲潜出杀之”（异说）",
+     "scene.shang.tonggong.play": "庙堂：对话抉择"
+    }
+   },
+   "cast": [
+    {
+     "id": "yiyin",
+     "name": "伊尹"
+    },
+    {
+     "id": "taijia",
+     "name": "太甲"
+    }
+   ],
+   "relations": []
+  },
+  {
+   "outlineId": "02-02",
+   "v1": true,
+   "scene": {
+    "format": "inkgames.scene",
+    "version": 1,
+    "id": "shang.pangeng",
+    "chapter": "shang",
+    "order": 2,
+    "title": "scene.shang.pangeng.title",
+    "subtitle": "scene.shang.pangeng.subtitle",
+    "when": {
+     "start": -1300,
+     "precision": "circa",
+     "display": "约前 14 世纪",
+     "verify": "pending",
+     "notes": "断代工程定盘庚迁殷约前 1300 年，待核验"
+    },
+    "key": true,
+    "template": "journey",
+    "props": [
+     "boat",
+     "war-horse",
+     "water",
+     "landscape",
+     "figure"
+    ],
+    "characters": [
+     "pangeng",
+     "zhongchen",
+     "yinmin",
+     "xiaoxin"
+    ],
+    "anchors": {
+     "entry": {
+      "id": "anchor.shang.jiuju",
+      "title": "anchor.jiuju",
+      "when": {
+       "start": -1350,
+       "precision": "circa",
+       "display": "约前 14 世纪",
+       "verify": "pending",
+       "notes": "《殷本纪》称自中丁以来九世乱"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "殷本纪"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.shang.yinxu",
+      "title": "anchor.yinxu",
+      "when": {
+       "start": -1300,
+       "precision": "circa",
+       "display": "约前 1300 年",
+       "verify": "pending"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "尚书",
+        "section": "盘庚"
+       }
+      ]
+     }
+    },
+    "opening": "cutscene.shang.pangeng.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.shang.pangeng.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.shang.pangeng.opening",
+       "when": {
+        "start": -1300,
+        "precision": "circa",
+        "display": "约前 14 世纪",
+        "verify": "pending",
+        "notes": "断代工程定盘庚迁殷约前 1300 年，待核验"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "尚书",
+         "section": "盘庚"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "殷本纪"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": -1300,
+        "precision": "circa",
+        "display": "约前 14 世纪",
+        "verify": "pending",
+        "notes": "断代工程定盘庚迁殷约前 1300 年，待核验"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.shang.pangeng.pick.canon",
+         "seal": "canon",
+         "to": "c.persuade"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.shang.pangeng.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.shang.pangeng.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "shang.pangeng/canon"
+           },
+           {
+            "cleared": "shang.pangeng/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.persuade",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -1300,
+        "precision": "circa",
+        "display": "约前 14 世纪",
+        "verify": "pending",
+        "notes": "断代工程定盘庚迁殷约前 1300 年，待核验"
+       },
+       "gameplay": {
+        "template": "court",
+        "params": {
+         "goal": "在三次告谕中回应不同人群的疑虑，说服众人启程",
+         "failTo": "c.persuade",
+         "beats": [
+          "speech",
+          "objection",
+          "rebuttal"
+         ],
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.cross"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "尚书",
+         "section": "盘庚"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "殷本纪"
+        }
+       ]
+      },
+      {
+       "id": "c.cross",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -1300,
+        "precision": "circa",
+        "display": "约前 14 世纪",
+        "verify": "pending",
+        "notes": "断代工程定盘庚迁殷约前 1300 年，待核验"
+       },
+       "gameplay": {
+        "template": "naval",
+        "params": {
+         "goal": "指挥舟船载民渡河，不让老弱掉队",
+         "failTo": "c.cross",
+         "beats": [
+          "boat-convoy",
+          "current"
+         ],
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "尚书",
+         "section": "盘庚"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "殷本纪"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.shang.pangeng.legend-intro",
+       "when": {
+        "start": -1300,
+        "precision": "circa",
+        "display": "约前 14 世纪",
+        "verify": "pending",
+        "notes": "断代工程定盘庚迁殷约前 1300 年，待核验"
+       },
+       "label": "scene.shang.pangeng.legend.disclaimer",
+       "dialogue": "scene.shang.pangeng.legend.intro",
+       "next": [
+        "l.compare"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "竹书纪年",
+         "section": "古本佚文",
+         "notes": "据后世引文辑录，待核验"
+        },
+        {
+         "kind": "classic",
+         "title": "殷墟考古",
+         "section": "洹北商城与小屯殷墟",
+         "notes": "考古材料，待核验"
+        }
+       ]
+      },
+      {
+       "id": "l.compare",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -1300,
+        "precision": "circa",
+        "display": "约前 14 世纪",
+        "verify": "pending",
+        "notes": "断代工程定盘庚迁殷约前 1300 年，待核验"
+       },
+       "gameplay": {
+        "template": "trace",
+        "params": {
+         "goal": "用水笔洗出两卷记载中的地名，标在地图上",
+         "failTo": "l.compare",
+         "beats": [
+          "wash-reveal",
+          "map-mark"
+         ],
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.dig"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "竹书纪年",
+         "section": "古本佚文",
+         "notes": "据后世引文辑录，待核验"
+        },
+        {
+         "kind": "classic",
+         "title": "殷墟考古",
+         "section": "洹北商城与小屯殷墟",
+         "notes": "考古材料，待核验"
+        }
+       ]
+      },
+      {
+       "id": "l.dig",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -1300,
+        "precision": "circa",
+        "display": "约前 14 世纪",
+        "verify": "pending",
+        "notes": "断代工程定盘庚迁殷约前 1300 年，待核验"
+       },
+       "gameplay": {
+        "template": "riddle",
+        "params": {
+         "goal": "在殷墟探方中拼出甲骨与城址的位置关系",
+         "failTo": "l.dig",
+         "beats": [
+          "excavation",
+          "piece-together"
+         ],
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "竹书纪年",
+         "section": "古本佚文",
+         "notes": "据后世引文辑录，待核验"
+        },
+        {
+         "kind": "classic",
+         "title": "殷墟考古",
+         "section": "洹北商城与小屯殷墟",
+         "notes": "考古材料，待核验"
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
+     {
+      "id": "end.canon",
+      "kind": "canon",
+      "title": "scene.shang.pangeng.end.canon",
+      "cutscene": "cutscene.shang.pangeng.end-canon",
+      "mergeTo": "anchor.shang.yinxu",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "尚书",
+        "section": "盘庚"
+       },
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "殷本纪"
+       }
+      ]
+     },
+     {
+      "id": "end.legend",
+      "title": "scene.shang.pangeng.end.legend",
+      "cutscene": "cutscene.shang.pangeng.end-legend",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "竹书纪年",
+        "section": "古本佚文",
+        "notes": "据后世引文辑录，待核验"
+       },
+       {
+        "kind": "classic",
+        "title": "殷墟考古",
+        "section": "洹北商城与小屯殷墟",
+        "notes": "考古材料，待核验"
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.shang.yinxu",
+      "notes": "野史线结局与正史出口一致，属于汇流"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.shang.pangeng.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
+     }
+    ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "盘庚迁到哪里",
+       "canon": "《史记·殷本纪》：渡河南，复居成汤之故居",
+       "legend": "古本《竹书纪年》佚文：自奄迁于北蒙，曰殷；今安阳殷墟为商代后期都邑（待核验）",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "尚书",
+         "section": "盘庚"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "殷本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "竹书纪年",
+         "section": "古本佚文",
+         "notes": "据后世引文辑录，待核验"
+        },
+        {
+         "kind": "classic",
+         "title": "殷墟考古",
+         "section": "洹北商城与小屯殷墟",
+         "notes": "考古材料，待核验"
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.pangeng",
+       "person.pangeng"
+      ],
+      "seal": "seal.pangeng"
+     }
+    },
+    "verify": "pending",
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.shang.pangeng.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      214,
+      206,
+      186
+     ],
+     "seed": 8729
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "河北旧都，城郭衰败"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "盘庚登堂，告众臣以先王之事"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "殷民聚众，“咨胥皆怨”"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "渡河：舟楫相接"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "殷：洹水之滨，新邑落成"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 360,
+         "variant": 1
+        }
+       },
+       "label": "远山"
+      },
+      {
+       "at": 160,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "nearHill",
+         "ground"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 420
+        }
+       },
+       "label": "近山与地面"
+      },
+      {
+       "at": 320,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "dark_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           80,
+           470
+          ],
+          [
+           80,
+           430
+          ],
+          [
+           140,
+           430
+          ],
+          [
+           140,
+           450
+          ],
+          [
+           200,
+           450
+          ],
+          [
+           200,
+           430
+          ],
+          [
+           260,
+           430
+          ],
+          [
+           260,
+           450
+          ],
+          [
+           1020,
+           450
+          ],
+          [
+           1020,
+           430
+          ],
+          [
+           1080,
+           430
+          ],
+          [
+           1080,
+           450
+          ],
+          [
+           1200,
+           450
+          ],
+          [
+           1200,
+           470
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "城墙雉堞"
+      },
+      {
+       "at": 660,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 750,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 840,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 940,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "盘庚"
+      },
+      {
+       "at": 1220,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 1250,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 1280,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 1310,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 1620,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 1650,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 1680,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 1710,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 2280,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "banner.gust",
+        "color": "light_gray_new",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           100,
+           80
+          ],
+          [
+           1180,
+           640
+          ]
+         ]
+        },
+        "speed": 14
+       },
+       "label": "雨"
+      },
+      {
+       "at": 3060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "water",
+        "placement": {
+         "x": 0,
+         "y": 548,
+         "width": 1280
+        }
+       },
+       "label": "河水"
+      },
+      {
+       "at": 3580,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "boat",
+        "placement": {
+         "x": 420,
+         "y": 540
+        }
+       },
+       "label": "舟"
+      },
+      {
+       "at": 3660,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "boat",
+        "placement": {
+         "x": 860,
+         "y": 556,
+         "mirror": true
+        }
+       },
+       "label": "舟"
+      },
+      {
+       "at": 4100,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "盘庚"
+      },
+      {
+       "at": 4740,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "water-brush.stroke",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           640,
+           180
+          ],
+          [
+           640,
+           260
+          ],
+          [
+           620,
+           330
+          ],
+          [
+           660,
+           400
+          ]
+         ]
+        },
+        "speed": 2
+       },
+       "label": "殷"
+      },
+      {
+       "at": 5040,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "定都一笔"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "still"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "shake": {
+        "amp": 2,
+        "frames": 120
+       },
+       "label": "shake"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.shang.pangeng.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.shang.pangeng.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 2700,
+       "until": 3000,
+       "kind": "caption",
+       "key": "scene.shang.pangeng.quote",
+       "style": "kaiti",
+       "orientation": "vertical",
+       "x": 160,
+       "y": 120,
+       "source": {
+        "kind": "canon",
+        "title": "尚书",
+        "section": "盘庚上"
+       }
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 3080,
+       "kind": "flow",
+       "layer": "sheet",
+       "target": "lastStroke",
+       "params": {
+        "blendType": 0,
+        "iterations": 4
+       }
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/bronze-drum.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/wind-plain.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/palace-hall.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/pangeng-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/pangeng-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1080,
+       "bus": "sfx",
+       "asset": "audio/sfx/bronze-bell.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/crowd-murmur.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/pangeng-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/murmur.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/river-calm.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/pangeng-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3840,
+       "bus": "sfx",
+       "asset": "audio/sfx/oar.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/wind-after.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/river-release.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/pangeng-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/bronze-bell.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.shang.pangeng.title": "盘庚迁殷",
+     "scene.shang.pangeng.subtitle": "殷人渡河",
+     "scene.shang.pangeng.when": "盘庚迁殷",
+     "vo.01": "自中丁以来，商人屡迁其都，王室争立，诸侯不朝。",
+     "vo.02": "盘庚欲迁于殷。众臣多不欲徙，民亦怨之。",
+     "vo.03": "盘庚三次告谕，以先王之事说之：迁，是为了安民。",
+     "vo.04": "于是渡河，举族而迁。",
+     "vo.05": "自此至纣之亡，商人不再迁都——",
+     "scene.shang.pangeng.quote": "若颠木之有由蘖。",
+     "scene.shang.pangeng.fork.prompt": "此刻落笔，循哪一卷而书？",
+     "anchor.jiuju": "九世之乱",
+     "anchor.yinxu": "定都于殷",
+     "scene.shang.pangeng.pick.canon": "正史 · 《尚书》、《史记》所载",
+     "scene.shang.pangeng.end.canon": "殷人定居新邑，商道复兴。",
+     "scene.shang.pangeng.pick.legend": "异说 · 迁往何处",
+     "scene.shang.pangeng.legend.disclaimer": "以下是史料之间的分歧，不是传说：《史记》与古本《竹书纪年》对盘庚迁往何处说法不同。",
+     "scene.shang.pangeng.legend.intro": "《史记》说盘庚渡河南，复居成汤故居；古本《竹书纪年》佚文说盘庚自奄迁于北蒙，曰殷。殷墟考古发现也加入了讨论。",
+     "scene.shang.pangeng.end.legend": "史料各执一说，考古给出线索。无论哪种说法，盘庚迁殷都成了商代后期的开端。",
+     "scene.shang.pangeng.pick.whatif": "推演 · 若盘庚不迁（未开放）",
+     "scene.shang.pangeng.end.whatif": "异闻 · 未开放"
+    }
+   },
+   "cast": [
+    {
+     "id": "pangeng",
+     "name": "盘庚",
+     "title": "商王",
+     "camp": "商",
+     "type": "ruler",
+     "bio": "排众议迁都于殷，作《盘庚》三篇以告民"
+    },
+    {
+     "id": "zhongchen",
+     "name": "众臣",
+     "title": "在位者",
+     "camp": "商",
+     "type": "minister",
+     "bio": "多不欲徙，盘庚以先王之事告之"
+    },
+    {
+     "id": "yinmin",
+     "name": "殷民",
+     "title": "众庶",
+     "camp": "商",
+     "type": "other",
+     "bio": "“咨胥皆怨，不欲徙”"
+    },
+    {
+     "id": "xiaoxin",
+     "name": "小辛",
+     "title": "盘庚之弟",
+     "camp": "商",
+     "type": "royal",
+     "bio": "盘庚崩后继位"
+    }
+   ],
+   "relations": [
+    {
+     "from": "pangeng",
+     "to": "zhongchen",
+     "relation": "训诫",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "pangeng",
+     "to": "yinmin",
+     "relation": "告谕迁都",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "pangeng",
+     "to": "xiaoxin",
+     "relation": "兄弟",
+     "type": "family"
+    }
+   ]
+  },
+  {
+   "outlineId": "02-03",
+   "v1": false,
+   "scene": {
+    "format": "inkgames.scene-outline",
+    "version": 1,
+    "id": "shang.fuhao",
+    "chapter": "shang",
+    "order": 3,
+    "title": "scene.shang.fuhao.title",
+    "subtitle": "scene.shang.fuhao.subtitle",
+    "when": {
+     "start": -1250,
+     "precision": "circa",
+     "display": "约前 13 世纪",
+     "verify": "pending"
+    },
+    "key": false,
+    "template": "trace",
+    "props": [
+     "blade",
+     "water-brush"
+    ],
+    "characters": [
+     "wuding",
+     "fuhao"
+    ],
+    "hooks": {
+     "canon": "scene.shang.fuhao.hook.canon",
+     "legend": "scene.shang.fuhao.hook.legend",
+     "play": "scene.shang.fuhao.play"
+    },
+    "sources": [
+     {
+      "kind": "classic",
+      "title": "甲骨卜辞"
+     },
+     {
+      "kind": "modern",
+      "title": "五千年演义·华夏上古志",
+      "section": "第20回",
+      "notes": "现代演义，仅作叙事线索；回次据目录 OCR 对位，待核对"
+     }
+    ],
+    "verify": "pending",
+    "v1": false
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.shang.fuhao.title": "妇好",
+     "scene.shang.fuhao.subtitle": "女将出征",
+     "scene.shang.fuhao.hook.canon": "甲骨卜辞记妇好领兵征伐；殷墟妇好墓（1976 年发掘）",
+     "scene.shang.fuhao.hook.legend": "无；“寻迹”玩法：水刷洗出卜辞",
+     "scene.shang.fuhao.play": "战阵 + 寻迹：blade、water-brush"
+    }
+   },
+   "cast": [
+    {
+     "id": "wuding",
+     "name": "武丁"
+    },
+    {
+     "id": "fuhao",
+     "name": "妇好"
+    }
+   ],
+   "relations": []
+  },
+  {
+   "outlineId": "02-04",
+   "v1": true,
+   "scene": {
+    "format": "inkgames.scene",
+    "version": 1,
+    "id": "shang.muye",
+    "chapter": "shang",
+    "order": 4,
+    "title": "scene.shang.muye.title",
+    "subtitle": "scene.shang.muye.subtitle",
+    "when": {
+     "start": -1046,
+     "precision": "year",
+     "display": "前 1046 年",
+     "verify": "pending",
+     "notes": "断代工程说，另有多说"
+    },
+    "key": true,
+    "template": "battle",
+    "props": [
+     "spear",
+     "banner",
+     "war-horse",
+     "ink-bomb",
+     "landscape",
+     "figure"
+    ],
+    "characters": [
+     "wuwang",
+     "shangfu",
+     "zhou",
+     "zhougongdan",
+     "weizi",
+     "daji"
+    ],
+    "anchors": {
+     "entry": {
+      "id": "anchor.shang.mengjin",
+      "title": "anchor.mengjin",
+      "when": {
+       "start": -1048,
+       "precision": "circa",
+       "display": "约前 1048 年",
+       "verify": "pending",
+       "notes": "观兵之年据断代工程推算，待核验"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "周本纪"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.shang.zhou-li",
+      "title": "anchor.zhou-li",
+      "when": {
+       "start": -1046,
+       "precision": "year",
+       "display": "前 1046 年",
+       "verify": "pending"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "周本纪"
+       }
+      ]
+     }
+    },
+    "opening": "cutscene.shang.muye.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.shang.muye.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.shang.muye.opening",
+       "when": {
+        "start": -1046,
+        "precision": "year",
+        "display": "前 1046 年",
+        "verify": "pending",
+        "notes": "断代工程说，另有多说"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "周本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "尚书",
+         "section": "牧誓"
+        },
+        {
+         "kind": "excavated",
+         "title": "利簋铭文",
+         "section": "1976 年陕西临潼出土",
+         "notes": "武王征商，唯甲子朝"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": -1046,
+        "precision": "year",
+        "display": "前 1046 年",
+        "verify": "pending",
+        "notes": "断代工程说，另有多说"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.shang.muye.pick.canon",
+         "seal": "canon",
+         "to": "c.oath"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.shang.muye.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.shang.muye.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "shang.muye/canon"
+           },
+           {
+            "cleared": "shang.muye/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.oath",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -1046,
+        "precision": "year",
+        "display": "前 1046 年",
+        "verify": "pending",
+        "notes": "断代工程说，另有多说"
+       },
+       "gameplay": {
+        "template": "court",
+        "params": {
+         "goal": "在牧誓中依次点名各路诸侯，按誓词整肃行列",
+         "failTo": "c.oath",
+         "beats": [
+          "roll-call",
+          "formation"
+         ],
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.charge"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "周本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "尚书",
+         "section": "牧誓"
+        },
+        {
+         "kind": "excavated",
+         "title": "利簋铭文",
+         "section": "1976 年陕西临潼出土",
+         "notes": "武王征商，唯甲子朝"
+        }
+       ]
+      },
+      {
+       "id": "c.charge",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -1046,
+        "precision": "year",
+        "display": "前 1046 年",
+        "verify": "pending",
+        "notes": "断代工程说，另有多说"
+       },
+       "gameplay": {
+        "template": "battle",
+        "params": {
+         "goal": "以师尚父的前锋冲开商阵，让倒戈的商兵转向",
+         "failTo": "c.charge",
+         "beats": [
+          "spearhead",
+          "defection",
+          "push"
+         ],
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "周本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "尚书",
+         "section": "牧誓"
+        },
+        {
+         "kind": "excavated",
+         "title": "利簋铭文",
+         "section": "1976 年陕西临潼出土",
+         "notes": "武王征商，唯甲子朝"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.shang.muye.legend-intro",
+       "when": {
+        "start": -1046,
+        "precision": "year",
+        "display": "前 1046 年",
+        "verify": "pending",
+        "notes": "断代工程说，另有多说"
+       },
+       "label": "scene.shang.muye.legend.disclaimer",
+       "dialogue": "scene.shang.muye.legend.intro",
+       "next": [
+        "l.zhenfa"
+       ],
+       "sources": [
+        {
+         "kind": "novel",
+         "title": "封神演义",
+         "section": "第九十七回（纣王自焚）等",
+         "corpus": {
+          "file": "野史/封神演义.pdf",
+          "pages": "p.155–162"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.zhenfa",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -1046,
+        "precision": "year",
+        "display": "前 1046 年",
+        "verify": "pending",
+        "notes": "断代工程说，另有多说"
+       },
+       "gameplay": {
+        "template": "battle",
+        "params": {
+         "goal": "以墨弹破开小说中的阵法，阵眼由墨迹显示",
+         "failTo": "l.zhenfa",
+         "beats": [
+          "ink-bomb",
+          "array-break"
+         ],
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "l.fengshen"
+       ],
+       "sources": [
+        {
+         "kind": "novel",
+         "title": "封神演义",
+         "section": "第九十七回（纣王自焚）等",
+         "corpus": {
+          "file": "野史/封神演义.pdf",
+          "pages": "p.155–162"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.fengshen",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -1046,
+        "precision": "year",
+        "display": "前 1046 年",
+        "verify": "pending",
+        "notes": "断代工程说，另有多说"
+       },
+       "gameplay": {
+        "template": "calligraphy",
+        "params": {
+         "goal": "在封神榜上依次写下众神之名",
+         "failTo": "l.fengshen",
+         "beats": [
+          "write-list"
+         ],
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "novel",
+         "title": "封神演义",
+         "section": "第九十七回（纣王自焚）等",
+         "corpus": {
+          "file": "野史/封神演义.pdf",
+          "pages": "p.155–162"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
+     {
+      "id": "end.canon",
+      "kind": "canon",
+      "title": "scene.shang.muye.end.canon",
+      "cutscene": "cutscene.shang.muye.end-canon",
+      "mergeTo": "anchor.shang.zhou-li",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "周本纪"
+       },
+       {
+        "kind": "canon",
+        "title": "尚书",
+        "section": "牧誓"
+       },
+       {
+        "kind": "excavated",
+        "title": "利簋铭文",
+        "section": "1976 年陕西临潼出土",
+        "notes": "武王征商，唯甲子朝"
+       }
+      ]
+     },
+     {
+      "id": "end.legend",
+      "title": "scene.shang.muye.end.legend",
+      "cutscene": "cutscene.shang.muye.end-legend",
+      "sources": [
+       {
+        "kind": "novel",
+        "title": "封神演义",
+        "section": "第九十七回（纣王自焚）等",
+        "corpus": {
+         "file": "野史/封神演义.pdf",
+         "pages": "p.155–162"
+        }
+       }
+      ],
+      "kind": "divergent",
+      "archive": "yiwenlu",
+      "notes": "野史线与史实分岔，记入异闻录；下一场景仍从正史锚点开始"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.shang.muye.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
+     }
+    ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "牧野之战怎样结束",
+       "canon": "《周本纪》：纣师皆倒兵以战，纣走，登鹿台，蒙衣其殊玉，自燔于火而死",
+       "legend": "《封神演义》：仙道斗法、封神台封神，属明代小说虚构",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "周本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "尚书",
+         "section": "牧誓"
+        },
+        {
+         "kind": "excavated",
+         "title": "利簋铭文",
+         "section": "1976 年陕西临潼出土",
+         "notes": "武王征商，唯甲子朝"
+        },
+        {
+         "kind": "novel",
+         "title": "封神演义",
+         "section": "第九十七回（纣王自焚）等",
+         "corpus": {
+          "file": "野史/封神演义.pdf",
+          "pages": "p.155–162"
+         }
+        }
+       ]
+      },
+      {
+       "topic": "战争日期",
+       "canon": "利簋铭文“武王征商，唯甲子朝”，与《牧誓》《周本纪》甲子日相合",
+       "legend": "小说不涉及具体纪日",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "周本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "尚书",
+         "section": "牧誓"
+        },
+        {
+         "kind": "excavated",
+         "title": "利簋铭文",
+         "section": "1976 年陕西临潼出土",
+         "notes": "武王征商，唯甲子朝"
+        },
+        {
+         "kind": "novel",
+         "title": "封神演义",
+         "section": "第九十七回（纣王自焚）等",
+         "corpus": {
+          "file": "野史/封神演义.pdf",
+          "pages": "p.155–162"
+         }
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.muye",
+       "person.wuwang",
+       "person.shangfu"
+      ],
+      "seal": "seal.muye"
+     }
+    },
+    "verify": "pending",
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.shang.muye.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      214,
+      206,
+      186
+     ],
+     "seed": 40569
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "商郊，晨雾之中远山与鹿台"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "孟津：诸侯会师，渡河"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "甲子昧爽，武王誓师于牧野"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "纣师虽众，皆倒兵以战"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "鹿台火起"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 360,
+         "variant": 1
+        }
+       },
+       "label": "远山"
+      },
+      {
+       "at": 160,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "nearHill",
+         "ground"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 420
+        }
+       },
+       "label": "近山与地面"
+      },
+      {
+       "at": 320,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 410,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 500,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 660,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "water",
+        "placement": {
+         "x": 0,
+         "y": 548,
+         "width": 1280
+        }
+       },
+       "label": "河水"
+      },
+      {
+       "at": 940,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "boat",
+        "placement": {
+         "x": 420,
+         "y": 540
+        }
+       },
+       "label": "舟"
+      },
+      {
+       "at": 1020,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "boat",
+        "placement": {
+         "x": 860,
+         "y": 556,
+         "mirror": true
+        }
+       },
+       "label": "舟"
+      },
+      {
+       "at": 1220,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 1250,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 1280,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 1310,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 1370,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "spear",
+        "placement": {
+         "x": 600,
+         "y": 480,
+         "angle": -0.4
+        }
+       },
+       "label": "长兵如林"
+      },
+      {
+       "at": 1620,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 460,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 1
+        }
+       },
+       "label": "周武王"
+      },
+      {
+       "at": 2060,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "banner",
+        "placement": {
+         "x": 300,
+         "y": 480
+        }
+       },
+       "label": "banner"
+      },
+      {
+       "at": 2500,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "师尚父"
+      },
+      {
+       "at": 3060,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 3090,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 3120,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 3150,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 3210,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "spear",
+        "placement": {
+         "x": 600,
+         "y": 480,
+         "angle": -0.4
+        }
+       },
+       "label": "长兵如林"
+      },
+      {
+       "at": 3580,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 420,
+         "y": 540,
+         "gait": 1
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 3640,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 760,
+         "y": 560,
+         "gait": 0,
+         "mirror": true
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 4100,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "纣"
+      },
+      {
+       "at": 4740,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "ink-bomb",
+        "parts": [
+         "burst",
+         "spill"
+        ],
+        "placement": {
+         "x": 980,
+         "y": 500
+        }
+       },
+       "label": "火"
+      },
+      {
+       "at": 5040,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "牧野一笔"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "still"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "shake": {
+        "amp": 2,
+        "frames": 120
+       },
+       "label": "shake"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.shang.muye.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.shang.muye.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 2700,
+       "until": 3000,
+       "kind": "caption",
+       "key": "scene.shang.muye.quote",
+       "style": "kaiti",
+       "orientation": "vertical",
+       "x": 160,
+       "y": 120,
+       "source": {
+        "kind": "canon",
+        "title": "尚书",
+        "section": "牧誓"
+       }
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 680,
+       "kind": "flow",
+       "layer": "sheet",
+       "target": "lastStroke",
+       "params": {
+        "blendType": 0,
+        "iterations": 4
+       }
+      },
+      {
+       "at": 3670,
+       "kind": "inkDisperse",
+       "layer": "terrain",
+       "params": {
+        "origin": [
+         600,
+         600
+        ],
+        "radius": 260,
+        "frames": 180
+       },
+       "label": "马蹄墨散（新引擎：地形动态纹理）"
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 4800,
+       "kind": "distort",
+       "layer": "sheet",
+       "params": {
+        "displacementB": 16,
+        "displacementC": 40,
+        "extent": "frame"
+       },
+       "frames": 90
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/bronze-drum.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/wind-plain.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/river-calm.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/muye-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 920,
+       "bus": "sfx",
+       "asset": "audio/sfx/oar.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/muye-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1240,
+       "bus": "sfx",
+       "asset": "audio/sfx/drum-far.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/camp-drums.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/muye-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/horn.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/battle-far.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/muye-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3560,
+       "bus": "sfx",
+       "asset": "audio/sfx/clash.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4120,
+       "bus": "sfx",
+       "asset": "audio/sfx/crowd-roar.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/fire.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/fire-roar.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/muye-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/fire-roar.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.shang.muye.title": "牧野",
+     "scene.shang.muye.subtitle": "武王伐纣",
+     "scene.shang.muye.when": "甲子朝",
+     "vo.01": "商纣之时，周人居西土，三分天下有其二。",
+     "vo.02": "武王东观兵于孟津，诸侯不期而会者八百。",
+     "vo.03": "二月甲子昧爽，武王至于商郊牧野，誓师而战。",
+     "vo.04": "纣发兵拒之。商师虽众，皆无战心，多有倒戈。",
+     "vo.05": "纣走入鹿台——",
+     "scene.shang.muye.quote": "牝鸡之晨，惟家之索。",
+     "scene.shang.muye.fork.prompt": "此刻落笔，循哪一卷而书？",
+     "anchor.mengjin": "孟津观兵",
+     "anchor.zhou-li": "周代商",
+     "scene.shang.muye.pick.canon": "正史 · 《史记》、《尚书》所载",
+     "scene.shang.muye.end.canon": "纣登鹿台自焚，武王入商，周代商而有天下。",
+     "scene.shang.muye.pick.legend": "野史 · 封神",
+     "scene.shang.muye.legend.disclaimer": "以下取自明代神魔小说《封神演义》，纯属虚构。",
+     "scene.shang.muye.legend.intro": "《封神演义》把武王伐纣写成仙道两教之战：姜子牙持打神鞭，阐截二教布阵斗法，战死者魂归封神台。",
+     "scene.shang.muye.end.legend": "封神台上，众神各归其位。这是小说的结局，与牧野之战的史实分岔，记入异闻录。",
+     "scene.shang.muye.pick.whatif": "推演 · 若商师不倒戈（未开放）",
+     "scene.shang.muye.end.whatif": "异闻 · 未开放"
+    }
+   },
+   "cast": [
+    {
+     "id": "wuwang",
+     "name": "周武王",
+     "title": "姬发",
+     "camp": "周",
+     "type": "ruler",
+     "bio": "率诸侯伐纣，战于牧野"
+    },
+    {
+     "id": "shangfu",
+     "name": "师尚父",
+     "title": "吕尚，太公望",
+     "camp": "周",
+     "type": "general",
+     "bio": "以大卒驰帝纣师"
+    },
+    {
+     "id": "zhou",
+     "name": "纣",
+     "title": "帝辛",
+     "camp": "商",
+     "type": "ruler",
+     "bio": "兵败，登鹿台自焚"
+    },
+    {
+     "id": "zhougongdan",
+     "name": "周公旦",
+     "title": "武王之弟",
+     "camp": "周",
+     "type": "royal",
+     "bio": "佐武王"
+    },
+    {
+     "id": "weizi",
+     "name": "微子",
+     "title": "纣之庶兄",
+     "camp": "商",
+     "type": "royal",
+     "bio": "数谏不听，去之"
+    },
+    {
+     "id": "daji",
+     "name": "妲己",
+     "title": "纣之宠妃",
+     "camp": "商",
+     "type": "royal",
+     "bio": "《史记》载纣嬖之；《封神演义》写为狐妖"
+    }
+   ],
+   "relations": [
+    {
+     "from": "wuwang",
+     "to": "zhou",
+     "relation": "牧野之战",
+     "type": "rival"
+    },
+    {
+     "from": "wuwang",
+     "to": "shangfu",
+     "relation": "尊为师尚父",
+     "type": "mentor",
+     "directed": true
+    },
+    {
+     "from": "wuwang",
+     "to": "zhougongdan",
+     "relation": "兄弟",
+     "type": "family"
+    },
+    {
+     "from": "zhou",
+     "to": "weizi",
+     "relation": "兄弟，谏而不听",
+     "type": "family"
+    },
+    {
+     "from": "zhou",
+     "to": "daji",
+     "relation": "宠妃",
+     "type": "family"
+    }
+   ]
+  }
+ ]
+}
