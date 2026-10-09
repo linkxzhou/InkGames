@@ -2,12 +2,14 @@ import { Application, BufferImageSource, Graphics, Rectangle, RenderTexture, Spr
 import {
   INK_TIP_OFFSET, InkBrushEngine, type InkBrushSettings, type InkDrawOp, type InkPoint, type InkShaderState,
 } from './ink-brush';
+import { type InkBite, scanInkBites } from './ink-metallic';
 import { inkColorRgb, type InkColorName } from './ink-palette';
 import { inkPaperPixels } from './ink-paper';
-import { P5Random, TWO_PI } from './ink-random';
+import { inkCos, inkSin, P5Random, TWO_PI } from './ink-random';
 import {
-  createCompositeFilter, createEncodeFilter, createFeedbackFilter, createForceMapFilter, createRealtimeFilter,
-  createTypeMapFilter, createWashFilter, type ForceMapParams, type InkFilter,
+  createCompositeFilter, createDistortFilter, createEncodeFilter, createFeedbackFilter, createFlowFilter,
+  createForceMapFilter, createMetallicFilter, createRealtimeFilter, createTypeMapFilter, createWashFilter,
+  type ForceMapParams, type InkFilter,
 } from './ink-wash-filters';
 
 export type InkColor = InkColorName | readonly [number, number, number];
@@ -25,6 +27,34 @@ export interface InkWashOptions {
   readonly transparent?: boolean;
 }
 
+/** flow.frag after the stroke commits. iterations is inkEngine's flowIterations at release. */
+export interface InkFlowFinish {
+  readonly blendType: number;
+  readonly iterations: number;
+  /** Replay seed. inkEngine's live button uses Math.random; a recording stores this instead. */
+  readonly seed?: number;
+}
+
+/** distort.frag. extent 'frame' is inkEngine's full-canvas pass; 'stroke' keeps the rest of the sheet still. */
+export interface InkDistortFinish {
+  readonly displacementB?: number;
+  readonly displacementC?: number;
+  readonly extent?: 'frame' | 'stroke';
+}
+
+/** metallic.frag on bites scanned from this stroke. tint defaults to the panel value [0.72, 0.5, 0.35]. */
+export interface InkMetallicFinish {
+  readonly size?: number;
+  readonly tint?: readonly [number, number, number];
+}
+
+/** Optional post passes, matching the order inkEngine composites them: metallic, then distort, then flow. */
+export interface InkFinish {
+  readonly flow?: InkFlowFinish;
+  readonly distort?: InkDistortFinish;
+  readonly metallic?: InkMetallicFinish;
+}
+
 /** A stroke the way inkEngine/index.html paints one: panel settings, a colour, one pointer sample per frame. */
 export interface InkStrokeRequest {
   readonly brush: InkBrushSettings;
@@ -33,6 +63,8 @@ export interface InkStrokeRequest {
   readonly points: readonly InkPoint[];
   /** p5 random state at pen-down; the inkEngine host reproduces it with p.randomSeed(seed). */
   readonly seed?: number;
+  /** flow / distort / metallic, applied once the stroke has committed. */
+  readonly finish?: InkFinish;
 }
 
 interface PixelRect { x: number; y: number; w: number; h: number }
@@ -58,6 +90,8 @@ export function inkPointerPath(points: readonly InkPoint[], mode: InkBrushSettin
  * committed colour buffer and typeMapEncode.frag marks it. composite.frag shows paper × ink.
  * Passes cover the current stroke's rectangle only, which gives the same pixels as inkEngine's
  * full-screen passes for every effect except 4/5, whose margin grows with the stroke.
+ * The force field is repainted on that rectangle every feedback frame (mapFrag, time = frame/60).
+ * A new stroke leaves the previous ping-pong rectangle in place, so an overlap blends onto it.
  * Display only: collision stays on the CPU in InkWorld.
  */
 export class InkWash {
@@ -78,6 +112,9 @@ export class InkWash {
   private readonly typeMap: RenderTexture;
   private readonly display: RenderTexture;
   private readonly force: RenderTexture;
+  private readonly lastStroke: RenderTexture;
+  private readonly bugsMask: RenderTexture;
+  private readonly bugsData: RenderTexture;
   private readonly base: Texture;
   private readonly feedback: InkFilter;
   private readonly encode: InkFilter;
@@ -85,13 +122,21 @@ export class InkWash {
   private readonly composite: InkFilter;
   private readonly realtime: InkFilter;
   private readonly forceMap: InkFilter;
+  private readonly distort: InkFilter;
+  private readonly flow: InkFilter;
+  private readonly metallic: InkFilter;
   private readonly washColor: InkFilter;
   private readonly washType: InkFilter;
+  private readonly forceSeeds: readonly number[];
   private stroke: Bounds = { ...EMPTY };
+  private pathBounds: Bounds = { ...EMPTY };
   private lastRect: PixelRect | undefined;
   private strokeFrames = 0;
-  private frameCount = 0;
+  /** Host pages step twice after ready before the first stroke, so the force clock starts there. */
+  private frameCount = 2;
   private serial = 0;
+  private pendingFinish: InkFinish | undefined;
+  private strokeSeed = 0;
   private live: { down: boolean; cursor: InkPoint; pmouse: InkPoint; pending: InkPoint | undefined; lift: number } | undefined;
   private disposed = false;
 
@@ -111,15 +156,23 @@ export class InkWash {
     this.typeMap = make();
     this.display = make();
     this.force = make();
+    this.lastStroke = make();
+    this.bugsMask = make();
+    this.bugsData = make();
     this.base = this.makeBase(options);
     const w = this.width;
     const h = this.height;
+    const params = this.forceParams();
+    this.forceSeeds = params.seeds;
     this.feedback = createFeedbackFilter(this.wet.source, this.force.source, w, h);
     this.encode = createEncodeFilter(this.final.source, this.wet.source, this.typeMap.source, w, h);
     this.typeEncode = createTypeMapFilter(this.typeMap.source, this.wet.source, w, h);
     this.composite = createCompositeFilter(this.base.source, this.final.source, this.typeMap.source, w, h);
     this.realtime = createRealtimeFilter(this.scratch.source, this.wet.source, this.final.source, w, h);
-    this.forceMap = createForceMapFilter(this.forceParams(), w, h);
+    this.forceMap = createForceMapFilter(params, w, h);
+    this.distort = createDistortFilter(this.display.source, this.force.source, w, h);
+    this.flow = createFlowFilter(this.final.source, this.lastStroke.source, w, h);
+    this.metallic = createMetallicFilter(this.display.source, this.bugsMask.source, this.bugsData.source, w, h);
     this.washColor = createWashFilter(this.final.source, w, h);
     this.washType = createWashFilter(this.typeMap.source, w, h);
     this.washType.set('uTypeMode', 1);
@@ -129,10 +182,16 @@ export class InkWash {
     this.fill(this.wet, full, 0xffffff);
     this.fill(this.pingPong, full, 0xffffff);
     this.fill(this.final, full, 0xffffff);
+    this.fill(this.lastStroke, full, 0xffffff);
     this.fill(this.typeMap, full, 0x000000);
     this.forceMap.set('time', 0);
     this.pass(this.forceMap, this.force, full);
     this.pass(this.composite, this.display, full);
+    this.distort.setVec('backgroundColor', this.background[0] / 255, this.background[1] / 255, this.background[2] / 255);
+    this.distort.set('fbmSeed1', this.forceSeeds[0] || 100);
+    this.distort.set('fbmSeed2', this.forceSeeds[1] || 200);
+    this.distort.set('fbmSeed3', this.forceSeeds[2] || 300);
+    this.distort.set('fbmSeed4', this.forceSeeds[3] || 400);
   }
 
   setBrush(settings: InkBrushSettings): void {
@@ -147,7 +206,9 @@ export class InkWash {
   paint(stroke: InkStrokeRequest): void {
     this.setBrush(stroke.brush);
     this.setColor(stroke.color);
+    this.pendingFinish = stroke.finish;
     this.strokePath(stroke.points, stroke.seed);
+    this.pendingFinish = undefined;
   }
 
   /**
@@ -160,6 +221,8 @@ export class InkWash {
     const pointer = inkPointerPath(points, this.modeName());
     const first = pointer[0];
     if (!first) return;
+    this.pathBounds = { ...EMPTY };
+    for (const point of pointer) grow(this.pathBounds, point.x, point.y, point.x, point.y);
     this.pressAt(first, seed);
     let previous = first;
     for (let i = 1; i < pointer.length; i++) {
@@ -175,6 +238,8 @@ export class InkWash {
     for (let guard = 0; guard < 200 && this.engine.pendingCommit; guard++) {
       this.runFrame(false, round2Point(last), last, false);
     }
+    const finish = this.pendingFinish;
+    if (finish) this.applyFinish(finish);
   }
 
   /** Live drawing: the pointer goes down now; call update() once per rendered frame. */
@@ -258,9 +323,9 @@ export class InkWash {
     this.passSprite.destroy();
     this.copySprite.destroy();
     this.pen.destroy();
-    for (const texture of [this.stamp, this.wet, this.pingPong, this.scratch, this.final, this.typeMap, this.display, this.force]) texture.destroy(true);
+    for (const texture of [this.stamp, this.wet, this.pingPong, this.scratch, this.final, this.typeMap, this.display, this.force, this.lastStroke, this.bugsMask, this.bugsData]) texture.destroy(true);
     if (this.base !== Texture.WHITE) this.base.destroy(true);
-    for (const filter of [this.feedback, this.encode, this.typeEncode, this.composite, this.realtime, this.forceMap, this.washColor, this.washType]) {
+    for (const filter of [this.feedback, this.encode, this.typeEncode, this.composite, this.realtime, this.forceMap, this.distort, this.flow, this.metallic, this.washColor, this.washType]) {
       filter.filter.destroy();
     }
   }
@@ -272,16 +337,15 @@ export class InkWash {
   private pressAt(pointer: InkPoint, seed: number | undefined, live = false): void {
     if (this.engine.pendingCommit) this.commit();
     this.serial += 1;
-    // inkEngine's first full-screen feedback pass resets the ping-pong buffer to the white wet sheet;
-    // only the last stroke's rectangle can hold anything else.
-    const previous = this.lastRect;
-    if (previous) this.fill(this.pingPong, previous, 0xffffff);
+    // inkEngine does not clear the ping-pong. feedback writes alpha < 1, so a new stroke blends onto
+    // whatever the previous stroke left there. Clearing that rectangle made overlaps lighter.
     this.lastRect = undefined;
     this.stroke = { ...EMPTY };
     this.strokeFrames = 0;
     this.engine.applyPressure(pointer.pressure);
     const cursor = round2Point(pointer);
-    this.engine.press(cursor.x, cursor.y, seed ?? ((this.seed + this.serial * 7919) >>> 0));
+    this.strokeSeed = seed ?? ((this.seed + this.serial * 7919) >>> 0);
+    this.engine.press(cursor.x, cursor.y, this.strokeSeed);
     this.runFrame(true, cursor, pointer, live);
   }
 
@@ -292,9 +356,9 @@ export class InkWash {
     if (step.ops.length) this.drawOps(step.ops);
     const rect = this.strokeRect();
     if (step.force !== undefined && rect) {
-      // The force field is rendered once per sheet (mapFrag at time 0). inkEngine re-renders it every
-      // frame with a slowly moving clock; it only shifts samples by ±0.1 px, and re-rendering it per
-      // frame doubled the cost of every stroke on SwiftShader.
+      // updateForceMap: time = millis() * 0.001. With clock:'frame' that is frameCount/60.
+      // Only this stroke's rectangle is sampled by feedback, so the rest of the field can stay.
+      this.refreshForce(rect);
       this.applyShaderState(this.feedback, this.engine.shaderState());
       this.feedback.set('force', step.force);
       // feedback.frag often writes alpha < 1; like p5, blend it over the previous ping-pong frame,
@@ -359,6 +423,10 @@ export class InkWash {
     this.typeEncode.set('whiteMaxOpacity', state.whiteMaxOpacity);
     this.pass(this.typeEncode, this.scratch, rect);
     this.copy(this.scratch, this.typeMap, rect);
+    // commitStroke paints lastStrokeBuffer white, then copies the wet stroke. The rest of `wet` still
+    // holds older strokes, so only this rectangle is copied.
+    this.fill(this.lastStroke, this.fullRect(), 0xffffff);
+    this.copy(this.wet, this.lastStroke, rect);
     this.fill(this.wet, rect, 0xffffff);
     this.pass(this.composite, this.display, rect);
     this.lastRect = rect;
@@ -454,6 +522,163 @@ export class InkWash {
     return new Texture({ source });
   }
 
+  /** mapFrag for one rectangle at the current frame clock. */
+  private refreshForce(rect: PixelRect): void {
+    this.forceMap.set('time', this.frameCount / 60);
+    this.pass(this.forceMap, this.force, rect);
+  }
+
+  /**
+   * Post passes in inkEngine's order: metallic (on the clean composite), distort, then the flow
+   * commit. The stable picture after flowEnd is composite(flow(final)), not the in-between frame
+   * that flowed the already-composited image, so flow is written into final and typeMap and the
+   * rectangle is composited again.
+   */
+  private applyFinish(finish: InkFinish): void {
+    const rect = finish.distort?.extent === 'frame' ? this.fullRect() : this.effectRect();
+    if (!rect) return;
+    if (finish.metallic) this.applyMetallic(rect, finish.metallic);
+    if (finish.distort) this.applyDistort(rect, finish.distort);
+    if (finish.flow) this.applyFlow(finish.flow);
+  }
+
+  private effectRect(): PixelRect | undefined {
+    const ink = this.lastRect;
+    if (!ink) return undefined;
+    // strokeBounds are top-left. The shader compares them with a bottom-left UV, the same quirk as
+    // inkEngine, so the pass has to cover both the stroke and its vertical mirror.
+    const mirrorY = this.height - (ink.y + ink.h);
+    const y = Math.min(ink.y, mirrorY);
+    const y1 = Math.max(ink.y + ink.h, mirrorY + ink.h);
+    return this.clampRect({ x: ink.x - 24, y: y - 24, w: ink.w + 48, h: y1 - y + 48 });
+  }
+
+  private pathBoundsNormalized(): { minX: number; minY: number; maxX: number; maxY: number } | undefined {
+    const b = this.pathBounds;
+    if (!(b.maxX >= b.minX)) return undefined;
+    const pad = 20;
+    // Same numbers inkEngine uploads (top-left, padded, divided by the canvas). The shader compares
+    // them with a bottom-left UV on both sides, so the region that actually moves matches.
+    return {
+      minX: Math.max(0, b.minX - pad) / this.width,
+      minY: Math.max(0, b.minY - pad) / this.height,
+      maxX: Math.min(1, b.maxX + pad) / this.width,
+      maxY: Math.min(1, b.maxY + pad) / this.height,
+    };
+  }
+
+  private applyFlow(flow: InkFlowFinish): void {
+    const bounds = this.pathBoundsNormalized();
+    const rect = this.effectRect();
+    if (!bounds || !rect) return;
+    const iterations = Math.max(0, Math.floor(flow.iterations));
+    const flowSeed = flow.seed ?? (this.strokeSeed % 1000000);
+    // replayFlowEffect / the commit pass: blendVol grows by 10% per iteration, one pass, then composite.
+    this.flow.set('blendType', flow.blendType);
+    this.flow.set('blendVol', 100 * (1 + iterations * 0.1));
+    this.flow.set('radSeed', flowSeed * 0.001);
+    this.flow.setVec('strokeBounds', bounds.minX, bounds.minY, bounds.maxX, bounds.maxY);
+    this.flow.set('seed', flowSeed * 0.0001);
+    this.flow.set('iTime', this.frameCount / 60);
+    this.flow.set('isTypeMapMode', 0);
+    this.flow.bind('tex0', this.final.source);
+    this.flow.bind('lastStrokeTex', this.lastStroke.source);
+    this.pass(this.flow, this.scratch, rect);
+    this.copy(this.scratch, this.final, rect);
+    this.flow.set('isTypeMapMode', 1);
+    this.flow.bind('tex0', this.typeMap.source);
+    this.pass(this.flow, this.scratch, rect);
+    this.copy(this.scratch, this.typeMap, rect);
+    this.pass(this.composite, this.display, rect);
+  }
+
+  private applyDistort(rect: PixelRect, distort: InkDistortFinish): void {
+    this.refreshForce(rect);
+    this.distort.bind('tex0', this.display.source);
+    this.distort.bind('forceMap', this.force.source);
+    this.distort.set('time', (this.frameCount / 60) * 0.005);
+    this.distort.set('distortEnabled', 1);
+    this.distort.set('displacementB', distort.displacementB ?? 20);
+    this.distort.set('displacementC', distort.displacementC ?? 50);
+    this.pass(this.distort, this.scratch, rect);
+    this.copy(this.scratch, this.display, rect);
+  }
+
+  private applyMetallic(rect: PixelRect, metallic: InkMetallicFinish): void {
+    const tint = metallic.tint ?? [0.72, 0.5, 0.35];
+    let pixels: Uint8ClampedArray;
+    try {
+      const shot = this.app.renderer.extract.pixels({ target: this.display });
+      pixels = shot.pixels;
+      if (shot.width !== this.width || shot.height !== this.height) return;
+    } catch {
+      return;
+    }
+    // Scan only this stroke. The whole sheet would offer darker ink (the ground, a tassel)
+    // and the bites would leave the blade.
+    const focus = this.lastRect ?? rect;
+    const crop = new Uint8Array(focus.w * focus.h * 4);
+    for (let y = 0; y < focus.h; y++) {
+      const src = ((focus.y + y) * this.width + focus.x) * 4;
+      crop.set(pixels.subarray(src, src + focus.w * 4), y * focus.w * 4);
+    }
+    const bites = scanInkBites(
+      crop, focus.w, focus.h, focus.x, focus.y, this.width, this.height, this.background,
+      this.strokeSeed, metallic.size ?? 10, tint,
+    );
+    if (!bites.length) return;
+    this.paintBites(bites);
+    const t = this.frameCount / 600;
+    this.metallic.bind('tex0', this.display.source);
+    this.metallic.bind('bugsMask', this.bugsMask.source);
+    this.metallic.bind('bugsData', this.bugsData.source);
+    this.metallic.set('time', this.frameCount * 1000 / 60);
+    this.metallic.setVec('lightPos', 0.5 + inkSin(t * 0.7) * 0.3, 0.4 + inkCos(t * 0.5) * 0.25);
+    this.metallic.setVec('metalTint', tint[0], tint[1], tint[2]);
+    const cover = this.clampRect({
+      x: rect.x - 48, y: rect.y - 48, w: rect.w + 96, h: rect.h + 96,
+    }) ?? rect;
+    this.pass(this.metallic, this.scratch, cover);
+    this.copy(this.scratch, this.display, cover);
+  }
+
+  /**
+   * updateBugTextures. Canvas 2D fills the outline the way p5's beginShape does; Pixi's polygon
+   * fill triangulates a self-intersecting lightning ribbon into a solid blob.
+   */
+  private paintBites(bites: readonly InkBite[]): void {
+    const mask = document.createElement('canvas');
+    const data = document.createElement('canvas');
+    mask.width = data.width = this.width;
+    mask.height = data.height = this.height;
+    const maskCtx = mask.getContext('2d');
+    const dataCtx = data.getContext('2d');
+    if (!maskCtx || !dataCtx) return;
+    for (const bite of bites) {
+      paintBite(maskCtx, bite, `rgb(${Math.round(bite.r)},${Math.round(bite.g)},${Math.round(bite.b)})`);
+      const r = Math.round(clamp01(bite.x / this.width) * 255);
+      const g = Math.round(clamp01(bite.y / this.height) * 255);
+      const b = Math.round(clamp01(bite.size / this.width) * 255);
+      paintBite(dataCtx, bite, `rgb(${r},${g},${b})`);
+    }
+    this.blitCanvas(mask, this.bugsMask);
+    this.blitCanvas(data, this.bugsData);
+  }
+
+  private blitCanvas(canvas: HTMLCanvasElement, target: RenderTexture): void {
+    const image = canvas.getContext('2d')?.getImageData(0, 0, this.width, this.height);
+    if (!image) return;
+    const source = new BufferImageSource({
+      resource: new Uint8Array(image.data.buffer), width: this.width, height: this.height,
+      format: 'rgba8unorm', alphaMode: 'no-premultiply-alpha', scaleMode: 'linear',
+    });
+    const texture = new Texture({ source });
+    const sprite = new Sprite(texture);
+    this.app.renderer.render({ container: sprite, target, clear: true, clearColor: [0, 0, 0, 0] });
+    sprite.destroy();
+    texture.destroy(true);
+  }
+
   /** randomizeForceMap draws, from the sheet seed. */
   private forceParams(): ForceMapParams {
     const rng = new P5Random(this.seed);
@@ -494,6 +719,28 @@ function toRect(bounds: Bounds, margin: number): PixelRect | undefined {
 
 function round2Point(point: InkPoint): InkPoint {
   return { x: Math.round(point.x * 100) / 100, y: Math.round(point.y * 100) / 100 };
+}
+
+function paintBite(ctx: CanvasRenderingContext2D, bite: InkBite, style: string): void {
+  ctx.fillStyle = style;
+  ctx.beginPath();
+  const first = bite.vertices[0];
+  if (!first || bite.vertices.length < 3) {
+    ctx.rect(bite.x - bite.size / 2, bite.y - bite.size / 2, bite.size, bite.size);
+    ctx.fill();
+    return;
+  }
+  ctx.moveTo(bite.x + first.x, bite.y + first.y);
+  for (let i = 1; i < bite.vertices.length; i++) {
+    const v = bite.vertices[i];
+    if (v) ctx.lineTo(bite.x + v.x, bite.y + v.y);
+  }
+  ctx.closePath();
+  ctx.fill();
+}
+
+function clamp01(value: number): number {
+  return Math.max(0, Math.min(1, value));
 }
 
 function solid(width: number, height: number, rgb: readonly [number, number, number]): Uint8Array {

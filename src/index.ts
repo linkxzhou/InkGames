@@ -1,7 +1,12 @@
 export { InkStage, INK_STAGE_PAPER } from './core/ink-stage';
 export type { InkStageOptions } from './core/ink-stage';
 export { InkWash, inkPointerPath } from './core/ink-wash';
-export type { InkWashOptions, InkStrokeRequest, InkColor } from './core/ink-wash';
+export type {
+  InkWashOptions, InkStrokeRequest, InkColor, InkFinish, InkFlowFinish, InkDistortFinish, InkMetallicFinish,
+} from './core/ink-wash';
+export { inkCameraDistance, inkLayerScale, INK_LAYER_Z } from './core/ink-camera';
+export { scanInkBites } from './core/ink-metallic';
+export type { InkBite } from './core/ink-metallic';
 export { InkBrushEngine, INK_BRUSH_MODES, INK_SIZES, INK_EFFECTS, INK_BLENDS, INK_TIP_OFFSET, resolveInkSize } from './core/ink-brush';
 export type {
   InkBrushMode, InkSizeName, InkEffect, InkBlend, InkBrushSettings, InkPoint, InkDrawOp, InkFrameStep, InkShaderState,

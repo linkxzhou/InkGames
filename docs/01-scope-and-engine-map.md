@@ -15,7 +15,9 @@
 
 - `InkStage`、`InkStageOptions`：一页一个舞台。`create({ parent, item, onStatus })` 自己 `await app.init`，失败会 `dispose`。
 - `InkStage` 的纸色 `INK_STAGE_PAPER`。
-- `InkWash`、`InkWashOptions`、`InkStrokeRequest`、`InkColor`、`inkPointerPath`：跑 inkEngine 管线的墨层，见第 7 章。
+- `InkWash`、`InkWashOptions`、`InkStrokeRequest`、`InkColor`、`InkFinish`（`InkFlowFinish` / `InkDistortFinish` / `InkMetallicFinish`）、`inkPointerPath`：跑 inkEngine 管线的墨层，见第 7 章。
+- `inkCameraDistance`、`inkLayerScale`、`INK_LAYER_Z`：分层镜头的距离和缩放，见第 7 章。
+- `scanInkBites`、`InkBite`：虫蚀采样。通常不必直接调，`finish.metallic` 会用它。
 - `InkBrushEngine`、`InkBrushSettings`、`InkPoint`、`InkDrawOp`、`InkFrameStep`、`InkShaderState`，以及面板取值表 `INK_BRUSH_MODES`、`INK_SIZES`、`INK_EFFECTS`、`INK_BLENDS`、`INK_TIP_OFFSET`、`resolveInkSize`：逐帧移植的七种笔刷，纯 CPU，不碰 GPU。
 - `INK_PALETTE`、`INK_COLOR_NAMES`、`inkColorId`、`inkColorRgb`、`InkColorName`：inkEngine 的 36 色。
 - `PROP_BRUSHES`、`PropBrush`、`PropPaintingId`、`paintProp`、`actionStroke`、`PropStroke`、`PropPlacement`：每个道具的笔刷表和画法，见第 8 章。
@@ -41,4 +43,4 @@
 
 ## 还不能当成完成的部分
 
-真实桌面 GPU 的帧率、WebGL 上下文自动重建、随时间流动的力场与 flow/distort/metallic 后处理、2.0 自己的录制格式、按道具拆开的插件文件。清单在 [剩余工作](../plan/10-v2-pixi-matter-ink-game-engine-plan.md)。和 inkEngine 的逐项差距在 [第 12 章](./12-inkengine-parity-audit.md)。
+真实桌面 GPU 的帧率、WebGL 上下文自动重建、遮罩、景深模糊、EasyCam 的回放变焦、2.0 自己的录制格式、按道具拆开的插件文件。清单在 [剩余工作](../plan/10-v2-pixi-matter-ink-game-engine-plan.md)。和 inkEngine 的逐项差距在 [第 12 章](./12-inkengine-parity-audit.md)。

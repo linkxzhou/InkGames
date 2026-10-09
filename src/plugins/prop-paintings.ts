@@ -1,5 +1,6 @@
 import { INK_SIZES, type InkBrushSettings, type InkPoint } from '../core/ink-brush';
 import type { InkColorName } from '../core/ink-palette';
+import type { InkFinish } from '../core/ink-wash';
 import { inkCos, inkSin, TWO_PI } from '../core/ink-random';
 import { PROP_BRUSHES, type PropBrush, type PropPaintingId } from './prop-brushes';
 
@@ -18,6 +19,8 @@ export interface PropStroke {
   /** Tip positions, one per frame. */
   readonly points: readonly InkPoint[];
   readonly seed: number;
+  /** Copied from the brush table when the part opts into flow, distort, or metallic. */
+  readonly finish?: InkFinish;
 }
 
 export interface PropPlacement {
@@ -392,13 +395,20 @@ export function paintProp(id: PropPaintingId, at: PropPlacement): PropStroke[] {
       const y = at.y + ly * scale;
       return pressure === undefined ? { x, y } : { x, y, pressure };
     });
+    const seed = fnv(`${id}:${gesture.part}:${index}:${at.variant ?? 0}:${at.pose ?? 0}`);
+    // Bite and flow radii are in sheet pixels. On a hand-sized copy they cover the whole sprite.
+    const raw = scale < 0.75 ? undefined : preset.finish;
+    const finish = raw?.flow
+      ? { ...raw, flow: { ...raw.flow, seed: raw.flow.seed ?? (seed % 1000000) } }
+      : raw;
     return [{
       prop: id,
       part: gesture.part,
       brush: settingsFor(preset, scale),
       color: preset.color,
       points,
-      seed: fnv(`${id}:${gesture.part}:${index}:${at.variant ?? 0}:${at.pose ?? 0}`),
+      seed,
+      ...(finish ? { finish } : {}),
     }];
   });
 }
@@ -408,5 +418,9 @@ export function actionStroke(id: PropPaintingId, part: string, path: readonly Pt
   const preset = (PROP_BRUSHES[id] as Readonly<Record<string, PropBrush>>)[part];
   if (!preset) return undefined;
   const points = sampleAtSpeed(path, preset.speed).map(([x, y]) => (preset.pressure === undefined ? { x, y } : { x, y, pressure: preset.pressure }));
-  return { prop: id, part, brush: settingsFor(preset, 1), color: preset.color, points, seed: fnv(`${id}:${part}:action:${variant}`) };
+  const seed = fnv(`${id}:${part}:action:${variant}`);
+  const finish = preset.finish?.flow
+    ? { ...preset.finish, flow: { ...preset.finish.flow, seed: preset.finish.flow.seed ?? (seed % 1000000) } }
+    : preset.finish;
+  return { prop: id, part, brush: settingsFor(preset, 1), color: preset.color, points, seed, ...(finish ? { finish } : {}) };
 }
