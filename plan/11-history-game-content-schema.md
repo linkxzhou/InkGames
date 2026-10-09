@@ -1,6 +1,6 @@
 # 11 · 历史游戏内容数据格式（草案）
 
-> 状态：**格式提案，尚无运行时与校验器**。故事结构见 [11 · 故事与玩法](./11-history-game-story-design.md)，章节表见 [11 · 章节大纲](./11-history-game-chapter-outline.md)，运行时与引擎缺口见 [12 · 引擎缺口与路线](./12-history-game-engine-gaps.md)。
+> 状态：**格式提案；规划期校验器已可运行**（`plan/11-history-game-data/tools/validate.mjs`，§4.1）。数据：21 章 157 个场景全部为完整场景（`detail: 'full'`），其中首版发布批次 `v1` 66 个（§2.9）。运行时的叙事宿主模块（SceneDirector、StoryRuntime、CutscenePlayer、AudioBus、SaveStore、InkText，演示页 `/story/`）已在 main 上，尚未接入本格式的数据包。故事结构见 [11 · 故事与玩法](./11-history-game-story-design.md)，章节表见 [11 · 章节大纲](./11-history-game-chapter-outline.md)，运行时与引擎缺口见 [12 · 引擎缺口与路线](./12-history-game-engine-gaps.md)。
 > 引擎目标是 three.js + Matter.js。本格式只描述内容，不绑定渲染库：笔画、镜头、文字、音频都以“时间轴上的事件”表达，由运行时翻译成 three.js 调用。
 
 ## 1. 原则
@@ -332,9 +332,9 @@ export interface ChapterIndex {
     readonly name: string;        // '战国'
     readonly file: string;        // 'chapters/05-zhanguo.json'
     readonly span: string;        // 显示用的起止年
-    readonly scenes: number; readonly v1: number; readonly outline: number;
+    readonly scenes: number; readonly v1: number; readonly full: number; readonly outline: number;
   }[];
-  readonly totals: { readonly chapters: number; readonly scenes: number; readonly v1: number; readonly outline: number };
+  readonly totals: { readonly scenes: number; readonly v1: number; readonly full: number; readonly outline: number };
 }
 
 /** chapters/NN-<id>.json */
@@ -346,10 +346,11 @@ export interface ChapterBundle {
   readonly scenes: readonly (FullSceneEntry | OutlineSceneEntry)[];  // 按章内顺序
 }
 
-/** 首版完整场景：深度与 §3 的易水寒样例相同 */
+/** 完整场景：深度与 §3 的易水寒样例相同 */
 export interface FullSceneEntry {
   readonly outlineId: string;             // 大纲行号，如 '05-09'
-  readonly v1: true;
+  readonly v1: boolean;                   // 是否属于首版发布批次（与深度无关）
+  readonly detail: 'full';
   readonly example?: string;              // 只有易水寒：指回 ../scene-zhanguo-jingke.example.json（内容须完全一致）
   readonly scene: SceneDef;               // §2.3
   readonly opening: CutsceneDef;          // §2.6
@@ -362,7 +363,8 @@ export interface FullSceneEntry {
 /** 大纲级场景：只有钩子，不做剧情图和过场 */
 export interface OutlineSceneEntry {
   readonly outlineId: string;
-  readonly v1: false;
+  readonly v1: boolean;
+  readonly detail: 'outline';
   readonly scene: {
     readonly format: 'inkgames.scene-outline';
     readonly version: 1;
@@ -376,7 +378,6 @@ export interface OutlineSceneEntry {
     readonly hooks: { readonly canon: string; readonly legend: string; readonly play: string };  // 字符串键
     readonly sources: readonly SourceRef[];
     readonly verify: 'done' | 'pending';
-    readonly v1: false;
   };
   readonly strings: StringTable;
   readonly cast: readonly CastMember[];
@@ -397,6 +398,15 @@ export interface Relation {
 }
 ```
 
+**v1 与 detail 的决定（2026-10）**。早期数据里 `v1: true` 同时表示“首版发布批次”和“完整深度”，`v1: false` 一律是大纲级。全部 157 个场景都写成完整场景以后，这两个含义必须拆开：
+
+- `v1` 只表示**首版发布批次**（ship batch），仍是原来的 66 个场景，不随内容深度变化。首版的玩法、美术与配音排期只按这 66 个做。
+- 新增 `detail: 'full' | 'outline'` 表示内容深度。`full` 条目必须是 `inkgames.scene` 并带开场过场、字符串表与人物关系；`outline` 条目只有钩子（结构保留，供以后新增场景先占位）。
+- 索引的每章与 `totals` 增加 `full` 计数；`outline` 计数改为按 `detail` 统计。缺少 `detail` 的旧数据按 `v1` 推断深度，以保持兼容。
+- 当前数据：157 个场景全部 `detail: 'full'`，其中 `v1: true` 66 个，`outline` 0 个。
+
+**正史引子**。完整场景的正史线可以在分叉后先接一个 `kind: 'dialogue'` 的引子节点（`c.intro`），用一段旁白交代背景，再进入第一个玩法节点。第二条线同理可以有可选的 `alt` 分支（`choice` 节点分出两段野史/演义异文，最后都落到第二条线的结局）。
+
 **玩法模板**（`template`）取值：tutorial、duel、battle、siege、naval、engineering、journey、court、riddle、forest、stealth、dialogue-timing、riddle-escape、breakout、cavalry、calligraphy、banquet、ambush、night-raid、finale、trace、survival、evacuate。玩法节点的 `params` 至少要有 `goal`、`beats` 或 `clues` 之一。
 
 **第二条线的类型**。剧情线字段仍是 `line: 'legend'`，但选项文字的前缀要标明来源性质：
@@ -404,7 +414,7 @@ export interface Relation {
 | 前缀 | 含义 | 典型来源 kind |
 |---|---|---|
 | 野史 | 传说、民间故事、神话、笔记轶闻 | folk、biji、classic |
-| 演义 | 明清小说、蔡东藩历朝演义（蔡著版权状态待核验） | novel |
+| 演义 | 明清小说、蔡东藩历朝演义（蔡东藩卒于 1945 年，作品在中国已进入公有领域；本项目仍只引书名回目，不录原文） | novel |
 | 异说 | 出土文献或别史与正史不同的记载 | excavated、classic |
 | 后世 | 后人的接受、评价与改写 | classic、opera、modern |
 
@@ -412,7 +422,7 @@ export interface Relation {
 
 ### 2.10 水墨素材提示词（artPrompts）
 
-每个场景（`v1: true` 与 `v1: false` 一样）都带一个 `artPrompts` 数组，用来把这一场的**水墨素材**交给文生图模型（`gpt-image-2.5`）批量出图：**一段 = 一张图 = 一个 4×4 以内的网格**，格内每件素材独立完整、透明背景，便于后续按格抠成精灵图。一个场景按分类分段，**同一分类超过 16 件再拆成多段**。
+每个场景（不论 `v1`、`detail`）都带一个 `artPrompts` 数组，用来把这一场的**水墨素材**交给文生图模型（`gpt-image-2.5`）批量出图：**一段 = 一张图 = 一个 4×4 以内的网格**，格内每件素材独立完整、透明背景，便于后续按格抠成精灵图。一个场景按分类分段，**同一分类超过 16 件再拆成多段**。
 
 ```ts
 export type ArtCategory = 'cast' | 'props' | 'scenery' | 'effects';   // 人物立绘 / 道具器物 / 场景环境 / 水墨特效
@@ -522,7 +532,7 @@ export interface ArtPromptSegment {
 
 ### 4.1 内容校验器（构建期，`./build.sh check` 的一部分）
 
-规划阶段已有一个可运行的版本：`plan/11-history-game-data/tools/validate.mjs`（Node，无依赖）。在 `plan/11-history-game-data/` 下运行 `node tools/validate.mjs`，加 `--pending` 列出全部待核验的日期与出处。它实现了下表中除“版权”“字形”“发布构建核验”以外的检查，另外检查：索引与数据包一致、易水寒条目与样例文件完全相同、笔刷键 `prop.part` 与调色板颜色名存在、画面坐标在画布内、`whatif` 选项带条件、人物关系引用的人物存在、每个场景的 `artPrompts` 合法（§2.10）。与下表的差异：章与章之间不检查起始年先后（辽金与北宋重叠）；玩法节点只要求 `goal`/`beats`/`clues` 之一。
+规划阶段已有一个可运行的版本：`plan/11-history-game-data/tools/validate.mjs`（Node，无依赖）。在 `plan/11-history-game-data/` 下运行 `node tools/validate.mjs`，加 `--pending` 列出全部待核验的日期与出处。它实现了下表中除“版权”“字形”“发布构建核验”以外的检查，另外检查：索引与数据包一致、易水寒条目与样例文件完全相同、笔刷键 `prop.part` 与调色板颜色名存在、画面坐标在画布内、`whatif` 选项带条件、人物关系引用的人物存在、每个场景的 `artPrompts` 合法（§2.10）、`v1` 为布尔值且 `detail` 只取 `full`/`outline`、`detail: full` 的条目是完整场景、索引的 `full`/`outline` 计数与数据包一致、正史节点的 `when.start` 落在入口与出口锚点之间。“待核验”计数只统计 `precision: 'pending'` 的日期和 `section`/`notes` 里写着“待核验/待核对”的来源；场景级的 `verify: 'pending'`、`reviewers: null` 是人工复核标记，不计入。与下表的差异：章与章之间不检查起始年先后（辽金与北宋重叠）；玩法节点只要求 `goal`/`beats`/`clues` 之一。
 
 | 检查 | 规则 | 失败级别 |
 |---|---|---|
