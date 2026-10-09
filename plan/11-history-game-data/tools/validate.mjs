@@ -37,7 +37,11 @@ const EFFECTS = new Set(['fade', 'flow', 'distort', 'metallic', 'wash', 'mask', 
 const BUSES = new Set(['bgm', 'amb', 'sfx', 'vo']);
 const CAST_TYPES = new Set(['ruler', 'minister', 'general', 'scholar', 'royal', 'other']);
 const REL_TYPES = new Set(['family', 'sub', 'ally', 'rival', 'mentor', 'other']);
+const ART_CATEGORIES = new Set(['cast', 'props', 'scenery', 'effects']);
+const ART_KINDS = new Set(['figure', 'prop', 'scenery', 'fx']);
 const MAX_STRING = 160;
+/** 一张水墨素材图最多 16 格（4×4），格内每件素材独立、透明背景，便于按格抠图。 */
+const MAX_ART_PER_SHEET = 16;
 
 const errors = [];
 const pending = [];
@@ -99,6 +103,66 @@ function checkCast(where, cast, rels, characters) {
     if (!r.relation) err(where, '关系缺少 relation');
     if (r.type && !REL_TYPES.has(r.type)) err(where, `关系类型无效：${r.type}`);
   }
+}
+
+function checkArtPrompts(where, list, scene, cast) {
+  if (!Array.isArray(list) || !list.length) return err(where, '缺少 artPrompts（水墨素材提示词）');
+  const segIds = new Set(); const assetIds = new Set();
+  const perCat = {};
+  const declared = {};
+  const castIds = new Set((cast ?? []).map(c => c.id));
+  const drawnCast = new Set();
+  for (const seg of list) {
+    if (!seg.id || segIds.has(seg.id)) err(where, `素材段 id 缺失或重复：${seg.id}`);
+    segIds.add(seg.id);
+    if (!seg.id.startsWith(scene.id + '.sheet.')) err(where, `素材段 id 应以 ${scene.id}.sheet. 开头：${seg.id}`);
+    if (!ART_CATEGORIES.has(seg.category)) err(where, `素材分类无效：${seg.category}`);
+    if (!seg.categoryLabel) err(where, `素材段 ${seg.id} 缺少 categoryLabel`);
+    if (!isInt(seg.segment) || seg.segment < 1) err(where, `素材段 ${seg.id} 的 segment 无效`);
+    perCat[seg.category] = (perCat[seg.category] || 0) + 1;
+    if (seg.segment !== perCat[seg.category]) err(where, `素材段 ${seg.id} 的同分类段号不连续`);
+    if (seg.segmentsInCategory !== undefined) {
+      if (declared[seg.category] === undefined) declared[seg.category] = seg.segmentsInCategory;
+      else if (declared[seg.category] !== seg.segmentsInCategory) err(where, `素材段 ${seg.id} 的 segmentsInCategory 与同分类其它段不一致`);
+    }
+    if (!seg.grid || !isInt(seg.grid.cols) || !isInt(seg.grid.rows) || seg.grid.cols < 1 || seg.grid.rows < 1) {
+      err(where, `素材段 ${seg.id} 的 grid 无效`);
+    } else if (seg.grid.cols * seg.grid.rows > MAX_ART_PER_SHEET) {
+      err(where, `素材段 ${seg.id} 的网格超过 ${MAX_ART_PER_SHEET} 格，应拆段`);
+    }
+    if (!Array.isArray(seg.assets) || !seg.assets.length) err(where, `素材段 ${seg.id} 没有素材`);
+    else {
+      if (seg.assets.length > MAX_ART_PER_SHEET) err(where, `素材段 ${seg.id} 超过 ${MAX_ART_PER_SHEET} 件，应拆段`);
+      if (seg.grid && seg.assets.length > seg.grid.cols * seg.grid.rows) err(where, `素材段 ${seg.id} 的 grid 装不下素材`);
+      seg.assets.forEach((a, i) => {
+        if (a.slot !== i + 1) err(where, `素材 ${a.id} 的 slot 应为 ${i + 1}`);
+        if (!a.id || assetIds.has(a.id)) err(where, `素材 id 缺失或重复：${a.id}`);
+        assetIds.add(a.id);
+        if (!a.name) err(where, `素材缺少 name：${a.id}`);
+        if (!ART_KINDS.has(a.kind)) err(where, `素材 kind 无效：${a.id} ${a.kind}`);
+        if (a.ref?.prop && !PARTS[a.ref.prop]) err(where, `素材 ref.prop 无效：${a.id} ${a.ref.prop}`);
+        if (a.ref?.parts) for (const p of a.ref.parts) if (!PARTS[a.ref.prop]?.includes(p)) err(where, `素材 ref.parts 无效：${a.id} ${a.ref.prop}.${p}`);
+        if (a.ref?.actor) {
+          if (!castIds.has(a.ref.actor)) err(where, `素材 ref.actor 不在 cast：${a.id} ${a.ref.actor}`);
+          if (seg.category === 'cast') drawnCast.add(a.ref.actor);
+        }
+      });
+    }
+    if (!seg.prompt || seg.prompt.length < 40) err(where, `素材段 ${seg.id} 的 prompt 为空或过短`);
+    const spec = seg.spec;
+    if (!spec || spec.background !== 'transparent' || spec.cutout !== true) err(where, `素材段 ${seg.id} 必须要求透明背景且可抠图`);
+    if (!spec || !Array.isArray(spec.sizePx) || spec.sizePx.length !== 2 || spec.sizePx.some(n => !isInt(n) || n < 512)) err(where, `素材段 ${seg.id} 的 sizePx 无效`);
+    if (!spec || !isInt(spec.cellPx) || spec.cellPx < 64) err(where, `素材段 ${seg.id} 的 cellPx 无效`);
+    if (spec?.apiVerified !== false) err(where, `素材段 ${seg.id} 不得将未实测的图像 API 标为已验证`);
+    if (spec && seg.grid && Array.isArray(spec.sizePx) && (spec.sizePx[0] !== seg.grid.cols * spec.cellPx || spec.sizePx[1] !== seg.grid.rows * spec.cellPx)) {
+      err(where, `素材段 ${seg.id} 的 sizePx 必须等于 grid × cellPx`);
+    }
+    if (seg.prompt && seg.grid && !seg.prompt.includes(`${seg.grid.cols}×${seg.grid.rows}`)) err(where, `素材段 ${seg.id} 的 prompt 网格描述与 grid 不一致`);
+    for (const a of seg.assets ?? []) if (seg.prompt && !seg.prompt.includes(a.name)) err(where, `素材段 ${seg.id} 的 prompt 缺少素材 ${a.name}`);
+  }
+  for (const id of segIds) if (assetIds.has(id)) err(where, `图段与素材 id 冲突：${id}`);
+  for (const c in perCat) if (declared[c] !== undefined && declared[c] !== perCat[c]) err(where, `${c} 分类的 segmentsInCategory=${declared[c]}，实际 ${perCat[c]} 段`);
+  for (const c of cast ?? []) if (!drawnCast.has(c.id)) err(where, `人物 ${c.id} 在 cast 分类里没有立绘素材`);
 }
 
 function checkScene(where, s, strings, chapterId) {
@@ -257,7 +321,7 @@ function checkOutline(where, s, strings, chapterId) {
 const index = JSON.parse(readFileSync(join(DATA, 'chapters', 'index.json'), 'utf8'));
 const allScenes = new Map(); const outlineIds = new Set();
 const bundles = [];
-let v1 = 0, outline = 0;
+let v1 = 0, outline = 0, artSheets = 0, artAssets = 0;
 for (const c of index.chapters) {
   const file = join(DATA, c.file);
   if (!existsSync(file)) { err(c.file, '文件不存在'); continue; }
@@ -290,6 +354,11 @@ for (const b of bundles) {
     if (!/^\d\d-\d\d$/.test(e.outlineId) || e.outlineId.slice(0, 2) !== String(ch.order).padStart(2, '0')) err(w, '大纲编号与章不符');
     if (e.scene.when?.start < last - 200) err(w, '场景时间明显早于前一场景，检查排序');
     last = e.scene.when?.start ?? last;
+    checkArtPrompts(w, e.artPrompts, e.scene, e.cast);
+    if (Array.isArray(e.artPrompts)) {
+      artSheets += e.artPrompts.length;
+      artAssets += e.artPrompts.reduce((n, s) => n + (s.assets?.length || 0), 0);
+    }
     if (e.v1) {
       v1++;
       checkScene(w, e.scene, strings, ch.id);
@@ -310,7 +379,7 @@ for (const b of bundles) {
 }
 if (index.totals.v1 !== v1 || index.totals.outline !== outline) err('index', 'totals 与实际不一致');
 
-console.log(`章节 ${bundles.length}，场景 ${allScenes.size}（首版完整 ${v1}，大纲级 ${outline}），待核验日期/来源 ${pending.length} 处`);
+console.log(`章节 ${bundles.length}，场景 ${allScenes.size}（首版完整 ${v1}，大纲级 ${outline}），水墨素材 ${artSheets} 张图 / ${artAssets} 件，待核验日期/来源 ${pending.length} 处`);
 if (showPending) for (const p of pending) console.log('  待核验 ' + p);
 if (errors.length) { console.error(`错误 ${errors.length} 个：\n` + errors.map(e => '  ' + e).join('\n')); process.exit(1); }
 console.log('校验通过：0 个错误');

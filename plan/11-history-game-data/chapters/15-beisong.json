@@ -127,7 +127,143 @@
      "name": "石守信"
     }
    ],
-   "relations": []
+   "relations": [],
+   "artPrompts": [
+    {
+     "id": "beisong.beijiu.sheet.cast.1",
+     "category": "cast",
+     "categoryLabel": "人物立绘",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.beijiu.art.cast.zhaokuangyin",
+       "name": "赵匡胤",
+       "kind": "figure",
+       "ref": {
+        "prop": "figure",
+        "actor": "zhaokuangyin"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "beisong.beijiu.art.cast.shishouxin",
+       "name": "石守信",
+       "kind": "figure",
+       "ref": {
+        "prop": "figure",
+        "actor": "shishouxin"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（人物立绘），题材：杯酒释兵权·杯酒释兵权（961 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 赵匡胤；2. 石守信。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.beijiu.sheet.scenery.1",
+     "category": "scenery",
+     "categoryLabel": "场景环境",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.beijiu.art.scenery.1",
+       "name": "宴席几案",
+       "kind": "scenery"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.beijiu.art.scenery.2",
+       "name": "青铜酒器",
+       "kind": "scenery"
+      },
+      {
+       "slot": 3,
+       "id": "beisong.beijiu.art.scenery.3",
+       "name": "烛台",
+       "kind": "scenery"
+      },
+      {
+       "slot": 4,
+       "id": "beisong.beijiu.art.scenery.4",
+       "name": "帷帐",
+       "kind": "scenery"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（场景环境），题材：杯酒释兵权·杯酒释兵权（961 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 宴席几案；2. 青铜酒器。\n第 2 行：3. 烛台；4. 帷帐。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.beijiu.sheet.effects.1",
+     "category": "effects",
+     "categoryLabel": "水墨特效",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.beijiu.art.effects.1",
+       "name": "泼墨墨点飞溅",
+       "kind": "fx"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.beijiu.art.effects.2",
+       "name": "飞白笔触",
+       "kind": "fx"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（水墨特效），题材：杯酒释兵权·杯酒释兵权（961 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    }
+   ]
   },
   {
    "outlineId": "15-02",
@@ -208,7 +344,229 @@
      "name": "王侁"
     }
    ],
-   "relations": []
+   "relations": [],
+   "artPrompts": [
+    {
+     "id": "beisong.yangye.sheet.cast.1",
+     "category": "cast",
+     "categoryLabel": "人物立绘",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.yangye.art.cast.yangye",
+       "name": "杨业",
+       "kind": "figure",
+       "ref": {
+        "prop": "figure",
+        "actor": "yangye"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "beisong.yangye.art.cast.panmei",
+       "name": "潘美",
+       "kind": "figure",
+       "ref": {
+        "prop": "figure",
+        "actor": "panmei"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "beisong.yangye.art.cast.wangshen",
+       "name": "王侁",
+       "kind": "figure",
+       "ref": {
+        "prop": "figure",
+        "actor": "wangshen"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（人物立绘），题材：金沙滩·杨业（986 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 杨业；2. 潘美。\n第 2 行：3. 王侁；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.yangye.sheet.props.1",
+     "category": "props",
+     "categoryLabel": "道具器物",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.yangye.art.props.1",
+       "name": "长枪",
+       "kind": "prop",
+       "note": "枪身修长，锋尖寒芒，红缨垂坠",
+       "ref": {
+        "prop": "spear"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "beisong.yangye.art.props.2",
+       "name": "战马",
+       "kind": "prop",
+       "note": "奔马侧影，鬃尾飞扬，四蹄腾空",
+       "ref": {
+        "prop": "war-horse"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（道具器物），题材：金沙滩·杨业（986 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 长枪（枪身修长，锋尖寒芒，红缨垂坠）；2. 战马（奔马侧影，鬃尾飞扬，四蹄腾空）。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.yangye.sheet.scenery.1",
+     "category": "scenery",
+     "categoryLabel": "场景环境",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.yangye.art.scenery.1",
+       "name": "军营帐幕",
+       "kind": "scenery"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.yangye.art.scenery.2",
+       "name": "旌旗阵列",
+       "kind": "scenery"
+      },
+      {
+       "slot": 3,
+       "id": "beisong.yangye.art.scenery.3",
+       "name": "拒马鹿角",
+       "kind": "scenery"
+      },
+      {
+       "slot": 4,
+       "id": "beisong.yangye.art.scenery.4",
+       "name": "远山烟岚",
+       "kind": "scenery"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（场景环境），题材：金沙滩·杨业（986 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 军营帐幕；2. 旌旗阵列。\n第 2 行：3. 拒马鹿角；4. 远山烟岚。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.yangye.sheet.effects.1",
+     "category": "effects",
+     "categoryLabel": "水墨特效",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 3,
+      "rows": 3
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.yangye.art.effects.1",
+       "name": "泼墨墨点飞溅",
+       "kind": "fx"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.yangye.art.effects.2",
+       "name": "飞白笔触",
+       "kind": "fx"
+      },
+      {
+       "slot": 3,
+       "id": "beisong.yangye.art.effects.3",
+       "name": "突刺枪花",
+       "kind": "fx"
+      },
+      {
+       "slot": 4,
+       "id": "beisong.yangye.art.effects.4",
+       "name": "命中溅墨",
+       "kind": "fx"
+      },
+      {
+       "slot": 5,
+       "id": "beisong.yangye.art.effects.5",
+       "name": "蹄下墨尘",
+       "kind": "fx"
+      },
+      {
+       "slot": 6,
+       "id": "beisong.yangye.art.effects.6",
+       "name": "鬃毛飞扬",
+       "kind": "fx"
+      },
+      {
+       "slot": 7,
+       "id": "beisong.yangye.art.effects.7",
+       "name": "冲阵烟尘",
+       "kind": "fx"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（水墨特效），题材：金沙滩·杨业（986 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触；3. 突刺枪花。\n第 2 行：4. 命中溅墨；5. 蹄下墨尘；6. 鬃毛飞扬。\n第 3 行：7. 冲阵烟尘；8. 留空；9. 留空。\n排版参考尺寸：1536×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1536
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    }
+   ]
   },
   {
    "outlineId": "15-03",
@@ -1789,6 +2147,355 @@
      "relation": "兄弟之盟",
      "type": "ally"
     }
+   ],
+   "artPrompts": [
+    {
+     "id": "beisong.chanyuan.sheet.cast.1",
+     "category": "cast",
+     "categoryLabel": "人物立绘",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 3,
+      "rows": 3
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.chanyuan.art.cast.zhenzong",
+       "name": "宋真宗（赵恒）",
+       "kind": "figure",
+       "note": "宋·君主",
+       "ref": {
+        "prop": "figure",
+        "actor": "zhenzong"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "beisong.chanyuan.art.cast.kouzhun",
+       "name": "寇准（宰相）",
+       "kind": "figure",
+       "note": "宋·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "kouzhun"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "beisong.chanyuan.art.cast.xiaotaihou",
+       "name": "萧太后（萧绰，承天太后）",
+       "kind": "figure",
+       "note": "辽·宗室后妃",
+       "ref": {
+        "prop": "figure",
+        "actor": "xiaotaihou"
+       }
+      },
+      {
+       "slot": 4,
+       "id": "beisong.chanyuan.art.cast.shengzong",
+       "name": "辽圣宗（耶律隆绪）",
+       "kind": "figure",
+       "note": "辽·君主",
+       "ref": {
+        "prop": "figure",
+        "actor": "shengzong"
+       }
+      },
+      {
+       "slot": 5,
+       "id": "beisong.chanyuan.art.cast.xiaotalan",
+       "name": "萧挞凛（辽统军）",
+       "kind": "figure",
+       "note": "辽·武将",
+       "ref": {
+        "prop": "figure",
+        "actor": "xiaotalan"
+       }
+      },
+      {
+       "slot": 6,
+       "id": "beisong.chanyuan.art.cast.caoliyong",
+       "name": "曹利用（使臣）",
+       "kind": "figure",
+       "note": "宋·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "caoliyong"
+       }
+      },
+      {
+       "slot": 7,
+       "id": "beisong.chanyuan.art.cast.wangqinruo",
+       "name": "王钦若（参知政事）",
+       "kind": "figure",
+       "note": "宋·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "wangqinruo"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（人物立绘），题材：澶渊之盟·景德元年（1004—1005 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 宋真宗（赵恒）（宋·君主）；2. 寇准（宰相）（宋·文臣）；3. 萧太后（萧绰，承天太后）（辽·宗室后妃）。\n第 2 行：4. 辽圣宗（耶律隆绪）（辽·君主）；5. 萧挞凛（辽统军）（辽·武将）；6. 曹利用（使臣）（宋·文臣）。\n第 3 行：7. 王钦若（参知政事）（宋·文臣）；8. 留空；9. 留空。\n排版参考尺寸：1536×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1536
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.chanyuan.sheet.props.1",
+     "category": "props",
+     "categoryLabel": "道具器物",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.chanyuan.art.props.1",
+       "name": "角弓与箭",
+       "kind": "prop",
+       "note": "弯弓与箭矢，弓弦紧绷",
+       "ref": {
+        "prop": "bow"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "beisong.chanyuan.art.props.2",
+       "name": "旌旗",
+       "kind": "prop",
+       "note": "高杆大旗，旗面被风鼓起，穗带飘动",
+       "ref": {
+        "prop": "banner"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "beisong.chanyuan.art.props.3",
+       "name": "盾牌",
+       "kind": "prop",
+       "note": "圆盾，墨色包边，正面徽记",
+       "ref": {
+        "prop": "shield"
+       }
+      },
+      {
+       "slot": 4,
+       "id": "beisong.chanyuan.art.props.4",
+       "name": "战马",
+       "kind": "prop",
+       "note": "奔马侧影，鬃尾飞扬，四蹄腾空",
+       "ref": {
+        "prop": "war-horse"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（道具器物），题材：澶渊之盟·景德元年（1004—1005 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 角弓与箭（弯弓与箭矢，弓弦紧绷）；2. 旌旗（高杆大旗，旗面被风鼓起，穗带飘动）。\n第 2 行：3. 盾牌（圆盾，墨色包边，正面徽记）；4. 战马（奔马侧影，鬃尾飞扬，四蹄腾空）。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.chanyuan.sheet.scenery.1",
+     "category": "scenery",
+     "categoryLabel": "场景环境",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 4,
+      "rows": 3
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.chanyuan.art.scenery.1",
+       "name": "远山（淡墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.chanyuan.art.scenery.2",
+       "name": "近坡（中墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 3,
+       "id": "beisong.chanyuan.art.scenery.3",
+       "name": "土坡地线",
+       "kind": "scenery"
+      },
+      {
+       "slot": 4,
+       "id": "beisong.chanyuan.art.scenery.4",
+       "name": "草丛（枯笔）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 5,
+       "id": "beisong.chanyuan.art.scenery.5",
+       "name": "城墙垛口",
+       "kind": "scenery"
+      },
+      {
+       "slot": 6,
+       "id": "beisong.chanyuan.art.scenery.6",
+       "name": "城门与吊桥",
+       "kind": "scenery"
+      },
+      {
+       "slot": 7,
+       "id": "beisong.chanyuan.art.scenery.7",
+       "name": "军营帐幕",
+       "kind": "scenery"
+      },
+      {
+       "slot": 8,
+       "id": "beisong.chanyuan.art.scenery.8",
+       "name": "烽火台",
+       "kind": "scenery"
+      },
+      {
+       "slot": 9,
+       "id": "beisong.chanyuan.art.scenery.9",
+       "name": "河水",
+       "kind": "scenery"
+      },
+      {
+       "slot": 10,
+       "id": "beisong.chanyuan.art.scenery.10",
+       "name": "城墙雉堞",
+       "kind": "scenery"
+      },
+      {
+       "slot": 11,
+       "id": "beisong.chanyuan.art.scenery.11",
+       "name": "殿柱",
+       "kind": "scenery"
+      },
+      {
+       "slot": 12,
+       "id": "beisong.chanyuan.art.scenery.12",
+       "name": "屋檐",
+       "kind": "scenery"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（场景环境），题材：澶渊之盟·景德元年（1004—1005 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：4×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 远山（淡墨）；2. 近坡（中墨）；3. 土坡地线；4. 草丛（枯笔）。\n第 2 行：5. 城墙垛口；6. 城门与吊桥；7. 军营帐幕；8. 烽火台。\n第 3 行：9. 河水；10. 城墙雉堞；11. 殿柱；12. 屋檐。\n排版参考尺寸：2048×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       2048,
+       1536
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.chanyuan.sheet.effects.1",
+     "category": "effects",
+     "categoryLabel": "水墨特效",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 3,
+      "rows": 3
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.chanyuan.art.effects.1",
+       "name": "泼墨墨点飞溅",
+       "kind": "fx"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.chanyuan.art.effects.2",
+       "name": "飞白笔触",
+       "kind": "fx"
+      },
+      {
+       "slot": 3,
+       "id": "beisong.chanyuan.art.effects.3",
+       "name": "箭矢破空",
+       "kind": "fx"
+      },
+      {
+       "slot": 4,
+       "id": "beisong.chanyuan.art.effects.4",
+       "name": "命中靶心墨点",
+       "kind": "fx"
+      },
+      {
+       "slot": 5,
+       "id": "beisong.chanyuan.art.effects.5",
+       "name": "风卷旗影",
+       "kind": "fx"
+      },
+      {
+       "slot": 6,
+       "id": "beisong.chanyuan.art.effects.6",
+       "name": "蹄下墨尘",
+       "kind": "fx"
+      },
+      {
+       "slot": 7,
+       "id": "beisong.chanyuan.art.effects.7",
+       "name": "鬃毛飞扬",
+       "kind": "fx"
+      },
+      {
+       "slot": 8,
+       "id": "beisong.chanyuan.art.effects.8",
+       "name": "落石扬尘",
+       "kind": "fx"
+      },
+      {
+       "slot": 9,
+       "id": "beisong.chanyuan.art.effects.9",
+       "name": "火油烈焰",
+       "kind": "fx"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（水墨特效），题材：澶渊之盟·景德元年（1004—1005 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触；3. 箭矢破空。\n第 2 行：4. 命中靶心墨点；5. 风卷旗影；6. 蹄下墨尘。\n第 3 行：7. 鬃毛飞扬；8. 落石扬尘；9. 火油烈焰。\n排版参考尺寸：1536×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1536
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    }
    ]
   },
   {
@@ -1864,7 +2571,223 @@
      "name": "范仲淹"
     }
    ],
-   "relations": []
+   "relations": [],
+   "artPrompts": [
+    {
+     "id": "beisong.haoshuichuan.sheet.cast.1",
+     "category": "cast",
+     "categoryLabel": "人物立绘",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.haoshuichuan.art.cast.liyuanhao",
+       "name": "李元昊",
+       "kind": "figure",
+       "ref": {
+        "prop": "figure",
+        "actor": "liyuanhao"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "beisong.haoshuichuan.art.cast.hanqi",
+       "name": "韩琦",
+       "kind": "figure",
+       "ref": {
+        "prop": "figure",
+        "actor": "hanqi"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "beisong.haoshuichuan.art.cast.fanzhongyan",
+       "name": "范仲淹",
+       "kind": "figure",
+       "ref": {
+        "prop": "figure",
+        "actor": "fanzhongyan"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（人物立绘），题材：好水川·李元昊（1038—1044 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 李元昊；2. 韩琦。\n第 2 行：3. 范仲淹；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.haoshuichuan.sheet.props.1",
+     "category": "props",
+     "categoryLabel": "道具器物",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.haoshuichuan.art.props.1",
+       "name": "角弓与箭",
+       "kind": "prop",
+       "note": "弯弓与箭矢，弓弦紧绷",
+       "ref": {
+        "prop": "bow"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "beisong.haoshuichuan.art.props.2",
+       "name": "旌旗",
+       "kind": "prop",
+       "note": "高杆大旗，旗面被风鼓起，穗带飘动",
+       "ref": {
+        "prop": "banner"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（道具器物），题材：好水川·李元昊（1038—1044 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 角弓与箭（弯弓与箭矢，弓弦紧绷）；2. 旌旗（高杆大旗，旗面被风鼓起，穗带飘动）。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.haoshuichuan.sheet.scenery.1",
+     "category": "scenery",
+     "categoryLabel": "场景环境",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.haoshuichuan.art.scenery.1",
+       "name": "密林",
+       "kind": "scenery"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.haoshuichuan.art.scenery.2",
+       "name": "山道",
+       "kind": "scenery"
+      },
+      {
+       "slot": 3,
+       "id": "beisong.haoshuichuan.art.scenery.3",
+       "name": "灌木与岩石",
+       "kind": "scenery"
+      },
+      {
+       "slot": 4,
+       "id": "beisong.haoshuichuan.art.scenery.4",
+       "name": "夜雾",
+       "kind": "scenery"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（场景环境），题材：好水川·李元昊（1038—1044 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 密林；2. 山道。\n第 2 行：3. 灌木与岩石；4. 夜雾。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.haoshuichuan.sheet.effects.1",
+     "category": "effects",
+     "categoryLabel": "水墨特效",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 3,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.haoshuichuan.art.effects.1",
+       "name": "泼墨墨点飞溅",
+       "kind": "fx"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.haoshuichuan.art.effects.2",
+       "name": "飞白笔触",
+       "kind": "fx"
+      },
+      {
+       "slot": 3,
+       "id": "beisong.haoshuichuan.art.effects.3",
+       "name": "箭矢破空",
+       "kind": "fx"
+      },
+      {
+       "slot": 4,
+       "id": "beisong.haoshuichuan.art.effects.4",
+       "name": "命中靶心墨点",
+       "kind": "fx"
+      },
+      {
+       "slot": 5,
+       "id": "beisong.haoshuichuan.art.effects.5",
+       "name": "风卷旗影",
+       "kind": "fx"
+      },
+      {
+       "slot": 6,
+       "id": "beisong.haoshuichuan.art.effects.6",
+       "name": "夜色云雾",
+       "kind": "fx"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（水墨特效），题材：好水川·李元昊（1038—1044 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触；3. 箭矢破空。\n第 2 行：4. 命中靶心墨点；5. 风卷旗影；6. 夜色云雾。\n排版参考尺寸：1536×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    }
+   ]
   },
   {
    "outlineId": "15-05",
@@ -1934,7 +2857,213 @@
      "name": "侬智高"
     }
    ],
-   "relations": []
+   "relations": [],
+   "artPrompts": [
+    {
+     "id": "beisong.diqing.sheet.cast.1",
+     "category": "cast",
+     "categoryLabel": "人物立绘",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.diqing.art.cast.diqing",
+       "name": "狄青",
+       "kind": "figure",
+       "ref": {
+        "prop": "figure",
+        "actor": "diqing"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "beisong.diqing.art.cast.nongzhigao",
+       "name": "侬智高",
+       "kind": "figure",
+       "ref": {
+        "prop": "figure",
+        "actor": "nongzhigao"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（人物立绘），题材：夜袭昆仑关·狄青（1052—1053 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 狄青；2. 侬智高。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.diqing.sheet.props.1",
+     "category": "props",
+     "categoryLabel": "道具器物",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.diqing.art.props.1",
+       "name": "大刀",
+       "kind": "prop",
+       "note": "厚背大刀，刃口留白，刀柄缠绳",
+       "ref": {
+        "prop": "blade"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "beisong.diqing.art.props.2",
+       "name": "战马",
+       "kind": "prop",
+       "note": "奔马侧影，鬃尾飞扬，四蹄腾空",
+       "ref": {
+        "prop": "war-horse"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（道具器物），题材：夜袭昆仑关·狄青（1052—1053 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 大刀（厚背大刀，刃口留白，刀柄缠绳）；2. 战马（奔马侧影，鬃尾飞扬，四蹄腾空）。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.diqing.sheet.scenery.1",
+     "category": "scenery",
+     "categoryLabel": "场景环境",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.diqing.art.scenery.1",
+       "name": "军营帐幕",
+       "kind": "scenery"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.diqing.art.scenery.2",
+       "name": "夜色云雾",
+       "kind": "scenery"
+      },
+      {
+       "slot": 3,
+       "id": "beisong.diqing.art.scenery.3",
+       "name": "火把",
+       "kind": "scenery"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（场景环境），题材：夜袭昆仑关·狄青（1052—1053 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 军营帐幕；2. 夜色云雾。\n第 2 行：3. 火把；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.diqing.sheet.effects.1",
+     "category": "effects",
+     "categoryLabel": "水墨特效",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 3,
+      "rows": 3
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.diqing.art.effects.1",
+       "name": "泼墨墨点飞溅",
+       "kind": "fx"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.diqing.art.effects.2",
+       "name": "飞白笔触",
+       "kind": "fx"
+      },
+      {
+       "slot": 3,
+       "id": "beisong.diqing.art.effects.3",
+       "name": "刀光斩击",
+       "kind": "fx"
+      },
+      {
+       "slot": 4,
+       "id": "beisong.diqing.art.effects.4",
+       "name": "血点（朱红，克制）",
+       "kind": "fx"
+      },
+      {
+       "slot": 5,
+       "id": "beisong.diqing.art.effects.5",
+       "name": "蹄下墨尘",
+       "kind": "fx"
+      },
+      {
+       "slot": 6,
+       "id": "beisong.diqing.art.effects.6",
+       "name": "鬃毛飞扬",
+       "kind": "fx"
+      },
+      {
+       "slot": 7,
+       "id": "beisong.diqing.art.effects.7",
+       "name": "火把光晕",
+       "kind": "fx"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（水墨特效），题材：夜袭昆仑关·狄青（1052—1053 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触；3. 刀光斩击。\n第 2 行：4. 血点（朱红，克制）；5. 蹄下墨尘；6. 鬃毛飞扬。\n第 3 行：7. 火把光晕；8. 留空；9. 留空。\n排版参考尺寸：1536×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1536
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    }
+   ]
   },
   {
    "outlineId": "15-06",
@@ -1999,7 +3128,181 @@
      "name": "包拯"
     }
    ],
-   "relations": []
+   "relations": [],
+   "artPrompts": [
+    {
+     "id": "beisong.baogong.sheet.cast.1",
+     "category": "cast",
+     "categoryLabel": "人物立绘",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.baogong.art.cast.baozheng",
+       "name": "包拯",
+       "kind": "figure",
+       "ref": {
+        "prop": "figure",
+        "actor": "baozheng"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（人物立绘），题材：包公·包公（1056—1058 知开封府）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 包拯；2. 留空。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.baogong.sheet.props.1",
+     "category": "props",
+     "categoryLabel": "道具器物",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.baogong.art.props.1",
+       "name": "水刷",
+       "kind": "prop",
+       "note": "大号毛笔，笔锋含墨将滴",
+       "ref": {
+        "prop": "water-brush"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（道具器物），题材：包公·包公（1056—1058 知开封府）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 水刷（大号毛笔，笔锋含墨将滴）；2. 留空。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.baogong.sheet.scenery.1",
+     "category": "scenery",
+     "categoryLabel": "场景环境",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.baogong.art.scenery.1",
+       "name": "屋舍内景",
+       "kind": "scenery"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.baogong.art.scenery.2",
+       "name": "竹简书卷",
+       "kind": "scenery"
+      },
+      {
+       "slot": 3,
+       "id": "beisong.baogong.art.scenery.3",
+       "name": "灯烛",
+       "kind": "scenery"
+      },
+      {
+       "slot": 4,
+       "id": "beisong.baogong.art.scenery.4",
+       "name": "案几",
+       "kind": "scenery"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（场景环境），题材：包公·包公（1056—1058 知开封府）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 屋舍内景；2. 竹简书卷。\n第 2 行：3. 灯烛；4. 案几。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.baogong.sheet.effects.1",
+     "category": "effects",
+     "categoryLabel": "水墨特效",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.baogong.art.effects.1",
+       "name": "泼墨墨点飞溅",
+       "kind": "fx"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.baogong.art.effects.2",
+       "name": "飞白笔触",
+       "kind": "fx"
+      },
+      {
+       "slot": 3,
+       "id": "beisong.baogong.art.effects.3",
+       "name": "水流笔迹",
+       "kind": "fx"
+      },
+      {
+       "slot": 4,
+       "id": "beisong.baogong.art.effects.4",
+       "name": "墨滴下坠",
+       "kind": "fx"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（水墨特效），题材：包公·包公（1056—1058 知开封府）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触。\n第 2 行：3. 水流笔迹；4. 墨滴下坠。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    }
+   ]
   },
   {
    "outlineId": "15-07",
@@ -3599,6 +4902,313 @@
      "relation": "政见不合",
      "type": "rival"
     }
+   ],
+   "artPrompts": [
+    {
+     "id": "beisong.xining.sheet.cast.1",
+     "category": "cast",
+     "categoryLabel": "人物立绘",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 3,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.xining.art.cast.wanganshi",
+       "name": "王安石（参知政事，后为宰相）",
+       "kind": "figure",
+       "note": "宋·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "wanganshi"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "beisong.xining.art.cast.shenzong",
+       "name": "宋神宗（赵顼）",
+       "kind": "figure",
+       "note": "宋·君主",
+       "ref": {
+        "prop": "figure",
+        "actor": "shenzong"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "beisong.xining.art.cast.simaguang",
+       "name": "司马光（翰林学士）",
+       "kind": "figure",
+       "note": "宋·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "simaguang"
+       }
+      },
+      {
+       "slot": 4,
+       "id": "beisong.xining.art.cast.lvhuiqing",
+       "name": "吕惠卿（变法派）",
+       "kind": "figure",
+       "note": "宋·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "lvhuiqing"
+       }
+      },
+      {
+       "slot": 5,
+       "id": "beisong.xining.art.cast.zhengxia",
+       "name": "郑侠（监安上门）",
+       "kind": "figure",
+       "note": "宋·其他",
+       "ref": {
+        "prop": "figure",
+        "actor": "zhengxia"
+       }
+      },
+      {
+       "slot": 6,
+       "id": "beisong.xining.art.cast.sushi",
+       "name": "苏轼（文臣）",
+       "kind": "figure",
+       "note": "宋·文人",
+       "ref": {
+        "prop": "figure",
+        "actor": "sushi"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（人物立绘），题材：熙宁变法·王安石（1069—1085 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 王安石（参知政事，后为宰相）（宋·文臣）；2. 宋神宗（赵顼）（宋·君主）；3. 司马光（翰林学士）（宋·文臣）。\n第 2 行：4. 吕惠卿（变法派）（宋·文臣）；5. 郑侠（监安上门）（宋·其他）；6. 苏轼（文臣）（宋·文人）。\n排版参考尺寸：1536×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.xining.sheet.props.1",
+     "category": "props",
+     "categoryLabel": "道具器物",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.xining.art.props.1",
+       "name": "水刷",
+       "kind": "prop",
+       "note": "大号毛笔，笔锋含墨将滴",
+       "ref": {
+        "prop": "water-brush"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "beisong.xining.art.props.2",
+       "name": "旌旗",
+       "kind": "prop",
+       "note": "高杆大旗，旗面被风鼓起，穗带飘动",
+       "ref": {
+        "prop": "banner"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "beisong.xining.art.props.3",
+       "name": "卷轴",
+       "kind": "prop",
+       "note": "过场笔画所绘"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（道具器物），题材：熙宁变法·王安石（1069—1085 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 水刷（大号毛笔，笔锋含墨将滴）；2. 旌旗（高杆大旗，旗面被风鼓起，穗带飘动）。\n第 2 行：3. 卷轴（过场笔画所绘）；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.xining.sheet.scenery.1",
+     "category": "scenery",
+     "categoryLabel": "场景环境",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 4,
+      "rows": 4
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.xining.art.scenery.1",
+       "name": "远山（淡墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.xining.art.scenery.2",
+       "name": "近坡（中墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 3,
+       "id": "beisong.xining.art.scenery.3",
+       "name": "土坡地线",
+       "kind": "scenery"
+      },
+      {
+       "slot": 4,
+       "id": "beisong.xining.art.scenery.4",
+       "name": "草丛（枯笔）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 5,
+       "id": "beisong.xining.art.scenery.5",
+       "name": "宫殿台基",
+       "kind": "scenery"
+      },
+      {
+       "slot": 6,
+       "id": "beisong.xining.art.scenery.6",
+       "name": "朱漆立柱",
+       "kind": "scenery"
+      },
+      {
+       "slot": 7,
+       "id": "beisong.xining.art.scenery.7",
+       "name": "仕宦屏风",
+       "kind": "scenery"
+      },
+      {
+       "slot": 8,
+       "id": "beisong.xining.art.scenery.8",
+       "name": "几案与席",
+       "kind": "scenery"
+      },
+      {
+       "slot": 9,
+       "id": "beisong.xining.art.scenery.9",
+       "name": "城墙雉堞",
+       "kind": "scenery"
+      },
+      {
+       "slot": 10,
+       "id": "beisong.xining.art.scenery.10",
+       "name": "河水",
+       "kind": "scenery"
+      },
+      {
+       "slot": 11,
+       "id": "beisong.xining.art.scenery.11",
+       "name": "殿柱",
+       "kind": "scenery"
+      },
+      {
+       "slot": 12,
+       "id": "beisong.xining.art.scenery.12",
+       "name": "屋檐",
+       "kind": "scenery"
+      },
+      {
+       "slot": 13,
+       "id": "beisong.xining.art.scenery.13",
+       "name": "沙",
+       "kind": "scenery"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（场景环境），题材：熙宁变法·王安石（1069—1085 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：4×4 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 远山（淡墨）；2. 近坡（中墨）；3. 土坡地线；4. 草丛（枯笔）。\n第 2 行：5. 宫殿台基；6. 朱漆立柱；7. 仕宦屏风；8. 几案与席。\n第 3 行：9. 城墙雉堞；10. 河水；11. 殿柱；12. 屋檐。\n第 4 行：13. 沙；14. 留空；15. 留空；16. 留空。\n排版参考尺寸：2048×2048 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       2048,
+       2048
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.xining.sheet.effects.1",
+     "category": "effects",
+     "categoryLabel": "水墨特效",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 3,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.xining.art.effects.1",
+       "name": "泼墨墨点飞溅",
+       "kind": "fx"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.xining.art.effects.2",
+       "name": "飞白笔触",
+       "kind": "fx"
+      },
+      {
+       "slot": 3,
+       "id": "beisong.xining.art.effects.3",
+       "name": "水流笔迹",
+       "kind": "fx"
+      },
+      {
+       "slot": 4,
+       "id": "beisong.xining.art.effects.4",
+       "name": "墨滴下坠",
+       "kind": "fx"
+      },
+      {
+       "slot": 5,
+       "id": "beisong.xining.art.effects.5",
+       "name": "风卷旗影",
+       "kind": "fx"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（水墨特效），题材：熙宁变法·王安石（1069—1085 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触；3. 水流笔迹。\n第 2 行：4. 墨滴下坠；5. 风卷旗影；6. 留空。\n排版参考尺寸：1536×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    }
    ]
   },
   {
@@ -3674,7 +5284,223 @@
      "name": "童贯"
     }
    ],
-   "relations": []
+   "relations": [],
+   "artPrompts": [
+    {
+     "id": "beisong.fangla.sheet.cast.1",
+     "category": "cast",
+     "categoryLabel": "人物立绘",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.fangla.art.cast.fangla",
+       "name": "方腊",
+       "kind": "figure",
+       "ref": {
+        "prop": "figure",
+        "actor": "fangla"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "beisong.fangla.art.cast.songjiang",
+       "name": "宋江",
+       "kind": "figure",
+       "ref": {
+        "prop": "figure",
+        "actor": "songjiang"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "beisong.fangla.art.cast.tongguan",
+       "name": "童贯",
+       "kind": "figure",
+       "ref": {
+        "prop": "figure",
+        "actor": "tongguan"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（人物立绘），题材：梁山·方腊（1120—1121 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 方腊；2. 宋江。\n第 2 行：3. 童贯；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.fangla.sheet.props.1",
+     "category": "props",
+     "categoryLabel": "道具器物",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.fangla.art.props.1",
+       "name": "长枪",
+       "kind": "prop",
+       "note": "枪身修长，锋尖寒芒，红缨垂坠",
+       "ref": {
+        "prop": "spear"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "beisong.fangla.art.props.2",
+       "name": "舟船",
+       "kind": "prop",
+       "note": "木舟与船夫，船尾水痕",
+       "ref": {
+        "prop": "boat"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（道具器物），题材：梁山·方腊（1120—1121 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 长枪（枪身修长，锋尖寒芒，红缨垂坠）；2. 舟船（木舟与船夫，船尾水痕）。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.fangla.sheet.scenery.1",
+     "category": "scenery",
+     "categoryLabel": "场景环境",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.fangla.art.scenery.1",
+       "name": "大江水面",
+       "kind": "scenery"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.fangla.art.scenery.2",
+       "name": "白色飞白浪花",
+       "kind": "scenery"
+      },
+      {
+       "slot": 3,
+       "id": "beisong.fangla.art.scenery.3",
+       "name": "涟漪",
+       "kind": "scenery"
+      },
+      {
+       "slot": 4,
+       "id": "beisong.fangla.art.scenery.4",
+       "name": "风帆",
+       "kind": "scenery"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（场景环境），题材：梁山·方腊（1120—1121 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 大江水面；2. 白色飞白浪花。\n第 2 行：3. 涟漪；4. 风帆。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.fangla.sheet.effects.1",
+     "category": "effects",
+     "categoryLabel": "水墨特效",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 3,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.fangla.art.effects.1",
+       "name": "泼墨墨点飞溅",
+       "kind": "fx"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.fangla.art.effects.2",
+       "name": "飞白笔触",
+       "kind": "fx"
+      },
+      {
+       "slot": 3,
+       "id": "beisong.fangla.art.effects.3",
+       "name": "突刺枪花",
+       "kind": "fx"
+      },
+      {
+       "slot": 4,
+       "id": "beisong.fangla.art.effects.4",
+       "name": "命中溅墨",
+       "kind": "fx"
+      },
+      {
+       "slot": 5,
+       "id": "beisong.fangla.art.effects.5",
+       "name": "船行尾迹",
+       "kind": "fx"
+      },
+      {
+       "slot": 6,
+       "id": "beisong.fangla.art.effects.6",
+       "name": "巨浪拍船",
+       "kind": "fx"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（水墨特效），题材：梁山·方腊（1120—1121 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触；3. 突刺枪花。\n第 2 行：4. 命中溅墨；5. 船行尾迹；6. 巨浪拍船。\n排版参考尺寸：1536×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    }
+   ]
   },
   {
    "outlineId": "15-09",
@@ -5210,6 +7036,328 @@
      "to": "wanyanzongwang",
      "relation": "守城对攻",
      "type": "rival"
+    }
+   ],
+   "artPrompts": [
+    {
+     "id": "beisong.jingkang.sheet.cast.1",
+     "category": "cast",
+     "categoryLabel": "人物立绘",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 3,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.jingkang.art.cast.huizong",
+       "name": "宋徽宗（赵佶）",
+       "kind": "figure",
+       "note": "宋·君主",
+       "ref": {
+        "prop": "figure",
+        "actor": "huizong"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "beisong.jingkang.art.cast.qinzong",
+       "name": "宋钦宗（赵桓）",
+       "kind": "figure",
+       "note": "宋·君主",
+       "ref": {
+        "prop": "figure",
+        "actor": "qinzong"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "beisong.jingkang.art.cast.ligang",
+       "name": "李纲（亲征行营使）",
+       "kind": "figure",
+       "note": "宋·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "ligang"
+       }
+      },
+      {
+       "slot": 4,
+       "id": "beisong.jingkang.art.cast.wanyanzongwang",
+       "name": "完颜宗望（金东路军统帅）",
+       "kind": "figure",
+       "note": "金·武将",
+       "ref": {
+        "prop": "figure",
+        "actor": "wanyanzongwang"
+       }
+      },
+      {
+       "slot": 5,
+       "id": "beisong.jingkang.art.cast.wanyanzonghan",
+       "name": "完颜宗翰（金西路军统帅）",
+       "kind": "figure",
+       "note": "金·武将",
+       "ref": {
+        "prop": "figure",
+        "actor": "wanyanzonghan"
+       }
+      },
+      {
+       "slot": 6,
+       "id": "beisong.jingkang.art.cast.guojing",
+       "name": "郭京（自称能施六甲法者）",
+       "kind": "figure",
+       "note": "宋·其他",
+       "ref": {
+        "prop": "figure",
+        "actor": "guojing"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（人物立绘），题材：靖康之变·二帝北迁（1126—1127 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 宋徽宗（赵佶）（宋·君主）；2. 宋钦宗（赵桓）（宋·君主）；3. 李纲（亲征行营使）（宋·文臣）。\n第 2 行：4. 完颜宗望（金东路军统帅）（金·武将）；5. 完颜宗翰（金西路军统帅）（金·武将）；6. 郭京（自称能施六甲法者）（宋·其他）。\n排版参考尺寸：1536×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.jingkang.sheet.props.1",
+     "category": "props",
+     "categoryLabel": "道具器物",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.jingkang.art.props.1",
+       "name": "盾牌",
+       "kind": "prop",
+       "note": "圆盾，墨色包边，正面徽记",
+       "ref": {
+        "prop": "shield"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "beisong.jingkang.art.props.2",
+       "name": "角弓与箭",
+       "kind": "prop",
+       "note": "弯弓与箭矢，弓弦紧绷",
+       "ref": {
+        "prop": "bow"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "beisong.jingkang.art.props.3",
+       "name": "旌旗",
+       "kind": "prop",
+       "note": "高杆大旗，旗面被风鼓起，穗带飘动",
+       "ref": {
+        "prop": "banner"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（道具器物），题材：靖康之变·二帝北迁（1126—1127 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 盾牌（圆盾，墨色包边，正面徽记）；2. 角弓与箭（弯弓与箭矢，弓弦紧绷）。\n第 2 行：3. 旌旗（高杆大旗，旗面被风鼓起，穗带飘动）；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.jingkang.sheet.scenery.1",
+     "category": "scenery",
+     "categoryLabel": "场景环境",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 4,
+      "rows": 3
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.jingkang.art.scenery.1",
+       "name": "远山（淡墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.jingkang.art.scenery.2",
+       "name": "近坡（中墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 3,
+       "id": "beisong.jingkang.art.scenery.3",
+       "name": "土坡地线",
+       "kind": "scenery"
+      },
+      {
+       "slot": 4,
+       "id": "beisong.jingkang.art.scenery.4",
+       "name": "草丛（枯笔）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 5,
+       "id": "beisong.jingkang.art.scenery.5",
+       "name": "城墙垛口",
+       "kind": "scenery"
+      },
+      {
+       "slot": 6,
+       "id": "beisong.jingkang.art.scenery.6",
+       "name": "城门与吊桥",
+       "kind": "scenery"
+      },
+      {
+       "slot": 7,
+       "id": "beisong.jingkang.art.scenery.7",
+       "name": "军营帐幕",
+       "kind": "scenery"
+      },
+      {
+       "slot": 8,
+       "id": "beisong.jingkang.art.scenery.8",
+       "name": "烽火台",
+       "kind": "scenery"
+      },
+      {
+       "slot": 9,
+       "id": "beisong.jingkang.art.scenery.9",
+       "name": "城墙雉堞",
+       "kind": "scenery"
+      },
+      {
+       "slot": 10,
+       "id": "beisong.jingkang.art.scenery.10",
+       "name": "河水",
+       "kind": "scenery"
+      },
+      {
+       "slot": 11,
+       "id": "beisong.jingkang.art.scenery.11",
+       "name": "关门",
+       "kind": "scenery"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（场景环境），题材：靖康之变·二帝北迁（1126—1127 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：4×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 远山（淡墨）；2. 近坡（中墨）；3. 土坡地线；4. 草丛（枯笔）。\n第 2 行：5. 城墙垛口；6. 城门与吊桥；7. 军营帐幕；8. 烽火台。\n第 3 行：9. 城墙雉堞；10. 河水；11. 关门；12. 留空。\n排版参考尺寸：2048×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       2048,
+       1536
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "beisong.jingkang.sheet.effects.1",
+     "category": "effects",
+     "categoryLabel": "水墨特效",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 3,
+      "rows": 3
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "beisong.jingkang.art.effects.1",
+       "name": "泼墨墨点飞溅",
+       "kind": "fx"
+      },
+      {
+       "slot": 2,
+       "id": "beisong.jingkang.art.effects.2",
+       "name": "飞白笔触",
+       "kind": "fx"
+      },
+      {
+       "slot": 3,
+       "id": "beisong.jingkang.art.effects.3",
+       "name": "箭矢破空",
+       "kind": "fx"
+      },
+      {
+       "slot": 4,
+       "id": "beisong.jingkang.art.effects.4",
+       "name": "命中靶心墨点",
+       "kind": "fx"
+      },
+      {
+       "slot": 5,
+       "id": "beisong.jingkang.art.effects.5",
+       "name": "风卷旗影",
+       "kind": "fx"
+      },
+      {
+       "slot": 6,
+       "id": "beisong.jingkang.art.effects.6",
+       "name": "爆裂墨团",
+       "kind": "fx"
+      },
+      {
+       "slot": 7,
+       "id": "beisong.jingkang.art.effects.7",
+       "name": "火星迸射",
+       "kind": "fx"
+      },
+      {
+       "slot": 8,
+       "id": "beisong.jingkang.art.effects.8",
+       "name": "落石扬尘",
+       "kind": "fx"
+      },
+      {
+       "slot": 9,
+       "id": "beisong.jingkang.art.effects.9",
+       "name": "火油烈焰",
+       "kind": "fx"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（水墨特效），题材：靖康之变·二帝北迁（1126—1127 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、蓝灰色 #8a391a、米色 #ebdcc9。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触；3. 箭矢破空。\n第 2 行：4. 命中靶心墨点；5. 风卷旗影；6. 爆裂墨团。\n第 3 行：7. 火星迸射；8. 落石扬尘；9. 火油烈焰。\n排版参考尺寸：1536×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1536
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
     }
    ]
   }
