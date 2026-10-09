@@ -2,7 +2,7 @@
 
 [目录](./README.md) · [上一章](./06-input-strokes-and-physics.md) · [下一章](./08-gameplay-and-persistence.md)
 
-> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主能播「易水寒」并走正史 / 野史；玩法模板、`PostStack`、景深和真实 GPU 验收仍未完成。
 
 2.0 的画面由 `InkWash`（`src/core/ink-wash.ts`）在 Pixi RenderTexture 上运行 inkEngine 的整条笔刷管线。笔刷逐帧移植自 `thirdparty/inkEngine/ink-engine.js`，着色器由 `scripts/port-inkengine-shaders.mjs` 从同一快照转换而来，文件头写了归属。逐项对照见 [第 12 章](./12-inkengine-parity-audit.md)。旧的 `InkFluid` 仍只服务 `/inkcross/`，本节最后单列。
 
@@ -131,7 +131,7 @@ wash.paint({
 
 ## 横版切片：`InkSurface` 与三样画面
 
-`InkSurface`（`src/core/ink-surface.ts`）按 `InkWash` 的缓冲和 pass 顺序，把宿主换成 `WebGLRenderTarget`。`InkBrushEngine`、调色板、纸纹、36 色和 `ink-shaders.ts` 的片元文本仍共用。pass 用 `RawShaderMaterial` 和 GLSL3。`paint(stroke)`、`update()`、`texture`、`wash(x, y, radius)`、`snapshot()` 已导出。中间目标是线性色彩，不做额外 sRGB 往返。和 inkEngine 的逐项对照仍以 [第 12 章](./12-inkengine-parity-audit.md) 的 Pixi 审计为准，three.js 上还没有重跑，真实 GPU 未实测。
+`InkSurface`（`src/core/ink-surface.ts`）按 `InkWash` 的缓冲和 pass 顺序，把宿主换成 `WebGLRenderTarget`。`InkBrushEngine`、调色板、纸纹、36 色和 `ink-shaders.ts` 的片元文本仍共用。pass 用 `RawShaderMaterial` 和 GLSL3。`paint(stroke)`、`beginStroke` / `addPoint` / `endStroke`、`update()`、`texture`、`wash(x, y, radius)`、`snapshot()` / `restore()`、`replayEffect(finish)` 已导出。中间目标是线性色彩，不做额外 sRGB 往返。同一组笔画在 Pixi `InkWash` 与 three `InkSurface` 上的并排见 [第 12 章](./12-inkengine-parity-audit.md) 的 three.js 一节。那是无头 SwiftShader 的平均绝对差，不是逐像素一致，真实 GPU 未实测。
 
 盖章矩形的第 0 行是笔画上方。`readRenderTargetPixels` 读回的缓冲已经是上到下，调用方不要再翻行。远景平面贴 `texture`，采样与这套行序一致。
 
@@ -139,4 +139,4 @@ wash.paint({
 2. **皴法与勾边。** `createCunRock(kind, x, y, radius, seed)` 的 `kind` 是 `'hemp'` 或 `'axe'`。外壳沿法线挤出，宽度是 `cunOutlineWidth(inkCameraDistance(height), cameraRig.distance)`，拉近更粗，夹在 1.2 到 7。毛边用 `src/core/classic-noise.ts` 里的 classic Perlin（Stefan Gustavson，MIT）。山石不用 `OutlinePass`。
 3. **断竹。** `BambooView` 在顶点着色器里做正弦摆动，只影响显示。`Playfield.cutBamboo` 把刚体拆成静态根和动态上段。断口墨滴不超过 `DROPLET_CAP`（256），受重力下落，不写回地面纹理。
 
-过场里的 `inkDisperse` 与 `bambooBreak` 还没有接到 `EffectCue`。切片里的洇染来自脚步接触，断竹来自 `attack()`。
+过场里的 `inkDisperse` 与 `bambooBreak` 仍没有单独画面。切片里的洇染来自脚步接触，断竹来自 `attack()`。字幕 `InkText` 把标题、旁白和印章画进 `CanvasTexture`（`flipY` 为假），不引入文字库。印章的圆弧只用在显示画布上。

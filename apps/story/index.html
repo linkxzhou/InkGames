@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1e2827" />
+  <title>易水寒 · InkGames</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .story-stage { width: min(1280px, 100%); margin: 0 auto; }
+    .story-stage canvas { display: block; width: 100%; height: auto; background: #d6cebc; }
+    .story-panel { max-width: 1280px; margin: 12px auto 0; display: grid; gap: 10px; color: #24312d; }
+    .story-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .story-actions button { font: inherit; padding: 8px 14px; border: 1px solid #24312d; background: #f6f0e4; cursor: pointer; }
+    .story-actions button:disabled { opacity: 0.45; cursor: default; }
+    .story-timeline { display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px; }
+    .story-timeline span { border: 1px solid #c8bfae; padding: 2px 8px; }
+    .story-timeline .here { background: #1a1a1a; color: #f6f0e4; }
+    #status { font-size: 14px; line-height: 1.6; }
+  </style>
+</head>
+<body class="demo">
+  <header class="demo-header">
+    <a href="../" class="brand"><span class="brand-seal">墨</span><span>INKGAMES <small>易水寒</small></span></a>
+    <a href="../" class="back">← 返回十卡</a>
+  </header>
+  <main class="demo-layout">
+    <div class="demo-heading">
+      <div>
+        <span class="demo-index">叙事</span>
+        <h1 id="title">易水寒</h1>
+      </div>
+      <p>正史开场按帧播放。结束后选择正史或野史。旁白文件不在仓库里，音轨用短音代替。真实 GPU 未实测。</p>
+    </div>
+    <div class="canvas-shell story-stage" id="canvas-root">
+      <canvas id="view" width="1280" height="720"></canvas>
+    </div>
+    <div class="story-panel">
+      <p id="status" role="status"></p>
+      <div id="choices" class="story-actions"></div>
+      <div class="story-actions">
+        <button id="skip" type="button">跳到选择</button>
+        <button id="continue" type="button">继续</button>
+        <button id="save" type="button">存档</button>
+        <button id="load" type="button">读档</button>
+      </div>
+      <div id="timeline" class="story-timeline"></div>
+    </div>
+  </main>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

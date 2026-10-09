@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pixi 与 three.js 并排 · InkGames</title>
+  <link rel="icon" href="data:," />
+  <style>
+    body { margin: 0; background: #111; color: #eee; font-family: "WenQuanYi Micro Hei", sans-serif; }
+    header { padding: 12px 16px; font-size: 14px; }
+    .row { display: flex; gap: 8px; padding: 0 16px 16px; }
+    figure { margin: 0; }
+    figcaption { font-size: 13px; padding: 6px 0; }
+    canvas { display: block; background: #222; }
+  </style>
+</head>
+<body>
+  <header id="caption">并排对照</header>
+  <div class="row">
+    <figure>
+      <figcaption>Pixi InkWash</figcaption>
+      <div id="pixi"></div>
+    </figure>
+    <figure>
+      <figcaption>three.js InkSurface</figcaption>
+      <div id="three"></div>
+    </figure>
+  </div>
+  <script type="module" src="./parity-main.ts"></script>
+</body>
+</html>

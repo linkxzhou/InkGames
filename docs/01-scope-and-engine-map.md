@@ -2,7 +2,7 @@
 
 [目录](./README.md) · [下一章](./02-host-and-render-backend.md)
 
-> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主能播「易水寒」并走正史 / 野史；玩法模板、`PostStack`、景深和真实 GPU 验收仍未完成。
 
 仓库里同时有两套能跑的运行时。它们不共享时钟，也不共享墨层。
 
@@ -60,6 +60,8 @@
 | `TerrainSeep`、`SEEP_WIDTH`、`SEEP_HEIGHT`、`bakeHeightField`、`contactsToStamps`、`terrainHeightAt` | 512×256 地面洇染 |
 | `createCunRock`、`cunOutlineWidth`、`CunKind`、`CunRock` | 披麻 / 斧劈皴与随距离变化的勾边 |
 | `BambooView`、`DROPLET_CAP`、`clampDropletCount` | 竹的摆动、断开和最多 256 个墨滴 |
+| `SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`StoryStage` | 读场景包、播过场、走剧情图、Canvas 字幕、本地存档。演示页 `/story/` |
+| `parseScenePackage`、`parseChapterBundle`、`conditionMet`、`resolveStrokeCue` | 只读解析 `plan/11` 的场景 JSON，并把道具 / 笔刷提示收成笔画 |
 
 ```ts
 import { InkView } from '@inkgames/engine';
@@ -77,6 +79,6 @@ view.frame(1 / 60);
 view.dispose();
 ```
 
-## 仍未实现
+## 仍未完成
 
-叙事宿主还没有类：`PostStack`、`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`。字幕已定为 Canvas 纹理，播放器属于这一组，切片里没有接上。`webglcontextlost` 只暂停 `Playfield`，不重建渲染目标。真实 GPU 未实测。
+`PostStack` 没有单独的类。过场里的 flow / distort / metallic / wash / fade 由 `StoryStage` 写到 `InkSurface` 或一张淡出平面；遮罩是画布暗角，不是 GLSL pass。玩法节点只显示目标文字并等待继续，对决等模板没有模拟。景深散景、`inkgames.ink-recording` 回放、以及「同一机器连播两次末帧逐像素一致」都还没有。Pixi `InkStage` 在上下文丢失后仍不重建纹理。three.js 的 `InkView` 与 `StoryStage` 会在 `webglcontextrestored` 后重建渲染目标，并从丢失前的 `snapshot` 贴回；无头 SwiftShader 用 `WEBGL_lose_context` 走过 `/scroll/?pose=rest`，真实 GPU 未实测。

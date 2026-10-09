@@ -2,7 +2,7 @@
 
 [目录](./README.md) · [上一章](./07-ink-rendering.md) · [下一章](./09-tooling-and-quality.md)
 
-> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主能播「易水寒」并走正史 / 野史；玩法模板、`PostStack`、景深和真实 GPU 验收仍未完成。
 
 十卡是同一张 1280×720 的纸，加上各自的一句交互。画面上所有东西都由 [第 7 章](./07-ink-rendering.md) 的 inkEngine 笔刷一笔一笔画出来，笔刷取自一张表。刚体仍然是圆和矩形，只决定碰撞，不决定长相。
 
@@ -81,4 +81,12 @@
 
 录制格式 `inkgames.ink-recording` 版本 2 还没有。现行 `recording.ts` 仍只服务 v0.1。
 
-开场动画、旁白、字幕、存档和剧情图还没有类。名字仍是 `CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`StoryRuntime`、`SceneDirector`。字幕已定为 Canvas 纹理，本页没有字幕。轨道字段以 [内容数据格式](../plan/11-history-game-content-schema.md) 为准。
+## 叙事演示：`/story/`
+
+`apps/story/` 只读导入 `plan/11-history-game-data/scene-zhanguo-jingke.example.json`，不改这些数据文件。`parseScenePackage` 收成 `ScenePackage`。`StoryStage` 拥有自己的 `WebGLRenderer` 和一层一个 `InkSurface`。开场 `cutscene.zhanguo.jingke.opening` 按 60 帧时钟播五个镜头；标题、旁白由 `InkText` 画在画布纹理上。缺的配音和 BGM 文件不在仓库里，`AudioBus` 用短振荡器占位，旁白结束帧仍按这段时长放开同步点。
+
+情节树：开场之后是选择。`pick.canon` 走上朝、柱、结局；`pick.legend` 走琴、逃、结局。缺过场定义的节点（野史琴）显示标签并等待继续。`pick.whatif` 要正史和野史都已通关才出现。玩法节点显示目标文字，例如「稳住秦舞阳」，点继续即完成，不跑对决。
+
+存档键 `inkgames.save`，版本 1。进入节点时写入检查点（构造时不写，避免盖掉已有档）。`resume()` 回到检查点上的节点。时间线列出入口、出口和节点 id，当前节点加 `here`。`?pose=title` 停在开场前几十帧；`?pose=fork` 快进到选择；`?pose=canon` 再选正史。没有 `pose` 时按动画帧往下播。
+
+录制格式 `inkgames.ink-recording` 版本 2 还没有。`StrokeCue` 的 `recording` 来源返回空笔画。荆轲开场没有这种提示。轨道字段以 [内容数据格式](../plan/11-history-game-content-schema.md) 为准。

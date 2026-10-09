@@ -1,6 +1,6 @@
 # 10 · three.js + Matter.js 横版水墨动作引擎
 
-状态：**M0–M4 已落地，M5 未做**。本文件取代 2026-10-08 的 PixiJS 舞台未完成清单（`10-v2-pixi-matter-ink-game-engine-plan.md`，已删除）。十卡舞台仍是 PixiJS 8.22.0 + Matter.js 0.20.0。横版切片是 `three@0.186.1`，入口 `apps/scroll/`，公共 API 从 `src/index.ts` 导出。真实 GPU 未实测。
+状态：**M0–M4 已落地，M5 部分落地**。本文件取代 2026-10-08 的 PixiJS 舞台未完成清单（`10-v2-pixi-matter-ink-game-engine-plan.md`，已删除）。十卡舞台仍是 PixiJS 8.22.0 + Matter.js 0.20.0。横版切片是 `three@0.186.1`，入口 `apps/scroll/`；叙事演示在 `apps/story/`。公共 API 从 `src/index.ts` 导出。真实 GPU 未实测。
 
 历史游戏的叙事、过场数据和缺口优先级在 [12 · 引擎缺口](./12-history-game-engine-gaps.md)，故事结构在 [11 · 故事与玩法](./11-history-game-story-design.md)。本文写引擎怎么搭，并与第 12 章的模块名对齐。剧情正文不在这里展开。两边若措辞不一致，以 §11 已确认的条目为准，其余模块名以本文与第 12 章已经对齐的名字为准。
 
@@ -222,7 +222,7 @@ interface InkEffects {
 
 资源：渲染目标、监听、音频节点都登记清理，`dispose()` 幂等。过场和场景切换时由 `SceneDirector` 成对释放，不把纹理留到下一章。
 
-和渲染无关、可以在 three.js 进仓库之前就写的部分，plan/12 已经点明：内容格式校验、`StoryRuntime`、`SaveStore`、`AudioBus` 的调度逻辑。它们用 vitest 覆盖，不创建 WebGL。本文不把它们提前做成代码。
+内容格式校验、`StoryRuntime`、`SaveStore`、`AudioBus` 的调度已经在 `src/core/`，由 `tests/narrative.test.ts` 覆盖，不创建 WebGL。页面只读 `plan/11-history-game-data`，不改那些 JSON。
 
 ## 3. 现有水墨管线怎么进 three.js
 
@@ -414,12 +414,12 @@ Playfield 碰撞（角色 × 地面）
 
 - [x] **M0 文档。** 本计划、docs 里的切片说明、与 plan/12 的模块名对齐。所有者已按 §11 逐条确认（2026-10-09）。
 - [x] **M1 能走的坡。** `InkView`、透视侧视、`Playfield` 固定步和插值、角色圆、折线地面。`tests/playfield.test.ts` 不创建 GL。
-- [x] **M2 墨面。** `InkSurface` 提供 `paint` / `update` / `texture`。历史游戏 M1 可以开始接过场；过场播放器本身仍是 M5。
+- [x] **M2 墨面。** `InkSurface` 提供 `paint` / `update` / `texture`。过场播放器接在 M5。
 - [x] **M3 三样画面。** `TerrainSeep`（512×256）、`createCunRock` 勾边、`BambooView` 墨滴。SwiftShader 截图见 `node scripts/gpu-check.mjs --shots`。真实 GPU 未实测。
 - [x] **M4 动作补全。** 单向平台、击退、扫掠、可砍。`InkView.washAt` 先 `washBridge` 再 `InkSurface.wash`。演示页 `apps/scroll/`。
-- [ ] **M5 叙事宿主。** 范围和验收用 plan/12 的 M1。`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`PostStack` 都还没有类。字幕定为 Canvas 纹理，也还没做。
+- [~] **M5 叙事宿主。** `SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`StoryStage` 已从 `src/index.ts` 导出。`apps/story/` 只读荆轲样例：正史开场按帧时钟走，Canvas 字幕画出「易水寒」，选择处可进正史或野史，检查点可 `resume`。`PostStack` 没有类；flow / distort / metallic / wash / fade 由 `StoryStage` 写到墨面或淡出平面，遮罩是画布暗角。玩法节点只显示目标并等待继续。配音文件不在仓库里，`AudioBus` 用振荡器占位。景深、录制回放、plan/12 M1 的三场景通关、两次播放末帧逐像素一致、独显帧时都未做。CPU 证据是 `tests/narrative.test.ts`。无头截图只证明着色器能编过。
 
-坡度行走、击退和扫掠写在 `Playfield` 上，没有单独的 `ActorController` 或 `Combat` 类。竹的显示类名是 `BambooView`。上下文丢失只暂停，不重建渲染目标。
+坡度行走、击退和扫掠写在 `Playfield` 上，没有单独的 `ActorController` 或 `Combat` 类。竹的显示类名是 `BambooView`。Pixi `InkStage` 在上下文丢失后仍只暂停。three.js 的 `InkView` 与 `StoryStage` 在 `webglcontextrestored` 后重建渲染目标，并从丢失前的 `snapshot` 贴回。真实 GPU 未实测。
 
 ## 9. 验收
 
@@ -459,7 +459,7 @@ Playfield 碰撞（角色 × 地面）
 | 色彩空间把墨洗淡或洗灰 | 中间目标线性写入，上屏再对照一笔 |
 | 片元 Y 翻折和 Pixi 不一致 | 对照页决定翻折，单测锁 CPU 笔触 |
 | 开场笔数多，SwiftShader 上现行十卡就要 18–35 秒 | 矩形 scissor、分帧、`snapshot` 关键帧（G-08）。真实 GPU 未测 |
-| 上下文丢失 | 现行 Pixi 只暂停。three.js 侧要在恢复时重建渲染目标，能从最近的 `snapshot` 和存档回来（G-19，P1） |
+| 上下文丢失 | Pixi `InkStage` 仍只暂停。three.js 的 `InkView` / `StoryStage` 已在恢复时重建渲染目标并贴回最近的 `snapshot`。无头路径用 `WEBGL_lose_context`。真实 GPU 与跨章节存档回放未实测（G-19） |
 | 3D 场景看起来像默认示例，不像水墨 | 纸色底、无 PBR、墨面 multiply 到纸上。皴和勾边失败时退回 §4 的后退路径 |
 | Matter 跨版本不是逐位确定 | 玩法回放锁 matter-js 0.20.0。不承诺跨浏览器逐位相同 |
 | 过场帧时钟和玩法固定步互相多推墨 | `SceneDirector` 同一时刻只跑一个时钟 |
@@ -490,8 +490,8 @@ Playfield 碰撞（角色 × 地面）
 11. **竹。已确认。** 顶点着色器摆动；上段进 Matter；墨滴不写回地面。`Skeleton` 留给以后的人物。
 12. **十卡。已确认。** 迁移完成前保持 Pixi 可玩，首页仍是十卡。
 13. **three.js 用法。已确认。** `WebGLRenderer` + `RawShaderMaterial` + GLSL3。不用 WebGPU / TSL。版本锁定为 2026-10-09 查询到的 npm latest **0.186.1**。
-14. **两套时钟。已确认。** 玩法固定步带插值；过场用帧时钟并且不跳笔；过场期间物理暂停。过场播放器仍是 M5，本切片只把玩法时钟做成可暂停。
+14. **两套时钟。已确认。** 玩法固定步带插值；过场用帧时钟并且不跳笔；过场期间物理暂停。确认当时过场播放器还没写。随后 `CutscenePlayer` 按帧推进，`StoryStage` 播过场时不调用 `Playfield`。跳过会把实时笔画收成一次 `paint`。
 15. **两条切片。已确认。** 引擎切片包含坡、洇染、皴法、断竹。历史游戏 M1 等 `InkSurface` 可用再开始，G-16 的叙事触发保持 P1。
-16. **字幕。已确认。** P0 用 Canvas 纹理，不引入 troika-three-text 或其它文字依赖。字幕播放属于叙事宿主（M5），本切片不把字幕接进关卡。
+16. **字幕。已确认。** P0 用 Canvas 纹理，不引入 troika-three-text 或其它文字依赖。`InkText` 已在 `/story/` 的过场里画标题和旁白，关卡页 `/scroll/` 仍没有字幕。
 17. **模块名。已确认。** 与 plan/12 对齐为 `InkSurface`、`CameraRig`、`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`PostStack`。
 18. **真实 GPU。已确认。** 由所有者在自己的 Mac（Apple Silicon，Chrome）上验收。在那之前文档保持「未实测」。仓库提供一条本地命令 `node scripts/gpu-check.mjs`：无头时只证明着色器能编过、没有 GL 错误；真实 GPU 的画面以所有者那次为准。
