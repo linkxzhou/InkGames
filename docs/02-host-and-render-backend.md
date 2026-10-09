@@ -2,6 +2,8 @@
 
 [目录](./README.md) · [上一章](./01-scope-and-engine-map.md) · [下一章](./03-microkernel-and-loop.md)
 
+> 本章正文描述**现行代码**。文末「计划（未实现）」是 three.js + Matter.js 的目标，类还没有导出，不能当调用示例。
+
 ## 2.0：`InkStage` 拥有唯一的 Pixi 应用
 
 `InkStage.create` 调用 `Application.init`，参数写死在 `src/core/ink-stage.ts`：
@@ -38,3 +40,15 @@
 - 再开一个 Pixi ticker 或 `Matter.Runner`，角色和墨就会各走各的步。
 - 在 `apps/` 里拿 `stage.app.renderer.gl` 改状态。页面只应调用 `InkStage` 的 `act` / `replay` / `togglePause` / `reset` / `dispose`。
 - 把 `resolution` 改成 `devicePixelRatio` 却不改 `InkWorld` 的米制。碰撞仍是 1280×720 的像素坐标。
+
+## 计划（未实现）
+
+`InkView` 持有 three.js 的 `WebGLRenderer` 和 `Scene`。内部分辨率仍是 1280×720，画布 CSS 仍是 `object-fit: contain`。`devicePixelRatio` 的上限还没定。
+
+渲染器用 WebGL，不用 WebGPU。水墨 pass 用 `RawShaderMaterial`，GLSL 版本为 GLSL3，这样 three.js 不会把内置属性块注入到已经移植好的片元里。`EffectComposer` 只用于最后的淡入、遮罩和可选景深，不拿来做墨的 ping-pong。
+
+相机是侧视的 `PerspectiveCamera`，fov 为 π/3，放在 `z = inkCameraDistance(高度)`，朝原点看。`camera.up` 设为 `(0, -1, 0)`，使 three.js 的 Y 与现在的像素坐标一样向下。层深仍是 `INK_LAYER_Z`：远景 −80、纸面 0、角色 40、文字 120。这些是像素级视差，由透视相机产生大小差，不再给精灵手乘 `inkLayerScale`。变焦改相机到纸面的距离。正交相机只作调试。
+
+`webglcontextlost` 时暂停。恢复后要重建渲染目标，并能从 `InkSurface.snapshot()` 贴回最近一帧。现行 Pixi 舞台做不到自动重建，这一点结转到计划里，还没有实现。
+
+`dispose()` 仍然幂等：取消 RAF、卸监听、丢掉物理世界和渲染目标，再 `renderer.dispose()`。Pixi 和 three 不画在同一张画布上。

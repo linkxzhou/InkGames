@@ -2,6 +2,8 @@
 
 [目录](./README.md) · [下一章](./02-host-and-render-backend.md)
 
+> 本章正文描述**现行代码**。文末「计划（未实现）」是 three.js + Matter.js 的目标，类还没有导出，不能当调用示例。
+
 仓库里同时有两套能跑的运行时。它们不共享时钟，也不共享墨层。
 
 | 运行时 | 入口 | 画面 | 物理 | 页面 |
@@ -43,4 +45,22 @@
 
 ## 还不能当成完成的部分
 
-真实桌面 GPU 的帧率、WebGL 上下文自动重建、遮罩、景深模糊、EasyCam 的回放变焦、2.0 自己的录制格式、按道具拆开的插件文件。清单在 [剩余工作](../plan/10-v2-pixi-matter-ink-game-engine-plan.md)。和 inkEngine 的逐项差距在 [第 12 章](./12-inkengine-parity-audit.md)。
+真实桌面 GPU 的帧率、WebGL 上下文自动重建、遮罩、景深模糊、EasyCam 的回放变焦、2.0 自己的录制格式、按道具拆开的插件文件。这些仍是现行 Pixi 舞台的缺口，结转说明在 [引擎计划](../plan/10-three-matter-side-scroller-plan.md)。和 inkEngine 的逐项差距在 [第 12 章](./12-inkengine-parity-audit.md)。
+
+## 计划（未实现）
+
+渲染目标改为 three.js。`src/` 里还没有 `InkView`。公共出口以后会增加这些名字，现在不要假设它们已经导出。名字与 [plan/12](../plan/12-history-game-engine-gaps.md) 的缺口表对齐，技术设计在 [引擎计划](../plan/10-three-matter-side-scroller-plan.md)。
+
+| 模块 | 做什么 |
+|---|---|
+| `InkView` | `WebGLRenderer`、场景、画布、销毁 |
+| `Playfield` | Matter 世界、固定步、把刚体 x/y 写到模型 |
+| `CameraRig` | 侧视透视相机、跟随、过场变焦 |
+| `InkSurface` | 现行 `InkWash` 的后继：墨面渲染目标，可作平面，也可作地形动态纹理 |
+| `PostStack` | flow / distort / metallic / wash / mask，以及洇染和断竹的入口 |
+| `SceneDirector` | 加载场景、转场、按场景释放资源 |
+| `StoryRuntime` | 剧情图。故事内容在 plan/11，不在引擎文档里写 |
+| `CutscenePlayer` | 开场动画。轨道格式在 plan/11 的内容数据格式 |
+| `AudioBus` / `InkText` / `SaveStore` | 声音、字幕与竖排、存档 |
+
+十卡页面继续用现在的 `InkStage`。新的横版切片会是单独页面，实现之前首页仍是十张卡。

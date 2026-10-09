@@ -1,8 +1,8 @@
 # 11 · 旧路线参考资料、在线核验与检索结论
 
-[目录](./README.md) · [上一章](./10-shipping-and-ecosystem.md) · [现行剩余工作](../plan/10-v2-pixi-matter-ink-game-engine-plan.md)
+[目录](./README.md) · [上一章](./10-shipping-and-ecosystem.md) · [引擎计划](../plan/10-three-matter-side-scroller-plan.md)
 
-> **历史附录**：本文保存 2026-10-08 p5.js/原生 WebGL2 路线的研究与当时的决策记录。文中“已落实在 plan/07 / 前十章”只描述当时的版本。`plan/07` 已于同日删除，删除原因见 [规划索引](../plan/README.md)。R1–R6 的 p5 专属结论不能推定 PixiJS 行为。现行实现以 [docs/01](./01-scope-and-engine-map.md) 到 [docs/10](./10-shipping-and-ecosystem.md) 为准，未做完的事在 [剩余工作](../plan/10-v2-pixi-matter-ink-game-engine-plan.md)。
+> **历史附录加 2026-10-09 的出处。** §1–§6 保存 2026-10-08 p5.js/原生 WebGL2 路线的研究与当时的决策记录。文中“已落实在 plan/07 / 前十章”只描述当时的版本。`plan/07` 已于同日删除，删除原因见 [规划索引](../plan/README.md)。R1–R6 的 p5 专属结论不能推定 PixiJS 或 three.js 的行为。现行实现以 [docs/01](./01-scope-and-engine-map.md) 到 [docs/10](./10-shipping-and-ecosystem.md) 里标成现行的部分为准。three.js 引擎计划在 [plan/10](../plan/10-three-matter-side-scroller-plan.md)。§7 是 2026-10-09 为这次架构切换补的出处，同样没有在浏览器里跑过那些示例。
 >
 > **检索日期：2026-10-08（UTC+8）。**方法：WebSearch/WebFetch 阅读原文；curl 检查链接状态码；npm registry 取版本与发布时间；下载 `p5@2.3.4` npm 包并对照 GitHub 标签 `v2.3.4` 源码静态阅读。**本章所有条目都没有在浏览器里运行实测**（“是否实测”一律为否），源码结论来自阅读，不来自运行。日期照抄来源页面；npm/GitHub 时间为 UTC；页面没写日期的记为“未注明”。本章是资料和证据索引。基于 R1–R14 的修订曾经写进已删除的 plan/07 和当时的前十章；那些计划文件不再存在，正文里的 “plan/07” 是历史叙述。
 
@@ -124,7 +124,7 @@
 
 ## 3. 【检索发现，需决策】
 
-以下两个选择在检索当时尚需 G1/G2 实测与负责人定案。它们曾被写进现已删除的 plan/07。现行门槛见 [剩余工作](../plan/10-v2-pixi-matter-ink-game-engine-plan.md)，本节保留当时的选项原文。
+以下两个选择在检索当时尚需 G1/G2 实测与负责人定案。它们曾被写进现已删除的 plan/07。现行门槛见 [引擎计划](../plan/10-three-matter-side-scroller-plan.md)，本节保留当时的选项原文。
 
 1. **【检索发现，需决策】host-p5 的帧驱动方式。**plan/07 写的是“p5 在宿主驱动帧”。R5 表明 p5 默认按 60 fps 节流 draw，144 Hz 屏上不是每个 RAF 都调用。可选方案：
    - (a) 保留 p5 `draw()` 驱动，host 启动时设 `frameRate()`，并用 RAF 时间戳喂累加器；
@@ -252,3 +252,40 @@
 - Phaser API 类页、VS Code Extension Host、p5.strands 与 v2 迁移教程、MDN `webglcontextlost` 页：仅确认可访问。
 - caniuse 页面没有直接读取，浏览器版本以 MDN BCD 8.1.4 为准，硬件覆盖率以 Web3D Survey 为准。两者口径不同：BCD 只看接口存在，Survey 看实际可用。
 - **全部结论都没在浏览器里运行验证**。R1–R5 应作为 G1 spike 的断言，用目标桌面 Chromium/Safari/Firefox 实测确认后再冻结。
+
+## 7. three.js 架构切换的出处（2026-10-09）
+
+检索日期：2026-10-09。方法：打开下列页面并核对标题或接口名；对列出的 URL 用 HTTP HEAD 看状态码。npm 版本来自 `https://registry.npmjs.org/three/latest` 的响应（`dist` 里的 tarball 名为 `three-0.186.1.tgz`）。**没有在浏览器里跑 three.js 示例，也没有把 three.js 装进本仓库。** 这些页面用来支撑 [引擎计划](../plan/10-three-matter-side-scroller-plan.md) 里的 API 名字，不证明画面已经做成。
+
+状态沿用章首的图例。本节条目都是「已在线阅读 2026-10-09」或「仅确认可访问」，在每条末尾写明。
+
+### 7.1 three.js
+
+- **文档首页与材质。** three.js；页面未注明日期；<https://threejs.org/docs/pages/ShaderMaterial.html>、<https://threejs.org/docs/pages/RawShaderMaterial.html>、<https://threejs.org/docs/pages/WebGLRenderer.html>、<https://threejs.org/docs/pages/WebGLRenderTarget.html>、<https://threejs.org/docs/pages/DataTexture.html>。要点：`ShaderMaterial` 只能配 `WebGLRenderer`；`glslVersion` 可以是 GLSL3；`RawShaderMaterial` 不注入内置块；`setRenderTarget(null)` 回到画布。状态：已在线阅读 2026-10-09。HTTP 200。
+- **相机。** <https://threejs.org/docs/pages/PerspectiveCamera.html>、<https://threejs.org/docs/pages/OrthographicCamera.html>。要点：透视相机的大小随距离变化；正交相机的大小不随距离变化，文档写明它适合 2D 和 UI。计划因此把透视侧视当作默认，正交留作调试。状态：已在线阅读 2026-10-09。HTTP 200。
+- **蒙皮与点。** <https://threejs.org/docs/pages/Skeleton.html>、<https://threejs.org/docs/pages/SkinnedMesh.html>、<https://threejs.org/docs/pages/Bone.html>、<https://threejs.org/docs/pages/Points.html>。要点：骨骼要 `skinIndex` / `skinWeight`；`Points` 是点集。竹的切片计划先用顶点位移，人物骨骼再考虑 `SkinnedMesh`。状态：已在线阅读 2026-10-09。HTTP 200。
+- **射线。** <https://threejs.org/docs/pages/Raycaster.html>、<https://threejs.org/docs/pages/BufferGeometry.html>。状态：仅确认可访问（HTTP 200），实现时再读方法签名。
+- **后处理。** <https://threejs.org/docs/pages/EffectComposer.html>、<https://threejs.org/docs/pages/OutlinePass.html>。示例源码 <https://github.com/mrdoob/three.js/blob/master/examples/webgl_postprocessing_outline.html>。要点：`OutlinePass` 是选中物体的全屏描边，可以贴 `patternTexture`。山石勾边不走这条，因为它给的是干净边缘，不是笔毛。状态：OutlinePass 页已在线阅读；示例页仅确认可访问。HTTP 200。
+- **渲染到纹理与贴花。** <https://github.com/mrdoob/three.js/blob/master/examples/webgl_rtt.html>，在线示例 <https://threejs.org/examples/#webgl_rtt>。贴花示例 <https://threejs.org/examples/#webgl_decals>，源码 <https://github.com/mrdoob/three.js/blob/master/examples/webgl_decals.html>。要点：RTT 示例把一个场景画进 `WebGLRenderTarget` 再贴到全屏。贴花是投影到网格上的薄片，和「往地形材质的动态纹理里写墨」不是同一条路径。计划用后者。状态：RTT 示例源码已在线阅读；贴花页仅确认可访问。HTTP 200。
+- **动态点。** <https://github.com/mrdoob/three.js/blob/master/examples/webgl_points_dynamic.html>。状态：仅确认可访问（HTTP 200）。
+- **版本。** npm registry，2026-10-09 读取；latest 为 0.186.1。仓库 <https://github.com/mrdoob/three.js>。许可 MIT，以实现时锁定的版本为准，本提交不安装。状态：数据读取 2026-10-09。
+
+### 7.2 Matter.js
+
+现行依赖仍是 0.20.0。文档站标的就是这个版本。
+
+- **总索引与引擎。** <https://brm.io/matter-js/docs/>、<https://brm.io/matter-js/docs/classes/Engine.html>。要点：`Engine.update` 接受毫秒；碰撞事件有 `collisionStart` / `collisionActive` / `collisionEnd`，另有 `beforeUpdate`。计划自己累积固定步再调用 `update`，不启用 Runner。状态：已在线阅读 2026-10-09。HTTP 200。
+- **刚体、查询、约束、复合。** <https://brm.io/matter-js/docs/classes/Body.html>、<https://brm.io/matter-js/docs/classes/Bodies.html>、<https://brm.io/matter-js/docs/classes/Query.html>、<https://brm.io/matter-js/docs/classes/Constraint.html>、<https://brm.io/matter-js/docs/classes/Composite.html>、<https://brm.io/matter-js/docs/classes/Runner.html>。要点：`collisionFilter` 的 category / mask / group；`isSensor` 只发事件、不产生物理反应。Query、Constraint、Runner、Composite 这四页本次只确认 HTTP 200，方法细节实现时再读。Body 与 Engine 已读。碰撞过滤演示：<https://brm.io/matter-js/demo/#collisionFiltering>（HTTP 200，本次没在浏览器里操作）。
+- **单向平台没有内建类型。** [issue #456](https://github.com/liabru/matter-js/issues/456)（2017，liabru 建议用速度和 collisionFilter）、[issue #1029](https://github.com/liabru/matter-js/issues/1029)（2021，半截插在平台里会被求解器抬起来）。计划因此用上一帧脚底位置决定 mask，而不是只看速度。状态：已在线阅读 2026-10-09。HTTP 200。
+- **许可。** <https://github.com/liabru/matter-js/blob/master/LICENSE>。状态：仅确认可访问。现行登记仍是 MIT。
+
+### 7.3 勾边、皴法、噪声、动态纹理
+
+没有查到一篇把「斧劈皴」或「披麻皴」写成着色器规格的论文。计划里这两种皴是我们自己的映射：披麻顺着下坡拉长，斧劈用斜向短笔。下面的文献只说明「方向性排线」和「外壳描边」是公开做法。
+
+- **Real-Time Hatching。** Emil Praun、Hugues Hoppe、Matthew Webb、Adam Finkelstein；SIGGRAPH 2001；<https://hhoppe.com/hatching.pdf>。要点：笔触方向跟主曲率，色调用分层排线纹理。状态：PDF 可访问（HTTP 200）。本次读了检索摘录中的方法概述，没有逐段读完实验。
+- **Improving Noise。** Ken Perlin；SIGGRAPH 2002。可读 PDF：<https://mrl.cs.nyu.edu/~perlin/paper445.pdf>（HTTP 200）。ACM 条目页 <https://dl.acm.org/doi/10.1145/566654.566636> 在本环境返回 403，不作为已读。参考实现页 <https://cs.nyu.edu/~perlin/noise/> 在检索中可见，本次没有逐行核对 Java 源码。
+- **webgl-noise。** Stefan Gustavson；MIT；<https://github.com/stegu/webgl-noise> 与仍在维护的 <https://github.com/ashima/webgl-noise>。要点：仓库说明 classic noise 是 Perlin，simplex 另有论文；无纹理查找。计划在实现时移植 classic 2D，并登记 MIT。状态：README 已在线阅读 2026-10-09。HTTP 200。本次不拷贝 GLSL。
+- **外壳描边。** Teodoro Dutra；2018-03-26；<https://teodutra.com/unity/shaders/outline/2018/03/26/Outline-shaders/>。要点：背面剔除反过来，顶点沿法线挤出，再画实体。这是计划里山石外壳的做法，示例在 Unity，着色器语言不同，只借步骤。状态：已在线阅读 2026-10-09。
+
+固定步、确定性、Playwright 截图和 SwiftShader 的限制仍以本章 §4.4、§4.7 的 R7、R9、R12 为准，不在这里重复。

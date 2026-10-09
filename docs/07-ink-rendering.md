@@ -2,6 +2,8 @@
 
 [目录](./README.md) · [上一章](./06-input-strokes-and-physics.md) · [下一章](./08-gameplay-and-persistence.md)
 
+> 本章正文描述**现行代码**。文末「计划（未实现）」是 three.js + Matter.js 的目标，类还没有导出，不能当调用示例。
+
 2.0 的画面由 `InkWash`（`src/core/ink-wash.ts`）在 Pixi RenderTexture 上运行 inkEngine 的整条笔刷管线。笔刷逐帧移植自 `thirdparty/inkEngine/ink-engine.js`，着色器由 `scripts/port-inkengine-shaders.mjs` 从同一快照转换而来，文件头写了归属。逐项对照见 [第 12 章](./12-inkengine-parity-audit.md)。旧的 `InkFluid` 仍只服务 `/inkcross/`，本节最后单列。
 
 ## 模块
@@ -126,3 +128,19 @@ wash.paint({
 - `strokePath` 在主线程里连续跑完整笔（几十到上百帧的 pass）。十卡开场在 SwiftShader 上要 18–35 秒；真实 GPU 上快得多，但没有实测。
 - 着色器里的 `hash` 用了 `sin`，只影响显示。CPU 侧的笔刷只用四则、`Math.sqrt` / `Math.hypot` 和多项式正余弦。
 - 透明墨层叠在纸上时用 `multiply`，等价于直接画在纸上，只在与纸层笔画重叠处少了一次编码混色。
+
+## 计划（未实现）
+
+计划中的墨面叫 `InkSurface`。它接替 `InkWash` 的缓冲和 pass 顺序，宿主从 Pixi `RenderTexture` 换成 `WebGLRenderTarget`。`InkBrushEngine`、调色板、纸纹、36 色和 `ink-shaders.ts` 里的片元文本留下。`ink-wash-filters.ts` 的 Pixi 包装换成 `RawShaderMaterial`。
+
+ping-pong 仍是两张专用目标。每个 pass 仍只覆盖笔画外接矩形。片元里的 Y 翻折先保留，等对照页的一笔决定 three.js 渲染目标要不要翻。中间纹理不做额外的 sRGB 往返，避免墨被伽马再处理一次。这一步未实测。
+
+`texture` 可以贴在 z 平面上，也可以交给地形材质。`snapshot()` / `restore()` 给过场跳过和上下文恢复用。
+
+三样新画面的数据流见 [引擎计划](../plan/10-three-matter-side-scroller-plan.md)。摘要：
+
+1. **洇染与留白。** 脚步或 `effects.inkDisperse` 把接触点盖进一张 512×256 的动态纹理，再按烘焙的高度和法线向下坡渗。渗流用 `min()` 保留更深的墨。没有墨的地方是纸色。渗流不参与碰撞。
+2. **皴法与勾边。** 山石材质分披麻皴和斧劈皴。外壳沿法线挤出，宽度随相机距离变化：拉近更粗，拉远更细，再用 Perlin 噪声做毛边。山石不用全屏 `OutlinePass`。噪声实现计划移植 MIT 的 [stegu/webgl-noise](https://github.com/stegu/webgl-noise)，现在还没拷进仓库。
+3. **断竹。** 风中的摆动是顶点着色器里的正弦，显示用。砍断由扫掠命中决定：上段变成 Matter 刚体，断口撕开，墨滴是最多 256 个点，不写回地面。
+
+叙事上触发洇染和断竹的接口是 `inkDisperse` 与 `bambooBreak`，对应过场里的 `EffectCue.kind`。历史游戏把这个接入标成 P1。引擎切片里脚步和砍竹会先接上。

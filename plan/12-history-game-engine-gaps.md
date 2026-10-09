@@ -2,7 +2,9 @@
 
 > 状态：**规划草案**。目标引擎是 **three.js + Matter.js**：横版动作，Matter.js 在 X/Y 平面做 2D 物理，驱动 three.js 模型的 `position.x/y`，Z 固定。新引擎计划里的效果包括：地形上的 3D 墨散（动态纹理）、皴法山石（随相机距离变化的笔触描边 + Perlin 噪声）、墨溅断竹（骨骼摇摆，顶点着色器把网格撕裂成粒子）。引擎规划与 `docs/` 由另一份改写负责，本文不改 `plan/10` 与 `docs/`，只从历史游戏的需求出发列缺口。
 > **当前 `src/` 仍是 PixiJS 8 + Matter.js 实现**，会迁移。本文的“现状”一栏全部来自 2026-10-09 读到的代码（`main` = b38acde），说明哪些可以直接带到 three.js，哪些要重写。
-> 相关：[故事与玩法](./11-history-game-story-design.md) · [章节大纲](./11-history-game-chapter-outline.md) · [内容数据格式](./11-history-game-content-schema.md)
+> 相关：[故事与玩法](./11-history-game-story-design.md) · [章节大纲](./11-history-game-chapter-outline.md) · [内容数据格式](./11-history-game-content-schema.md) · [10 · three.js 引擎计划](./10-three-matter-side-scroller-plan.md)
+>
+> 引擎架构、三项画面的技术设计和待确认问题在 [plan/10](./10-three-matter-side-scroller-plan.md)。两边模块名对齐为 `InkSurface`、`CameraRig`、`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`PostStack`。本文的缺口编号、优先级和验收不因那份计划改写。
 
 ## 1. 现有代码里能带走什么
 

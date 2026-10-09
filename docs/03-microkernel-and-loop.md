@@ -2,6 +2,8 @@
 
 [目录](./README.md) · [上一章](./02-host-and-render-backend.md) · [下一章](./04-plugin-system.md)
 
+> 本章正文描述**现行代码**。文末「计划（未实现）」是 three.js + Matter.js 的目标，类还没有导出，不能当调用示例。
+
 两套时钟都是「渲染帧里累积，固定步追赶」。它们不要接到同一个世界上。
 
 ## `Engine`（v0.1）
@@ -39,3 +41,23 @@
 ## 和测试的关系
 
 `tests/` 里的时钟用例驱动的是 `Engine` 和假宿主，不启动 Pixi。`tests/v2-core.test.ts` 直接 `new InkWorld()` 并 `step`，断言落点和墨桥裁切。浏览器里的 RAF 不在 vitest 范围内。
+
+## 计划（未实现）
+
+玩法和过场各有一只时钟，共用 `InkView` 的一条 `requestAnimationFrame`。`SceneDirector` 决定当前跑哪一只。不启用 `Matter.Runner`，也不让 three.js 的动画循环另起一步物理。
+
+**玩法固定步**沿用现在 `InkStage` 的数：单帧间隔夹到 0.08 秒，固定步 1/60，每帧最多 4 步，封顶后剩余累加器清掉。每步结束时，每个刚体的 `previous` 让位给 `current`，再读 Matter 的位置。显示时：
+
+```text
+alpha = 剩余累加器 / 固定步长
+若本帧已经把剩余累加器清掉，alpha = 1
+mesh.position.x = previousX + (currentX - previousX) * alpha
+mesh.position.y = previousY + (currentY - previousY) * alpha
+mesh.position.z = 关卡里的层深
+```
+
+刚体的 x、y 原样写入。Z 不来自物理。
+
+**过场帧时钟**按 [plan/12](../plan/12-history-game-engine-gaps.md) 和 `CutsceneDef`：`clock.mode = 'frame'`，60 帧一秒。笔画逐帧执行，不能因为掉帧就跳过扩散。墨面算超时就在后面的帧里补步，声音不等；不同语言的旁白靠同步点等待。过场播放时玩法固定步暂停，避免一帧里墨扩散多次。
+
+角度插值只用于会转的物体（箭），角差先收到 −π..π。角色碰撞体不旋转。
