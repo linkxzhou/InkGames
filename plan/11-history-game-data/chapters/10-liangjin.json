@@ -1,7 +1,7 @@
 {
  "format": "inkgames.chapter-bundle",
  "version": 1,
- "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "_comment": "由 plan/11-history-game-data 的场景规格生成。detail=full 为完整场景（场景 + 开场过场 + 字符串表 + 人物关系），detail=outline 为大纲级条目；v1 只表示是否属于首版发布批次（见内容数据格式 §2.9）。文字为本项目原创，引文仅限公有领域古籍并标出处。",
  "chapter": {
   "format": "inkgames.chapter",
   "version": 1,
@@ -69,6 +69,7 @@
   {
    "outlineId": "10-01",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -341,6 +342,7 @@
   {
    "outlineId": "10-02",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -556,6 +558,7 @@
   {
    "outlineId": "10-03",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -728,11 +731,11 @@
         "template": "evacuate",
         "params": {
          "goal": "护送百姓与典籍撤出洛阳，避开城中的乱兵",
-         "failTo": "c.flee",
          "beats": [
           "escort",
           "route"
          ],
+         "failTo": "c.flee",
          "grades": [
           "笔意",
           "寻迹"
@@ -776,11 +779,11 @@
         "template": "naval",
         "params": {
          "goal": "在黄河与江淮之间组织渡口，船只有限，每一趟都要取舍",
-         "failTo": "c.ford",
          "beats": [
           "ferry",
           "resource"
          ],
+         "failTo": "c.ford",
          "grades": [
           "笔意",
           "寻迹"
@@ -866,11 +869,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "平阳宴会上，以晋旧臣身份决定何时起身、何时沉默",
-         "failTo": "l.feast",
          "beats": [
           "timing",
           "restraint"
          ],
+         "failTo": "l.feast",
          "grades": [
           "史识"
          ]
@@ -913,10 +916,10 @@
         "template": "journey",
         "params": {
          "goal": "离开平阳，沿着南渡的人流前往江东",
-         "failTo": "l.south",
          "beats": [
           "journey"
          ],
+         "failTo": "l.south",
          "grades": [
           "笔意",
           "寻迹"
@@ -2504,6 +2507,7 @@
   {
    "outlineId": "10-04",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2757,6 +2761,7 @@
   {
    "outlineId": "10-05",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2980,6 +2985,7 @@
   {
    "outlineId": "10-06",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -3152,11 +3158,11 @@
         "template": "night-raid",
         "params": {
          "goal": "以刘牢之身份夜渡洛涧，击破秦军前锋",
-         "failTo": "c.luojian",
          "beats": [
           "night-crossing",
           "raid"
          ],
+         "failTo": "c.luojian",
          "grades": [
           "笔意",
           "寻迹"
@@ -3200,11 +3206,11 @@
         "template": "naval",
         "params": {
          "goal": "趁秦军后撤，组织晋军渡过淝水，冲击阵脚",
-         "failTo": "c.feishui",
          "beats": [
           "crossing",
           "charge"
          ],
+         "failTo": "c.feishui",
          "grades": [
           "笔意",
           "寻迹"
@@ -3248,10 +3254,10 @@
         "template": "cavalry",
         "params": {
          "goal": "追击溃逃的秦军",
-         "failTo": "c.rout",
          "beats": [
           "pursuit"
          ],
+         "failTo": "c.rout",
          "grades": [
           "笔意",
           "寻迹"
@@ -3336,11 +3342,11 @@
         "template": "stealth",
         "params": {
          "goal": "以朱序身份出使晋营，在不被秦人怀疑的前提下传递军情",
-         "failTo": "l.envoy",
          "beats": [
           "stealth",
           "message"
          ],
+         "failTo": "l.envoy",
          "grades": [
           "笔意",
           "寻迹"
@@ -3383,10 +3389,10 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "在秦军后撤的那一刻高呼，时机早了晚了都会失败",
-         "failTo": "l.shout",
          "beats": [
           "timing"
          ],
+         "failTo": "l.shout",
          "grades": [
           "史识"
          ]
@@ -4968,6 +4974,7 @@
   {
    "outlineId": "10-07",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -5218,6 +5225,7 @@
   {
    "outlineId": "10-08",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -5388,11 +5396,11 @@
         "template": "naval",
         "params": {
          "goal": "率舟师逆流而上，躲避北岸射来的箭",
-         "failTo": "c.river",
          "beats": [
           "boat-steer",
           "arrow-dodge"
          ],
+         "failTo": "c.river",
          "grades": [
           "笔意",
           "寻迹"
@@ -5432,11 +5440,11 @@
         "template": "siege",
         "params": {
          "goal": "在河岸布下却月阵，以车与弩挡住骑兵冲锋",
-         "failTo": "c.queyue",
          "beats": [
           "formation",
           "crossbow"
          ],
+         "failTo": "c.queyue",
          "grades": [
           "笔意",
           "寻迹"
@@ -5476,11 +5484,11 @@
         "template": "naval",
         "params": {
          "goal": "王镇恶的蒙冲小舰直抵渭桥，登岸攻城",
-         "failTo": "c.changan",
          "beats": [
           "landing",
           "assault"
          ],
+         "failTo": "c.changan",
          "grades": [
           "笔意",
           "寻迹"
@@ -5554,11 +5562,11 @@
         "template": "forest",
         "params": {
          "goal": "在芦荻丛中追踪大蛇，射出一箭",
-         "failTo": "l.reeds",
          "beats": [
           "hunt",
           "bow"
          ],
+         "failTo": "l.reeds",
          "grades": [
           "笔意",
           "寻迹"
@@ -5594,11 +5602,11 @@
         "template": "riddle",
         "params": {
          "goal": "循着捣药声在林中找到童子，听懂他们的话",
-         "failTo": "l.boys",
          "beats": [
           "listen",
           "search"
          ],
+         "failTo": "l.boys",
          "grades": [
           "史识"
          ]

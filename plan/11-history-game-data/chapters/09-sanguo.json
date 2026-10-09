@@ -1,7 +1,7 @@
 {
  "format": "inkgames.chapter-bundle",
  "version": 1,
- "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "_comment": "由 plan/11-history-game-data 的场景规格生成。detail=full 为完整场景（场景 + 开场过场 + 字符串表 + 人物关系），detail=outline 为大纲级条目；v1 只表示是否属于首版发布批次（见内容数据格式 §2.9）。文字为本项目原创，引文仅限公有领域古籍并标出处。",
  "chapter": {
   "format": "inkgames.chapter",
   "version": 1,
@@ -72,6 +72,7 @@
   {
    "outlineId": "09-01",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -365,6 +366,7 @@
   {
    "outlineId": "09-02",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -530,11 +532,11 @@
         "template": "siege",
         "params": {
          "goal": "坚守营垒，应对袁军的土山与地道",
-         "failTo": "c.hold",
          "beats": [
           "defend",
           "counter-tunnel"
          ],
+         "failTo": "c.hold",
          "grades": [
           "笔意",
           "寻迹"
@@ -573,11 +575,11 @@
         "template": "night-raid",
         "params": {
          "goal": "打着袁军旗号，人衔枚、马缚口，夜行至乌巢",
-         "failTo": "c.raid",
          "beats": [
           "disguise",
           "stealth"
          ],
+         "failTo": "c.raid",
          "grades": [
           "笔意",
           "寻迹"
@@ -616,11 +618,11 @@
         "template": "battle",
         "params": {
          "goal": "在援军赶到之前焚尽粮屯，斩淳于琼",
-         "failTo": "c.fire",
          "beats": [
           "fire",
           "time-limit"
          ],
+         "failTo": "c.fire",
          "grades": [
           "笔意",
           "寻迹"
@@ -695,11 +697,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "以曹操身份应对许攸的追问，何时说实话由玩家决定",
-         "failTo": "l.bluff",
          "beats": [
           "bluff",
           "truth"
          ],
+         "failTo": "l.bluff",
          "grades": [
           "史识"
          ]
@@ -736,11 +738,11 @@
         "template": "night-raid",
         "params": {
          "goal": "按演义的节奏夜袭乌巢",
-         "failTo": "l.raid",
          "beats": [
           "stealth",
           "fire"
          ],
+         "failTo": "l.raid",
          "grades": [
           "笔意",
           "寻迹"
@@ -2128,6 +2130,7 @@
   {
    "outlineId": "09-03",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2333,6 +2336,7 @@
   {
    "outlineId": "09-04",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2624,6 +2628,7 @@
   {
    "outlineId": "09-05",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -2796,11 +2801,11 @@
         "template": "court",
         "params": {
          "goal": "以鲁肃、诸葛亮的身份在柴桑分析曹军弱点，说服孙权",
-         "failTo": "c.alliance",
          "beats": [
           "argument",
           "persuade"
          ],
+         "failTo": "c.alliance",
          "grades": [
           "史识"
          ]
@@ -2843,11 +2848,11 @@
         "template": "naval",
         "params": {
          "goal": "驾火船顺风冲向连环战船，在合适的距离点火",
-         "failTo": "c.fireships",
          "beats": [
           "wind-timing",
           "ignite"
          ],
+         "failTo": "c.fireships",
          "grades": [
           "笔意",
           "寻迹"
@@ -2891,10 +2896,10 @@
         "template": "battle",
         "params": {
          "goal": "火起后渡江追击，曹军从华容道撤退",
-         "failTo": "c.pursuit",
          "beats": [
           "pursuit"
          ],
+         "failTo": "c.pursuit",
          "grades": [
           "笔意",
           "寻迹"
@@ -2979,11 +2984,11 @@
         "template": "naval",
         "params": {
          "goal": "大雾之夜驾草船靠近曹营，让船两侧插满箭矢",
-         "failTo": "l.arrows",
          "beats": [
           "fog",
           "arrow-count"
          ],
+         "failTo": "l.arrows",
          "grades": [
           "笔意",
           "寻迹"
@@ -3026,11 +3031,11 @@
         "template": "calligraphy",
         "params": {
          "goal": "七星坛上以旗语与符箓“召风”，风向随笔势转换",
-         "failTo": "l.altar",
          "beats": [
           "banner",
           "wind"
          ],
+         "failTo": "l.altar",
          "grades": [
           "史识"
          ]
@@ -4504,6 +4509,7 @@
   {
    "outlineId": "09-06",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -4757,6 +4763,7 @@
   {
    "outlineId": "09-07",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -5064,6 +5071,7 @@
   {
    "outlineId": "09-08",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -5229,11 +5237,11 @@
         "template": "siege",
         "params": {
          "goal": "守住营垒，任蜀军挑战而不出，士气条不能崩",
-         "failTo": "c.wait",
          "beats": [
           "patience",
           "morale"
          ],
+         "failTo": "c.wait",
          "grades": [
           "笔意",
           "寻迹"
@@ -5272,11 +5280,11 @@
         "template": "stealth",
         "params": {
          "goal": "先以小股兵力试攻，找出蜀营的薄弱之处",
-         "failTo": "c.probe",
          "beats": [
           "probe",
           "scout"
          ],
+         "failTo": "c.probe",
          "grades": [
           "笔意",
           "寻迹"
@@ -5315,11 +5323,11 @@
         "template": "battle",
         "params": {
          "goal": "下令火攻，依林的营寨一个接一个燃起",
-         "failTo": "c.fire",
          "beats": [
           "fire-spread",
           "wind"
          ],
+         "failTo": "c.fire",
          "grades": [
           "笔意",
           "寻迹"
@@ -5394,11 +5402,11 @@
         "template": "riddle",
         "params": {
          "goal": "在乱石阵中按八门方位寻找生门",
-         "failTo": "l.maze",
          "beats": [
           "maze",
           "direction"
          ],
+         "failTo": "l.maze",
          "grades": [
           "史识"
          ]
@@ -5435,10 +5443,10 @@
         "template": "journey",
         "params": {
          "goal": "跟着老人的指引走出石阵",
-         "failTo": "l.out",
          "beats": [
           "follow"
          ],
+         "failTo": "l.out",
          "grades": [
           "笔意",
           "寻迹"
@@ -6929,6 +6937,7 @@
   {
    "outlineId": "09-09",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -7205,6 +7214,7 @@
   {
    "outlineId": "09-10",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -7488,6 +7498,7 @@
   {
    "outlineId": "09-11",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -7729,6 +7740,7 @@
   {
    "outlineId": "09-12",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -7904,11 +7916,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "以司马懿身份接见来探病的使者，装病不露破绽",
-         "failTo": "c.feign",
          "beats": [
           "act",
           "timing"
          ],
+         "failTo": "c.feign",
          "grades": [
           "史识"
          ]
@@ -7952,11 +7964,11 @@
         "template": "siege",
         "params": {
          "goal": "曹爽出城之后，依次控制城门、武库与浮桥",
-         "failTo": "c.gate",
          "beats": [
           "seize",
           "sequence"
          ],
+         "failTo": "c.gate",
          "grades": [
           "笔意",
           "寻迹"
@@ -8001,10 +8013,10 @@
         "template": "naval",
         "params": {
          "goal": "晋军顺江而下，楼船直抵建业",
-         "failTo": "c.unify",
          "beats": [
           "river-fleet"
          ],
+         "failTo": "c.unify",
          "grades": [
           "笔意",
           "寻迹"
@@ -8086,11 +8098,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "以司马懿身份故意答非所问，骗过李胜",
-         "failTo": "l.mishear",
          "beats": [
           "mishear",
           "act"
          ],
+         "failTo": "l.mishear",
          "grades": [
           "史识"
          ]
@@ -8128,10 +8140,10 @@
         "template": "court",
         "params": {
          "goal": "以曹爽身份在一夜之间决定是否投降",
-         "failTo": "l.night",
          "beats": [
           "decision"
          ],
+         "failTo": "l.night",
          "grades": [
           "史识"
          ]

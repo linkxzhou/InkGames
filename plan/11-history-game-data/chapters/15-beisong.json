@@ -1,7 +1,7 @@
 {
  "format": "inkgames.chapter-bundle",
  "version": 1,
- "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "_comment": "由 plan/11-history-game-data 的场景规格生成。detail=full 为完整场景（场景 + 开场过场 + 字符串表 + 人物关系），detail=outline 为大纲级条目；v1 只表示是否属于首版发布批次（见内容数据格式 §2.9）。文字为本项目原创，引文仅限公有领域古籍并标出处。",
  "chapter": {
   "format": "inkgames.chapter",
   "version": 1,
@@ -64,6 +64,7 @@
   {
    "outlineId": "15-01",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -268,6 +269,7 @@
   {
    "outlineId": "15-02",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -571,6 +573,7 @@
   {
    "outlineId": "15-03",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -747,10 +750,10 @@
         "template": "court",
         "params": {
          "goal": "以寇准身份在朝堂上驳斥南迁之议",
-         "failTo": "c.court",
          "beats": [
           "argument"
          ],
+         "failTo": "c.court",
          "grades": [
           "史识"
          ]
@@ -794,11 +797,11 @@
         "template": "siege",
         "params": {
          "goal": "操纵床子弩，在萧挞凛出阵时射出那一箭",
-         "failTo": "c.crossbow",
          "beats": [
           "aim",
           "timing"
          ],
+         "failTo": "c.crossbow",
          "grades": [
           "笔意",
           "寻迹"
@@ -843,10 +846,10 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "随曹利用议和，守住岁币的底线",
-         "failTo": "c.treaty",
          "beats": [
           "negotiation"
          ],
+         "failTo": "c.treaty",
          "grades": [
           "史识"
          ]
@@ -937,10 +940,10 @@
         "template": "siege",
         "params": {
          "goal": "以杨六郎身份守三关，挡住辽军的游骑",
-         "failTo": "l.sanguan",
          "beats": [
           "siege-defense"
          ],
+         "failTo": "l.sanguan",
          "grades": [
           "笔意",
           "寻迹"
@@ -989,10 +992,10 @@
         "template": "riddle",
         "params": {
          "goal": "破天门阵：找出阵中的门户",
-         "failTo": "l.tianmen",
          "beats": [
           "array-break"
          ],
+         "failTo": "l.tianmen",
          "grades": [
           "史识"
          ]
@@ -2501,6 +2504,7 @@
   {
    "outlineId": "15-04",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2792,6 +2796,7 @@
   {
    "outlineId": "15-05",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -3068,6 +3073,7 @@
   {
    "outlineId": "15-06",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -3307,6 +3313,7 @@
   {
    "outlineId": "15-07",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -3480,11 +3487,11 @@
         "template": "court",
         "params": {
          "goal": "以王安石身份决定各项新法的推行顺序与地区",
-         "failTo": "c.policy",
          "beats": [
           "policy-order",
           "map"
          ],
+         "failTo": "c.policy",
          "grades": [
           "史识"
          ]
@@ -3528,11 +3535,11 @@
         "template": "court",
         "params": {
          "goal": "与司马光书信往来辩论，每封信都要回应对方的要点",
-         "failTo": "c.debate",
          "beats": [
           "letter",
           "argument"
          ],
+         "failTo": "c.debate",
          "grades": [
           "史识"
          ]
@@ -3576,11 +3583,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "面对《流民图》，在神宗面前为新法辩护或让步",
-         "failTo": "c.drought",
          "beats": [
           "choice",
           "timing"
          ],
+         "failTo": "c.drought",
          "grades": [
           "史识"
          ]
@@ -3667,11 +3674,11 @@
         "template": "stealth",
         "params": {
          "goal": "随王安石微服南行，在客店里听百姓议论",
-         "failTo": "l.inn",
          "beats": [
           "listen",
           "disguise"
          ],
+         "failTo": "l.inn",
          "grades": [
           "笔意",
           "寻迹"
@@ -3716,10 +3723,10 @@
         "template": "trace",
         "params": {
          "goal": "用水笔洗出墙上讥刺新法的题诗",
-         "failTo": "l.poem",
          "beats": [
           "wash-reveal"
          ],
+         "failTo": "l.poem",
          "grades": [
           "史识"
          ]
@@ -5214,6 +5221,7 @@
   {
    "outlineId": "15-08",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -5505,6 +5513,7 @@
   {
    "outlineId": "15-09",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -5679,11 +5688,11 @@
         "template": "siege",
         "params": {
          "goal": "以李纲身份分配守城器械，击退金军的第一次进攻",
-         "failTo": "c.defend",
          "beats": [
           "siege-defense",
           "resource"
          ],
+         "failTo": "c.defend",
          "grades": [
           "笔意",
           "寻迹"
@@ -5728,10 +5737,10 @@
         "template": "court",
         "params": {
          "goal": "在和战之间反复的朝议中，尽力保住防务",
-         "failTo": "c.court",
          "beats": [
           "argument"
          ],
+         "failTo": "c.court",
          "grades": [
           "史识"
          ]
@@ -5775,11 +5784,11 @@
         "template": "evacuate",
         "params": {
          "goal": "城破之后，护送百姓与文书出城",
-         "failTo": "c.fall",
          "beats": [
           "escort",
           "scarcity"
          ],
+         "failTo": "c.fall",
          "grades": [
           "笔意",
           "寻迹"
@@ -5866,10 +5875,10 @@
         "template": "stealth",
         "params": {
          "goal": "在城破前的汴京街市中穿行，看话本里写到的那些地方",
-         "failTo": "l.city",
          "beats": [
           "explore"
          ],
+         "failTo": "l.city",
          "grades": [
           "笔意",
           "寻迹"
@@ -5913,11 +5922,11 @@
         "template": "survival",
         "params": {
          "goal": "随北行的队伍穿过风雪，记下沿途见闻",
-         "failTo": "l.north",
          "beats": [
           "survival",
           "record"
          ],
+         "failTo": "l.north",
          "grades": [
           "笔意",
           "寻迹"

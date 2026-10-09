@@ -1,7 +1,7 @@
 {
  "format": "inkgames.chapter-bundle",
  "version": 1,
- "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "_comment": "由 plan/11-history-game-data 的场景规格生成。detail=full 为完整场景（场景 + 开场过场 + 字符串表 + 人物关系），detail=outline 为大纲级条目；v1 只表示是否属于首版发布批次（见内容数据格式 §2.9）。文字为本项目原创，引文仅限公有领域古籍并标出处。",
  "chapter": {
   "format": "inkgames.chapter",
   "version": 1,
@@ -68,6 +68,7 @@
   {
    "outlineId": "06-01",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -230,11 +231,11 @@
         "template": "court",
         "params": {
          "goal": "在廷议中整理群臣对帝号的意见，呈给秦王定夺",
-         "failTo": "c.title",
          "beats": [
           "debate",
           "compile"
          ],
+         "failTo": "c.title",
          "grades": [
           "史识"
          ]
@@ -273,10 +274,10 @@
         "template": "court",
         "params": {
          "goal": "在地图上把天下划为三十六郡",
-         "failTo": "c.junxian",
          "beats": [
           "map-divide"
          ],
+         "failTo": "c.junxian",
          "grades": [
           "史识"
          ]
@@ -315,11 +316,11 @@
         "template": "calligraphy",
         "params": {
          "goal": "按小篆的笔顺写出同一个字，替换六国的异体",
-         "failTo": "c.xiaozhuan",
          "beats": [
           "stroke-order",
           "write"
          ],
+         "failTo": "c.xiaozhuan",
          "grades": [
           "史识"
          ]
@@ -390,11 +391,11 @@
         "template": "calligraphy",
         "params": {
          "goal": "按传说中的玺文笔势在印面上反写篆字",
-         "failTo": "l.carve",
          "beats": [
           "seal-carve",
           "mirror-write"
          ],
+         "failTo": "l.carve",
          "grades": [
           "史识"
          ]
@@ -427,11 +428,11 @@
         "template": "trace",
         "params": {
          "goal": "沿着历代记载追寻玉玺的下落，每一段都标明出处真伪",
-         "failTo": "l.trace",
          "beats": [
           "trace",
           "source-check"
          ],
+         "failTo": "l.trace",
          "grades": [
           "史识"
          ]
@@ -1732,6 +1733,7 @@
   {
    "outlineId": "06-02",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -1995,6 +1997,7 @@
   {
    "outlineId": "06-03",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2237,6 +2240,7 @@
   {
    "outlineId": "06-04",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -2404,11 +2408,11 @@
         "template": "riddle",
         "params": {
          "goal": "用水笔洗出诏书上被改动的痕迹，找出矫诏的证据",
-         "failTo": "c.edict",
          "beats": [
           "wash-reveal",
           "compare-text"
          ],
+         "failTo": "c.edict",
          "grades": [
           "史识"
          ]
@@ -2447,11 +2451,11 @@
         "template": "court",
         "params": {
          "goal": "朝堂上群臣或言马、或言鹿，记住每个人的回答与之后的下场",
-         "failTo": "c.deer",
          "beats": [
           "observe",
           "choose"
          ],
+         "failTo": "c.deer",
          "grades": [
           "史识"
          ]
@@ -2524,10 +2528,10 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "在病榻前的问答中，按《赵正书》的叙述推进立嗣之议",
-         "failTo": "l.deathbed",
          "beats": [
           "dialogue"
          ],
+         "failTo": "l.deathbed",
          "grades": [
           "史识"
          ]
@@ -2562,10 +2566,10 @@
         "template": "trace",
         "params": {
          "goal": "将两卷记载并排，标出它们分歧的段落",
-         "failTo": "l.compare",
          "beats": [
           "compare-scrolls"
          ],
+         "failTo": "l.compare",
          "grades": [
           "史识"
          ]
@@ -3908,6 +3912,7 @@
   {
    "outlineId": "06-05",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -4066,11 +4071,11 @@
         "template": "stealth",
         "params": {
          "goal": "夜里潜到丛祠，在火光中学狐鸣，不被将尉发现",
-         "failTo": "c.omen",
          "beats": [
           "stealth",
           "signal"
          ],
+         "failTo": "c.omen",
          "grades": [
           "笔意",
           "寻迹"
@@ -4104,11 +4109,11 @@
         "template": "night-raid",
         "params": {
          "goal": "夺剑斩将尉，召集众人起事",
-         "failTo": "c.revolt",
          "beats": [
           "duel",
           "rally"
          ],
+         "failTo": "c.revolt",
          "grades": [
           "笔意",
           "寻迹"
@@ -4142,11 +4147,11 @@
         "template": "battle",
         "params": {
          "goal": "斩木为兵，揭竿为旗，攻下大泽乡与蕲县",
-         "failTo": "c.flag",
          "beats": [
           "banner",
           "assault"
          ],
+         "failTo": "c.flag",
          "grades": [
           "笔意",
           "寻迹"
@@ -4213,11 +4218,11 @@
         "template": "trace",
         "params": {
          "goal": "用水笔洗出竹简上的律文，与《史记》的说法比对",
-         "failTo": "l.law",
          "beats": [
           "wash-reveal",
           "compare-text"
          ],
+         "failTo": "l.law",
          "grades": [
           "史识"
          ]
@@ -4251,10 +4256,10 @@
         "template": "court",
         "params": {
          "goal": "作为戍卒，在不同的说法之间作出判断，并说明理由",
-         "failTo": "l.choice",
          "beats": [
           "reasoning"
          ],
+         "failTo": "l.choice",
          "grades": [
           "史识"
          ]
@@ -5572,6 +5577,7 @@
   {
    "outlineId": "06-06",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -5733,11 +5739,11 @@
         "template": "naval",
         "params": {
          "goal": "指挥全军渡河后亲手凿沉渡船，不留退路",
-         "failTo": "c.cross",
          "beats": [
           "cross",
           "sink-boats"
          ],
+         "failTo": "c.cross",
          "grades": [
           "笔意",
           "寻迹"
@@ -5771,11 +5777,11 @@
         "template": "battle",
         "params": {
          "goal": "九战之中先断秦军甬道，再合围王离",
-         "failTo": "c.ganging",
          "beats": [
           "cut-supply",
           "encircle"
          ],
+         "failTo": "c.ganging",
          "grades": [
           "笔意",
           "寻迹"
@@ -5809,11 +5815,11 @@
         "template": "cavalry",
         "params": {
          "goal": "在诸侯壁垒之间冲杀，士气条不能低于一半",
-         "failTo": "c.wall",
          "beats": [
           "morale",
           "charge"
          ],
+         "failTo": "c.wall",
          "grades": [
           "笔意",
           "寻迹"
@@ -5879,11 +5885,11 @@
         "template": "riddle",
         "params": {
          "goal": "在诸侯的营垒上观战，判断何时应当出兵",
-         "failTo": "l.watch",
          "beats": [
           "observe",
           "timing"
          ],
+         "failTo": "l.watch",
          "grades": [
           "史识"
          ]
@@ -5916,10 +5922,10 @@
         "template": "court",
         "params": {
          "goal": "战后入楚营见项羽，在礼仪中选择表态",
-         "failTo": "l.kneel",
          "beats": [
           "ceremony"
          ],
+         "failTo": "l.kneel",
          "grades": [
           "史识"
          ]

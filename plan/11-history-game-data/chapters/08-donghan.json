@@ -1,7 +1,7 @@
 {
  "format": "inkgames.chapter-bundle",
  "version": 1,
- "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "_comment": "由 plan/11-history-game-data 的场景规格生成。detail=full 为完整场景（场景 + 开场过场 + 字符串表 + 人物关系），detail=outline 为大纲级条目；v1 只表示是否属于首版发布批次（见内容数据格式 §2.9）。文字为本项目原创，引文仅限公有领域古籍并标出处。",
  "chapter": {
   "format": "inkgames.chapter",
   "version": 1,
@@ -69,6 +69,7 @@
   {
    "outlineId": "08-01",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -260,6 +261,7 @@
   {
    "outlineId": "08-02",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -425,11 +427,11 @@
         "template": "stealth",
         "params": {
          "goal": "夜出南门，在新军营垒之间穿行，不被巡骑发现",
-         "failTo": "c.ride",
          "beats": [
           "stealth",
           "night-ride"
          ],
+         "failTo": "c.ride",
          "grades": [
           "笔意",
           "寻迹"
@@ -468,11 +470,11 @@
         "template": "breakout",
         "params": {
          "goal": "以三千敢死冲击王寻的中军，冲破即为胜",
-         "failTo": "c.charge",
          "beats": [
           "charge",
           "target-commander"
          ],
+         "failTo": "c.charge",
          "grades": [
           "笔意",
           "寻迹"
@@ -511,11 +513,11 @@
         "template": "battle",
         "params": {
          "goal": "雷雨中城内外夹击，追击溃散的新军",
-         "failTo": "c.storm",
          "beats": [
           "pursuit",
           "storm"
          ],
+         "failTo": "c.storm",
          "grades": [
           "笔意",
           "寻迹"
@@ -586,11 +588,11 @@
         "template": "stealth",
         "params": {
          "goal": "在村落与田野间躲避追兵，寻找可以藏身的地方",
-         "failTo": "l.hide",
          "beats": [
           "hide",
           "chase"
          ],
+         "failTo": "l.hide",
          "grades": [
           "笔意",
           "寻迹"
@@ -624,11 +626,11 @@
         "template": "riddle",
         "params": {
          "goal": "让蜘蛛网在井口重新结好，骗过追兵",
-         "failTo": "l.web",
          "beats": [
           "ink-web",
           "timing"
          ],
+         "failTo": "l.web",
          "grades": [
           "史识"
          ]
@@ -2095,6 +2097,7 @@
   {
    "outlineId": "08-03",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2316,6 +2319,7 @@
   {
    "outlineId": "08-04",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -2480,11 +2484,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "诈问侍胡，从他的反应中套出匈奴使者的住处",
-         "failTo": "c.probe",
          "beats": [
           "bluff",
           "interrogate"
          ],
+         "failTo": "c.probe",
          "grades": [
           "史识"
          ]
@@ -2518,12 +2522,12 @@
         "template": "night-raid",
         "params": {
          "goal": "十人持鼓藏于虏舍之后，见火起即鸣鼓大呼；其余人顺风放火",
-         "failTo": "c.fire",
          "beats": [
           "signal",
           "fire",
           "ambush"
          ],
+         "failTo": "c.fire",
          "grades": [
           "笔意",
           "寻迹"
@@ -2558,10 +2562,10 @@
         "template": "court",
         "params": {
          "goal": "次日召见鄯善王，展示虏使首级，迫其归汉",
-         "failTo": "c.hostage",
          "beats": [
           "diplomacy"
          ],
+         "failTo": "c.hostage",
          "grades": [
           "史识"
          ]
@@ -2629,10 +2633,10 @@
         "template": "riddle",
         "params": {
          "goal": "在相者的话里找出与班超日后经历对应的线索",
-         "failTo": "l.face",
          "beats": [
           "clue-match"
          ],
+         "failTo": "l.face",
          "grades": [
           "史识"
          ]
@@ -2667,10 +2671,10 @@
         "template": "journey",
         "params": {
          "goal": "沿着西域诸国的道路，一国一国点亮地图",
-         "failTo": "l.road",
          "beats": [
           "map-unlock"
          ],
+         "failTo": "l.road",
          "grades": [
           "笔意",
           "寻迹"
@@ -4067,6 +4071,7 @@
   {
    "outlineId": "08-05",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -4326,6 +4331,7 @@
   {
    "outlineId": "08-06",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -4583,6 +4589,7 @@
   {
    "outlineId": "08-07",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -4803,6 +4810,7 @@
   {
    "outlineId": "08-08",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -4967,11 +4975,11 @@
         "template": "stealth",
         "params": {
          "goal": "以黄巾的身份在城门上写下暗号，避开巡夜",
-         "failTo": "c.signal",
          "beats": [
           "stealth",
           "write"
          ],
+         "failTo": "c.signal",
          "grades": [
           "笔意",
           "寻迹"
@@ -5010,11 +5018,11 @@
         "template": "battle",
         "params": {
          "goal": "以皇甫嵩身份，在大风之夜选准时机纵火",
-         "failTo": "c.changshe",
          "beats": [
           "wind-timing",
           "fire"
          ],
+         "failTo": "c.changshe",
          "grades": [
           "笔意",
           "寻迹"
@@ -5089,10 +5097,10 @@
         "template": "court",
         "params": {
          "goal": "在桃园中三人立誓，选择每个人的誓词",
-         "failTo": "l.peach",
          "beats": [
           "oath"
          ],
+         "failTo": "l.peach",
          "grades": [
           "史识"
          ]
@@ -5129,10 +5137,10 @@
         "template": "battle",
         "params": {
          "goal": "以三兄弟的身份初次与黄巾交战",
-         "failTo": "l.first",
          "beats": [
           "first-battle"
          ],
+         "failTo": "l.first",
          "grades": [
           "笔意",
           "寻迹"

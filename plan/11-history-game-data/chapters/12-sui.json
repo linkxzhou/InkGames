@@ -1,7 +1,7 @@
 {
  "format": "inkgames.chapter-bundle",
  "version": 1,
- "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "_comment": "由 plan/11-history-game-data 的场景规格生成。detail=full 为完整场景（场景 + 开场过场 + 字符串表 + 人物关系），detail=outline 为大纲级条目；v1 只表示是否属于首版发布批次（见内容数据格式 §2.9）。文字为本项目原创，引文仅限公有领域古籍并标出处。",
  "chapter": {
   "format": "inkgames.chapter",
   "version": 1,
@@ -58,6 +58,7 @@
   {
    "outlineId": "12-01",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -234,11 +235,11 @@
         "template": "stealth",
         "params": {
          "goal": "沿江频繁换防、大张旗鼓，让陈军习以为常",
-         "failTo": "c.feint",
          "beats": [
           "deception",
           "routine"
          ],
+         "failTo": "c.feint",
          "grades": [
           "笔意",
           "寻迹"
@@ -287,11 +288,11 @@
         "template": "naval",
         "params": {
          "goal": "大雾中指挥船队渡江，在对岸抢占滩头",
-         "failTo": "c.cross",
          "beats": [
           "fog-crossing",
           "landing"
          ],
+         "failTo": "c.cross",
          "grades": [
           "笔意",
           "寻迹"
@@ -340,11 +341,11 @@
         "template": "riddle",
         "params": {
          "goal": "在建康宫中搜寻陈后主的下落",
-         "failTo": "c.capture",
          "beats": [
           "search",
           "palace"
          ],
+         "failTo": "c.capture",
          "grades": [
           "史识"
          ]
@@ -434,11 +435,11 @@
         "template": "calligraphy",
         "params": {
          "goal": "以墨笔画出铜镜的裂痕，两半要严丝合缝",
-         "failTo": "l.mirror",
          "beats": [
           "draw",
           "match"
          ],
+         "failTo": "l.mirror",
          "grades": [
           "史识"
          ]
@@ -481,11 +482,11 @@
         "template": "riddle",
         "params": {
          "goal": "正月十五在长安市中寻找卖半镜的人",
-         "failTo": "l.market",
          "beats": [
           "search",
           "crowd"
          ],
+         "failTo": "l.market",
          "grades": [
           "史识"
          ]
@@ -1968,6 +1969,7 @@
   {
    "outlineId": "12-02",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2242,6 +2244,7 @@
   {
    "outlineId": "12-03",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2533,6 +2536,7 @@
   {
    "outlineId": "12-04",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -2708,11 +2712,11 @@
         "template": "ambush",
         "params": {
          "goal": "在大海寺北的林中设伏，等待张须陀追入",
-         "failTo": "c.ambush",
          "beats": [
           "ambush",
           "forest"
          ],
+         "failTo": "c.ambush",
          "grades": [
           "笔意",
           "寻迹"
@@ -2757,11 +2761,11 @@
         "template": "night-raid",
         "params": {
          "goal": "夜袭兴洛仓，开仓放粮",
-         "failTo": "c.granary",
          "beats": [
           "raid",
           "distribute"
          ],
+         "failTo": "c.granary",
          "grades": [
           "笔意",
           "寻迹"
@@ -2806,10 +2810,10 @@
         "template": "battle",
         "params": {
          "goal": "邙山之战，迎击王世充的精兵",
-         "failTo": "c.mangshan",
          "beats": [
           "battle"
          ],
+         "failTo": "c.mangshan",
          "grades": [
           "笔意",
           "寻迹"
@@ -2891,11 +2895,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "以秦琼身份在潞州街头卖马，与买家讨价还价",
-         "failTo": "l.horse",
          "beats": [
           "bargain",
           "pride"
          ],
+         "failTo": "l.horse",
          "grades": [
           "史识"
          ]
@@ -2933,10 +2937,10 @@
         "template": "court",
         "params": {
          "goal": "在瓦岗聚义，安排众兄弟的座次",
-         "failTo": "l.brothers",
          "beats": [
           "seating"
          ],
+         "failTo": "l.brothers",
          "grades": [
           "史识"
          ]

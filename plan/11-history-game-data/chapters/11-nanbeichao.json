@@ -1,7 +1,7 @@
 {
  "format": "inkgames.chapter-bundle",
  "version": 1,
- "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "_comment": "由 plan/11-history-game-data 的场景规格生成。detail=full 为完整场景（场景 + 开场过场 + 字符串表 + 人物关系），detail=outline 为大纲级条目；v1 只表示是否属于首版发布批次（见内容数据格式 §2.9）。文字为本项目原创，引文仅限公有领域古籍并标出处。",
  "chapter": {
   "format": "inkgames.chapter",
   "version": 1,
@@ -62,6 +62,7 @@
   {
    "outlineId": "11-01",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -377,6 +378,7 @@
   {
    "outlineId": "11-02",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -544,11 +546,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "雨中马前，在群臣哀求的节奏里提出迁都，二者择一",
-         "failTo": "c.rain",
          "beats": [
           "timing",
           "ultimatum"
          ],
+         "failTo": "c.rain",
          "grades": [
           "史识"
          ]
@@ -587,10 +589,10 @@
         "template": "engineering",
         "params": {
          "goal": "与李冲规划洛阳城坊，安排宫室与市里",
-         "failTo": "c.build",
          "beats": [
           "city-plan"
          ],
+         "failTo": "c.build",
          "grades": [
           "笔意",
           "寻迹"
@@ -630,11 +632,11 @@
         "template": "court",
         "params": {
          "goal": "推行汉化：易服、改语、改姓，回应旧臣的反对",
-         "failTo": "c.reform",
          "beats": [
           "policy",
           "objection"
          ],
+         "failTo": "c.reform",
          "grades": [
           "史识"
          ]
@@ -710,11 +712,11 @@
         "template": "court",
         "params": {
          "goal": "与宗室密议迁都，判断谁可以托付",
-         "failTo": "l.secret",
          "beats": [
           "trust",
           "secret"
          ],
+         "failTo": "l.secret",
          "grades": [
           "史识"
          ]
@@ -752,11 +754,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "在朝会上故作盛怒，观察众人反应",
-         "failTo": "l.anger",
          "beats": [
           "act",
           "read"
          ],
+         "failTo": "l.anger",
          "grades": [
           "史识"
          ]
@@ -2212,6 +2214,7 @@
   {
    "outlineId": "11-03",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2506,6 +2509,7 @@
   {
    "outlineId": "11-04",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -2685,11 +2689,11 @@
         "template": "siege",
         "params": {
          "goal": "以羊侃身份守台城，烧毁叛军的攻城车",
-         "failTo": "c.defend",
          "beats": [
           "siege-defense",
           "fire"
          ],
+         "failTo": "c.defend",
          "grades": [
           "笔意",
           "寻迹"
@@ -2739,11 +2743,11 @@
         "template": "survival",
         "params": {
          "goal": "围城中分配粮草与柴薪，城内的人一天天减少",
-         "failTo": "c.supply",
          "beats": [
           "resource",
           "survival"
          ],
+         "failTo": "c.supply",
          "grades": [
           "笔意",
           "寻迹"
@@ -2793,10 +2797,10 @@
         "template": "naval",
         "params": {
          "goal": "三年后，随王僧辩、陈霸先的水军东下讨平侯景",
-         "failTo": "c.retake",
          "beats": [
           "river-fleet"
          ],
+         "failTo": "c.retake",
          "grades": [
           "笔意",
           "寻迹"
@@ -2883,11 +2887,11 @@
         "template": "survival",
         "params": {
          "goal": "以宫中旧侍的身份照料被困的老皇帝",
-         "failTo": "l.palace",
          "beats": [
           "care",
           "scarcity"
          ],
+         "failTo": "l.palace",
          "grades": [
           "笔意",
           "寻迹"
@@ -2926,11 +2930,11 @@
         "template": "stealth",
         "params": {
          "goal": "带着几卷经书从台城中逃出",
-         "failTo": "l.escape",
          "beats": [
           "stealth",
           "carry"
          ],
+         "failTo": "l.escape",
          "grades": [
           "笔意",
           "寻迹"
@@ -4336,6 +4340,7 @@
   {
    "outlineId": "11-05",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,

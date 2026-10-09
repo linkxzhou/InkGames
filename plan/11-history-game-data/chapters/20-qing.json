@@ -1,7 +1,7 @@
 {
  "format": "inkgames.chapter-bundle",
  "version": 1,
- "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "_comment": "由 plan/11-history-game-data 的场景规格生成。detail=full 为完整场景（场景 + 开场过场 + 字符串表 + 人物关系），detail=outline 为大纲级条目；v1 只表示是否属于首版发布批次（见内容数据格式 §2.9）。文字为本项目原创，引文仅限公有领域古籍并标出处。",
  "chapter": {
   "format": "inkgames.chapter",
   "version": 1,
@@ -82,6 +82,7 @@
   {
    "outlineId": "20-01",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -246,10 +247,10 @@
         "template": "court",
         "params": {
          "goal": "以吴三桂身份权衡：归顺、坚守，还是借兵",
-         "failTo": "c.letter",
          "beats": [
           "choice"
          ],
+         "failTo": "c.letter",
          "grades": [
           "史识"
          ]
@@ -287,11 +288,11 @@
         "template": "cavalry",
         "params": {
          "goal": "一片石，关宁军与大顺军正面鏖战，等待侧翼的清骑",
-         "failTo": "c.battle",
          "beats": [
           "hold",
           "timing"
          ],
+         "failTo": "c.battle",
          "grades": [
           "笔意",
           "寻迹"
@@ -371,10 +372,10 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "关上接连传来家人的消息，在每一封信里辨别真假",
-         "failTo": "l.news",
          "beats": [
           "letters"
          ],
+         "failTo": "l.news",
          "grades": [
           "史识"
          ]
@@ -416,10 +417,10 @@
         "template": "calligraphy",
         "params": {
          "goal": "以诗人身份写下那一句评语：是讥讽，还是同情",
-         "failTo": "l.poem",
          "beats": [
           "write"
          ],
+         "failTo": "l.poem",
          "grades": [
           "史识"
          ]
@@ -1870,6 +1871,7 @@
   {
    "outlineId": "20-02",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2087,6 +2089,7 @@
   {
    "outlineId": "20-03",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2339,6 +2342,7 @@
   {
    "outlineId": "20-04",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -2511,11 +2515,11 @@
         "template": "naval",
         "params": {
          "goal": "计算潮水，在涨潮的窗口中驶过鹿耳门",
-         "failTo": "c.tide",
          "beats": [
           "tide-timing",
           "navigation"
          ],
+         "failTo": "c.tide",
          "grades": [
           "笔意",
           "寻迹"
@@ -2560,10 +2564,10 @@
         "template": "siege",
         "params": {
          "goal": "先围赤嵌城，断其水源",
-         "failTo": "c.chikan",
          "beats": [
           "siege"
          ],
+         "failTo": "c.chikan",
          "grades": [
           "笔意",
           "寻迹"
@@ -2608,10 +2612,10 @@
         "template": "siege",
         "params": {
          "goal": "长围热兰遮城，炮台与壕沟层层推进",
-         "failTo": "c.zeelandia",
          "beats": [
           "siege-works"
          ],
+         "failTo": "c.zeelandia",
          "grades": [
           "笔意",
           "寻迹"
@@ -2703,10 +2707,10 @@
         "template": "riddle",
         "params": {
          "goal": "在传说的版本里，潮水是“天意”，在海图上找出它的规律",
-         "failTo": "l.tide",
          "beats": [
           "pattern"
          ],
+         "failTo": "l.tide",
          "grades": [
           "史识"
          ]
@@ -2754,10 +2758,10 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "以戏班的节奏，演一出海外流传的“国姓爷”",
-         "failTo": "l.stage",
          "beats": [
           "stage-timing"
          ],
+         "failTo": "l.stage",
          "grades": [
           "史识"
          ]
@@ -4141,6 +4145,7 @@
   {
    "outlineId": "20-05",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -4375,6 +4380,7 @@
   {
    "outlineId": "20-06",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -4549,10 +4555,10 @@
         "template": "court",
         "params": {
          "goal": "朝堂上权衡撤与不撤的利弊",
-         "failTo": "c.decide",
          "beats": [
           "argument"
          ],
+         "failTo": "c.decide",
          "grades": [
           "史识"
          ]
@@ -4596,11 +4602,11 @@
         "template": "naval",
         "params": {
          "goal": "以施琅身份布阵，在澎湖海面上分割包围",
-         "failTo": "c.penghu",
          "beats": [
           "naval",
           "formation"
          ],
+         "failTo": "c.penghu",
          "grades": [
           "笔意",
           "寻迹"
@@ -4645,11 +4651,11 @@
         "template": "siege",
         "params": {
          "goal": "围困雅克萨，在严寒中坚持",
-         "failTo": "c.yakesa",
          "beats": [
           "siege",
           "cold"
          ],
+         "failTo": "c.yakesa",
          "grades": [
           "笔意",
           "寻迹"
@@ -4731,10 +4737,10 @@
         "template": "court",
         "params": {
          "goal": "吴三桂衡州称帝，在仓促的典礼中察觉人心离散",
-         "failTo": "l.hengzhou",
          "beats": [
           "observe"
          ],
+         "failTo": "l.hengzhou",
          "grades": [
           "史识"
          ]
@@ -4772,11 +4778,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "以使者身份往返于各藩之间",
-         "failTo": "l.envoy",
          "beats": [
           "timing",
           "negotiation"
          ],
+         "failTo": "l.envoy",
          "grades": [
           "史识"
          ]
@@ -6352,6 +6358,7 @@
   {
    "outlineId": "20-07",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -6572,6 +6579,7 @@
   {
    "outlineId": "20-08",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -6852,6 +6860,7 @@
   {
    "outlineId": "20-09",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -7015,10 +7024,10 @@
         "template": "riddle",
         "params": {
          "goal": "核对商船的账册与仓单，找出隐匿的鸦片",
-         "failTo": "c.ledger",
          "beats": [
           "ledger"
          ],
+         "failTo": "c.ledger",
          "grades": [
           "史识"
          ]
@@ -7056,10 +7065,10 @@
         "template": "engineering",
         "params": {
          "goal": "按次序注水、撒盐、投石灰、开闸，二十余日不停",
-         "failTo": "c.pool",
          "beats": [
           "process"
          ],
+         "failTo": "c.pool",
          "grades": [
           "笔意",
           "寻迹"
@@ -7130,11 +7139,11 @@
         "template": "stealth",
         "params": {
          "goal": "微服察访烟馆，找出货源",
-         "failTo": "l.visit",
          "beats": [
           "disguise",
           "search"
          ],
+         "failTo": "l.visit",
          "grades": [
           "笔意",
           "寻迹"
@@ -7168,10 +7177,10 @@
         "template": "calligraphy",
         "params": {
          "goal": "起草致英国君主的书信",
-         "failTo": "l.letter",
          "beats": [
           "write"
          ],
+         "failTo": "l.letter",
          "grades": [
           "史识"
          ]
@@ -8510,6 +8519,7 @@
   {
    "outlineId": "20-10",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -8801,6 +8811,7 @@
   {
    "outlineId": "20-11",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -9061,6 +9072,7 @@
   {
    "outlineId": "20-12",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -9225,10 +9237,10 @@
         "template": "naval",
         "params": {
          "goal": "以北洋舰队身份保持阵形，应对日舰的绕行",
-         "failTo": "c.formation",
          "beats": [
           "formation"
          ],
+         "failTo": "c.formation",
          "grades": [
           "笔意",
           "寻迹"
@@ -9267,11 +9279,11 @@
         "template": "naval",
         "params": {
          "goal": "致远损管：在炮火中封堵破口",
-         "failTo": "c.damage",
          "beats": [
           "repair",
           "timing"
          ],
+         "failTo": "c.damage",
          "grades": [
           "笔意",
           "寻迹"
@@ -9351,10 +9363,10 @@
         "template": "survival",
         "params": {
          "goal": "海面上漂浮着碎木与烟火，找到落水的人",
-         "failTo": "l.sea",
          "beats": [
           "search"
          ],
+         "failTo": "l.sea",
          "grades": [
           "笔意",
           "寻迹"
@@ -9397,10 +9409,10 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "救生圈抛来，那一刻的拒绝",
-         "failTo": "l.choice",
          "beats": [
           "choice"
          ],
+         "failTo": "l.choice",
          "grades": [
           "史识"
          ]
@@ -10777,6 +10789,7 @@
   {
    "outlineId": "20-13",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -11010,6 +11023,7 @@
   {
    "outlineId": "20-14",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -11177,10 +11191,10 @@
         "template": "night-raid",
         "params": {
          "goal": "以工程营士兵身份夜里发难，夺取军械库",
-         "failTo": "c.night",
          "beats": [
           "night-raid"
          ],
+         "failTo": "c.night",
          "grades": [
           "笔意",
           "寻迹"
@@ -11220,10 +11234,10 @@
         "template": "siege",
         "params": {
          "goal": "进攻总督署",
-         "failTo": "c.yamen",
          "beats": [
           "siege"
          ],
+         "failTo": "c.yamen",
          "grades": [
           "笔意",
           "寻迹"
@@ -11263,10 +11277,10 @@
         "template": "court",
         "params": {
          "goal": "退位诏书：南北议和的最后一纸",
-         "failTo": "c.edict",
          "beats": [
           "negotiation"
          ],
+         "failTo": "c.edict",
          "grades": [
           "史识"
          ]
@@ -11338,10 +11352,10 @@
         "template": "stealth",
         "params": {
          "goal": "起义士兵在城中搜寻一位“不肯出面”的协统",
-         "failTo": "l.search",
          "beats": [
           "search"
          ],
+         "failTo": "l.search",
          "grades": [
           "笔意",
           "寻迹"
@@ -11376,10 +11390,10 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "在众人注视下，劝说一个犹豫的人点头",
-         "failTo": "l.oath",
          "beats": [
           "persuade"
          ],
+         "failTo": "l.oath",
          "grades": [
           "史识"
          ]

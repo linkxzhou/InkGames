@@ -1,7 +1,7 @@
 {
  "format": "inkgames.chapter-bundle",
  "version": 1,
- "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "_comment": "由 plan/11-history-game-data 的场景规格生成。detail=full 为完整场景（场景 + 开场过场 + 字符串表 + 人物关系），detail=outline 为大纲级条目；v1 只表示是否属于首版发布批次（见内容数据格式 §2.9）。文字为本项目原创，引文仅限公有领域古籍并标出处。",
  "chapter": {
   "format": "inkgames.chapter",
   "version": 1,
@@ -64,6 +64,7 @@
   {
    "outlineId": "16-01",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -347,6 +348,7 @@
   {
    "outlineId": "16-02",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -552,6 +554,7 @@
   {
    "outlineId": "16-03",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -720,11 +723,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "头鱼宴上，以阿骨打身份在天祚帝的逼视下拒绝起舞",
-         "failTo": "c.dance",
          "beats": [
           "stare-down",
           "restraint"
          ],
+         "failTo": "c.dance",
          "grades": [
           "史识"
          ]
@@ -763,10 +766,10 @@
         "template": "cavalry",
         "params": {
          "goal": "率骑兵攻打宁江州",
-         "failTo": "c.ningjiang",
          "beats": [
           "charge"
          ],
+         "failTo": "c.ningjiang",
          "grades": [
           "笔意",
           "寻迹"
@@ -806,11 +809,11 @@
         "template": "cavalry",
         "params": {
          "goal": "辽军阵中有变、开始回师时，率骑兵追击其中军",
-         "failTo": "c.hubu",
          "beats": [
           "timing",
           "pursuit"
          ],
+         "failTo": "c.hubu",
          "grades": [
           "笔意",
           "寻迹"
@@ -883,11 +886,11 @@
         "template": "journey",
         "params": {
          "goal": "在雪山上追踪海东青的巢穴，鹰飞得比马还快",
-         "failTo": "l.falcon",
          "beats": [
           "chase",
           "climb"
          ],
+         "failTo": "l.falcon",
          "grades": [
           "笔意",
           "寻迹"
@@ -922,11 +925,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "应对辽国银牌使者的索求",
-         "failTo": "l.envoy",
          "beats": [
           "negotiation",
           "restraint"
          ],
+         "failTo": "l.envoy",
          "grades": [
           "史识"
          ]
@@ -2376,6 +2379,7 @@
   {
    "outlineId": "16-04",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2581,6 +2585,7 @@
   {
    "outlineId": "16-05",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2772,6 +2777,7 @@
   {
    "outlineId": "16-06",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -2945,11 +2951,11 @@
         "template": "siege",
         "params": {
          "goal": "在粮尽的城中分配最后的兵力与器械",
-         "failTo": "c.defend",
          "beats": [
           "resource",
           "defend"
          ],
+         "failTo": "c.defend",
          "grades": [
           "笔意",
           "寻迹"
@@ -2994,11 +3000,11 @@
         "template": "court",
         "params": {
          "goal": "主持仓促的传位礼",
-         "failTo": "c.handover",
          "beats": [
           "ceremony",
           "time-limit"
          ],
+         "failTo": "c.handover",
          "grades": [
           "史识"
          ]
@@ -3079,10 +3085,10 @@
         "template": "court",
         "params": {
          "goal": "以宋使身份与蒙古约定分地与期限",
-         "failTo": "l.pact",
          "beats": [
           "negotiation"
          ],
+         "failTo": "l.pact",
          "grades": [
           "史识"
          ]
@@ -3120,10 +3126,10 @@
         "template": "siege",
         "params": {
          "goal": "宋军攻城，登上城头",
-         "failTo": "l.assault",
          "beats": [
           "assault"
          ],
+         "failTo": "l.assault",
          "grades": [
           "笔意",
           "寻迹"
