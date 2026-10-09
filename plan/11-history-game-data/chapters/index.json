@@ -219,8 +219,8 @@
    "span": "1368—1644 年",
    "scenes": 12,
    "v1": 5,
-   "full": 5,
-   "outline": 7
+   "full": 12,
+   "outline": 0
   },
   {
    "no": "20",
@@ -237,7 +237,7 @@
  "totals": {
   "scenes": 157,
   "v1": 66,
-  "full": 142,
-  "outline": 15
+  "full": 149,
+  "outline": 8
  }
 }
