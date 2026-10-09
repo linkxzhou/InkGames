@@ -84,10 +84,14 @@ function parseEntry(value: unknown): FullSceneEntry | OutlineSceneEntry {
   const row = record(value, 'entry');
   if (typeof row.outlineId !== 'string') throw new Error('outlineId');
   const strings = parseStringTable(row.strings);
-  if (row.v1 === true) {
+  if (typeof row.v1 !== 'boolean') throw new Error('entry v1');
+  if (row.detail !== undefined && row.detail !== 'full' && row.detail !== 'outline') throw new Error('entry detail');
+  const full = row.detail === undefined ? row.v1 : row.detail === 'full';
+  if (full) {
     return {
       outlineId: row.outlineId,
-      v1: true,
+      v1: row.v1,
+      detail: 'full',
       ...(typeof row.example === 'string' ? { example: row.example } : {}),
       scene: parseSceneDef(row.scene),
       opening: parseCutsceneDef(row.opening),
@@ -96,12 +100,12 @@ function parseEntry(value: unknown): FullSceneEntry | OutlineSceneEntry {
       relations: Array.isArray(row.relations) ? row.relations as FullSceneEntry['relations'] : [],
     };
   }
-  if (row.v1 !== false) throw new Error('entry v1');
   const scene = record(row.scene, 'outline');
   if (scene.format !== 'inkgames.scene-outline') throw new Error('outline format');
   return {
     outlineId: row.outlineId,
-    v1: false,
+    v1: row.v1,
+    detail: 'outline',
     scene: row.scene as OutlineSceneEntry['scene'],
     strings,
     cast: Array.isArray(row.cast) ? row.cast as OutlineSceneEntry['cast'] : [],
@@ -127,7 +131,7 @@ export function parseChapterBundle(value: unknown): ChapterBundle {
 
 export function findFullScene(bundle: ChapterBundle, sceneId: string): FullSceneEntry | undefined {
   for (const entry of bundle.scenes) {
-    if (entry.v1 && entry.scene.id === sceneId) return entry;
+    if (entry.detail === 'full' && entry.scene.id === sceneId) return entry;
   }
   return undefined;
 }

@@ -254,9 +254,11 @@ export interface ChapterIndex {
     readonly span: string;
     readonly scenes: number;
     readonly v1: number;
+    /** Entries with detail 'full'; absent in older indexes. */
+    readonly full?: number;
     readonly outline: number;
   }[];
-  readonly totals: { readonly chapters: number; readonly scenes: number; readonly v1: number; readonly outline: number };
+  readonly totals: { readonly chapters?: number; readonly scenes: number; readonly v1: number; readonly full?: number; readonly outline: number };
 }
 
 export interface OutlineSceneDef {
@@ -275,7 +277,7 @@ export interface OutlineSceneDef {
   readonly hooks: { readonly canon: string; readonly legend: string; readonly play: string };
   readonly sources: readonly SourceRef[];
   readonly verify: 'done' | 'pending';
-  readonly v1: false;
+  readonly v1?: boolean;
 }
 
 export interface CastMember {
@@ -295,9 +297,11 @@ export interface Relation {
   readonly directed?: boolean;
 }
 
+/** v1 marks the first-release ship batch; detail marks content depth (older data: v1 implied full). */
 export interface FullSceneEntry {
   readonly outlineId: string;
-  readonly v1: true;
+  readonly v1: boolean;
+  readonly detail: 'full';
   readonly example?: string;
   readonly scene: SceneDef;
   readonly opening: CutsceneDef;
@@ -308,7 +312,8 @@ export interface FullSceneEntry {
 
 export interface OutlineSceneEntry {
   readonly outlineId: string;
-  readonly v1: false;
+  readonly v1: boolean;
+  readonly detail: 'outline';
   readonly scene: OutlineSceneDef;
   readonly strings: StringTable;
   readonly cast: readonly CastMember[];

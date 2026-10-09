@@ -20,7 +20,21 @@
 | `InkStage`（`ink-stage.ts`，654 行） | Pixi `Application`、`Container` | 重写。它绑定单个 `ItemPreset`，道具行为写在 `switch (item.action)` 里，画布固定 1280×720 | 第 362 行 `switch` |
 | `recording.ts` | v0.1 `Engine` 命令 | 不能用于 2.0 笔画；需要新格式 | docs/12 “录制”一行 |
 
-结论：**笔刷算法、调色板、噪声、物理都能带走；渲染层（InkWash、InkStage、滤镜包装）要按 three.js 重写**。历史游戏需要的叙事、过场、音频、文字、存档、UI 在现有代码里都没有（`src/` 与 `apps/` 中检索 audio / localStorage / Text / font / i18n 均无结果）。
+结论：**笔刷算法、调色板、噪声、物理都能带走；渲染层（InkWash、InkStage、滤镜包装）要按 three.js 重写**。上面这张表写于叙事宿主合入之前，当时 `src/` 与 `apps/` 里没有叙事、过场、音频、文字、存档、UI。
+
+**更新（2026-10）：M5 叙事宿主模块已在 main 上**（PR #5，提交 5d14320 / 8395e96）。下表“现状”一栏中 G-02、G-03、G-05、G-06、G-07、G-09 的“没有”已不成立，以本段为准：
+
+| 模块 | 文件 | 已有 | 还缺（对照本批内容数据） |
+|---|---|---|---|
+| `SceneDirector` | `src/core/scene-director.ts` | 载入一个场景包，播开场，再按剧情图走；玩法节点只显示目标，不跑玩法 | 按章懒加载数据包；`detail`/`v1` 过滤；转场；玩法插件挂接（G-14） |
+| `StoryRuntime` | `src/core/story-runtime.ts` | 剧情图遍历、选择、条件（`content-catalog.ts` 的 `conditionMet`）、检查点 | 跨场景的入口/出口锚点衔接；异闻录归档（`archive: 'yiwenlu'`） |
+| `CutscenePlayer` | `src/core/cutscene-player.ts` | 帧时钟、六条轨道、同步点、跳过时把进行中的笔画一次画完 | 大量场景共用的分镜预设（见下 G-24） |
+| `AudioBus` | `src/core/audio-bus.ts` | 四条总线；缺音频文件时用短音代替，保证同步点能放行 | 真实录音与 BGM 库（仓库里没有） |
+| `SaveStore` | `src/core/save-store.ts` | 存档、迁移、`localStorage` 接口 | 157 个场景规模下的进度与收集（卡片册）结构 |
+| `InkText` | `src/core/ink-text.ts` | 画布纹理上的字幕与题字，不用文字库 | 竖排长文本（史评卷轴、对照卡）、字体子集 |
+| 演示页 `/story/` | `apps/story/` | 用 `StoryStage` 播放易水寒样例（`scene-zhanguo-jingke.example.json`） | 只认单个场景包；还不能从 `chapters/index.json` 选章选场 |
+
+内容格式同步：`content-catalog.ts` 已改为按 `detail` 判断条目深度（缺 `detail` 时按 `v1` 推断），`findFullScene` 不再要求 `v1: true`，以适配 157 个场景全部为完整场景、`v1` 只表示首版发布批次的新约定（见[内容数据格式 §2.9](./11-history-game-content-schema.md#29-章节数据包索引与大纲级场景)）。
 
 ## 2. 开场动画管线
 
@@ -97,7 +111,7 @@
 3. 登记：抠图产物按 `assets[].id` 入库，带 `ref.prop`/`ref.parts`/`ref.actor` 的直接对齐 `src/plugins/prop-brushes.ts` 的预设与人物卡，减少运行时“素材名对不上”的返工。
 4. 组装：运行时把人物立绘、器物、环境、特效分层摆放（层深沿用 `INK_LAYER_Z`）。**这些网格图是给画师和模型的中间产物，不进 `dist/`、不随发布物再分发**；进游戏的是抠好的单件素材。
 
-现状：规划数据（157 场景 / 603 张图 / 2989 件素材）与结构校验器已就绪，查看页可逐段复制提示词；**场景专属素材只复核了少量代表场景，其他场景仍需逐场人工审核；出图、抠图与登记工具尚未做，真实出图效果未实测**。风格基准是写意水墨（焦墨/浓墨/淡墨 + 枯笔飞白 + 泼墨墨点飞溅 + 克制点缀色），不锁定某一幅参考图。
+现状：规划数据（157 场景全部完整 / 633 张图 / 4343 件素材）与结构校验器已就绪，查看页可逐段复制提示词；**场景专属素材只复核了少量代表场景，其他场景仍需逐场人工审核；出图、抠图与登记工具尚未做，真实出图效果未实测**。风格基准是写意水墨（焦墨/浓墨/淡墨 + 枯笔飞白 + 泼墨墨点飞溅 + 克制点缀色），不锁定某一幅参考图。
 
 ## 3. 引擎缺口清单
 
@@ -128,6 +142,19 @@
 | G-21 | 测试与性能 | 确定性回放截图、真实 GPU 性能矩阵、Safari/Firefox | 只有无头 Chromium + SwiftShader 冒烟；真实 GPU 未测 | 过场关键帧截图基线；性能预算：开场每帧墨面计算 ≤ 8 ms（目标值，未实测） | P0（切片前在一台独显桌面实测）／P1 | G-05 | 2 |
 | G-22 | 无障碍与设置 | 字幕字号、跳过、音量分轨、色弱友好的线色 | 没有 | 设置项写进存档 | P1 | G-09、G-10 | 1 |
 
+**由 157 个完整场景新提出的需求**（2026-10 写完全部场景后统计；玩法节点共 759 个，其中 court 119、dialogue-timing 111、riddle 65、stealth 56、siege 44、calligraphy 43、battle 42、cavalry 42、naval 40、trace 37、journey 32、engineering 32、survival 22、duel 19、night-raid 18，其余个位数）：
+
+| # | 模块 | 用途 | 现状 | API 草案 | 优先级 | 依赖 | 工作量 |
+|---|---|---|---|---|---|---|---|
+| G-23 | 庙堂 / 应对时机通用 UI | court 与 dialogue-timing 合计 230 个节点，占三成；需要一套可配置的“陈词—反驳—时机窗”界面，而不是逐场写 | `SceneDirector` 只显示目标文字 | `gameplay('court', { beats, grades })`：节拍列表驱动选项与时间窗，评分写回墨评 | P0 | G-03、G-10、G-14 | 2–3 |
+| G-24 | 分镜预设库 | 157 个开场都是五镜（题字、远景、人物、冲突、岔口），镜头参数高度相似 | 每个过场 JSON 自带完整轨道 | `shotPreset('establish' | 'portrait' | 'clash' | 'fork', overrides)`，构建期展开成轨道 | P1 | G-05 | 1.5 |
+| G-25 | water-brush 解谜 / 寻迹 | riddle、trace、riddle-escape 合计 104 个节点：洗出隐藏墨迹、比对笔迹、沿线索追踪（包公断案、马可·波罗行纪、燕然摩崖等） | Pixi 版有水刷改碰撞；没有“隐藏层 + 线索判定” | `hiddenLayer.add(id, strokes)`、`clue.on('revealed', id)`；与遮罩 pass（G-12）共用 | P1 | G-12、G-14 | 2 |
+| G-26 | 书法节点 | calligraphy 43 个节点（勒石、题壁、正气歌、万言书）；P0 先做“描红”，P2 再做笔顺比对 | 没有 | `calligraphy.trace(glyphs, { tolerance })` | P1（描红）／P2（笔顺） | G-07 | 2 + 3 |
+| G-27 | 水战与风浪 | naval 40 个节点：火船、风向、潮汐与风暴（赤壁、崖山、元军东征、鹿耳门、甲午） | 有 boat 尾迹；无风向、风暴 | `weather.wind(dir, strength)`、`sea.storm(level)`；舟体受力仍走 Matter | P1 | G-15、three.js 迁移 | 2–3 |
+| G-28 | 护送 / 撤离 / 求生 | survival 与 evacuate 26 个节点（靖康北迁、崖山、扬州、崇祯出走等），按 §6.4 不以平民为目标 | 没有 | `escort.follow(actors)`、资源计数、失败重试从检查点开始 | P1 | G-13、G-15 | 2 |
+| G-29 | 章节选择与时间线数据接入 | 从 `chapters/index.json` 选章选场；时间线按 `when`、锚点和 `v1` 生成 | `/story/` 只播一个样例 | `loadChapter(id)`、`timeline.fromIndex(index, { shipOnly: true })` | P0 | G-10、G-17 | 1.5 |
+| G-30 | 史评与对照卡排版 | 每个场景都有史评、对照（compare）、卡片（cards）与出处列表，多为竖排长文 | `InkText` 只做字幕与题字 | DOM 覆盖层排长文，出处可点开；竖排与横排可切换 | P1 | G-07、G-10 | 1.5 |
+
 ### 3.1 依赖顺序
 
 ```text
@@ -147,8 +174,8 @@ three.js 迁移（G-01 墨面、物理驱动模型）
 ### M0 · 准备（1–2 周，可与 three.js 迁移并行）
 
 - 定稿内容格式；写校验 CLI 与剧情运行时（G-03、G-09、G-17 的校验部分），样例 `scene-zhanguo-jingke.example.json` 作为测试夹具通过校验。
-- 用 history-santi 对《东周列国志》第九十八至一百八回做完整三体笔记，并对照《史记》相关列传核对垂直切片三个场景的事实，清掉 `verify: pending`。
-- 决定 `skills/` 是否提交（见故事与玩法 §9）。
+- 用 history-santi 对《东周列国志》第九十八至一百八回做完整三体笔记，并对照《史记》相关列传核对垂直切片三个场景的事实，清掉 `verify: pending`。（2026-10 进展：全部 157 个场景的日期与出处已回查，待核验只剩 6 处，都在 20-12 的野史线；易水寒的入口 / 出口锚点已按《史记·六国年表》《秦始皇本纪》定为前 232 / 前 226 年。场景级人工复核仍未做。）
+- ~~决定 `skills/` 是否提交~~（已提交，见故事与玩法 §9）。
 
 **验收**：`./build.sh check` 跑过校验器与新单测；三个切片场景的正史节点全部 `verify: done`，由史学顾问签字。
 
@@ -191,6 +218,8 @@ three.js 迁移（G-01 墨面、物理驱动模型）
 按章节大纲分批：上古—春秋、汉末三国、两晋南北朝隋、唐五代、宋辽金、元明、清。每批结束做一次史学与版权复核。
 
 ### M5 · 打磨与发布
+
+（注：叙事宿主模块虽以“M5”的名义先行合入 main，见 §1 末的更新；本节指发布前的打磨。）
 
 真实 GPU 矩阵、Safari / Firefox 实测、上下文恢复、性能分档、无障碍、发布物审计（确保语料库与受限第三方快照都不在 `dist/`）。
 
