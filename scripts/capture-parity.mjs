@@ -65,7 +65,8 @@ async function captureSrc(scene) {
   const page = await browser.newPage({ viewport: { width: 900, height: 760 } });
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
-  await page.goto(`${origin}/compare/?${scene === 'modes' ? 'scene=modes' : `prop=${scene}`}`, { waitUntil: 'load', timeout: 30000 });
+  const special = scene === 'modes' || scene === 'flow' || scene === 'distort' || scene === 'metallic' || scene === 'camera';
+  await page.goto(`${origin}/compare/?${special ? `scene=${scene}` : `prop=${scene}`}`, { waitUntil: 'load', timeout: 30000 });
   await page.waitForFunction(() => window.__compareReady === true, undefined, { timeout: 180000 });
   if (errors.length) throw new Error(`${scene} 对照页报错: ${errors.join('\n')}`);
   await page.locator('#mount canvas').screenshot({ path: join(outDir, `${scene}-src.png`) });
@@ -95,6 +96,7 @@ async function captureInk(scene, data) {
       if (!finish) return;
       // Same order as InkWash.applyFinish: metallic, distort, then the flow commit.
       if (finish.metallic) {
+        ink.core.win.bugsSize = finish.metallic.size == null ? 10 : finish.metallic.size;
         ink.p.randomSeed(stroke.seed);
         ink.core.fn.scanBugBites();
         ink.step(1);

@@ -52,6 +52,9 @@ function convert(name, extra = (s) => s) {
   s = s.replace(/gl_FragCoord\.xy/g, 'inkFragCoord()');
   s = s.replace(/texture2D\(/g, 'T(');
   s = s.replace(/gl_FragColor/g, 'finalColor');
+  // Pixi prefixes the shader with `#define in varying` under GL_ES, which turns an `in` parameter
+  // into an illegal `varying` parameter. `in` is the default qualifier, so drop it. Leave `inout` alone.
+  s = s.replace(/(\(|,)\s*in\s+(?=vec|float|int|mat|sampler)/g, '$1 ');
   s = extra(s);
   if (/useMask|maskTex|rect\.|gl_Frag|texture2D/.test(s)) throw new Error(`unconverted tokens left in ${name}`);
   return `${HELPERS}\n${pretty(s)}`;

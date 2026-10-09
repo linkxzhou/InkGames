@@ -396,9 +396,11 @@ export function paintProp(id: PropPaintingId, at: PropPlacement): PropStroke[] {
       return pressure === undefined ? { x, y } : { x, y, pressure };
     });
     const seed = fnv(`${id}:${gesture.part}:${index}:${at.variant ?? 0}:${at.pose ?? 0}`);
-    const finish = preset.finish?.flow
-      ? { ...preset.finish, flow: { ...preset.finish.flow, seed: preset.finish.flow.seed ?? (seed % 1000000) } }
-      : preset.finish;
+    // Bite and flow radii are in sheet pixels. On a hand-sized copy they cover the whole sprite.
+    const raw = scale < 0.75 ? undefined : preset.finish;
+    const finish = raw?.flow
+      ? { ...raw, flow: { ...raw.flow, seed: raw.flow.seed ?? (seed % 1000000) } }
+      : raw;
     return [{
       prop: id,
       part: gesture.part,

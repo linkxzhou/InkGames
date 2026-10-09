@@ -132,7 +132,7 @@ const wash = new InkWash(app, { width, height, seed, background, paper: true });
 const strokes = scene === 'modes' ? modeStrokes()
   : scene === 'flow' ? effectStroke({ flow: { blendType: 0, iterations: 4, seed: 100 } })
   : scene === 'distort' ? effectStroke({ distort: { displacementB: 20, displacementC: 50, extent: 'frame' } })
-  : scene === 'metallic' ? effectStroke({ metallic: { size: 18 } })
+  : scene === 'metallic' ? effectStroke({ metallic: { size: 10 } })
   : scene === 'camera' ? cameraStrokes()
   : paintProp(id, PLACEMENT[id]);
 for (const stroke of strokes) wash.paint(stroke);
