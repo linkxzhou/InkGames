@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>史家三体 · 人物关系网</title>
+<style>
+/* =====================================================================
+   史家三体 · 人物关系网生成模板
+   ---------------------------------------------------------------------
+   使用说明（给生成者）：
+   1. 只需替换下方 <script> 中标注"数据区"的整个 const DATA 对象（含花括号）整体。
+      字段说明见数据区注释。
+   2. 审美适配：在下方 :root 调整 --bg/--paper/--ink/--accent 等 CSS 变量
+      与 --font 字体栈，或在 JS 的 THEMES 里增改主题，通过 DATA.theme 指定。
+      参考风格：先秦→青铜；汉魏→漆器朱黑；唐宋→绢本；明清宫廷→金红；
+      近现代→报章黑白。
+   3. 不要改动其余脚本与样式结构。
+   4. 字号与自适应：模板已内置大字号基准（clamp 随视口缩放）与窄屏/触屏
+      适配（媒体查询、touch-action、100dvh），生成时无需额外调整。
+   5. 本模板由 history-santi（史家三体）项目提供，作者 StefanCHEN。
+   ===================================================================== */
+:root{
+  --bg:#efe6d3;        /* 页面底色：宣纸 */
+  --paper:#f7f1e3;     /* 画布/卡片底色 */
+  --ink:#3a3329;       /* 主墨色 */
+  --muted:#8a7f6d;     /* 次要文字 */
+  --accent:#a63a2e;    /* 强调：朱砂 */
+  --accent2:#3e5c76;   /* 次强调：黛蓝 */
+  --edge:#9a8f7c;      /* 连线与描边 */
+  --font:"Kaiti SC","STKaiti","KaiTi","FangSong","SimSun",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+@supports (height:100dvh){ body{height:100dvh} }
+body{background:var(--bg);color:var(--ink);font-family:var(--font);display:flex;flex-direction:column;overflow:hidden}
+
+/* ---------- 顶栏 ---------- */
+#bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px 16px;
+  background:var(--paper);border-bottom:1px solid var(--edge);z-index:40;flex:0 0 auto}
+.brand{display:flex;align-items:center;gap:10px;margin-right:8px}
+.seal-badge{width:36px;height:36px;background:var(--accent);color:var(--paper);
+  display:grid;place-items:center;font-size:20px;font-weight:bold;border-radius:4px;
+  transform:rotate(-4deg);box-shadow:0 1px 3px rgba(0,0,0,.25);flex:0 0 auto}
+#btitle{font-size:clamp(19px,2.2vw,26px);letter-spacing:2px;font-weight:bold}
+#bsub{font-size:clamp(11px,1.1vw,13px);color:var(--muted);margin-top:2px}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.tools button,.tools select,.tools input{
+  font:inherit;font-size:clamp(13px,1.1vw,15px);color:var(--ink);background:rgba(255,255,255,.5);
+  border:1px solid var(--edge);border-radius:4px;padding:5px 12px;min-height:30px;cursor:pointer}
+.tools input[type=text]{width:130px;cursor:text}
+.tools button:hover{border-color:var(--accent)}
+.tools button.active{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+
+/* ---------- 三体源流题记 ---------- */
+#quote{flex:0 0 auto;padding:6px 16px;background:rgba(255,255,255,.35);
+  border-bottom:1px solid var(--edge);font-size:clamp(11px,1.1vw,13px);
+  color:var(--muted);line-height:1.6;text-align:center}
+#quote .q-src{opacity:.8}
+
+/* ---------- 图区 ---------- */
+#graph{position:relative;flex:1;overflow:hidden;background:var(--paper);
+  cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none;-webkit-touch-callout:none}
+#graph.panning{cursor:grabbing}
+#world{position:absolute;left:0;top:0;width:4000px;height:4000px;transform-origin:0 0}
+#edges{position:absolute;left:0;top:0;width:4000px;height:4000px;pointer-events:none}
+.edge-hit{pointer-events:stroke;cursor:pointer}
+.elabel{fill:var(--ink);stroke:var(--paper);stroke-width:5px;paint-order:stroke;
+  font-family:var(--font);font-size:15px}
+#nodes{position:absolute;left:0;top:0;width:4000px;height:4000px}
+
+.node{position:absolute;width:132px;height:58px;background:var(--paper);
+  border:1px solid var(--edge);border-left:4px solid var(--ntc,#999);
+  border-radius:6px;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:1px;cursor:grab;box-shadow:0 1px 4px rgba(0,0,0,.10);
+  transition:box-shadow .12s,opacity .12s}
+.node:hover{box-shadow:0 3px 10px rgba(0,0,0,.18)}
+.node.dragging{cursor:grabbing}
+.node.sel{box-shadow:0 0 0 2px var(--accent),0 3px 10px rgba(0,0,0,.2)}
+.node.hl{box-shadow:0 0 0 3px var(--accent)}
+.node.dim{opacity:.20}
+.node.hidden{display:none}
+.seal{position:absolute;left:-10px;top:-10px;width:20px;height:20px;border-radius:50%;
+  background:var(--ntc,#999);color:#f7f1e3;font-size:11px;display:grid;place-items:center;
+  box-shadow:0 1px 2px rgba(0,0,0,.3)}
+.nname{font-size:clamp(16px,1.4vw,19px);font-weight:bold;letter-spacing:1px;line-height:1.2}
+.nlife{font-size:13px;color:var(--muted)}
+.ncamp{position:absolute;bottom:-9px;right:2px;font-size:12px;color:var(--muted);
+  background:var(--paper);border:1px solid var(--edge);border-radius:8px;padding:0 5px}
+
+/* ---------- 提示框 ---------- */
+#tip{position:absolute;max-width:320px;background:var(--paper);border:1px solid var(--edge);
+  border-radius:6px;padding:8px 10px;font-size:clamp(13px,1.2vw,15px);line-height:1.7;box-shadow:0 4px 14px rgba(0,0,0,.2);
+  pointer-events:none;display:none;z-index:30}
+.tip-name{font-size:clamp(16px,1.5vw,19px);font-weight:bold;color:var(--accent);margin-bottom:2px}
+.tip-meta{color:var(--muted);font-size:13px}
+
+/* ---------- 图例 ---------- */
+#legend{position:absolute;left:14px;bottom:34px;background:var(--paper);
+  border:1px solid var(--edge);border-radius:6px;padding:8px 10px;font-size:13px;
+  z-index:20;opacity:.96;max-width:250px;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.lg-title{font-weight:bold;margin-bottom:4px;letter-spacing:1px}
+.lg-row{display:flex;align-items:center;gap:6px;margin:2px 0;line-height:1.4}
+.lg-char{width:16px;height:16px;border-radius:50%;color:#f7f1e3;font-size:10px;
+  display:grid;place-items:center;flex:0 0 auto}
+.lg-line{width:24px;height:0;border-top:2px solid var(--edge);flex:0 0 auto}
+.lg-line.dash{border-top-style:dashed}
+.lg-line.dotted{border-top-style:dotted}
+
+/* ---------- 编辑面板 ---------- */
+#panel{position:absolute;right:14px;top:14px;width:300px;max-height:calc(100% - 80px);
+  overflow:auto;background:var(--paper);border:1px solid var(--edge);border-radius:6px;
+  padding:12px 14px;z-index:25;display:none;box-shadow:0 4px 16px rgba(0,0,0,.18);user-select:text}
+#panel h3{font-size:15px;letter-spacing:1px;border-bottom:1px solid var(--edge);
+  padding-bottom:6px;margin-bottom:8px}
+#panel label{display:block;font-size:13px;color:var(--muted);margin:8px 0 2px}
+#panel input[type=text],#panel input[type=number],#panel select,#panel textarea{
+  width:100%;font:inherit;font-size:14px;padding:6px 8px;border:1px solid var(--edge);
+  border-radius:4px;background:#fff;color:var(--ink)}
+#panel textarea{min-height:64px;resize:vertical;line-height:1.5}
+#panel .row2{display:flex;gap:6px}
+#panel .row2 > div{flex:1}
+.pbtns{display:flex;gap:8px;margin-top:12px}
+.pbtns button{flex:1;font:inherit;font-size:13px;padding:5px 8px;border-radius:4px;
+  border:1px solid var(--edge);background:rgba(255,255,255,.5);color:var(--ink);cursor:pointer}
+.pbtns button:hover{border-color:var(--accent)}
+.pbtns button.primary{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+.pbtns button.danger{color:var(--accent);border-color:var(--accent);background:#fff}
+.tip-note{font-size:11px;color:var(--muted);margin-top:10px;line-height:1.5}
+
+/* ---------- 底部提示 ---------- */
+#hint{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);
+  font-size:clamp(12px,1.1vw,14px);color:var(--muted);z-index:20;text-align:center;
+  background:var(--paper);border:1px solid var(--edge);border-radius:10px;
+  padding:2px 12px;opacity:.92;white-space:nowrap}
+
+/* ---------- 窄屏与触屏适配 ---------- */
+@media (max-width: 760px){
+  #quote{padding:4px 10px;font-size:11px}
+  #bar{padding:8px 10px;gap:8px}
+  #btitle{font-size:17px}
+  #bsub{font-size:10px}
+  #search{width:110px}
+  #panel{left:10px;right:10px;top:auto;bottom:10px;width:auto;max-height:55vh;padding:10px 12px}
+  #legend{left:10px;bottom:64px;max-width:calc(100% - 20px)}
+  #hint{left:8px;right:8px;transform:none;bottom:6px;font-size:11px;white-space:normal}
+  .node{width:124px;height:54px}
+  .nname{font-size:16px}
+}
+@media (hover:none){
+  .tools button,.tools select,.tools input{min-height:34px;padding:6px 12px}
+  .node{min-height:54px}
+}
+@media (prefers-reduced-motion:reduce){
+  .node{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header id="bar">
+  <div class="brand">
+    <div class="seal-badge">史</div>
+    <div><div id="btitle">人物关系网</div><div id="bsub"></div></div>
+  </div>
+  <div class="tools">
+    <button id="btnLink" title="依次点两个人名建立关系">连线</button>
+    <button id="btnAdd" title="在视图中央添加一个人物">添加人物</button>
+    <input type="text" id="search" placeholder="搜索人物…">
+    <select id="campFilter" title="按阵营过滤"></select>
+    <select id="themeSel" title="主题风格"></select>
+    <button id="btnLock" title="锁定后不可拖动/编辑">锁定</button>
+    <button id="btnReset" title="恢复模板默认布局（清除浏览器保存的位置与编辑）">重置布局</button>
+    <button id="btnExport" title="导出为 JSON（可导入回本页或分享）">导出 JSON</button>
+    <button id="btnImport" title="从 JSON 文件导入">导入 JSON</button>
+    <input type="file" id="fileInput" accept=".json,application/json" hidden>
+  </div>
+</header>
+
+<div id="quote">古之史策，编年而已，周以前无异轨也。司马迁作《史记》，遂有纪传一体，唐以前亦无异轨也。至宋袁枢以《通鉴》旧文，每事为篇，各排比其次第，而详叙其始终，命曰“纪事本末”，史遂又有此一体。<span class="q-src">——《四库全书总目》卷四十九“纪事本末类”</span></div>
+
+<div id="graph">
+  <div id="world">
+    <svg id="edges" viewBox="0 0 4000 4000" preserveAspectRatio="none"></svg>
+    <div id="nodes"></div>
+  </div>
+  <div id="tip"></div>
+  <div id="legend"></div>
+  <div id="hint">拖动人物调整布局 · 滚轮缩放 · 拖空白处平移 · 点击人物查看/编辑 · 位置自动保存在浏览器</div>
+
+  <div id="panel">
+    <!-- 节点编辑 -->
+    <div id="sec-node">
+      <h3 id="nodeTitle">编辑人物</h3>
+      <label>姓名</label><input type="text" id="inName">
+      <label>称号 / 身份</label><input type="text" id="inTitle">
+      <div class="row2">
+        <div><label>生年</label><input type="text" id="inBirth"></div>
+        <div><label>卒年</label><input type="text" id="inDeath"></div>
+      </div>
+      <label>阵营 / 国别</label><input type="text" id="inCamp">
+      <label>类型</label>
+      <select id="inType">
+        <option value="ruler">君主</option>
+        <option value="minister">文臣</option>
+        <option value="general">武将</option>
+        <option value="scholar">文人</option>
+        <option value="royal">宗室后妃</option>
+        <option value="other">其他</option>
+      </select>
+      <label>小传摘要</label><textarea id="inBio"></textarea>
+      <label>出处页码（如 p.12-15）</label><input type="text" id="inPages">
+      <div class="pbtns">
+        <button class="primary" id="btnNodeSave">保存</button>
+        <button class="danger" id="btnNodeDel">删除</button>
+      </div>
+      <div class="tip-note">保存后自动写入浏览器本地存储；可用「导出 JSON」备份。</div>
+    </div>
+    <!-- 连线编辑 -->
+    <div id="sec-edge">
+      <h3 id="edgeTitle">连线</h3>
+      <label>关系标签</label><input type="text" id="inRelation" placeholder="如：父子、君臣、盟友">
+      <label>关系类型</label>
+      <select id="inEType">
+        <option value="family">亲属</option>
+        <option value="sub">君臣/从属</option>
+        <option value="ally">盟友/合作</option>
+        <option value="rival">对手/敌对</option>
+        <option value="mentor">师生/提携</option>
+        <option value="other">其他</option>
+      </select>
+      <label style="display:flex;align-items:center;gap:6px;margin-top:10px">
+        <input type="checkbox" id="inDirected" style="width:auto"> 有向（箭头指向第二位人物）
+      </label>
+      <label>出处页码</label><input type="text" id="inEPages">
+      <label>备注</label><input type="text" id="inENote">
+      <div class="pbtns">
+        <button class="primary" id="btnEdgeSave">保存</button>
+        <button class="danger" id="btnEdgeDel">删除连线</button>
+      </div>
+    </div>
+    <!-- 添加人物 -->
+    <div id="sec-add">
+      <h3>添加人物</h3>
+      <label>姓名</label><input type="text" id="aName">
+      <label>称号 / 身份</label><input type="text" id="aTitle">
+      <div class="row2">
+        <div><label>生年</label><input type="text" id="aBirth"></div>
+        <div><label>卒年</label><input type="text" id="aDeath"></div>
+      </div>
+      <label>阵营 / 国别</label><input type="text" id="aCamp">
+      <label>类型</label>
+      <select id="aType">
+        <option value="ruler">君主</option>
+        <option value="minister">文臣</option>
+        <option value="general">武将</option>
+        <option value="scholar">文人</option>
+        <option value="royal">宗室后妃</option>
+        <option value="other">其他</option>
+      </select>
+      <label>小传摘要</label><textarea id="aBio"></textarea>
+      <label>出处页码</label><input type="text" id="aPages">
+      <div class="pbtns"><button class="primary" id="btnAddSave">添加</button></div>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+/* =====================================================================
+   ▼▼▼ 数据区：生成时把下面 const DATA = {...} 整体替换为本书数据 ▼▼▼
+   ---------------------------------------------------------------------
+   节点 node 字段：
+     id     必填，唯一字符串（建议拼音/英文，如 "caocao"）
+     name   必填，人名
+     title  称号/身份（如 "魏武帝"）
+     birth / death  生卒年（纯数字字符串，如 "155"；不载则 "")
+     camp   阵营/国别（如 "魏"，用于着色过滤）
+     type   "ruler"|"minister"|"general"|"scholar"|"royal"|"other"
+     bio    小传摘要（2-4 句，来自书中内容）
+     pages  页码出处（如 "p.1-20"）
+     x,y    初始坐标（0-4000 画布；可留空，模板自动排布）
+   连线 edge 字段：
+     from / to   节点 id
+     relation    关系标签（如 "父子"）
+     type   "family"|"sub"|"ally"|"rival"|"mentor"|"other"
+     directed    可选，true 时箭头指向 to
+     pages / note 出处页码与备注
+   主题：theme 填下方 THEMES 的键名（如 "classic"、"bronze"），可省略。
+   ===================================================================== */
+const DATA = {
+  "bookTitle": "示例 · 人物关系网",
+  "subtitle": "史家三体 · 纪传体",
+  "theme": "classic",
+  "nodes": [
+    {"id":"n1","name":"示例人物","title":"","birth":"","death":"","camp":"","type":"other","bio":"替换为书中人物小传摘要。","pages":"p.1","x":500,"y":500}
+  ],
+  "edges": [
+    {"from":"n1","to":"n1","relation":"示例关系","type":"other","directed":false,"pages":"","note":""}
+  ]
+};
+/* ▲▲▲ 数据区结束：以下为图引擎，请勿修改 ▲▲▲ */
+
+/* ---------- 常量与样式表 ---------- */
+const NS = "http://www.w3.org/2000/svg";
+const WS = 4000, NW = 132, NH = 58;
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+const NTYPE = {
+  ruler:    {label:"君主",     char:"君", color:"#a63a2e"},
+  minister: {label:"文臣",     char:"臣", color:"#3e5c76"},
+  general:  {label:"武将",     char:"将", color:"#3f5c4b"},
+  scholar:  {label:"文人",     char:"士", color:"#b08d4f"},
+  royal:    {label:"宗室后妃", char:"后", color:"#6b5b8a"},
+  other:    {label:"其他",     char:"人", color:"#7a746b"}
+};
+const ETYPE = {
+  family: {label:"亲属",       color:"#a63a2e", dash:""},
+  sub:    {label:"君臣/从属",  color:"#8a7f6d", dash:"8 6"},
+  ally:   {label:"盟友/合作",  color:"#3e5c76", dash:""},
+  rival:  {label:"对手/敌对",  color:"#7a2e1e", dash:"6 4"},
+  mentor: {label:"师生/提携",  color:"#5d7a4e", dash:"2 5"},
+  other:  {label:"其他",       color:"#9a8f7c", dash:""}
+};
+const THEMES = {
+  classic:{label:"古典宣纸",vars:{bg:"#efe6d3",paper:"#f7f1e3",ink:"#3a3329",muted:"#8a7f6d",accent:"#a63a2e",accent2:"#3e5c76",edge:"#9a8f7c",font:'"Kaiti SC","STKaiti","KaiTi","FangSong","SimSun",serif'}},
+  bronze: {label:"先秦青铜",vars:{bg:"#d8d2bd",paper:"#e7e0c9",ink:"#2e3a32",muted:"#7c7560",accent:"#a98454",accent2:"#3d7a6e",edge:"#968d74",font:'"STKaiti","KaiTi","SimSun",serif'}},
+  lacquer:{label:"漆器朱黑",vars:{bg:"#ede4d2",paper:"#f5eee0",ink:"#241b14",muted:"#8a7a68",accent:"#9e2b25",accent2:"#4a3b2a",edge:"#a08c74",font:'"STKaiti","KaiTi","FangSong",serif'}},
+  silk:   {label:"绢本唐宋",vars:{bg:"#e7d9b6",paper:"#f0e5c6",ink:"#4a3826",muted:"#8f7c55",accent:"#8c6d3f",accent2:"#5f6f7a",edge:"#b09a6e",font:'"Kaiti SC","STKaiti","KaiTi","SimSun",serif'}},
+  modern: {label:"近现代报章",vars:{bg:"#f0eee9",paper:"#faf9f6",ink:"#222222",muted:"#8a8a8a",accent:"#b5412f",accent2:"#3f5c6e",edge:"#b0aca2",font:'"Source Han Serif SC","Noto Serif SC","SimSun",serif'}}
+};
+
+/* ---------- 状态 ---------- */
+let BOOK = DATA;
+let S = { nodes:[], edges:[], pan:{x:0,y:0}, zoom:1, selNode:null, selEdge:-1,
+          linkFrom:null, linkMode:false, locked:false, camp:"" };
+let currentTheme = "classic";
+let drag = null, pan = null, pendFrom = null, pendTo = null;
+const LSKEY = "santi-graph-" + (DATA.bookTitle || "book").replace(/[^\w\u4e00-\u9fa5]/g, "");
+
+/* ---------- 工具 ---------- */
+function el(tag, attrs, text){
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (text != null) e.textContent = text;
+  return e;
+}
+function byId(id){ return S.nodes.find(n => n.id === id); }
+function nlife(n){
+  const b = n.birth, d = n.death;
+  if (b && d) return b + "—" + d;
+  if (b) return "生 " + b;
+  if (d) return "卒 " + d;
+  return "";
+}
+function nodeCenter(n){ return { x: n.x + NW / 2, y: n.y + NH / 2 }; }
+function save(){
+  try{
+    localStorage.setItem(LSKEY, JSON.stringify({
+      nodes: S.nodes.map(n => ({id:n.id,x:n.x,y:n.y,name:n.name,title:n.title,
+        birth:n.birth,death:n.death,camp:n.camp,type:n.type,bio:n.bio,pages:n.pages})),
+      edges: S.edges, pan: S.pan, zoom: S.zoom, theme: currentTheme
+    }));
+  }catch(e){}
+}
+
+/* ---------- 初始化 ---------- */
+function init(){
+  S = { nodes:[], edges:[], pan:{x:0,y:0}, zoom:1, selNode:null, selEdge:-1,
+        linkFrom:null, linkMode:false, locked:false, camp:"" };
+  S.nodes = (BOOK.nodes || []).map((n, i) => ({
+    id: String(n.id !== undefined ? n.id : "n" + i),
+    name: n.name || "", title: n.title || "", birth: n.birth || "", death: n.death || "",
+    camp: n.camp || "", type: NTYPE[n.type] ? n.type : "other",
+    bio: n.bio || "", pages: n.pages || "",
+    x: n.x != null ? +n.x : null, y: n.y != null ? +n.y : null
+  }));
+  /* 自动排布：无坐标的节点按生年蛇形排列 */
+  const need = S.nodes.filter(n => n.x == null);
+  if (need.length){
+    const ido = {}; S.nodes.forEach((n, i) => ido[n.id] = i);
+    need.sort((a, b) => {
+      const ya = a.birth ? +a.birth || 0 : 9999, yb = b.birth ? +b.birth || 0 : 9999;
+      return (ya - yb) || (ido[a.id] - ido[b.id]);
+    });
+    const cols = Math.max(1, Math.ceil(Math.sqrt(need.length * 1.8)));
+    need.forEach((n, i) => { n.x = 160 + (i % cols) * 240; n.y = 150 + Math.floor(i / cols) * 140; });
+  }
+  S.edges = (BOOK.edges || []).filter(e => byId(e.from) && byId(e.to)).map(e => ({
+    from: String(e.from), to: String(e.to), relation: e.relation || "",
+    type: ETYPE[e.type] ? e.type : "other", directed: !!e.directed,
+    pages: e.pages || "", note: e.note || ""
+  }));
+}
+function restore(){
+  try{
+    const raw = localStorage.getItem(LSKEY);
+    if (!raw) return false;
+    const s = JSON.parse(raw);
+    if (!s || !s.nodes) return false;
+    /* 已保存数据为准：含原有人物（带编辑）、手动新增人物；
+       手动删除的人物不再出现。无存档时回退到 DATA。 */
+    S.nodes = s.nodes.map(m => ({
+      id: String(m.id), name: m.name || "未命名", title: m.title || "",
+      birth: m.birth || "", death: m.death || "", camp: m.camp || "",
+      type: NTYPE[m.type] ? m.type : "other", bio: m.bio || "", pages: m.pages || "",
+      x: m.x != null ? +m.x : 200, y: m.y != null ? +m.y : 200
+    }));
+    if (Array.isArray(s.edges)){
+      const ids = new Set(S.nodes.map(n => n.id));
+      S.edges = s.edges.filter(e => ids.has(e.from) && ids.has(e.to)).map(e => ({
+        from: e.from, to: e.to, relation: e.relation || "",
+        type: ETYPE[e.type] ? e.type : "other", directed: !!e.directed,
+        pages: e.pages || "", note: e.note || ""
+      }));
+    }
+    if (s.pan && s.zoom) { S.pan = s.pan; S.zoom = Math.max(0.25, Math.min(3, s.zoom)); }
+    if (s.theme) applyTheme(s.theme);
+    return true;
+  }catch(e){ return false; }
+}
+function applyTheme(name){
+  const t = THEMES[name] || THEMES.classic;
+  currentTheme = name;
+  const r = document.documentElement.style;
+  for (const k in t.vars) r.setProperty("--" + k, t.vars[k]);
+  const sel = $("#themeSel"); if (sel && sel.value !== name) sel.value = name;
+}
+function buildThemeSel(){
+  const sel = $("#themeSel");
+  for (const k in THEMES){
+    const o = document.createElement("option");
+    o.value = k; o.textContent = THEMES[k].label; sel.appendChild(o);
+  }
+  sel.addEventListener("change", () => { applyTheme(sel.value); save(); });
+}
+
+/* ---------- 渲染 ---------- */
+function render(){ renderEdges(); renderNodes(); renderCamps(); }
+function renderEdges(){
+  const svg = $("#edges");
+  svg.textContent = "";
+  S.edges.forEach((e, i) => {
+    const a = byId(e.from), b = byId(e.to);
+    if (!a || !b) return;
+    const ac = nodeCenter(a), bc = nodeCenter(b);
+    const t = ETYPE[e.type] || ETYPE.other;
+    const sel = S.selEdge === i;
+    const ln = el("line", { x1: ac.x, y1: ac.y, x2: bc.x, y2: bc.y,
+      stroke: t.color, "stroke-width": sel ? 3.5 : 2, "stroke-dasharray": t.dash,
+      "class": "edge" + (sel ? " sel" : "") });
+    if (e.directed){
+      const ang = Math.atan2(bc.y - ac.y, bc.x - ac.x), len = 12;
+      const ax = bc.x - len * Math.cos(ang), ay = bc.y - len * Math.sin(ang);
+      ln.setAttribute("x2", ax); ln.setAttribute("y2", ay);
+      const w = 8, dx = Math.cos(ang + Math.PI / 2) * w, dy = Math.sin(ang + Math.PI / 2) * w;
+      const head = el("polygon", { points: (bc.x) + "," + (bc.y) + " " +
+        (ax + dx) + "," + (ay + dy) + " " + (ax - dx) + "," + (ay - dy), fill: t.color });
+      svg.appendChild(head);
+    }
+    const mx = (ac.x + bc.x) / 2, my = (ac.y + bc.y) / 2;
+    const lab = el("text", { x: mx, y: my - 7, "text-anchor": "middle", "class": "elabel" }, e.relation || "");
+    const hit = el("line", { x1: ac.x, y1: ac.y, x2: bc.x, y2: bc.y,
+      stroke: "transparent", "stroke-width": 16, "class": "edge-hit" });
+    hit.addEventListener("click", ev => { ev.stopPropagation(); selectEdge(i); });
+    svg.appendChild(ln); svg.appendChild(lab); svg.appendChild(hit);
+  });
+}
+function renderNodes(){
+  const wrap = $("#nodes");
+  wrap.textContent = "";
+  S.nodes.forEach(n => {
+    const d = document.createElement("div");
+    d.className = "node nt-" + n.type +
+      (S.selNode && S.selNode.id === n.id ? " sel" : "") +
+      (S.linkFrom === n.id ? " hl" : "") +
+      (S.camp && n.camp !== S.camp ? " hidden" : "");
+    d.style.left = n.x + "px"; d.style.top = n.y + "px";
+    d.dataset.id = n.id;
+    d.style.setProperty("--ntc", (NTYPE[n.type] || NTYPE.other).color);
+    d.innerHTML =
+      '<span class="seal">' + (NTYPE[n.type] || NTYPE.other).char + '</span>' +
+      '<span class="nname">' + esc(n.name) + '</span>' +
+      '<span class="nlife">' + esc(nlife(n)) + '</span>' +
+      (n.camp ? '<span class="ncamp">' + esc(n.camp) + '</span>' : "");
+    d.addEventListener("pointerdown", ev => {
+      if (S.locked) return;
+      if (ev.button !== 0) return;
+      ev.stopPropagation(); ev.preventDefault();
+      drag = { n: n, ox: ev.clientX, oy: ev.clientY, nx: n.x, ny: n.y };
+      d.classList.add("dragging");
+      d.setPointerCapture(ev.pointerId);
+    });
+    d.addEventListener("click", ev => { ev.stopPropagation(); onNodeClick(n); });
+    d.addEventListener("pointerenter", ev => { if (!S.locked) showTip(ev, n); });
+    d.addEventListener("pointermove", ev => { if (!S.locked && $("#tip").style.display === "block") moveTip(ev); });
+    d.addEventListener("pointerleave", hideTip);
+    wrap.appendChild(d);
+  });
+}
+function renderCamps(){
+  const sel = $("#campFilter"), cur = S.camp;
+  const camps = [...new Set(S.nodes.map(n => n.camp).filter(Boolean))].sort();
+  sel.textContent = "";
+  const o0 = document.createElement("option"); o0.value = ""; o0.textContent = "全部阵营"; sel.appendChild(o0);
+  camps.forEach(c => { const o = document.createElement("option"); o.value = c; o.textContent = c; sel.appendChild(o); });
+  sel.value = cur;
+}
+function renderLegend(){
+  const lg = $("#legend");
+  let h = '<div class="lg-title">人物</div>';
+  for (const k in NTYPE){
+    h += '<div class="lg-row"><span class="lg-char" style="background:' + NTYPE[k].color + '">' +
+         NTYPE[k].char + '</span><span>' + NTYPE[k].label + '</span></div>';
+  }
+  h += '<div class="lg-title" style="margin-top:8px">关系</div>';
+  for (const k in ETYPE){
+    const v = ETYPE[k];
+    h += '<div class="lg-row"><span class="lg-line ' + (v.dash ? (v.dash === "2 5" ? "dotted" : "dash") : "") +
+         '" style="border-color:' + v.color + '"></span><span>' + v.label + '</span></div>';
+  }
+  lg.innerHTML = h;
+}
+function applyTransform(){
+  $("#world").style.transform = "translate(" + S.pan.x + "px," + S.pan.y + "px) scale(" + S.zoom + ")";
+}
+function fitView(){
+  if (!S.nodes.length) return;
+  const r = $("#graph").getBoundingClientRect();
+  let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+  S.nodes.forEach(n => { x0 = Math.min(x0, n.x); y0 = Math.min(y0, n.y);
+    x1 = Math.max(x1, n.x + NW); y1 = Math.max(y1, n.y + NH); });
+  const bw = x1 - x0, bh = y1 - y0;
+  S.zoom = Math.max(0.25, Math.min(1.2, Math.min(r.width / (bw + 160), r.height / (bh + 160))));
+  S.pan.x = (r.width - bw * S.zoom) / 2 - x0 * S.zoom;
+  S.pan.y = (r.height - bh * S.zoom) / 2 - y0 * S.zoom;
+  applyTransform();
+}
+
+/* ---------- 交互 ---------- */
+function onNodeClick(n){
+  if (S.locked) return;
+  if (S.linkMode){
+    if (!S.linkFrom){ S.linkFrom = n.id; setHint("连线模式：再点第二个人物…"); renderNodes(); }
+    else { openEdgeForm(S.linkFrom, n.id); S.linkFrom = null; setHint(null); renderNodes(); }
+    return;
+  }
+  selectNode(n);
+}
+function selectNode(n){
+  S.selNode = n; S.selEdge = -1;
+  renderNodes();
+  $("#nodeTitle").textContent = "编辑 · " + n.name;
+  $("#inName").value = n.name; $("#inTitle").value = n.title;
+  $("#inBirth").value = n.birth; $("#inDeath").value = n.death;
+  $("#inCamp").value = n.camp; $("#inType").value = n.type;
+  $("#inBio").value = n.bio; $("#inPages").value = n.pages;
+  showPanel("node");
+}
+function selectEdge(i){
+  S.selEdge = i; S.selNode = null;
+  render();
+  const e = S.edges[i], a = byId(e.from), b = byId(e.to);
+  $("#edgeTitle").textContent = "连线 · " + (a ? a.name : "?") + " — " + (b ? b.name : "?");
+  $("#inRelation").value = e.relation; $("#inEType").value = e.type;
+  $("#inDirected").checked = e.directed;
+  $("#inEPages").value = e.pages; $("#inENote").value = e.note;
+  pendFrom = pendTo = null;
+  showPanel("edge");
+}
+function openEdgeForm(fid, tid){
+  S.selEdge = -1; S.selNode = null;
+  const f = byId(fid), t = byId(tid);
+  $("#edgeTitle").textContent = "连线 · " + (f ? f.name : "?") + " — " + (t ? t.name : "?");
+  $("#inRelation").value = ""; $("#inEType").value = "other";
+  $("#inDirected").checked = false;
+  $("#inEPages").value = ""; $("#inENote").value = "";
+  pendFrom = fid; pendTo = tid;
+  showPanel("edge");
+}
+function showPanel(mode){
+  ["sec-node","sec-edge","sec-add"].forEach(id =>
+    document.getElementById(id).style.display = (id === "sec-" + mode) ? "block" : "none");
+  $("#panel").style.display = "block";
+}
+function hidePanel(){ $("#panel").style.display = "none"; }
+function clearSelection(){
+  S.selNode = null; S.selEdge = -1; S.linkFrom = null;
+  renderNodes(); hidePanel();
+}
+function setHint(t){
+  $("#hint").textContent = t || "拖动人物调整布局 · 滚轮缩放 · 拖空白处平移 · 点击人物查看/编辑 · 位置自动保存在浏览器";
+}
+function showTip(ev, n){
+  const t = $("#tip");
+  t.innerHTML =
+    '<div class="tip-name">' + esc(n.name) + '</div>' +
+    (n.title ? '<div>' + esc(n.title) + '</div>' : '') +
+    '<div class="tip-meta">' + esc(nlife(n)) + (n.camp ? " · " + esc(n.camp) : "") + '</div>' +
+    (n.bio ? '<div>' + esc(n.bio) + '</div>' : '') +
+    (n.pages ? '<div class="tip-meta">出处：' + esc(n.pages) + '</div>' : '');
+  t.style.display = "block";
+  moveTip(ev);
+}
+function moveTip(ev){
+  const t = $("#tip"), g = $("#graph").getBoundingClientRect();
+  let x = ev.clientX - g.left + 14, y = ev.clientY - g.top + 14;
+  if (x + t.offsetWidth > g.width - 10) x = ev.clientX - g.left - t.offsetWidth - 14;
+  if (y + t.offsetHeight > g.height - 10) y = ev.clientY - g.top - t.offsetHeight - 14;
+  t.style.left = x + "px"; t.style.top = y + "px";
+}
+function hideTip(){ $("#tip").style.display = "none"; }
+
+/* ---------- 画布事件 ---------- */
+$("#graph").addEventListener("pointerdown", ev => {
+  if (ev.target.closest(".node") || ev.target.closest("#panel") ||
+      ev.target.closest("#legend") || ev.target.closest("#tip")) return;
+  if (ev.target.closest(".edge-hit")) return;
+  if (ev.button !== 0) return;
+  pan = { sx: ev.clientX, sy: ev.clientY, px: S.pan.x, py: S.pan.y };
+  $("#graph").classList.add("panning");
+  $("#graph").setPointerCapture(ev.pointerId);
+});
+document.addEventListener("pointermove", ev => {
+  if (drag){
+    const dx = ev.clientX - drag.ox, dy = ev.clientY - drag.oy;
+    drag.n.x = Math.max(0, Math.min(WS - NW, drag.nx + dx / S.zoom));
+    drag.n.y = Math.max(0, Math.min(WS - NH, drag.ny + dy / S.zoom));
+    const d = document.querySelector('.node[data-id="' + drag.n.id + '"]');
+    if (d){ d.style.left = drag.n.x + "px"; d.style.top = drag.n.y + "px"; }
+    renderEdges();
+  } else if (pan){
+    S.pan.x = pan.px + (ev.clientX - pan.sx);
+    S.pan.y = pan.py + (ev.clientY - pan.sy);
+    applyTransform();
+  }
+});
+document.addEventListener("pointerup", ev => {
+  if (drag){
+    const moved = Math.abs(ev.clientX - drag.ox) + Math.abs(ev.clientY - drag.oy);
+    drag = null;
+    document.querySelectorAll(".dragging").forEach(x => x.classList.remove("dragging"));
+    if (moved < 5){} /* 视为点击，由 click 事件处理 */
+    else save();
+  }
+  if (pan){
+    const moved = Math.abs(ev.clientX - pan.sx) + Math.abs(ev.clientY - pan.sy);
+    pan = null;
+    $("#graph").classList.remove("panning");
+    if (moved < 5) clearSelection(); /* 空白处轻点 → 取消选择 */
+    else save();
+  }
+});
+$("#graph").addEventListener("wheel", ev => {
+  ev.preventDefault();
+  const r = $("#graph").getBoundingClientRect();
+  const cx = ev.clientX - r.left, cy = ev.clientY - r.top;
+  const wx = (cx - S.pan.x) / S.zoom, wy = (cy - S.pan.y) / S.zoom;
+  let z = S.zoom * Math.exp(-ev.deltaY * 0.0012);
+  z = Math.max(0.25, Math.min(3, z));
+  S.pan.x = cx - wx * z; S.pan.y = cy - wy * z; S.zoom = z;
+  applyTransform();
+}, { passive: false });
+
+/* ---------- 面板与工具栏 ---------- */
+$("#btnNodeSave").addEventListener("click", () => {
+  const n = S.selNode; if (!n) return;
+  n.name = $("#inName").value.trim() || n.name;
+  n.title = $("#inTitle").value.trim();
+  n.birth = $("#inBirth").value.trim();
+  n.death = $("#inDeath").value.trim();
+  n.camp = $("#inCamp").value.trim();
+  n.type = $("#inType").value;
+  n.bio = $("#inBio").value.trim();
+  n.pages = $("#inPages").value.trim();
+  render(); save();
+});
+$("#btnNodeDel").addEventListener("click", () => {
+  const n = S.selNode; if (!n) return;
+  if (!confirm("删除人物「" + n.name + "」及其全部连线？")) return;
+  S.nodes = S.nodes.filter(x => x.id !== n.id);
+  S.edges = S.edges.filter(e => e.from !== n.id && e.to !== n.id);
+  S.selNode = null; hidePanel();
+  render(); save();
+});
+$("#btnEdgeSave").addEventListener("click", () => {
+  const rel = $("#inRelation").value.trim(), type = $("#inEType").value,
+        directed = $("#inDirected").checked,
+        pages = $("#inEPages").value.trim(), note = $("#inENote").value.trim();
+  if (S.selEdge >= 0){
+    const e = S.edges[S.selEdge];
+    e.relation = rel; e.type = type; e.directed = directed; e.pages = pages; e.note = note;
+  } else if (pendFrom && pendTo){
+    const i = S.edges.findIndex(e => e.from === pendFrom && e.to === pendTo);
+    if (i >= 0){
+      S.edges[i].relation = rel; S.edges[i].type = type;
+      S.edges[i].directed = directed; S.edges[i].pages = pages; S.edges[i].note = note;
+    } else {
+      S.edges.push({ from: pendFrom, to: pendTo, relation: rel, type: type,
+        directed: directed, pages: pages, note: note });
+    }
+  }
+  pendFrom = pendTo = null;
+  render(); save(); hidePanel();
+});
+$("#btnEdgeDel").addEventListener("click", () => {
+  if (S.selEdge < 0) return;
+  S.edges.splice(S.selEdge, 1);
+  S.selEdge = -1; hidePanel();
+  render(); save();
+});
+$("#btnAdd").addEventListener("click", () => { showPanel("add"); });
+$("#btnAddSave").addEventListener("click", () => {
+  const name = $("#aName").value.trim();
+  if (!name){ alert("请填写姓名"); return; }
+  const r = $("#graph").getBoundingClientRect();
+  const id = "p" + Date.now();
+  S.nodes.push({
+    id: id, name: name, title: $("#aTitle").value.trim(),
+    birth: $("#aBirth").value.trim(), death: $("#aDeath").value.trim(),
+    camp: $("#aCamp").value.trim(), type: $("#aType").value,
+    bio: $("#aBio").value.trim(), pages: $("#aPages").value.trim(),
+    x: Math.max(0, (r.width / 2 - S.pan.x) / S.zoom - NW / 2),
+    y: Math.max(0, (r.height / 2 - S.pan.y) / S.zoom - NH / 2)
+  });
+  render(); save(); hidePanel();
+});
+$("#btnLink").addEventListener("click", () => {
+  S.linkMode = !S.linkMode;
+  if (!S.linkMode){ S.linkFrom = null; setHint(null); }
+  else { setHint("连线模式：点击第一个人物…"); }
+  $("#btnLink").classList.toggle("active", S.linkMode);
+  renderNodes();
+});
+$("#btnLock").addEventListener("click", () => {
+  S.locked = !S.locked;
+  $("#btnLock").classList.toggle("active", S.locked);
+  if (S.locked){ hidePanel(); setHint("已锁定：仅可浏览（拖动/编辑已禁用）"); }
+  else setHint(null);
+});
+$("#btnReset").addEventListener("click", () => {
+  if (!confirm("恢复模板默认布局？将清除浏览器中保存的位置与编辑。")) return;
+  localStorage.removeItem(LSKEY);
+  init(); applyTheme(BOOK.theme || "classic"); render(); fitView();
+});
+$("#btnExport").addEventListener("click", () => {
+  const data = {
+    bookTitle: BOOK.bookTitle || "人物关系网", theme: currentTheme,
+    nodes: S.nodes.map(n => ({ id:n.id, name:n.name, title:n.title, birth:n.birth,
+      death:n.death, camp:n.camp, type:n.type, bio:n.bio, pages:n.pages, x:n.x, y:n.y })),
+    edges: S.edges
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = (BOOK.bookTitle || "人物关系网") + ".json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+$("#btnImport").addEventListener("click", () => $("#fileInput").click());
+$("#fileInput").addEventListener("change", ev => {
+  const f = ev.target.files[0];
+  if (!f) return;
+  const rd = new FileReader();
+  rd.onload = () => {
+    try{
+      const d = JSON.parse(rd.result);
+      if (!d.nodes || !d.edges) throw new Error("bad");
+      BOOK = d;
+      init(); applyTheme(d.theme || "classic"); render(); fitView(); save();
+      alert("导入成功：" + (d.nodes.length || 0) + " 个节点，" + (d.edges.length || 0) + " 条连线。");
+    }catch(e){ alert("导入失败：JSON 格式不正确"); }
+  };
+  rd.readAsText(f);
+  ev.target.value = "";
+});
+$("#search").addEventListener("input", ev => {
+  const q = ev.target.value.trim().toLowerCase();
+  document.querySelectorAll(".node").forEach(d => {
+    const n = byId(d.dataset.id); if (!n) return;
+    const hit = !q || (n.name + " " + n.title + " " + n.bio + " " + n.camp).toLowerCase().includes(q);
+    d.classList.toggle("dim", !hit);
+  });
+});
+$("#campFilter").addEventListener("change", ev => {
+  S.camp = ev.target.value;
+  renderNodes();
+});
+
+/* ---------- 启动 ---------- */
+buildThemeSel();
+renderLegend();
+init();
+const hadSaved = restore();
+render();  /* 初始渲染：先按恢复后的数据画一遍节点与连线 */
+applyTransform();
+if (!hadSaved){
+  applyTheme(BOOK.theme || "classic");
+  fitView();
+}
+document.title = (BOOK.bookTitle || "史家三体") + " · 人物关系网";
+$("#btitle").textContent = BOOK.bookTitle || "人物关系网";
+$("#bsub").textContent = BOOK.subtitle || "史家三体 · 纪传体";
+</script>
+</body>
+</html>
