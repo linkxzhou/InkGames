@@ -152,60 +152,90 @@ const PAINTERS: Readonly<Record<PropPaintingId, (pose: number) => readonly Gestu
   ],
   'war-horse': (stride) => {
     // Galloping to the right. Two gaits: legs stretched (0) and gathered (1).
-    const legs: Gesture[] = stride % 2 === 0
+    // Washes sit under a dry contour so the body reads as wet ink, not a flat fill.
+    const stretched = stride % 2 === 0;
+    const legs: Gesture[] = stretched
       ? [
-        { part: 'leg', path: [[74, 24], [104, 60], [146, 70]] },
-        { part: 'leg', path: [[56, 28], [70, 74], [52, 112]] },
-        { part: 'leg', path: [[-78, 26], [-112, 64], [-160, 74]] },
-        { part: 'leg', path: [[-58, 30], [-48, 76], [-70, 116]] },
-        { part: 'hoof', path: line([146, 70], [156, 74]) },
-        { part: 'hoof', path: line([52, 112], [62, 116]) },
-        { part: 'hoof', path: line([-160, 74], [-170, 78]) },
-        { part: 'hoof', path: line([-70, 116], [-60, 120]) },
+        { part: 'leg', path: quad([78, 18], [118, 58], [148, 96]) },
+        { part: 'leg', path: quad([48, 22], [62, 70], [40, 108]) },
+        { part: 'leg', path: quad([-86, 16], [-128, 58], [-158, 98]) },
+        { part: 'leg', path: quad([-46, 20], [-28, 72], [-58, 112]) },
+        { part: 'hoof', path: line([148, 96], [162, 102]) },
+        { part: 'hoof', path: line([40, 108], [52, 114]) },
+        { part: 'hoof', path: line([-158, 98], [-170, 104]) },
+        { part: 'hoof', path: line([-58, 112], [-46, 118]) },
       ]
       : [
-        { part: 'leg', path: [[74, 26], [92, 72], [80, 116]] },
-        { part: 'leg', path: [[56, 28], [86, 58], [118, 92]] },
-        { part: 'leg', path: [[-78, 28], [-92, 74], [-76, 118]] },
-        { part: 'leg', path: [[-58, 30], [-96, 66], [-134, 96]] },
-        { part: 'hoof', path: line([80, 116], [90, 120]) },
-        { part: 'hoof', path: line([118, 92], [128, 96]) },
-        { part: 'hoof', path: line([-76, 118], [-66, 122]) },
-        { part: 'hoof', path: line([-134, 96], [-144, 100]) },
+        { part: 'leg', path: quad([76, 18], [96, 68], [78, 112]) },
+        { part: 'leg', path: quad([50, 22], [88, 52], [122, 96]) },
+        { part: 'leg', path: quad([-84, 18], [-100, 70], [-78, 114]) },
+        { part: 'leg', path: quad([-48, 20], [-86, 58], [-124, 100]) },
+        { part: 'hoof', path: line([78, 112], [90, 118]) },
+        { part: 'hoof', path: line([122, 96], [134, 102]) },
+        { part: 'hoof', path: line([-78, 114], [-66, 120]) },
+        { part: 'hoof', path: line([-124, 100], [-136, 106]) },
       ];
     return [
-      { part: 'halo', path: quad([-124, 4], [-10, -16], [100, -6]) },
-      { part: 'body', path: quad([-104, -18], [-20, -46], [72, -30]) },
-      { part: 'body', path: quad([-94, 18], [-6, 34], [70, 14]) },
-      { part: 'body', path: quad([-98, 0], [-14, -10], [72, -8]) },
-      { part: 'body', path: quad([70, -10], [-14, 12], [-96, 6]) },
-      { part: 'body', path: quad([-110, -16], [-130, 8], [-90, 32]) },
-      { part: 'body', path: quad([66, -32], [92, -4], [68, 24]) },
-      { part: 'neck', path: quad([62, -28], [98, -66], [114, -114]) },
-      { part: 'head', path: quad([108, -118], [146, -104], [164, -74]) },
-      { part: 'ear', path: line([110, -122], [104, -144]) },
-      { part: 'mane', path: quad([108, -130], [86, -90], [58, -52]) },
-      { part: 'tail', path: cubic([-112, -18], [-152, -34], [-180, -8], [-204, 36]) },
+      { part: 'halo', path: quad([-150, 8], [-10, -28], [120, -8]) },
+      { part: 'halo', path: quad([-20, 20], [40, 48], [-80, 36]) },
+      { part: 'wash', path: quad([-140, -8], [-20, -52], [86, -18]) },
+      { part: 'wash', path: quad([-130, 22], [-16, 46], [78, 16]) },
+      { part: 'wash', path: quad([40, -36], [96, -8], [54, 28]) },
+      { part: 'body', path: quad([-128, -24], [-24, -58], [80, -28]) },
+      { part: 'body', path: quad([-118, 8], [-10, -6], [74, -4]) },
+      { part: 'body', path: quad([-110, 26], [-8, 40], [70, 18]) },
+      { part: 'body', path: cubic([-136, -6], [-150, 18], [-132, 36], [-96, 28]) },
+      { part: 'shade', path: quad([-90, -16], [-10, -30], [60, -12]) },
+      { part: 'shade', path: quad([36, -22], [78, 0], [48, 22]) },
+      { part: 'contour', path: cubic([-132, 24], [-70, 48], [20, 42], [78, 14]) },
+      { part: 'contour', path: cubic([-120, -30], [-30, -64], [50, -48], [92, -22]) },
+      { part: 'neck', path: quad([62, -24], [108, -72], [124, -118]) },
+      { part: 'neck', path: quad([48, -16], [86, -64], [108, -108]) },
+      { part: 'head', path: cubic([112, -122], [150, -128], [176, -96], [168, -62]) },
+      { part: 'head', path: quad([122, -108], [156, -92], [164, -68]) },
+      { part: 'ear', path: line([116, -124], [108, -150]) },
+      { part: 'ear', path: line([124, -120], [132, -142]) },
+      { part: 'mane', path: cubic([120, -140], [96, -100], [70, -64], [52, -28]) },
+      { part: 'mane', path: cubic([128, -132], [108, -88], [86, -52], [64, -18]) },
+      { part: 'mane', path: quad([112, -126], [90, -78], [74, -36]) },
+      { part: 'tail', path: cubic([-124, -16], [-168, -40], [-196, 8], [-188, 64]) },
+      { part: 'tail', path: cubic([-116, -8], [-156, -16], [-178, 28], [-160, 78]) },
+      { part: 'tail', path: quad([-120, -4], [-150, 24], [-138, 70]) },
       ...legs,
     ];
   },
   banner: (lean) => {
     const sway = Math.max(-1, Math.min(1, lean));
-    const reach = 214 + sway * 34;
-    const phase = 0.15 + sway * 0.2;
+    const reach = 228 + sway * 28;
+    const phase = 0.12 + sway * 0.18;
+    const cloth: Gesture[] = [];
+    for (let row = 0; row < 8; row++) {
+      const y = -196 + row * 18;
+      const amp = 6 + (row % 3) * 2;
+      const part = row % 2 === 0 ? 'field' : 'cloth';
+      const x0 = 18 + (row % 2) * 6;
+      const x1 = reach - (row % 3) * 8;
+      cloth.push({
+        part,
+        path: row % 2 === 0 ? wave(x0, x1, y, amp, 180, phase + row * 0.04, 28) : wave(x1, x0, y, amp, 180, phase + row * 0.04, 28),
+      });
+    }
     return [
-      { part: 'pole', path: line([0, 220], [0, -222]) },
-      { part: 'finial', path: arc(0, -232, 6, 8, 0, 1, 10) },
-      { part: 'cloth', path: wave(14, reach, -182, 7, 160, phase) },
-      { part: 'cloth', path: wave(reach - 4, 14, -152, 8, 160, phase + 0.06) },
-      { part: 'cloth', path: wave(14, reach - 8, -122, 9, 160, phase + 0.12) },
-      { part: 'cloth', path: wave(reach - 12, 14, -92, 10, 160, phase + 0.18) },
-      { part: 'bleed', path: quad([reach - 4, -188], [reach + 8 + sway * 10, -140], [reach - 12, -84]) },
-      { part: 'fold', path: [[72, -194], [80 + sway * 8, -140], [70 + sway * 10, -82]] },
-      { part: 'fold', path: [[140 + sway * 12, -194], [134 + sway * 16, -140], [144 + sway * 20, -82]] },
-      { part: 'hem', path: wave(8, reach + 6, -198, 7, 160, phase - 0.04, 24) },
-      { part: 'hem', path: wave(8, reach - 8, -76, 10, 160, phase + 0.2, 24) },
-      { part: 'streamer', path: quad([reach - 6, -80], [reach + 26 + sway * 30, -40], [reach + 10 + sway * 60, 0]) },
+      { part: 'pole', path: line([0, 230], [0, -236]) },
+      { part: 'pole', path: line([7, 220], [6, -220]) },
+      { part: 'finial', path: arc(0, -246, 8, 10, 0, 1, 12) },
+      ...cloth,
+      { part: 'grain', path: wave(24, reach - 16, -168, 5, 140, phase, 22) },
+      { part: 'grain', path: wave(reach - 20, 28, -112, 6, 150, phase + 0.2, 22) },
+      { part: 'bleed', path: quad([reach - 8, -200], [reach + 16 + sway * 12, -140], [reach - 6, -70]) },
+      { part: 'bleed', path: quad([22, -204], [8, -130], [26, -62]) },
+      { part: 'fold', path: [[64, -204], [74 + sway * 8, -140], [60 + sway * 10, -68]] },
+      { part: 'fold', path: [[128 + sway * 10, -202], [118 + sway * 14, -136], [132 + sway * 16, -66]] },
+      { part: 'fold', path: [[186 + sway * 12, -198], [176 + sway * 18, -130], [170 + sway * 8, -72]] },
+      { part: 'hem', path: wave(12, reach + 4, -208, 5, 170, phase - 0.05, 26) },
+      { part: 'hem', path: wave(14, reach - 4, -58, 7, 160, phase + 0.22, 26) },
+      { part: 'streamer', path: cubic([reach - 10, -62], [reach + 36 + sway * 24, -28], [reach + 18 + sway * 40, 24], [reach + 48 + sway * 50, 70]) },
+      { part: 'streamer', path: quad([reach - 4, -54], [reach + 20 + sway * 16, 8], [reach + 8 + sway * 28, 64]) },
     ];
   },
   'ink-bomb': () => [

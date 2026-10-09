@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { defineGameplay } from '../src/core/gameplay';
-import { createPropWorld } from '../src/core/prop-world';
+import { PROP_VIEW_H, PROP_VIEW_W, createPropWorld } from '../src/core/prop-world';
 import { HISTORY_PROPS, paintHistoryProp, type HistoryPropId } from '../src/plugins/history-props';
 
 const IDS: readonly HistoryPropId[] = [
@@ -34,7 +34,26 @@ describe('历史道具', () => {
     }
   });
 
-  it('落下会往下走，挥砍会拆掉木桩', () => {
+  it('旗帜和奔马留在画面里，落下会往下走，挥砍会拆掉木桩', () => {
+    const bounds = { minX: 260, minY: 120, maxX: 760, maxY: 620, spriteW: 1024, spriteH: 768 };
+    const wind = createPropWorld('wind');
+    wind.place(bounds);
+    wind.act();
+    for (let i = 0; i < 420; i++) wind.step();
+    const flag = wind.inkBox();
+    expect(flag.left).toBeGreaterThan(0);
+    expect(flag.right).toBeLessThan(PROP_VIEW_W);
+    expect(flag.top).toBeGreaterThan(0);
+    expect(flag.bottom).toBeLessThan(PROP_VIEW_H);
+    const riding = createPropWorld('move');
+    riding.place(bounds);
+    const before = riding.inkBox();
+    riding.act();
+    for (let i = 0; i < 420; i++) riding.step();
+    const after = riding.inkBox();
+    expect(after.left).toBeGreaterThan(before.left);
+    expect(after.right).toBeLessThan(PROP_VIEW_W);
+    expect(after.top).toBeGreaterThan(0);
     const falling = createPropWorld('fall');
     const y0 = falling.prop.position.y;
     falling.act();

@@ -35,13 +35,25 @@ export class InkScene {
   private readonly camera = new OrthographicCamera(0, 1280, 0, 720, .1, 100);
   private readonly slots = new Map<string, Slot>();
   private disposed = false;
+  private lost = false;
+  private readonly onLost = (event: Event): void => {
+    event.preventDefault();
+    this.lost = true;
+  };
+  private readonly onRestored = (): void => {
+    this.lost = false;
+  };
   constructor(canvas: HTMLCanvasElement) {
     this.renderer = new WebGLRenderer({ canvas, antialias: false });
     this.renderer.setSize(1280, 720, false);
     this.renderer.setClearColor(0xdcd4be);
     this.renderer.localClippingEnabled = true;
     this.camera.position.z = 50;
+    canvas.addEventListener('webglcontextlost', this.onLost);
+    canvas.addEventListener('webglcontextrestored', this.onRestored);
   }
+  get contextLost(): boolean { return this.lost; }
+  has(id: string): boolean { return this.slots.has(id); }
   async add(layer: InkSceneLayer): Promise<void> {
     if (this.disposed || this.slots.has(layer.id)) throw new Error('墨层重复或场景已释放');
     const pivot = layer.pivot ?? { x: layer.width / 2, y: layer.height / 2 };
@@ -56,12 +68,14 @@ export class InkScene {
     this.slots.set(layer.id, { surface, mesh, pivot });
     this.scene.add(mesh);
     for (const stroke of layer.strokes) {
-      if (this.disposed) return;
+      // A navigation away must not report success for a half-painted layer.
+      if (this.disposed) throw new Error('场景已释放');
       surface.paint(stroke);
       await new Promise<void>(resolve => requestAnimationFrame(() => resolve()));
     }
   }
   pose(id: string, pose: InkLayerPose): void {
+    if (this.disposed) return;
     const slot = this.slots.get(id);
     if (!slot) throw new Error(`未知墨层 ${id}`);
     slot.mesh.position.set(pose.x, pose.y, 0);
@@ -76,6 +90,7 @@ export class InkScene {
    * The caller controls when and how often this runs so playback stays deterministic.
    */
   wash(id: string, steps: readonly InkSurfaceWashStep[]): void {
+    if (this.disposed) return;
     const slot = this.slots.get(id);
     if (!slot) throw new Error(`未知墨层 ${id}`);
     for (const step of steps) slot.surface.wash(step.x, step.y, step.radius);
@@ -87,6 +102,7 @@ export class InkScene {
    * rotated layer is clipped to the box that contains the requested region.
    */
   clip(id: string, rect: InkClipRect | null): void {
+    if (this.disposed) return;
     const slot = this.slots.get(id);
     if (!slot) throw new Error(`未知墨层 ${id}`);
     if (!rect) { slot.mesh.material.clippingPlanes = null; slot.mesh.material.needsUpdate = true; return; }
@@ -109,10 +125,13 @@ export class InkScene {
     ];
     slot.mesh.material.needsUpdate = true;
   }
-  render(): void { if (!this.disposed) this.renderer.render(this.scene, this.camera); }
+  render(): void { if (!this.disposed && !this.lost) this.renderer.render(this.scene, this.camera); }
   dispose(): void {
     if (this.disposed) return;
     this.disposed = true;
+    const canvas = this.renderer.domElement;
+    canvas.removeEventListener('webglcontextlost', this.onLost);
+    canvas.removeEventListener('webglcontextrestored', this.onRestored);
     for (const slot of this.slots.values()) { slot.surface.dispose(); slot.mesh.geometry.dispose(); slot.mesh.material.dispose(); }
     this.slots.clear();
     this.renderer.dispose();

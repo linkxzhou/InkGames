@@ -23,8 +23,8 @@ export const HISTORY_BRUSHES = {
     hilt: brush('marker', 'small', 'mix', 'wine_red', 4),
   },
   slip: {
-    strip: brush('brush', 'medium', 'mix', 'brown', 12),
-    tie: brush('brush', 'ultra-small', 'sharpen', 'black', 8),
+    strip: brush('brush', 'large', 'wet', 'brown', 10, 0.35),
+    tie: brush('brush', 'small', 'mix', 'black', 8),
     column: brush('pen', 'ultra-small', 'mix', 'black', 10),
   },
   ding: {
@@ -52,9 +52,9 @@ export const HISTORY_BRUSHES = {
     oar: brush('pen', 'ultra-small', 'mix', 'black', 10),
   },
   beacon: {
-    tower: brush('brush', 'large', 'mix', 'gray_brown', 8),
-    battlement: brush('brush', 'small', 'sharpen', 'black', 6),
-    flame: brush('gothic', 'large', 'wet', 'red', 7),
+    tower: brush('brush', 'extra-large', 'wet', 'gray_brown', 7, 0.35),
+    battlement: brush('brush', 'medium', 'mix', 'black', 6),
+    flame: brush('gothic', 'huge', 'wet', 'wine_red', 6, 0.4),
     smoke: brush('brush', 'extra-large', 'effect4', 'light_gray_new', 10),
   },
   wall: {
@@ -63,8 +63,8 @@ export const HISTORY_BRUSHES = {
     joint: brush('pen', 'ultra-small', 'sharpen', 'black', 12),
   },
   seal: {
-    body: brush('brush', 'large', 'wet', 'red', 6, 0.5),
-    knob: brush('brush', 'medium', 'mix', 'wine_red', 4),
+    body: brush('brush', 'huge', 'wet', 'wine_red', 5, 0.5),
+    knob: brush('brush', 'medium', 'wet', 'wine_red', 4, 0.4),
     legend: brush('pen', 'ultra-small', 'sharpen', 'white', 5),
   },
   inkstone: {
@@ -74,10 +74,10 @@ export const HISTORY_BRUSHES = {
     hair: brush('brushSP', 'small', 'wet', 'black', 5),
   },
   lantern: {
-    frame: brush('brush', 'medium', 'mix', 'red', 7),
-    rib: brush('pen', 'ultra-small', 'sharpen', 'wine_red', 8),
-    tassel: brush('brushSP', 'small', 'wet', 'red', 6),
-    flame: brush('gothic', 'small', 'wet', 'red', 4),
+    frame: brush('brush', 'extra-large', 'wet', 'wine_red', 6, 0.4),
+    rib: brush('pen', 'small', 'sharpen', 'wine_red', 7),
+    tassel: brush('brushSP', 'medium', 'wet', 'wine_red', 6),
+    flame: brush('gothic', 'medium', 'wet', 'gold_orange', 4),
   },
   cannon: {
     tube: brush('brush', 'large', 'wet', 'black', 8),
@@ -239,7 +239,37 @@ const PAINT: Record<HistoryPaintingId, () => readonly Gesture[]> = {
   ],
 };
 
+/** Horizontal wet passes so a prop has a body of ink, not only an outline. */
+function bands(part: string, x0: number, x1: number, y0: number, y1: number, rows: number): Gesture[] {
+  const out: Gesture[] = [];
+  for (let i = 0; i < rows; i++) {
+    const t = rows === 1 ? 0.5 : i / (rows - 1);
+    const y = y0 + (y1 - y0) * t;
+    const inset = (i % 2) * ((x1 - x0) * 0.08);
+    const left: Pt = [x0 + inset, y];
+    const right: Pt = [x1 - inset, y + ((i % 3) - 1) * 3];
+    out.push({ part, path: i % 2 === 0 ? [left, right] : [right, left] });
+  }
+  return out;
+}
+
+const MASS: Readonly<Record<HistoryPaintingId, readonly Gesture[]>> = {
+  dagger: bands('scroll', -100, 100, -36, 28, 5),
+  slip: bands('strip', -78, 72, -70, 80, 6),
+  ding: bands('belly', -70, 70, -24, 48, 6),
+  chariot: [...bands('box', -68, 68, -36, 16, 4), ...bands('wheel', -70, 70, 28, 70, 2)],
+  crossbow: bands('stock', -80, 64, -8, 22, 3),
+  warship: [...bands('hull', -120, 130, 4, 52, 4), ...bands('sail', -64, 4, -88, -36, 4)],
+  beacon: [...bands('tower', -24, 24, -10, 100, 5), ...bands('flame', -16, 18, -78, -24, 4)],
+  wall: bands('course', -150, 150, -16, 56, 5),
+  seal: bands('body', -40, 40, -32, 40, 6),
+  inkstone: bands('slab', -80, 90, -16, 28, 4),
+  lantern: bands('frame', -28, 28, -40, 42, 6),
+  cannon: bands('tube', -74, 64, -22, 8, 4),
+  treasure: [...bands('hull', -140, 150, 8, 64, 5), ...bands('sail', -90, 50, -96, -40, 4)],
+};
+
 export function paintHistoryShape(id: HistoryPaintingId, at: PropPlacement): PropStroke[] {
   const table = HISTORY_BRUSHES[id] as unknown as Readonly<Record<string, PropBrush>>;
-  return strokesFrom(id, table, PAINT[id](), at);
+  return strokesFrom(id, table, [...MASS[id], ...PAINT[id]()], at);
 }

@@ -7,8 +7,9 @@
   <link rel="icon" href="data:," />
   <link rel="stylesheet" href="../../styles.css" />
   <style>
-    .prop-stage { width: min(960px, 100%); margin: 0 auto; }
-    .prop-stage canvas { display: block; width: 100%; height: auto; background: #d6cebc; }
+    .demo-layout { max-width: none; }
+    .prop-stage { width: 100%; margin: 0; position: relative; aspect-ratio: 16/9; }
+    .prop-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; background: #d6cebc; }
     .prop-note { max-width: 960px; margin: 12px auto 0; color: #d6c5a6; font-size: 14px; line-height: 1.7; }
     .prop-note button { font: inherit; margin-top: 8px; padding: 8px 16px; background: #eee3cf; color: #263b38; border: 0; cursor: pointer; }
   </style>
@@ -26,7 +27,7 @@
       </div>
       <p id="blurb"></p>
     </div>
-    <div class="canvas-shell prop-stage"><canvas id="view" width="960" height="540"></canvas></div>
+    <div class="canvas-shell prop-stage"><canvas id="view" width="1600" height="900"></canvas></div>
     <p class="prop-note" id="scenes"></p>
     <p class="prop-note"><span id="status" role="status"></span><br /><button id="act" type="button">动作</button></p>
   </main>
