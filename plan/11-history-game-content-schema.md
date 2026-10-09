@@ -356,6 +356,7 @@ export interface FullSceneEntry {
   readonly strings: StringTable;          // 本场景全部字符串
   readonly cast: readonly CastMember[];   // 人物关系图用
   readonly relations: readonly Relation[];
+  readonly artPrompts: readonly ArtPromptSegment[];  // 水墨素材提示词，见 §2.10
 }
 
 /** 大纲级场景：只有钩子，不做剧情图和过场 */
@@ -380,6 +381,7 @@ export interface OutlineSceneEntry {
   readonly strings: StringTable;
   readonly cast: readonly CastMember[];
   readonly relations: readonly Relation[];
+  readonly artPrompts: readonly ArtPromptSegment[];  // 水墨素材提示词，见 §2.10
 }
 
 /** 与 history-santi 关系图模板（jing-ke-relation-graph.html）的 DATA 字段一致 */
@@ -408,9 +410,57 @@ export interface Relation {
 
 第二条线的第一个节点必须带 `label`（声明文字）。结局与出口锚点一致的写 `mergeTo`（汇流）；与史实冲突的写 `kind: 'divergent'` 并 `archive: 'yiwenlu'`（如牧野之战的《封神演义》线）。推演（whatif）首版只留入口，要求正史与第二条线都通关后才显示。
 
+### 2.10 水墨素材提示词（artPrompts）
+
+每个场景（`v1: true` 与 `v1: false` 一样）都带一个 `artPrompts` 数组，用来把这一场的**水墨素材**交给文生图模型（`gpt-image-2.5`）批量出图：**一段 = 一张图 = 一个 4×4 以内的网格**，格内每件素材独立完整、透明背景，便于后续按格抠成精灵图。一个场景按分类分段，**同一分类超过 16 件再拆成多段**。
+
+```ts
+export type ArtCategory = 'cast' | 'props' | 'scenery' | 'effects';   // 人物立绘 / 道具器物 / 场景环境 / 水墨特效
+export type ArtKind = 'figure' | 'prop' | 'scenery' | 'fx';
+
+export interface ArtSheetSpec {
+  readonly model: string;                        // 创作目标 'gpt-image-2.5'，非已核实的 API 模型 ID
+  readonly apiVerified: false;                   // 未验证模型 ID、实际可用尺寸与透明输出
+  readonly sizePx: readonly [number, number];    // 规划裁切尺寸 = 网格行列数 × cellPx，非 API 请求尺寸
+  readonly cellPx: number;                       // 单格像素
+  readonly background: 'transparent';            // 一律透明背景，无纸纹无底色
+  readonly cutout: boolean;                      // 是否按格抠图
+}
+
+export interface ArtAsset {
+  readonly slot: number;                         // 1..16，网格阅读顺序（自上而下、自左而右）
+  readonly id: string;                           // 稳定 id，抠图产物按它登记
+  readonly name: string;                         // 素材名（中文）
+  readonly kind: ArtKind;
+  readonly note?: string;                        // 造型提示，随提示词一起给模型
+  /** 指向现有笔刷预设，抠图产物可与引擎对齐（见 src/plugins/prop-brushes.ts）。 */
+  readonly ref?: { readonly prop: string; readonly parts?: readonly string[]; readonly actor?: string };
+}
+
+export interface ArtPromptSegment {
+  readonly id: string;                           // 'zhanguo.jingke.sheet.cast.1'，不与素材 id 冲突
+  readonly category: ArtCategory;
+  readonly categoryLabel: string;                // 中文分类名，直接展示
+  readonly segment: number;                      // 同分类内段号，从 1 开始
+  readonly segmentsInCategory: number;           // 同分类总段数
+  readonly grid: { readonly cols: number; readonly rows: number };
+  readonly assets: readonly ArtAsset[];          // ≤ 16
+  readonly prompt: string;                       // 完整中文提示词（含题材、画风、透明背景、逐格清单）
+  readonly negative: string;                     // 负面提示词
+  readonly spec: ArtSheetSpec;
+}
+```
+
+生成与维护：
+
+- 规划数据由 `plan/11-history-game-data/tools/build-art-prompts.mjs` 按场景生成并写回 `chapters/*.json`（幂等；改完数据再跑一次即可）。它从场景的 `cast`、`props`、过场笔画的 `label`/来源、玩法 `template` 与章节 `look.palette` 推导素材，并合成提示词；少量场景还有显式必备/排除素材名单。笔刷预设不等同于史实器物，未知短标签不自动当道具；其他场景仍需逐场人工审核。
+- 分类固定为 `cast / props / scenery / effects` 四类；没有素材的分类不产生段，因此大多数场景是 3–4 段。
+- `ref.prop` / `ref.parts` 用现有预设键（`sword`、`blade`、`banner`… 与其部件），`ref.actor` 用 `cast[].id`，方便抠图产物登记回引擎。
+- 画风基准是「写意水墨 + 焦墨/浓墨/淡墨分层 + 枯笔飞白 + 泼墨墨点飞溅，点缀色克制」，点缀色取章节 `look.palette`（对应 `src/core/ink-palette.ts` 的中文名与 RGB），不与具体某一幅参考图绑定。`grid` × `cellPx` 严格等于 `sizePx`（少量素材以空格补足至少 2 行）；按行列裁切前必须确认实际返回尺寸/alpha，必要时等比缩放加透明补边，不能直接把 `sizePx` 当作 API 的 `size` 传入。
+
 ## 3. 完整样例：易水寒 · 荆轲刺秦王
 
-完整文件见 [`11-history-game-data/scene-zhanguo-jingke.example.json`](./11-history-game-data/scene-zhanguo-jingke.example.json)，里面有场景定义、开场动画脚本和中文字符串表。下面讲它的结构。
+完整文件见 [`11-history-game-data/scene-zhanguo-jingke.example.json`](./11-history-game-data/scene-zhanguo-jingke.example.json)，里面有场景定义、开场动画脚本和中文字符串表。下面讲它的结构。（该样例只覆盖 `scene` / `opening` / `strings`，所以不含 §2.10 的 `artPrompts`；`artPrompts` 挂在 `chapters/*.json` 的场景条目上，易水寒那一场在 [`05-zhanguo.json`](./11-history-game-data/chapters/05-zhanguo.json) 里可查。）
 
 ### 3.1 史源
 
@@ -472,7 +522,7 @@ export interface Relation {
 
 ### 4.1 内容校验器（构建期，`./build.sh check` 的一部分）
 
-规划阶段已有一个可运行的版本：`plan/11-history-game-data/tools/validate.mjs`（Node，无依赖）。在 `plan/11-history-game-data/` 下运行 `node tools/validate.mjs`，加 `--pending` 列出全部待核验的日期与出处。它实现了下表中除“版权”“字形”“发布构建核验”以外的检查，另外检查：索引与数据包一致、易水寒条目与样例文件完全相同、笔刷键 `prop.part` 与调色板颜色名存在、画面坐标在画布内、`whatif` 选项带条件、人物关系引用的人物存在。与下表的差异：章与章之间不检查起始年先后（辽金与北宋重叠）；玩法节点只要求 `goal`/`beats`/`clues` 之一。
+规划阶段已有一个可运行的版本：`plan/11-history-game-data/tools/validate.mjs`（Node，无依赖）。在 `plan/11-history-game-data/` 下运行 `node tools/validate.mjs`，加 `--pending` 列出全部待核验的日期与出处。它实现了下表中除“版权”“字形”“发布构建核验”以外的检查，另外检查：索引与数据包一致、易水寒条目与样例文件完全相同、笔刷键 `prop.part` 与调色板颜色名存在、画面坐标在画布内、`whatif` 选项带条件、人物关系引用的人物存在、每个场景的 `artPrompts` 合法（§2.10）。与下表的差异：章与章之间不检查起始年先后（辽金与北宋重叠）；玩法节点只要求 `goal`/`beats`/`clues` 之一。
 
 | 检查 | 规则 | 失败级别 |
 |---|---|---|
@@ -486,6 +536,7 @@ export interface Relation {
 | 版权 | 字符串表里连续 ≥ 15 字与语料库文本重合的句子报错（本地运行，语料不入库；见 §4.3） | 错误 |
 | 过场 | 帧号在 `[0, durationFrames]` 内；镜头不重叠；每条 vo 有字幕；同步点引用的 vo 存在 | 错误 |
 | 字幕长度 | 横排每行 ≤ 18 字，竖排每列 ≤ 12 字（见 [故事与玩法 §6.5](./11-history-game-story-design.md#65-文风与长度)） | 警告 |
+| 素材提示词 | 每个场景都有 `artPrompts`；分类合法、段号连续、网格 ≤ 16 格且装得下素材、`slot` 连续、图段/素材 id 互不冲突、`ref.prop`/`ref.parts` 是已知笔刷键、`ref.actor` 在 cast 里、`prompt` 包含网格描述及素材名、`spec.background` 为 `transparent`、`apiVerified` 标记为 `false`、`sizePx` 等于网格 × `cellPx`、每个 cast 成员都有立绘素材 | 错误 |
 | 字形 | 所有字符串里的字都在子集化字体里 | 错误 |
 
 ### 4.2 单元测试（vitest）
@@ -505,4 +556,4 @@ export interface Relation {
 
 ### 4.5 数据浏览页
 
-`plan/11-history-game-data/index.html` 按章、按场景显示时间轴、剧情树（正史主干、第二条线、推演入口、汇流或归档）、人物关系图（沿用 `jing-ke-relation-graph.html` 的样式与类型配色）、开场分镜和音频提示。页面不使用 `fetch`，可以直接双击用 file:// 打开：数据由 `node tools/build-viewer-data.mjs` 从 `chapters/*.json` 生成到 `data/*.js`（设置 `window.HISTORY_GAME_INDEX` 和 `window.HISTORY_GAME_CHAPTERS`），用 `<script>` 标签加载，不依赖外部库与网络。
+`plan/11-history-game-data/index.html` 按章、按场景显示时间轴、剧情树（正史主干、第二条线、推演入口、汇流或归档）、人物关系图（沿用 `jing-ke-relation-graph.html` 的样式与类型配色）、开场分镜、音频提示，以及底部的**水墨素材提示词**卡片：按分类分页签列出该场景的全部段（`artPrompts`），每段显示网格、出图尺寸/模型、逐格清单、完整提示词与负面提示词，并可一键复制单段或整场（多段一并展示）。页面不使用 `fetch`，可以直接双击用 file:// 打开：数据由 `node tools/build-viewer-data.mjs` 从 `chapters/*.json` 生成到 `data/*.js`（设置 `window.HISTORY_GAME_INDEX` 和 `window.HISTORY_GAME_CHAPTERS`），用 `<script>` 标签加载，不依赖外部库与网络。素材提示词数据本身由 `node tools/build-art-prompts.mjs` 写入 `chapters/*.json`，两步都跑完页面才看得到最新内容。

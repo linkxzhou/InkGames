@@ -288,7 +288,8 @@
 - **大纲级场景 91 个**（`v1: false`，`format: inkgames.scene-outline`）：只有时间、标题、正史/野史钩子、玩法提示、道具、人物和出处。
 - 第二条线并不都是真正的野史。没有可靠野史的场景，按来源性质在选项前缀上标明：“野史”（传说、民间故事、神话）、“演义”（明清小说或蔡东藩历朝演义，蔡著版权状态**待核验**）、“异说”（出土文献或别史的不同记载，如《竹书纪年》、清华简《系年》、北大汉简《赵正书》），或“后世”（后人的接受与改写）。每条第二线的第一个节点都有一段声明（`label`）。
 - 日期或出处没把握的一律写 `verify: pending` 或在 `notes` 里写“待核验”，校验器 `--pending` 可列出全部条目。
-- 浏览器查看：双击 [`11-history-game-data/index.html`](./11-history-game-data/index.html)（file:// 可用，不联网）。改了章节 JSON 后运行 `node tools/build-viewer-data.mjs` 重新生成 `data/*.js`，再运行 `node tools/validate.mjs` 校验。
+- 每个场景还带 `artPrompts`（水墨素材提示词，`v1` 与否都有）：按“人物立绘 / 道具器物 / 场景环境 / 水墨特效”分四类，每段对应文生图模型（`gpt-image-2.5`）的一张图，图内是最多 16 件独立、透明背景、便于抠图的素材；同类超过 16 件再拆段。生成命令 `node tools/build-art-prompts.mjs`（幂等，写回 `chapters/*.json`），格式见[内容数据格式 §2.10](./11-history-game-content-schema.md#210-水墨素材提示词artprompts)。
+- 浏览器查看：双击 [`11-history-game-data/index.html`](./11-history-game-data/index.html)（file:// 可用，不联网），页面底部按分类展示该场景的全部素材提示词段，可复制。改了章节 JSON 后运行 `node tools/build-art-prompts.mjs`（素材提示词）与 `node tools/build-viewer-data.mjs`（查看页数据）重新生成 `data/*.js`，再运行 `node tools/validate.mjs` 校验。
 
 ## 22. 民国（可选，默认不做）
 

@@ -115,6 +115,22 @@ table.cmp th{background:rgba(255,255,255,.4);font-weight:normal;color:var(--mute
 .scene-list button.active{border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
 .scene-list button.outline{color:var(--muted)}
 .empty{color:var(--muted);font-size:13px;padding:10px}
+/* 水墨素材提示词 */
+.seg{border:1px solid var(--edge);border-radius:6px;background:rgba(255,255,255,.4);padding:8px 10px;margin-bottom:10px}
+.seg-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;border-bottom:1px dashed var(--edge);padding-bottom:5px;margin-bottom:6px}
+.seg-h b{font-size:14px}
+.seg-h span{font-size:12px;color:var(--muted)}
+.seg-h button{font:inherit;font-size:12px;color:var(--ink);background:var(--paper);border:1px solid var(--edge);border-radius:4px;padding:2px 9px;cursor:pointer;margin-left:auto}
+.seg-h button:hover{border-color:var(--accent);color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:3px 4px;font-size:12px}
+.chips .tag{background:rgba(255,255,255,.7)}
+.sub{font-size:12px;color:var(--muted);margin:6px 0 2px}
+pre.prompt{white-space:pre-wrap;word-break:break-word;font-family:ui-monospace,Menlo,Consolas,"Songti SC",monospace;font-size:12px;line-height:1.65;
+  background:var(--paper);border:1px dashed var(--edge);border-radius:4px;padding:6px 8px;max-height:240px;overflow:auto;margin:0}
+#artTabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+#artTabs button{font:inherit;font-size:12px;color:var(--ink);background:rgba(255,255,255,.5);border:1px solid var(--edge);border-radius:4px;padding:3px 10px;cursor:pointer}
+#artTabs button:hover{border-color:var(--accent)}
+#artTabs button.active{background:var(--accent2);color:var(--paper);border-color:var(--accent2)}
 #hint{position:fixed;left:50%;bottom:6px;transform:translateX(-50%);font-size:12px;color:var(--muted);background:var(--paper);border:1px solid var(--edge);border-radius:10px;padding:2px 12px;opacity:.92;white-space:nowrap;z-index:50}
 @media (max-width:900px){ #main{grid-template-columns:1fr} #hint{white-space:normal;left:8px;right:8px;transform:none} }
 </style>
@@ -140,6 +156,7 @@ table.cmp th{background:rgba(255,255,255,.4);font-weight:normal;color:var(--mute
   <section class="card wide" id="cardTree"><h2>剧情树 <small>正史主干 · 野史/演义/异说支线 · 推演（未开放）</small></h2><div id="tree"></div></section>
   <section class="card wide" id="cardShots"><h2>开场动画分镜 <small id="shotMeta"></small></h2><div id="shots"></div></section>
   <section class="card wide" id="cardAudio"><h2>音频提示 <small id="audioMeta"></small></h2><div id="audio"></div></section>
+  <section class="card wide" id="cardArt"><h2>水墨素材提示词 <small id="artMeta"></small></h2><div id="artTabs"></div><div id="art"></div></section>
 </main>
 <div id="tip"></div>
 <div id="hint">选择章节与场景 · 点击时间轴上的场景 · 实心点为首版完整场景，空心为大纲级（v1: false）</div>
@@ -196,6 +213,8 @@ const THEMES = {
 function themeFor(order){ return order <= 5 ? "bronze" : order <= 11 ? "lacquer" : order <= 17 ? "silk" : "palace"; }
 const LINE = { canon:{label:"正史",color:"#a63a2e"}, legend:{label:"野史/演义/异说",color:"#3e5c76"}, whatif:{label:"推演",color:"#9a8f7c"} };
 const KIND = { cutscene:"过场", choice:"抉择", gameplay:"玩法", ending:"结局", dialogue:"对话" };
+/* 素材类型（artPrompts[].assets[].kind） */
+const ART_KIND = { figure:"人物", prop:"器物", scenery:"环境", fx:"特效" };
 
 const INDEX = window.HISTORY_GAME_INDEX;
 const CH = window.HISTORY_GAME_CHAPTERS || {};
@@ -269,7 +288,7 @@ function selectScene(id){
   cur.entry = cur.bundle.scenes.find(e => e.scene.id === id) || cur.bundle.scenes[0];
   $("#sceneSel").value = cur.entry.scene.id;
   try { history.replaceState(null, "", "#ch=" + cur.ch.id + "&sc=" + cur.entry.scene.id); } catch (e) {}
-  renderTimeline(); renderInfo(); renderGraph(); renderTree(); renderShots(); renderAudio();
+  renderTimeline(); renderInfo(); renderGraph(); renderTree(); renderShots(); renderAudio(); renderArt();
 }
 
 /* ---------- 时间轴 ---------- */
@@ -531,6 +550,86 @@ function renderAudio(){
     });
     box.appendChild(lane);
   });
+}
+
+/* ---------- 水墨素材提示词 ---------- */
+function copyText(text, btn){
+  const done = ok => { if (btn){ const old = btn.textContent; btn.textContent = ok ? "已复制" : "复制失败"; setTimeout(() => { btn.textContent = old; }, 1200); } };
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(() => done(true), () => done(fallbackCopy(text)));
+  } else done(fallbackCopy(text));
+}
+function fallbackCopy(text){
+  const ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.left = "-9999px";
+  document.body.appendChild(ta); ta.select();
+  let ok = false; try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+  document.body.removeChild(ta); return ok;
+}
+function segText(s){
+  return s.id + "  [" + s.categoryLabel + " 第 " + s.segment + "/" + s.segmentsInCategory + " 段 · " + s.grid.cols + "×" + s.grid.rows + " · " +
+    "规划裁切 " + s.spec.sizePx[0] + "×" + s.spec.sizePx[1] + " · " + s.spec.model + " · " + s.spec.background + " · API 未实测]\n" +
+    "素材清单：" + s.assets.map(a => a.slot + ". " + a.name + (a.note ? "（" + a.note + "）" : "")).join("；") + "\n" +
+    "— 提示词 —\n" + s.prompt + "\n— 负面提示词 —\n" + (s.negative || "");
+}
+function renderArt(){
+  const e = cur.entry, box = $("#art"), tabs = $("#artTabs");
+  box.textContent = ""; tabs.textContent = "";
+  const segs = e.artPrompts || [];
+  if (!segs.length){
+    box.innerHTML = '<div class="empty">此场景还没有水墨素材提示词：在 11-history-game-data/ 下运行 <b>node tools/build-art-prompts.mjs</b> 生成，再运行 <b>node tools/build-viewer-data.mjs</b> 刷新 data/*.js。</div>';
+    $("#artMeta").textContent = ""; return;
+  }
+  const total = segs.reduce((n, s) => n + s.assets.length, 0);
+  const cats = [...new Set(segs.map(s => s.category))];
+  $("#artMeta").textContent = segs.length + " 段（一段 = 一张图，最多 16 件；透明背景规划，出图规格未实测）· 共 " + total + " 件素材 · " +
+    (segs[0].spec && segs[0].spec.model || "");
+  let filter = "*";
+  const draw = () => {
+    box.textContent = "";
+    segs.filter(s => filter === "*" || s.category === filter).forEach(s => {
+      const d = document.createElement("div"); d.className = "seg";
+      const head = document.createElement("div"); head.className = "seg-h";
+      head.innerHTML = '<b>' + esc(s.id) + '</b><span>' + esc(s.categoryLabel) + ' · 第 ' + s.segment + '/' + s.segmentsInCategory +
+        ' 段 · ' + s.grid.cols + '×' + s.grid.rows + ' 格 · 规划裁切 ' + s.spec.sizePx[0] + '×' + s.spec.sizePx[1] + ' · ' + s.spec.cellPx + 'px/格 · ' + esc(s.spec.model) + '（API 未实测）</span>';
+      const cb = document.createElement("button"); cb.textContent = "复制本段";
+      cb.addEventListener("click", () => copyText(segText(s), cb));
+      head.appendChild(cb);
+      d.appendChild(head);
+      const chips = document.createElement("div"); chips.className = "chips";
+      s.assets.forEach(a => {
+        const t = document.createElement("span"); t.className = "tag";
+        t.textContent = a.slot + ". " + a.name + "（" + (ART_KIND[a.kind] || a.kind) + "）";
+        if (a.note) t.title = a.note;
+        chips.appendChild(t);
+      });
+      d.appendChild(chips);
+      const add = (label, text) => {
+        const h = document.createElement("div"); h.className = "sub"; h.textContent = label; d.appendChild(h);
+        const p = document.createElement("pre"); p.className = "prompt"; p.textContent = text; d.appendChild(p);
+      };
+      add("提示词（" + s.grid.cols + "×" + s.grid.rows + " 网格，逐格清单）", s.prompt);
+      if (s.negative) add("负面提示词", s.negative);
+      box.appendChild(d);
+    });
+  };
+  const mk = (label, value) => {
+    const b = document.createElement("button"); b.textContent = label;
+    if (value === filter) b.classList.add("active");
+    b.addEventListener("click", () => {
+      filter = value;
+      [].forEach.call(tabs.children, c => c.classList.remove("active"));
+      b.classList.add("active"); draw();
+    });
+    tabs.appendChild(b);
+  };
+  mk("全部 " + segs.length, "*");
+  cats.forEach(c => mk((segs.find(s => s.category === c) || {}).categoryLabel + " " + segs.filter(s => s.category === c).length, c));
+  const all = document.createElement("button"); all.textContent = "复制本场景全部提示词";
+  all.addEventListener("click", () => copyText(segs.map(segText).join("\n\n"), all));
+  all.style.marginLeft = "auto";
+  tabs.appendChild(all);
+  draw();
 }
 
 init();
