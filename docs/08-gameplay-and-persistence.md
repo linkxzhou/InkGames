@@ -2,7 +2,7 @@
 
 [目录](./README.md) · [上一章](./07-ink-rendering.md) · [下一章](./09-tooling-and-quality.md)
 
-> 本章正文描述**现行代码**。文末「计划（未实现）」是 three.js + Matter.js 的目标，类还没有导出，不能当调用示例。
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
 
 十卡是同一张 1280×720 的纸，加上各自的一句交互。画面上所有东西都由 [第 7 章](./07-ink-rendering.md) 的 inkEngine 笔刷一笔一笔画出来，笔刷取自一张表。刚体仍然是圆和矩形，只决定碰撞，不决定长相。
 
@@ -73,10 +73,12 @@
 
 要复现一条 2.0 笔画，保存它的 `PropStroke`（笔刷、颜色、每帧的点、种子）再交给 `InkWash.paint`。同一种子在 inkEngine 里对应 `p.randomSeed(seed)` 后的同一笔。`tests/ink-brush.test.ts` 锁的是笔触数据，不锁 GPU 图像。
 
-## 计划（未实现）
+## 横版切片页面
 
-引擎垂直切片是单独的一关，不是改写这十张卡：一个能走上坡的角色、会洇墨的地形、一块斧劈皴和一块披麻皴的石头、一竿可以砍断的竹。十卡在迁移完成前保持现在的玩法。首页仍是十张卡，直到这条切片能玩再决定要不要换入口。
+`apps/scroll/` 是单独一关，首页 `apps/index.html` 和十个道具页没有改。开发服务器打开 `/scroll/`。关卡是一条折线坡、地面洇墨、披麻与斧劈两块石头、两竿竹、一块单向平台和一座可洗的桥。
 
-录制的新格式是 `inkgames.ink-recording` 版本 2，事件种类与 inkEngine 的 `mp` / `md` / `mr` / `flow` / `ec` / `mask` 对齐，并能把旧录制导进来。这是 [plan/12](../plan/12-history-game-engine-gaps.md) 的 G-04。现行 `recording.ts` 继续只服务 v0.1。
+键：A/D 或左右移动，W 或上跳，下加跳穿过单向平台，空格攻击，Q 在脚下洗桥并洗墨。页面自己开 `requestAnimationFrame` 调 `InkView.frame`。`?pose=rest` 与 `?pose=cut` 把角色放到固定帧后停住，给截图用，不继续跑动画循环。
 
-开场动画、旁白、字幕、存档和剧情图是历史游戏的宿主，模块名是 `CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`StoryRuntime`、`SceneDirector`。轨道字段以 [内容数据格式](../plan/11-history-game-content-schema.md) 为准。朝代、正史和野史怎么分支，写在 [plan/11](../plan/11-history-game-story-design.md)，引擎计划不重复那些内容。过场使用帧时钟；玩法使用固定步。过场进行时物理暂停。
+录制格式 `inkgames.ink-recording` 版本 2 还没有。现行 `recording.ts` 仍只服务 v0.1。
+
+开场动画、旁白、字幕、存档和剧情图还没有类。名字仍是 `CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`StoryRuntime`、`SceneDirector`。字幕已定为 Canvas 纹理，本页没有字幕。轨道字段以 [内容数据格式](../plan/11-history-game-content-schema.md) 为准。

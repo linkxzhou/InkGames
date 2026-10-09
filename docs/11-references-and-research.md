@@ -255,7 +255,7 @@
 
 ## 7. three.js 架构切换的出处（2026-10-09）
 
-检索日期：2026-10-09。方法：打开下列页面并核对标题或接口名；对列出的 URL 用 HTTP HEAD 看状态码。npm 版本来自 `https://registry.npmjs.org/three/latest` 的响应（`dist` 里的 tarball 名为 `three-0.186.1.tgz`）。**没有在浏览器里跑 three.js 示例，也没有把 three.js 装进本仓库。** 这些页面用来支撑 [引擎计划](../plan/10-three-matter-side-scroller-plan.md) 里的 API 名字，不证明画面已经做成。
+检索日期：2026-10-09。方法：打开下列页面并核对标题或接口名；对列出的 URL 用 HTTP HEAD 看状态码。npm 版本来自 `https://registry.npmjs.org/three/latest` 的响应（`dist` 里的 tarball 名为 `three-0.186.1.tgz`）。**没有在浏览器里跑 three.js 示例，检索当时也没有把 three.js 装进本仓库。** 这些页面用来支撑 [引擎计划](../plan/10-three-matter-side-scroller-plan.md) 里的 API 名字，不证明画面已经做成。随后的实现把 `three@0.186.1` 锁进依赖，并把 classic Perlin 放进 `src/core/classic-noise.ts`。下面各条里的「本提交不安装」「本次不拷贝」只描述这次检索，不改写成已经跑过那些示例。真实 GPU 仍未实测。
 
 状态沿用章首的图例。本节条目都是「已在线阅读 2026-10-09」或「仅确认可访问」，在每条末尾写明。
 

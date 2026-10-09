@@ -2,7 +2,7 @@
 
 [目录](./README.md) · [上一章](./06-input-strokes-and-physics.md) · [下一章](./08-gameplay-and-persistence.md)
 
-> 本章正文描述**现行代码**。文末「计划（未实现）」是 three.js + Matter.js 的目标，类还没有导出，不能当调用示例。
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
 
 2.0 的画面由 `InkWash`（`src/core/ink-wash.ts`）在 Pixi RenderTexture 上运行 inkEngine 的整条笔刷管线。笔刷逐帧移植自 `thirdparty/inkEngine/ink-engine.js`，着色器由 `scripts/port-inkengine-shaders.mjs` 从同一快照转换而来，文件头写了归属。逐项对照见 [第 12 章](./12-inkengine-parity-audit.md)。旧的 `InkFluid` 仍只服务 `/inkcross/`，本节最后单列。
 
@@ -129,18 +129,14 @@ wash.paint({
 - 着色器里的 `hash` 用了 `sin`，只影响显示。CPU 侧的笔刷只用四则、`Math.sqrt` / `Math.hypot` 和多项式正余弦。
 - 透明墨层叠在纸上时用 `multiply`，等价于直接画在纸上，只在与纸层笔画重叠处少了一次编码混色。
 
-## 计划（未实现）
+## 横版切片：`InkSurface` 与三样画面
 
-计划中的墨面叫 `InkSurface`。它接替 `InkWash` 的缓冲和 pass 顺序，宿主从 Pixi `RenderTexture` 换成 `WebGLRenderTarget`。`InkBrushEngine`、调色板、纸纹、36 色和 `ink-shaders.ts` 里的片元文本留下。`ink-wash-filters.ts` 的 Pixi 包装换成 `RawShaderMaterial`。
+`InkSurface`（`src/core/ink-surface.ts`）按 `InkWash` 的缓冲和 pass 顺序，把宿主换成 `WebGLRenderTarget`。`InkBrushEngine`、调色板、纸纹、36 色和 `ink-shaders.ts` 的片元文本仍共用。pass 用 `RawShaderMaterial` 和 GLSL3。`paint(stroke)`、`update()`、`texture`、`wash(x, y, radius)`、`snapshot()` 已导出。中间目标是线性色彩，不做额外 sRGB 往返。和 inkEngine 的逐项对照仍以 [第 12 章](./12-inkengine-parity-audit.md) 的 Pixi 审计为准，three.js 上还没有重跑，真实 GPU 未实测。
 
-ping-pong 仍是两张专用目标。每个 pass 仍只覆盖笔画外接矩形。片元里的 Y 翻折先保留，等对照页的一笔决定 three.js 渲染目标要不要翻。中间纹理不做额外的 sRGB 往返，避免墨被伽马再处理一次。这一步未实测。
+盖章矩形的第 0 行是笔画上方。`readRenderTargetPixels` 读回的缓冲已经是上到下，调用方不要再翻行。远景平面贴 `texture`，采样与这套行序一致。
 
-`texture` 可以贴在 z 平面上，也可以交给地形材质。`snapshot()` / `restore()` 给过场跳过和上下文恢复用。
+1. **洇染。** `TerrainSeep` 使用 512×256。`bakeHeightField` 把地面高度写进 B，干燥度在 R。接触点经 `contactsToStamps` 盖进纹理（最多 8 个），再沿更低的邻像素做一次 `min` 渗流。墨滴不写这张纹理，也不进 Matter。不同 GPU 的渗流像素不要求一致。
+2. **皴法与勾边。** `createCunRock(kind, x, y, radius, seed)` 的 `kind` 是 `'hemp'` 或 `'axe'`。外壳沿法线挤出，宽度是 `cunOutlineWidth(inkCameraDistance(height), cameraRig.distance)`，拉近更粗，夹在 1.2 到 7。毛边用 `src/core/classic-noise.ts` 里的 classic Perlin（Stefan Gustavson，MIT）。山石不用 `OutlinePass`。
+3. **断竹。** `BambooView` 在顶点着色器里做正弦摆动，只影响显示。`Playfield.cutBamboo` 把刚体拆成静态根和动态上段。断口墨滴不超过 `DROPLET_CAP`（256），受重力下落，不写回地面纹理。
 
-三样新画面的数据流见 [引擎计划](../plan/10-three-matter-side-scroller-plan.md)。摘要：
-
-1. **洇染与留白。** 脚步或 `effects.inkDisperse` 把接触点盖进一张 512×256 的动态纹理，再按烘焙的高度和法线向下坡渗。渗流用 `min()` 保留更深的墨。没有墨的地方是纸色。渗流不参与碰撞。
-2. **皴法与勾边。** 山石材质分披麻皴和斧劈皴。外壳沿法线挤出，宽度随相机距离变化：拉近更粗，拉远更细，再用 Perlin 噪声做毛边。山石不用全屏 `OutlinePass`。噪声实现计划移植 MIT 的 [stegu/webgl-noise](https://github.com/stegu/webgl-noise)，现在还没拷进仓库。
-3. **断竹。** 风中的摆动是顶点着色器里的正弦，显示用。砍断由扫掠命中决定：上段变成 Matter 刚体，断口撕开，墨滴是最多 256 个点，不写回地面。
-
-叙事上触发洇染和断竹的接口是 `inkDisperse` 与 `bambooBreak`，对应过场里的 `EffectCue.kind`。历史游戏把这个接入标成 P1。引擎切片里脚步和砍竹会先接上。
+过场里的 `inkDisperse` 与 `bambooBreak` 还没有接到 `EffectCue`。切片里的洇染来自脚步接触，断竹来自 `attack()`。

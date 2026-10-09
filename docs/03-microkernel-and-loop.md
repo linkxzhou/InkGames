@@ -2,7 +2,7 @@
 
 [目录](./README.md) · [上一章](./02-host-and-render-backend.md) · [下一章](./04-plugin-system.md)
 
-> 本章正文描述**现行代码**。文末「计划（未实现）」是 three.js + Matter.js 的目标，类还没有导出，不能当调用示例。
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
 
 两套时钟都是「渲染帧里累积，固定步追赶」。它们不要接到同一个世界上。
 
@@ -42,22 +42,10 @@
 
 `tests/` 里的时钟用例驱动的是 `Engine` 和假宿主，不启动 Pixi。`tests/v2-core.test.ts` 直接 `new InkWorld()` 并 `step`，断言落点和墨桥裁切。浏览器里的 RAF 不在 vitest 范围内。
 
-## 计划（未实现）
+## 横版切片的玩法时钟
 
-玩法和过场各有一只时钟，共用 `InkView` 的一条 `requestAnimationFrame`。`SceneDirector` 决定当前跑哪一只。不启用 `Matter.Runner`，也不让 three.js 的动画循环另起一步物理。
+`Playfield.step(dt)` 在 `src/core/playfield.ts`，由 `InkView.frame(dt)` 调用。没有 `Matter.Runner`，也没有 three.js 自己的动画循环。数与 `InkStage` 相同：单帧间隔夹到 0.08 秒，固定步 1/60，每帧最多 4 步，第 5 步不会跑，剩余时间丢掉且 `alpha` 为 1。`pausedClock` 为真时跳过物理并把 `alpha` 设为 1。
 
-**玩法固定步**沿用现在 `InkStage` 的数：单帧间隔夹到 0.08 秒，固定步 1/60，每帧最多 4 步，封顶后剩余累加器清掉。每步结束时，每个刚体的 `previous` 让位给 `current`，再读 Matter 的位置。显示时：
+`step(1/60)` 刚跑完一步时 `alpha` 为 0，画面用上一拍的位置。显示插值是 `sampleBodyLink`：x、y 在 `previous` 与 `current` 之间，z 保持登记时的层深。角色圆的 `inertia` 是 `Infinity`，网格旋转保持 0。断开的竹上段把 `rotation.z` 写成刚体角度。
 
-```text
-alpha = 剩余累加器 / 固定步长
-若本帧已经把剩余累加器清掉，alpha = 1
-mesh.position.x = previousX + (currentX - previousX) * alpha
-mesh.position.y = previousY + (currentY - previousY) * alpha
-mesh.position.z = 关卡里的层深
-```
-
-刚体的 x、y 原样写入。Z 不来自物理。
-
-**过场帧时钟**按 [plan/12](../plan/12-history-game-engine-gaps.md) 和 `CutsceneDef`：`clock.mode = 'frame'`，60 帧一秒。笔画逐帧执行，不能因为掉帧就跳过扩散。墨面算超时就在后面的帧里补步，声音不等；不同语言的旁白靠同步点等待。过场播放时玩法固定步暂停，避免一帧里墨扩散多次。
-
-角度插值只用于会转的物体（箭），角差先收到 −π..π。角色碰撞体不旋转。
+过场帧时钟还没有。`SceneDirector` 和 `CutscenePlayer` 未实现，所以还没有「过场期间暂停玩法、笔画按帧补步」这条路径。`Playfield.pausedClock` 可以被调用方打开，切片自己不用它做叙事。

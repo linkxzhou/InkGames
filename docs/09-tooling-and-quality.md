@@ -2,7 +2,7 @@
 
 [目录](./README.md) · [上一章](./08-gameplay-and-persistence.md) · [下一章](./10-shipping-and-ecosystem.md)
 
-> 本章正文描述**现行代码**。文末「计划（未实现）」是 three.js + Matter.js 的目标，类还没有导出，不能当调用示例。
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
 
 命令只有 `./build.sh` 这一套。
 
@@ -38,13 +38,25 @@
 
 SwiftShader 通过不等于 60 FPS，也不等于 Safari / Firefox / 真机 GPU 已测。那些在文档和计划里写明「未实测」。
 
-## 计划（未实现）
+## 横版切片的检查
 
-引擎切片的单测仍不创建 WebGL。要覆盖的是：刚体 xy 原样进显示链接、插值的两端、追步封顶时贴齐、斜面可走与过陡当墙、单向平台的 mask、击退锁定、竹从一节变成两段刚体、接触点变成 UV 盖章、高度纹理能从顶点重复算出来。现有笔刷和 `InkWorld` 的测试保持通过。
+`tests/playfield.test.ts` 与 `tests/slice-cpu.test.ts` 不创建 WebGL。它们覆盖：刚体 xy 进 `BodyLink`、插值两端、追步封顶时 `alpha` 为 1、可走坡与过陡当墙、单向平台的 mask、击退锁定、竹从一节变成两段、接触点变成盖章、高度场哈希可重复、勾边宽度随距离变化、墨滴数量上限、Perlin 许可声明还在。`tests/ink-brush.test.ts`、`tests/prop-brushes.test.ts`、`tests/v2-core.test.ts` 仍要过。
 
-浏览器侧为新页面加一张 Playwright 截图：人在坡上、地面有墨、石头有边缘、竹在断开前后。SwiftShader 只检查没有 GL 错误、没有未捕获异常。过场「同一机器连播两次、镜头末帧一致」是 [plan/12](../plan/12-history-game-engine-gaps.md) 的验收，约束帧时钟下的 `InkSurface`，不约束渗流和勾边噪声。
+本机看切片：
 
-性能目标（未实测，不能写成已经达到）：整帧 16.6 ms；过场墨面每帧计算 ≤ 8 ms（与 plan/12 的 G-21 同一个目标）；洇染 512×256 每帧两次 pass；粒子不超过 256。真实 GPU、Safari、Firefox 仍标未实测。
+```bash
+node scripts/gpu-check.mjs
+```
+
+这条命令打印 `http://127.0.0.1:4179/scroll/`（端口可用 `GPU_CHECK_PORT` 改）并留下 Vite，给所有者在自己的 Chrome 里看。真实 GPU 验收定在所有者的 Mac（Apple Silicon，Chrome）上，在那之前文档保持未实测。
+
+```bash
+node scripts/gpu-check.mjs --shots
+```
+
+`--shots` 或 `GPU_CHECK_SHOTS=1` 用无头 Chromium 加 SwiftShader 打开 `?pose=rest` 与 `?pose=cut`，截到 `GPU_CHECK_OUT`（缺省 `/opt/cursor/artifacts/screenshots/`）。通过条件是页面把 `window.__sliceReady` 设为真、`window.__sliceGl` 为 0、没有 `pageerror` 和 console error。这只证明着色器能编过。SwiftShader 的像素不能当成和 inkEngine 逐像素相同，也不能当成真实 GPU 验收。
+
+过场「同一机器连播两次、镜头末帧一致」仍是 [plan/12](../plan/12-history-game-engine-gaps.md) 的验收，过场播放器还没有。性能目标（整帧 16.6 ms、过场墨面每帧 ≤ 8 ms）未实测。Safari、Firefox 未实测。
 
 ## 对照截图
 

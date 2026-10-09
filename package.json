@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "InkGames 2.0：PixiJS + Matter.js 水墨横版动作游戏引擎（迁移中）",
+  "description": "InkGames：three.js 横版切片与 PixiJS 十卡舞台",
   "license": "MIT",
   "engines": {
     "node": ">=20"
