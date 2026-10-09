@@ -1,16 +1,18 @@
 # InkGames 文档
 
-**渲染栈（2026-10-09）**：只有 **three.js + Matter.js**。PixiJS 十卡舞台、p5 微内核、原生 WebGL2 渲染插件、`InkFluid`、旧 `Engine`/插件图/命令录制都已删除，`package.json` 只依赖 `three@0.186.1` 与 `matter-js@0.20.0`。三条入口：
+**渲染栈（2026-10-09）**：只有 **three.js + Matter.js**。PixiJS 十卡舞台、p5 微内核、原生 WebGL2 渲染插件、`InkFluid`、旧 `Engine`/插件图/命令录制都已删除，`package.json` 只依赖 `three@0.186.1` 与 `matter-js@0.20.0`。入口：
 
 | 入口 | 页面 | 主要模块 |
 |---|---|---|
 | 横版切片 | `/scroll/` | `InkView`、`Playfield`、`CameraRig`、`TerrainSeep`、`CunRock`、`BambooView` |
 | 叙事宿主 | `/story/` | `StoryStage`、`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`InkText`、`AudioBus`、`SaveStore` |
 | 历史动画 | `/history/` | `InkScene`、`validatePresentation` / `poseAt`、`advanceFrameClock` |
+| 参照画廊 | `/gallery/` | `InkSurface`、`paintProp`，旁边显示参照 PNG |
+| 历史道具 | `/props/<id>/` | `PropDemo`、`HISTORY_PROPS`、`paintHistoryProp` |
 
-首页 `/` 是这三个入口的导航。
+首页 `/` 列出这些入口和二十张道具卡。
 
-**仍未完成**：玩法模板、`PostStack` 类、景深、2.0 录制回放、`InkScene` 的上下文恢复、真实配音、真实 GPU 验收。设计在 [引擎计划](../plan/10-three-matter-side-scroller-plan.md)；历史游戏叙事与缺口在 [plan/11](../plan/11-history-game-story-design.md)、[plan/12](../plan/12-history-game-engine-gaps.md)；历史动画的实施与状态在 [plan/12 动画计划](../plan/12-history-game-ink-animation-production-plan.md)。
+**仍未完成**：完整玩法模拟、`PostStack` 类、景深、2.0 录制回放、`InkScene` 的上下文恢复、真实配音、真实 GPU 验收。`defineGameplay` 只返回动词和说明。设计在 [引擎计划](../plan/10-three-matter-side-scroller-plan.md)；历史游戏叙事与缺口在 [plan/11](../plan/11-history-game-story-design.md)、[plan/12](../plan/12-history-game-engine-gaps.md)；历史动画的实施与状态在 [plan/12 动画计划](../plan/12-history-game-ink-animation-production-plan.md)。
 
 历史检索和 2026-10-09 的出处在 [第 11 章](./11-references-and-research.md)。和 inkEngine 的逐项对照在 [第 12 章](./12-inkengine-parity-audit.md)：文末是 three.js `InkSurface` 的 SwiftShader 并排差，历史总表提到的 Pixi `InkWash` 已删除。真实 GPU 未实测。
 

@@ -2,7 +2,7 @@
 
 [目录](./README.md) · [上一章](./07-ink-rendering.md) · [下一章](./09-tooling-and-quality.md)
 
-**这一版删掉了十卡舞台。** `InkStage` 与十个道具页（`/sword/` … `/boat/`）已从仓库移除，原先每页一句交互的说明不再适用。现在能玩的只有切片页 `/scroll/`，能看的是叙事页 `/story/` 与历史动画页 `/history/`。**玩法模板仍未实现**：`defineGameplay` 没有类，叙事里的玩法节点只显示目标文字并等待继续。
+**十卡舞台已经删掉。** 现在能玩的是切片页 `/scroll/`，能看的是叙事页 `/story/`、历史动画 `/history/`、参照画廊 `/gallery/`，以及二十个道具页 `/props/<id>/`。`defineGameplay(template, goal)` 把已知模板映成一个动词和一句「标签：目标」（未知模板仍保留目标原文）。叙事里的玩法节点用这句话当说明，点继续即完成，不跑对决。
 
 画面上所有东西都由 [第 7 章](./07-ink-rendering.md) 的 inkEngine 笔刷一笔一笔画出来，笔刷取自一张表；刚体仍然是圆和矩形，只决定碰撞，不决定长相。
 
@@ -21,7 +21,29 @@
 
 `src/plugins/prop-paintings.ts` 只放路径：每个部件一条或几条手势（折线、二次或三次曲线、弧、波），`paintProp(id, { x, y, scale, mirror, pose, variant, width })` 按该部件的 `speed` 把路径采成每帧一个指针点（落笔和提笔时放慢），配上表里的笔刷和由道具、部件、序号算出的种子，返回 `PropStroke[]`。`scale < 1` 时笔刷尺寸换成按比例缩小的数值，手速同比放慢。`scale < 0.75` 时丢掉 `finish`：虫蚀和 flow 的半径是纸上的像素，缩小的手持件会被咬痕盖满。`actionStroke(id, part, path)` 画一笔动作（挥击、溅墨、尾迹）。
 
-十个道具、`landscape` / `water` / `figure` 的完整笔刷与部件仍在源码里（`PROP_BRUSHES`），语义与 `plan/11` 的章节大纲一致；它们现在是**笔画与素材映射的依据**，不再各自对应一张演示页。
+十个旧道具、`landscape` / `water` / `figure` 的笔刷仍在 `PROP_BRUSHES`。历史章节另有二十件，目录在 `HISTORY_PROPS`，画法走 `paintHistoryProp`：剑、刀、矛、盾、旗、马、水复用上表，其余在 `history-paintings.ts`，每件部件的笔刷不同。水在道具页上铺满 960×540 的纸，不是一小块色块。
+
+每件道具一页，`?pose=still` 停在落笔后，`?play=1` 约七秒后做出动作。Matter 世界的 Y 向下。砍会拆掉木桩并留一笔飞白；落、走、流会解除刚体的静态；燃会喷出六点；风把旗横向推开并在步进后钉住高度（这一版 Matter 没有单独的重力系数）。场景编号写在页面上，来自 `plan/11` 大纲，例如剑用于 `05-09 易水寒` 与 `07-01 鸿门宴`，水用于 `00-01 洪水` 与 `09-05 赤壁`。
+
+## 参照画廊 `/gallery/`
+
+五张程序水墨，各自一块 640×360 的 `InkSurface`，用 `paintProp` / `paintHistoryProp` 画留白、撑天、山水与人、补天、楚汉。旁边的 `<img>` 才是 `thirdparty/` 里的参照 PNG，没有把那些像素描进画布。页内差数是把参照图缩到画布大小后，每个像素 R、G、B 绝对差之和（0–765）的平均和最大。参照 PNG 大多带透明通道，计算前先铺到与引擎相同的纸色 `#d6cebc`。这不是逐像素重合。SwiftShader 下的数字不能当成真实 GPU 验收。`?play=1` 会让湿墨再扩散几秒。
+
+无头 Chromium + SwiftShader 这一次（2026-10-09）：
+
+| 画 | 平均绝对 RGB | 最大 |
+|---|---:|---:|
+| 上古 · 留白 | 223.3 | 677 |
+| 上古 · 撑天 | 114.7 | 711 |
+| 上古 · 山水与人 | 112.2 | 722 |
+| 上古 · 补天 | 162.6 | 694 |
+| 楚汉 | 296.9 | 718 |
+
+撑天、山水两张因为纸色接近，差数最低，笔墨仍然对不上参照。楚汉参照是一整幅战图，引擎只摆了山、水、旗、马、矛、剑，差最大。并排图在 [docs/images/gallery](./images/gallery/)。道具动作前后和七件 inkEngine 对照在 [docs/images/props](./images/props/)，录屏在 [docs/videos](./videos/)。
+
+![剑，动作前与动作后](./images/props/prop-sword-action.png)
+
+![撑天，引擎与参照](./images/gallery/gallery-chaos-2.png)
 
 ## 切片页 `/scroll/`
 
@@ -43,7 +65,7 @@
 
 `apps/history/` 用 `InkScene` 展示上古「混沌开卷」五幕：30 fps 展示、名义 90 秒、保留原剧本字幕，提供播放 / 暂停 / 重播 / 进度拖动 / 跳镜，`?frame=1200` 可定位审片帧。分件与关键帧数据在 `apps/history/chaos-data.ts`，求值在 `src/core/ink-presentation.ts`。逻辑帧按墙钟追赶并携带进位（见 [第 3 章](./03-clocks.md)），实测 8.0 秒墙钟推进 8 帧秒。
 
-参考图片只作视觉对照，**运行时不加载**：无头冒烟会断言三页的图片请求数为 0。
+历史动画页自己不加载参照图：无头冒烟仍断言 `/scroll/`、`/story/`、`/history/` 的图片请求数为 0。对照图只出现在 `/gallery/`。
 
 ## 录制（未实现）
 

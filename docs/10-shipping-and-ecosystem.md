@@ -4,14 +4,16 @@
 
 ## 构建产物
 
-`vite.config.ts` 的 `root` 是 `apps/`。`build.outDir` 是仓库根的 `dist/`。多页入口只剩三条：
+`vite.config.ts` 的 `root` 是 `apps/`。`build.outDir` 是仓库根的 `dist/`。多页入口：
 
-- `apps/index.html` → 三入口导航
+- `apps/index.html` → 首页
 - `apps/scroll/index.html` → 横版切片
 - `apps/story/index.html` → 「易水寒」叙事演示
 - `apps/history/index.html` → 上古「混沌开卷」历史动画
+- `apps/gallery/index.html` → 参照画廊（构建会带上五张参照 PNG，只供并排显示）
+- `apps/props/<id>/index.html` → 二十个道具页
 
-别名 `@inkgames/engine` 指向 `src/index.ts`。生产包不复制 `thirdparty/`。原先的十卡首页、十个道具页、`/inkcross/`、`/wuxia/`、`/compare/` 不再打包（源文件已删除）。
+别名 `@inkgames/engine` 指向 `src/index.ts`。生产包不复制 `thirdparty/inkEngine` 或 `thirdparty/inkField`。原先的十卡首页、`/inkcross/`、`/wuxia/`、`/compare/` 不再打包（源文件已删除）。
 
 `package.json` 的 `version` 是 `0.1.0`，`private: true`。**依赖只剩两个**：
 
@@ -24,18 +26,20 @@
 
 ## 现在可以交付的用法
 
-桌面浏览器跑 `./build.sh dev`，从首页进入三条入口之一：
+桌面浏览器跑 `./build.sh dev`，从首页进入：
 
 - `/scroll/`：键盘加指针操作角色，验证坡、洇染、皴法、断竹。
 - `/story/`：看「易水寒」开场，做正史 / 野史选择，走检查点恢复。
 - `/history/`：看纯程序生成的「混沌开卷」五幕。
+- `/gallery/`：看五张程序水墨和旁边的参照图。
+- `/props/<id>/`：看一件历史道具，并触发砍、落、燃或流。
 
 嵌入方若只用库，从 `@inkgames/engine` 引 `InkView` / `StoryStage` / `InkScene` / `InkSurface`，不要拷 `apps/` 里的示例逻辑。README 的快速上手可复制 `docs/01` 的 `InkView` 片段。
 
 ## 还不能当成发布完成的部分
 
 - 真实 GPU 上的帧时间和上下文恢复；`InkScene` 目前不做恢复。
-- 玩法模板（`defineGameplay`）、道具各自的模块包与资源租约。
+- 玩法模拟。`defineGameplay` 只有动词和说明，道具页不是一场可通关的战斗。
 - 2.0 录制（`inkgames.ink-recording`）、多边形遮罩、景深 `PostStack`。
 - `InkScene` 每层各持一张 `InkSurface`（内部多张 RT），没有内存预算。
 - 把 `thirdparty/inkField` 或 `thirdparty/inkEngine` 的快照打进发布物。快照留在仓库里只供对照，构建不复制它们。
