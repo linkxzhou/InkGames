@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1e2827" />
+  <title>横版切片 · InkGames</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .scroll-stage { width: min(1280px, 100%); margin: 0 auto; }
+    .scroll-stage canvas { display: block; width: 100%; height: auto; background: #d6cebc; }
+    .scroll-note { max-width: 1280px; margin: 12px auto 0; color: #3d4a46; font-size: 14px; line-height: 1.6; }
+  </style>
+</head>
+<body class="demo">
+  <header class="demo-header">
+    <a href="../" class="brand"><span class="brand-seal">墨</span><span>INKGAMES <small>横版切片</small></span></a>
+    <a href="../" class="back">← 返回十卡</a>
+  </header>
+  <main class="demo-layout">
+    <div class="demo-heading">
+      <div>
+        <span class="demo-index">切片</span>
+        <h1>坡、洇染、皴法、断竹</h1>
+      </div>
+      <p>three.js 侧视。十卡首页仍是 Pixi。A/D 或方向键移动，W 跳，空格挥砍，下加跳穿过平台，Q 水刷。</p>
+    </div>
+    <div class="canvas-shell scroll-stage" id="canvas-root">
+      <canvas id="view" width="1280" height="720"></canvas>
+    </div>
+    <p class="scroll-note" id="status" role="status"></p>
+  </main>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

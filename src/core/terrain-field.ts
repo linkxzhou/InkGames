@@ -49,7 +49,7 @@ export function bakeHeightField(points: readonly TerrainPoint[], width = SEEP_WI
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
       const worldX = bounds.minX + ((x + 0.5) / width) * spanX;
-      const groundY = groundHeightAt(points, worldX);
+      const groundY = terrainHeightAt(points, worldX);
       const packed = Math.max(0, Math.min(255, Math.round(((groundY - bounds.minY) / spanY) * 255)));
       const i = (y * width + x) * 4;
       pixels[i] = 255;
@@ -95,7 +95,7 @@ export function contactsToStamps(
   return stamps;
 }
 
-function groundHeightAt(points: readonly TerrainPoint[], x: number): number {
+export function terrainHeightAt(points: readonly TerrainPoint[], x: number): number {
   if (points.length === 0) return 0;
   const first = points[0];
   if (!first || points.length === 1) return first?.y ?? 0;
