@@ -557,6 +557,8 @@ export class InkWash {
     const b = this.pathBounds;
     if (!(b.maxX >= b.minX)) return undefined;
     const pad = 20;
+    // Same numbers inkEngine uploads (top-left, padded, divided by the canvas). The shader compares
+    // them with a bottom-left UV on both sides, so the region that actually moves matches.
     return {
       minX: Math.max(0, b.minX - pad) / this.width,
       minY: Math.max(0, b.minY - pad) / this.height,
@@ -612,8 +614,16 @@ export class InkWash {
     } catch {
       return;
     }
+    // Scan only this stroke. The whole sheet would offer darker ink (the ground, a tassel)
+    // and the bites would leave the blade.
+    const focus = this.lastRect ?? rect;
+    const crop = new Uint8Array(focus.w * focus.h * 4);
+    for (let y = 0; y < focus.h; y++) {
+      const src = ((focus.y + y) * this.width + focus.x) * 4;
+      crop.set(pixels.subarray(src, src + focus.w * 4), y * focus.w * 4);
+    }
     const bites = scanInkBites(
-      pixels, this.width, this.height, 0, 0, this.width, this.height, this.background,
+      crop, focus.w, focus.h, focus.x, focus.y, this.width, this.height, this.background,
       this.strokeSeed, metallic.size ?? 10, tint,
     );
     if (!bites.length) return;
@@ -632,31 +642,41 @@ export class InkWash {
     this.copy(this.scratch, this.display, cover);
   }
 
-  /** updateBugTextures: bugsData stores center and size, bugsMask stores the bite colour. */
+  /**
+   * updateBugTextures. Canvas 2D fills the outline the way p5's beginShape does; Pixi's polygon
+   * fill triangulates a self-intersecting lightning ribbon into a solid blob.
+   */
   private paintBites(bites: readonly InkBite[]): void {
-    const mask = this.pen;
-    mask.clear();
+    const mask = document.createElement('canvas');
+    const data = document.createElement('canvas');
+    mask.width = data.width = this.width;
+    mask.height = data.height = this.height;
+    const maskCtx = mask.getContext('2d');
+    const dataCtx = data.getContext('2d');
+    if (!maskCtx || !dataCtx) return;
     for (const bite of bites) {
-      const color = (Math.round(bite.r) << 16) | (Math.round(bite.g) << 8) | Math.round(bite.b);
-      const flat: number[] = [];
-      for (const v of bite.vertices) flat.push(bite.x + v.x, bite.y + v.y);
-      if (flat.length >= 6) mask.poly(flat).fill({ color, alpha: 1 });
-      else mask.circle(bite.x, bite.y, Math.max(1, bite.size / 2)).fill({ color, alpha: 1 });
-    }
-    this.app.renderer.render({ container: mask, target: this.bugsMask, clear: true, clearColor: [0, 0, 0, 0] });
-    mask.clear();
-    for (const bite of bites) {
+      paintBite(maskCtx, bite, `rgb(${Math.round(bite.r)},${Math.round(bite.g)},${Math.round(bite.b)})`);
       const r = Math.round(clamp01(bite.x / this.width) * 255);
       const g = Math.round(clamp01(bite.y / this.height) * 255);
       const b = Math.round(clamp01(bite.size / this.width) * 255);
-      const color = (r << 16) | (g << 8) | b;
-      const flat: number[] = [];
-      for (const v of bite.vertices) flat.push(bite.x + v.x, bite.y + v.y);
-      if (flat.length >= 6) mask.poly(flat).fill({ color, alpha: 1 });
-      else mask.circle(bite.x, bite.y, Math.max(1, bite.size / 2)).fill({ color, alpha: 1 });
+      paintBite(dataCtx, bite, `rgb(${r},${g},${b})`);
     }
-    this.app.renderer.render({ container: mask, target: this.bugsData, clear: true, clearColor: [0, 0, 0, 0] });
-    mask.clear();
+    this.blitCanvas(mask, this.bugsMask);
+    this.blitCanvas(data, this.bugsData);
+  }
+
+  private blitCanvas(canvas: HTMLCanvasElement, target: RenderTexture): void {
+    const image = canvas.getContext('2d')?.getImageData(0, 0, this.width, this.height);
+    if (!image) return;
+    const source = new BufferImageSource({
+      resource: new Uint8Array(image.data.buffer), width: this.width, height: this.height,
+      format: 'rgba8unorm', alphaMode: 'no-premultiply-alpha', scaleMode: 'linear',
+    });
+    const texture = new Texture({ source });
+    const sprite = new Sprite(texture);
+    this.app.renderer.render({ container: sprite, target, clear: true, clearColor: [0, 0, 0, 0] });
+    sprite.destroy();
+    texture.destroy(true);
   }
 
   /** randomizeForceMap draws, from the sheet seed. */
@@ -699,6 +719,24 @@ function toRect(bounds: Bounds, margin: number): PixelRect | undefined {
 
 function round2Point(point: InkPoint): InkPoint {
   return { x: Math.round(point.x * 100) / 100, y: Math.round(point.y * 100) / 100 };
+}
+
+function paintBite(ctx: CanvasRenderingContext2D, bite: InkBite, style: string): void {
+  ctx.fillStyle = style;
+  ctx.beginPath();
+  const first = bite.vertices[0];
+  if (!first || bite.vertices.length < 3) {
+    ctx.rect(bite.x - bite.size / 2, bite.y - bite.size / 2, bite.size, bite.size);
+    ctx.fill();
+    return;
+  }
+  ctx.moveTo(bite.x + first.x, bite.y + first.y);
+  for (let i = 1; i < bite.vertices.length; i++) {
+    const v = bite.vertices[i];
+    if (v) ctx.lineTo(bite.x + v.x, bite.y + v.y);
+  }
+  ctx.closePath();
+  ctx.fill();
 }
 
 function clamp01(value: number): number {
