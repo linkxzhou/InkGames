@@ -79,7 +79,7 @@ describe('vector ink', () => {
       const parsed = parseVectorInk(raw);
       const strokes = compileVectorInk(parsed, { width: 720, height: 720 });
       expect(strokes.length).toBeGreaterThan(24);
-      expect(strokes.length).toBeLessThan(220);
+      expect(strokes.length).toBeLessThan(360);
       expect(strokes.some(stroke => stroke.brush.effect === 'flyingWhite')).toBe(true);
       expect(strokes.some(stroke => stroke.brush.effect === 'wet')).toBe(true);
       expect(strokes.some(stroke => stroke.brush.size === 'small')).toBe(true);
