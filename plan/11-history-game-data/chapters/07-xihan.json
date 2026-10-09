@@ -1,7 +1,7 @@
 {
  "format": "inkgames.chapter-bundle",
  "version": 1,
- "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "_comment": "由 plan/11-history-game-data 的场景规格生成。detail=full 为完整场景（场景 + 开场过场 + 字符串表 + 人物关系），detail=outline 为大纲级条目；v1 只表示是否属于首版发布批次（见内容数据格式 §2.9）。文字为本项目原创，引文仅限公有领域古籍并标出处。",
  "chapter": {
   "format": "inkgames.chapter",
   "version": 1,
@@ -74,6 +74,7 @@
   {
    "outlineId": "07-01",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -241,11 +242,11 @@
         "template": "banquet",
         "params": {
          "goal": "在宴席上留意范增举玦的次数，以刘邦身份谨慎应答",
-         "failTo": "c.feast",
          "beats": [
           "subtext",
           "timing"
          ],
+         "failTo": "c.feast",
          "grades": [
           "笔意",
           "寻迹"
@@ -284,11 +285,11 @@
         "template": "duel",
         "params": {
          "goal": "以项伯身份随项庄起舞，每一剑都要以身挡住沛公",
-         "failTo": "c.swordplay",
          "beats": [
           "guard",
           "parry"
          ],
+         "failTo": "c.swordplay",
          "grades": [
           "笔意",
           "寻迹"
@@ -327,11 +328,11 @@
         "template": "stealth",
         "params": {
          "goal": "借如厕离席，从骊山下小道步行回霸上",
-         "failTo": "c.escape",
          "beats": [
           "stealth",
           "shortcut"
          ],
+         "failTo": "c.escape",
          "grades": [
           "笔意",
           "寻迹"
@@ -407,11 +408,11 @@
         "template": "duel",
         "params": {
          "goal": "在更快的剑舞节奏中，一边招架一边移动座席",
-         "failTo": "l.dance",
          "beats": [
           "parry",
           "rhythm"
          ],
+         "failTo": "l.dance",
          "grades": [
           "笔意",
           "寻迹"
@@ -450,11 +451,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "樊哙闯帐后，以对答拖住项王",
-         "failTo": "l.fankuai",
          "beats": [
           "stare-down",
           "speech"
          ],
+         "failTo": "l.fankuai",
          "grades": [
           "史识"
          ]
@@ -1867,6 +1868,7 @@
   {
    "outlineId": "07-02",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2135,6 +2137,7 @@
   {
    "outlineId": "07-03",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2427,6 +2430,7 @@
   {
    "outlineId": "07-04",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -2588,11 +2592,11 @@
         "template": "breakout",
         "params": {
          "goal": "夜里率八百骑从包围中撕开缺口",
-         "failTo": "c.breakout",
          "beats": [
           "night-charge",
           "breakout"
          ],
+         "failTo": "c.breakout",
          "grades": [
           "笔意",
           "寻迹"
@@ -2626,11 +2630,11 @@
         "template": "cavalry",
         "params": {
          "goal": "东城二十八骑，分为四队，三次冲阵",
-         "failTo": "c.dongcheng",
          "beats": [
           "split-squads",
           "charge"
          ],
+         "failTo": "c.dongcheng",
          "grades": [
           "笔意",
           "寻迹"
@@ -2664,10 +2668,10 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "乌江边，回应亭长渡江的劝说",
-         "failTo": "c.wujiang",
          "beats": [
           "dialogue"
          ],
+         "failTo": "c.wujiang",
          "grades": [
           "史识"
          ]
@@ -2737,10 +2741,10 @@
         "template": "calligraphy",
         "params": {
          "goal": "以墨色随歌声起伏，写下帐中的诀别",
-         "failTo": "l.song",
          "beats": [
           "ink-mood"
          ],
+         "failTo": "l.song",
          "grades": [
           "史识"
          ]
@@ -2778,10 +2782,10 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "帐中对答，选择每一句话的分寸",
-         "failTo": "l.farewell",
          "beats": [
           "dialogue"
          ],
+         "failTo": "l.farewell",
          "grades": [
           "史识"
          ]
@@ -4230,6 +4234,7 @@
   {
    "outlineId": "07-05",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -4526,6 +4531,7 @@
   {
    "outlineId": "07-06",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -4817,6 +4823,7 @@
   {
    "outlineId": "07-07",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -4990,11 +4997,11 @@
         "template": "survival",
         "params": {
          "goal": "在匈奴营中度过十年，保管汉节，等待逃走的时机",
-         "failTo": "c.captive",
          "beats": [
           "survival",
           "hide-token"
          ],
+         "failTo": "c.captive",
          "grades": [
           "笔意",
           "寻迹"
@@ -5035,11 +5042,11 @@
         "template": "journey",
         "params": {
          "goal": "向西穿越沙漠与山口，堂邑父射猎供食",
-         "failTo": "c.west",
          "beats": [
           "journey",
           "hunt"
          ],
+         "failTo": "c.west",
          "grades": [
           "笔意",
           "寻迹"
@@ -5080,11 +5087,11 @@
         "template": "stealth",
         "params": {
          "goal": "单于死后匈奴内乱，带胡妻与堂邑父趁乱逃归",
-         "failTo": "c.return",
          "beats": [
           "stealth",
           "escape"
          ],
+         "failTo": "c.return",
          "grades": [
           "笔意",
           "寻迹"
@@ -5164,11 +5171,11 @@
         "template": "naval",
         "params": {
          "goal": "乘木筏沿河而上，水面渐渐变成星河",
-         "failTo": "l.raft",
          "beats": [
           "raft",
           "stream"
          ],
+         "failTo": "l.raft",
          "grades": [
           "笔意",
           "寻迹"
@@ -5209,10 +5216,10 @@
         "template": "riddle",
         "params": {
          "goal": "在织女的机房里找到支机石，带回人间",
-         "failTo": "l.stone",
          "beats": [
           "search"
          ],
+         "failTo": "l.stone",
          "grades": [
           "史识"
          ]
@@ -6576,6 +6583,7 @@
   {
    "outlineId": "07-08",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -6745,11 +6753,11 @@
         "template": "siege",
         "params": {
          "goal": "以武刚车围成营垒，顶住匈奴骑兵的第一波冲击",
-         "failTo": "c.camp",
          "beats": [
           "wagon-fort",
           "hold"
          ],
+         "failTo": "c.camp",
          "grades": [
           "笔意",
           "寻迹"
@@ -6793,11 +6801,11 @@
         "template": "cavalry",
         "params": {
          "goal": "在风沙中派出两翼骑兵包抄",
-         "failTo": "c.storm",
          "beats": [
           "flank",
           "sandstorm"
          ],
+         "failTo": "c.storm",
          "grades": [
           "笔意",
           "寻迹"
@@ -6841,11 +6849,11 @@
         "template": "cavalry",
         "params": {
          "goal": "随霍去病深入漠北，追至狼居胥山",
-         "failTo": "c.north",
          "beats": [
           "pursuit",
           "endurance"
          ],
+         "failTo": "c.north",
          "grades": [
           "笔意",
           "寻迹"
@@ -6921,11 +6929,11 @@
         "template": "riddle",
         "params": {
          "goal": "把一坛酒分给全军：倒入泉中，让每个人都喝到",
-         "failTo": "l.spring",
          "beats": [
           "share",
           "water-flow"
          ],
+         "failTo": "l.spring",
          "grades": [
           "史识"
          ]
@@ -6958,10 +6966,10 @@
         "template": "cavalry",
         "params": {
          "goal": "饮罢出发，在河西走廊中追击",
-         "failTo": "l.march",
          "beats": [
           "pursuit"
          ],
+         "failTo": "l.march",
          "grades": [
           "笔意",
           "寻迹"
@@ -8292,6 +8300,7 @@
   {
    "outlineId": "07-09",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -8557,6 +8566,7 @@
   {
    "outlineId": "07-10",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -8776,6 +8786,7 @@
   {
    "outlineId": "07-11",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -9054,6 +9065,7 @@
   {
    "outlineId": "07-12",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,

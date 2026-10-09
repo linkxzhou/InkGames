@@ -1,7 +1,7 @@
 {
  "format": "inkgames.chapter-bundle",
  "version": 1,
- "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "_comment": "由 plan/11-history-game-data 的场景规格生成。detail=full 为完整场景（场景 + 开场过场 + 字符串表 + 人物关系），detail=outline 为大纲级条目；v1 只表示是否属于首版发布批次（见内容数据格式 §2.9）。文字为本项目原创，引文仅限公有领域古籍并标出处。",
  "chapter": {
   "format": "inkgames.chapter",
   "version": 1,
@@ -69,6 +69,7 @@
   {
    "outlineId": "05-01",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -352,6 +353,7 @@
   {
    "outlineId": "05-02",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -523,11 +525,11 @@
         "template": "court",
         "params": {
          "goal": "在廷辩中回应甘龙、杜挚的“法古”“循礼”之说",
-         "failTo": "c.debate",
          "beats": [
           "argument",
           "rebuttal"
          ],
+         "failTo": "c.debate",
          "grades": [
           "史识"
          ]
@@ -567,11 +569,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "从十金加到五十金，等待围观的人群中有人上前",
-         "failTo": "c.pole",
          "beats": [
           "crowd-trust",
           "timing"
          ],
+         "failTo": "c.pole",
          "grades": [
           "史识"
          ]
@@ -611,11 +613,11 @@
         "template": "engineering",
         "params": {
          "goal": "第二次变法：划县、开阡陌，在地图上布置新的田界与县治",
-         "failTo": "c.reform",
          "beats": [
           "map-plan",
           "county"
          ],
+         "failTo": "c.reform",
          "grades": [
           "笔意",
           "寻迹"
@@ -694,11 +696,11 @@
         "template": "court",
         "params": {
          "goal": "依次向孝公陈说帝道、王道、霸道，观察孝公的反应调整说辞",
-         "failTo": "l.audience",
          "beats": [
           "persuade",
           "read-reaction"
          ],
+         "failTo": "l.audience",
          "grades": [
           "史识"
          ]
@@ -737,11 +739,11 @@
         "template": "stealth",
         "params": {
          "goal": "商鞅出逃至关下，设法在客舍之外找到容身之处",
-         "failTo": "l.inn",
          "beats": [
           "stealth",
           "inn"
          ],
+         "failTo": "l.inn",
          "grades": [
           "笔意",
           "寻迹"
@@ -2158,6 +2160,7 @@
   {
    "outlineId": "05-03",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2448,6 +2451,7 @@
   {
    "outlineId": "05-04",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2709,6 +2713,7 @@
   {
    "outlineId": "05-05",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -2871,12 +2876,12 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "在章台上以“璧有瑕”为由取回玉璧，持璧倚柱，逼秦王斋戒五日",
-         "failTo": "c.zhangtai",
          "beats": [
           "timing",
           "bluff",
           "pillar"
          ],
+         "failTo": "c.zhangtai",
          "grades": [
           "史识"
          ]
@@ -2910,11 +2915,11 @@
         "template": "stealth",
         "params": {
          "goal": "夜里让随从着粗衣怀璧，从小路逃回赵国",
-         "failTo": "c.escape",
          "beats": [
           "disguise",
           "night-path"
          ],
+         "failTo": "c.escape",
          "grades": [
           "笔意",
           "寻迹"
@@ -2949,11 +2954,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "渑池会上，请秦王击缻，以五步之内为威胁，不让赵王受辱",
-         "failTo": "c.mianchi",
          "beats": [
           "timing",
           "stare-down"
          ],
+         "failTo": "c.mianchi",
          "grades": [
           "史识"
          ]
@@ -3026,10 +3031,10 @@
         "template": "calligraphy",
         "params": {
          "goal": "以淡墨画出卞和抱璞而哭的山野，墨色随哭声加深",
-         "failTo": "l.weep",
          "beats": [
           "ink-mood"
          ],
+         "failTo": "l.weep",
          "grades": [
           "史识"
          ]
@@ -3069,11 +3074,11 @@
         "template": "riddle",
         "params": {
          "goal": "指挥玉工沿纹理剖开玉璞，不能伤到其中的玉",
-         "failTo": "l.cut",
          "beats": [
           "jade-cut",
           "precision"
          ],
+         "failTo": "l.cut",
          "grades": [
           "史识"
          ]
@@ -4427,6 +4432,7 @@
   {
    "outlineId": "05-06",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -4720,6 +4726,7 @@
   {
    "outlineId": "05-07",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -4888,11 +4895,11 @@
         "template": "battle",
         "params": {
          "goal": "以赵军身份守住粮道，秦军奇兵会从两侧切断补给",
-         "failTo": "c.supply",
          "beats": [
           "supply-line",
           "defend"
          ],
+         "failTo": "c.supply",
          "grades": [
           "笔意",
           "寻迹"
@@ -4931,11 +4938,11 @@
         "template": "breakout",
         "params": {
          "goal": "被围四十六日，组织突围，必须保住阵形",
-         "failTo": "c.breakout",
          "beats": [
           "breakout",
           "shield-wall"
          ],
+         "failTo": "c.breakout",
          "grades": [
           "笔意",
           "寻迹"
@@ -5010,11 +5017,11 @@
         "template": "court",
         "params": {
          "goal": "以赵奢的视角与少年赵括论兵，在问答中看出他的弱点",
-         "failTo": "l.lesson",
          "beats": [
           "dialogue",
           "insight"
          ],
+         "failTo": "l.lesson",
          "grades": [
           "史识"
          ]
@@ -5051,11 +5058,11 @@
         "template": "stealth",
         "params": {
          "goal": "以秦国间谍的身份在邯郸散布流言，不能暴露",
-         "failTo": "l.rumor",
          "beats": [
           "stealth",
           "rumor"
          ],
+         "failTo": "l.rumor",
          "grades": [
           "笔意",
           "寻迹"
@@ -6528,6 +6535,7 @@
   {
    "outlineId": "05-08",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -6689,11 +6697,11 @@
         "template": "stealth",
         "params": {
          "goal": "以如姬身份在夜色中穿过魏宫，取出兵符而不惊动守卫",
-         "failTo": "c.steal",
          "beats": [
           "stealth",
           "palace-night"
          ],
+         "failTo": "c.steal",
          "grades": [
           "笔意",
           "寻迹"
@@ -6727,11 +6735,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "在邺下大营中合符，观察晋鄙的神色，在他起疑时示意朱亥动手",
-         "failTo": "c.ye",
          "beats": [
           "timing",
           "signal"
          ],
+         "failTo": "c.ye",
          "grades": [
           "史识"
          ]
@@ -6764,11 +6772,11 @@
         "template": "battle",
         "params": {
          "goal": "勒兵选卒八万人，进击围邯郸的秦军",
-         "failTo": "c.relief",
          "beats": [
           "select-troops",
           "charge"
          ],
+         "failTo": "c.relief",
          "grades": [
           "笔意",
           "寻迹"
@@ -6838,11 +6846,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "驾车等候侯嬴在市中与朱亥长谈，不得露出不耐",
-         "failTo": "l.market",
          "beats": [
           "patience",
           "timing"
          ],
+         "failTo": "l.market",
          "grades": [
           "史识"
          ]
@@ -6879,11 +6887,11 @@
         "template": "court",
         "params": {
          "goal": "夷门辞别：在对话中听懂侯嬴未说出口的打算",
-         "failTo": "l.farewell",
          "beats": [
           "dialogue",
           "subtext"
          ],
+         "failTo": "l.farewell",
          "grades": [
           "史识"
          ]
@@ -8324,6 +8332,7 @@
   {
    "outlineId": "05-09",
    "v1": true,
+   "detail": "full",
    "example": "../scene-zhanguo-jingke.example.json",
    "scene": {
     "format": "inkgames.scene",

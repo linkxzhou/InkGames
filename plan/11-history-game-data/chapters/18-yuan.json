@@ -1,7 +1,7 @@
 {
  "format": "inkgames.chapter-bundle",
  "version": 1,
- "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "_comment": "由 plan/11-history-game-data 的场景规格生成。detail=full 为完整场景（场景 + 开场过场 + 字符串表 + 人物关系），detail=outline 为大纲级条目；v1 只表示是否属于首版发布批次（见内容数据格式 §2.9）。文字为本项目原创，引文仅限公有领域古籍并标出处。",
  "chapter": {
   "format": "inkgames.chapter",
   "version": 1,
@@ -66,6 +66,7 @@
   {
    "outlineId": "18-01",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -228,11 +229,11 @@
         "template": "cavalry",
         "params": {
          "goal": "联兵夜袭蔑儿乞营地，在混乱中找到孛儿帖",
-         "failTo": "c.rescue",
          "beats": [
           "night-raid",
           "search"
          ],
+         "failTo": "c.rescue",
          "grades": [
           "笔意",
           "寻迹"
@@ -271,11 +272,11 @@
         "template": "cavalry",
         "params": {
          "goal": "在草原地图上逐一击败各部",
-         "failTo": "c.unify",
          "beats": [
           "campaign",
           "map"
          ],
+         "failTo": "c.unify",
          "grades": [
           "笔意",
           "寻迹"
@@ -314,10 +315,10 @@
         "template": "court",
         "params": {
          "goal": "在大会上分封千户，安排诸将",
-         "failTo": "c.khuriltai",
          "beats": [
           "assignment"
          ],
+         "failTo": "c.khuriltai",
          "grades": [
           "史识"
          ]
@@ -387,11 +388,11 @@
         "template": "riddle",
         "params": {
          "goal": "先折断单支箭，再试着折断一捆箭，力气条始终不够",
-         "failTo": "l.arrows",
          "beats": [
           "strength",
           "lesson"
          ],
+         "failTo": "l.arrows",
          "grades": [
           "史识"
          ]
@@ -424,10 +425,10 @@
         "template": "journey",
         "params": {
          "goal": "在传说中的苍狼白鹿之间穿过草原",
-         "failTo": "l.wolf",
          "beats": [
           "myth-journey"
          ],
+         "failTo": "l.wolf",
          "grades": [
           "笔意",
           "寻迹"
@@ -1786,6 +1787,7 @@
   {
    "outlineId": "18-02",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2012,6 +2014,7 @@
   {
    "outlineId": "18-03",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -2178,11 +2181,11 @@
         "template": "journey",
         "params": {
          "goal": "从鄂州前线兼程北返，抢在对手之前召集诸王",
-         "failTo": "c.return",
          "beats": [
           "race",
           "route"
          ],
+         "failTo": "c.return",
          "grades": [
           "笔意",
           "寻迹"
@@ -2222,11 +2225,11 @@
         "template": "cavalry",
         "params": {
          "goal": "与阿里不哥争夺漠北的粮道",
-         "failTo": "c.war",
          "beats": [
           "supply",
           "campaign"
          ],
+         "failTo": "c.war",
          "grades": [
           "笔意",
           "寻迹"
@@ -2266,11 +2269,11 @@
         "template": "engineering",
         "params": {
          "goal": "与刘秉忠规划大都城的街道与水系",
-         "failTo": "c.daidu",
          "beats": [
           "city-plan",
           "water"
          ],
+         "failTo": "c.daidu",
          "grades": [
           "笔意",
           "寻迹"
@@ -2343,11 +2346,11 @@
         "template": "journey",
         "params": {
          "goal": "按《行纪》的描述走进大汗的宫殿，比对与史书的不同",
-         "failTo": "l.palace",
          "beats": [
           "explore",
           "compare"
          ],
+         "failTo": "l.palace",
          "grades": [
           "笔意",
           "寻迹"
@@ -2382,10 +2385,10 @@
         "template": "riddle",
         "params": {
          "goal": "在《行纪》写到的纸币上找出印记",
-         "failTo": "l.paper",
          "beats": [
           "inspect"
          ],
+         "failTo": "l.paper",
          "grades": [
           "史识"
          ]
@@ -3741,6 +3744,7 @@
   {
    "outlineId": "18-04",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -3994,6 +3998,7 @@
   {
    "outlineId": "18-05",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -4247,6 +4252,7 @@
   {
    "outlineId": "18-06",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -4439,6 +4445,7 @@
   {
    "outlineId": "18-07",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -4612,11 +4619,11 @@
         "template": "engineering",
         "params": {
          "goal": "以河工身份在决口处堵口导流",
-         "failTo": "c.river",
          "beats": [
           "dam",
           "divert"
          ],
+         "failTo": "c.river",
          "grades": [
           "笔意",
           "寻迹"
@@ -4661,11 +4668,11 @@
         "template": "night-raid",
         "params": {
          "goal": "刘福通夜袭颍州",
-         "failTo": "c.yingzhou",
          "beats": [
           "raid",
           "banner"
          ],
+         "failTo": "c.yingzhou",
          "grades": [
           "笔意",
           "寻迹"
@@ -4757,11 +4764,11 @@
         "template": "stealth",
         "params": {
          "goal": "夜里把刻好的石人埋进河道，避开巡河的兵丁",
-         "failTo": "l.carve",
          "beats": [
           "stealth",
           "dig"
          ],
+         "failTo": "l.carve",
          "grades": [
           "笔意",
           "寻迹"
@@ -4810,11 +4817,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "在河工中传播童谣，不能显得刻意",
-         "failTo": "l.rumor",
          "beats": [
           "rumor",
           "timing"
          ],
+         "failTo": "l.rumor",
          "grades": [
           "史识"
          ]

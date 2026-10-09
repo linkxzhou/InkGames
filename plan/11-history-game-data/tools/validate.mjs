@@ -202,6 +202,10 @@ function checkScene(where, s, strings, chapterId) {
       if (!gp.goal && !gp.beats && !gp.clues) err(where, `节点 ${n.id} 缺少目标（goal / beats / clues）`);
     }
   }
+  const lo = s.anchors?.entry?.when?.start, hi = s.anchors?.exit?.when?.start;
+  for (const n of nodes.values()) {
+    if (n.line === 'canon' && n.when && isInt(lo) && isInt(hi) && (n.when.start < lo || n.when.start > hi)) err(where, `正史节点 ${n.id} 的时间 ${n.when.display} 不在入口与出口锚点之间`);
+  }
   const endings = new Map(s.endings.map(e => [e.id, e]));
   if (!nodes.has(s.plot.start)) err(where, 'plot.start 不存在');
   const fork = nodes.get(s.fork?.at);
@@ -307,7 +311,6 @@ function checkCutscene(where, c, strings, sceneId) {
 
 function checkOutline(where, s, strings, chapterId) {
   if (s.format !== 'inkgames.scene-outline' || s.version !== 1) err(where, 'format/version 无效');
-  if (s.v1 !== false) err(where, '大纲条目必须标 v1: false');
   if (s.chapter !== chapterId || !s.id.startsWith(chapterId + '.')) err(where, '场景 id 与章不符');
   needKey(where, strings, s.title); needKey(where, strings, s.subtitle);
   for (const k of ['canon', 'legend', 'play']) needKey(where, strings, s.hooks?.[k]);
@@ -321,7 +324,7 @@ function checkOutline(where, s, strings, chapterId) {
 const index = JSON.parse(readFileSync(join(DATA, 'chapters', 'index.json'), 'utf8'));
 const allScenes = new Map(); const outlineIds = new Set();
 const bundles = [];
-let v1 = 0, outline = 0, artSheets = 0, artAssets = 0;
+let v1 = 0, full = 0, outline = 0, artSheets = 0, artAssets = 0;
 for (const c of index.chapters) {
   const file = join(DATA, c.file);
   if (!existsSync(file)) { err(c.file, '文件不存在'); continue; }
@@ -359,8 +362,13 @@ for (const b of bundles) {
       artSheets += e.artPrompts.length;
       artAssets += e.artPrompts.reduce((n, s) => n + (s.assets?.length || 0), 0);
     }
-    if (e.v1) {
-      v1++;
+    if (typeof e.v1 !== 'boolean') err(w, 'v1（首版发布批次）必须是布尔值');
+    if (e.v1) v1++;
+    if (e.detail !== undefined && e.detail !== 'full' && e.detail !== 'outline') err(w, `detail 必须是 full/outline：${e.detail}`);
+    const isFull = e.detail ? e.detail === 'full' : e.v1 === true;
+    if (isFull) {
+      full++;
+      if (e.scene.format !== 'inkgames.scene') err(w, 'detail=full 的条目必须是完整场景（inkgames.scene）');
       checkScene(w, e.scene, strings, ch.id);
       checkCutscene(`${w} opening`, e.opening, strings, e.scene.id);
       checkCast(w, e.cast, e.relations, e.scene.characters);
@@ -375,11 +383,14 @@ for (const b of bundles) {
       checkCast(w, e.cast, e.relations, e.scene.characters);
     }
   }
+  const fullOf = e => (e.detail ? e.detail === 'full' : e.v1 === true);
   if (meta && (meta.v1 !== b.scenes.filter(e => e.v1).length || meta.scenes !== b.scenes.length)) err(where, 'index.json 计数与章节文件不一致');
+  if (meta && meta.full !== undefined && meta.full !== b.scenes.filter(fullOf).length) err(where, 'index.json 的 full 计数与章节文件不一致');
+  if (meta && meta.outline !== b.scenes.filter(e => !fullOf(e)).length) err(where, 'index.json 的 outline 计数与章节文件不一致');
 }
-if (index.totals.v1 !== v1 || index.totals.outline !== outline) err('index', 'totals 与实际不一致');
+if (index.totals.v1 !== v1 || index.totals.outline !== outline || (index.totals.full !== undefined && index.totals.full !== full)) err('index', 'totals 与实际不一致');
 
-console.log(`章节 ${bundles.length}，场景 ${allScenes.size}（首版完整 ${v1}，大纲级 ${outline}），水墨素材 ${artSheets} 张图 / ${artAssets} 件，待核验日期/来源 ${pending.length} 处`);
+console.log(`章节 ${bundles.length}，场景 ${allScenes.size}（完整 ${full}，大纲级 ${outline}；首版发布批次 v1=${v1}），水墨素材 ${artSheets} 张图 / ${artAssets} 件，待核验日期/来源 ${pending.length} 处`);
 if (showPending) for (const p of pending) console.log('  待核验 ' + p);
 if (errors.length) { console.error(`错误 ${errors.length} 个：\n` + errors.map(e => '  ' + e).join('\n')); process.exit(1); }
 console.log('校验通过：0 个错误');

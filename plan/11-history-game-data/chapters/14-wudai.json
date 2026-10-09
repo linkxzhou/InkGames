@@ -1,7 +1,7 @@
 {
  "format": "inkgames.chapter-bundle",
  "version": 1,
- "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "_comment": "由 plan/11-history-game-data 的场景规格生成。detail=full 为完整场景（场景 + 开场过场 + 字符串表 + 人物关系），detail=outline 为大纲级条目；v1 只表示是否属于首版发布批次（见内容数据格式 §2.9）。文字为本项目原创，引文仅限公有领域古籍并标出处。",
  "chapter": {
   "format": "inkgames.chapter",
   "version": 1,
@@ -65,6 +65,7 @@
   {
    "outlineId": "14-01",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -326,6 +327,7 @@
   {
    "outlineId": "14-02",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -498,11 +500,11 @@
         "template": "court",
         "params": {
          "goal": "在河东夜议中听取桑维翰与刘知远的不同意见",
-         "failTo": "c.council",
          "beats": [
           "debate",
           "choice"
          ],
+         "failTo": "c.council",
          "grades": [
           "史识"
          ]
@@ -546,10 +548,10 @@
         "template": "trace",
         "params": {
          "goal": "在地图上标出十六州的位置，看它们在北方防线上的意义",
-         "failTo": "c.map",
          "beats": [
           "map-mark"
          ],
+         "failTo": "c.map",
          "grades": [
           "史识"
          ]
@@ -630,10 +632,10 @@
         "template": "court",
         "params": {
          "goal": "在册封典礼上，以旁观者的身份记下每一个礼节",
-         "failTo": "l.ceremony",
          "beats": [
           "observe"
          ],
+         "failTo": "l.ceremony",
          "grades": [
           "史识"
          ]
@@ -671,11 +673,11 @@
         "template": "calligraphy",
         "params": {
          "goal": "写一封称“儿臣”的表文，笔迹越写越重",
-         "failTo": "l.letter",
          "beats": [
           "write",
           "mood"
          ],
+         "failTo": "l.letter",
          "grades": [
           "史识"
          ]
@@ -2120,6 +2122,7 @@
   {
    "outlineId": "14-03",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2431,6 +2434,7 @@
   {
    "outlineId": "14-04",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -2594,11 +2598,11 @@
         "template": "stealth",
         "params": {
          "goal": "在陈桥驿的夜营中走动，听取各营的议论",
-         "failTo": "c.night",
          "beats": [
           "listen",
           "observe"
          ],
+         "failTo": "c.night",
          "grades": [
           "笔意",
           "寻迹"
@@ -2637,11 +2641,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "以赵匡胤身份与诸将约法：不得惊犯太后与少主，不得侵凌公卿，不得剽掠府库",
-         "failTo": "c.oath",
          "beats": [
           "terms",
           "timing"
          ],
+         "failTo": "c.oath",
          "grades": [
           "史识"
          ]
@@ -2679,10 +2683,10 @@
         "template": "night-raid",
         "params": {
          "goal": "回师开封，石守信等开门接应",
-         "failTo": "c.return",
          "beats": [
           "coordination"
          ],
+         "failTo": "c.return",
          "grades": [
           "笔意",
           "寻迹"
@@ -2763,11 +2767,11 @@
         "template": "trace",
         "params": {
          "goal": "在开封城里追查“点检作天子”传言的来源",
-         "failTo": "l.rumor",
          "beats": [
           "trace",
           "rumor"
          ],
+         "failTo": "l.rumor",
          "grades": [
           "史识"
          ]
@@ -2810,10 +2814,10 @@
         "template": "riddle",
         "params": {
          "goal": "找出那件黄袍是何时、由谁准备的",
-         "failTo": "l.robe",
          "beats": [
           "investigate"
          ],
+         "failTo": "l.robe",
          "grades": [
           "史识"
          ]
@@ -4251,6 +4255,7 @@
   {
    "outlineId": "14-05",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,

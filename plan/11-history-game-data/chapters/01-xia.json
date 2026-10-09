@@ -1,7 +1,7 @@
 {
  "format": "inkgames.chapter-bundle",
  "version": 1,
- "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "_comment": "由 plan/11-history-game-data 的场景规格生成。detail=full 为完整场景（场景 + 开场过场 + 字符串表 + 人物关系），detail=outline 为大纲级条目；v1 只表示是否属于首版发布批次（见内容数据格式 §2.9）。文字为本项目原创，引文仅限公有领域古籍并标出处。",
  "chapter": {
   "format": "inkgames.chapter",
   "version": 1,
@@ -13,8 +13,8 @@
    "end": -1600,
    "precision": "circa",
    "display": "约前 2070—约前 1600 年",
-   "verify": "pending",
-   "notes": "夏商周断代工程年表，学界有争议"
+   "verify": "done",
+   "notes": "采夏商周断代工程（2000）年表，学界有争议"
   },
   "scenes": [
    "xia.qi",
@@ -58,8 +58,9 @@
   {
    "outlineId": "01-01",
    "v1": false,
+   "detail": "full",
    "scene": {
-    "format": "inkgames.scene-outline",
+    "format": "inkgames.scene",
     "version": 1,
     "id": "xia.qi",
     "chapter": "xia",
@@ -70,59 +71,1508 @@
      "start": -2070,
      "precision": "circa",
      "display": "约前 2070 年",
-     "verify": "pending"
+     "verify": "done",
+     "notes": "夏代始年采夏商周断代工程（2000）阶段成果；学界对夏代年代仍有争议"
     },
     "key": false,
-    "template": "duel",
+    "template": "court",
     "props": [
-     "sword"
+     "sword",
+     "banner",
+     "war-horse",
+     "landscape",
+     "figure"
     ],
     "characters": [
      "qi",
-     "boyi"
+     "yi",
+     "yu",
+     "youhu",
+     "zhuhou"
     ],
-    "hooks": {
-     "canon": "scene.xia.qi.hook.canon",
-     "legend": "scene.xia.qi.hook.legend",
-     "play": "scene.xia.qi.play"
+    "anchors": {
+     "entry": {
+      "id": "anchor.xia.yu-beng",
+      "title": "anchor.yu-beng",
+      "when": {
+       "start": -2071,
+       "precision": "circa",
+       "display": "约前 2070 年",
+       "verify": "done",
+       "notes": "夏初年代不可确考，按断代工程夏代始年标“约”"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "夏本纪"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.xia.gan-zhan",
+      "title": "anchor.gan-zhan",
+      "when": {
+       "start": -2065,
+       "precision": "circa",
+       "display": "约前 21 世纪",
+       "verify": "done",
+       "notes": "启伐有扈之年不可确考，只标到世纪"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "夏本纪"
+       }
+      ]
+     }
     },
-    "sources": [
+    "opening": "cutscene.xia.qi.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.xia.qi.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.xia.qi.opening",
+       "when": {
+        "start": -2070,
+        "precision": "circa",
+        "display": "约前 2070 年",
+        "verify": "done",
+        "notes": "夏代始年采夏商周断代工程（2000）阶段成果；学界对夏代年代仍有争议"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "夏本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "尚书",
+         "section": "甘誓"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": -2070,
+        "precision": "circa",
+        "display": "约前 2070 年",
+        "verify": "done",
+        "notes": "夏代始年采夏商周断代工程（2000）阶段成果；学界对夏代年代仍有争议"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.xia.qi.pick.canon",
+         "seal": "canon",
+         "to": "c.intro"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.xia.qi.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.xia.qi.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "xia.qi/canon"
+           },
+           {
+            "cleared": "xia.qi/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": -2070,
+        "precision": "circa",
+        "display": "约前 2070 年",
+        "verify": "done",
+        "notes": "夏代始年采夏商周断代工程（2000）阶段成果；学界对夏代年代仍有争议"
+       },
+       "dialogue": "scene.xia.qi.canon.intro",
+       "next": [
+        "c.chaojin"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "夏本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "尚书",
+         "section": "甘誓"
+        }
+       ]
+      },
+      {
+       "id": "c.chaojin",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -2070,
+        "precision": "circa",
+        "display": "约前 2070 年",
+        "verify": "done",
+        "notes": "夏代始年采夏商周断代工程（2000）阶段成果；学界对夏代年代仍有争议"
+       },
+       "gameplay": {
+        "template": "court",
+        "params": {
+         "goal": "三年丧期里接待各方诸侯，回应他们“立贤还是立子”的疑问",
+         "beats": [
+          "mourning-rites",
+          "envoys",
+          "legitimacy"
+         ],
+         "failTo": "c.chaojin",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.gan"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "夏本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "尚书",
+         "section": "甘誓"
+        }
+       ]
+      },
+      {
+       "id": "c.gan",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -2070,
+        "precision": "circa",
+        "display": "约前 2070 年",
+        "verify": "done",
+        "notes": "夏代始年采夏商周断代工程（2000）阶段成果；学界对夏代年代仍有争议"
+       },
+       "gameplay": {
+        "template": "battle",
+        "params": {
+         "goal": "甘之野布车阵，按《甘誓》的左、右、御三职各司其事，攻破有扈之师",
+         "beats": [
+          "left-archer",
+          "right-spear",
+          "charioteer",
+          "oath"
+         ],
+         "failTo": "c.gan",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "尚书",
+         "section": "甘誓"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "夏本纪"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.xia.qi.legend-intro",
+       "when": {
+        "start": -2070,
+        "precision": "circa",
+        "display": "约前 2070 年",
+        "verify": "done",
+        "notes": "夏代始年采夏商周断代工程（2000）阶段成果；学界对夏代年代仍有争议"
+       },
+       "label": "scene.xia.qi.legend.disclaimer",
+       "dialogue": "scene.xia.qi.legend.intro",
+       "next": [
+        "l.jishan"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "竹书纪年",
+         "section": "古本佚文（王国维《古本竹书纪年辑校》）",
+         "notes": "《晋书·束皙传》引“益干启位，启杀之”；《史通·疑古》引作“益为后启所诛”"
+        },
+        {
+         "kind": "classic",
+         "title": "楚辞",
+         "section": "天问",
+         "notes": "“启代益作后”"
+        }
+       ]
+      },
+      {
+       "id": "l.jishan",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -2070,
+        "precision": "circa",
+        "display": "约前 2070 年",
+        "verify": "done",
+        "notes": "夏代始年采夏商周断代工程（2000）阶段成果；学界对夏代年代仍有争议"
+       },
+       "gameplay": {
+        "template": "stealth",
+        "params": {
+         "goal": "以启的视角夜入箕山，找出益的营帐与守卫的空隙（异说情境）",
+         "beats": [
+          "night",
+          "patrol",
+          "mountain-path"
+         ],
+         "failTo": "l.jishan",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "l.duel"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "竹书纪年",
+         "section": "古本佚文（王国维《古本竹书纪年辑校》）",
+         "notes": "《晋书·束皙传》引“益干启位，启杀之”；《史通·疑古》引作“益为后启所诛”"
+        },
+        {
+         "kind": "classic",
+         "title": "楚辞",
+         "section": "天问",
+         "notes": "“启代益作后”"
+        }
+       ]
+      },
+      {
+       "id": "l.duel",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -2070,
+        "precision": "circa",
+        "display": "约前 2070 年",
+        "verify": "done",
+        "notes": "夏代始年采夏商周断代工程（2000）阶段成果；学界对夏代年代仍有争议"
+       },
+       "gameplay": {
+        "template": "duel",
+        "params": {
+         "player": "qi",
+         "opponent": "yi",
+         "weapon": "sword",
+         "goal": "与益一对一决胜，结局按竹书所载",
+         "beats": [
+          "guard",
+          "thrust",
+          "finish"
+         ],
+         "failTo": "l.duel",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "竹书纪年",
+         "section": "古本佚文（王国维《古本竹书纪年辑校》）",
+         "notes": "《晋书·束皙传》引“益干启位，启杀之”；《史通·疑古》引作“益为后启所诛”"
+        },
+        {
+         "kind": "classic",
+         "title": "楚辞",
+         "section": "天问",
+         "notes": "“启代益作后”"
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
      {
+      "id": "end.canon",
       "kind": "canon",
-      "title": "史记",
-      "section": "夏本纪"
+      "title": "scene.xia.qi.end.canon",
+      "cutscene": "cutscene.xia.qi.end-canon",
+      "mergeTo": "anchor.xia.gan-zhan",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "夏本纪"
+       },
+       {
+        "kind": "canon",
+        "title": "尚书",
+        "section": "甘誓"
+       }
+      ]
      },
      {
-      "kind": "modern",
-      "title": "五千年演义·华夏上古志",
-      "section": "第7回",
-      "notes": "现代演义，仅作叙事线索；回次据目录 OCR 对位，待核对"
+      "id": "end.legend",
+      "title": "scene.xia.qi.end.legend",
+      "cutscene": "cutscene.xia.qi.end-legend",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "竹书纪年",
+        "section": "古本佚文（王国维《古本竹书纪年辑校》）",
+        "notes": "《晋书·束皙传》引“益干启位，启杀之”；《史通·疑古》引作“益为后启所诛”"
+       },
+       {
+        "kind": "classic",
+        "title": "楚辞",
+        "section": "天问",
+        "notes": "“启代益作后”"
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.xia.gan-zhan",
+      "notes": "野史线结局与正史出口一致，属于汇流"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.xia.qi.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
      }
     ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "益与启",
+       "canon": "《夏本纪》：益让启，辟居箕山之阳，诸侯去益而朝启",
+       "legend": "古本《竹书纪年》佚文：益干启位，启杀之（《晋书·束皙传》引）",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "夏本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "尚书",
+         "section": "甘誓"
+        },
+        {
+         "kind": "canon",
+         "title": "竹书纪年",
+         "section": "古本佚文（王国维《古本竹书纪年辑校》）",
+         "notes": "《晋书·束皙传》引“益干启位，启杀之”；《史通·疑古》引作“益为后启所诛”"
+        },
+        {
+         "kind": "classic",
+         "title": "楚辞",
+         "section": "天问",
+         "notes": "“启代益作后”"
+        }
+       ]
+      },
+      {
+       "topic": "甘之战",
+       "canon": "《尚书·甘誓》《夏本纪》：有扈氏不服，启伐之，大战于甘",
+       "legend": "无异说；《甘誓》是今文《尚书》篇目",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "夏本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "尚书",
+         "section": "甘誓"
+        },
+        {
+         "kind": "canon",
+         "title": "竹书纪年",
+         "section": "古本佚文（王国维《古本竹书纪年辑校》）",
+         "notes": "《晋书·束皙传》引“益干启位，启杀之”；《史通·疑古》引作“益为后启所诛”"
+        },
+        {
+         "kind": "classic",
+         "title": "楚辞",
+         "section": "天问",
+         "notes": "“启代益作后”"
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.qi",
+       "person.qi",
+       "person.yi"
+      ],
+      "seal": "seal.qi"
+     }
+    },
     "verify": "pending",
-    "v1": false
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.xia.qi.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      218,
+      210,
+      190
+     ],
+     "seed": 3240
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "会稽山下，禹的灵车远去"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "益居箕山之阳，避让禹子"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "诸侯的车驾，转向启的门前"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "有扈氏不服，两军列于甘"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "启作《甘誓》"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 360,
+         "variant": 1
+        }
+       },
+       "label": "远山"
+      },
+      {
+       "at": 160,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "nearHill",
+         "ground"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 420
+        }
+       },
+       "label": "近山与地面"
+      },
+      {
+       "at": 320,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 350,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 380,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 410,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 660,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 460,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 1
+        }
+       },
+       "label": "益"
+      },
+      {
+       "at": 940,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.grass",
+        "color": "green_dark",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           640,
+           620
+          ],
+          [
+           646,
+           300
+          ]
+         ]
+        },
+        "speed": 7
+       },
+       "label": "树"
+      },
+      {
+       "at": 980,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.grass",
+        "color": "green_dark",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           580,
+           340
+          ],
+          [
+           640,
+           300
+          ],
+          [
+           710,
+           330
+          ]
+         ]
+        },
+        "speed": 7
+       },
+       "label": "树冠"
+      },
+      {
+       "at": 1220,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "placement": {
+         "x": 300,
+         "y": 480
+        }
+       },
+       "label": "landscape"
+      },
+      {
+       "at": 1620,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 460,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 1
+        }
+       },
+       "label": "启"
+      },
+      {
+       "at": 2060,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 2090,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 2120,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 2150,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 2500,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "banner",
+        "placement": {
+         "x": 980,
+         "y": 480
+        }
+       },
+       "label": "banner"
+      },
+      {
+       "at": 3060,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 3090,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 3120,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 3150,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "军阵"
+      },
+      {
+       "at": 3210,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "spear",
+        "placement": {
+         "x": 600,
+         "y": 480,
+         "angle": -0.4
+        }
+       },
+       "label": "长兵如林"
+      },
+      {
+       "at": 3580,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 420,
+         "y": 540,
+         "gait": 1
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 3640,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 760,
+         "y": 560,
+         "gait": 0,
+         "mirror": true
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 4100,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "有扈氏"
+      },
+      {
+       "at": 4740,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "sword",
+        "placement": {
+         "x": 980,
+         "y": 480
+        }
+       },
+       "label": "sword"
+      },
+      {
+       "at": 5040,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "甘之誓"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "still"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "shake": {
+        "amp": 2,
+        "frames": 120
+       },
+       "label": "shake"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.xia.qi.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.xia.qi.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 2700,
+       "until": 3000,
+       "kind": "caption",
+       "key": "scene.xia.qi.quote",
+       "style": "kaiti",
+       "orientation": "vertical",
+       "x": 160,
+       "y": 120,
+       "source": {
+        "kind": "canon",
+        "title": "尚书",
+        "section": "甘誓"
+       }
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 3670,
+       "kind": "inkDisperse",
+       "layer": "terrain",
+       "params": {
+        "origin": [
+         600,
+         600
+        ],
+        "radius": 260,
+        "frames": 180
+       },
+       "label": "马蹄墨散（新引擎：地形动态纹理）"
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 4780,
+       "kind": "metallic",
+       "layer": "actors",
+       "target": "lastStroke",
+       "params": {
+        "size": 12
+       }
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/bronze-drum.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/wind-plain.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/forest-birds.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/qi-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/qi-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1080,
+       "bus": "sfx",
+       "asset": "audio/sfx/guqin-pluck.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/crowd-murmur.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/qi-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/footsteps.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/camp-drums.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/qi-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3560,
+       "bus": "sfx",
+       "asset": "audio/sfx/horn.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4120,
+       "bus": "sfx",
+       "asset": "audio/sfx/clash.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/wind-after.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/drum-burst.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/qi-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/drum-burst.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
    },
    "strings": {
     "locale": "zh-Hans",
     "strings": {
      "scene.xia.qi.title": "家天下",
      "scene.xia.qi.subtitle": "启继禹位",
-     "scene.xia.qi.hook.canon": "《夏本纪》：益让位于启",
-     "scene.xia.qi.hook.legend": "《竹书纪年》“益干启位，启杀之”（正野对照的范例）",
-     "scene.xia.qi.play": "庙堂 + 决斗：sword"
+     "scene.xia.qi.when": "甘之誓",
+     "vo.01": "禹东巡至会稽而崩，把天下交给了益。",
+     "vo.02": "三年之丧毕，益让位给禹的儿子启，自己避居箕山之南。",
+     "vo.03": "诸侯不去朝益，而去朝启，说：这是我们的君主、帝禹之子。",
+     "vo.04": "启即天子位。有扈氏不服，启发兵讨之，大战于甘。",
+     "vo.05": "将战，启召六卿，作誓——",
+     "scene.xia.qi.quote": "用命，赏于祖；弗用命，戮于社。",
+     "scene.xia.qi.fork.prompt": "此刻落笔，循哪一卷而书？",
+     "anchor.yu-beng": "禹崩于会稽，以天下授益",
+     "anchor.gan-zhan": "甘之战，有扈氏灭",
+     "scene.xia.qi.pick.canon": "正史 · 《史记·夏本纪》《尚书·甘誓》所载",
+     "scene.xia.qi.canon.intro": "禅让到了这里改了样子。益让了，诸侯也选了。可有扈氏不认这个选择。",
+     "scene.xia.qi.end.canon": "有扈氏灭，天下咸朝。自此天子之位父子相传，史称“家天下”。",
+     "scene.xia.qi.pick.legend": "异说 · 益干启位",
+     "scene.xia.qi.legend.disclaimer": "以下取自古本《竹书纪年》佚文与《楚辞·天问》，与《史记》“益让”之说相反，属异说。",
+     "scene.xia.qi.legend.intro": "汲冢出土的《竹书纪年》说：益干启位，启杀之。没有礼让，只有一场争夺。",
+     "scene.xia.qi.end.legend": "益死，启立。竹书与《史记》经过相反，结果却同为启即天子位，汇流回甘之战之后。",
+     "scene.xia.qi.pick.whatif": "推演 · 若诸侯朝益（未开放）",
+     "scene.xia.qi.end.whatif": "异闻 · 未开放"
     }
    },
    "cast": [
     {
      "id": "qi",
-     "name": "启"
+     "name": "启",
+     "title": "夏后启，禹之子",
+     "camp": "夏",
+     "type": "ruler",
+     "bio": "诸侯去益而朝启，遂即天子位；伐有扈，作《甘誓》"
     },
     {
-     "id": "boyi",
-     "name": "伯益"
+     "id": "yi",
+     "name": "益",
+     "title": "伯益",
+     "camp": "夏",
+     "type": "minister",
+     "bio": "禹以天下授之；三年丧毕，让启而辟居箕山之阳"
+    },
+    {
+     "id": "yu",
+     "name": "禹",
+     "title": "夏后氏",
+     "camp": "夏",
+     "type": "ruler",
+     "bio": "东巡狩至会稽而崩"
+    },
+    {
+     "id": "youhu",
+     "name": "有扈氏",
+     "title": "夏之同姓诸侯",
+     "camp": "有扈",
+     "type": "ruler",
+     "bio": "不服启，战于甘"
+    },
+    {
+     "id": "zhuhou",
+     "name": "诸侯",
+     "title": "朝觐者",
+     "camp": "诸侯",
+     "type": "other",
+     "bio": "去益而朝启，曰“吾君帝禹之子也”"
     }
    ],
-   "relations": [],
+   "relations": [
+    {
+     "from": "yu",
+     "to": "qi",
+     "relation": "父子",
+     "type": "family"
+    },
+    {
+     "from": "yu",
+     "to": "yi",
+     "relation": "授以天下",
+     "type": "mentor",
+     "directed": true
+    },
+    {
+     "from": "yi",
+     "to": "qi",
+     "relation": "让位（正史）／争位（竹书异说）",
+     "type": "rival"
+    },
+    {
+     "from": "qi",
+     "to": "youhu",
+     "relation": "甘之战",
+     "type": "rival"
+    },
+    {
+     "from": "zhuhou",
+     "to": "qi",
+     "relation": "朝觐",
+     "type": "ally",
+     "directed": true
+    }
+   ],
    "artPrompts": [
     {
      "id": "xia.qi.sheet.cast.1",
@@ -131,15 +1581,16 @@
      "segment": 1,
      "segmentsInCategory": 1,
      "grid": {
-      "cols": 2,
+      "cols": 3,
       "rows": 2
      },
      "assets": [
       {
        "slot": 1,
        "id": "xia.qi.art.cast.qi",
-       "name": "启",
+       "name": "启（夏后启，禹之子）",
        "kind": "figure",
+       "note": "夏·君主",
        "ref": {
         "prop": "figure",
         "actor": "qi"
@@ -147,22 +1598,56 @@
       },
       {
        "slot": 2,
-       "id": "xia.qi.art.cast.boyi",
-       "name": "伯益",
+       "id": "xia.qi.art.cast.yi",
+       "name": "益（伯益）",
        "kind": "figure",
+       "note": "夏·文臣",
        "ref": {
         "prop": "figure",
-        "actor": "boyi"
+        "actor": "yi"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "xia.qi.art.cast.yu",
+       "name": "禹（夏后氏）",
+       "kind": "figure",
+       "note": "夏·君主",
+       "ref": {
+        "prop": "figure",
+        "actor": "yu"
+       }
+      },
+      {
+       "slot": 4,
+       "id": "xia.qi.art.cast.youhu",
+       "name": "有扈氏（夏之同姓诸侯）",
+       "kind": "figure",
+       "note": "有扈·君主",
+       "ref": {
+        "prop": "figure",
+        "actor": "youhu"
+       }
+      },
+      {
+       "slot": 5,
+       "id": "xia.qi.art.cast.zhuhou",
+       "name": "诸侯（朝觐者）",
+       "kind": "figure",
+       "note": "诸侯·其他",
+       "ref": {
+        "prop": "figure",
+        "actor": "zhuhou"
        }
       }
      ],
-     "prompt": "中国水墨写意素材图（人物立绘），题材：家天下·启继禹位（约前 2070 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、咖啡色 #af8c59、驼色 #d2a997。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 启；2. 伯益。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（人物立绘），题材：家天下·启继禹位（约前 2070 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、咖啡色 #af8c59、驼色 #d2a997。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 启（夏后启，禹之子）（夏·君主）；2. 益（伯益）（夏·文臣）；3. 禹（夏后氏）（夏·君主）。\n第 2 行：4. 有扈氏（夏之同姓诸侯）（有扈·君主）；5. 诸侯（朝觐者）（诸侯·其他）；6. 留空。\n排版参考尺寸：1536×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
       "apiVerified": false,
       "sizePx": [
-       1024,
+       1536,
        1024
       ],
       "cellPx": 512,
@@ -190,9 +1675,29 @@
        "ref": {
         "prop": "sword"
        }
+      },
+      {
+       "slot": 2,
+       "id": "xia.qi.art.props.2",
+       "name": "旌旗",
+       "kind": "prop",
+       "note": "高杆大旗，旗面被风鼓起，穗带飘动",
+       "ref": {
+        "prop": "banner"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "xia.qi.art.props.3",
+       "name": "战马",
+       "kind": "prop",
+       "note": "奔马侧影，鬃尾飞扬，四蹄腾空",
+       "ref": {
+        "prop": "war-horse"
+       }
       }
      ],
-     "prompt": "中国水墨写意素材图（道具器物），题材：家天下·启继禹位（约前 2070 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、咖啡色 #af8c59、驼色 #d2a997。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 长剑（连鞘长剑，刃口飞白，剑格与剑穗分明）；2. 留空。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（道具器物），题材：家天下·启继禹位（约前 2070 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、咖啡色 #af8c59、驼色 #d2a997。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 长剑（连鞘长剑，刃口飞白，剑格与剑穗分明）；2. 旌旗（高杆大旗，旗面被风鼓起，穗带飘动）。\n第 2 行：3. 战马（奔马侧影，鬃尾飞扬，四蹄腾空）；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
@@ -213,37 +1718,79 @@
      "segment": 1,
      "segmentsInCategory": 1,
      "grid": {
-      "cols": 2,
-      "rows": 2
+      "cols": 4,
+      "rows": 3
      },
      "assets": [
       {
        "slot": 1,
        "id": "xia.qi.art.scenery.1",
-       "name": "殿堂立柱",
+       "name": "远山（淡墨）",
        "kind": "scenery"
       },
       {
        "slot": 2,
        "id": "xia.qi.art.scenery.2",
-       "name": "广场砖地",
+       "name": "近坡（中墨）",
        "kind": "scenery"
       },
       {
        "slot": 3,
        "id": "xia.qi.art.scenery.3",
-       "name": "帷帐",
+       "name": "土坡地线",
+       "kind": "scenery"
+      },
+      {
+       "slot": 4,
+       "id": "xia.qi.art.scenery.4",
+       "name": "草丛（枯笔）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 5,
+       "id": "xia.qi.art.scenery.5",
+       "name": "宫殿台基",
+       "kind": "scenery"
+      },
+      {
+       "slot": 6,
+       "id": "xia.qi.art.scenery.6",
+       "name": "朱漆立柱",
+       "kind": "scenery"
+      },
+      {
+       "slot": 7,
+       "id": "xia.qi.art.scenery.7",
+       "name": "仕宦屏风",
+       "kind": "scenery"
+      },
+      {
+       "slot": 8,
+       "id": "xia.qi.art.scenery.8",
+       "name": "几案与席",
+       "kind": "scenery"
+      },
+      {
+       "slot": 9,
+       "id": "xia.qi.art.scenery.9",
+       "name": "树",
+       "kind": "scenery"
+      },
+      {
+       "slot": 10,
+       "id": "xia.qi.art.scenery.10",
+       "name": "树冠",
        "kind": "scenery"
       }
      ],
-     "prompt": "中国水墨写意素材图（场景环境），题材：家天下·启继禹位（约前 2070 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、咖啡色 #af8c59、驼色 #d2a997。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 殿堂立柱；2. 广场砖地。\n第 2 行：3. 帷帐；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（场景环境），题材：家天下·启继禹位（约前 2070 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、咖啡色 #af8c59、驼色 #d2a997。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：4×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 远山（淡墨）；2. 近坡（中墨）；3. 土坡地线；4. 草丛（枯笔）。\n第 2 行：5. 宫殿台基；6. 朱漆立柱；7. 仕宦屏风；8. 几案与席。\n第 3 行：9. 树；10. 树冠；11. 留空；12. 留空。\n排版参考尺寸：2048×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
       "apiVerified": false,
       "sizePx": [
-       1024,
-       1024
+       2048,
+       1536
       ],
       "cellPx": 512,
       "background": "transparent",
@@ -257,8 +1804,8 @@
      "segment": 1,
      "segmentsInCategory": 1,
      "grid": {
-      "cols": 2,
-      "rows": 2
+      "cols": 3,
+      "rows": 3
      },
      "assets": [
       {
@@ -284,16 +1831,34 @@
        "id": "xia.qi.art.effects.4",
        "name": "血点（朱红，克制）",
        "kind": "fx"
+      },
+      {
+       "slot": 5,
+       "id": "xia.qi.art.effects.5",
+       "name": "风卷旗影",
+       "kind": "fx"
+      },
+      {
+       "slot": 6,
+       "id": "xia.qi.art.effects.6",
+       "name": "蹄下墨尘",
+       "kind": "fx"
+      },
+      {
+       "slot": 7,
+       "id": "xia.qi.art.effects.7",
+       "name": "鬃毛飞扬",
+       "kind": "fx"
       }
      ],
-     "prompt": "中国水墨写意素材图（水墨特效），题材：家天下·启继禹位（约前 2070 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、咖啡色 #af8c59、驼色 #d2a997。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触。\n第 2 行：3. 刀光斩击；4. 血点（朱红，克制）。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "prompt": "中国水墨写意素材图（水墨特效），题材：家天下·启继禹位（约前 2070 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、咖啡色 #af8c59、驼色 #d2a997。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触；3. 刀光斩击。\n第 2 行：4. 血点（朱红，克制）；5. 风卷旗影；6. 蹄下墨尘。\n第 3 行：7. 鬃毛飞扬；8. 留空；9. 留空。\n排版参考尺寸：1536×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
      "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
      "spec": {
       "model": "gpt-image-2.5",
       "apiVerified": false,
       "sizePx": [
-       1024,
-       1024
+       1536,
+       1536
       ],
       "cellPx": 512,
       "background": "transparent",
@@ -305,6 +1870,7 @@
   {
    "outlineId": "01-02",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -317,8 +1883,8 @@
      "start": -2050,
      "precision": "circa",
      "display": "约前 21—前 20 世纪",
-     "verify": "pending",
-     "notes": "夏代年代据断代工程框架推估，具体年份不可考"
+     "verify": "done",
+     "notes": "断代工程未给少康年代；只按夏代框架（约前 2070—约前 1600）标到世纪，数字只用于排序"
     },
     "key": true,
     "template": "stealth",
@@ -345,8 +1911,8 @@
        "start": -2060,
        "precision": "circa",
        "display": "约前 21 世纪",
-       "verify": "pending",
-       "notes": "太康失国、后羿代夏之年不可考"
+       "verify": "done",
+       "notes": "太康失国、后羿代夏之年不可考，只标到世纪"
       },
       "sources": [
        {
@@ -368,7 +1934,8 @@
        "start": -2000,
        "precision": "circa",
        "display": "约前 20 世纪",
-       "verify": "pending"
+       "verify": "done",
+       "notes": "只标到世纪"
       },
       "sources": [
        {
@@ -396,8 +1963,8 @@
         "start": -2050,
         "precision": "circa",
         "display": "约前 21—前 20 世纪",
-        "verify": "pending",
-        "notes": "夏代年代据断代工程框架推估，具体年份不可考"
+        "verify": "done",
+        "notes": "断代工程未给少康年代；只按夏代框架（约前 2070—约前 1600）标到世纪，数字只用于排序"
        },
        "next": [
         "fork"
@@ -428,15 +1995,15 @@
         "start": -2050,
         "precision": "circa",
         "display": "约前 21—前 20 世纪",
-        "verify": "pending",
-        "notes": "夏代年代据断代工程框架推估，具体年份不可考"
+        "verify": "done",
+        "notes": "断代工程未给少康年代；只按夏代框架（约前 2070—约前 1600）标到世纪，数字只用于排序"
        },
        "choices": [
         {
          "id": "pick.canon",
          "label": "scene.xia.shaokang.pick.canon",
          "seal": "canon",
-         "to": "c.spy"
+         "to": "c.intro"
         },
         {
          "id": "pick.legend",
@@ -463,6 +2030,39 @@
        ]
       },
       {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": -2050,
+        "precision": "circa",
+        "display": "约前 21—前 20 世纪",
+        "verify": "done",
+        "notes": "断代工程未给少康年代；只按夏代框架（约前 2070—约前 1600）标到世纪，数字只用于排序"
+       },
+       "dialogue": "scene.xia.shaokang.canon.intro",
+       "next": [
+        "c.spy"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "左传",
+         "section": "哀公元年"
+        },
+        {
+         "kind": "canon",
+         "title": "左传",
+         "section": "襄公四年"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "夏本纪"
+        }
+       ]
+      },
+      {
        "id": "c.spy",
        "kind": "gameplay",
        "line": "canon",
@@ -471,19 +2071,19 @@
         "start": -2050,
         "precision": "circa",
         "display": "约前 21—前 20 世纪",
-        "verify": "pending",
-        "notes": "夏代年代据断代工程框架推估，具体年份不可考"
+        "verify": "done",
+        "notes": "断代工程未给少康年代；只按夏代框架（约前 2070—约前 1600）标到世纪，数字只用于排序"
        },
        "gameplay": {
         "template": "stealth",
         "params": {
          "goal": "操控女艾潜入浇的营地，记下守卫与出入路线",
-         "failTo": "c.spy",
          "beats": [
           "patrol",
           "hide",
           "map-route"
          ],
+         "failTo": "c.spy",
          "grades": [
           "笔意",
           "寻迹"
@@ -520,18 +2120,18 @@
         "start": -2050,
         "precision": "circa",
         "display": "约前 21—前 20 世纪",
-        "verify": "pending",
-        "notes": "夏代年代据断代工程框架推估，具体年份不可考"
+        "verify": "done",
+        "notes": "断代工程未给少康年代；只按夏代框架（约前 2070—约前 1600）标到世纪，数字只用于排序"
        },
        "gameplay": {
         "template": "night-raid",
         "params": {
          "goal": "少康与季杼分头出击，先灭过，再灭戈",
-         "failTo": "c.raid",
          "beats": [
           "split-forces",
           "raid"
          ],
+         "failTo": "c.raid",
          "grades": [
           "笔意",
           "寻迹"
@@ -575,8 +2175,8 @@
         "start": -2050,
         "precision": "circa",
         "display": "约前 21—前 20 世纪",
-        "verify": "pending",
-        "notes": "夏代年代据断代工程框架推估，具体年份不可考"
+        "verify": "done",
+        "notes": "断代工程未给少康年代；只按夏代框架（约前 2070—约前 1600）标到世纪，数字只用于排序"
        },
        "label": "scene.xia.shaokang.legend.disclaimer",
        "dialogue": "scene.xia.shaokang.legend.intro",
@@ -607,19 +2207,19 @@
         "start": -2050,
         "precision": "circa",
         "display": "约前 21—前 20 世纪",
-        "verify": "pending",
-        "notes": "夏代年代据断代工程框架推估，具体年份不可考"
+        "verify": "done",
+        "notes": "断代工程未给少康年代；只按夏代框架（约前 2070—约前 1600）标到世纪，数字只用于排序"
        },
        "gameplay": {
         "template": "duel",
         "params": {
          "goal": "以弓连射天上的九个太阳，留下一个",
-         "failTo": "l.suns",
          "beats": [
           "aim",
           "release",
           "heat-gauge"
          ],
+         "failTo": "l.suns",
          "grades": [
           "笔意",
           "寻迹"
@@ -653,17 +2253,17 @@
         "start": -2050,
         "precision": "circa",
         "display": "约前 21—前 20 世纪",
-        "verify": "pending",
-        "notes": "夏代年代据断代工程框架推估，具体年份不可考"
+        "verify": "done",
+        "notes": "断代工程未给少康年代；只按夏代框架（约前 2070—约前 1600）标到世纪，数字只用于排序"
        },
        "gameplay": {
         "template": "riddle",
         "params": {
          "goal": "在两卷画轴中找出神话之羿与有穷后羿的不同之处",
-         "failTo": "l.reveal",
          "beats": [
           "compare-scrolls"
          ],
+         "failTo": "l.reveal",
          "grades": [
           "史识"
          ]
@@ -1623,6 +3223,7 @@
      "anchor.taikang": "太康失国",
      "anchor.fuguo": "少康复国",
      "scene.xia.shaokang.pick.canon": "正史 · 《左传》、《左传》所载",
+     "scene.xia.shaokang.canon.intro": "少康手里只有方十里的田、五百人的众。他不能硬拼，先要弄清浇的营里谁在守夜。",
      "scene.xia.shaokang.end.canon": "浇与豷相继覆灭，少康复禹之绩，夏祀不绝。",
      "scene.xia.shaokang.pick.legend": "野史 · 射日之羿",
      "scene.xia.shaokang.legend.disclaimer": "以下为神话。神话中射日的羿与有穷氏后羿是否一人，古来混说，史家多以为非一人。",
@@ -2037,6 +3638,7 @@
   {
    "outlineId": "01-03",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -2049,8 +3651,8 @@
      "start": -1600,
      "precision": "circa",
      "display": "约前 1600 年",
-     "verify": "pending",
-     "notes": "夏商之际年代据断代工程，学界有争议"
+     "verify": "done",
+     "notes": "夏商之际采断代工程说（约前 1600 年），学界有争议"
     },
     "key": true,
     "template": "battle",
@@ -2076,7 +3678,8 @@
        "start": -1620,
        "precision": "circa",
        "display": "约前 17 世纪",
-       "verify": "pending"
+       "verify": "done",
+       "notes": "只标到世纪"
       },
       "sources": [
        {
@@ -2093,7 +3696,8 @@
        "start": -1600,
        "precision": "circa",
        "display": "约前 1600 年",
-       "verify": "pending"
+       "verify": "done",
+       "notes": "采断代工程商代始年"
       },
       "sources": [
        {
@@ -2121,8 +3725,8 @@
         "start": -1600,
         "precision": "circa",
         "display": "约前 1600 年",
-        "verify": "pending",
-        "notes": "夏商之际年代据断代工程，学界有争议"
+        "verify": "done",
+        "notes": "夏商之际采断代工程说（约前 1600 年），学界有争议"
        },
        "next": [
         "fork"
@@ -2153,15 +3757,15 @@
         "start": -1600,
         "precision": "circa",
         "display": "约前 1600 年",
-        "verify": "pending",
-        "notes": "夏商之际年代据断代工程，学界有争议"
+        "verify": "done",
+        "notes": "夏商之际采断代工程说（约前 1600 年），学界有争议"
        },
        "choices": [
         {
          "id": "pick.canon",
          "label": "scene.xia.mingtiao.pick.canon",
          "seal": "canon",
-         "to": "c.oath"
+         "to": "c.intro"
         },
         {
          "id": "pick.legend",
@@ -2188,6 +3792,39 @@
        ]
       },
       {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": -1600,
+        "precision": "circa",
+        "display": "约前 1600 年",
+        "verify": "done",
+        "notes": "夏商之际采断代工程说（约前 1600 年），学界有争议"
+       },
+       "dialogue": "scene.xia.mingtiao.canon.intro",
+       "next": [
+        "c.oath"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "殷本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "夏本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "尚书",
+         "section": "汤誓"
+        }
+       ]
+      },
+      {
        "id": "c.oath",
        "kind": "gameplay",
        "line": "canon",
@@ -2196,18 +3833,18 @@
         "start": -1600,
         "precision": "circa",
         "display": "约前 1600 年",
-        "verify": "pending",
-        "notes": "夏商之际年代据断代工程，学界有争议"
+        "verify": "done",
+        "notes": "夏商之际采断代工程说（约前 1600 年），学界有争议"
        },
        "gameplay": {
         "template": "court",
         "params": {
          "goal": "在誓师中选择对众人宣说的理由，稳住将士军心",
-         "failTo": "c.oath",
          "beats": [
           "speech",
           "morale"
          ],
+         "failTo": "c.oath",
          "grades": [
           "史识"
          ]
@@ -2243,19 +3880,19 @@
         "start": -1600,
         "precision": "circa",
         "display": "约前 1600 年",
-        "verify": "pending",
-        "notes": "夏商之际年代据断代工程，学界有争议"
+        "verify": "done",
+        "notes": "夏商之际采断代工程说（约前 1600 年），学界有争议"
        },
        "gameplay": {
         "template": "battle",
         "params": {
          "goal": "以战车与旗阵在鸣条之野合围夏师",
-         "failTo": "c.mingtiao",
          "beats": [
           "chariot-charge",
           "banner-signal",
           "encircle"
          ],
+         "failTo": "c.mingtiao",
          "grades": [
           "笔意",
           "寻迹"
@@ -2299,8 +3936,8 @@
         "start": -1600,
         "precision": "circa",
         "display": "约前 1600 年",
-        "verify": "pending",
-        "notes": "夏商之际年代据断代工程，学界有争议"
+        "verify": "done",
+        "notes": "夏商之际采断代工程说（约前 1600 年），学界有争议"
        },
        "label": "scene.xia.mingtiao.legend.disclaimer",
        "dialogue": "scene.xia.mingtiao.legend.intro",
@@ -2317,7 +3954,13 @@
          "kind": "classic",
          "title": "吕氏春秋",
          "section": "慎大",
-         "notes": "伊尹奔夏三年之说，待核验"
+         "notes": "汤射伊尹以取信于桀，伊尹奔夏三年，反报于亳"
+        },
+        {
+         "kind": "canon",
+         "title": "竹书纪年",
+         "section": "古本佚文（王国维《古本竹书纪年辑校》）",
+         "notes": "《太平御览》卷一百三十五引：末喜氏与伊尹交，遂以间夏"
         }
        ]
       },
@@ -2330,18 +3973,18 @@
         "start": -1600,
         "precision": "circa",
         "display": "约前 1600 年",
-        "verify": "pending",
-        "notes": "夏商之际年代据断代工程，学界有争议"
+        "verify": "done",
+        "notes": "夏商之际采断代工程说（约前 1600 年），学界有争议"
        },
        "gameplay": {
         "template": "stealth",
         "params": {
          "goal": "扮作逃臣潜入夏都，听取宫中消息而不被识破",
-         "failTo": "l.xia",
          "beats": [
           "listen",
           "disguise"
          ],
+         "failTo": "l.xia",
          "grades": [
           "笔意",
           "寻迹"
@@ -2361,7 +4004,13 @@
          "kind": "classic",
          "title": "吕氏春秋",
          "section": "慎大",
-         "notes": "伊尹奔夏三年之说，待核验"
+         "notes": "汤射伊尹以取信于桀，伊尹奔夏三年，反报于亳"
+        },
+        {
+         "kind": "canon",
+         "title": "竹书纪年",
+         "section": "古本佚文（王国维《古本竹书纪年辑校》）",
+         "notes": "《太平御览》卷一百三十五引：末喜氏与伊尹交，遂以间夏"
         }
        ]
       },
@@ -2374,18 +4023,18 @@
         "start": -1600,
         "precision": "circa",
         "display": "约前 1600 年",
-        "verify": "pending",
-        "notes": "夏商之际年代据断代工程，学界有争议"
+        "verify": "done",
+        "notes": "夏商之际采断代工程说（约前 1600 年），学界有争议"
        },
        "gameplay": {
         "template": "dialogue-timing",
         "params": {
          "goal": "回亳向汤陈述所见，判断出兵时机",
-         "failTo": "l.report",
          "beats": [
           "timing",
           "report"
          ],
+         "failTo": "l.report",
          "grades": [
           "史识"
          ]
@@ -2404,7 +4053,13 @@
          "kind": "classic",
          "title": "吕氏春秋",
          "section": "慎大",
-         "notes": "伊尹奔夏三年之说，待核验"
+         "notes": "汤射伊尹以取信于桀，伊尹奔夏三年，反报于亳"
+        },
+        {
+         "kind": "canon",
+         "title": "竹书纪年",
+         "section": "古本佚文（王国维《古本竹书纪年辑校》）",
+         "notes": "《太平御览》卷一百三十五引：末喜氏与伊尹交，遂以间夏"
         }
        ]
       },
@@ -2464,7 +4119,13 @@
         "kind": "classic",
         "title": "吕氏春秋",
         "section": "慎大",
-        "notes": "伊尹奔夏三年之说，待核验"
+        "notes": "汤射伊尹以取信于桀，伊尹奔夏三年，反报于亳"
+       },
+       {
+        "kind": "canon",
+        "title": "竹书纪年",
+        "section": "古本佚文（王国维《古本竹书纪年辑校》）",
+        "notes": "《太平御览》卷一百三十五引：末喜氏与伊尹交，遂以间夏"
        }
       ],
       "kind": "legend",
@@ -2484,7 +4145,7 @@
       {
        "topic": "夏如何亡",
        "canon": "《殷本纪》：桀败于有娀之虚，奔鸣条，夏师败绩",
-       "legend": "《国语》称妺喜与伊尹“比而亡夏”，《吕氏春秋》有伊尹奔夏之说（待核验）",
+       "legend": "《国语·晋语一》称妺喜与伊尹“比而亡夏”；《吕氏春秋·慎大》说伊尹奔夏三年而返；古本《竹书纪年》佚文亦称末喜与伊尹交以间夏",
        "sources": [
         {
          "kind": "canon",
@@ -2510,7 +4171,13 @@
          "kind": "classic",
          "title": "吕氏春秋",
          "section": "慎大",
-         "notes": "伊尹奔夏三年之说，待核验"
+         "notes": "汤射伊尹以取信于桀，伊尹奔夏三年，反报于亳"
+        },
+        {
+         "kind": "canon",
+         "title": "竹书纪年",
+         "section": "古本佚文（王国维《古本竹书纪年辑校》）",
+         "notes": "《太平御览》卷一百三十五引：末喜氏与伊尹交，遂以间夏"
         }
        ]
       },
@@ -2543,7 +4210,13 @@
          "kind": "classic",
          "title": "吕氏春秋",
          "section": "慎大",
-         "notes": "伊尹奔夏三年之说，待核验"
+         "notes": "汤射伊尹以取信于桀，伊尹奔夏三年，反报于亳"
+        },
+        {
+         "kind": "canon",
+         "title": "竹书纪年",
+         "section": "古本佚文（王国维《古本竹书纪年辑校》）",
+         "notes": "《太平御览》卷一百三十五引：末喜氏与伊尹交，遂以间夏"
         }
        ]
       }
@@ -3380,7 +5053,8 @@
      "anchor.tang-ge": "汤征葛伯",
      "anchor.shang-li": "汤即天子位",
      "scene.xia.mingtiao.pick.canon": "正史 · 《史记》、《史记》所载",
-     "scene.xia.mingtiao.end.canon": "桀奔南巢而死，汤即天子位，商代夏。",
+     "scene.xia.mingtiao.canon.intro": "汤先伐葛伯、昆吾，剪掉夏的羽翼；如今要对众人说清，为什么非伐夏不可。",
+     "scene.xia.mingtiao.end.canon": "桀走鸣条，遂被放逐而死（《尚书》序称放于南巢）。汤即天子位，商代夏。",
      "scene.xia.mingtiao.pick.legend": "异说 · 伊尹间夏",
      "scene.xia.mingtiao.legend.disclaimer": "以下取自《国语》《吕氏春秋》等书的说法，与《史记》叙述不同，史家多存疑。",
      "scene.xia.mingtiao.legend.intro": "《国语》说妺喜得宠，“与伊尹比而亡夏”；《吕氏春秋》又说伊尹曾奔夏三年，探听夏宫之事。",

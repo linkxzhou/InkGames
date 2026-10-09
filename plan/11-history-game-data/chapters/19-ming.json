@@ -1,7 +1,7 @@
 {
  "format": "inkgames.chapter-bundle",
  "version": 1,
- "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "_comment": "由 plan/11-history-game-data 的场景规格生成。detail=full 为完整场景（场景 + 开场过场 + 字符串表 + 人物关系），detail=outline 为大纲级条目；v1 只表示是否属于首版发布批次（见内容数据格式 §2.9）。文字为本项目原创，引文仅限公有领域古籍并标出处。",
  "chapter": {
   "format": "inkgames.chapter",
   "version": 1,
@@ -72,6 +72,7 @@
   {
    "outlineId": "19-01",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -242,11 +243,11 @@
         "template": "naval",
         "params": {
          "goal": "率舟师入湖，与陈军巨舰周旋",
-         "failTo": "c.relief",
          "beats": [
           "maneuver",
           "small-boats"
          ],
+         "failTo": "c.relief",
          "grades": [
           "笔意",
           "寻迹"
@@ -290,11 +291,11 @@
         "template": "naval",
         "params": {
          "goal": "乘风放出火船，冲入联舟之阵",
-         "failTo": "c.fire",
          "beats": [
           "wind-timing",
           "fire"
          ],
+         "failTo": "c.fire",
          "grades": [
           "笔意",
           "寻迹"
@@ -338,10 +339,10 @@
         "template": "naval",
         "params": {
          "goal": "封锁湖口，断陈军归路",
-         "failTo": "c.blockade",
          "beats": [
           "blockade"
          ],
+         "failTo": "c.blockade",
          "grades": [
           "笔意",
           "寻迹"
@@ -422,10 +423,10 @@
         "template": "riddle",
         "params": {
          "goal": "以刘基身份夜观天象，在星图中找出风向的征兆",
-         "failTo": "l.stars",
          "beats": [
           "star-map"
          ],
+         "failTo": "l.stars",
          "grades": [
           "史识"
          ]
@@ -463,10 +464,10 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "湖战正酣时请主公换船，早一步晚一步都不行",
-         "failTo": "l.boat",
          "beats": [
           "timing"
          ],
+         "failTo": "l.boat",
          "grades": [
           "史识"
          ]
@@ -1810,6 +1811,7 @@
   {
    "outlineId": "19-02",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2014,6 +2016,7 @@
   {
    "outlineId": "19-03",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -2193,11 +2196,11 @@
         "template": "siege",
         "params": {
          "goal": "以铁铉身份守济南，用诈降与神牌拖住燕军",
-         "failTo": "c.jinan",
          "beats": [
           "siege-defense",
           "ruse"
          ],
+         "failTo": "c.jinan",
          "grades": [
           "笔意",
           "寻迹"
@@ -2247,10 +2250,10 @@
         "template": "cavalry",
         "params": {
          "goal": "以燕军身份绕道南下，避开坚城",
-         "failTo": "c.march",
          "beats": [
           "route"
          ],
+         "failTo": "c.march",
          "grades": [
           "笔意",
           "寻迹"
@@ -2300,11 +2303,11 @@
         "template": "court",
         "params": {
          "goal": "方孝孺被召草诏，在笔与刑之间作出选择",
-         "failTo": "c.edict",
          "beats": [
           "choice",
           "write"
          ],
+         "failTo": "c.edict",
          "grades": [
           "史识"
          ]
@@ -2386,11 +2389,11 @@
         "template": "stealth",
         "params": {
          "goal": "从宫中密道出宫，避开燕军的搜索",
-         "failTo": "l.tunnel",
          "beats": [
           "stealth",
           "tunnel"
          ],
+         "failTo": "l.tunnel",
          "grades": [
           "笔意",
           "寻迹"
@@ -2425,11 +2428,11 @@
         "template": "trace",
         "params": {
          "goal": "在各地寺庙中用水笔洗出传说留下的痕迹",
-         "failTo": "l.wander",
          "beats": [
           "wash-reveal",
           "trace"
          ],
+         "failTo": "l.wander",
          "grades": [
           "史识"
          ]
@@ -4013,6 +4016,7 @@
   {
    "outlineId": "19-04",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -4275,6 +4279,7 @@
   {
    "outlineId": "19-05",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -4441,11 +4446,11 @@
         "template": "survival",
         "params": {
          "goal": "在被围的营地中寻找水源，阻止士卒的溃散",
-         "failTo": "c.tumu",
          "beats": [
           "survival",
           "water"
          ],
+         "failTo": "c.tumu",
          "grades": [
           "笔意",
           "寻迹"
@@ -4484,10 +4489,10 @@
         "template": "court",
         "params": {
          "goal": "以于谦身份在朝堂上驳斥南迁之议",
-         "failTo": "c.court",
          "beats": [
           "argument"
          ],
+         "failTo": "c.court",
          "grades": [
           "史识"
          ]
@@ -4525,11 +4530,11 @@
         "template": "siege",
         "params": {
          "goal": "德胜门外设伏，火器与骑兵协同击退瓦剌",
-         "failTo": "c.desheng",
          "beats": [
           "ambush",
           "cannon"
          ],
+         "failTo": "c.desheng",
          "grades": [
           "笔意",
           "寻迹"
@@ -4609,11 +4614,11 @@
         "template": "breakout",
         "params": {
          "goal": "在溃散的军阵中找到王振",
-         "failTo": "l.chaos",
          "beats": [
           "search",
           "chaos"
          ],
+         "failTo": "l.chaos",
          "grades": [
           "笔意",
           "寻迹"
@@ -4656,11 +4661,11 @@
         "template": "duel",
         "params": {
          "goal": "以樊忠身份一锤击下，然后转身突围",
-         "failTo": "l.hammer",
          "beats": [
           "strike",
           "breakout"
          ],
+         "failTo": "l.hammer",
          "grades": [
           "笔意",
           "寻迹"
@@ -6143,6 +6148,7 @@
   {
    "outlineId": "19-06",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -6408,6 +6414,7 @@
   {
    "outlineId": "19-07",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -6576,10 +6583,10 @@
         "template": "tutorial",
         "params": {
          "goal": "按鸳鸯阵的分工训练一队士卒，每个人都要守住位置",
-         "failTo": "c.train",
          "beats": [
           "formation-drill"
          ],
+         "failTo": "c.train",
          "grades": [
           "笔意",
           "寻迹"
@@ -6619,11 +6626,11 @@
         "template": "forest",
         "params": {
          "goal": "在竹林与田埂间以鸳鸯阵迎击倭寇，阵形散则败",
-         "failTo": "c.taizhou",
          "beats": [
           "formation",
           "terrain"
          ],
+         "failTo": "c.taizhou",
          "grades": [
           "笔意",
           "寻迹"
@@ -6663,11 +6670,11 @@
         "template": "night-raid",
         "params": {
          "goal": "援闽：夜袭横屿，涉过退潮后的泥滩",
-         "failTo": "c.fujian",
          "beats": [
           "tide",
           "night-raid"
          ],
+         "failTo": "c.fujian",
          "grades": [
           "笔意",
           "寻迹"
@@ -6740,11 +6747,11 @@
         "template": "survival",
         "params": {
          "goal": "阴雨中行军，干粮受潮，士气下降",
-         "failTo": "l.rain",
          "beats": [
           "survival",
           "weather"
          ],
+         "failTo": "l.rain",
          "grades": [
           "笔意",
           "寻迹"
@@ -6779,10 +6786,10 @@
         "template": "engineering",
         "params": {
          "goal": "安排烤饼、穿绳、分发的流程",
-         "failTo": "l.bake",
          "beats": [
           "logistics"
          ],
+         "failTo": "l.bake",
          "grades": [
           "笔意",
           "寻迹"
@@ -8323,6 +8330,7 @@
   {
    "outlineId": "19-08",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -8528,6 +8536,7 @@
   {
    "outlineId": "19-09",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -8749,6 +8758,7 @@
   {
    "outlineId": "19-10",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -9028,6 +9038,7 @@
   {
    "outlineId": "19-11",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -9309,6 +9320,7 @@
   {
    "outlineId": "19-12",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -9471,10 +9483,10 @@
         "template": "court",
         "params": {
          "goal": "在空荡荡的朝堂上，等待一个不会到来的人",
-         "failTo": "c.bell",
          "beats": [
           "waiting"
          ],
+         "failTo": "c.bell",
          "grades": [
           "史识"
          ]
@@ -9512,11 +9524,11 @@
         "template": "stealth",
         "params": {
          "goal": "护送太子与皇子乔装出宫",
-         "failTo": "c.children",
          "beats": [
           "disguise",
           "escort"
          ],
+         "failTo": "c.children",
          "grades": [
           "笔意",
           "寻迹"
@@ -9596,11 +9608,11 @@
         "template": "stealth",
         "params": {
          "goal": "以太子身份乔装南下，躲过各方的盘查",
-         "failTo": "l.road",
          "beats": [
           "disguise",
           "journey"
          ],
+         "failTo": "l.road",
          "grades": [
           "笔意",
           "寻迹"
@@ -9643,10 +9655,10 @@
         "template": "riddle",
         "params": {
          "goal": "在南京的“太子案”中，辨认证人的说法",
-         "failTo": "l.trial",
          "beats": [
           "testimony"
          ],
+         "failTo": "l.trial",
          "grades": [
           "史识"
          ]

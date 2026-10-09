@@ -1,7 +1,7 @@
 {
  "format": "inkgames.chapter-bundle",
  "version": 1,
- "_comment": "由 plan/11-history-game-data 的场景规格生成；v1=true 为首版完整场景（场景 + 开场过场 + 字符串表），v1=false 为大纲级条目。文字为本项目原创，引文仅限公有领域古籍并标出处。",
+ "_comment": "由 plan/11-history-game-data 的场景规格生成。detail=full 为完整场景（场景 + 开场过场 + 字符串表 + 人物关系），detail=outline 为大纲级条目；v1 只表示是否属于首版发布批次（见内容数据格式 §2.9）。文字为本项目原创，引文仅限公有领域古籍并标出处。",
  "chapter": {
   "format": "inkgames.chapter",
   "version": 1,
@@ -67,6 +67,7 @@
   {
    "outlineId": "13-01",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -364,6 +365,7 @@
   {
    "outlineId": "13-02",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -534,11 +536,11 @@
         "template": "court",
         "params": {
          "goal": "在秦王府的夜议中权衡各方意见，决定是否举事",
-         "failTo": "c.plan",
          "beats": [
           "debate",
           "decision"
          ],
+         "failTo": "c.plan",
          "grades": [
           "史识"
          ]
@@ -581,11 +583,11 @@
         "template": "ambush",
         "params": {
          "goal": "在玄武门内设伏，判断建成、元吉回马的时机",
-         "failTo": "c.gate",
          "beats": [
           "ambush",
           "timing"
          ],
+         "failTo": "c.gate",
          "grades": [
           "笔意",
           "寻迹"
@@ -629,10 +631,10 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "尉迟敬德擐甲持矛入见高祖，请降手敕",
-         "failTo": "c.audience",
          "beats": [
           "stare-down"
          ],
+         "failTo": "c.audience",
          "grades": [
           "史识"
          ]
@@ -714,11 +716,11 @@
         "template": "trace",
         "params": {
          "goal": "用水笔洗出史书中可能被改写的句子，标出可疑之处",
-         "failTo": "l.archive",
          "beats": [
           "wash-reveal",
           "doubt-mark"
          ],
+         "failTo": "l.archive",
          "grades": [
           "史识"
          ]
@@ -758,10 +760,10 @@
         "template": "court",
         "params": {
          "goal": "在几种叙述之间作出判断，并给出理由",
-         "failTo": "l.judge",
          "beats": [
           "reasoning"
          ],
+         "failTo": "l.judge",
          "grades": [
           "史识"
          ]
@@ -2258,6 +2260,7 @@
   {
    "outlineId": "13-03",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2526,6 +2529,7 @@
   {
    "outlineId": "13-04",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -2792,6 +2796,7 @@
   {
    "outlineId": "13-05",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -3012,6 +3017,7 @@
   {
    "outlineId": "13-06",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -3184,11 +3190,11 @@
         "template": "court",
         "params": {
          "goal": "以狄仁杰身份在朝堂上进言，劝复立庐陵王",
-         "failTo": "c.court",
          "beats": [
           "argument",
           "timing"
          ],
+         "failTo": "c.court",
          "grades": [
           "史识"
          ]
@@ -3232,11 +3238,11 @@
         "template": "calligraphy",
         "params": {
          "goal": "以上官婉儿身份草拟诏书，措辞要合乎体例",
-         "failTo": "c.edict",
          "beats": [
           "draft",
           "write"
          ],
+         "failTo": "c.edict",
          "grades": [
           "史识"
          ]
@@ -3280,11 +3286,11 @@
         "template": "stealth",
         "params": {
          "goal": "神龙之夜，率羽林军进入玄武门",
-         "failTo": "c.shenlong",
          "beats": [
           "stealth",
           "coordination"
          ],
+         "failTo": "c.shenlong",
          "grades": [
           "笔意",
           "寻迹"
@@ -3363,11 +3369,11 @@
         "template": "calligraphy",
         "params": {
          "goal": "写下令百花开放的诏书，笔势越狂，花开得越快",
-         "failTo": "l.decree",
          "beats": [
           "write",
           "bloom"
          ],
+         "failTo": "l.decree",
          "grades": [
           "史识"
          ]
@@ -3402,11 +3408,11 @@
         "template": "riddle",
         "params": {
          "goal": "在雪中的上苑找出那株迟迟不开的牡丹",
-         "failTo": "l.peony",
          "beats": [
           "search",
           "snow"
          ],
+         "failTo": "l.peony",
          "grades": [
           "史识"
          ]
@@ -4925,6 +4931,7 @@
   {
    "outlineId": "13-07",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -5100,11 +5107,11 @@
         "template": "evacuate",
         "params": {
          "goal": "护送百官与宫人撤出长安，粮草与马匹都不够",
-         "failTo": "c.retreat",
          "beats": [
           "escort",
           "scarcity"
          ],
+         "failTo": "c.retreat",
          "grades": [
           "笔意",
           "寻迹"
@@ -5149,11 +5156,11 @@
         "template": "dialogue-timing",
         "params": {
          "goal": "以高力士身份在玄宗与六军之间传话，局势一刻比一刻紧张",
-         "failTo": "c.mawei",
          "beats": [
           "timing",
           "mediate"
          ],
+         "failTo": "c.mawei",
          "grades": [
           "史识"
          ]
@@ -5244,10 +5251,10 @@
         "template": "journey",
         "params": {
          "goal": "随道士穿过云海，寻找仙山上的楼阁",
-         "failTo": "l.search",
          "beats": [
           "cloud-journey"
          ],
+         "failTo": "l.search",
          "grades": [
           "笔意",
           "寻迹"
@@ -5296,11 +5303,11 @@
         "template": "calligraphy",
         "params": {
          "goal": "写下贵妃托付的话，笔迹要淡如云雾",
-         "failTo": "l.token",
          "beats": [
           "write",
           "ink-mood"
          ],
+         "failTo": "l.token",
          "grades": [
           "史识"
          ]
@@ -6972,6 +6979,7 @@
   {
    "outlineId": "13-08",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -7267,6 +7275,7 @@
   {
    "outlineId": "13-09",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -7505,6 +7514,7 @@
   {
    "outlineId": "13-10",
    "v1": false,
+   "detail": "outline",
    "scene": {
     "format": "inkgames.scene-outline",
     "version": 1,
@@ -7769,6 +7779,7 @@
   {
    "outlineId": "13-11",
    "v1": true,
+   "detail": "full",
    "scene": {
     "format": "inkgames.scene",
     "version": 1,
@@ -7943,11 +7954,11 @@
         "template": "battle",
         "params": {
          "goal": "率军转战千里，在地图上选择进军路线",
-         "failTo": "c.march",
          "beats": [
           "route",
           "supply"
          ],
+         "failTo": "c.march",
          "grades": [
           "笔意",
           "寻迹"
@@ -7992,10 +8003,10 @@
         "template": "siege",
         "params": {
          "goal": "攻破潼关，打开入关之路",
-         "failTo": "c.tongguan",
          "beats": [
           "assault"
          ],
+         "failTo": "c.tongguan",
          "grades": [
           "笔意",
           "寻迹"
@@ -8082,11 +8093,11 @@
         "template": "calligraphy",
         "params": {
          "goal": "以落第书生的心境写下咏菊诗，笔势由抑转扬",
-         "failTo": "l.exam",
          "beats": [
           "write",
           "mood"
          ],
+         "failTo": "l.exam",
          "grades": [
           "史识"
          ]
@@ -8129,10 +8140,10 @@
         "template": "battle",
         "params": {
          "goal": "诗中的意象化为满城金甲",
-         "failTo": "l.gold",
          "beats": [
           "imagery"
          ],
+         "failTo": "l.gold",
          "grades": [
           "笔意",
           "寻迹"
