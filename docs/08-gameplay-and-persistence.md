@@ -2,6 +2,8 @@
 
 [目录](./README.md) · [上一章](./07-ink-rendering.md) · [下一章](./09-tooling-and-quality.md)
 
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
+
 十卡是同一张 1280×720 的纸，加上各自的一句交互。画面上所有东西都由 [第 7 章](./07-ink-rendering.md) 的 inkEngine 笔刷一笔一笔画出来，笔刷取自一张表。刚体仍然是圆和矩形，只决定碰撞，不决定长相。
 
 ## 道具怎么画
@@ -70,3 +72,13 @@
 `createRecorder`、`createReplay`、`parseRecording`（`src/plugins/recording.ts`）记录的是 v0.1 的命令流，给 `Engine` 用。`InkStage` 没有把按键和笔画写成同一份 JSON，也不能重放 inkEngine 的 `mp` / `md` / `mr`。
 
 要复现一条 2.0 笔画，保存它的 `PropStroke`（笔刷、颜色、每帧的点、种子）再交给 `InkWash.paint`。同一种子在 inkEngine 里对应 `p.randomSeed(seed)` 后的同一笔。`tests/ink-brush.test.ts` 锁的是笔触数据，不锁 GPU 图像。
+
+## 横版切片页面
+
+`apps/scroll/` 是单独一关，首页 `apps/index.html` 和十个道具页没有改。开发服务器打开 `/scroll/`。关卡是一条折线坡、地面洇墨、披麻与斧劈两块石头、两竿竹、一块单向平台和一座可洗的桥。
+
+键：A/D 或左右移动，W 或上跳，下加跳穿过单向平台，空格攻击，Q 在脚下洗桥并洗墨。页面自己开 `requestAnimationFrame` 调 `InkView.frame`。`?pose=rest` 与 `?pose=cut` 把角色放到固定帧后停住，给截图用，不继续跑动画循环。
+
+录制格式 `inkgames.ink-recording` 版本 2 还没有。现行 `recording.ts` 仍只服务 v0.1。
+
+开场动画、旁白、字幕、存档和剧情图还没有类。名字仍是 `CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`StoryRuntime`、`SceneDirector`。字幕已定为 Canvas 纹理，本页没有字幕。轨道字段以 [内容数据格式](../plan/11-history-game-content-schema.md) 为准。

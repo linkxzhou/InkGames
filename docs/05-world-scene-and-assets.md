@@ -2,6 +2,8 @@
 
 [目录](./README.md) · [上一章](./04-plugin-system.md) · [下一章](./06-input-strokes-and-physics.md)
 
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
+
 ## `InkWorld`：2.0 的权威场景
 
 类在 `src/core/ink-world.ts`。构造时：
@@ -34,3 +36,11 @@
 `createScenePlugin`、`createCameraPlugin`、`createInputPlugin`、`createPointerPlugin` 在 `src/plugins/world.ts`。`parseSceneJSON` / `loadSceneJSON`（`src/plugins/scene-json.ts`）读关卡 JSON。`Scene2D`、`Camera2D`、`Rect`、`SceneMarker` 等类型从 `src/plugins/tokens.ts` 经 `src/index.ts` 导出。
 
 这些服务不描述十卡舞台。十卡的远山、近山、地面是 `InkStage.paintSheet` 里写进 `InkWash` 的折线，锁定在墨层上，没有对应的 Matter 体（地面矩形才是脚底下的碰撞）。
+
+## 横版切片：`Playfield`
+
+`Playfield` 在 `src/core/playfield.ts`。单位与 `InkWorld` 相同：像素、Y 向下、`gravity.y = 1`。`InkWorld` 未改，十卡和 `tests/v2-core.test.ts` 仍用它。
+
+`addPolyline` 按折线每段做 `Bodies.fromVertices`，厚度 28，静态，标签 `ground`。地面网格的 Z 起伏只在 `InkView` 里画，不写进 Matter。远景是贴着 `InkSurface.texture` 的平面。角色圆显示在 z = 40，脚的 x、y 来自刚体。
+
+`CameraRig.follow` 每帧把焦点拉近 5%，再夹进关卡包围盒；关卡比视口短时居中。十卡 `InkStage` 的 ±48×36 限制留在那条舞台上，切片不用它。坐标仍是像素，没有改成米。过场层深仍约定为 `INK_LAYER_Z` 的 −80 / 0 / 40 / 120，过场播放器本身还没有。

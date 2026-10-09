@@ -8,8 +8,9 @@
 | 组件 | 版本 | 许可 | 用途 | 是否随发布物分发 |
 |---|---|---|---|---|
 | [p5.js](https://github.com/processing/p5.js) | ^2.3.4 | LGPL-2.1 | 旧演示画布宿主，迁移期保留 | 是（旧演示打包进 `dist/`） |
-| [PixiJS](https://github.com/pixijs/pixijs) | 8.22.0 | MIT | 2.0 WebGL 渲染、显示树与滤镜 | 迁移完成并接入后进入新产物 |
-| [Matter.js](https://github.com/liabru/matter-js) | 0.20.0 | MIT | 2.0 固定步刚体物理 | 迁移完成并接入后进入新产物 |
+| [PixiJS](https://github.com/pixijs/pixijs) | 8.22.0 | MIT | 十卡舞台的 WebGL 渲染、显示树与滤镜 | 是（十卡与对照页） |
+| [Matter.js](https://github.com/liabru/matter-js) | 0.20.0 | MIT | 十卡与横版切片的固定步刚体 | 是 |
+| [three.js](https://github.com/mrdoob/three.js) | 0.186.1 | MIT | 横版切片的 `WebGLRenderer`。墨水 pass 用 `RawShaderMaterial`（GLSL3）；皴法与竹用 `ShaderMaterial` | 是（`/scroll/`） |
 
 ## 开发依赖（不进入发布产物）
 
@@ -21,6 +22,7 @@
 | [playwright](https://github.com/microsoft/playwright) | ^1.60.0 | Apache-2.0 | 无头浏览器冒烟验证 |
 | [@types/node](https://github.com/DefinitelyTyped/DefinitelyTyped) | ^22.15.0 | MIT | Node 类型定义 |
 | [@types/matter-js](https://github.com/DefinitelyTyped/DefinitelyTyped) | 0.20.2 | MIT | Matter.js TypeScript 类型定义 |
+| [@types/three](https://github.com/DefinitelyTyped/DefinitelyTyped) | 0.186.0 | MIT | three 0.186.1 的 npm 包不含 `.d.ts`，类型由此提供。传递依赖里的 rapier、tween、stats、webxr 类型未被本仓库 import |
 
 ## 受限内容：明确排除
 
@@ -31,9 +33,23 @@
 | p5.js 的 `random` / `noise` 算法 | LGPL-2.1 | `src/core/ink-random.ts` 按 p5.js 的 `randomSeed`（Numerical Recipes LCG）与 `noise`（4096 格、4 层倍频）重写，目的是让移植的笔刷与 inkEngine 抽到同一串随机数。该文件是 p5.js 算法的派生实现，按 LGPL-2.1 看待；p5.js 本身仍作为未修改的 npm 依赖分发。 |
 | `thirdparty/inkwash` | MIT | 场模型的思路来源；如需移植源码须保留版权与许可全文及来源声明。当前 `src/plugins/ink-fluid.ts` 为独立实现。 |
 
+## 随源码分发的派生实现
+
+| 组件 | 许可 | 说明 |
+|---|---|---|
+| [stegu/webgl-noise](https://github.com/stegu/webgl-noise) classic Perlin | MIT，Copyright (c) 2011 Stefan Gustavson | `src/core/classic-noise.ts` 的 `CLASSIC_NOISE_GLSL` 保留原文件头。用于皴法勾边的 `cnoise`。未拷贝该仓库的其它噪声，也未拷贝其 LICENSE 文件以外的素材。 |
+
+## 已决定、尚未安装
+
+| 组件 | 说明 |
+|---|---|
+| troika-three-text | 字幕 P0 定为 Canvas 纹理，不引入文字库。播放器属于叙事宿主，本切片没有字幕。 |
+
 ## 审查记录
 
 - 2026-10-08：建立本清单。p5.js 以 LGPL-2.1 分发，本项目**未修改**其源码，仅作为 npm 依赖引入。
 - 2026-10-08：按仓库所有者的说明，把 inkEngine 的笔刷与反馈结构移植进 `src/core/ink-wash*.ts` 与 `ink-brush.ts`。书面授权未附在仓库中。
 - 2026-10-08：第二轮把 inkEngine 的七种笔刷、六个着色器、纸纹和 36 色表逐行移植（文件见上表），并新增 `src/core/ink-random.ts`（p5 随机/噪声算法，LGPL-2.1 派生）。是否接受 LGPL 派生文件进入仓库，需仓库所有者确认。
+- 2026-10-09：计划改用 three.js 渲染，当时三项都还没安装。
+- 2026-10-09：锁定并安装 `three@0.186.1` 与 `@types/three@0.186.0`。classic Perlin 拷入 `src/core/classic-noise.ts`。字幕不安装 troika。PixiJS 仍服务十卡。
 - 发布前须重新核对：依赖版本、许可文本、`dist/` 内容清单，以及 `thirdparty/` 是否被排除。

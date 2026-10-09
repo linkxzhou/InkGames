@@ -5,6 +5,20 @@ export type {
   InkWashOptions, InkStrokeRequest, InkColor, InkFinish, InkFlowFinish, InkDistortFinish, InkMetallicFinish,
 } from './core/ink-wash';
 export { inkCameraDistance, inkLayerScale, INK_LAYER_Z } from './core/ink-camera';
+export { Playfield, ACTOR_RADIUS, MOVE_SPEED, JUMP_VY, KNOCKBACK_CAP, KNOCKBACK_LOCK, ATTACK_STEPS } from './core/playfield';
+export type { Footing, SweepHit } from './core/playfield';
+export { CameraRig } from './core/camera-rig';
+export { InkView } from './core/ink-view';
+export type { InkViewOptions } from './core/ink-view';
+export { InkSurface } from './core/ink-surface';
+export type { InkSurfaceOptions, InkSurfaceSnapshot } from './core/ink-surface';
+export { TerrainSeep } from './core/terrain-seep';
+export { cunOutlineWidth, createCunRock } from './core/cun-material';
+export type { CunKind, CunRock } from './core/cun-material';
+export { BambooView, DROPLET_CAP, clampDropletCount } from './core/bamboo-rig';
+export type { BambooPose } from './core/bamboo-rig';
+export { SEEP_WIDTH, SEEP_HEIGHT, bakeHeightField, contactsToStamps, hashBytes, terrainHeightAt } from './core/terrain-field';
+export type { TerrainPoint, TerrainBounds, InkStamp } from './core/terrain-field';
 export { scanInkBites } from './core/ink-metallic';
 export type { InkBite } from './core/ink-metallic';
 export { InkBrushEngine, INK_BRUSH_MODES, INK_SIZES, INK_EFFECTS, INK_BLENDS, INK_TIP_OFFSET, resolveInkSize } from './core/ink-brush';

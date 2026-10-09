@@ -2,6 +2,8 @@
 
 [目录](./README.md) · [上一章](./03-microkernel-and-loop.md) · [下一章](./05-world-scene-and-assets.md)
 
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
+
 「插件」这个词在仓库里有两套意思。
 
 ## v0.1：能力插件
@@ -64,3 +66,9 @@ interface ItemPreset {
 ## 旧页面不要混进十卡
 
 `/inkcross/` 用 `createInkCrossPlugin`。`/wuxia/` 是应用层自动战斗，仍走 `Engine`。`/compare/` 只构造 `InkWash`，不创建 `InkWorld`，用来和 inkEngine 对同一组折线。它不出现在首页十张卡里。
+
+## 横版切片已导出的模块
+
+十卡的 `ItemPreset` 不变，切片不走插件图。已经从 `src/index.ts` 导出的是 `InkView`、`Playfield`、`CameraRig`、`InkSurface`、`TerrainSeep`、`createCunRock`、`BambooView`。坡度行走、击退、扫掠和砍断写在 `Playfield` 的方法上。皴法在 `src/core/cun-material.ts`，竹的显示在 `src/core/bamboo-rig.ts` 的 `BambooView`。
+
+还没有导出、也还没有类的名字：`PostStack`、`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`，以及 `defineGameplay`。字幕播放算在这一组里。历史游戏的优先级仍以 [plan/12 的缺口表](../plan/12-history-game-engine-gaps.md#3-引擎缺口清单) 为准。
