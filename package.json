@@ -19,7 +19,8 @@
   "dependencies": {
     "matter-js": "0.20.0",
     "p5": "^2.3.4",
-    "pixi.js": "8.22.0"
+    "pixi.js": "8.22.0",
+    "three": "0.186.1"
   },
   "devDependencies": {
     "@types/matter-js": "0.20.2",
