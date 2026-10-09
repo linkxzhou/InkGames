@@ -20,6 +20,7 @@ export default defineConfig({
         inkcross: resolve(__dirname, 'apps/inkcross/index.html'),
         wuxia: resolve(__dirname, 'apps/wuxia/index.html'),
         compare: resolve(__dirname, 'apps/compare/index.html'),
+        scroll: resolve(__dirname, 'apps/scroll/index.html'),
       },
     },
     target: 'es2022',

@@ -2,6 +2,8 @@
 
 [目录](./README.md) · [上一章](./09-tooling-and-quality.md) · [附录](./11-references-and-research.md)
 
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
+
 ## 构建产物
 
 `vite.config.ts` 的 `root` 是 `apps/`。`build.outDir` 是仓库根的 `dist/`。多页入口：
@@ -13,7 +15,7 @@
 
 别名 `@inkgames/engine` 指向 `src/index.ts`。生产包不复制 `thirdparty/`。
 
-`package.json` 的 `version` 仍是 `0.1.0`，`private: true`。依赖：PixiJS 8.22.0（MIT）、Matter.js 0.20.0（MIT）、p5 ^2.3.4（LGPL-2.1，未改其源码）。登记在 [第三方清单](../THIRD_PARTY_NOTICES.md)。
+`package.json` 的 `version` 仍是 `0.1.0`，`private: true`。依赖：PixiJS 8.22.0（MIT）、Matter.js 0.20.0（MIT）、p5 ^2.3.4（LGPL-2.1，未改其源码）。登记在 [第三方清单](../THIRD_PARTY_NOTICES.md)。three.js 是计划中的渲染器，本提交没有安装。2026-10-09 查到的 npm latest 是 0.186.1，实现时再锁定。
 
 ## 现在可以交付的用法
 
@@ -35,3 +37,11 @@
 `thirdparty/inkEngine` 是 inkField 的可读还原。仓库所有者说明已有 inkField 作者的书面授权，允许把其中算法移植进本仓库的 `src/`，以便水墨效果对齐。授权书本身不在仓库里，本文件不能代替那份授权。移植进 `src/` 的着色器和笔刷在文件头保留归属说明。不要修改 `thirdparty/` 里的文件，也不要把该快照再发布出去。细节以 [第三方清单](../THIRD_PARTY_NOTICES.md) 为准。
 
 新增依赖仍只接受 MIT / BSD / Apache / LGPL（不修改、可独立分发），并写进清单。
+
+## 横版切片的依赖
+
+运行依赖已锁定 `three@0.186.1`（MIT）。类型在开发依赖 `@types/three@0.186.0`，因为这个版本的 npm 包没有自带 `.d.ts`。十卡、对照页和旧冒烟仍用 PixiJS 8.22.0，所以 Pixi 还在依赖里。p5 仍只服务 `/inkcross/` 与 `/wuxia/`。
+
+皴法勾边用的 classic Perlin 在 `src/core/classic-noise.ts`，来自 [stegu/webgl-noise](https://github.com/stegu/webgl-noise)（Stefan Gustavson，MIT），文件头保留版权说明。字幕定为 Canvas 纹理，没有安装 troika-three-text。登记见 [第三方清单](../THIRD_PARTY_NOTICES.md)。
+
+`thirdparty/inkEngine` 的快照、内嵌字体和 `demo.json` 仍然不进 `dist/`。历史游戏的语料 PDF 不进仓库。真实 GPU 未实测。

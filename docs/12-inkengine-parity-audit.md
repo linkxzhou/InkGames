@@ -1,6 +1,8 @@
 # 12 · 与 inkEngine 的效果对照
 
-[目录](./README.md) · [水墨实现](./07-ink-rendering.md) · [剩余工作](../plan/10-v2-pixi-matter-ink-game-engine-plan.md)
+[目录](./README.md) · [水墨实现](./07-ink-rendering.md) · [引擎计划](../plan/10-three-matter-side-scroller-plan.md)
+
+> 本章审计的是 **Pixi 上的 `InkWash`**。`InkSurface` 已按同一条笔刷和反馈顺序接到 three.js 渲染目标，见 [引擎计划](../plan/10-three-matter-side-scroller-plan.md)。本章的灰度差不能写成 three.js 上已经对齐：对照还没有在 three.js 上重跑，真实 GPU 未实测。
 
 对照对象是 `thirdparty/inkEngine/`（`ink-engine.js`、`NAME-MAP.md`、`README.md`、`index.html`）。它是 inkField 的可读还原，回放录制时与原版逐像素一致。本仓库把它的笔刷与着色器移植进 `src/`，在 Pixi 上跑同一条管线；不把 `ink-engine.js` 嵌进页面，也不宣称逐像素相同。
 

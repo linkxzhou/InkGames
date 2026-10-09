@@ -2,6 +2,8 @@
 
 [目录](./README.md) · [下一章](./02-host-and-render-backend.md)
 
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
+
 仓库里同时有两套能跑的运行时。它们不共享时钟，也不共享墨层。
 
 | 运行时 | 入口 | 画面 | 物理 | 页面 |
@@ -43,4 +45,38 @@
 
 ## 还不能当成完成的部分
 
-真实桌面 GPU 的帧率、WebGL 上下文自动重建、遮罩、景深模糊、EasyCam 的回放变焦、2.0 自己的录制格式、按道具拆开的插件文件。清单在 [剩余工作](../plan/10-v2-pixi-matter-ink-game-engine-plan.md)。和 inkEngine 的逐项差距在 [第 12 章](./12-inkengine-parity-audit.md)。
+真实桌面 GPU 的帧率、WebGL 上下文自动重建、遮罩、景深模糊、EasyCam 的回放变焦、2.0 自己的录制格式、按道具拆开的插件文件。这些仍是现行 Pixi 舞台的缺口，结转说明在 [引擎计划](../plan/10-three-matter-side-scroller-plan.md)。和 inkEngine 的逐项差距在 [第 12 章](./12-inkengine-parity-audit.md)。
+
+## 横版切片
+
+`src/index.ts` 已经导出横版关卡用的类型。页面在 `apps/scroll/`，首页十卡仍走上面的 `InkStage`。坡度、击退和砍竹的规则写在 `Playfield` 上，没有单独的 `ActorController` / `Combat` 类。
+
+| 导出 | 做什么 |
+|---|---|
+| `InkView`、`InkViewOptions` | `WebGLRenderer`、场景、画布、`frame` / `dispose` |
+| `Playfield` | Matter 世界、固定步、插值、坡、单向平台、击退、扫掠、砍竹、水刷刚体 |
+| `CameraRig` | 侧视透视相机。`camera.up` 为 `(0, -1, 0)`，`scale.x` 为 `-1`，使世界 +x 在画面右侧 |
+| `InkSurface`、`InkSurfaceOptions`、`InkSurfaceSnapshot` | 墨面渲染目标：`paint` / `update` / `texture` / `wash` / `snapshot` |
+| `TerrainSeep`、`SEEP_WIDTH`、`SEEP_HEIGHT`、`bakeHeightField`、`contactsToStamps`、`terrainHeightAt` | 512×256 地面洇染 |
+| `createCunRock`、`cunOutlineWidth`、`CunKind`、`CunRock` | 披麻 / 斧劈皴与随距离变化的勾边 |
+| `BambooView`、`DROPLET_CAP`、`clampDropletCount` | 竹的摆动、断开和最多 256 个墨滴 |
+
+```ts
+import { InkView } from '@inkgames/engine';
+
+const canvas = document.querySelector('canvas');
+if (!(canvas instanceof HTMLCanvasElement)) throw new Error('missing canvas');
+const view = new InkView({ canvas, width: 1280, height: 720, seed: 21 });
+view.addTerrain([
+  { x: 0, y: 640 },
+  { x: 620, y: 520 },
+  { x: 1400, y: 450 },
+]);
+view.playfield.placeActor(160, 590);
+view.frame(1 / 60);
+view.dispose();
+```
+
+## 仍未实现
+
+叙事宿主还没有类：`PostStack`、`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`。字幕已定为 Canvas 纹理，播放器属于这一组，切片里没有接上。`webglcontextlost` 只暂停 `Playfield`，不重建渲染目标。真实 GPU 未实测。

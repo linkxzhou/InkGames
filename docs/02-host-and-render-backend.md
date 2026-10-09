@@ -2,6 +2,8 @@
 
 [目录](./README.md) · [上一章](./01-scope-and-engine-map.md) · [下一章](./03-microkernel-and-loop.md)
 
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
+
 ## 2.0：`InkStage` 拥有唯一的 Pixi 应用
 
 `InkStage.create` 调用 `Application.init`，参数写死在 `src/core/ink-stage.ts`：
@@ -38,3 +40,13 @@
 - 再开一个 Pixi ticker 或 `Matter.Runner`，角色和墨就会各走各的步。
 - 在 `apps/` 里拿 `stage.app.renderer.gl` 改状态。页面只应调用 `InkStage` 的 `act` / `replay` / `togglePause` / `reset` / `dispose`。
 - 把 `resolution` 改成 `devicePixelRatio` 却不改 `InkWorld` 的米制。碰撞仍是 1280×720 的像素坐标。
+
+## 横版切片：`InkView`
+
+`new InkView({ canvas, width, height, seed, pixelRatio })` 在 `src/core/ink-view.ts`。默认 1280×720。`pixelRatio` 缺省时取 `min(2, devicePixelRatio)`；`apps/scroll/` 在 `?pose=` 截图时传 `1`。画布 CSS 是 `object-fit: contain`。渲染器是 `WebGLRenderer`，`outputColorSpace` 为线性，清屏色 `0xd6cebc`，不用 WebGPU。
+
+墨水 pass 用 `RawShaderMaterial` 和 GLSL3，片元字符串来自现行 `ink-shaders.ts`，three.js 会自己加上 `#version 300 es`。皴法石头和竹用 `ShaderMaterial`，因为平移后的网格要走 three.js 的模型矩阵；墨水 pass 仍是 `RawShaderMaterial`。没有使用 `EffectComposer`。
+
+`CameraRig` 的透视相机 fov 为 60°，放在 `z = inkCameraDistance(高度) / zoom`，默认 zoom 为 1。`camera.up` 是 `(0, -1, 0)`。`lookAt` 在这个 up 下会把视野滚 180° 并镜像 X，所以 `place()` 在 `lookAt` 之后把 `camera.scale.x` 设为 `-1`：世界 +x 在画面右侧，世界 +y 仍向下。负缩放会反转缠绕，角色、地面、竹和皴法填充用 `DoubleSide`，勾边外壳仍是 `BackSide`。正交相机只在 `useOrthographic` 打开时使用。层深仍是 `INK_LAYER_Z`：远景 −80、纸面 0、角色 40、文字 120。
+
+`webglcontextlost` 把 `playfield.pausedClock` 设为真。恢复事件不重建渲染目标，也不能从 `snapshot()` 自动贴回。`dispose()` 幂等。Pixi 舞台和这张画布各用各的，不要共用一张 canvas。

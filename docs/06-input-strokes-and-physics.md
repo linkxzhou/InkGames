@@ -2,6 +2,8 @@
 
 [目录](./README.md) · [上一章](./05-world-scene-and-assets.md) · [下一章](./07-ink-rendering.md)
 
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
+
 权威几何在 CPU。像素着色器不决定能不能站上去。
 
 ## 2.0 输入
@@ -54,3 +56,21 @@ const step = engine.frame(true, 96, 60, 80, 60); // down、指针、上一指针
 笔画坐标、桥的裁切只用四则、`Math.sqrt` / `Math.hypot` 和量化。笔刷里的角度用 `inkSin` / `inkCos`（多项式），朝向用速度的单位向量，不调用 `Math.sin` / `cos` / `atan2` / `pow`。随机是 p5 兼容的 `P5Random`，种子来自调用方；同一组点、同一 `seed`，绘制指令完全一致，并与 inkEngine 在 `p.randomSeed(seed)` 后的那一笔一致，`tests/ink-brush.test.ts` 锁了这一点。
 
 GPU 上的纸纹噪声和反馈着色器不参与碰撞。不要用读回的像素去改刚体。
+
+## 横版切片的动作
+
+`InkView.pointer` 用射线打到 z = 0 的平面。点在画布外时返回 `undefined`。
+
+规则在 `Playfield` 的固定步里，读刚体。屏幕向上是 `(0, -1)`。可走点积常数是 `0.6427876096865393`（约 `cos 50°`），碰撞代码不调用 `Math.cos`。
+
+| 行为 | 现行做法 |
+|---|---|
+| 坡 | 接触法线指向角色。与屏幕向上的夹角小于约 50° 为 `walk`，水平速度沿切线走（`MOVE_SPEED` 为 5）。更陡为 `wall`：速度朝法线里的分量会被拿掉。 |
+| 跳 | `jump()` 只在 `walk` 且没有击退锁时把竖直速度设为 `JUMP_VY`（−12）。 |
+| 单向平台 | 类别 `0x0002`。上一帧脚底 `y`（越大越低）不大于平台顶 + 6，且 `dropThrough` 的 10 步倒计时为 0，才打开 mask。 |
+| 击退 | `hurt(vx, vy)` 把速度缩进 `KNOCKBACK_CAP`（12），并锁移动 `KNOCKBACK_LOCK`（22）步。锁定期间 `move` 不改速度。 |
+| 命中 | `attack()` 打开 14 步（`ATTACK_STEPS`）。窗口内 `Query.ray` 沿朝向扫 72 像素、宽 12。每个刚体 id 只记一次。十卡的距离判断留在 `InkWorld`。 |
+| 可砍 | `cutBamboo` 去掉整根，留下 35% 高的静态根和带初速的上段。 |
+| 水刷 | `InkView.washAt` 先 `washBridge`，再 `InkSurface.wash`。 |
+
+渗流、皴法噪声和竹的顶点摆动不回读成碰撞。叙事触发 `inkDisperse` / `bambooBreak` 还没有接到过场。

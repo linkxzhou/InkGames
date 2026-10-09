@@ -2,6 +2,8 @@
 
 [目录](./README.md) · [上一章](./02-host-and-render-backend.md) · [下一章](./04-plugin-system.md)
 
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
+
 两套时钟都是「渲染帧里累积，固定步追赶」。它们不要接到同一个世界上。
 
 ## `Engine`（v0.1）
@@ -39,3 +41,11 @@
 ## 和测试的关系
 
 `tests/` 里的时钟用例驱动的是 `Engine` 和假宿主，不启动 Pixi。`tests/v2-core.test.ts` 直接 `new InkWorld()` 并 `step`，断言落点和墨桥裁切。浏览器里的 RAF 不在 vitest 范围内。
+
+## 横版切片的玩法时钟
+
+`Playfield.step(dt)` 在 `src/core/playfield.ts`，由 `InkView.frame(dt)` 调用。没有 `Matter.Runner`，也没有 three.js 自己的动画循环。数与 `InkStage` 相同：单帧间隔夹到 0.08 秒，固定步 1/60，每帧最多 4 步，第 5 步不会跑，剩余时间丢掉且 `alpha` 为 1。`pausedClock` 为真时跳过物理并把 `alpha` 设为 1。
+
+`step(1/60)` 刚跑完一步时 `alpha` 为 0，画面用上一拍的位置。显示插值是 `sampleBodyLink`：x、y 在 `previous` 与 `current` 之间，z 保持登记时的层深。角色圆的 `inertia` 是 `Infinity`，网格旋转保持 0。断开的竹上段把 `rotation.z` 写成刚体角度。
+
+过场帧时钟还没有。`SceneDirector` 和 `CutscenePlayer` 未实现，所以还没有「过场期间暂停玩法、笔画按帧补步」这条路径。`Playfield.pausedClock` 可以被调用方打开，切片自己不用它做叙事。
