@@ -31,6 +31,7 @@ interface PropWindow extends Window {
   __propDone?: boolean;
   __propGl?: number;
   __propAct?: () => void;
+  __propPump?: (count: number) => void;
   __propId?: string;
   __propCompare?: {
     readonly width: number;
@@ -62,6 +63,11 @@ host.__propCompare = {
 host.__propReady = true;
 host.__propAct = () => {
   status.textContent = `${spec.physics} · ${demo.act()}`;
+  host.__propGl = demo.glError;
+};
+host.__propPump = (count: number) => {
+  const steps = count < 1 ? 1 : count;
+  for (let i = 0; i < steps; i++) demo.frame();
   host.__propGl = demo.glError;
 };
 
