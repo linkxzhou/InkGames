@@ -73,14 +73,14 @@ describe('slopes, one-way platforms, knockback', () => {
     below.placeActor(200, 470);
     below.stepOnce();
     expect(below.oneWayEnabled).toBe(false);
-    expect(below.actor.collisionFilter.mask & 0x0002).toBe(0);
+    expect((below.actor.collisionFilter.mask ?? 0) & 0x0002).toBe(0);
 
     const above = new Playfield();
     above.addOneWay(200, 400, 220);
     above.placeActor(200, 300);
     above.stepOnce();
     expect(above.oneWayEnabled).toBe(true);
-    expect(above.actor.collisionFilter.mask & 0x0002).not.toBe(0);
+    expect((above.actor.collisionFilter.mask ?? 0) & 0x0002).not.toBe(0);
     for (let i = 0; i < 120; i++) above.stepOnce();
     expect(above.actor.position.y).toBeLessThan(400);
     expect(above.actor.position.y + ACTOR_RADIUS).toBeGreaterThan(370);

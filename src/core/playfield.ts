@@ -42,6 +42,14 @@ interface BambooRig {
   upper?: MatterBody;
 }
 
+interface BridgePiece {
+  bridgeId: number;
+  x: number;
+  y: number;
+  width: number;
+  body: MatterBody;
+}
+
 export interface Footing {
   readonly kind: FootingKind | 'air';
   readonly nx: number;
@@ -65,6 +73,7 @@ export class Playfield {
   private readonly links = new Map<number, BodyLink>();
   private readonly oneWays: OneWay[] = [];
   private readonly bamboos = new Map<number, BambooRig>();
+  private readonly bridges: BridgePiece[] = [];
   private readonly terrain: TerrainPoint[] = [];
   private readonly hitOnce = new Set<number>();
   private nextId = 1;
@@ -169,6 +178,9 @@ export class Playfield {
 
   get attacking(): boolean { return this.attackSteps > 0; }
 
+  /** Screen-right is +1. Knockback does not change it. */
+  get face(): number { return this.facing; }
+
   /**
    * Hand-authored polyline. Each segment is its own static body so the contact normal
    * follows the slope. Mesh relief in z is not added here.
@@ -188,6 +200,65 @@ export class Playfield {
     }
     for (const point of points) this.terrain.push(point);
     return bodies;
+  }
+
+  /**
+   * A walkable ink bridge. `washBridge` splits the rigid body before the ink sheet fades,
+   * the same order as InkWorld.eraseBridge.
+   */
+  addBridge(x: number, y: number, width: number): number {
+    const bridgeId = this.nextId++;
+    this.bridges.push(this.bridgePiece(bridgeId, x, y, width));
+    return bridgeId;
+  }
+
+  private bridgePiece(bridgeId: number, x: number, y: number, width: number): BridgePiece {
+    const body = bridgeBody(x, y, width);
+    Composite.add(this.physics.world, body);
+    return { bridgeId, x, y, width, body };
+  }
+
+  bridgePieces(id: number): number {
+    return this.bridges.filter(piece => piece.bridgeId === id).length;
+  }
+
+  bridgeLayout(): readonly { bridgeId: number; x: number; y: number; width: number }[] {
+    return this.bridges.map(piece => ({ bridgeId: piece.bridgeId, x: piece.x, y: piece.y, width: piece.width }));
+  }
+
+  washBridge(x: number, y: number, radius: number): number[] {
+    const changed: number[] = [];
+    if (!(radius > 0)) return changed;
+    const groups = new Map<number, BridgePiece[]>();
+    for (const piece of this.bridges) {
+      const list = groups.get(piece.bridgeId) ?? [];
+      list.push(piece);
+      groups.set(piece.bridgeId, list);
+    }
+    const next: BridgePiece[] = [];
+    for (const [id, segments] of groups) {
+      const updated: BridgePiece[] = [];
+      let affected = false;
+      for (const segment of segments) {
+        if (Math.abs(segment.y - y) > radius + 6) { updated.push(segment); continue; }
+        const left = segment.x - segment.width / 2;
+        const right = segment.x + segment.width / 2;
+        const halfY = Math.abs(segment.y - y);
+        const reach = Math.sqrt(Math.max(0, (radius + 6) * (radius + 6) - halfY * halfY));
+        const cutLeft = Math.max(left, x - reach);
+        const cutRight = Math.min(right, x + reach);
+        if (cutRight <= cutLeft) { updated.push(segment); continue; }
+        affected = true;
+        Composite.remove(this.physics.world, segment.body);
+        if (cutLeft - left > 3) updated.push(this.bridgePiece(id, (left + cutLeft) / 2, segment.y, cutLeft - left));
+        if (right - cutRight > 3) updated.push(this.bridgePiece(id, (cutRight + right) / 2, segment.y, right - cutRight));
+      }
+      if (affected) changed.push(id);
+      next.push(...(affected ? updated : segments));
+    }
+    this.bridges.length = 0;
+    this.bridges.push(...next);
+    return changed;
   }
 
   addOneWay(x: number, y: number, width: number): MatterBody {
@@ -415,6 +486,16 @@ export class Playfield {
     const n = pair.collision.normal;
     return actorIsA ? { x: n.x, y: n.y } : { x: -n.x, y: -n.y };
   }
+}
+
+function bridgeBody(x: number, y: number, width: number): MatterBody {
+  return Bodies.rectangle(x, y, width, 12, {
+    isStatic: true,
+    friction: 0.9,
+    restitution: 0,
+    label: 'ground',
+    collisionFilter: { category: CAT_GROUND, mask: CAT_ACTOR | CAT_BAMBOO, group: 0 },
+  });
 }
 
 function segmentBody(x0: number, y0: number, x1: number, y1: number, thickness: number, label: string): MatterBody | undefined {
