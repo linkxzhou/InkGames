@@ -2,6 +2,8 @@
 
 [目录](./README.md) · [上一章](./03-microkernel-and-loop.md) · [下一章](./05-world-scene-and-assets.md)
 
+> 本章正文描述**现行代码**。文末「计划（未实现）」是 three.js + Matter.js 的目标，类还没有导出，不能当调用示例。
+
 「插件」这个词在仓库里有两套意思。
 
 ## v0.1：能力插件
@@ -64,3 +66,13 @@ interface ItemPreset {
 ## 旧页面不要混进十卡
 
 `/inkcross/` 用 `createInkCrossPlugin`。`/wuxia/` 是应用层自动战斗，仍走 `Engine`。`/compare/` 只构造 `InkWash`，不创建 `InkWorld`，用来和 inkEngine 对同一组折线。它不出现在首页十张卡里。
+
+## 计划（未实现）
+
+十卡的 `ItemPreset` 先留着。新引擎不另做一套插件图。模块名与 [plan/12 的缺口表](../plan/12-history-game-engine-gaps.md#3-引擎缺口清单) 相同，职责见 [引擎计划](../plan/10-three-matter-side-scroller-plan.md)：
+
+- 画面与动作：`InkView`、`Playfield`、`CameraRig`、`InkSurface`、`PostStack`、`CunMaterial`、`BambooRig`、`ActorController`、`Combat`。
+- 叙事宿主：`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、笔画录制、`AudioBus`、`InkText`、`SaveStore`，加上 DOM 上的 UI。历史游戏把这些标成 P0 或 P1。引擎文档只固定名字和「谁拥有资源」，不写朝代和剧情。
+- 玩法模板用 `defineGameplay({ id, requires, setup, onEvent })`，放在 `src/plugins/`。场景数据只填参数。决斗、对话时机、解谜各做一个，是 plan/12 的 P0；其余模板靠后。
+
+对象契约继续用 `interface`，从 `src/index.ts` 导出。实现之前这些名字不存在于出口。

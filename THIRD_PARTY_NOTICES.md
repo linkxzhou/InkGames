@@ -31,9 +31,18 @@
 | p5.js 的 `random` / `noise` 算法 | LGPL-2.1 | `src/core/ink-random.ts` 按 p5.js 的 `randomSeed`（Numerical Recipes LCG）与 `noise`（4096 格、4 层倍频）重写，目的是让移植的笔刷与 inkEngine 抽到同一串随机数。该文件是 p5.js 算法的派生实现，按 LGPL-2.1 看待；p5.js 本身仍作为未修改的 npm 依赖分发。 |
 | `thirdparty/inkwash` | MIT | 场模型的思路来源；如需移植源码须保留版权与许可全文及来源声明。当前 `src/plugins/ink-fluid.ts` 为独立实现。 |
 
+## 计划引入、本清单对应的提交尚未安装
+
+| 组件 | 许可 | 说明 |
+|---|---|---|
+| [three.js](https://github.com/mrdoob/three.js) | MIT | 计划中的渲染器。2026-10-09 查询 npm registry，`three` 的 latest 为 0.186.1。实现时再锁定版本并安装。用法限定为 `WebGLRenderer` 与 `RawShaderMaterial`（GLSL3）。本提交不修改 `package.json`。 |
+| [stegu/webgl-noise](https://github.com/stegu/webgl-noise) | MIT | 皴法勾边计划使用其中的 classic Perlin GLSL。实现那一次再拷贝并在此登记。本提交不拷贝源码。 |
+| troika-three-text | MIT（以仓库许可证为准） | [plan/12](./plan/12-history-game-engine-gaps.md) 把它列为字幕实现的候选之一，另一候选是 Canvas 纹理。所有者尚未选定，本提交不安装。 |
+
 ## 审查记录
 
 - 2026-10-08：建立本清单。p5.js 以 LGPL-2.1 分发，本项目**未修改**其源码，仅作为 npm 依赖引入。
 - 2026-10-08：按仓库所有者的说明，把 inkEngine 的笔刷与反馈结构移植进 `src/core/ink-wash*.ts` 与 `ink-brush.ts`。书面授权未附在仓库中。
 - 2026-10-08：第二轮把 inkEngine 的七种笔刷、六个着色器、纸纹和 36 色表逐行移植（文件见上表），并新增 `src/core/ink-random.ts`（p5 随机/噪声算法，LGPL-2.1 派生）。是否接受 LGPL 派生文件进入仓库，需仓库所有者确认。
+- 2026-10-09：计划改用 three.js 渲染。上表「计划引入」三项都还没安装、也没拷进仓库。PixiJS 仍是现行依赖。
 - 发布前须重新核对：依赖版本、许可文本、`dist/` 内容清单，以及 `thirdparty/` 是否被排除。
