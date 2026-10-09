@@ -2,7 +2,7 @@
 
 [目录](./README.md) · [上一章](./04-plugin-system.md) · [下一章](./06-input-strokes-and-physics.md)
 
-> 本章正文描述**现行代码**。文末「计划（未实现）」是 three.js + Matter.js 的目标，类还没有导出，不能当调用示例。
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
 
 ## `InkWorld`：2.0 的权威场景
 
@@ -37,12 +37,10 @@
 
 这些服务不描述十卡舞台。十卡的远山、近山、地面是 `InkStage.paintSheet` 里写进 `InkWash` 的折线，锁定在墨层上，没有对应的 Matter 体（地面矩形才是脚底下的碰撞）。
 
-## 计划（未实现）
+## 横版切片：`Playfield`
 
-新关的物理世界叫 `Playfield`。单位和现行 `InkWorld` 一样，是像素，Y 向下，重力为正。`InkWorld` 先不改，十卡和 `tests/v2-core.test.ts` 继续用它。
+`Playfield` 在 `src/core/playfield.ts`。单位与 `InkWorld` 相同：像素、Y 向下、`gravity.y = 1`。`InkWorld` 未改，十卡和 `tests/v2-core.test.ts` 仍用它。
 
-three.js 里相机 `up` 为 `(0, -1, 0)`，所以刚体的 `position.x/y` 可以原样写到 `mesh.position.x/y`。Z 用 `INK_LAYER_Z` 的 −80 / 0 / 40 / 120。过场 JSON 里的层也用这四个数，见 [内容数据格式](../plan/11-history-game-content-schema.md) 的 `CutsceneDef.layers`。
+`addPolyline` 按折线每段做 `Bodies.fromVertices`，厚度 28，静态，标签 `ground`。地面网格的 Z 起伏只在 `InkView` 里画，不写进 Matter。远景是贴着 `InkSurface.texture` 的平面。角色圆显示在 z = 40，脚的 x、y 来自刚体。
 
-地面的碰撞是折线刚体（旋转矩形或 `Bodies.fromVertices`）。地形网格可以在 Z 上有凹凸，那是画给洇染看的厚度，不写进 Matter。远山是贴了 `InkSurface` 纹理的平面，放在 z = −80。纸色层在 z = 0。角色和可砍的竹在 z = 0 的剖面上，显示时角色平面用 z = 40，脚仍落在地面的 x、y 上。
-
-笔刷管线继续用像素。`PROP_BRUSHES` 的 `speed` 和过场画布的宽高都是像素，不换成米。若以后改成米，要单独定「每米多少像素」，并翻转所有 Y 向下的数据。这是计划里的待确认项，默认不改。
+`CameraRig.follow` 每帧把焦点拉近 5%，再夹进关卡包围盒；关卡比视口短时居中。十卡 `InkStage` 的 ±48×36 限制留在那条舞台上，切片不用它。坐标仍是像素，没有改成米。过场层深仍约定为 `INK_LAYER_Z` 的 −80 / 0 / 40 / 120，过场播放器本身还没有。

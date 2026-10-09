@@ -2,7 +2,7 @@
 
 [目录](./README.md) · [上一章](./09-tooling-and-quality.md) · [附录](./11-references-and-research.md)
 
-> 本章正文描述**现行代码**。文末「计划（未实现）」是 three.js + Matter.js 的目标，类还没有导出，不能当调用示例。
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
 
 ## 构建产物
 
@@ -38,10 +38,10 @@
 
 新增依赖仍只接受 MIT / BSD / Apache / LGPL（不修改、可独立分发），并写进清单。
 
-## 计划（未实现）
+## 横版切片的依赖
 
-切换完成之后，发布物里的渲染依赖是 three.js（MIT），Matter.js 继续留下，PixiJS 从依赖里拿掉。拿掉之前，十卡、对照页和冒烟要有新入口，或者明确保留一条 Pixi 构建。p5 仍只服务旧演示。
+运行依赖已锁定 `three@0.186.1`（MIT）。类型在开发依赖 `@types/three@0.186.0`，因为这个版本的 npm 包没有自带 `.d.ts`。十卡、对照页和旧冒烟仍用 PixiJS 8.22.0，所以 Pixi 还在依赖里。p5 仍只服务 `/inkcross/` 与 `/wuxia/`。
 
-皴法用的 Perlin GLSL 计划来自 [stegu/webgl-noise](https://github.com/stegu/webgl-noise)（MIT）。文件还没拷进 `src/`。字幕库也还没选，候选写在 [plan/12](../plan/12-history-game-engine-gaps.md)，选定之后再登记。
+皴法勾边用的 classic Perlin 在 `src/core/classic-noise.ts`，来自 [stegu/webgl-noise](https://github.com/stegu/webgl-noise)（Stefan Gustavson，MIT），文件头保留版权说明。字幕定为 Canvas 纹理，没有安装 troika-three-text。登记见 [第三方清单](../THIRD_PARTY_NOTICES.md)。
 
-`thirdparty/inkEngine` 的快照、内嵌字体和 `demo.json` 仍然不进 `dist/`。历史游戏的语料 PDF 不进仓库，见 `plan/11` 与 `.gitignore`。
+`thirdparty/inkEngine` 的快照、内嵌字体和 `demo.json` 仍然不进 `dist/`。历史游戏的语料 PDF 不进仓库。真实 GPU 未实测。

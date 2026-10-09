@@ -1,8 +1,8 @@
 # 10 · three.js + Matter.js 横版水墨动作引擎
 
-状态：**计划，尚未实现**。本文件取代 2026-10-08 的 PixiJS 舞台未完成清单（`10-v2-pixi-matter-ink-game-engine-plan.md`，已删除）。仓库里能跑的舞台仍是 PixiJS 8.22.0 + Matter.js 0.20.0，见 [文档](../docs/README.md) 里标成「现行」的章节。本提交不改 `src/`、`apps/`、`tests/`、`scripts/`，也不加依赖。
+状态：**M0–M4 已落地，M5 未做**。本文件取代 2026-10-08 的 PixiJS 舞台未完成清单（`10-v2-pixi-matter-ink-game-engine-plan.md`，已删除）。十卡舞台仍是 PixiJS 8.22.0 + Matter.js 0.20.0。横版切片是 `three@0.186.1`，入口 `apps/scroll/`，公共 API 从 `src/index.ts` 导出。真实 GPU 未实测。
 
-历史游戏的叙事、过场数据和缺口优先级在 [12 · 引擎缺口](./12-history-game-engine-gaps.md)，故事结构在 [11 · 故事与玩法](./11-history-game-story-design.md)。本文写引擎怎么搭，并与第 12 章的模块名对齐。剧情正文不在这里展开。两边若措辞不一致，以本节「待确认」里点名的条目为准，其余模块名以本文与第 12 章已经对齐的名字为准。
+历史游戏的叙事、过场数据和缺口优先级在 [12 · 引擎缺口](./12-history-game-engine-gaps.md)，故事结构在 [11 · 故事与玩法](./11-history-game-story-design.md)。本文写引擎怎么搭，并与第 12 章的模块名对齐。剧情正文不在这里展开。两边若措辞不一致，以 §11 已确认的条目为准，其余模块名以本文与第 12 章已经对齐的名字为准。
 
 ## 0. 所有者已经定下的事
 
@@ -55,13 +55,13 @@
 
 ### 1.2 场景、相机、分层
 
-`InkView` 持有 `WebGLRenderer`、`Scene` 和画布。画布仍以 1280×720 为内部分辨率，CSS 用 `object-fit: contain`，和现在的十卡舞台一样。`devicePixelRatio` 的上限留到待确认。
+`InkView` 持有 `WebGLRenderer`、`Scene` 和画布。画布以 1280×720 为内部分辨率，CSS 用 `object-fit: contain`。`devicePixelRatio` 上限为 2；截图姿态传 1。
 
-**坐标（建议，待确认）。** 物理、笔刷、过场 JSON 共用现在的像素平面，Y 向下：`Matter` 的 `gravity.y` 为正，`InkBrushEngine` 的点和 [内容数据格式](./11-history-game-content-schema.md) 里 `CutsceneDef.canvas`、`CameraKey.x/y` 都是这套数。three.js 默认 Y 向上，所以相机 `up` 设为 `(0, -1, 0)`，刚体的 `position.x/y` **原样**写入 `mesh.position.x/y`。Z 不从物理来。
+**坐标（已确认，见 §11）。** 物理、笔刷、过场 JSON 共用像素平面，Y 向下：`Matter` 的 `gravity.y` 为正，`InkBrushEngine` 的点和 [内容数据格式](./11-history-game-content-schema.md) 里 `CutsceneDef.canvas`、`CameraKey.x/y` 都是这套数。相机 `up` 为 `(0, -1, 0)`。`lookAt` 在这个 up 下会把视野滚 180° 并镜像 X，所以 `CameraRig.place` 在 `lookAt` 之后把 `camera.scale.x` 设为 `-1`，世界 +x 在画面右侧，世界 +y 仍向下。刚体的 `position.x/y` **原样**写入 `mesh.position.x/y`。Z 不从物理来。负缩放反转缠绕，需要看见的填充用 `DoubleSide`。
 
 层深继续用 `INK_LAYER_Z`（`src/core/ink-camera.ts`）：远景 −80、玩法纸面 0、角色与道具 40、文字 120。这四个数是像素级的视差偏移，不是米。`plan/12` 要求过场里的墨面平面直接放在这些 Z 上。相机放在 `z = inkCameraDistance(height)`（720p 下约 623 px），朝原点看，fov 保持 π/3。这时 z = 0 的一层在画面上是 1:1，和现行 `inkLayerScale` 一致，只是缩放改由透视相机产生，不再手乘精灵缩放。
 
-玩法跟随：相机在 X/Y 上以每步 5% 的比例靠向角色，偏移仍先限制在 48×36 px，避免纸的边缘露出。这是现行 `InkStage` 的数，迁过去先不变。变焦改相机到纸面的距离：`zoom` 1.1 表示拉近到默认距离的 1/1.1，对应 inkEngine 回放时 EasyCam 收到的 1.1 倍。`CameraKey.zoom` 用同一含义。
+玩法跟随：相机在 X/Y 上以每帧 5% 的比例靠向角色，再夹进关卡包围盒；关卡比视口短时居中。十卡 `InkStage` 的 ±48×36 限制留在那条舞台上。变焦改相机到纸面的距离：`zoom` 1.1 表示拉近到默认距离的 1/1.1。`CameraKey.zoom` 用同一含义。切片演示不改变 zoom。
 
 正交相机保留为调试开关。正交投影下物体大小不随 Z 变化，坡和碰撞框更好对，但 plan/12 的四层 Z 视差和「镜头远近改线宽」都要另做。默认镜头是透视。
 
@@ -310,7 +310,7 @@ Playfield 碰撞（角色 × 地面）
 
 ### 4.2 毛笔皴法与动态勾边
 
-山石用 `CunMaterial`（`RawShaderMaterial`），一个网格画两次：本体和外壳。
+山石由 `createCunRock` 画两次：本体和外壳。材质是 `ShaderMaterial`（GLSL3），平移后的网格走 three.js 的模型矩阵。墨水 pass 仍是 `RawShaderMaterial`。
 
 本体片元里的皴：
 
@@ -320,7 +320,7 @@ Playfield 碰撞（角色 × 地面）
 
 勾边外壳：`side = BackSide`，顶点沿法线挤出。挤出宽度由相机到该点的距离决定：拉近时更粗（顿、徐），拉远时更细（疾）。再乘一层噪声，让边缘发毛、有断口（挫），而不是一根均匀的矢量线。噪声在网格本地坐标上取样，种子来自网格 id，同一镜头下石头不会自己爬动。
 
-噪声用 Stefan Gustavson 维护的 classic Perlin GLSL（[stegu/webgl-noise](https://github.com/stegu/webgl-noise)，MIT）。实现那一次再把文件拷进 `src/` 并写入 [第三方清单](../THIRD_PARTY_NOTICES.md)。本计划不拷贝。现行 `ink-noise.ts` 是值噪声，留在 CPU 侧，不拿它冒充 Perlin。
+噪声用 Stefan Gustavson 的 classic Perlin GLSL（[stegu/webgl-noise](https://github.com/stegu/webgl-noise)，MIT），已放在 `src/core/classic-noise.ts` 并写入 [第三方清单](../THIRD_PARTY_NOTICES.md)。现行 `ink-noise.ts` 是值噪声，留在 CPU 侧，不拿它冒充 Perlin。
 
 `OutlinePass` 是全屏边缘检测，边缘干净，`patternTexture` 也不是笔毛。山石不用它。以后若要给 UI 选中物体描一圈，可以再评估。
 
@@ -412,14 +412,14 @@ Playfield 碰撞（角色 × 地面）
 
 ## 8. 里程碑
 
-全部是 `[ ]`。没有一项已经在代码里。
+- [x] **M0 文档。** 本计划、docs 里的切片说明、与 plan/12 的模块名对齐。所有者已按 §11 逐条确认（2026-10-09）。
+- [x] **M1 能走的坡。** `InkView`、透视侧视、`Playfield` 固定步和插值、角色圆、折线地面。`tests/playfield.test.ts` 不创建 GL。
+- [x] **M2 墨面。** `InkSurface` 提供 `paint` / `update` / `texture`。历史游戏 M1 可以开始接过场；过场播放器本身仍是 M5。
+- [x] **M3 三样画面。** `TerrainSeep`（512×256）、`createCunRock` 勾边、`BambooView` 墨滴。SwiftShader 截图见 `node scripts/gpu-check.mjs --shots`。真实 GPU 未实测。
+- [x] **M4 动作补全。** 单向平台、击退、扫掠、可砍。`InkView.washAt` 先 `washBridge` 再 `InkSurface.wash`。演示页 `apps/scroll/`。
+- [ ] **M5 叙事宿主。** 范围和验收用 plan/12 的 M1。`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`PostStack` 都还没有类。字幕定为 Canvas 纹理，也还没做。
 
-- [x] **M0 文档。** 本计划、docs 里的「计划」节、与 plan/12 的模块名对齐。所有者已按 §11 的建议逐条确认（2026-10-09）。
-- [ ] **M1 能走的坡。** `InkView`、透视侧视、`Playfield` 固定步和插值、角色圆、折线地面。vitest 不创建 GL。
-- [ ] **M2 墨面。** `InkSurface` 完成 G-01 的 `paint` / `update` / `texture`。这是历史游戏 M1 可以开始接过场的点。
-- [ ] **M3 三样画面。** 洇染、皴法勾边、断竹粒子。引擎垂直切片的画面部分。
-- [ ] **M4 动作补全。** 单向平台、击退、扫掠、可砍。水刷仍先改刚体。
-- [ ] **M5 叙事宿主。** 范围和验收用 plan/12 的 M1，不在这里重写。优先级保持那份表的 P0。
+坡度行走、击退和扫掠写在 `Playfield` 上，没有单独的 `ActorController` 或 `Combat` 类。竹的显示类名是 `BambooView`。上下文丢失只暂停，不重建渲染目标。
 
 ## 9. 验收
 
@@ -477,7 +477,7 @@ Playfield 碰撞（角色 × 地面）
 
 下列 18 条均按建议采纳。实现以这里为准，不再并列备选。
 
-1. **坐标。已确认。** 像素、Y 向下、`camera.up = (0, -1, 0)`，刚体 xy 原样写入 `position`。层 Z 用 −80 / 0 / 40 / 120。
+1. **坐标。已确认。** 像素、Y 向下、`camera.up = (0, -1, 0)`，刚体 xy 原样写入 `position`。层 Z 用 −80 / 0 / 40 / 120。实现时 `lookAt` 会镜像 X，`CameraRig` 用 `camera.scale.x = -1` 把世界 +x 放回画面右侧，见 §1.2。
 2. **镜头。已确认。** 默认透视，变焦改距离，`zoom` 1.1 表示拉近。正交只做调试。
 3. **角色体。已确认。** 切片用不会旋转的圆。胶囊留到人物骨架（G-13）。
 4. **可走坡。已确认。** 法线与屏幕向上的夹角小于约 50° 算可走。比较用点积和常数 `cos(50°)`，不在碰撞代码里调用 `Math.cos`。
