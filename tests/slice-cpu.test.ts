@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { clampDropletCount, DROPLET_CAP } from '../src/core/bamboo-rig';
 import { CLASSIC_NOISE_GLSL } from '../src/core/classic-noise';
-import { cunOutlineWidth } from '../src/core/cun-material';
+import { createCunRock, cunOutlineWidth } from '../src/core/cun-material';
+import { Mesh } from 'three';
 import { Playfield } from '../src/core/playfield';
 
 describe('slice cpu helpers', () => {
@@ -19,6 +20,21 @@ describe('slice cpu helpers', () => {
     expect(clampDropletCount(400, 0)).toBe(DROPLET_CAP);
     expect(clampDropletCount(40, 250)).toBe(6);
     expect(clampDropletCount(10, DROPLET_CAP)).toBe(0);
+  });
+
+  it('builds a rock hull with finite vertices', () => {
+    const rock = createCunRock('hemp', 11, 72);
+    const mesh = rock.object.children[0];
+    expect(mesh).toBeInstanceOf(Mesh);
+    if (!(mesh instanceof Mesh)) return;
+    const array = mesh.geometry.getAttribute('position')?.array;
+    expect(array).toBeDefined();
+    expect(array?.length ?? 0).toBeGreaterThan(30);
+    if (!array) return;
+    for (const value of array) expect(Number.isFinite(value)).toBe(true);
+    mesh.geometry.computeBoundingSphere();
+    expect(Number.isFinite(mesh.geometry.boundingSphere?.radius ?? Number.NaN)).toBe(true);
+    rock.dispose();
   });
 
   it('keeps the classic Perlin license notice in the shader source', () => {
