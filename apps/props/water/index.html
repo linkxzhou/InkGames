@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>道具 · InkGames</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="../../styles.css" />
+  <style>
+    .prop-stage { width: min(960px, 100%); margin: 0 auto; }
+    .prop-stage canvas { display: block; width: 100%; height: auto; background: #d6cebc; }
+    .prop-note { max-width: 960px; margin: 12px auto 0; color: #d6c5a6; font-size: 14px; line-height: 1.7; }
+    .prop-note button { font: inherit; margin-top: 8px; padding: 8px 16px; background: #eee3cf; color: #263b38; border: 0; cursor: pointer; }
+  </style>
+</head>
+<body class="demo" data-prop="water">
+  <header class="demo-header">
+    <a href="../../" class="brand"><span class="brand-seal">墨</span><span>INKGAMES <small>历史道具</small></span></a>
+    <a href="../../" class="back">← 返回首页</a>
+  </header>
+  <main class="demo-layout">
+    <div class="demo-heading">
+      <div>
+        <span class="demo-index">道具</span>
+        <h1 id="title">道具</h1>
+      </div>
+      <p id="blurb"></p>
+    </div>
+    <div class="canvas-shell prop-stage"><canvas id="view" width="960" height="540"></canvas></div>
+    <p class="prop-note" id="scenes"></p>
+    <p class="prop-note"><span id="status" role="status"></span><br /><button id="act" type="button">动作</button></p>
+  </main>
+  <script type="module" src="../page.ts"></script>
+</body>
+</html>

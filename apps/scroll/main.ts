@@ -16,6 +16,7 @@ if (!canvas) throw new Error('缺少画布');
 
 const params = new URLSearchParams(location.search);
 const pose = params.get('pose');
+const host = window as SliceWindow;
 const view = new InkView({
   canvas,
   width: 1280,
@@ -61,7 +62,6 @@ view.surface.paint({
   seed: 21,
 });
 
-const host = window as SliceWindow;
 const held = new Set<string>();
 
 window.addEventListener('keydown', event => {
