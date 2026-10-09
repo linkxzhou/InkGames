@@ -43,7 +43,7 @@
 
 | 组件 | 说明 |
 |---|---|
-| troika-three-text | 字幕 P0 定为 Canvas 纹理，不引入文字库。播放器属于叙事宿主，本切片没有字幕。 |
+| troika-three-text | 字幕 P0 定为 Canvas 纹理，不引入文字库。`InkText` 已用 `CanvasTexture` 播放过场标题，仍不安装此包。 |
 
 ## 审查记录
 

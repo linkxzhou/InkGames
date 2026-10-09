@@ -2,7 +2,7 @@
 
 [目录](./README.md) · [上一章](./04-plugin-system.md) · [下一章](./06-input-strokes-and-physics.md)
 
-> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主能播「易水寒」并走正史 / 野史；玩法模板、`PostStack`、景深和真实 GPU 验收仍未完成。
 
 ## `InkWorld`：2.0 的权威场景
 
@@ -43,4 +43,4 @@
 
 `addPolyline` 按折线每段做 `Bodies.fromVertices`，厚度 28，静态，标签 `ground`。地面网格的 Z 起伏只在 `InkView` 里画，不写进 Matter。远景是贴着 `InkSurface.texture` 的平面。角色圆显示在 z = 40，脚的 x、y 来自刚体。
 
-`CameraRig.follow` 每帧把焦点拉近 5%，再夹进关卡包围盒；关卡比视口短时居中。十卡 `InkStage` 的 ±48×36 限制留在那条舞台上，切片不用它。坐标仍是像素，没有改成米。过场层深仍约定为 `INK_LAYER_Z` 的 −80 / 0 / 40 / 120，过场播放器本身还没有。
+`CameraRig.follow` 每帧把焦点拉近 5%，再夹进关卡包围盒；关卡比视口短时居中。十卡 `InkStage` 的 ±48×36 限制留在那条舞台上，切片不用它。坐标仍是像素，没有改成米。过场镜头键是相对纸心的偏移，`x: 0` 表示居中。缓动 `inOutSine` 用平滑步多项式 `u*u*(3-2*u)`，不用 `Math.sin`。字幕平面放在 z = 1，盖住纸面，像素和纸对齐；放在 z = 120 会被透视放大。景深键记在姿态上，没有散景 pass。

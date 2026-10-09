@@ -2,7 +2,7 @@
 
 [目录](./README.md) · [上一章](./02-host-and-render-backend.md) · [下一章](./04-plugin-system.md)
 
-> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主和真实 GPU 验收仍未实现。
+> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主能播「易水寒」并走正史 / 野史；玩法模板、`PostStack`、景深和真实 GPU 验收仍未完成。
 
 两套时钟都是「渲染帧里累积，固定步追赶」。它们不要接到同一个世界上。
 
@@ -48,4 +48,4 @@
 
 `step(1/60)` 刚跑完一步时 `alpha` 为 0，画面用上一拍的位置。显示插值是 `sampleBodyLink`：x、y 在 `previous` 与 `current` 之间，z 保持登记时的层深。角色圆的 `inertia` 是 `Infinity`，网格旋转保持 0。断开的竹上段把 `rotation.z` 写成刚体角度。
 
-过场帧时钟还没有。`SceneDirector` 和 `CutscenePlayer` 未实现，所以还没有「过场期间暂停玩法、笔画按帧补步」这条路径。`Playfield.pausedClock` 可以被调用方打开，切片自己不用它做叙事。
+过场帧时钟在 `CutscenePlayer`。`clock.fps` 为 60 时，`step` 推进一帧；第一拍从 −1 落到 0，所以第 0 帧的提示会触发。实时笔画每帧一个点。跳过（`fastForward`）把刚开始的实时笔画收成一次 `paint`，不按帧补中间点。`StoryStage` 播过场时不调用 `Playfield`。玩法节点只显示目标并等待 `confirm`，不会在同一帧里再推物理。`Playfield.pausedClock` 仍只给上下文丢失和调用方使用。
