@@ -2,75 +2,52 @@
 
 [目录](./README.md) · [上一章](./05-world-scene-and-assets.md) · [下一章](./07-ink-rendering.md)
 
-> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主能播「易水寒」并走正史 / 野史；玩法模板、`PostStack`、景深和真实 GPU 验收仍未完成。
+权威几何在 CPU。像素着色器不决定能不能站上去。旧的 Pixi 十卡输入、v0.1 命令录制与 `brush-model` / `geometry` / `physics` 插件都已随旧栈删除。
 
-权威几何在 CPU。像素着色器不决定能不能站上去。
+## 输入
 
-## 2.0 输入
-
-`InkStage.installInput` 监听 `keydown` / `keyup` 和画布上的 `pointerdown` / `pointermove` / `pointerup`。监听都放进 `observers`，`dispose` 时成对卸掉。
+切片页（`apps/scroll/`）自己监听键盘与指针，转成 `Playfield` 的调用：
 
 | 输入 | 效果 |
 |---|---|
 | `A` / `D`（或左右箭头） | 固定步里 `move(-1)` / `move(1)`，都按住则不动 |
-| `W`（或上箭头） | `jump()`，仅当 `InkWorld` 认为角色着地 |
-| `Space` | `preventDefault` 后 `act()`，落点默认在角色右侧 |
-| 指针（剑、刀） | 拖动：可擦层 `beginStroke` / `addPoint` / `endStroke`，笔刷是该道具的 `slash`，湿墨跟着显示帧扩散 |
-| 指针（水刷） | 拖动：`wipe`，半径 52 |
-| 指针（其余） | 点下即 `act(x, y)`，用页面坐标换到 1280×720 |
+| `W`（或上箭头） | `jump()`，仅当 `Playfield` 认为角色着地 |
+| `Space` | 攻击：设置扫掠区间并触发 `attack()` |
+| 指针 | `InkView.pointer(clientX, clientY)` 把 CSS 坐标经 `Raycaster` 打到 z = 0 平面，得到世界像素坐标 |
 
-`local()` 用画布的 `getBoundingClientRect` 把 CSS 像素除回舞台像素。画布被 `object-fit: contain` 留空时，点在留白上会得到 `undefined`，这次输入丢掉。
+`InkView.pointer` 用画布的 `getBoundingClientRect` 换到 NDC，再用 `CameraRig.active` 发一条射线与地面平面求交。画布被 `object-fit: contain` 留空时点在留白上会返回 `undefined`，这次输入丢掉。
 
-## 2.0 笔：`InkBrushEngine`
+`Playfield` 的输入只是状态（方向、是否跳跃、是否攻击），推进发生在固定步里；指针坐标只用于水刷与墨面绘制，不参与碰撞求解。
 
-`src/core/ink-brush.ts` 逐帧移植 inkEngine 的笔刷，七种模式、八档尺寸、六种墨效都在，取值见 [第 7 章](./07-ink-rendering.md)。它只产生绘制指令（线、点、白底描边矩形），并告诉 `InkWash` 这一帧要不要跑 feedback、倒计时或提交。
+## 笔刷：`InkBrushEngine`
+
+`src/core/ink-brush.ts` 逐帧移植 inkEngine 的笔刷：七种模式、八档尺寸、六种墨效、混色，输出与渲染库无关的 `InkDrawOp`（线、点、白底描边矩形）与 `InkShaderState`。它只告诉宿主这一帧要不要跑 feedback、倒计时或提交；真正画到纹理上是 `InkSurface` 的事。
 
 ```ts
+import { InkBrushEngine } from '@inkgames/engine';
+
 const engine = new InkBrushEngine();
 engine.configure({ mode: 'brush', size: 'large', effect: 'mix', blend: 'mix' });
-engine.setColor('black');
-engine.press(80, 60, 100);                 // 指针坐标、落笔时的随机种子
-const step = engine.frame(true, 96, 60, 80, 60); // down、指针、上一指针
-// step.ops：本帧笔触；step.force：本帧 feedback 力度；step.commit：是否提交
 ```
 
-大笔每帧：弹簧阻尼 `vel = (vel + (tip − pos)·spring)·friction`（大笔 0.6/0.5），拆成 `interpSteps + 偏移` 个小步；每个小步按尺寸和随机选分叉类型，画主线和 5/8/12 条分叉。线宽是 `墨量 − 速度`，墨量每帧减 0.05，所以越快越细、越画越干。
+确定性约束：权威几何（笔画、侵蚀、碰撞）只用四则运算、`Math.sqrt` 和量化坐标，禁止 `Math.sin/cos/atan2/pow` 等超越函数；`ink-random.ts` 提供 LCG 随机与 4 层倍频噪声，以及多项式 `inkSin` / `inkCos`。同一 `seed` 得到同一批线段，`tests/ink-brush.test.ts` 锁的就是这些 CPU 笔触数据，不锁 GPU 图像。
 
-这支笔**不是**碰撞体。剑扫木桩用折线点到桩心的 `hypot < 56`。枪用 `distanceToSegment < 28`，并且 `Mark.hit` 只允许第一次。弓和墨弹只认 Matter 碰撞。盾的格挡要来袭距离小于 120。这些都是几何，不是武器扫掠体。
+## 笔画的三条来源
 
-## 水刷
-
-`wipe(x, y)`：
-
-1. `world.eraseBridge(x, y, 52)` 改刚体。锁定桥跳过。
-2. 可擦层 `marks.wash(x, y, 52)` 把这一圈的已提交墨往白色拉。锁定桥画在纸层上，所以它的墨还在。
-
-人可以站上可擦的桥。桥段被裁掉之后，角色会掉下去。这是 Matter 的结果，不是着色器阈值。
-
-## v0.1 笔画
-
-`quantizeSample`、`startBrush`、`advanceBrush` 在 `src/plugins/brush-model.ts`。`createStrokePlugin` / `createWaterErosionPlugin`（`src/plugins/geometry.ts`）维护笔画存储和侵蚀。命令名是 `DrawStroke`、`EraseStroke`。侵蚀改的是 CPU 折线，再通知 `InkFluid` 重绘。冒烟测试比较的是这条管线的墨量，不是 `InkWash`。
-
-## 确定性边界
-
-笔画坐标、桥的裁切只用四则、`Math.sqrt` / `Math.hypot` 和量化。笔刷里的角度用 `inkSin` / `inkCos`（多项式），朝向用速度的单位向量，不调用 `Math.sin` / `cos` / `atan2` / `pow`。随机是 p5 兼容的 `P5Random`，种子来自调用方；同一组点、同一 `seed`，绘制指令完全一致，并与 inkEngine 在 `p.randomSeed(seed)` 后的那一笔一致，`tests/ink-brush.test.ts` 锁了这一点。
-
-GPU 上的纸纹噪声和反馈着色器不参与碰撞。不要用读回的像素去改刚体。
-
-## 横版切片的动作
-
-`InkView.pointer` 用射线打到 z = 0 的平面。点在画布外时返回 `undefined`。
-
-规则在 `Playfield` 的固定步里，读刚体。屏幕向上是 `(0, -1)`。可走点积常数是 `0.6427876096865393`（约 `cos 50°`），碰撞代码不调用 `Math.cos`。
-
-| 行为 | 现行做法 |
+| 来源 | 说明 |
 |---|---|
-| 坡 | 接触法线指向角色。与屏幕向上的夹角小于约 50° 为 `walk`，水平速度沿切线走（`MOVE_SPEED` 为 5）。更陡为 `wall`：速度朝法线里的分量会被拿掉。 |
-| 跳 | `jump()` 只在 `walk` 且没有击退锁时把竖直速度设为 `JUMP_VY`（−12）。 |
-| 单向平台 | 类别 `0x0002`。上一帧脚底 `y`（越大越低）不大于平台顶 + 6，且 `dropThrough` 的 10 步倒计时为 0，才打开 mask。 |
-| 击退 | `hurt(vx, vy)` 把速度缩进 `KNOCKBACK_CAP`（12），并锁移动 `KNOCKBACK_LOCK`（22）步。锁定期间 `move` 不改速度。 |
-| 命中 | `attack()` 打开 14 步（`ATTACK_STEPS`）。窗口内 `Query.ray` 沿朝向扫 72 像素、宽 12。每个刚体 id 只记一次。十卡的距离判断留在 `InkWorld`。 |
-| 可砍 | `cutBamboo` 去掉整根，留下 35% 高的静态根和带初速的上段。 |
-| 水刷 | `InkView.washAt` 先 `washBridge`，再 `InkSurface.wash`。 |
+| 道具预设（`{ prop, parts?, placement }`） | 复用 `paintProp`，与文档里的道具语义一致 |
+| 内联路径（`{ brush: '道具.部件', path, speed }`） | 走 `actionStroke` 取该部件的笔刷参数，再用 `samplePolyline` 按 `speed` 采样；`catmull` 会先插值 |
+| 录制（`{ recording }`） | **未实现**：v0.1 `recording.ts` 已删除，2.0 新格式（G-04 `inkgames.ink-recording`）未做；`resolveStrokeCue` 遇到 `recording` 返回空数组 |
 
-渗流、皴法噪声和竹的顶点摆动不回读成碰撞。过场里的 `inkDisperse` / `bambooBreak` 仍没有单独的视觉。`StoryStage` 会把 flow / distort / metallic 交给 `InkSurface.replayEffect`，`wash` 调用 `surface.wash`。
+`mode: 'live'` 逐帧推进（观众看到「画」的过程），`mode: 'instant'` 一帧内画完（背景）。`StoryStage.paintPulses` 强制**同一墨面只有一个活动笔画**：同层重复 `begin`、游离 `point` / `end`、活动笔画期间插入 `instant` 都会被拒绝并计入 `rejectedPulses`，不会静默串色或串路径。`end` 会 `update()` 提交末点，`endOfStroke` 为真时才应用 `finish`。
+
+## 碰撞
+
+- 地面：折线每段一个静态 `Bodies.fromVertices`，厚度 28。地面网格的 Z 起伏只是画法，不参与碰撞。
+- 单侧站立的坡由 `Footing` 结果表达，角色落地、跳跃、受击状态机在固定步里推进。
+- 击退与扫掠：命中是**扫掠体**，不是单点距离；`SweepHit` 描述命中区间。`KNOCKBACK_CAP` / `KNOCKBACK_LOCK` 限制连续击退。
+- 砍竹：`Playfield.cutBamboo` 把静态竿换成静态根 + 动态上段，`BambooView` 负责摆动与最多 `DROPLET_CAP`（256）个墨滴，墨滴不写回地面纹理。
+- 水刷：先改 CPU 碰撞几何（擦桥），再做视觉减淡；锁定笔画不走这条擦除。
+
+Matter 跨版本不是逐位确定，玩法回放锁定 `matter-js@0.20.0`；不承诺跨浏览器逐位相同。

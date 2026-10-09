@@ -1,5 +1,5 @@
 import type { InkBlend, InkBrushMode, InkEffect, InkSizeName } from '../core/ink-brush';
-import type { InkFinish } from '../core/ink-wash';
+import type { InkFinish } from '../core/ink-stroke';
 import type { InkColorName } from '../core/ink-palette';
 
 /**

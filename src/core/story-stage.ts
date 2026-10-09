@@ -8,7 +8,7 @@ import { SceneDirector, type DirectorView } from './scene-director';
 import { InkSurface, type InkSurfaceSnapshot } from './ink-surface';
 import { InkText } from './ink-text';
 import type { SaveStorage } from './save-store';
-import type { InkFinish } from './ink-wash';
+import type { InkFinish } from './ink-stroke';
 import type { StrokePulse } from './cutscene-player';
 
 export interface StoryStageOptions {
@@ -46,6 +46,8 @@ export class StoryStage {
   private readonly onRestored: () => void;
   private loseExt: WEBGL_lose_context | null = null;
   private snaps = new Map<string, InkSurfaceSnapshot>();
+  private readonly live = new Set<LayerSlot>();
+  private rejected = 0;
   private lost = false;
   private restoreCount = 0;
   private disposed = false;
@@ -109,6 +111,8 @@ export class StoryStage {
   get contextLost(): boolean { return this.lost; }
   get glError(): number { return this.lastError; }
   get restores(): number { return this.restoreCount; }
+  /** Pulses dropped because they could not be applied to a free surface. */
+  get rejectedPulses(): number { return this.rejected; }
 
   captureRestorePoint(): void {
     if (this.lost || this.disposed) return;
@@ -202,15 +206,36 @@ export class StoryStage {
       const slot = this.layers.get(pulse.layer === 'overlay' ? 'sheet' : pulse.layer) ?? this.layers.get('sheet');
       if (!slot) continue;
       const stroke = pulse.stroke;
-      if (pulse.mode === 'instant') {
-        slot.surface.paint({ brush: stroke.brush, color: stroke.color, points: stroke.points, seed: stroke.seed, finish: stroke.finish });
+      const point = pulse.point;
+      // A live run owns one surface at a time. A second begin on the same layer
+      // while one is open cannot be expressed by InkSurface, so it is reported
+      // instead of silently interleaving two strokes.
+      if (pulse.mode === 'begin') {
+        if (this.live.has(slot)) { this.rejected += 1; continue; }
+        this.live.add(slot);
+        slot.surface.setBrush(stroke.brush);
+        slot.surface.setColor(stroke.color);
+        if (!point) { this.live.delete(slot); this.rejected += 1; continue; }
+        slot.surface.beginStroke(point.x, point.y, stroke.seed);
         continue;
       }
-      const point = pulse.point;
-      if (!point) continue;
-      if (pulse.mode === 'begin') slot.surface.beginStroke(point.x, point.y, stroke.seed);
-      else if (pulse.mode === 'point') slot.surface.addPoint(point.x, point.y);
-      else slot.surface.endStroke();
+      if (pulse.mode === 'point') {
+        if (!this.live.has(slot) || !point) { this.rejected += 1; continue; }
+        slot.surface.addPoint(point.x, point.y);
+        continue;
+      }
+      if (pulse.mode === 'end') {
+        if (!this.live.has(slot)) { this.rejected += 1; continue; }
+        this.live.delete(slot);
+        slot.surface.endStroke();
+        slot.surface.update();
+        if (stroke.finish && pulse.endOfStroke === true) slot.surface.replayEffect(stroke.finish);
+        continue;
+      }
+      if (pulse.mode === 'instant') {
+        if (this.live.has(slot)) { this.rejected += 1; continue; }
+        slot.surface.paint({ brush: stroke.brush, color: stroke.color, points: stroke.points, seed: stroke.seed, finish: stroke.finish });
+      }
     }
   }
 

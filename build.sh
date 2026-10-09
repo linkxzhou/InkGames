@@ -39,7 +39,7 @@ cmd_install() {
 
 cmd_dev() {
   ensure_deps
-  log "启动开发服务器：http://${HOST}:${PORT}/ （2.0 十卡首页；旧 /inkcross/、/wuxia/ 暂留）"
+  log "启动开发服务器：http://${HOST}:${PORT}/ （三入口导航：/scroll/、/story/、/history/）"
   if [ "${OPEN:-0}" = "1" ] && command -v open >/dev/null 2>&1; then
     ( sleep 2; open "http://${HOST}:${PORT}/" ) &
   fi
@@ -61,7 +61,7 @@ cmd_build() {
 
 cmd_preview() {
   cmd_build
-  log "预览构建产物：http://${HOST}:4173/ （2.0 十卡首页）"
+  log "预览构建产物：http://${HOST}:4173/ （三入口导航）"
   exec yarn preview --host "$HOST"
 }
 
@@ -85,7 +85,7 @@ cmd_check() {
 
 cmd_browser() {
   ensure_deps
-  log "构建后在 Chromium(headless + SwiftShader) 中冒烟：十卡、对照页、墨渡、江湖"
+  log "构建后在 Chromium(headless + SwiftShader) 中冒烟：切片、叙事、历史动画"
   yarn build
   node scripts/browser-smoke.mjs
 }
@@ -100,13 +100,13 @@ usage() {
 用法: ./build.sh <命令>
 
   install     安装依赖（yarn install）
-  dev         启动 Vite：/ 十卡效果首页（旧 /inkcross/、/wuxia/ 暂留）
+  dev         启动 Vite：/ 三入口导航（/scroll/、/story/、/history/）
               环境变量：PORT=5173 HOST=127.0.0.1 OPEN=1（自动打开浏览器，仅 macOS）
   typecheck   TypeScript 严格类型检查
   build       类型检查 + 生产构建（输出 dist/）
   preview     构建后启动预览服务器 http://127.0.0.1:4173/
   test        运行 vitest 单元测试
-  browser     构建后在无头 Chromium 中做 WebGL2/页面冒烟验证
+  browser     构建后在无头 Chromium 中对三条 three.js 页面做启动与零图片请求冒烟
   links       校验 README/docs/plan 的本地相对链接
   check       typecheck + test + links（提交前必跑）
   clean       清理 dist/ 与缓存

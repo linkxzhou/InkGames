@@ -121,7 +121,9 @@ paintStatus();
 if (!pose) {
   let last = performance.now();
   const loop = (now: number): void => {
-    const dt = Math.min(0.05, (now - last) / 1000);
+    // The first rAF timestamp can precede the performance.now() captured above,
+    // which would make dt negative and trip Playfield's guard; clamp both ends.
+    const dt = Math.min(0.05, Math.max(0, (now - last) / 1000));
     last = now;
     steer();
     view.frame(dt);

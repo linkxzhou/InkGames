@@ -12,8 +12,8 @@ import { inkCos, inkSin, lerp, P5Noise, P5Random, pow06, remap, round2, TWO_PI }
  * Ported with attribution under the owner-stated inkField authorization (THIRD_PARTY_NOTICES.md).
  *
  * The engine only produces draw ops (lines, dots, outlined rects in the wet buffer's gray) and says
- * when the feedback, countdown and commit passes run; InkWash turns those into GPU work.
- * Random draws follow the original order with a p5-compatible LCG and noise, so a stroke seeded
+ * when the feedback, countdown and commit passes run; InkSurface turns those into GPU work.
+ * Random draws follow the original order with a numerically p5-compatible LCG and noise, so a stroke seeded
  * like inkEngine takes the same decisions. Angles use polynomial sin/cos, never Math.sin/atan2.
  * This is visual ink only; collision geometry lives in InkWorld.
  */

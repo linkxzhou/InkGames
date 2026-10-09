@@ -13,6 +13,8 @@ export interface StrokePulse {
   readonly mode: 'instant' | 'begin' | 'point' | 'end';
   readonly stroke: PropStroke;
   readonly point?: { readonly x: number; readonly y: number };
+  /** True when this end pulse closes the stroke, so its finish may be applied once. */
+  readonly endOfStroke?: boolean;
 }
 
 export interface CameraPose {
@@ -110,7 +112,7 @@ export class CutscenePlayer {
         if (!point) {
           if (run.open) {
             const last = run.stroke.points[run.stroke.points.length - 1];
-            if (last) strokes.push({ layer: run.layer, mode: 'end', stroke: run.stroke, point: last });
+            if (last) strokes.push({ layer: run.layer, mode: 'end', stroke: run.stroke, point: last, endOfStroke: true });
           }
           run.done = true;
           continue;
@@ -119,7 +121,7 @@ export class CutscenePlayer {
           strokes.push({ layer: run.layer, mode: 'begin', stroke: run.stroke, point });
           run.open = true;
         } else if (run.cursor >= run.stroke.points.length - 1) {
-          strokes.push({ layer: run.layer, mode: 'end', stroke: run.stroke, point });
+          strokes.push({ layer: run.layer, mode: 'end', stroke: run.stroke, point, endOfStroke: true });
           run.done = true;
         } else {
           strokes.push({ layer: run.layer, mode: 'point', stroke: run.stroke, point });

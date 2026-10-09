@@ -2,64 +2,66 @@
 
 [目录](./README.md) · [上一章](./08-gameplay-and-persistence.md) · [下一章](./10-shipping-and-ecosystem.md)
 
-> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主能播「易水寒」并走正史 / 野史；玩法模板、`PostStack`、景深和真实 GPU 验收仍未完成。
-
 命令只有 `./build.sh` 这一套。
 
 | 命令 | 做什么 |
 |---|---|
 | `install` | `yarn install`。失败时脚本直接退出并提示检查网络，不会跳过。 |
-| `dev` | Vite，`apps/` 为根，默认 `127.0.0.1:5173`。`/` 是十卡首页。 |
+| `dev` | Vite，`apps/` 为根，默认 `127.0.0.1:5173`。`/` 是三入口导航。 |
 | `typecheck` | `tsc --noEmit`，`strict`。 |
-| `build` | 类型检查后 `vite build`，产物在 `dist/`。入口含十卡、首页、`inkcross`、`wuxia`、`compare`。 |
+| `build` | 类型检查后 `vite build`，产物在 `dist/`。入口只剩 `scroll`、`story`、`history`。 |
 | `test` | `vitest run`。 |
 | `links` | `scripts/check-links.mjs` 检查 README、AGENTS、`docs/`、`plan/` 的相对链接。 |
 | `check` | `typecheck` + `test` + `links`。提交前跑这个。 |
 | `browser` | 先 `build`，再 `scripts/browser-smoke.mjs`。 |
 | `clean` | 删 `dist/` 和 Vite/Vitest 缓存。 |
 
-## 单测覆盖什么
+## 单测覆盖什么（11 个文件，61 项）
 
-`tests/` 对 v0.1 的时钟、插件图、侵蚀、场景、录制做断言。`tests/v2-core.test.ts` 覆盖 `InkWorld` 的落地、墨桥裁切、投射物命中，以及道具预设校验。`tests/ink-brush.test.ts` 覆盖 p5 兼容的随机与噪声、面板取值，以及笔刷移植与 inkEngine 的对齐（同一测试笔画的笔画种子与逐帧线段数）。`tests/prop-brushes.test.ts` 检查每个道具的笔刷行都是 inkEngine/index.html 能选到的值、各道具配置互不相同、每笔每帧一个指针点。测试不创建 WebGL，也不比较截图像素。
+| 文件 | 覆盖 |
+|---|---|
+| `frame-clock.test.ts` | 玩法固定步的四步封顶与夹取；过场帧钟的墙钟追赶、**进位而非取整**、抖动平均后精确、片尾夹取与不倒退、超预算丢弃 |
+| `cutscene-pulses.test.ts` | live 笔画：单次 `begin` → 有序 `point` → 单次收笔且只应用一次 `finish`；单点笔画也会收笔；跳播折叠为 `instant` |
+| `playfield.test.ts` | 刚体 xy 进 `BodyLink`、插值两端、追步封顶时 `alpha` 为 1、可走坡与过陡当墙、单向平台掩码、击退锁定 |
+| `slice-cpu.test.ts` | 竹从一节变两段、接触点变盖章、高度场哈希可重复、勾边宽度随距离变化、墨滴上限、经典 Perlin 许可声明 |
+| `ink-presentation.test.ts` | 表现数据校验（唯一 id、严格递增帧、scale/opacity 范围、impulse 指向已声明图层）、`poseAt` 夹取与插值确定、**order 与 clip 在关键帧处切换**、形状 id 唯一 |
+| `ink-clip.test.ts` | 裁剪矩形的保留、按关键帧切换、拒绝零尺寸 |
+| `ink-brush.test.ts` | p5 兼容随机与噪声、面板取值、笔刷移植与 inkEngine 对齐（同一测试笔画的种子与逐帧线段数） |
+| `prop-brushes.test.ts` | 每个道具的笔刷行都是 inkEngine/index.html 能选到的值、各道具配置互不相同、每笔每帧一个指针点 |
+| `narrative.test.ts` | 21 章都能解析；荆轲开场在第 140 帧停在 `s1.title` 并出现「易水寒」；快进后只有正史/野史可选；正史走到结局后 `resume()` 回到该节点；推演在两条线都通关前不可选 |
+| `ink-camera.test.ts` | 层深缩放与虫蚀采样的确定性 |
+| `ink-animation.test.ts` | 图片显影镜头的边界、seek 求值与非法镜头（对照实验用） |
+
+测试不创建 WebGL，也不比较截图像素。领域数据另有一条独立校验：`node plan/11-history-game-data/tools/validate.mjs` 检查 21 章 / 157 场景 / 分镜连续性与字符串引用（当前 0 错误）。
 
 ## 浏览器冒烟
 
-`scripts/browser-smoke.mjs` 用无头 Chromium。启动参数包含 `--enable-unsafe-swiftshader`、`--use-gl=angle`、`--use-angle=swiftshader`。没有独立显卡时走 SwiftShader。
+`scripts/browser-smoke.mjs` 用无头 Chromium，启动参数包含 `--enable-unsafe-swiftshader`、`--use-gl=angle`、`--use-angle=swiftshader`。它依次打开 `/scroll/`、`/story/`、`/history/`，对每页：
 
-它检查：
+- 等到各自的 ready 旗标（`__sliceReady` / `__storyReady` / `#play` 可用）；
+- 断言存在尺寸 ≥ 1 的画布；
+- 断言没有 `pageerror`、没有非资源加载的 console error、没有 HTTP ≥ 400 的响应；
+- 断言**图片请求数为 0**（参考图只作人工对照，运行时不得加载）；
+- 在 `/history/` 上调用 `window.__historyHash(frame)`，断言**连续两次渲染同一帧逐字节一致、不同帧必须不同**（2026-10-09 实测：同帧 3603028584，异帧 2396843167）。
 
-- `/` 有十张卡，且没有 `pageerror`。
-- 十个道具页出现画布、`#loading` 隐藏、状态离开「加载中」。
-- `/compare/` 在超时内把 `window.__compareReady` 设为真。
-- `/inkcross/` 仍检查墨珠、印章、落笔、水刷擦桥、锁定桥不被误伤、稳定期墨量漂移、擦除对墨量有影响、上下文丢失后引擎 `paused`。
-- `/wuxia/` 仍检查画布宽度 900、WebGL2、波次和斩敌文字。
+只证明引擎启动、着色器能编过、没有未捕获异常。SwiftShader 通过不等于 60 FPS，也不等于 Safari / Firefox / 真机 GPU 已测。
 
-局部重绘和全量重建的墨量差只打印，不作为失败条件。那是旧墨水的已知差异。
-
-SwiftShader 通过不等于 60 FPS，也不等于 Safari / Firefox / 真机 GPU 已测。那些在文档和计划里写明「未实测」。
-
-## 横版切片的检查
-
-`tests/playfield.test.ts` 与 `tests/slice-cpu.test.ts` 不创建 WebGL。它们覆盖：刚体 xy 进 `BodyLink`、插值两端、追步封顶时 `alpha` 为 1、可走坡与过陡当墙、单向平台的 mask、击退锁定、竹从一节变成两段、接触点变成盖章、高度场哈希可重复、勾边宽度随距离变化、墨滴数量上限、Perlin 许可声明还在。`tests/narrative.test.ts` 只读 `plan/11-history-game-data`：21 章都能解析，荆轲开场在第 140 帧停在 `s1.title` 并出现「易水寒」，快进后选择只有正史和野史，正史走到结局后 `resume()` 回到该节点，推演在两条线都通关前不可选。`tests/ink-brush.test.ts`、`tests/prop-brushes.test.ts`、`tests/v2-core.test.ts` 仍要过。
-
-本机看切片：
+## 本机看图
 
 ```bash
 node scripts/gpu-check.mjs
 ```
 
-这条命令打印 `http://127.0.0.1:4179/scroll/`、`/story/` 和 `/compare/parity.html?scene=modes`（端口可用 `GPU_CHECK_PORT` 改）并留下 Vite，给所有者在自己的 Chrome 里看。真实 GPU 验收定在所有者的 Mac（Apple Silicon，Chrome）上，在那之前文档保持未实测。
+打印 `http://127.0.0.1:4179/scroll/` 与 `/story/`（端口可用 `GPU_CHECK_PORT` 改）并留下 Vite，给所有者在自己的 Chrome 里看。真实 GPU 验收定在所有者的 Mac（Apple Silicon，Chrome）上，在那之前文档保持未实测。
 
 ```bash
 node scripts/gpu-check.mjs --shots
 ```
 
-`--shots` 或 `GPU_CHECK_SHOTS=1` 用无头 Chromium 加 SwiftShader 打开 `/scroll/?pose=rest` 与 `?pose=cut`，再对 rest 调用 `window.__sliceLose` / `__sliceRestore`（`WEBGL_lose_context`），然后打开 `/story/?pose=title` 与 `?pose=fork`（fork 必须停在 `choice`），以及 `/compare/parity.html?scene=modes`。截图写到 `GPU_CHECK_OUT`（缺省 `/opt/cursor/artifacts/screenshots/`）：`slice-rest.png`、`slice-cut.png`、`slice-restored.png`、`story-title.png`、`story-fork.png`、`parity-modes.png`。通过条件是对应的 ready 旗标为真、GL 错误为 0、没有 `pageerror` 和 console error。这只证明着色器能编过。SwiftShader 的像素不能当成和 inkEngine 逐像素相同，也不能当成真实 GPU 验收。
+`--shots` 用无头 Chromium 加 SwiftShader 打开 `/scroll/?pose=rest` 与 `?pose=cut`，对 rest 调用 `window.__sliceLose` / `__sliceRestore`（`WEBGL_lose_context`），再打开 `/story/?pose=title` 与 `?pose=fork`（fork 必须停在 `choice`）。截图写到 `GPU_CHECK_OUT`（缺省 `/opt/cursor/artifacts/screenshots/`）。通过条件是 ready 旗标为真、GL 错误为 0、无 `pageerror`。
 
-过场「同一机器连播两次、镜头末帧一致」仍是 [plan/12](../plan/12-history-game-engine-gaps.md) 的验收，这次没有做。性能目标（整帧 16.6 ms、过场墨面每帧 ≤ 8 ms）未实测。Safari、Firefox 未实测。
+过场「同一机器连播两次、镜头末帧一致」仍是 [plan/12](../plan/12-history-game-engine-gaps.md) 的验收，没有做。性能目标（整帧 16.6 ms、过场墨面每帧 ≤ 8 ms）未实测。
 
-## 对照截图
+## 对照素材
 
-`/compare/?prop=<id>` 在 640×480、`INK_STAGE_PAPER` 纸色、种子 `1234567890` 上画一个道具（`?scene=modes` 是七种笔刷各一笔，800×600、222 灰），并把笔画写进 `window.__compareScene`：模式编号、尺寸、墨效、混色、颜色、指针坐标、种子。
-
-`scripts/capture-parity.mjs` 先截这一页，再打开 `scripts/inkengine-host.html`（同尺寸、同纸色、同种子、`pixelDensity: 1`、**打开** EasyCam），逐笔执行 `p.randomSeed(seed)`、`setBrush`、`setColor`、`strokePath`、`step(点数 + 倒计时)`。笔画带 `finish` 时，接着按同样顺序调用 `scanBugBites`、打开 distort，或 `replayFlowEffect`。`?scene=camera` 会把 inkEngine 的 `layerZ[0]` 设成 40。用 `snapshot()` 取图，最后并排拼成 `<id>-compare.png`。EasyCam 关掉时 inkEngine 的整幅画会缩到约 65% 并居中，坐标对不上。截图写到 `/opt/cursor/artifacts/screenshots/`。inkEngine 一侧每帧要 0.1–0.3 秒，全部道具要十几分钟。两边不会逐像素相同，差异表在 [第 12 章](./12-inkengine-parity-audit.md)。
+`/compare/` 页面与 `scripts/capture-parity.mjs` 原先在 640×480 上把 Pixi `InkWash` 与 inkEngine 宿主页并排。**Pixi 一侧已随 `InkWash` 删除，这条自动对照链路当前不可运行**；`scripts/inkengine-host.html` 与 `port-inkengine-shaders.mjs` 只用于生成/核对 `ink-shaders.ts`。差异结论留在 [第 12 章](./12-inkengine-parity-audit.md)，其中 Pixi 列的数值属于历史记录。

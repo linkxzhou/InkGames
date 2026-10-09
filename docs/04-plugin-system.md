@@ -1,40 +1,21 @@
-# 04 · 插件与道具
+# 04 · 道具与模块
 
-[目录](./README.md) · [上一章](./03-microkernel-and-loop.md) · [下一章](./05-world-scene-and-assets.md)
+[目录](./README.md) · [上一章](./03-clocks.md) · [下一章](./05-world-scene-and-assets.md)
 
-> 本章前半描述十卡仍在用的 Pixi 舞台。文末「横版切片」是已经从 `src/index.ts` 导出、可以调用的 three.js 关卡。叙事宿主能播「易水寒」并走正史 / 野史；玩法模板、`PostStack`、景深和真实 GPU 验收仍未完成。
+「插件」这个词在仓库里只剩一层意思：**道具笔刷表**。曾经的 v0.1 能力插件图（`EnginePlugin`、服务 token、`resolvePlugins`、`PluginManifest`）已随 `src/core/engine.ts`、`types.ts`、`plugin-graph.ts`、`plugins/tokens.ts` 删除。
 
-「插件」这个词在仓库里有两套意思。
+## 模块划分
 
-## v0.1：能力插件
+| 目录 | 内容 |
+|---|---|
+| `src/core/` | 引擎内核：笔刷、调色、墨面、分件墨层、物理与玩法、三项画面、叙事宿主、时钟、内容解析 |
+| `src/plugins/` | 道具笔画：`prop-brushes.ts`（笔刷表）、`prop-paintings.ts`（画法）、`items.ts`（道具元数据） |
+| `apps/` | HTML + TS 示例：入口导航、横版切片、叙事宿主、历史动画 |
+| `tests/` | 纯逻辑单测，不创建 GL |
 
-`EnginePlugin`（`src/core/types.ts`）有 `manifest`，以及 `register` / `init` / `start` / `fixedUpdate` / `render` / `stop` / `dispose`。
+新增公共能力只从 `src/index.ts` 导出，对象契约用 TypeScript `interface`。
 
-`PluginManifest` 字段：
-
-```ts
-interface PluginManifest {
-  readonly id: string;
-  readonly version: string;
-  readonly requires?: readonly Dependency[];
-  readonly optional?: readonly Dependency[];
-  readonly provides?: readonly ProvidedService[];
-  readonly fixedPhase?: FixedPhase;
-  readonly renderPhase?: RenderPhase;
-  readonly before?: readonly string[];
-  readonly after?: readonly string[];
-}
-```
-
-`Dependency.range` 和 `ProvidedService.version` 用 `satisfies()`（`src/core/plugin-graph.ts`）做主版本兼容。`register` 里 `provide(token, value)` 必须先在 `provides` 声明，且一个 token 只能登记一次。`init` 时缺依赖会失败并回滚已登记的资源。
-
-服务用 `createToken<T>(id)`，运行时身份是 `symbol`。现有 token 在 `src/plugins/tokens.ts`：`SceneToken`、`CameraToken`、`InputToken`、`StrokeToken`、`ErosionToken`、`PhysicsToken`、`RendererToken`、`InkToken`、`InkDiagnosticsToken`、`CanvasSurfaceToken`。
-
-这条图仍然服务墨渡和江湖页。新的十卡**没有**把自己装进 `Engine`。
-
-## 2.0：道具预设，不是第二套插件图
-
-`ItemPreset`（`src/plugins/items.ts`）：
+## 道具元数据：`ItemPreset`（`src/plugins/items.ts`）
 
 ```ts
 interface ItemPreset {
@@ -55,20 +36,38 @@ interface ItemPreset {
 
 十个 id：`sword`、`blade`、`spear`、`bow`、`shield`、`war-horse`、`banner`、`ink-bomb`、`water-brush`、`boat`。
 
-页面结构：
+**这些 id 现在只作为笔画语义与文档映射使用**：原先各自一页的十卡演示（`apps/sword/` 等）已删除，`InkStage` 的 `switch (item.action)` 行为也随 `InkStage` 一起删除。道具行为在切片里由 `Playfield` 承担，在历史动画里由 `PROP_BRUSHES` + 分件墨层承担。
 
-- `apps/index.html` + `apps/main.ts`：读 `ITEM_PRESETS` 画十张卡，链到 `./<id>/`。
-- `apps/<id>/index.html`：`body` 带 `data-item`，并有 `#hint`、`#action`、`#replay`、`#pause`、`#reset`、`#canvas-root`、`#status`、`#loading`。
-- `apps/demo.ts`：只 import `@inkgames/engine`，`getItemPreset` + `InkStage.create`。
+## 笔刷表：`PROP_BRUSHES`（`src/plugins/prop-brushes.ts`）
 
-道具行为目前写在 `InkStage` 的 `switch (item.action)` 里，预设只提供文案和动作种类。还没有每个道具一个 `itemId / requiresEffects` 文件，也没有独立的资源租约。这是计划里的 P2，不是页面应该自己补的私有逻辑。
+每个道具按部件给一行：
 
-## 旧页面不要混进十卡
+```ts
+interface PropBrush {
+  readonly mode: InkBrushMode;
+  readonly size: InkSizeName;
+  readonly effect: InkEffect;      // mix / wet / effect4 / hair / sharpen / flyingWhite …
+  readonly blend: InkBlend;
+  readonly color: InkColorName;
+  readonly speed: number;          // 每帧指针位移
+  readonly pressure?: number;      // 数位板 0..1
+  readonly finish?: InkFinish;     // flow / distort / metallic
+}
+```
 
-`/inkcross/` 用 `createInkCrossPlugin`。`/wuxia/` 是应用层自动战斗，仍走 `Engine`。`/compare/` 只构造 `InkWash`，不创建 `InkWorld`，用来和 inkEngine 对同一组折线。它不出现在首页十张卡里。
+`PropPaintingId` 覆盖十个道具，外加背景用的 `landscape`、`water`、`figure`。`paintProp(id, placement)` 用 `src/plugins/prop-paintings.ts` 里的折线生成一组 `PropStroke`；`actionStroke(id, part, path, seed)` 复用同一部件的笔刷参数但换成自定义路径。`resolveStrokeCue(cue)`（`src/core/stroke-cues.ts`）把 `plan/11` 的过场 JSON 提示收成 `PropStroke[]`：`{ prop, placement }` 走 `paintProp`，`{ brush: '道具.部件', path, speed }` 走 `actionStroke` + `samplePolyline`。
 
-## 横版切片已导出的模块
+`finish` 由 `StoryStage` 在收笔脉冲上应用一次（`endOfStroke`），写入 `InkSurface` 的 flow / distort / metallic。
 
-十卡的 `ItemPreset` 不变，切片不走插件图。已经从 `src/index.ts` 导出的是 `InkView`、`Playfield`、`CameraRig`、`InkSurface`、`TerrainSeep`、`createCunRock`、`BambooView`，以及叙事宿主 `SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`StoryStage`。坡度行走、击退、扫掠和砍断写在 `Playfield` 的方法上。皴法在 `src/core/cun-material.ts`，竹的显示在 `src/core/bamboo-rig.ts` 的 `BambooView`。
+## 已导出、可供页面调用的模块
+
+- 画布与渲染：`InkView`、`StoryStage`、`InkScene`、`CameraRig`、`InkSurface`。
+- 物理与玩法：`Playfield`、`InkWorld`。
+- 三项画面：`TerrainSeep`、`createCunRock`、`BambooView`。
+- 叙事宿主：`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`。
+- 内容解析：`parseScenePackage`、`parseChapterBundle`、`parseChapterIndex`、`conditionMet`、`resolveStrokeCue`。
+- 表现数据：`validatePresentation`、`poseAt`。
+
+坡度行走、击退、扫掠和砍断写在 `Playfield` 的方法上，没有单独的 `ActorController` / `Combat` 类。皴法在 `src/core/cun-material.ts`，竹的显示在 `src/core/bamboo-rig.ts` 的 `BambooView`。
 
 还没有类的名字：`PostStack`、`defineGameplay`。过场效果由 `StoryStage` 直接写到墨面。历史游戏的优先级仍以 [plan/12 的缺口表](../plan/12-history-game-engine-gaps.md#3-引擎缺口清单) 为准。

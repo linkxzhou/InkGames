@@ -1,7 +1,7 @@
 # 11 · 水墨中华史：故事结构与玩法设计（草案）
 
 > 状态：**规划草案；内容数据已写完、游戏未实现**。21 章 157 个场景全部写成完整场景（首版发布批次 66 个，见 [内容数据格式 §2.9](./11-history-game-content-schema.md#29-章节数据包索引与大纲级场景)）；运行时的叙事宿主模块已在 main 上（见 [12 §1](./12-history-game-engine-gaps.md#1-现有代码里能带走什么)），尚未接入这批数据。这份文档讲游戏怎么组织、剧情怎么分叉、内容怎么写。引擎要补什么见 [12 · 引擎缺口与路线](./12-history-game-engine-gaps.md)，逐朝代的章节表见 [11 · 章节大纲](./11-history-game-chapter-outline.md)，数据格式与完整样例见 [11 · 内容数据格式](./11-history-game-content-schema.md)。
-> 引擎目标：仓库所有者已决定把引擎从 PixiJS + Matter.js 迁到 **three.js + Matter.js**（横版动作：Matter 在 X/Y 平面做 2D 物理，驱动 three.js 模型的 `position.x/y`，Z 固定）。引擎规划与文档另有改写，本系列不改 `plan/10` 和 `docs/`，只追加一条“历史游戏”产品线，并以 three.js 目标写引擎缺口。当前 `src/` 仍是 PixiJS 实现，下文提到的 `InkWash`、`PROP_BRUSHES` 等指现有代码，迁移后以新名字为准。
+> 引擎目标：**three.js + Matter.js**（横版动作：Matter 在 X/Y 平面做 2D 物理，驱动 three.js 模型的 `position.x/y`，Z 固定）。**迁移已完成（2026-10-09）**：PixiJS / p5 / 原生 WebGL2 已从 `src/`、`apps/` 和依赖中删除，见 [plan/10 §7](./10-three-matter-side-scroller-plan.md#7-从-pixijs-迁走2026-10-09-已完成)。下文提到的 `PROP_BRUSHES`、`InkSurface` 等按现行代码理解；`InkWash` / `InkStage` 已不存在。
 > 本系列文件：[11 · 故事与玩法（本文）](./11-history-game-story-design.md)、[11 · 章节大纲](./11-history-game-chapter-outline.md)、[11 · 内容数据格式](./11-history-game-content-schema.md)、[12 · 引擎缺口与路线](./12-history-game-engine-gaps.md)、[数据与样例目录](./11-history-game-data/)。
 > 日期：2026-10-09。凡标“待核验”的史实，在进入正式脚本之前必须回查原典。
 
@@ -112,7 +112,7 @@
 | 战阵 | spear（thrust）、banner（wind，旗语与士气）、war-horse（gallop） | 长平、巨鹿、官渡、萨尔浒 | 群体单位（boids 或简单编队）、地形墨晕（3D 墨散动态纹理） |
 | 守城 / 攻城 | shield、bow（projectile）、ink-bomb（blast，火攻与炮） | 睢阳、钓鱼城、北京保卫战、宁远 | Matter 投射物、可破坏墨墙 |
 | 水战 / 渡河 | boat（wake）、ink-bomb（火船）、water-brush | 赤壁、淝水、采石、鄱阳湖、崖山 | flow / distort 水面、舟体物理 |
-| 治水 / 工程 | water-brush（erase，改碰撞几何）、spear 作夯 | 大禹治水、都江堰（待定）、大运河、郭守敬 | 水刷改 CPU 碰撞几何（Pixi 版已有，迁移后须保留）、流体 |
+| 治水 / 工程 | water-brush（erase，改碰撞几何）、spear 作夯 | 大禹治水、都江堰（待定）、大运河、郭守敬 | 水刷改 CPU 碰撞几何（现由 `Playfield` / `InkWorld` 承担）、水流表现 |
 | 奔袭 / 出使 | war-horse、bow、banner（方向） | 张骞出使、苏武、班超、玄奘西行 | 长卷横版移动、地图段落 |
 | 庙堂 / 辩论 | 笔（自由笔画写字）、印章 | 完璧归赵、负荆请罪、舌战群儒（野史）、商鞅变法 | 对话与选择 UI、书法输入（P2） |
 | 解谜 / 寻迹 | water-brush 洗出隐藏墨迹、笔画补全 | 伍子胥过昭关、建文帝出亡（野史）、顺治出家（野史） | 遮罩 pass、隐藏层 |

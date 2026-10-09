@@ -1,6 +1,6 @@
 import { INK_SIZES, type InkBrushSettings, type InkPoint } from '../core/ink-brush';
 import type { InkColorName } from '../core/ink-palette';
-import type { InkFinish } from '../core/ink-wash';
+import type { InkFinish } from '../core/ink-stroke';
 import { inkCos, inkSin, TWO_PI } from '../core/ink-random';
 import { PROP_BRUSHES, type PropBrush, type PropPaintingId } from './prop-brushes';
 
@@ -10,7 +10,7 @@ import { PROP_BRUSHES, type PropBrush, type PropPaintingId } from './prop-brushe
  * part's brush from PROP_BRUSHES. Coordinates are sheet pixels at scale 1; y grows downwards.
  */
 
-/** One stroke, ready for InkWash.paint() or for the inkEngine host (setBrush/setColor/strokePath). */
+/** One stroke, ready for InkSurface.paint() or for the inkEngine host (setBrush/setColor/strokePath). */
 export interface PropStroke {
   readonly prop: PropPaintingId;
   readonly part: string;
