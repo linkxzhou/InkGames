@@ -217,9 +217,9 @@
    "name": "明",
    "file": "chapters/19-ming.json",
    "span": "1368—1644 年",
-   "scenes": 12,
+   "scenes": 19,
    "v1": 5,
-   "full": 12,
+   "full": 19,
    "outline": 0
   },
   {
@@ -235,9 +235,9 @@
   }
  ],
  "totals": {
-  "scenes": 274,
+  "scenes": 281,
   "v1": 66,
-  "full": 274,
+  "full": 281,
   "outline": 0
  }
 }
