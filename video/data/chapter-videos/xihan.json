@@ -47,7 +47,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "鸿门宴",
    "narration": "鸿门宴上，范增三举玉玦，项庄舞剑，意在沛公。",
    "ambience": [
@@ -58,7 +58,7 @@
    "motionPrompt": "candle flames waver, the dancer's sleeves sweep slowly, smoke drifts, the tension holds, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-01.jpg",
    "clip": "xihan-01.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 2,
@@ -67,7 +67,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "萧何月下追韩信",
    "narration": "韩信不得重用，夜里逃去；萧何闻讯，连夜追回。",
    "ambience": [
@@ -79,7 +79,7 @@
    "motionPrompt": "the horses gallop, moonlit mist drifts, the stream flows, cloaks stream; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-02.jpg",
    "clip": "xihan-02.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 3,
@@ -88,7 +88,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "背水一战",
    "narration": "韩信背水列阵，置之死地而后生，一战破赵于井陉。",
    "ambience": [
@@ -100,7 +100,7 @@
    "motionPrompt": "the river flows behind the ranks, the vermilion flags on the ridge ripple, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-03.jpg",
    "clip": "xihan-03.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 4,
@@ -109,7 +109,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "四面楚歌",
    "narration": "垓下被围，夜闻四面楚歌，项羽悲歌：力拔山兮气盖世。",
    "ambience": [
@@ -121,7 +121,7 @@
    "motionPrompt": "the campfire dots flicker across the hills, wind moves the tent cloth, the horse lowers its head; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep her silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-04.jpg",
    "clip": "xihan-04.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 5,
@@ -130,7 +130,7 @@
     6,
     7
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "乌江",
    "narration": "项羽溃围至乌江，不肯过江，自刎而死，年三十一。",
    "ambience": [
@@ -141,7 +141,7 @@
    "motionPrompt": "the river flows, the boat rocks gently, wind tears at his cloak, the red sky dims, the frame holds still; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-05.jpg",
    "clip": "xihan-05.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 6,
@@ -150,7 +150,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "白登之围",
    "narration": "刘邦北击匈奴，被围白登七日，用陈平之计才得脱身。",
    "ambience": [
@@ -161,7 +161,7 @@
    "motionPrompt": "snow falls, the horses shift, banners ripple, mist drifts over the rings; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-06.jpg",
    "clip": "xihan-06.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 7,
@@ -170,7 +170,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "缇萦救父",
    "narration": "少女缇萦上书，愿没入为官婢赎父刑；文帝因此废肉刑。",
    "ambience": [
@@ -181,7 +181,7 @@
    "motionPrompt": "wind moves her sleeves and hair, leaves drift past, the gate looms still, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep her silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-07.jpg",
    "clip": "xihan-07.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 8,
@@ -190,7 +190,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "七国之乱",
    "narration": "吴楚七国以诛晁错为名起兵，周亚夫坚壁不战，断其粮道。",
    "ambience": [
@@ -201,7 +201,7 @@
    "motionPrompt": "banners on the rampart ripple, smoke from distant camps drifts, clouds roll; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-08.jpg",
    "clip": "xihan-08.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 9,
@@ -210,7 +210,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "张骞凿空",
    "narration": "张骞出使西域，被匈奴扣留十余年，终于凿空西域。",
    "ambience": [
@@ -221,7 +221,7 @@
    "motionPrompt": "camels plod forward, sand blows off the dune crests, the staff's tassels stream; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-09.jpg",
    "clip": "xihan-09.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 10,
@@ -230,7 +230,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "封狼居胥",
    "narration": "霍去病出塞两千余里，封狼居胥山，禅于姑衍。",
    "ambience": [
@@ -242,7 +242,7 @@
    "motionPrompt": "banners stream, the horse's mane flies, clouds race over the steppe; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-10.jpg",
    "clip": "xihan-10.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 11,
@@ -251,7 +251,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "苏武牧羊",
    "narration": "苏武持汉节在北海牧羊十九年，节旄尽落。",
    "ambience": [
@@ -261,7 +261,7 @@
    "motionPrompt": "snow blows, the sheep shift, the staff's last tassel strands stir; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-11.jpg",
    "clip": "xihan-11.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 12,
@@ -270,7 +270,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "发愤著书",
    "narration": "司马迁受宫刑，隐忍苟活，写成《史记》一百三十篇。",
    "ambience": [
@@ -281,7 +281,7 @@
    "motionPrompt": "the lamp flame flickers, his brush moves slowly, night passes as the window greys; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-12.jpg",
    "clip": "xihan-12.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 13,
@@ -290,7 +290,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.14,
    "zh": "陈汤",
    "narration": "陈汤矫诏发兵，斩郅支单于，上疏：明犯强汉者，虽远必诛。",
    "ambience": [
@@ -302,7 +302,7 @@
    "motionPrompt": "smoke drifts from the fortress, banners ripple, the sky darkens; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-13.jpg",
    "clip": "xihan-13.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 14,
@@ -311,7 +311,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "昭君出塞",
    "narration": "王昭君自请出塞，嫁呼韩邪单于，汉匈之间数十年无战事。",
    "ambience": [
@@ -323,7 +323,17 @@
    "motionPrompt": "the geese fly slowly across, her cloak streams, grass waves; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-14.jpg",
    "clip": "xihan-14.mp4",
-   "status": "pending"
+   "status": "done"
   }
- ]
+ ],
+ "output": {
+  "mp4": "video/viewer/assets/chapter-videos/xihan.mp4",
+  "poster": "video/viewer/assets/chapter-videos/xihan-poster.jpg",
+  "durationSec": 109.04,
+  "crossfadeSec": 0.7,
+  "audio": true,
+  "narration": true,
+  "status": "done",
+  "loudnessLUFS": -16.0
+ }
 }
