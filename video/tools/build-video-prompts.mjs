@@ -117,7 +117,7 @@ const ELEM_EN = {
   殿柱: 'palace pillars', 屋檐: 'palace eaves', 江海: 'sea', 浪头: 'breaking waves', 盾墙: 'shield wall', 地图卷: 'map scroll', 竹: 'bamboo', 营帐: 'army tents',
   月: 'moon', 关门: 'gate', 舟: 'boat', 城墙雉堞: 'crenellated city wall', 星: 'stars', 雪: 'snow', 卷轴: 'scroll', 潮: 'tide', 马: 'horse',
   banner: 'banners', spear: 'spear', bow: 'bow', sword: 'sword', blade: 'broadsword', shield: 'shield', 'war-horse': 'war horse', water: 'water',
-  landscape: 'landscape', 'ink-bomb': 'ink burst', 'water-brush': 'brush', 'shield': 'shield', 皴法山石: 'textured rocks', 铜柱: 'bronze pillar', 匣: 'wooden box',
+  landscape: 'landscape', 'ink-bomb': 'ink burst', 'water-brush': 'brush', 'shield': 'shield', 山石剪影: 'rock silhouettes', 铜柱: 'bronze pillar', 匣: 'wooden box',
 };
 const BGM = {
   'xun-ancient': ['陶埙，古朴苍凉', 'xun clay ocarina, ancient and desolate'], xun: ['陶埙，低回苍凉', 'xun clay ocarina, low and mournful'],
@@ -156,11 +156,6 @@ const SND = { // amb / sfx
   pipa: ['琵琶一声', 'pipa phrase'], armor: ['甲片作响', 'rattling armour'], silence: ['静默', 'silence'], wind: ['风声', 'wind'], guqin: ['琴声', 'guqin'], crossbow: ['弩机', 'crossbow'],
   crow: ['乌鸦', 'crows'], blade: ['刀声', 'blade'], wheel: ['车轮', 'wheels'], cannon: ['炮声', 'cannon fire'], cricket: ['蟋蟀', 'crickets'], loom: ['织机', 'loom'], 'bronze-bell2': ['钟', 'bell'],
 };
-const COLOR = { black: ['墨黑', 'ink black'], white: ['白', 'white'], dark_gray: ['深灰', 'dark grey'], gold_orange: ['金橙', 'gold-orange'], blue_gray: ['蓝灰', 'blue-grey'],
-  terra_cotta: ['赭石', 'terracotta ochre'], wine_red: ['酒红', 'wine red'], brown: ['咖啡色', 'brown'], green_dark: ['墨绿', 'deep green'], blue_dark: ['深蓝', 'deep blue'],
-  red: ['朱红', 'vermilion'], brick_red: ['砖红', 'brick red'], gray_brown: ['灰褐', 'grey-brown'], sage_gray: ['鼠尾草灰', 'sage grey'], gray_green: ['青灰', 'grey-green'],
-  khaki: ['卡其', 'khaki'], tan: ['驼色', 'tan'], beige: ['米色', 'beige'], silver: ['银灰', 'silver'], purple: ['紫', 'purple'], green: ['绿', 'green'], olive_green: ['橄榄绿', 'olive'],
-  yellow: ['黄', 'yellow'], blue: ['蓝', 'blue'], orange: ['橙', 'orange'], light_gray: ['浅灰', 'light grey'], medium_gray: ['中灰', 'mid grey'], mauve_gray: ['淡紫灰', 'mauve grey'] };
 const ELEM_ZH = { banner: '旌旗', spear: '长枪', bow: '弓箭', sword: '长剑', blade: '大刀', shield: '盾牌', 'war-horse': '战马', water: '水', landscape: '山水', 'ink-bomb': '泼墨', 'water-brush': '毛笔' };
 const yearEn = y => (y < 0 ? -y + ' BCE' : y + ' CE');
 const whenEn = w => (w ? (w.end != null && w.end !== w.start ? yearEn(w.start) + '–' + yearEn(w.end) : (w.precision === 'circa' || w.precision === 'legend' ? 'c. ' : '') + yearEn(w.start)) : '');
@@ -402,7 +397,7 @@ for (const c of index.chapters) {
   for (const entry of bundle.scenes) {
     if (!entry.opening) continue;
     // 简化剪影风：素材里的“皴法”等精细笔法词换成剪影说法
-    entry.videoPrompt = JSON.parse(JSON.stringify(build(bundle, entry, ct)).replaceAll('皴法山石', '山石剪影').replaceAll('textured rocks', 'rock silhouettes'));
+    entry.videoPrompt = JSON.parse(JSON.stringify(build(bundle, entry, ct)));
     n++; shotsN += entry.videoPrompt.shots.length;
   }
   writeFileSync(file, JSON.stringify(bundle, null, 1));

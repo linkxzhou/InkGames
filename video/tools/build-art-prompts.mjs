@@ -22,22 +22,6 @@ const CATEGORY_ORDER = ['cast', 'props', 'scenery', 'effects'];
 const CATEGORY_LABEL = { cast: '人物立绘', props: '道具器物', scenery: '场景环境', effects: '水墨特效' };
 const CAST_TYPE_LABEL = { ruler: '君主', minister: '文臣', general: '武将', scholar: '文人', royal: '宗室后妃', other: '其他' };
 
-/** 与 src/core/ink-palette.ts 的 INK_PALETTE 对齐（仅取中文名与 RGB，用于提示词里的点缀色说明）。 */
-const COLOR_INFO = {
-  black: ['黑色', [26, 26, 26]], white: ['白色', [242, 242, 242]], dark_gray: ['深灰色', [47, 47, 47]],
-  medium_gray_new: ['中灰色', [85, 85, 85]], light_gray_new: ['浅灰色', [150, 150, 150]], green: ['绿色', [63, 77, 24]],
-  orange: ['橙色', [255, 160, 62]], brown: ['咖啡色', [175, 140, 89]], green_dark: ['墨绿色', [4, 130, 130]],
-  blue_dark: ['深蓝色', [57, 80, 192]], purple: ['紫色', [140, 106, 172]], lime: ['浅绿色', [138, 149, 73]],
-  light_gray: ['浅灰色', [136, 122, 125]], blue_gray: ['蓝灰色', [138, 57, 26]], terra_cotta: ['赭石色', [112, 79, 57]],
-  olive_green: ['橄榄绿', [168, 200, 72]], pink: ['粉红色', [240, 170, 207]], wine_red: ['酒红色', [128, 49, 52]],
-  gold_orange: ['金橙色', [233, 175, 52]], gray_brown: ['灰褐色', [128, 125, 114]], sage_gray: ['鼠尾草灰', [121, 132, 129]],
-  brick_red: ['砖红色', [159, 114, 85]], silver: ['银灰色', [181, 180, 185]], beige: ['米色', [235, 220, 201]],
-  gray_green: ['青灰色', [148, 162, 158]], tan: ['驼色', [210, 169, 151]], khaki: ['卡其色', [165, 162, 147]],
-  dusty_rose: ['雾玫瑰色', [203, 243, 251]], mauve_gray: ['淡紫灰', [174, 161, 164]], medium_gray: ['中灰色', [155, 155, 155]],
-  red: ['红色', [208, 34, 63]], yellow: ['黄色', [255, 249, 56]], blue: ['蓝色', [2, 66, 109]],
-  custom: ['自定义', [26, 26, 26]], coral: ['珊瑚色', [255, 127, 80]], mint: ['薄荷绿', [152, 251, 152]],
-};
-const hex = (rgb) => '#' + rgb.map(v => v.toString(16).padStart(2, '0')).join('');
 
 /** 场景 props 里对应“器物”的预设（figure / landscape / water 归入场景环境，不在此列）。 */
 const PROP_ASSET = {
@@ -223,13 +207,6 @@ function collectAssets(entry) {
   return { cast: castAssets, props: propAssets, scenery, effects };
 }
 
-function paletteText(bundle) {
-  const names = (bundle.chapter.look && bundle.chapter.look.palette) || [];
-  const items = names.map(n => COLOR_INFO[n]).filter(Boolean).map(([label, rgb]) => `${label} ${hex(rgb)}`);
-  if (!items.length) return '点缀色：仅用朱红（#a63a2e）少量提点';
-  return '点缀色（用量克制，只作点睛）：' + items.join('、');
-}
-
 function buildPrompt(seg, ctx) {
   const { cols, rows } = seg.grid;
   const lines = [];
@@ -262,7 +239,7 @@ function buildSceneArtPrompts(bundle, entry) {
   const subtitle = strings[scene.subtitle] || scene.subtitle;
   const when = (scene.when && scene.when.display) || '';
   const subject = `${title}·${subtitle}${when ? `（${when}）` : ''}`;
-  const ctx = { subject, palette: paletteText(bundle) };
+  const ctx = { subject };
   const pool = collectAssets(entry);
 
   const segments = [];
