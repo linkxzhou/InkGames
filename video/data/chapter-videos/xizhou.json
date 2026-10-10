@@ -47,7 +47,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "周公东征",
    "narration": "武王死，成王幼，周公摄政，东征三年平定三监。",
    "ambience": [
@@ -58,7 +58,7 @@
    "motionPrompt": "banners ripple, the columns march slowly into the mist, clouds drift; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xizhou-01.jpg",
    "clip": "xizhou-01.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 2,
@@ -67,7 +67,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "宅兹中国",
    "narration": "何尊铭文写着：余其宅兹中国，自之乂民。",
    "ambience": [
@@ -78,7 +78,7 @@
    "motionPrompt": "rammers rise and fall slowly, dust drifts, the rivers flow, a slow lateral pan; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xizhou-02.jpg",
    "clip": "xizhou-02.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 3,
@@ -87,7 +87,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "甘棠",
    "narration": "召公巡行乡邑，在甘棠树下听讼，百姓不忍伐其树。",
    "ambience": [
@@ -98,7 +98,7 @@
    "motionPrompt": "leaves and petals drift down, branches sway, grass ripples; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xizhou-03.jpg",
    "clip": "xizhou-03.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 4,
@@ -107,7 +107,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "昭王南征不复",
    "narration": "昭王南征荆楚，渡汉水时舟船解体，一去不返。",
    "ambience": [
@@ -118,7 +118,7 @@
    "motionPrompt": "the river flows, the boat tilts slowly and settles lower in the water, ripples spread, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xizhou-04.jpg",
    "clip": "xizhou-04.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 5,
@@ -127,7 +127,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "穆王八骏",
    "narration": "穆王驾八骏西巡，传说与西王母宴于瑶池。",
    "ambience": [
@@ -138,7 +138,7 @@
    "motionPrompt": "manes and tails stream, dust trails behind, clouds race over the mountains, a slow lateral pan; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xizhou-05.jpg",
    "clip": "xizhou-05.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 6,
@@ -147,7 +147,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "非子养马",
    "narration": "非子在汧渭之间为周孝王养马，马大蕃息，封于秦邑。",
    "ambience": [
@@ -159,7 +159,7 @@
    "motionPrompt": "the horses graze and shift, tails swish, grass waves, mist drifts over the rivers; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xizhou-06.jpg",
    "clip": "xizhou-06.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 7,
@@ -168,7 +168,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "国人暴动",
    "narration": "厉王止谤，道路以目；三年后国人暴动，王奔于彘。",
    "ambience": [
@@ -180,7 +180,7 @@
    "motionPrompt": "the crowd edges slowly toward the gate, torch dots flicker, smoke drifts, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xizhou-07.jpg",
    "clip": "xizhou-07.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 8,
@@ -189,7 +189,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "宣王中兴",
    "narration": "宣王命尹吉甫薄伐玁狁，至于太原，周室复振。",
    "ambience": [
@@ -200,7 +200,7 @@
    "motionPrompt": "banners stream, dust rolls behind the wheels, clouds race, a slow lateral pan; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xizhou-08.jpg",
    "clip": "xizhou-08.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 9,
@@ -209,7 +209,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "烽火与镐京",
    "narration": "传说幽王为博褒姒一笑举烽火；犬戎攻破镐京，西周亡。",
    "ambience": [
@@ -221,7 +221,17 @@
    "motionPrompt": "the vermilion fire flickers, black smoke billows and drifts sideways, embers float, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xizhou-09.jpg",
    "clip": "xizhou-09.mp4",
-   "status": "pending"
+   "status": "done"
   }
- ]
+ ],
+ "output": {
+  "mp4": "video/viewer/assets/chapter-videos/xizhou.mp4",
+  "poster": "video/viewer/assets/chapter-videos/xizhou-poster.jpg",
+  "durationSec": 72.42,
+  "crossfadeSec": 0.7,
+  "audio": true,
+  "narration": true,
+  "status": "done",
+  "loudnessLUFS": -16.1
+ }
 }

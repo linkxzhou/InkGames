@@ -37,6 +37,18 @@ window.CHAPTER_VIDEOS = {
    "durationSec": 57.83,
    "shots": 7,
    "audio": true
+  },
+  "xizhou": {
+   "title": {
+    "zh": "西周",
+    "en": "Western Zhou"
+   },
+   "mp4": "assets/chapter-videos/xizhou.mp4",
+   "poster": "assets/chapter-videos/xizhou-poster.jpg",
+   "posterWebp": "assets/chapter-videos/xizhou-poster.webp",
+   "durationSec": 72.42,
+   "shots": 9,
+   "audio": true
   }
  }
 };
