@@ -468,7 +468,7 @@ export interface ArtPromptSegment {
 - 规划数据由 `video/tools/build-art-prompts.mjs` 按场景生成并写回 `chapters/*.json`（幂等；改完数据再跑一次即可）。它从场景的 `cast`、`props`、过场笔画的 `label`/来源、玩法 `template` 与章节 `look.palette` 推导素材，并合成提示词；少量场景还有显式必备/排除素材名单。笔刷预设不等同于史实器物，未知短标签不自动当道具；其他场景仍需逐场人工审核。
 - 分类固定为 `cast / props / scenery / effects` 四类；没有素材的分类不产生段，因此大多数场景是 3–4 段。
 - `ref.prop` / `ref.parts` 用现有预设键（`sword`、`blade`、`banner`… 与其部件），`ref.actor` 用 `cast[].id`，方便抠图产物登记回引擎。
-- 画风基准是「写意水墨 + 焦墨/浓墨/淡墨分层 + 枯笔飞白 + 泼墨墨点飞溅，点缀色克制」，点缀色取章节 `look.palette`（对应 `src/core/ink-palette.ts` 的中文名与 RGB），不与具体某一幅参考图绑定。`grid` × `cellPx` 严格等于 `sizePx`（少量素材以空格补足至少 2 行）；按行列裁切前必须确认实际返回尺寸/alpha，必要时等比缩放加透明补边，不能直接把 `sizePx` 当作 API 的 `size` 传入。
+- 画风基准（2026-10-10 起）是「高反差黑白红武侠水墨剪影（类《影之刃》，简化版）」：黑色剪影人物、平涂灰阶、粗笔棱角与飞白、只用一种朱砂红，见 [art-style.md](./art-style.md)；风格行、色板 Hex 与负面词来自 `video/tools/art-style.mjs`。章节 `look.palette` 只作章节标识，不再写进提示词。`grid` × `cellPx` 严格等于 `sizePx`（少量素材以空格补足至少 2 行）；按行列裁切前必须确认实际返回尺寸/alpha，必要时等比缩放加透明补边，不能直接把 `sizePx` 当作 API 的 `size` 传入。
 
 ### 2.11 水墨视频生成提示词（videoPrompt）
 
@@ -485,7 +485,7 @@ export interface ArtPromptSegment {
 | `scene.endings` 中 `kind: 'canon'` 的结局 | 镜头 6：正史结局（拉远收束） |
 | 引文 `scene.<id>.quote` 与 caption 的 `source` | 镜头 7：落款（引文逐字写出、朱印落下） |
 | `cast` + 章 `order` | 人物造型：按朝代、阵营（匈奴/契丹/蒙古等另有装束）、身份推定服饰；年龄依史实，`title`/`bio` 里写明“少年”“老将”的照写 |
-| `chapter.look.palette` | 点缀色 |
+| `video/tools/art-style.mjs` | 风格、色板（黑白红 7 色 Hex）、人物剪影规则、高潮墨效与风格负面词，见 [art-style.md](./art-style.md)；`chapter.look.palette` 不再进入提示词 |
 
 ```ts
 interface Bilingual { zh: string; en: string }

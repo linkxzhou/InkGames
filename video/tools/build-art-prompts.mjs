@@ -8,6 +8,7 @@
 //
 // 用法：在仓库根目录运行 `node video/tools/build-art-prompts.mjs`
 // 幂等：重复运行会用新结果整体替换 artPrompts，不影响其它字段。无第三方依赖。
+import { ASSET_STYLE_ZH, NEG_STYLE_ZH } from './art-style.mjs';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -242,8 +243,8 @@ function buildPrompt(seg, ctx) {
   }
   const [w, h] = seg.spec.sizePx;
   const prompt = [
-    `中国水墨写意素材图（${seg.categoryLabel}），题材：${ctx.subject}。`,
-    `画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；${ctx.palette}。`,
+    `黑白红武侠水墨剪影素材图（${seg.categoryLabel}），题材：${ctx.subject}。`,
+    ASSET_STYLE_ZH,
     `背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。`,
     `版式：${cols}×${rows} 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。`,
     `清单：\n${lines.join('\n')}`,
@@ -252,7 +253,7 @@ function buildPrompt(seg, ctx) {
   return prompt;
 }
 
-const NEGATIVE = '文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏';
+const NEGATIVE = '文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏, ' + NEG_STYLE_ZH.replace(/，/g, ', ');
 
 function buildSceneArtPrompts(bundle, entry) {
   const scene = entry.scene;
