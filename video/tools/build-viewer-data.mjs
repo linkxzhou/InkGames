@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // 把 chapters/*.json 转成 data/*.js（设置 window 全局变量），
-// 供 index.html 在 file:// 下用 <script> 直接加载（不使用 fetch）。
+// 供 index.html 在 file:// 下用 <script> 加载（不使用 fetch）：index.js 静态加载，章节脚本按需动态插入。
 // 用法：在仓库根目录运行 `node video/tools/build-viewer-data.mjs`
 // 无第三方依赖。改完章节 JSON 后需重新运行。
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, unlinkSync } from 'node:fs';
@@ -28,5 +28,4 @@ for (const c of index.chapters) {
   bytes += Buffer.byteLength(body);
 }
 console.log(`已生成 data/index.js 与 ${index.chapters.length} 个章节脚本，共 ${(bytes / 1024).toFixed(0)} KiB`);
-console.log('index.html 中的 <script> 列表：');
-for (const c of index.chapters) console.log(`<script src="data/${c.file.replace(/^chapters\//, '').replace(/\.json$/, '.js')}"></script>`);
+console.log('index.html 只静态加载 data/index.js，章节脚本在切换章节时用动态 <script> 按需加载（file:// 可用）。');
