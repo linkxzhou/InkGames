@@ -1,8 +1,8 @@
-import { InkSurface } from '@inkgames/engine';
+import { InkSurface, scoreInkRgba, type InkStrokeRequest } from '@inkgames/engine';
 import {
   DoubleSide, Mesh, MeshBasicMaterial, OrthographicCamera, PlaneGeometry, Scene, WebGLRenderer,
 } from 'three';
-import { PLATE, paintChaos1, paintChaos2, paintChaos3, paintChaos4, paintChuhan } from './compose';
+import { PLATE, galleryStrokes, paintChaos1, paintChaos2, paintChaos3, paintChaos4, paintChuhan, type GalleryId } from './compose';
 import chaos1 from '../../thirdparty/上古-混沌-1.png';
 import chaos2 from '../../thirdparty/上古-混沌-2.png';
 import chaos3 from '../../thirdparty/上古-混沌-3.png';
@@ -21,11 +21,14 @@ interface GalleryStat {
   readonly id: string;
   readonly mean: number;
   readonly max: number;
+  readonly ssim: number;
+  readonly edge: number;
 }
 
 interface GalleryWindow extends Window {
   __galleryReady?: boolean;
   __galleryDone?: boolean;
+  __galleryBuildDone?: boolean;
   __galleryGl?: number;
   __galleryStats?: readonly GalleryStat[];
 }
@@ -39,8 +42,9 @@ interface LivePlate {
 }
 
 const host = window as GalleryWindow;
-const status = document.querySelector<HTMLElement>('#status');
-if (!status) throw new Error('缺少状态');
+const statusQuery = document.querySelector<HTMLElement>('#status');
+if (!statusQuery) throw new Error('缺少状态');
+const status: HTMLElement = statusQuery;
 
 const PAINT: Readonly<Record<string, (surface: InkSurface) => void>> = {
   'chaos-1': paintChaos1,
@@ -66,18 +70,8 @@ function compare(canvas: HTMLCanvasElement, img: HTMLImageElement): GalleryStat 
   ctx.clearRect(0, 0, w, h);
   ctx.drawImage(canvas, 0, 0, w, h);
   const ours = ctx.getImageData(0, 0, w, h).data;
-  let sum = 0;
-  let max = 0;
-  const pixels = w * h;
-  for (let i = 0; i < pixels; i++) {
-    const o = i * 4;
-    const d = Math.abs((ours[o] ?? 0) - (ref[o] ?? 0))
-      + Math.abs((ours[o + 1] ?? 0) - (ref[o + 1] ?? 0))
-      + Math.abs((ours[o + 2] ?? 0) - (ref[o + 2] ?? 0));
-    sum += d;
-    if (d > max) max = d;
-  }
-  return { id: '', mean: sum / pixels, max };
+  const score = scoreInkRgba(ours, ref, w, h);
+  return { id: '', mean: score.rgbMean, max: score.rgbMax, ssim: score.ssim, edge: score.edgeMean };
 }
 
 function loadImage(src: string): Promise<HTMLImageElement> {
@@ -92,15 +86,31 @@ function loadImage(src: string): Promise<HTMLImageElement> {
 const live: LivePlate[] = [];
 const stats: GalleryStat[] = [];
 let gl = 0;
+const build = new URLSearchParams(location.search).get('build');
+if (build) document.body.dataset.build = build;
+
+function isGallery(id: string): id is GalleryId {
+  return id === 'chaos-1' || id === 'chaos-2' || id === 'chaos-3' || id === 'chaos-4' || id === 'chuhan';
+}
+
+function finish(): void {
+  host.__galleryStats = stats;
+  host.__galleryGl = gl;
+  host.__galleryReady = true;
+  host.__galleryBuildDone = true;
+  const worst = stats.reduce((a, b) => (a.mean > b.mean ? a : b));
+  status.textContent = `五张都已铺上。差最大的是 ${worst.id}（${worst.mean.toFixed(1)}，SSIM ${worst.ssim.toFixed(2)}）。构图接近不等于笔墨一致。真实 GPU 未实测。`;
+}
 
 for (const section of document.querySelectorAll<HTMLElement>('.plate')) {
   const id = section.dataset.plate ?? '';
+  if (build && id !== build) continue;
   const canvas = section.querySelector('canvas');
   const slot = section.querySelector('img');
   const metric = section.querySelector('.metric');
   const paint = PAINT[id];
   const ref = REFS[id];
-  if (!canvas || !slot || !metric || !paint || !ref) throw new Error(`画廊缺页 ${id}`);
+  if (!canvas || !slot || !metric || !paint || !ref || !isGallery(id)) throw new Error(`画廊缺页 ${id}`);
   slot.src = ref;
   const renderer = new WebGLRenderer({
     canvas, antialias: false, alpha: false, preserveDrawingBuffer: true,
@@ -119,27 +129,56 @@ for (const section of document.querySelectorAll<HTMLElement>('.plate')) {
   }));
   mesh.position.set(PLATE / 2, PLATE / 2, 0);
   scene.add(mesh);
-  paint(surface);
-  renderer.setRenderTarget(null);
-  renderer.render(scene, camera);
-  const err = renderer.getContext().getError();
-  if (err !== 0) gl = err;
   const image = await loadImage(ref);
-  const stat = compare(canvas, image);
-  const row = { id, mean: stat.mean, max: stat.max };
-  stats.push(row);
-  metric.textContent = `平均绝对 RGB ${stat.mean.toFixed(1)} · 最大 ${stat.max} · 不是逐像素重合`;
-  live.push({ id, renderer, surface, scene, camera });
+  const publish = (): void => {
+    renderer.setRenderTarget(null);
+    renderer.render(scene, camera);
+    const err = renderer.getContext().getError();
+    if (err !== 0) gl = err;
+    const stat = compare(canvas, image);
+    const row = { id, mean: stat.mean, max: stat.max, ssim: stat.ssim, edge: stat.edge };
+    stats.push(row);
+    metric.textContent = `平均绝对 RGB ${stat.mean.toFixed(1)} · 最大 ${stat.max} · SSIM ${stat.ssim.toFixed(2)} · 边缘差 ${stat.edge.toFixed(1)} · 不是逐像素重合`;
+    live.push({ id, renderer, surface, scene, camera });
+  };
+  if (build === id) {
+    const strokes: InkStrokeRequest[] = galleryStrokes(id);
+    renderer.setRenderTarget(null);
+    renderer.render(scene, camera);
+    let index = 0;
+    let last = 0;
+    const step = (now: number): void => {
+      const stroke = strokes[index];
+      if (!stroke) {
+        publish();
+        finish();
+        return;
+      }
+      // Hold each gesture so a short sheet reads as a few decisive strokes.
+      if (now - last < 320) {
+        requestAnimationFrame(step);
+        return;
+      }
+      last = now;
+      surface.paint(stroke);
+      index += 1;
+      renderer.setRenderTarget(null);
+      renderer.render(scene, camera);
+      const err = renderer.getContext().getError();
+      if (err !== 0) gl = err;
+      requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  } else {
+    paint(surface);
+    publish();
+  }
 }
 
-host.__galleryStats = stats;
-host.__galleryGl = gl;
-host.__galleryReady = true;
-const worst = stats.reduce((a, b) => (a.mean > b.mean ? a : b));
-status.textContent = `五张都已铺上。差最大的是 ${worst.id}（${worst.mean.toFixed(1)}）。构图接近不等于笔墨一致。真实 GPU 未实测。`;
+if (!build) finish();
 
 const play = new URLSearchParams(location.search).get('play') === '1';
-if (play) {
+if (play && !build) {
   const started = performance.now();
   let frame = 0;
   const tick = (): void => {
