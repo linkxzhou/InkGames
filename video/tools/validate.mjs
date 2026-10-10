@@ -5,7 +5,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readdirSync } from 'node:fs';
-import { STYLE_ZH, STYLE_EN, STYLE_REF_ZH, STYLE_REF_EN, PALETTE, NEG_STYLE_ZH, NEG_STYLE_EN, ASSET_STYLE_ZH } from './art-style.mjs';
+import { STYLE_ZH, STYLE_EN, STYLE_REF_ZH, STYLE_REF_EN, PALETTE, NEG_STYLE_ZH, NEG_STYLE_EN, ASSET_STYLE_ZH, MOTION_ZH, MOTION_EN, NEG_MOTION_ZH, NEG_MOTION_EN } from './art-style.mjs';
 
 const DATA = resolve(dirname(fileURLToPath(import.meta.url)), '..', 'data');
 const showPending = process.argv.includes('--pending');
@@ -138,6 +138,8 @@ function checkVideoPrompt(where, v, cast) {
   if (!v.prompt?.zh?.includes(STYLE_REF_ZH) || !v.prompt?.en?.includes(STYLE_REF_EN)) err(where, 'videoPrompt.prompt 缺少黑白红武侠水墨剪影风格声明');
   for (const h of HEXES) if (!v.prompt?.zh?.includes(h) || !v.prompt?.en?.includes(h)) { err(where, `videoPrompt.prompt 缺少色板 ${h}`); break; }
   if (!v.negative?.zh?.includes(NEG_STYLE_ZH) || !v.negative?.en?.includes(NEG_STYLE_EN)) err(where, 'videoPrompt.negative 缺少风格负面词（全彩、Q 版、写实、繁复纹理等）');
+  if (!v.prompt?.zh?.includes(MOTION_ZH) || !v.prompt?.en?.includes(MOTION_EN)) err(where, 'videoPrompt.prompt 缺少首帧图生视频与动势克制说明（art-style.mjs MOTION_ZH/EN）');
+  if (!v.negative?.zh?.includes(NEG_MOTION_ZH) || !v.negative?.en?.includes(NEG_MOTION_EN)) err(where, 'videoPrompt.negative 缺少运动失败模式负面词');
   if (OLD_STYLE_DATA.test(JSON.stringify(v))) err(where, `videoPrompt 含旧彩色水墨措辞：${JSON.stringify(v).match(OLD_STYLE_DATA)[0]}`);
   styleChecked.video++;
   for (const c of v.characters || []) if (!ids.has(c.id)) err(where, `videoPrompt 人物不在 cast：${c.id}`);

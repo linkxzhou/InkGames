@@ -27,8 +27,8 @@ export const FIGURE_ZH = '黑色剪影造型，只保留冠帽、袖摆、兵器
 export const FIGURE_EN = 'rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance';
 
 /** 负面词：在原有基础上追加的风格禁忌。 */
-export const NEG_STYLE_ZH = '全彩，多色，粉彩，马卡龙色，Q 版，萌系，大头娃娃，精细繁复纹理，大量渐变的 CG 质感，金色高光，蒸汽朋克机械，细密界画线条，复杂五官';
-export const NEG_STYLE_EN = 'full colour, multicolour, pastel, candy colours, cute, chibi, big-head proportions, busy detailed textures, gradient-heavy CG, gold highlights, steampunk machinery, dense ruled-line detail, detailed faces';
+export const NEG_STYLE_ZH = '全彩，多色，粉彩，马卡龙色，Q 版，萌系，大头娃娃，精细繁复纹理，大量渐变的 CG 质感，金色高光，蒸汽朋克机械，细密界画线条，细密皴纹，复杂五官，日本刀（武士刀）';
+export const NEG_STYLE_EN = 'full colour, multicolour, pastel, candy colours, cute, chibi, big-head proportions, busy detailed textures, gradient-heavy CG, gold highlights, steampunk machinery, dense ruled-line detail, dense cun texture strokes, detailed faces, Japanese katana';
 
 /** 高潮/命中时的墨效。 */
 export const HIT_FX_ZH = '大块泼墨炸开，朱红血雾斜向喷溅后定格';
@@ -36,3 +36,13 @@ export const HIT_FX_EN = 'a big splash of ink bursts and a diagonal vermilion bl
 
 /** 素材图（透明底）的画风行。 */
 export const ASSET_STYLE_ZH = `画风：${STYLE_REF_ZH}——大块黑色剪影与平涂灰阶，粗笔棱角边缘，枯笔飞白；少纹理、少装饰；${PALETTE_ZH}。`;
+
+/**
+ * AI 视频的生成方式与动势约束（2026-10-10 实测，见 docs/art-style.md §3 与根目录 AGENTS.md）：
+ * 每镜先出一张风格静帧作首帧，再图生视频；平静氛围镜稳定，激烈动作会融化、倒流、变形。
+ */
+export const MOTION_ZH = '生成方式：每个镜头先按本风格出一张静帧作首帧，再图生视频；动势克制，只做衣袖与旗角轻摆、云雾缓移、镜头缓推，保持构图稳定，不变形，不新增物体；打斗、刺杀等激烈动作用关键帧静帧加剪辑表现，不让模型生成连续搏斗；运镜指令仅作参考';
+export const MOTION_EN = 'Workflow: for each shot first render a still in this style as the first frame, then run image-to-video; keep motion restrained — sleeves and banner tips fluttering, cloud and mist drifting, a slow camera push; keep the composition stable, no morphing, no new objects; show fights and assassinations as keyframe stills plus editing rather than generated continuous combat; camera directions are a guide only';
+/** 运动类负面词：实测失败模式。 */
+export const NEG_MOTION_ZH = '人物融化变形，墨迹倒流，血液倒流，卷轴融化，画面中途新增物体，构图漂移，画面内文字与印章字';
+export const NEG_MOTION_EN = 'melting or morphing figures, ink or blood flowing backwards, melting scrolls, objects appearing mid-shot, drifting composition, any text or seal characters inside the frame';
