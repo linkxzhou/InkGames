@@ -47,7 +47,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "书同文，车同轨",
    "narration": "秦灭六国，始皇称帝，车同轨，书同文字。",
    "ambience": [
@@ -58,7 +58,7 @@
    "motionPrompt": "wind moves the tall banners, carriages move slowly along the straight roads, clouds drift; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qin-01.jpg",
    "clip": "qin-01.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 2,
@@ -67,7 +67,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "徐福东渡",
    "narration": "徐福说海中有三神山，带童男童女数千人入海求仙。",
    "ambience": [
@@ -78,7 +78,7 @@
    "motionPrompt": "the ships glide slowly away, sails swell, waves roll, mist shifts around the islands; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qin-02.jpg",
    "clip": "qin-02.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 3,
@@ -87,7 +87,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "博浪沙",
    "narration": "张良令力士持百二十斤铁椎，伏击始皇于博浪沙，误中副车。",
    "ambience": [
@@ -98,7 +98,7 @@
    "motionPrompt": "the dust cloud spreads slowly, banners hang, wind moves the sand, the frame holds still; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qin-03.jpg",
    "clip": "qin-03.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 4,
@@ -107,7 +107,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "长城与灵渠",
    "narration": "北筑长城，南凿灵渠，天下的民力都被征发。",
    "ambience": [
@@ -118,7 +118,7 @@
    "motionPrompt": "clouds drift over the ridges, the labourers climb slowly, dust drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qin-04.jpg",
    "clip": "qin-04.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 5,
@@ -127,7 +127,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "焚书",
    "narration": "丞相李斯奏请：非秦记皆烧之，以吏为师。",
    "ambience": [
@@ -138,7 +138,7 @@
    "motionPrompt": "flames waver, bamboo strips curl, black ink smoke rises and spreads; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qin-05.jpg",
    "clip": "qin-05.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 6,
@@ -147,7 +147,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "沙丘之谋，指鹿为马",
    "narration": "始皇死于沙丘，赵高矫诏；后来他在朝堂上指鹿为马。",
    "ambience": [
@@ -158,7 +158,7 @@
    "motionPrompt": "the officials bow lower one by one, incense smoke drifts, the deer turns its head; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qin-06.jpg",
    "clip": "qin-06.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 7,
@@ -167,7 +167,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "大泽乡",
    "narration": "大雨失期，陈胜吴广斩木为兵：王侯将相宁有种乎！",
    "ambience": [
@@ -179,7 +179,7 @@
    "motionPrompt": "rain streaks, the torch flickers, the crowd sways and raises staffs, mist rolls; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qin-07.jpg",
    "clip": "qin-07.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 8,
@@ -188,7 +188,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "刘邦斩蛇起沛",
    "narration": "刘邦夜行泽中，拔剑斩大蛇，后世传为赤帝子。",
    "ambience": [
@@ -199,7 +199,7 @@
    "motionPrompt": "mist drifts across the marsh, reeds sway, his cloak stirs, the frame holds; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qin-08.jpg",
    "clip": "qin-08.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 9,
@@ -208,7 +208,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "破釜沉舟",
    "narration": "项羽渡河，沉船破釜，持三日粮，以示士卒必死。",
    "ambience": [
@@ -220,7 +220,17 @@
    "motionPrompt": "the boats sink lower, ripples spread, smoke drifts over the far city, banners ripple; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qin-09.jpg",
    "clip": "qin-09.mp4",
-   "status": "pending"
+   "status": "done"
   }
- ]
+ ],
+ "output": {
+  "mp4": "video/viewer/assets/chapter-videos/qin.mp4",
+  "poster": "video/viewer/assets/chapter-videos/qin-poster.jpg",
+  "durationSec": 72.42,
+  "crossfadeSec": 0.7,
+  "audio": true,
+  "narration": true,
+  "status": "done",
+  "loudnessLUFS": -16.1
+ }
 }
