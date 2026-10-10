@@ -17,10 +17,14 @@
   },
   "scenes": [
    "qin.shuwen",
+   "qin.fengshan",
+   "qin.bolangsha",
    "qin.changcheng",
    "qin.xufu",
+   "qin.fenshu",
    "qin.shaqiu",
    "qin.dazexiang",
+   "qin.baishe",
    "qin.julu"
   ],
   "keyScenes": [
@@ -1803,6 +1807,3520 @@
    ]
   },
   {
+   "outlineId": "06-07",
+   "v1": false,
+   "detail": "full",
+   "scene": {
+    "format": "inkgames.scene",
+    "version": 1,
+    "id": "qin.fengshan",
+    "chapter": "qin",
+    "order": 2,
+    "title": "scene.qin.fengshan.title",
+    "subtitle": "scene.qin.fengshan.subtitle",
+    "when": {
+     "start": -219,
+     "precision": "year",
+     "display": "前 219 年",
+     "era": "秦始皇二十八年",
+     "verify": "done",
+     "notes": "《史记·秦始皇本纪》二十八年"
+    },
+    "key": false,
+    "template": "journey",
+    "props": [
+     "banner",
+     "figure",
+     "landscape",
+     "water"
+    ],
+    "characters": [
+     "qinshihuang",
+     "lisi",
+     "ruisheng",
+     "wudafu"
+    ],
+    "anchors": {
+     "entry": {
+      "id": "anchor.qin.zouyi",
+      "title": "anchor.zouyi",
+      "when": {
+       "start": -219,
+       "precision": "year",
+       "display": "前 219 年",
+       "era": "秦始皇二十八年",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "秦始皇本纪"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.qin.chanliangfu",
+      "title": "anchor.chanliangfu",
+      "when": {
+       "start": -219,
+       "precision": "year",
+       "display": "前 219 年",
+       "era": "秦始皇二十八年",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "秦始皇本纪"
+       },
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "封禅书"
+       }
+      ]
+     }
+    },
+    "opening": "cutscene.qin.fengshan.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.qin.fengshan.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.qin.fengshan.opening",
+       "when": {
+        "start": -219,
+        "precision": "year",
+        "display": "前 219 年",
+        "era": "秦始皇二十八年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十八年"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "封禅书"
+        },
+        {
+         "kind": "excavated",
+         "title": "泰山刻石",
+         "section": "残石今存泰安岱庙",
+         "notes": "传为李斯小篆"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": -219,
+        "precision": "year",
+        "display": "前 219 年",
+        "era": "秦始皇二十八年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十八年"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.qin.fengshan.pick.canon",
+         "seal": "canon",
+         "to": "c.intro"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.qin.fengshan.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.qin.fengshan.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "qin.fengshan/canon"
+           },
+           {
+            "cleared": "qin.fengshan/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": -219,
+        "precision": "year",
+        "display": "前 219 年",
+        "era": "秦始皇二十八年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十八年"
+       },
+       "dialogue": "scene.qin.fengshan.canon.intro",
+       "next": [
+        "c.yili"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "封禅书"
+        },
+        {
+         "kind": "excavated",
+         "title": "泰山刻石",
+         "section": "残石今存泰安岱庙",
+         "notes": "传为李斯小篆"
+        }
+       ]
+      },
+      {
+       "id": "c.yili",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -219,
+        "precision": "year",
+        "display": "前 219 年",
+        "era": "秦始皇二十八年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十八年"
+       },
+       "gameplay": {
+        "template": "court",
+        "params": {
+         "goal": "在儒生们乖异的说法中做出取舍，决定封禅采用何种礼仪",
+         "beats": [
+          "listen",
+          "weigh",
+          "dismiss"
+         ],
+         "failTo": "c.yili",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.shangshan"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "封禅书"
+        },
+        {
+         "kind": "excavated",
+         "title": "泰山刻石",
+         "section": "残石今存泰安岱庙",
+         "notes": "传为李斯小篆"
+        }
+       ]
+      },
+      {
+       "id": "c.shangshan",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -219,
+        "precision": "year",
+        "display": "前 219 年",
+        "era": "秦始皇二十八年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十八年"
+       },
+       "gameplay": {
+        "template": "journey",
+        "params": {
+         "goal": "沿新修的车道登泰山，在山顶立石、封坛",
+         "beats": [
+          "climb",
+          "erect",
+          "offer"
+         ],
+         "failTo": "c.shangshan",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.bitu"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "封禅书"
+        },
+        {
+         "kind": "excavated",
+         "title": "泰山刻石",
+         "section": "残石今存泰安岱庙",
+         "notes": "传为李斯小篆"
+        }
+       ]
+      },
+      {
+       "id": "c.bitu",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -219,
+        "precision": "year",
+        "display": "前 219 年",
+        "era": "秦始皇二十八年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十八年"
+       },
+       "gameplay": {
+        "template": "survival",
+        "params": {
+         "goal": "下山遇暴雨，护送车驾在松树下避雨",
+         "beats": [
+          "storm",
+          "shelter",
+          "wait"
+         ],
+         "failTo": "c.bitu",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "封禅书"
+        },
+        {
+         "kind": "excavated",
+         "title": "泰山刻石",
+         "section": "残石今存泰安岱庙",
+         "notes": "传为李斯小篆"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.qin.fengshan.legend-intro",
+       "when": {
+        "start": -219,
+        "precision": "year",
+        "display": "前 219 年",
+        "era": "秦始皇二十八年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十八年"
+       },
+       "label": "scene.qin.fengshan.legend.disclaimer",
+       "dialogue": "scene.qin.fengshan.legend.intro",
+       "next": [
+        "l.wuzibei"
+       ],
+       "sources": [
+        {
+         "kind": "classic",
+         "title": "日知录",
+         "section": "卷三十一 泰山立石",
+         "notes": "清顾炎武撰，考无字碑为汉武帝所立"
+        },
+        {
+         "kind": "excavated",
+         "title": "泰山刻石",
+         "section": "残石今存泰安岱庙",
+         "notes": "传为李斯小篆，存十字"
+        }
+       ]
+      },
+      {
+       "id": "l.wuzibei",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -219,
+        "precision": "year",
+        "display": "前 219 年",
+        "era": "秦始皇二十八年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十八年"
+       },
+       "gameplay": {
+        "template": "riddle",
+        "params": {
+         "goal": "比较秦刻石与无字碑的形制，判断哪一块才是秦始皇所立",
+         "beats": [
+          "measure",
+          "compare",
+          "conclude"
+         ],
+         "failTo": "l.wuzibei",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.canshi"
+       ],
+       "sources": [
+        {
+         "kind": "classic",
+         "title": "日知录",
+         "section": "卷三十一 泰山立石",
+         "notes": "清顾炎武撰，考无字碑为汉武帝所立"
+        },
+        {
+         "kind": "excavated",
+         "title": "泰山刻石",
+         "section": "残石今存泰安岱庙",
+         "notes": "传为李斯小篆，存十字"
+        }
+       ]
+      },
+      {
+       "id": "l.canshi",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -219,
+        "precision": "year",
+        "display": "前 219 年",
+        "era": "秦始皇二十八年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十八年"
+       },
+       "gameplay": {
+        "template": "calligraphy",
+        "params": {
+         "goal": "依泰山刻石残石，临写李斯小篆的几个字",
+         "beats": [
+          "observe",
+          "trace",
+          "write"
+         ],
+         "failTo": "l.canshi",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "classic",
+         "title": "日知录",
+         "section": "卷三十一 泰山立石",
+         "notes": "清顾炎武撰，考无字碑为汉武帝所立"
+        },
+        {
+         "kind": "excavated",
+         "title": "泰山刻石",
+         "section": "残石今存泰安岱庙",
+         "notes": "传为李斯小篆，存十字"
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
+     {
+      "id": "end.canon",
+      "kind": "canon",
+      "title": "scene.qin.fengshan.end.canon",
+      "cutscene": "cutscene.qin.fengshan.end-canon",
+      "mergeTo": "anchor.qin.chanliangfu",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "秦始皇本纪"
+       },
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "封禅书"
+       },
+       {
+        "kind": "excavated",
+        "title": "泰山刻石",
+        "section": "残石今存泰安岱庙",
+        "notes": "传为李斯小篆"
+       }
+      ]
+     },
+     {
+      "id": "end.legend",
+      "title": "scene.qin.fengshan.end.legend",
+      "cutscene": "cutscene.qin.fengshan.end-legend",
+      "sources": [
+       {
+        "kind": "classic",
+        "title": "日知录",
+        "section": "卷三十一 泰山立石",
+        "notes": "清顾炎武撰，考无字碑为汉武帝所立"
+       },
+       {
+        "kind": "excavated",
+        "title": "泰山刻石",
+        "section": "残石今存泰安岱庙",
+        "notes": "传为李斯小篆，存十字"
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.qin.chanliangfu",
+      "notes": "野史线结局与正史出口一致，属于汇流"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.qin.fengshan.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
+     }
+    ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "封禅之礼",
+       "canon": "《封禅书》：绌儒生，礼颇采太祝之祀雍上帝所用，封藏皆秘之",
+       "legend": "儒生议用蒲车、扫地而祭",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "封禅书"
+        },
+        {
+         "kind": "excavated",
+         "title": "泰山刻石",
+         "section": "残石今存泰安岱庙",
+         "notes": "传为李斯小篆"
+        },
+        {
+         "kind": "classic",
+         "title": "日知录",
+         "section": "卷三十一 泰山立石",
+         "notes": "清顾炎武撰，考无字碑为汉武帝所立"
+        },
+        {
+         "kind": "excavated",
+         "title": "泰山刻石",
+         "section": "残石今存泰安岱庙",
+         "notes": "传为李斯小篆，存十字"
+        }
+       ]
+      },
+      {
+       "topic": "泰山石",
+       "canon": "泰山刻石：李斯小篆，颂秦德",
+       "legend": "无字碑：民间传为秦立，顾炎武考为汉武帝所立",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "封禅书"
+        },
+        {
+         "kind": "excavated",
+         "title": "泰山刻石",
+         "section": "残石今存泰安岱庙",
+         "notes": "传为李斯小篆"
+        },
+        {
+         "kind": "classic",
+         "title": "日知录",
+         "section": "卷三十一 泰山立石",
+         "notes": "清顾炎武撰，考无字碑为汉武帝所立"
+        },
+        {
+         "kind": "excavated",
+         "title": "泰山刻石",
+         "section": "残石今存泰安岱庙",
+         "notes": "传为李斯小篆，存十字"
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.fengshan",
+       "person.qinshihuang"
+      ],
+      "seal": "seal.fengshan"
+     }
+    },
+    "verify": "pending",
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.qin.fengshan.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      206,
+      200,
+      186
+     ],
+     "seed": 51239
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "泰山南麓，车道从山脚直修到山顶"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "七十名儒生在山下争论封禅的古礼"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "皇帝的车驾沿新开的车道上山"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "山顶立起石碑，刻上秦德"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "下山途中，暴雨骤至，他躲到一棵松树下"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 360,
+         "variant": 1
+        }
+       },
+       "label": "远山"
+      },
+      {
+       "at": 160,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "nearHill",
+         "ground"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 420
+        }
+       },
+       "label": "近山与地面"
+      },
+      {
+       "at": 320,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "brush": "banner.gust",
+        "color": "light_gray_new",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           160,
+           160
+          ],
+          [
+           420,
+           130
+          ],
+          [
+           700,
+           170
+          ],
+          [
+           1000,
+           140
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "云"
+      },
+      {
+       "at": 660,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 690,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 720,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 750,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 940,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "water-brush.stroke",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           640,
+           180
+          ],
+          [
+           640,
+           260
+          ],
+          [
+           620,
+           330
+          ],
+          [
+           660,
+           400
+          ]
+         ]
+        },
+        "speed": 2
+       },
+       "label": "蒲车"
+      },
+      {
+       "at": 1220,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "齐鲁儒生"
+      },
+      {
+       "at": 1620,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 420,
+         "y": 540,
+         "gait": 1
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 1680,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 760,
+         "y": 560,
+         "gait": 0,
+         "mirror": true
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 2060,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "banner",
+        "placement": {
+         "x": 300,
+         "y": 480
+        }
+       },
+       "label": "banner"
+      },
+      {
+       "at": 2500,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "秦始皇"
+      },
+      {
+       "at": 3060,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 300,
+         "y": 380,
+         "variant": 3
+        }
+       },
+       "label": "皴法山石（新引擎：随相机距离变化的笔触描边 + Perlin 噪声）"
+      },
+      {
+       "at": 3580,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "water-brush.stroke",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           640,
+           180
+          ],
+          [
+           640,
+           260
+          ],
+          [
+           620,
+           330
+          ],
+          [
+           660,
+           400
+          ]
+         ]
+        },
+        "speed": 2
+       },
+       "label": "刻石"
+      },
+      {
+       "at": 4100,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "李斯"
+      },
+      {
+       "at": 4740,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "banner.gust",
+        "color": "light_gray_new",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           100,
+           80
+          ],
+          [
+           1180,
+           640
+          ]
+         ]
+        },
+        "speed": 14
+       },
+       "label": "雨"
+      },
+      {
+       "at": 4890,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.grass",
+        "color": "green_dark",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           560,
+           620
+          ],
+          [
+           566,
+           300
+          ]
+         ]
+        },
+        "speed": 7
+       },
+       "label": "树"
+      },
+      {
+       "at": 4930,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.grass",
+        "color": "green_dark",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           500,
+           340
+          ],
+          [
+           560,
+           300
+          ],
+          [
+           630,
+           330
+          ]
+         ]
+        },
+        "speed": 7
+       },
+       "label": "树冠"
+      },
+      {
+       "at": 5040,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "秦始皇"
+      },
+      {
+       "at": 5190,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "五大夫"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "still"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.qin.fengshan.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.qin.fengshan.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 2700,
+       "until": 3000,
+       "kind": "caption",
+       "key": "scene.qin.fengshan.quote",
+       "style": "kaiti",
+       "orientation": "vertical",
+       "x": 160,
+       "y": 120,
+       "source": {
+        "kind": "canon",
+        "title": "史记",
+        "section": "秦始皇本纪"
+       }
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 1710,
+       "kind": "inkDisperse",
+       "layer": "terrain",
+       "params": {
+        "origin": [
+         600,
+         600
+        ],
+        "radius": 260,
+        "frames": 180
+       },
+       "label": "马蹄墨散（新引擎：地形动态纹理）"
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/qin-zheng.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/wind-plain.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/crowd-murmur.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/fengshan-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/fengshan-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1080,
+       "bus": "sfx",
+       "asset": "audio/sfx/bamboo-slip.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/wind-plain.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/fengshan-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/chariot.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/wind-after.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/fengshan-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3840,
+       "bus": "sfx",
+       "asset": "audio/sfx/stone-chisel.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/storm.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/thunder.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/fengshan-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/thunder.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.qin.fengshan.title": "泰山封禅",
+     "scene.qin.fengshan.subtitle": "五大夫松",
+     "scene.qin.fengshan.when": "封禅",
+     "vo.01": "统一天下的第三年，秦始皇东巡郡县，先登邹峄山，与齐鲁的儒生商议封禅的礼仪。",
+     "vo.02": "儒生们说，古时封禅要用蒲草裹车轮，怕伤了山上的土石草木；扫地而祭，用草席。说法各不相同。",
+     "vo.03": "始皇觉得这些说法难以施行，就不再用他们。他命人开出车道，从泰山南面直上山顶。",
+     "vo.04": "在山顶立石，颂扬秦德，表明自己得以封禅。具体的礼仪都秘藏起来，世人无从得知。",
+     "vo.05": "下山的时候，天色忽变——",
+     "scene.qin.fengshan.quote": "风雨暴至，休于树下，因封其树为五大夫。",
+     "scene.qin.fengshan.fork.prompt": "此刻落笔，循哪一卷而书？",
+     "anchor.zouyi": "上邹峄山，与鲁诸儒生议封禅",
+     "anchor.chanliangfu": "禅梁父，刻所立石",
+     "scene.qin.fengshan.pick.canon": "正史线 · 《史记·秦始皇本纪》《封禅书》所载",
+     "scene.qin.fengshan.canon.intro": "封禅，是向天地报告：天下已经太平了。可是怎么报告，谁也说不清。儒生们争了半天，皇帝决定不等了。",
+     "scene.qin.fengshan.end.canon": "始皇封其树为五大夫，然后禅于梁父，刻所立石。被绌的儒生听说皇帝在山上遇了风雨，便私下讥笑他。",
+     "scene.qin.fengshan.pick.legend": "后世 · 无字碑",
+     "scene.qin.fengshan.legend.disclaimer": "以下取泰山顶上的“无字碑”传说：民间长期相传为秦始皇所立，明末清初顾炎武《日知录》卷三十一考证认为是汉武帝所立。另附泰山刻石残石（今存岱庙）。这些是后世的传说与考证。",
+     "scene.qin.fengshan.legend.intro": "泰山极顶，有一块高大的石碑，四面都没有一个字。导游说，这是秦始皇立的。",
+     "scene.qin.fengshan.end.legend": "无字碑上没有秦德，刻石上的秦德只剩下十个字。皇帝留在泰山上的，还是那棵被封为五大夫的松树。汇流。",
+     "scene.qin.fengshan.pick.whatif": "推演 · 若采用儒生之礼（未开放）",
+     "scene.qin.fengshan.end.whatif": "异闻 · 未开放"
+    }
+   },
+   "cast": [
+    {
+     "id": "qinshihuang",
+     "name": "秦始皇",
+     "title": "皇帝",
+     "camp": "秦",
+     "type": "ruler",
+     "bio": "东巡郡县，封泰山，禅梁父"
+    },
+    {
+     "id": "lisi",
+     "name": "李斯",
+     "title": "丞相（时为廷尉）",
+     "camp": "秦",
+     "type": "minister",
+     "bio": "随行，刻石颂秦德（相传刻石为其所书）"
+    },
+    {
+     "id": "ruisheng",
+     "name": "齐鲁儒生",
+     "title": "博士诸生七十人",
+     "camp": "齐鲁",
+     "type": "scholar",
+     "bio": "议封禅之礼，各说乖异，被绌"
+    },
+    {
+     "id": "wudafu",
+     "name": "五大夫松",
+     "title": "泰山之树",
+     "camp": "秦",
+     "type": "other",
+     "bio": "始皇避雨其下，封为五大夫"
+    }
+   ],
+   "relations": [
+    {
+     "from": "qinshihuang",
+     "to": "lisi",
+     "relation": "君臣",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "qinshihuang",
+     "to": "ruisheng",
+     "relation": "绌之",
+     "type": "rival"
+    },
+    {
+     "from": "qinshihuang",
+     "to": "wudafu",
+     "relation": "封其树",
+     "type": "other"
+    }
+   ],
+   "artPrompts": [
+    {
+     "id": "qin.fengshan.sheet.cast.1",
+     "category": "cast",
+     "categoryLabel": "人物立绘",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "qin.fengshan.art.cast.qinshihuang",
+       "name": "秦始皇（皇帝）",
+       "kind": "figure",
+       "note": "秦·君主",
+       "ref": {
+        "prop": "figure",
+        "actor": "qinshihuang"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "qin.fengshan.art.cast.lisi",
+       "name": "李斯（丞相（时为廷尉））",
+       "kind": "figure",
+       "note": "秦·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "lisi"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "qin.fengshan.art.cast.ruisheng",
+       "name": "齐鲁儒生（博士诸生七十人）",
+       "kind": "figure",
+       "note": "齐鲁·文人",
+       "ref": {
+        "prop": "figure",
+        "actor": "ruisheng"
+       }
+      },
+      {
+       "slot": 4,
+       "id": "qin.fengshan.art.cast.wudafu",
+       "name": "五大夫松（泰山之树）",
+       "kind": "figure",
+       "note": "秦·其他",
+       "ref": {
+        "prop": "figure",
+        "actor": "wudafu"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（人物立绘），题材：泰山封禅·五大夫松（前 219 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 秦始皇（皇帝）（秦·君主）；2. 李斯（丞相（时为廷尉））（秦·文臣）。\n第 2 行：3. 齐鲁儒生（博士诸生七十人）（齐鲁·文人）；4. 五大夫松（泰山之树）（秦·其他）。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "qin.fengshan.sheet.props.1",
+     "category": "props",
+     "categoryLabel": "道具器物",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "qin.fengshan.art.props.1",
+       "name": "旌旗",
+       "kind": "prop",
+       "note": "高杆大旗，旗面被风鼓起，穗带飘动",
+       "ref": {
+        "prop": "banner"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（道具器物），题材：泰山封禅·五大夫松（前 219 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 旌旗（高杆大旗，旗面被风鼓起，穗带飘动）；2. 留空。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "qin.fengshan.sheet.scenery.1",
+     "category": "scenery",
+     "categoryLabel": "场景环境",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 4,
+      "rows": 4
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "qin.fengshan.art.scenery.1",
+       "name": "远山（淡墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 2,
+       "id": "qin.fengshan.art.scenery.2",
+       "name": "近坡（中墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 3,
+       "id": "qin.fengshan.art.scenery.3",
+       "name": "土坡地线",
+       "kind": "scenery"
+      },
+      {
+       "slot": 4,
+       "id": "qin.fengshan.art.scenery.4",
+       "name": "草丛（枯笔）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 5,
+       "id": "qin.fengshan.art.scenery.5",
+       "name": "大江水面",
+       "kind": "scenery"
+      },
+      {
+       "slot": 6,
+       "id": "qin.fengshan.art.scenery.6",
+       "name": "白色飞白浪花",
+       "kind": "scenery"
+      },
+      {
+       "slot": 7,
+       "id": "qin.fengshan.art.scenery.7",
+       "name": "涟漪",
+       "kind": "scenery"
+      },
+      {
+       "slot": 8,
+       "id": "qin.fengshan.art.scenery.8",
+       "name": "山道",
+       "kind": "scenery"
+      },
+      {
+       "slot": 9,
+       "id": "qin.fengshan.art.scenery.9",
+       "name": "关隘",
+       "kind": "scenery"
+      },
+      {
+       "slot": 10,
+       "id": "qin.fengshan.art.scenery.10",
+       "name": "驿站",
+       "kind": "scenery"
+      },
+      {
+       "slot": 11,
+       "id": "qin.fengshan.art.scenery.11",
+       "name": "行旅车马",
+       "kind": "scenery"
+      },
+      {
+       "slot": 12,
+       "id": "qin.fengshan.art.scenery.12",
+       "name": "树",
+       "kind": "scenery"
+      },
+      {
+       "slot": 13,
+       "id": "qin.fengshan.art.scenery.13",
+       "name": "树冠",
+       "kind": "scenery"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（场景环境），题材：泰山封禅·五大夫松（前 219 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：4×4 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 远山（淡墨）；2. 近坡（中墨）；3. 土坡地线；4. 草丛（枯笔）。\n第 2 行：5. 大江水面；6. 白色飞白浪花；7. 涟漪；8. 山道。\n第 3 行：9. 关隘；10. 驿站；11. 行旅车马；12. 树。\n第 4 行：13. 树冠；14. 留空；15. 留空；16. 留空。\n排版参考尺寸：2048×2048 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       2048,
+       2048
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "qin.fengshan.sheet.effects.1",
+     "category": "effects",
+     "categoryLabel": "水墨特效",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "qin.fengshan.art.effects.1",
+       "name": "泼墨墨点飞溅",
+       "kind": "fx"
+      },
+      {
+       "slot": 2,
+       "id": "qin.fengshan.art.effects.2",
+       "name": "飞白笔触",
+       "kind": "fx"
+      },
+      {
+       "slot": 3,
+       "id": "qin.fengshan.art.effects.3",
+       "name": "风卷旗影",
+       "kind": "fx"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（水墨特效），题材：泰山封禅·五大夫松（前 219 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触。\n第 2 行：3. 风卷旗影；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    }
+   ]
+  },
+  {
+   "outlineId": "06-08",
+   "v1": false,
+   "detail": "full",
+   "scene": {
+    "format": "inkgames.scene",
+    "version": 1,
+    "id": "qin.bolangsha",
+    "chapter": "qin",
+    "order": 3,
+    "title": "scene.qin.bolangsha.title",
+    "subtitle": "scene.qin.bolangsha.subtitle",
+    "when": {
+     "start": -218,
+     "precision": "year",
+     "display": "前 218 年",
+     "era": "秦始皇二十九年",
+     "verify": "done",
+     "notes": "《史记·秦始皇本纪》二十九年"
+    },
+    "key": false,
+    "template": "ambush",
+    "props": [
+     "figure",
+     "landscape",
+     "war-horse"
+    ],
+    "characters": [
+     "zhangliang",
+     "lishi",
+     "qinshihuang",
+     "huangshigong"
+    ],
+    "anchors": {
+     "entry": {
+      "id": "anchor.qin.canghai",
+      "title": "anchor.canghai",
+      "when": {
+       "start": -219,
+       "precision": "circa",
+       "display": "约前 219 年",
+       "verify": "done",
+       "notes": "《留侯世家》不书年，约数"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "留侯世家"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.qin.xiapi",
+      "title": "anchor.xiapi",
+      "when": {
+       "start": -218,
+       "precision": "year",
+       "display": "前 218 年",
+       "era": "秦始皇二十九年",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "留侯世家"
+       }
+      ]
+     }
+    },
+    "opening": "cutscene.qin.bolangsha.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.qin.bolangsha.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.qin.bolangsha.opening",
+       "when": {
+        "start": -218,
+        "precision": "year",
+        "display": "前 218 年",
+        "era": "秦始皇二十九年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十九年"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "留侯世家"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": -218,
+        "precision": "year",
+        "display": "前 218 年",
+        "era": "秦始皇二十九年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十九年"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.qin.bolangsha.pick.canon",
+         "seal": "canon",
+         "to": "c.intro"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.qin.bolangsha.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.qin.bolangsha.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "qin.bolangsha/canon"
+           },
+           {
+            "cleared": "qin.bolangsha/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": -218,
+        "precision": "year",
+        "display": "前 218 年",
+        "era": "秦始皇二十九年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十九年"
+       },
+       "dialogue": "scene.qin.bolangsha.canon.intro",
+       "next": [
+        "c.qiuke"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "留侯世家"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        }
+       ]
+      },
+      {
+       "id": "c.qiuke",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -218,
+        "precision": "year",
+        "display": "前 218 年",
+        "era": "秦始皇二十九年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十九年"
+       },
+       "gameplay": {
+        "template": "dialogue-timing",
+        "params": {
+         "goal": "变卖家产，东见仓海君，说服力士随行",
+         "beats": [
+          "sell",
+          "travel",
+          "persuade"
+         ],
+         "failTo": "c.qiuke",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.maifu"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "留侯世家"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        }
+       ]
+      },
+      {
+       "id": "c.maifu",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -218,
+        "precision": "year",
+        "display": "前 218 年",
+        "era": "秦始皇二十九年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十九年"
+       },
+       "gameplay": {
+        "template": "ambush",
+        "params": {
+         "goal": "在博浪沙选好伏击之地，判断哪一辆是皇帝的乘舆",
+         "beats": [
+          "scout",
+          "wait",
+          "choose"
+         ],
+         "failTo": "c.maifu",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.wangni"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "留侯世家"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        }
+       ]
+      },
+      {
+       "id": "c.wangni",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -218,
+        "precision": "year",
+        "display": "前 218 年",
+        "era": "秦始皇二十九年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十九年"
+       },
+       "gameplay": {
+        "template": "stealth",
+        "params": {
+         "goal": "一击不中，在天下大索十日之时更名改姓逃往下邳",
+         "beats": [
+          "flee",
+          "disguise",
+          "hide"
+         ],
+         "failTo": "c.wangni",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "留侯世家"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.qin.bolangsha.legend-intro",
+       "when": {
+        "start": -218,
+        "precision": "year",
+        "display": "前 218 年",
+        "era": "秦始皇二十九年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十九年"
+       },
+       "label": "scene.qin.bolangsha.legend.disclaimer",
+       "dialogue": "scene.qin.bolangsha.legend.intro",
+       "next": [
+        "l.najv"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "留侯世家",
+         "notes": "圯上老人授书"
+        },
+        {
+         "kind": "classic",
+         "title": "黄石公三略",
+         "section": "后人托名之兵书"
+        }
+       ]
+      },
+      {
+       "id": "l.najv",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -218,
+        "precision": "year",
+        "display": "前 218 年",
+        "era": "秦始皇二十九年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十九年"
+       },
+       "gameplay": {
+        "template": "dialogue-timing",
+        "params": {
+         "goal": "下桥取鞋，跪着为老人穿上，不露愠色",
+         "beats": [
+          "fetch",
+          "kneel",
+          "endure"
+         ],
+         "failTo": "l.najv",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.wuri"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "留侯世家",
+         "notes": "圯上老人授书"
+        },
+        {
+         "kind": "classic",
+         "title": "黄石公三略",
+         "section": "后人托名之兵书"
+        }
+       ]
+      },
+      {
+       "id": "l.wuri",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -218,
+        "precision": "year",
+        "display": "前 218 年",
+        "era": "秦始皇二十九年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》二十九年"
+       },
+       "gameplay": {
+        "template": "survival",
+        "params": {
+         "goal": "三次赴约，一次比一次早，最后一次半夜就到桥上等候",
+         "beats": [
+          "arrive",
+          "wait",
+          "receive"
+         ],
+         "failTo": "l.wuri",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "留侯世家",
+         "notes": "圯上老人授书"
+        },
+        {
+         "kind": "classic",
+         "title": "黄石公三略",
+         "section": "后人托名之兵书"
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
+     {
+      "id": "end.canon",
+      "kind": "canon",
+      "title": "scene.qin.bolangsha.end.canon",
+      "cutscene": "cutscene.qin.bolangsha.end-canon",
+      "mergeTo": "anchor.qin.xiapi",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "留侯世家"
+       },
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "秦始皇本纪"
+       }
+      ]
+     },
+     {
+      "id": "end.legend",
+      "title": "scene.qin.bolangsha.end.legend",
+      "cutscene": "cutscene.qin.bolangsha.end-legend",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "留侯世家",
+        "notes": "圯上老人授书"
+       },
+       {
+        "kind": "classic",
+        "title": "黄石公三略",
+        "section": "后人托名之兵书"
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.qin.xiapi",
+      "notes": "野史线结局与正史出口一致，属于汇流"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.qin.bolangsha.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
+     }
+    ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "博浪沙",
+       "canon": "《留侯世家》：狙击秦皇帝，误中副车",
+       "legend": "《秦始皇本纪》：至阳武博狼沙中，为盗所惊，令天下大索十日",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "留侯世家"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "留侯世家",
+         "notes": "圯上老人授书"
+        },
+        {
+         "kind": "classic",
+         "title": "黄石公三略",
+         "section": "后人托名之兵书"
+        }
+       ]
+      },
+      {
+       "topic": "兵法从何来",
+       "canon": "《留侯世家》：圯上老人授《太公兵法》",
+       "legend": "今传《黄石公三略》为后人托名",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "留侯世家"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "留侯世家",
+         "notes": "圯上老人授书"
+        },
+        {
+         "kind": "classic",
+         "title": "黄石公三略",
+         "section": "后人托名之兵书"
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.bolangsha",
+       "person.zhangliang"
+      ],
+      "seal": "seal.bolangsha"
+     }
+    },
+    "verify": "pending",
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.qin.bolangsha.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      206,
+      200,
+      186
+     ],
+     "seed": 30988
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "阳武县外，黄沙漫道"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "一个年轻人和一个巨汉伏在沙丘后"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "远处，皇帝的车队浩浩荡荡驶来"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "铁椎飞出，砸中了一辆车"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "那不是皇帝坐的车"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 360,
+         "variant": 1
+        }
+       },
+       "label": "远山"
+      },
+      {
+       "at": 160,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.ground",
+        "color": "khaki",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           0,
+           600
+          ],
+          [
+           300,
+           585
+          ],
+          [
+           640,
+           605
+          ],
+          [
+           980,
+           580
+          ],
+          [
+           1280,
+           598
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "沙"
+      },
+      {
+       "at": 320,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "grass"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 560
+        }
+       },
+       "label": "草"
+      },
+      {
+       "at": 660,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.ground",
+        "color": "khaki",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           0,
+           600
+          ],
+          [
+           300,
+           585
+          ],
+          [
+           640,
+           605
+          ],
+          [
+           980,
+           580
+          ],
+          [
+           1280,
+           598
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "沙"
+      },
+      {
+       "at": 940,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "张良"
+      },
+      {
+       "at": 1220,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "力士"
+      },
+      {
+       "at": 1620,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 420,
+         "y": 540,
+         "gait": 1
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 1680,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 760,
+         "y": 560,
+         "gait": 0,
+         "mirror": true
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 2060,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "banner",
+        "placement": {
+         "x": 300,
+         "y": 480
+        }
+       },
+       "label": "banner"
+      },
+      {
+       "at": 2500,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 360,
+         "variant": 2
+        }
+       },
+       "label": "远山"
+      },
+      {
+       "at": 3060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.ground",
+        "color": "khaki",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           0,
+           600
+          ],
+          [
+           300,
+           585
+          ],
+          [
+           640,
+           605
+          ],
+          [
+           980,
+           580
+          ],
+          [
+           1280,
+           598
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "沙"
+      },
+      {
+       "at": 3580,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "副车"
+      },
+      {
+       "at": 4100,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "力士"
+      },
+      {
+       "at": 4740,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 420,
+         "y": 540,
+         "gait": 1
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 4800,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 760,
+         "y": 560,
+         "gait": 0,
+         "mirror": true
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 4940,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "秦始皇"
+      },
+      {
+       "at": 5140,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "张良"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "still"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "shake": {
+        "amp": 2,
+        "frames": 120
+       },
+       "label": "shake"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.qin.bolangsha.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.qin.bolangsha.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 2700,
+       "until": 3000,
+       "kind": "caption",
+       "key": "scene.qin.bolangsha.quote",
+       "style": "kaiti",
+       "orientation": "vertical",
+       "x": 160,
+       "y": 120,
+       "source": {
+        "kind": "canon",
+        "title": "史记",
+        "section": "留侯世家"
+       }
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 1710,
+       "kind": "inkDisperse",
+       "layer": "terrain",
+       "params": {
+        "origin": [
+         600,
+         600
+        ],
+        "radius": 260,
+        "frames": 180
+       },
+       "label": "马蹄墨散（新引擎：地形动态纹理）"
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 4830,
+       "kind": "inkDisperse",
+       "layer": "terrain",
+       "params": {
+        "origin": [
+         600,
+         600
+        ],
+        "radius": 260,
+        "frames": 180
+       },
+       "label": "马蹄墨散（新引擎：地形动态纹理）"
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/qin-zheng.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/wind-plain.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/wind-plain.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/bolangsha-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/bolangsha-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1080,
+       "bus": "sfx",
+       "asset": "audio/sfx/wind-dry.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/wind-plain.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/bolangsha-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/chariot.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/wind-after.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/bolangsha-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3840,
+       "bus": "sfx",
+       "asset": "audio/sfx/metal-clang.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/crowd-roar.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/metal-clang.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/bolangsha-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/horse-neigh.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.qin.bolangsha.title": "博浪一击",
+     "scene.qin.bolangsha.subtitle": "张良",
+     "scene.qin.bolangsha.when": "副车",
+     "vo.01": "张良的祖父、父亲先后做过五代韩王的相国。韩国被秦灭了，他家还有三百个家僮。",
+     "vo.02": "弟弟死了，他没有厚葬，把全部家财拿出来，寻找能刺杀秦王的人，为韩国报仇。",
+     "vo.03": "他到东方见了仓海君，得到一个大力士，做了一柄重一百二十斤的铁椎。",
+     "vo.04": "秦始皇二十九年，皇帝东游，经过阳武县的博浪沙。张良与力士埋伏在路边。",
+     "vo.05": "铁椎掷了出去——",
+     "scene.qin.bolangsha.quote": "良与客狙击秦皇帝博浪沙中，误中副车。",
+     "scene.qin.bolangsha.fork.prompt": "此刻落笔，循哪一卷而书？",
+     "anchor.canghai": "张良东见仓海君，得力士",
+     "anchor.xiapi": "张良更名姓，亡匿下邳",
+     "scene.qin.bolangsha.pick.canon": "正史线 · 《史记·留侯世家》所载",
+     "scene.qin.bolangsha.canon.intro": "张良不是武人，《史记》说他的相貌像个美丽的女子。可他要做的，是在一百多辆车里，找出皇帝坐的那一辆。",
+     "scene.qin.bolangsha.end.canon": "铁椎误中副车。秦始皇大怒，令天下大索十日，求贼甚急。张良更名改姓，逃到下邳藏了起来。",
+     "scene.qin.bolangsha.pick.legend": "传说 · 圯上老人",
+     "scene.qin.bolangsha.legend.disclaimer": "以下取《史记·留侯世家》中黄石公授书一段：下邳桥上老人三试张良，授以《太公兵法》，自称“后十三年济北谷城山下黄石即我矣”。此段虽在《史记》中，历来被视为带有神异色彩的传说；今传《黄石公三略》为后人托名。",
+     "scene.qin.bolangsha.legend.intro": "下邳的一座桥上，一个穿粗布衣的老人走到张良面前，故意把鞋子甩到了桥下。",
+     "scene.qin.bolangsha.end.legend": "老人授书而去。十年后，张良带着这卷兵法投奔了刘邦。汇流。",
+     "scene.qin.bolangsha.pick.whatif": "推演 · 若铁椎命中（未开放）",
+     "scene.qin.bolangsha.end.whatif": "异闻 · 未开放"
+    }
+   },
+   "cast": [
+    {
+     "id": "zhangliang",
+     "name": "张良",
+     "title": "韩国公子之后",
+     "camp": "韩",
+     "type": "other",
+     "bio": "五世相韩，弟死不葬，悉以家财求客刺秦"
+    },
+    {
+     "id": "lishi",
+     "name": "力士",
+     "title": "仓海君所荐",
+     "camp": "东夷",
+     "type": "other",
+     "bio": "为铁椎重百二十斤"
+    },
+    {
+     "id": "qinshihuang",
+     "name": "秦始皇",
+     "title": "皇帝",
+     "camp": "秦",
+     "type": "ruler",
+     "bio": "东游至阳武博浪沙，为盗所惊"
+    },
+    {
+     "id": "huangshigong",
+     "name": "圯上老人",
+     "title": "黄石公",
+     "camp": "传说",
+     "type": "other",
+     "bio": "授张良《太公兵法》"
+    }
+   ],
+   "relations": [
+    {
+     "from": "zhangliang",
+     "to": "lishi",
+     "relation": "主客",
+     "type": "ally",
+     "directed": true
+    },
+    {
+     "from": "zhangliang",
+     "to": "qinshihuang",
+     "relation": "狙击",
+     "type": "rival"
+    },
+    {
+     "from": "huangshigong",
+     "to": "zhangliang",
+     "relation": "授书",
+     "type": "mentor",
+     "directed": true
+    }
+   ],
+   "artPrompts": [
+    {
+     "id": "qin.bolangsha.sheet.cast.1",
+     "category": "cast",
+     "categoryLabel": "人物立绘",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "qin.bolangsha.art.cast.zhangliang",
+       "name": "张良（韩国公子之后）",
+       "kind": "figure",
+       "note": "韩·其他",
+       "ref": {
+        "prop": "figure",
+        "actor": "zhangliang"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "qin.bolangsha.art.cast.lishi",
+       "name": "力士（仓海君所荐）",
+       "kind": "figure",
+       "note": "东夷·其他",
+       "ref": {
+        "prop": "figure",
+        "actor": "lishi"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "qin.bolangsha.art.cast.qinshihuang",
+       "name": "秦始皇（皇帝）",
+       "kind": "figure",
+       "note": "秦·君主",
+       "ref": {
+        "prop": "figure",
+        "actor": "qinshihuang"
+       }
+      },
+      {
+       "slot": 4,
+       "id": "qin.bolangsha.art.cast.huangshigong",
+       "name": "圯上老人（黄石公）",
+       "kind": "figure",
+       "note": "传说·其他",
+       "ref": {
+        "prop": "figure",
+        "actor": "huangshigong"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（人物立绘），题材：博浪一击·张良（前 218 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 张良（韩国公子之后）（韩·其他）；2. 力士（仓海君所荐）（东夷·其他）。\n第 2 行：3. 秦始皇（皇帝）（秦·君主）；4. 圯上老人（黄石公）（传说·其他）。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "qin.bolangsha.sheet.props.1",
+     "category": "props",
+     "categoryLabel": "道具器物",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "qin.bolangsha.art.props.1",
+       "name": "战马",
+       "kind": "prop",
+       "note": "奔马侧影，鬃尾飞扬，四蹄腾空",
+       "ref": {
+        "prop": "war-horse"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（道具器物），题材：博浪一击·张良（前 218 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 战马（奔马侧影，鬃尾飞扬，四蹄腾空）；2. 留空。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "qin.bolangsha.sheet.scenery.1",
+     "category": "scenery",
+     "categoryLabel": "场景环境",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 4,
+      "rows": 3
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "qin.bolangsha.art.scenery.1",
+       "name": "远山（淡墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 2,
+       "id": "qin.bolangsha.art.scenery.2",
+       "name": "近坡（中墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 3,
+       "id": "qin.bolangsha.art.scenery.3",
+       "name": "土坡地线",
+       "kind": "scenery"
+      },
+      {
+       "slot": 4,
+       "id": "qin.bolangsha.art.scenery.4",
+       "name": "草丛（枯笔）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 5,
+       "id": "qin.bolangsha.art.scenery.5",
+       "name": "密林",
+       "kind": "scenery"
+      },
+      {
+       "slot": 6,
+       "id": "qin.bolangsha.art.scenery.6",
+       "name": "山道",
+       "kind": "scenery"
+      },
+      {
+       "slot": 7,
+       "id": "qin.bolangsha.art.scenery.7",
+       "name": "灌木与岩石",
+       "kind": "scenery"
+      },
+      {
+       "slot": 8,
+       "id": "qin.bolangsha.art.scenery.8",
+       "name": "夜雾",
+       "kind": "scenery"
+      },
+      {
+       "slot": 9,
+       "id": "qin.bolangsha.art.scenery.9",
+       "name": "沙",
+       "kind": "scenery"
+      },
+      {
+       "slot": 10,
+       "id": "qin.bolangsha.art.scenery.10",
+       "name": "草",
+       "kind": "scenery"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（场景环境），题材：博浪一击·张良（前 218 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：4×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 远山（淡墨）；2. 近坡（中墨）；3. 土坡地线；4. 草丛（枯笔）。\n第 2 行：5. 密林；6. 山道；7. 灌木与岩石；8. 夜雾。\n第 3 行：9. 沙；10. 草；11. 留空；12. 留空。\n排版参考尺寸：2048×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       2048,
+       1536
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "qin.bolangsha.sheet.effects.1",
+     "category": "effects",
+     "categoryLabel": "水墨特效",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 3,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "qin.bolangsha.art.effects.1",
+       "name": "泼墨墨点飞溅",
+       "kind": "fx"
+      },
+      {
+       "slot": 2,
+       "id": "qin.bolangsha.art.effects.2",
+       "name": "飞白笔触",
+       "kind": "fx"
+      },
+      {
+       "slot": 3,
+       "id": "qin.bolangsha.art.effects.3",
+       "name": "蹄下墨尘",
+       "kind": "fx"
+      },
+      {
+       "slot": 4,
+       "id": "qin.bolangsha.art.effects.4",
+       "name": "鬃毛飞扬",
+       "kind": "fx"
+      },
+      {
+       "slot": 5,
+       "id": "qin.bolangsha.art.effects.5",
+       "name": "夜色云雾",
+       "kind": "fx"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（水墨特效），题材：博浪一击·张良（前 218 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触；3. 蹄下墨尘。\n第 2 行：4. 鬃毛飞扬；5. 夜色云雾；6. 留空。\n排版参考尺寸：1536×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    }
+   ]
+  },
+  {
    "outlineId": "06-02",
    "v1": false,
    "detail": "full",
@@ -1811,7 +5329,7 @@
     "version": 1,
     "id": "qin.changcheng",
     "chapter": "qin",
-    "order": 2,
+    "order": 4,
     "title": "scene.qin.changcheng.title",
     "subtitle": "scene.qin.changcheng.subtitle",
     "when": {
@@ -3623,7 +7141,7 @@
     "version": 1,
     "id": "qin.xufu",
     "chapter": "qin",
-    "order": 3,
+    "order": 5,
     "title": "scene.qin.xufu.title",
     "subtitle": "scene.qin.xufu.subtitle",
     "when": {
@@ -5564,6 +9082,1837 @@
    ]
   },
   {
+   "outlineId": "06-09",
+   "v1": false,
+   "detail": "full",
+   "scene": {
+    "format": "inkgames.scene",
+    "version": 1,
+    "id": "qin.fenshu",
+    "chapter": "qin",
+    "order": 6,
+    "title": "scene.qin.fenshu.title",
+    "subtitle": "scene.qin.fenshu.subtitle",
+    "when": {
+     "start": -213,
+     "precision": "year",
+     "display": "前 213 年",
+     "era": "秦始皇三十四年",
+     "verify": "done",
+     "notes": "《史记·秦始皇本纪》三十四年"
+    },
+    "key": false,
+    "template": "stealth",
+    "props": [
+     "ink-bomb",
+     "figure",
+     "landscape"
+    ],
+    "characters": [
+     "qinshihuang",
+     "lisi",
+     "chunyuyue",
+     "zhouqingchen",
+     "fusheng",
+     "fusu"
+    ],
+    "anchors": {
+     "entry": {
+      "id": "anchor.qin.chunyuyue",
+      "title": "anchor.chunyuyue",
+      "when": {
+       "start": -213,
+       "precision": "year",
+       "display": "前 213 年",
+       "era": "秦始皇三十四年",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "秦始皇本纪"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.qin.kengru",
+      "title": "anchor.kengru",
+      "when": {
+       "start": -212,
+       "precision": "year",
+       "display": "前 212 年",
+       "era": "秦始皇三十五年",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "秦始皇本纪"
+       }
+      ]
+     }
+    },
+    "opening": "cutscene.qin.fenshu.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.qin.fenshu.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.qin.fenshu.opening",
+       "when": {
+        "start": -213,
+        "precision": "year",
+        "display": "前 213 年",
+        "era": "秦始皇三十四年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十四年"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "李斯列传"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "儒林列传"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": -213,
+        "precision": "year",
+        "display": "前 213 年",
+        "era": "秦始皇三十四年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十四年"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.qin.fenshu.pick.canon",
+         "seal": "canon",
+         "to": "c.intro"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.qin.fenshu.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.qin.fenshu.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "qin.fenshu/canon"
+           },
+           {
+            "cleared": "qin.fenshu/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": -213,
+        "precision": "year",
+        "display": "前 213 年",
+        "era": "秦始皇三十四年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十四年"
+       },
+       "dialogue": "scene.qin.fenshu.canon.intro",
+       "next": [
+        "c.tingyi"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "李斯列传"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "儒林列传"
+        }
+       ]
+      },
+      {
+       "id": "c.tingyi",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -213,
+        "precision": "year",
+        "display": "前 213 年",
+        "era": "秦始皇三十四年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十四年"
+       },
+       "gameplay": {
+        "template": "court",
+        "params": {
+         "goal": "在廷议中听取淳于越与李斯两方的说法，记下各自的理由",
+         "beats": [
+          "listen",
+          "record",
+          "compare"
+         ],
+         "failTo": "c.tingyi",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.bicang"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "李斯列传"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "儒林列传"
+        }
+       ]
+      },
+      {
+       "id": "c.bicang",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -213,
+        "precision": "year",
+        "display": "前 213 年",
+        "era": "秦始皇三十四年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十四年"
+       },
+       "gameplay": {
+        "template": "stealth",
+        "params": {
+         "goal": "以伏生的身份在官吏收书之前，把《尚书》藏入墙壁",
+         "beats": [
+          "hide",
+          "seal",
+          "wait"
+         ],
+         "failTo": "c.bicang",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.fusu"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "李斯列传"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "儒林列传"
+        }
+       ]
+      },
+      {
+       "id": "c.fusu",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -213,
+        "precision": "year",
+        "display": "前 213 年",
+        "era": "秦始皇三十四年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十四年"
+       },
+       "gameplay": {
+        "template": "dialogue-timing",
+        "params": {
+         "goal": "以扶苏的身份进谏，在皇帝发怒之前说完“诸生皆诵法孔子”",
+         "beats": [
+          "plead",
+          "timing",
+          "accept"
+         ],
+         "failTo": "c.fusu",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "李斯列传"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "儒林列传"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.qin.fenshu.legend-intro",
+       "when": {
+        "start": -213,
+        "precision": "year",
+        "display": "前 213 年",
+        "era": "秦始皇三十四年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十四年"
+       },
+       "label": "scene.qin.fenshu.legend.disclaimer",
+       "dialogue": "scene.qin.fenshu.legend.intro",
+       "next": [
+        "l.dongua"
+       ],
+       "sources": [
+        {
+         "kind": "classic",
+         "title": "古文奇字",
+         "section": "佚文（《太平御览》卷九百七十八引）",
+         "notes": "东汉卫宏撰，“密种瓜于骊山硎谷中温处”"
+        }
+       ]
+      },
+      {
+       "id": "l.dongua",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -213,
+        "precision": "year",
+        "display": "前 213 年",
+        "era": "秦始皇三十四年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十四年"
+       },
+       "gameplay": {
+        "template": "riddle",
+        "params": {
+         "goal": "在骊山谷中查明冬瓜为何能结实，找出地下的温泉",
+         "beats": [
+          "inspect",
+          "dig",
+          "deduce"
+         ],
+         "failTo": "l.dongua",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.fuji"
+       ],
+       "sources": [
+        {
+         "kind": "classic",
+         "title": "古文奇字",
+         "section": "佚文（《太平御览》卷九百七十八引）",
+         "notes": "东汉卫宏撰，“密种瓜于骊山硎谷中温处”"
+        }
+       ]
+      },
+      {
+       "id": "l.fuji",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -213,
+        "precision": "year",
+        "display": "前 213 年",
+        "era": "秦始皇三十四年",
+        "verify": "done",
+        "notes": "《史记·秦始皇本纪》三十四年"
+       },
+       "gameplay": {
+        "template": "evacuate",
+        "params": {
+         "goal": "在伏机发动之前，劝说同行的儒生离开山谷",
+         "beats": [
+          "warn",
+          "persuade",
+          "escape"
+         ],
+         "failTo": "l.fuji",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "classic",
+         "title": "古文奇字",
+         "section": "佚文（《太平御览》卷九百七十八引）",
+         "notes": "东汉卫宏撰，“密种瓜于骊山硎谷中温处”"
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
+     {
+      "id": "end.canon",
+      "kind": "canon",
+      "title": "scene.qin.fenshu.end.canon",
+      "cutscene": "cutscene.qin.fenshu.end-canon",
+      "mergeTo": "anchor.qin.kengru",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "秦始皇本纪"
+       },
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "李斯列传"
+       },
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "儒林列传"
+       }
+      ]
+     },
+     {
+      "id": "end.legend",
+      "title": "scene.qin.fenshu.end.legend",
+      "cutscene": "cutscene.qin.fenshu.end-legend",
+      "sources": [
+       {
+        "kind": "classic",
+        "title": "古文奇字",
+        "section": "佚文（《太平御览》卷九百七十八引）",
+        "notes": "东汉卫宏撰，“密种瓜于骊山硎谷中温处”"
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.qin.kengru",
+      "notes": "野史线结局与正史出口一致，属于汇流"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.qin.fenshu.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
+     }
+    ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "坑儒经过",
+       "canon": "《秦始皇本纪》：侯生、卢生亡去，案问诸生，坑四百六十余人于咸阳",
+       "legend": "卫宏《古文奇字》：骊山种瓜，伏机填压",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "李斯列传"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "儒林列传"
+        },
+        {
+         "kind": "classic",
+         "title": "古文奇字",
+         "section": "佚文（《太平御览》卷九百七十八引）",
+         "notes": "东汉卫宏撰，“密种瓜于骊山硎谷中温处”"
+        }
+       ]
+      },
+      {
+       "topic": "书的下落",
+       "canon": "《儒林列传》：伏生壁藏，汉定得二十九篇",
+       "legend": "《汉书·艺文志》：鲁共王坏孔子宅，得古文《尚书》",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "秦始皇本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "李斯列传"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "儒林列传"
+        },
+        {
+         "kind": "classic",
+         "title": "古文奇字",
+         "section": "佚文（《太平御览》卷九百七十八引）",
+         "notes": "东汉卫宏撰，“密种瓜于骊山硎谷中温处”"
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.fenshu",
+       "person.lisi",
+       "person.fusheng"
+      ],
+      "seal": "seal.fenshu"
+     }
+    },
+    "verify": "pending",
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.qin.fenshu.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      206,
+      200,
+      186
+     ],
+     "seed": 85951
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "咸阳宫中置酒，七十名博士上前祝寿"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "淳于越出列，劝皇帝师法古人"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "李斯展开奏书，一条一条地念"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "郡县的空地上，竹简堆成了山"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "一个老博士把一卷书塞进墙壁的夹层"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 90,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 160,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 180,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 190,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 220,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 250,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 320,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "秦始皇"
+      },
+      {
+       "at": 660,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 460,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 1
+        }
+       },
+       "label": "淳于越"
+      },
+      {
+       "at": 1080,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 1170,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 1260,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 1620,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 460,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 1
+        }
+       },
+       "label": "李斯"
+      },
+      {
+       "at": 2280,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "water-brush.stroke",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           640,
+           180
+          ],
+          [
+           640,
+           260
+          ],
+          [
+           620,
+           330
+          ],
+          [
+           660,
+           400
+          ]
+         ]
+        },
+        "speed": 2
+       },
+       "label": "以吏为师"
+      },
+      {
+       "at": 3060,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "ink-bomb",
+        "parts": [
+         "burst",
+         "spill"
+        ],
+        "placement": {
+         "x": 300,
+         "y": 500
+        }
+       },
+       "label": "火"
+      },
+      {
+       "at": 3580,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "ink-bomb.spill",
+        "color": "medium_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           200,
+           500
+          ],
+          [
+           420,
+           380
+          ],
+          [
+           640,
+           420
+          ],
+          [
+           900,
+           300
+          ],
+          [
+           1100,
+           340
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "烟"
+      },
+      {
+       "at": 4100,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 4130,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 4160,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 4190,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 4740,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 460,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 1
+        }
+       },
+       "label": "伏生"
+      },
+      {
+       "at": 4940,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "shield",
+        "placement": {
+         "x": 560,
+         "y": 500
+        }
+       },
+       "label": "盾墙"
+      },
+      {
+       "at": 5140,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "壁藏"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "still"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.qin.fenshu.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.qin.fenshu.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 2700,
+       "until": 3000,
+       "kind": "caption",
+       "key": "scene.qin.fenshu.quote",
+       "style": "kaiti",
+       "orientation": "vertical",
+       "x": 160,
+       "y": 120,
+       "source": {
+        "kind": "canon",
+        "title": "史记",
+        "section": "秦始皇本纪"
+       }
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 3120,
+       "kind": "distort",
+       "layer": "sheet",
+       "params": {
+        "displacementB": 16,
+        "displacementC": 40,
+        "extent": "frame"
+       },
+       "frames": 90
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/qin-zheng.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/palace-hall.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 300,
+       "bus": "sfx",
+       "asset": "audio/sfx/bronze-bell.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/palace-hall.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/fenshu-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/fenshu-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1080,
+       "bus": "sfx",
+       "asset": "audio/sfx/bamboo-slip.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/silence-room.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/fenshu-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/bamboo-slip.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/fire-roar.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/fenshu-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3840,
+       "bus": "sfx",
+       "asset": "audio/sfx/fire-crackle.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/silence-room.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/fire-roar.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/fenshu-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/fire-roar.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.qin.fenshu.title": "焚书",
+     "scene.qin.fenshu.subtitle": "以吏为师",
+     "scene.qin.fenshu.when": "焚书",
+     "vo.01": "秦始皇三十四年，咸阳宫中设宴，七十位博士上前祝寿。仆射周青臣称颂皇帝的威德。",
+     "vo.02": "博士淳于越说：事情不师法古人而能长久的，我没有听说过。他请求像殷周那样分封子弟。",
+     "vo.03": "丞相李斯反驳：诸生不师今而学古，以此非议当世。他请求除了秦国的史书，把别国史书都烧掉；民间私藏的诗、书、百家语，都交给郡守县尉一起烧掉。",
+     "vo.04": "医药、卜筮、种树的书不烧。想学法令的，以官吏为老师。皇帝批了一个字：可。",
+     "vo.05": "博士伏生回到家里，看着满架的竹简——",
+     "scene.qin.fenshu.quote": "若欲有学法令，以吏为师。",
+     "scene.qin.fenshu.fork.prompt": "此刻落笔，循哪一卷而书？",
+     "anchor.chunyuyue": "博士淳于越请师古封建",
+     "anchor.kengru": "坑诸生四百六十余人于咸阳",
+     "scene.qin.fenshu.pick.canon": "正史线 · 《史记·秦始皇本纪》《儒林列传》所载",
+     "scene.qin.fenshu.canon.intro": "本段不做杀戮的玩法：焚书与坑诸生只在旁白中交代，玩家扮演的是想把书保存下来的人。",
+     "scene.qin.fenshu.end.canon": "次年，侯生、卢生诽谤而逃，始皇下令追查，诸生四百六十余人被坑于咸阳。扶苏进谏，被遣往上郡监蒙恬军。伏生的书在墙里藏了十几年。",
+     "scene.qin.fenshu.pick.legend": "野史 · 骊山种瓜",
+     "scene.qin.fenshu.legend.disclaimer": "以下取东汉卫宏《古文奇字》（《太平御览》卷九百七十八引）：秦密种瓜于骊山硎谷温处，冬日结实，诏诸生往视，因发伏机，以土填压而死。这是汉人的说法，与《史记》所载坑诸生的经过不同。",
+     "scene.qin.fenshu.legend.intro": "冬天，骊山的山谷里结出了瓜。朝廷下诏：请诸位博士前去看看，这是什么征兆。",
+     "scene.qin.fenshu.end.legend": "骊山的瓜和咸阳的坑，说的是同一场悲剧的两种版本。汉定之后，伏生从墙里取出书，只剩二十九篇。汇流。",
+     "scene.qin.fenshu.pick.whatif": "推演 · 若采淳于越之议（未开放）",
+     "scene.qin.fenshu.end.whatif": "异闻 · 未开放"
+    }
+   },
+   "cast": [
+    {
+     "id": "qinshihuang",
+     "name": "秦始皇",
+     "title": "皇帝",
+     "camp": "秦",
+     "type": "ruler",
+     "bio": "从李斯之议焚书；次年坑诸生"
+    },
+    {
+     "id": "lisi",
+     "name": "李斯",
+     "title": "丞相",
+     "camp": "秦",
+     "type": "minister",
+     "bio": "请烧诗书百家语，以吏为师"
+    },
+    {
+     "id": "chunyuyue",
+     "name": "淳于越",
+     "title": "博士",
+     "camp": "齐",
+     "type": "scholar",
+     "bio": "请师古而封子弟"
+    },
+    {
+     "id": "zhouqingchen",
+     "name": "周青臣",
+     "title": "仆射",
+     "camp": "秦",
+     "type": "minister",
+     "bio": "进颂，称始皇威德"
+    },
+    {
+     "id": "fusheng",
+     "name": "伏生",
+     "title": "秦博士",
+     "camp": "秦",
+     "type": "scholar",
+     "bio": "焚书时壁藏《尚书》"
+    },
+    {
+     "id": "fusu",
+     "name": "扶苏",
+     "title": "长子",
+     "camp": "秦",
+     "type": "royal",
+     "bio": "谏坑诸生，被遣北监蒙恬军"
+    }
+   ],
+   "relations": [
+    {
+     "from": "qinshihuang",
+     "to": "lisi",
+     "relation": "君臣",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "lisi",
+     "to": "chunyuyue",
+     "relation": "廷议相争",
+     "type": "rival"
+    },
+    {
+     "from": "fusheng",
+     "to": "chunyuyue",
+     "relation": "同为博士",
+     "type": "ally"
+    },
+    {
+     "from": "qinshihuang",
+     "to": "fusu",
+     "relation": "父子",
+     "type": "family"
+    }
+   ],
+   "artPrompts": [
+    {
+     "id": "qin.fenshu.sheet.cast.1",
+     "category": "cast",
+     "categoryLabel": "人物立绘",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 3,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "qin.fenshu.art.cast.qinshihuang",
+       "name": "秦始皇（皇帝）",
+       "kind": "figure",
+       "note": "秦·君主",
+       "ref": {
+        "prop": "figure",
+        "actor": "qinshihuang"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "qin.fenshu.art.cast.lisi",
+       "name": "李斯（丞相）",
+       "kind": "figure",
+       "note": "秦·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "lisi"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "qin.fenshu.art.cast.chunyuyue",
+       "name": "淳于越（博士）",
+       "kind": "figure",
+       "note": "齐·文人",
+       "ref": {
+        "prop": "figure",
+        "actor": "chunyuyue"
+       }
+      },
+      {
+       "slot": 4,
+       "id": "qin.fenshu.art.cast.zhouqingchen",
+       "name": "周青臣（仆射）",
+       "kind": "figure",
+       "note": "秦·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "zhouqingchen"
+       }
+      },
+      {
+       "slot": 5,
+       "id": "qin.fenshu.art.cast.fusheng",
+       "name": "伏生（秦博士）",
+       "kind": "figure",
+       "note": "秦·文人",
+       "ref": {
+        "prop": "figure",
+        "actor": "fusheng"
+       }
+      },
+      {
+       "slot": 6,
+       "id": "qin.fenshu.art.cast.fusu",
+       "name": "扶苏（长子）",
+       "kind": "figure",
+       "note": "秦·宗室后妃",
+       "ref": {
+        "prop": "figure",
+        "actor": "fusu"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（人物立绘），题材：焚书·以吏为师（前 213 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 秦始皇（皇帝）（秦·君主）；2. 李斯（丞相）（秦·文臣）；3. 淳于越（博士）（齐·文人）。\n第 2 行：4. 周青臣（仆射）（秦·文臣）；5. 伏生（秦博士）（秦·文人）；6. 扶苏（长子）（秦·宗室后妃）。\n排版参考尺寸：1536×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "qin.fenshu.sheet.scenery.1",
+     "category": "scenery",
+     "categoryLabel": "场景环境",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 3,
+      "rows": 3
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "qin.fenshu.art.scenery.1",
+       "name": "远山（淡墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 2,
+       "id": "qin.fenshu.art.scenery.2",
+       "name": "近坡（中墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 3,
+       "id": "qin.fenshu.art.scenery.3",
+       "name": "土坡地线",
+       "kind": "scenery"
+      },
+      {
+       "slot": 4,
+       "id": "qin.fenshu.art.scenery.4",
+       "name": "草丛（枯笔）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 5,
+       "id": "qin.fenshu.art.scenery.5",
+       "name": "密林",
+       "kind": "scenery"
+      },
+      {
+       "slot": 6,
+       "id": "qin.fenshu.art.scenery.6",
+       "name": "屋舍墙垣",
+       "kind": "scenery"
+      },
+      {
+       "slot": 7,
+       "id": "qin.fenshu.art.scenery.7",
+       "name": "夜色云雾",
+       "kind": "scenery"
+      },
+      {
+       "slot": 8,
+       "id": "qin.fenshu.art.scenery.8",
+       "name": "殿柱",
+       "kind": "scenery"
+      },
+      {
+       "slot": 9,
+       "id": "qin.fenshu.art.scenery.9",
+       "name": "屋檐",
+       "kind": "scenery"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（场景环境），题材：焚书·以吏为师（前 213 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 远山（淡墨）；2. 近坡（中墨）；3. 土坡地线。\n第 2 行：4. 草丛（枯笔）；5. 密林；6. 屋舍墙垣。\n第 3 行：7. 夜色云雾；8. 殿柱；9. 屋檐。\n排版参考尺寸：1536×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1536
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "qin.fenshu.sheet.effects.1",
+     "category": "effects",
+     "categoryLabel": "水墨特效",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 3,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "qin.fenshu.art.effects.1",
+       "name": "泼墨墨点飞溅",
+       "kind": "fx"
+      },
+      {
+       "slot": 2,
+       "id": "qin.fenshu.art.effects.2",
+       "name": "飞白笔触",
+       "kind": "fx"
+      },
+      {
+       "slot": 3,
+       "id": "qin.fenshu.art.effects.3",
+       "name": "爆裂墨团",
+       "kind": "fx"
+      },
+      {
+       "slot": 4,
+       "id": "qin.fenshu.art.effects.4",
+       "name": "火星迸射",
+       "kind": "fx"
+      },
+      {
+       "slot": 5,
+       "id": "qin.fenshu.art.effects.5",
+       "name": "火",
+       "kind": "fx",
+       "note": "过场笔画所绘"
+      },
+      {
+       "slot": 6,
+       "id": "qin.fenshu.art.effects.6",
+       "name": "烟",
+       "kind": "fx",
+       "note": "过场笔画所绘"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（水墨特效），题材：焚书·以吏为师（前 213 年）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触；3. 爆裂墨团。\n第 2 行：4. 火星迸射；5. 火（过场笔画所绘）；6. 烟（过场笔画所绘）。\n排版参考尺寸：1536×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    }
+   ]
+  },
+  {
    "outlineId": "06-04",
    "v1": true,
    "detail": "full",
@@ -5572,7 +10921,7 @@
     "version": 1,
     "id": "qin.shaqiu",
     "chapter": "qin",
-    "order": 4,
+    "order": 7,
     "title": "scene.qin.shaqiu.title",
     "subtitle": "scene.qin.shaqiu.subtitle",
     "when": {
@@ -7274,7 +12623,7 @@
     "version": 1,
     "id": "qin.dazexiang",
     "chapter": "qin",
-    "order": 5,
+    "order": 8,
     "title": "scene.qin.dazexiang.title",
     "subtitle": "scene.qin.dazexiang.subtitle",
     "when": {
@@ -8955,6 +14304,1769 @@
    ]
   },
   {
+   "outlineId": "06-10",
+   "v1": false,
+   "detail": "full",
+   "scene": {
+    "format": "inkgames.scene",
+    "version": 1,
+    "id": "qin.baishe",
+    "chapter": "qin",
+    "order": 9,
+    "title": "scene.qin.baishe.title",
+    "subtitle": "scene.qin.baishe.subtitle",
+    "when": {
+     "start": -209,
+     "precision": "month",
+     "display": "前 209 年九月",
+     "era": "秦二世元年九月",
+     "verify": "done",
+     "notes": "《史记·高祖本纪》：秦二世元年秋，陈胜等起蕲……沛令欲以沛应涉"
+    },
+    "key": false,
+    "template": "breakout",
+    "props": [
+     "sword",
+     "figure",
+     "landscape"
+    ],
+    "characters": [
+     "liuji",
+     "xiaohe",
+     "caoshen",
+     "fankuai",
+     "peiling",
+     "lvzhi"
+    ],
+    "anchors": {
+     "entry": {
+      "id": "anchor.qin.jiezong",
+      "title": "anchor.jiezong",
+      "when": {
+       "start": -210,
+       "precision": "circa",
+       "display": "约前 210 年",
+       "verify": "done",
+       "notes": "《高祖本纪》不书年，约数"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "高祖本纪"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.qin.peigong",
+      "title": "anchor.peigong",
+      "when": {
+       "start": -209,
+       "precision": "month",
+       "display": "前 209 年九月",
+       "era": "秦二世元年九月",
+       "verify": "done"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "高祖本纪"
+       }
+      ]
+     }
+    },
+    "opening": "cutscene.qin.baishe.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.qin.baishe.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.qin.baishe.opening",
+       "when": {
+        "start": -209,
+        "precision": "month",
+        "display": "前 209 年九月",
+        "era": "秦二世元年九月",
+        "verify": "done",
+        "notes": "《史记·高祖本纪》：秦二世元年秋，陈胜等起蕲……沛令欲以沛应涉"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "高祖本纪"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": -209,
+        "precision": "month",
+        "display": "前 209 年九月",
+        "era": "秦二世元年九月",
+        "verify": "done",
+        "notes": "《史记·高祖本纪》：秦二世元年秋，陈胜等起蕲……沛令欲以沛应涉"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.qin.baishe.pick.canon",
+         "seal": "canon",
+         "to": "c.intro"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.qin.baishe.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.qin.baishe.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "qin.baishe/canon"
+           },
+           {
+            "cleared": "qin.baishe/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": -209,
+        "precision": "month",
+        "display": "前 209 年九月",
+        "era": "秦二世元年九月",
+        "verify": "done",
+        "notes": "《史记·高祖本纪》：秦二世元年秋，陈胜等起蕲……沛令欲以沛应涉"
+       },
+       "dialogue": "scene.qin.baishe.canon.intro",
+       "next": [
+        "c.jiezong"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "高祖本纪"
+        }
+       ]
+      },
+      {
+       "id": "c.jiezong",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -209,
+        "precision": "month",
+        "display": "前 209 年九月",
+        "era": "秦二世元年九月",
+        "verify": "done",
+        "notes": "《史记·高祖本纪》：秦二世元年秋，陈胜等起蕲……沛令欲以沛应涉"
+       },
+       "gameplay": {
+        "template": "dialogue-timing",
+        "params": {
+         "goal": "在丰西泽中把刑徒放走，挑出愿意追随的壮士",
+         "beats": [
+          "release",
+          "choose",
+          "lead"
+         ],
+         "failTo": "c.jiezong",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.mangdang"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "高祖本纪"
+        }
+       ]
+      },
+      {
+       "id": "c.mangdang",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -209,
+        "precision": "month",
+        "display": "前 209 年九月",
+        "era": "秦二世元年九月",
+        "verify": "done",
+        "notes": "《史记·高祖本纪》：秦二世元年秋，陈胜等起蕲……沛令欲以沛应涉"
+       },
+       "gameplay": {
+        "template": "survival",
+        "params": {
+         "goal": "在芒砀山泽间躲藏，避开郡县的搜捕",
+         "beats": [
+          "hide",
+          "forage",
+          "move"
+         ],
+         "failTo": "c.mangdang",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.boshu"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "高祖本纪"
+        }
+       ]
+      },
+      {
+       "id": "c.boshu",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": -209,
+        "precision": "month",
+        "display": "前 209 年九月",
+        "era": "秦二世元年九月",
+        "verify": "done",
+        "notes": "《史记·高祖本纪》：秦二世元年秋，陈胜等起蕲……沛令欲以沛应涉"
+       },
+       "gameplay": {
+        "template": "breakout",
+        "params": {
+         "goal": "写帛书射上城头，劝沛县父老杀令开城",
+         "beats": [
+          "write",
+          "shoot",
+          "persuade"
+         ],
+         "failTo": "c.boshu",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "高祖本纪"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.qin.baishe.legend-intro",
+       "when": {
+        "start": -209,
+        "precision": "month",
+        "display": "前 209 年九月",
+        "era": "秦二世元年九月",
+        "verify": "done",
+        "notes": "《史记·高祖本纪》：秦二世元年秋，陈胜等起蕲……沛令欲以沛应涉"
+       },
+       "label": "scene.qin.baishe.legend.disclaimer",
+       "dialogue": "scene.qin.baishe.legend.intro",
+       "next": [
+        "l.zhanshe"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "高祖本纪",
+         "notes": "斩白蛇、老妪夜哭、吕后望云气等神异情节"
+        }
+       ]
+      },
+      {
+       "id": "l.zhanshe",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -209,
+        "precision": "month",
+        "display": "前 209 年九月",
+        "era": "秦二世元年九月",
+        "verify": "done",
+        "notes": "《史记·高祖本纪》：秦二世元年秋，陈胜等起蕲……沛令欲以沛应涉"
+       },
+       "gameplay": {
+        "template": "duel",
+        "params": {
+         "goal": "拔剑斩断挡路的白蛇",
+         "beats": [
+          "approach",
+          "draw",
+          "strike"
+         ],
+         "failTo": "l.zhanshe",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "l.laoyu"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "高祖本纪",
+         "notes": "斩白蛇、老妪夜哭、吕后望云气等神异情节"
+        }
+       ]
+      },
+      {
+       "id": "l.laoyu",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": -209,
+        "precision": "month",
+        "display": "前 209 年九月",
+        "era": "秦二世元年九月",
+        "verify": "done",
+        "notes": "《史记·高祖本纪》：秦二世元年秋，陈胜等起蕲……沛令欲以沛应涉"
+       },
+       "gameplay": {
+        "template": "trace",
+        "params": {
+         "goal": "回到斩蛇之处，找到夜哭的老妪，听她说“吾子，白帝子也”",
+         "beats": [
+          "return",
+          "listen",
+          "vanish"
+         ],
+         "failTo": "l.laoyu",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "高祖本纪",
+         "notes": "斩白蛇、老妪夜哭、吕后望云气等神异情节"
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
+     {
+      "id": "end.canon",
+      "kind": "canon",
+      "title": "scene.qin.baishe.end.canon",
+      "cutscene": "cutscene.qin.baishe.end-canon",
+      "mergeTo": "anchor.qin.peigong",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "高祖本纪"
+       }
+      ]
+     },
+     {
+      "id": "end.legend",
+      "title": "scene.qin.baishe.end.legend",
+      "cutscene": "cutscene.qin.baishe.end-legend",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "史记",
+        "section": "高祖本纪",
+        "notes": "斩白蛇、老妪夜哭、吕后望云气等神异情节"
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.qin.peigong",
+      "notes": "野史线结局与正史出口一致，属于汇流"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.qin.baishe.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
+     }
+    ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "起事",
+       "canon": "《高祖本纪》：解纵刑徒，亡匿芒砀，沛父老杀令迎之",
+       "legend": "同篇：斩白蛇，老妪夜哭“赤帝子斩之”",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "高祖本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "高祖本纪",
+         "notes": "斩白蛇、老妪夜哭、吕后望云气等神异情节"
+        }
+       ]
+      },
+      {
+       "topic": "云气",
+       "canon": "《高祖本纪》：吕后言季所居上常有云气",
+       "legend": "今人多以为是受命神话的一部分",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "高祖本纪"
+        },
+        {
+         "kind": "canon",
+         "title": "史记",
+         "section": "高祖本纪",
+         "notes": "斩白蛇、老妪夜哭、吕后望云气等神异情节"
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.baishe",
+       "person.liuji"
+      ],
+      "seal": "seal.baishe"
+     }
+    },
+    "verify": "pending",
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.qin.baishe.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      206,
+      200,
+      186
+     ],
+     "seed": 59800
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "丰西的大泽，夜色里芦苇起伏"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "亭长解开了刑徒们的绳索"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "泽中小路上，一条大蛇横在前面"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "芒砀山中，有人循着云气找来"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "帛书射上沛县城头"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "farHill"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 360,
+         "variant": 1
+        }
+       },
+       "label": "远山"
+      },
+      {
+       "at": 120,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "grass"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 560
+        }
+       },
+       "label": "草"
+      },
+      {
+       "at": 240,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "water",
+        "placement": {
+         "x": 0,
+         "y": 548,
+         "width": 1280
+        }
+       },
+       "label": "河水"
+      },
+      {
+       "at": 360,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "brush": "water.ripple",
+        "color": "white",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           1040,
+           140
+          ],
+          [
+           1080,
+           110
+          ],
+          [
+           1120,
+           140
+          ],
+          [
+           1080,
+           170
+          ],
+          [
+           1040,
+           140
+          ]
+         ]
+        },
+        "speed": 3
+       },
+       "label": "月"
+      },
+      {
+       "at": 660,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 690,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 720,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 750,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 1080,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "刘季"
+      },
+      {
+       "at": 1620,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "grass"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 560
+        }
+       },
+       "label": "草"
+      },
+      {
+       "at": 1950,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "brush": "water.ripple",
+        "color": "white",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           1040,
+           140
+          ],
+          [
+           1080,
+           110
+          ],
+          [
+           1120,
+           140
+          ],
+          [
+           1080,
+           170
+          ],
+          [
+           1040,
+           140
+          ]
+         ]
+        },
+        "speed": 3
+       },
+       "label": "月"
+      },
+      {
+       "at": 2280,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "刘季"
+      },
+      {
+       "at": 2610,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "sword",
+        "placement": {
+         "x": 560,
+         "y": 480
+        }
+       },
+       "label": "sword"
+      },
+      {
+       "at": 3060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "nearHill",
+         "ground"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 420
+        }
+       },
+       "label": "近山与地面"
+      },
+      {
+       "at": 3580,
+       "layer": "far",
+       "mode": "live",
+       "source": {
+        "brush": "banner.gust",
+        "color": "light_gray_new",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           160,
+           160
+          ],
+          [
+           420,
+           130
+          ],
+          [
+           700,
+           170
+          ],
+          [
+           1000,
+           140
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "云"
+      },
+      {
+       "at": 4100,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "吕雉"
+      },
+      {
+       "at": 4740,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "dark_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           80,
+           470
+          ],
+          [
+           80,
+           430
+          ],
+          [
+           140,
+           430
+          ],
+          [
+           140,
+           450
+          ],
+          [
+           200,
+           450
+          ],
+          [
+           200,
+           430
+          ],
+          [
+           260,
+           430
+          ],
+          [
+           260,
+           450
+          ],
+          [
+           1020,
+           450
+          ],
+          [
+           1020,
+           430
+          ],
+          [
+           1080,
+           430
+          ],
+          [
+           1080,
+           450
+          ],
+          [
+           1200,
+           450
+          ],
+          [
+           1200,
+           470
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "城墙雉堞"
+      },
+      {
+       "at": 4940,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "dark_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           520,
+           600
+          ],
+          [
+           520,
+           380
+          ],
+          [
+           760,
+           380
+          ],
+          [
+           760,
+           600
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "关门"
+      },
+      {
+       "at": 5140,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "沛公"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "still"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "pan"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.qin.baishe.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.qin.baishe.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 2700,
+       "until": 3000,
+       "kind": "caption",
+       "key": "scene.qin.baishe.quote",
+       "style": "kaiti",
+       "orientation": "vertical",
+       "x": 160,
+       "y": 120,
+       "source": {
+        "kind": "canon",
+        "title": "史记",
+        "section": "高祖本纪"
+       }
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 260,
+       "kind": "flow",
+       "layer": "sheet",
+       "target": "lastStroke",
+       "params": {
+        "blendType": 0,
+        "iterations": 4
+       }
+      },
+      {
+       "at": 2650,
+       "kind": "metallic",
+       "layer": "actors",
+       "target": "lastStroke",
+       "params": {
+        "size": 12
+       }
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/qin-zheng.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/night-wind.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/night-wind.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/baishe-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/baishe-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1080,
+       "bus": "sfx",
+       "asset": "audio/sfx/rope.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/night-wind.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/baishe-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/leaf-rustle.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/wind-plain.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/baishe-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3840,
+       "bus": "sfx",
+       "asset": "audio/sfx/footsteps.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/crowd-roar.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/war-cry.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/baishe-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/war-cry.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.qin.baishe.title": "斩蛇起沛",
+     "scene.qin.baishe.subtitle": "刘季",
+     "scene.qin.baishe.when": "赤帝子",
+     "vo.01": "刘季是沛县的亭长，奉命押送刑徒去骊山。走到半路，刑徒逃了很多。",
+     "vo.02": "他想：到了骊山，人也逃光了。走到丰西的大泽里，他停下来喝酒，夜里把刑徒们都放了。",
+     "vo.03": "他说：你们都走吧，我也从此远走了。刑徒中有十几个壮士愿意跟着他。他们躲进了芒砀山的山泽之间。",
+     "vo.04": "秦二世元年秋，陈胜在蕲县起兵。沛县县令想响应，萧何、曹参劝他召回刘季。可刘季到了城下，县令又后悔了，关上了城门。",
+     "vo.05": "刘季写了一封帛书，射上城头——",
+     "scene.qin.baishe.quote": "天下苦秦久矣。",
+     "scene.qin.baishe.fork.prompt": "此刻落笔，循哪一卷而书？",
+     "anchor.jiezong": "刘季解纵所送徒",
+     "anchor.peigong": "沛父老杀沛令，立刘季为沛公",
+     "scene.qin.baishe.pick.canon": "正史线 · 《史记·高祖本纪》所载",
+     "scene.qin.baishe.canon.intro": "一个中年亭长，一次失败的押送，一群无路可走的刑徒。刘季的起事，是从放人开始的。",
+     "scene.qin.baishe.end.canon": "沛县父老率子弟杀了县令，开城迎刘季，立为沛公。萧何、曹参、樊哙等为他招募了沛中子弟二三千人。",
+     "scene.qin.baishe.pick.legend": "神话 · 赤帝子斩白帝子",
+     "scene.qin.baishe.legend.disclaimer": "以下取《史记·高祖本纪》所载的斩白蛇、老妪夜哭、吕后望云气等情节。这些虽写在《史记》中，学者多认为是汉初为高祖受命制造的神话。",
+     "scene.qin.baishe.legend.intro": "刘季喝醉了，走在泽中的小路上。前面的人回来说：有大蛇挡路，回去吧。刘季说：壮士行路，怕什么！",
+     "scene.qin.baishe.end.legend": "赤帝子斩白帝子，是汉人后来讲给天下听的故事。正史线的刘季，此时还只是个被关在城外的亭长。汇流。",
+     "scene.qin.baishe.pick.whatif": "推演 · 若沛令不悔（未开放）",
+     "scene.qin.baishe.end.whatif": "异闻 · 未开放"
+    }
+   },
+   "cast": [
+    {
+     "id": "liuji",
+     "name": "刘季",
+     "title": "泗水亭长",
+     "camp": "沛",
+     "type": "other",
+     "bio": "送徒骊山，纵之，亡匿芒砀；后为沛公"
+    },
+    {
+     "id": "xiaohe",
+     "name": "萧何",
+     "title": "沛主吏掾",
+     "camp": "沛",
+     "type": "minister",
+     "bio": "劝沛令召刘季"
+    },
+    {
+     "id": "caoshen",
+     "name": "曹参",
+     "title": "沛狱掾",
+     "camp": "沛",
+     "type": "minister",
+     "bio": "与萧何同谋"
+    },
+    {
+     "id": "fankuai",
+     "name": "樊哙",
+     "title": "屠狗者",
+     "camp": "沛",
+     "type": "general",
+     "bio": "奉命去芒砀召刘季"
+    },
+    {
+     "id": "peiling",
+     "name": "沛令",
+     "title": "沛县县令",
+     "camp": "秦",
+     "type": "minister",
+     "bio": "欲应陈胜，又反悔闭城"
+    },
+    {
+     "id": "lvzhi",
+     "name": "吕雉",
+     "title": "刘季之妻",
+     "camp": "沛",
+     "type": "royal",
+     "bio": "传说能望云气寻得刘季"
+    }
+   ],
+   "relations": [
+    {
+     "from": "xiaohe",
+     "to": "liuji",
+     "relation": "故交",
+     "type": "ally"
+    },
+    {
+     "from": "fankuai",
+     "to": "liuji",
+     "relation": "连襟",
+     "type": "family"
+    },
+    {
+     "from": "liuji",
+     "to": "lvzhi",
+     "relation": "夫妻",
+     "type": "family"
+    },
+    {
+     "from": "peiling",
+     "to": "liuji",
+     "relation": "闭城拒之",
+     "type": "rival"
+    }
+   ],
+   "artPrompts": [
+    {
+     "id": "qin.baishe.sheet.cast.1",
+     "category": "cast",
+     "categoryLabel": "人物立绘",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 3,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "qin.baishe.art.cast.liuji",
+       "name": "刘季（泗水亭长）",
+       "kind": "figure",
+       "note": "沛·其他",
+       "ref": {
+        "prop": "figure",
+        "actor": "liuji"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "qin.baishe.art.cast.xiaohe",
+       "name": "萧何（沛主吏掾）",
+       "kind": "figure",
+       "note": "沛·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "xiaohe"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "qin.baishe.art.cast.caoshen",
+       "name": "曹参（沛狱掾）",
+       "kind": "figure",
+       "note": "沛·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "caoshen"
+       }
+      },
+      {
+       "slot": 4,
+       "id": "qin.baishe.art.cast.fankuai",
+       "name": "樊哙（屠狗者）",
+       "kind": "figure",
+       "note": "沛·武将",
+       "ref": {
+        "prop": "figure",
+        "actor": "fankuai"
+       }
+      },
+      {
+       "slot": 5,
+       "id": "qin.baishe.art.cast.peiling",
+       "name": "沛令（沛县县令）",
+       "kind": "figure",
+       "note": "秦·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "peiling"
+       }
+      },
+      {
+       "slot": 6,
+       "id": "qin.baishe.art.cast.lvzhi",
+       "name": "吕雉（刘季之妻）",
+       "kind": "figure",
+       "note": "沛·宗室后妃",
+       "ref": {
+        "prop": "figure",
+        "actor": "lvzhi"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（人物立绘），题材：斩蛇起沛·刘季（前 209 年九月）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 刘季（泗水亭长）（沛·其他）；2. 萧何（沛主吏掾）（沛·文臣）；3. 曹参（沛狱掾）（沛·文臣）。\n第 2 行：4. 樊哙（屠狗者）（沛·武将）；5. 沛令（沛县县令）（秦·文臣）；6. 吕雉（刘季之妻）（沛·宗室后妃）。\n排版参考尺寸：1536×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "qin.baishe.sheet.props.1",
+     "category": "props",
+     "categoryLabel": "道具器物",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "qin.baishe.art.props.1",
+       "name": "长剑",
+       "kind": "prop",
+       "note": "连鞘长剑，刃口飞白，剑格与剑穗分明",
+       "ref": {
+        "prop": "sword"
+       }
+      }
+     ],
+     "prompt": "中国水墨写意素材图（道具器物），题材：斩蛇起沛·刘季（前 209 年九月）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 长剑（连鞘长剑，刃口飞白，剑格与剑穗分明）；2. 留空。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "qin.baishe.sheet.scenery.1",
+     "category": "scenery",
+     "categoryLabel": "场景环境",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 4,
+      "rows": 3
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "qin.baishe.art.scenery.1",
+       "name": "远山（淡墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 2,
+       "id": "qin.baishe.art.scenery.2",
+       "name": "近坡（中墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 3,
+       "id": "qin.baishe.art.scenery.3",
+       "name": "土坡地线",
+       "kind": "scenery"
+      },
+      {
+       "slot": 4,
+       "id": "qin.baishe.art.scenery.4",
+       "name": "草丛（枯笔）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 5,
+       "id": "qin.baishe.art.scenery.5",
+       "name": "军营帐幕",
+       "kind": "scenery"
+      },
+      {
+       "slot": 6,
+       "id": "qin.baishe.art.scenery.6",
+       "name": "旌旗阵列",
+       "kind": "scenery"
+      },
+      {
+       "slot": 7,
+       "id": "qin.baishe.art.scenery.7",
+       "name": "拒马鹿角",
+       "kind": "scenery"
+      },
+      {
+       "slot": 8,
+       "id": "qin.baishe.art.scenery.8",
+       "name": "草",
+       "kind": "scenery"
+      },
+      {
+       "slot": 9,
+       "id": "qin.baishe.art.scenery.9",
+       "name": "河水",
+       "kind": "scenery"
+      },
+      {
+       "slot": 10,
+       "id": "qin.baishe.art.scenery.10",
+       "name": "月",
+       "kind": "scenery"
+      },
+      {
+       "slot": 11,
+       "id": "qin.baishe.art.scenery.11",
+       "name": "城墙雉堞",
+       "kind": "scenery"
+      },
+      {
+       "slot": 12,
+       "id": "qin.baishe.art.scenery.12",
+       "name": "关门",
+       "kind": "scenery"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（场景环境），题材：斩蛇起沛·刘季（前 209 年九月）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：4×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 远山（淡墨）；2. 近坡（中墨）；3. 土坡地线；4. 草丛（枯笔）。\n第 2 行：5. 军营帐幕；6. 旌旗阵列；7. 拒马鹿角；8. 草。\n第 3 行：9. 河水；10. 月；11. 城墙雉堞；12. 关门。\n排版参考尺寸：2048×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       2048,
+       1536
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "qin.baishe.sheet.effects.1",
+     "category": "effects",
+     "categoryLabel": "水墨特效",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "qin.baishe.art.effects.1",
+       "name": "泼墨墨点飞溅",
+       "kind": "fx"
+      },
+      {
+       "slot": 2,
+       "id": "qin.baishe.art.effects.2",
+       "name": "飞白笔触",
+       "kind": "fx"
+      },
+      {
+       "slot": 3,
+       "id": "qin.baishe.art.effects.3",
+       "name": "刀光斩击",
+       "kind": "fx"
+      },
+      {
+       "slot": 4,
+       "id": "qin.baishe.art.effects.4",
+       "name": "血点（朱红，克制）",
+       "kind": "fx"
+      }
+     ],
+     "prompt": "中国水墨写意素材图（水墨特效），题材：斩蛇起沛·刘季（前 209 年九月）。\n画风：写意水墨，焦墨—浓墨—淡墨分层次，枯笔飞白与泼墨墨点飞溅，笔触边缘自然晕开；点缀色（用量克制，只作点睛）：黑色 #1a1a1a、深灰色 #2f2f2f、砖红色 #9f7255。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触。\n第 2 行：3. 刀光斩击；4. 血点（朱红，克制）。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    }
+   ]
+  },
+  {
    "outlineId": "06-06",
    "v1": true,
    "detail": "full",
@@ -8963,7 +16075,7 @@
     "version": 1,
     "id": "qin.julu",
     "chapter": "qin",
-    "order": 6,
+    "order": 10,
     "title": "scene.qin.julu.title",
     "subtitle": "scene.qin.julu.subtitle",
     "when": {
