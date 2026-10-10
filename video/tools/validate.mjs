@@ -4,7 +4,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readdirSync } from 'node:fs';
+import { readdirSync, statSync } from 'node:fs';
 import { STYLE_ZH, STYLE_EN, STYLE_REF_ZH, STYLE_REF_EN, PALETTE, NEG_STYLE_ZH, NEG_STYLE_EN, ASSET_STYLE_ZH, MOTION_ZH, MOTION_EN, NEG_MOTION_ZH, NEG_MOTION_EN } from './art-style.mjs';
 
 const DATA = resolve(dirname(fileURLToPath(import.meta.url)), '..', 'data');
@@ -494,6 +494,26 @@ if (index.totals.v1 !== v1 || index.totals.outline !== outline || (index.totals.
   if (styleChecked.art !== artSheets) err('style', `素材提示词风格检查数 ${styleChecked.art} ≠ 素材图数 ${artSheets}`);
 }
 
+// 章节开场视频清单：index.json 与 index.js 一致，所列文件存在，mp4 < 15 MB，章节与剧本存在
+let chapterVideos = 0;
+{
+  const CV = join(DATA, '..', 'viewer', 'assets', 'chapter-videos'), VIEW = join(DATA, '..', 'viewer');
+  if (existsSync(join(CV, 'index.json'))) {
+    const man = JSON.parse(readFileSync(join(CV, 'index.json'), 'utf8'));
+    const js = existsSync(join(CV, 'index.js')) ? readFileSync(join(CV, 'index.js'), 'utf8') : '';
+    const m = js.match(/window\.CHAPTER_VIDEOS = ([\s\S]*);\s*$/);
+    if (!m || JSON.stringify(JSON.parse(m[1])) !== JSON.stringify(man)) err('chapter-videos', 'index.js 与 index.json 不一致（重跑 video/tools/build-chapter-video.py）');
+    for (const [id, e] of Object.entries(man.chapters || {})) {
+      chapterVideos++;
+      if (!index.chapters.some(c => c.id === id)) err('chapter-videos ' + id, '清单里的章节不存在');
+      if (!existsSync(join(DATA, 'chapter-videos', id + '.json'))) err('chapter-videos ' + id, '缺少剧本 video/data/chapter-videos/' + id + '.json');
+      for (const k of ['mp4', 'webm', 'poster', 'posterWebp']) if (e[k] && !existsSync(join(VIEW, e[k]))) err('chapter-videos ' + id, `${k} 文件不存在：${e[k]}`);
+      if (!e.mp4 || !e.poster) err('chapter-videos ' + id, '缺少 mp4 或 poster');
+      else if (existsSync(join(VIEW, e.mp4)) && statSync(join(VIEW, e.mp4)).size >= 15 * 1024 * 1024) err('chapter-videos ' + id, 'mp4 超过 15 MB');
+    }
+  }
+}
+
 // 同一来源挂在多个节点上会重复计数：按“场景 + 内容”去重
 const pendingUniq = new Set(pending.map(p => { const [w, ...rest] = p.split('：'); return w.split(' ').slice(0, 2).join(' ').replace(/\.[^. ]+$/, '') + '：' + rest.join('：'); }));
 const pendingScenes = new Set([...pendingUniq].map(k => k.split('：')[0].split(' ')[0]));
@@ -501,4 +521,5 @@ console.log(`章节 ${bundles.length}，场景 ${allScenes.size}（完整 ${full
 if (showPending) for (const p of pending) console.log('  待核验 ' + p);
 if (errors.length) { console.error(`错误 ${errors.length} 个：\n` + errors.map(e => '  ' + e).join('\n')); process.exit(1); }
 console.log(`美术风格检查：videoPrompt ${styleChecked.video} 场、素材提示词 ${styleChecked.art} 张均为黑白红武侠水墨剪影风格`);
+console.log(`章节开场视频：${chapterVideos} 章`);
 console.log('校验通过：0 个错误');
