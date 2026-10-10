@@ -52,9 +52,9 @@
    "name": "春秋",
    "file": "chapters/04-chunqiu.json",
    "span": "前 770—前 476 年",
-   "scenes": 10,
+   "scenes": 18,
    "v1": 3,
-   "full": 10,
+   "full": 18,
    "outline": 0
   },
   {
@@ -63,9 +63,9 @@
    "name": "战国",
    "file": "chapters/05-zhanguo.json",
    "span": "前 475—前 221 年",
-   "scenes": 10,
+   "scenes": 22,
    "v1": 5,
-   "full": 10,
+   "full": 22,
    "outline": 0
   },
   {
@@ -235,9 +235,9 @@
   }
  ],
  "totals": {
-  "scenes": 209,
+  "scenes": 229,
   "v1": 66,
-  "full": 209,
+  "full": 229,
   "outline": 0
  }
 }

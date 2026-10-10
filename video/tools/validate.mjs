@@ -457,7 +457,10 @@ for (let i = 0; i < list.length; i++) for (let j = i + 1; j < list.length; j++) 
 }
 if (index.totals.v1 !== v1 || index.totals.outline !== outline || (index.totals.full !== undefined && index.totals.full !== full)) err('index', 'totals 与实际不一致');
 
-console.log(`章节 ${bundles.length}，场景 ${allScenes.size}（完整 ${full}，大纲级 ${outline}；首版发布批次 v1=${v1}），水墨素材 ${artSheets} 张图 / ${artAssets} 件，水墨视频提示词 ${videoScenes} 场 / ${videoShots} 镜，待核验日期/来源 ${pending.length} 处`);
+// 同一来源挂在多个节点上会重复计数：按“场景 + 内容”去重
+const pendingUniq = new Set(pending.map(p => { const [w, ...rest] = p.split('：'); return w.split(' ').slice(0, 2).join(' ').replace(/\.[^. ]+$/, '') + '：' + rest.join('：'); }));
+const pendingScenes = new Set([...pendingUniq].map(k => k.split('：')[0].split(' ')[0]));
+console.log(`章节 ${bundles.length}，场景 ${allScenes.size}（完整 ${full}，大纲级 ${outline}；首版发布批次 v1=${v1}），水墨素材 ${artSheets} 张图 / ${artAssets} 件，水墨视频提示词 ${videoScenes} 场 / ${videoShots} 镜，待核验日期/来源 ${pending.length} 处（去重 ${pendingUniq.size} 条，涉及 ${pendingScenes.size} 个场景）`);
 if (showPending) for (const p of pending) console.log('  待核验 ' + p);
 if (errors.length) { console.error(`错误 ${errors.length} 个：\n` + errors.map(e => '  ' + e).join('\n')); process.exit(1); }
 console.log('校验通过：0 个错误');

@@ -163,7 +163,7 @@ const COLOR = { black: ['墨黑', 'ink black'], white: ['白', 'white'], dark_gr
 const ELEM_ZH = { banner: '旌旗', spear: '长枪', bow: '弓箭', sword: '长剑', blade: '大刀', shield: '盾牌', 'war-horse': '战马', water: '水', landscape: '山水', 'ink-bomb': '泼墨', 'water-brush': '毛笔' };
 const yearEn = y => (y < 0 ? -y + ' BCE' : y + ' CE');
 const whenEn = w => (w ? (w.end != null && w.end !== w.start ? yearEn(w.start) + '–' + yearEn(w.end) : (w.precision === 'circa' || w.precision === 'legend' ? 'c. ' : '') + yearEn(w.start)) : '');
-const FEMALE = /后|妃|公主|夫人|女|姬|娘|母|妻|嫔|氏$|婆|姑|嫂|妾/;
+const FEMALE = /皇后|王后|太后|后妃|^后$|妃|公主|夫人|女子|侍女|之女|宫女|女官|女将|女史|女诗人|女词人|才女|姬|娘|母|妻|嫔|婆|姑|嫂|妾|^女|女$/;
 const snd = (id, i) => (SND[id] || [id, id.replace(/-/g, ' ')])[i];
 const assetId = a => (a || '').split('/').pop().replace(/\.ogg$/, '');
 
@@ -189,11 +189,15 @@ function lookFor(member, order) {
   const [mz, fz] = ERA[order][1].split('|'), [me, fe] = ERA[order][2].split('|');
   let z = fem ? (fz || mz) : mz, e = fem ? (fe || me) : me;
   // 文臣、学者、宗室与女子不披甲执兵：从时代服饰里去掉甲胄兵器
-  if (fem || ['minister', 'scholar', 'royal'].includes(member.type)) {
+  const martial = member.type === 'general' || /将|兵|卒|勇士|刺客|侠|武士|守城/.test(member.title || '') ||
+    (member.type !== 'ruler' && /率兵|率军|领兵|搏战|血战|力战|挥刀|拔剑|披甲/.test(member.bio || ''));
+  if (fem || !martial) {
     z = z.split('，').filter(x => !/甲|铠|剑|刀|戈|戟|弩|钺|战车/.test(x)).join('，') || z;
     e = e.split(/,\s*|;\s*/).filter(x => !/armou?r|sword|\bge\b|halberd|crossbow|axe|chariot|dagger|blade/.test(x)).join(', ') || e;
   }
-  return [z + '；' + (fem && member.type === 'other' ? '女子衣着，依身份' : t[0]), e + '; ' + (fem && member.type === 'other' ? 'female dress appropriate to rank' : t[1])];
+  const [tz, te] = fem && member.type === 'other' ? ['女子衣着，依身份', 'female dress appropriate to rank']
+    : !fem && member.type === 'royal' ? ['宗室贵胄华服，玉佩冠带', 'noble prince\'s rich robes, jade pendants, formal cap and sash'] : t;
+  return [z + '；' + tz, e + '; ' + te];
 }
 const nameEn = n => PINYIN[n] || n;
 const sec = f => Math.round(f / 60);
@@ -322,8 +326,8 @@ function build(bundle, entry, chapterTitle) {
   const characters = ordered.map(c => {
     const [lz, le] = lookFor(c, order);
     const hint = (c.title || '') + (c.bio || '');
-    const ageZh = /少年|十几岁|年幼|幼主|幼子|童/.test(hint) ? '少年（十余岁）' : /老将|老臣|白发|老人|老妪|晚年|年老/.test(hint) ? '老年' : '';
-    const ageEn = /少年|十几岁|年幼|幼主|幼子|童/.test(hint) ? 'a teenager' : /老将|老臣|白发|老人|老妪|晚年|年老/.test(hint) ? 'elderly' : '';
+    const ageZh = /少年|十几岁|年幼|幼主|幼子|童/.test(hint) ? '少年（十余岁）' : /老将|老臣|白发|老人|老妪|晚年|年老|七十|八十|老母/.test(hint) ? '老年' : '';
+    const ageEn = /少年|十几岁|年幼|幼主|幼子|童/.test(hint) ? 'a teenager' : /老将|老臣|白发|老人|老妪|晚年|年老|七十|八十|老母/.test(hint) ? 'elderly' : '';
     return {
       id: c.id, name: c.name, nameEn: nameEn(c.name), onScreen: appearing.has(c.id),
       zh: `${c.name}（${c.camp}·${c.title}）：${lz}${ageZh ? '；' + ageZh : ''}；${c.bio}`,
