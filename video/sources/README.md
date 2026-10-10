@@ -28,10 +28,10 @@
 
 | 目录 | 章 | 场景 |
 |---|---|---|
-| [00-shanggu](./00-shanggu/README.md) | 上古 | 10 |
-| [01-xia](./01-xia/README.md) | 夏 | 10 |
-| [02-shang](./02-shang/README.md) | 商 | 10 |
-| [03-xizhou](./03-xizhou/README.md) | 西周 | 10 |
+| [00-shanggu](./00-shanggu/README.md) | 上古 | 7 |
+| [01-xia](./01-xia/README.md) | 夏 | 5 |
+| [02-shang](./02-shang/README.md) | 商 | 7 |
+| [03-xizhou](./03-xizhou/README.md) | 西周 | 9 |
 | [04-chunqiu](./04-chunqiu/README.md) | 春秋 | 10 |
 | [05-zhanguo](./05-zhanguo/README.md) | 战国 | 10 |
 | [06-qin](./06-qin/README.md) | 秦 | 10 |

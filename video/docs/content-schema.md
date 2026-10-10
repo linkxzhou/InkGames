@@ -1,6 +1,6 @@
 # 历史游戏内容数据格式（草案）
 
-> 状态：**格式提案；规划期校验器已可运行**（`video/tools/validate.mjs`，§4.1）。数据：21 章 221 个场景全部为完整场景（`detail: 'full'`），其中首版发布批次 `v1` 66 个（§2.9）。运行时的叙事宿主模块（SceneDirector、StoryRuntime、CutscenePlayer、AudioBus、SaveStore、InkText，演示页 `/story/`）已在 main 上，尚未接入本格式的数据包。故事结构见 [故事与玩法](./story-design.md)，章节表见 [章节大纲](./chapter-outline.md)，运行时与引擎缺口见 [引擎缺口与路线](./engine-gaps.md)。
+> 状态：**格式提案；规划期校验器已可运行**（`video/tools/validate.mjs`，§4.1）。数据：21 章 209 个场景全部为完整场景（`detail: 'full'`），其中首版发布批次 `v1` 66 个（§2.9）。运行时的叙事宿主模块（SceneDirector、StoryRuntime、CutscenePlayer、AudioBus、SaveStore、InkText，演示页 `/story/`）已在 main 上，尚未接入本格式的数据包。故事结构见 [故事与玩法](./story-design.md)，章节表见 [章节大纲](./chapter-outline.md)，运行时与引擎缺口见 [引擎缺口与路线](./engine-gaps.md)。
 > 引擎目标是 three.js + Matter.js。本格式只描述内容，不绑定渲染库：笔画、镜头、文字、音频都以“时间轴上的事件”表达，由运行时翻译成 three.js 调用。
 
 ## 1. 原则
@@ -319,6 +319,8 @@ export interface SaveGame {
 
 ### 2.9 章节数据包、索引与大纲级场景
 
+> 取标题：场景条目上没有 `title`/`name` 文本字段。`scene.title`、`scene.subtitle` 存的是字符串键（如 `scene.sui.yanmen.title`），文字在同一条目的 `strings.strings` 里：`entry.strings.strings[entry.scene.title]`。校验器要求标题与副题非空、全局唯一。
+
 规划阶段的数据放在 `video/data/chapters/`，每章一个文件，外加一个索引。落地到运行时以后，可以按 §2.2–§2.7 把一个数据包拆成章、场景、过场和字符串表四类文件。
 
 ```ts
@@ -403,7 +405,7 @@ export interface Relation {
 - `v1` 只表示**首版发布批次**（ship batch），仍是原来的 66 个场景，不随内容深度变化。首版的玩法、美术与配音排期只按这 66 个做。
 - 新增 `detail: 'full' | 'outline'` 表示内容深度。`full` 条目必须是 `inkgames.scene` 并带开场过场、字符串表与人物关系；`outline` 条目只有钩子（结构保留，供以后新增场景先占位）。
 - 索引的每章与 `totals` 增加 `full` 计数；`outline` 计数改为按 `detail` 统计。缺少 `detail` 的旧数据按 `v1` 推断深度，以保持兼容。
-- 当前数据：221 个场景全部 `detail: 'full'`，其中 `v1: true` 66 个，`outline` 0 个。
+- 当前数据：209 个场景全部 `detail: 'full'`，其中 `v1: true` 66 个，`outline` 0 个。
 
 **正史引子**。完整场景的正史线可以在分叉后先接一个 `kind: 'dialogue'` 的引子节点（`c.intro`），用一段旁白交代背景，再进入第一个玩法节点。第二条线同理可以有可选的 `alt` 分支（`choice` 节点分出两段野史/演义异文，最后都落到第二条线的结局）。
 
