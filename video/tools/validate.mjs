@@ -4,6 +4,8 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readdirSync } from 'node:fs';
+import { STYLE_ZH, STYLE_EN, STYLE_REF_ZH, STYLE_REF_EN, PALETTE, NEG_STYLE_ZH, NEG_STYLE_EN, ASSET_STYLE_ZH } from './art-style.mjs';
 
 const DATA = resolve(dirname(fileURLToPath(import.meta.url)), '..', 'data');
 const showPending = process.argv.includes('--pending');
@@ -42,6 +44,13 @@ const ART_KINDS = new Set(['figure', 'prop', 'scenery', 'fx']);
 const MAX_STRING = 160;
 /** 一张水墨素材图最多 16 格（4×4），格内每件素材独立、透明背景，便于按格抠图。 */
 const MAX_ART_PER_SHEET = 16;
+
+/** 美术方向：黑白红武侠水墨剪影（docs/art-style.md）。旧的彩色水墨措辞不得出现在数据、查看器数据与文档里。 */
+const OLD_STYLE_DATA = /五色墨|金橙|蓝灰|彩墨|淡彩|设色|赭石|石青|花青|藤黄|皴法|点缀色|gold-orange|blue-grey|five-colou?r ink|colou?rful ink/i;
+const OLD_STYLE_DOCS = /皴法山石|五色墨|金橙|蓝灰|彩墨|淡彩|gold-orange|blue-grey|five-colou?r ink|colou?rful ink/i;
+const HEXES = PALETTE.map(p => p.hex);
+const NEG_ART = NEG_STYLE_ZH.replace(/，/g, ', ').split(', ');
+let styleChecked = { video: 0, art: 0 };
 
 const errors = [];
 const pending = [];
@@ -124,6 +133,13 @@ function checkVideoPrompt(where, v, cast) {
     for (const f of s.figures || []) if (!ids.has(f)) err(where, `videoPrompt 镜头 ${s.n} 人物不在 cast：${f}`);
   }
   if (t !== v.durationSec) err(where, 'videoPrompt.durationSec 与镜头时长之和不一致');
+  // 新美术风格：风格块、色板与负面词必须完整出现在 zh 与 en 两版里
+  if (v.style?.zh !== STYLE_ZH || v.style?.en !== STYLE_EN) err(where, 'videoPrompt.style 不是 art-style.mjs 的 STYLE_ZH/EN：重跑 build-video-prompts.mjs');
+  if (!v.prompt?.zh?.includes(STYLE_REF_ZH) || !v.prompt?.en?.includes(STYLE_REF_EN)) err(where, 'videoPrompt.prompt 缺少黑白红武侠水墨剪影风格声明');
+  for (const h of HEXES) if (!v.prompt?.zh?.includes(h) || !v.prompt?.en?.includes(h)) { err(where, `videoPrompt.prompt 缺少色板 ${h}`); break; }
+  if (!v.negative?.zh?.includes(NEG_STYLE_ZH) || !v.negative?.en?.includes(NEG_STYLE_EN)) err(where, 'videoPrompt.negative 缺少风格负面词（全彩、Q 版、写实、繁复纹理等）');
+  if (OLD_STYLE_DATA.test(JSON.stringify(v))) err(where, `videoPrompt 含旧彩色水墨措辞：${JSON.stringify(v).match(OLD_STYLE_DATA)[0]}`);
+  styleChecked.video++;
   for (const c of v.characters || []) if (!ids.has(c.id)) err(where, `videoPrompt 人物不在 cast：${c.id}`);
 }
 
@@ -135,6 +151,11 @@ function checkArtPrompts(where, list, scene, cast) {
   const castIds = new Set((cast ?? []).map(c => c.id));
   const drawnCast = new Set();
   for (const seg of list) {
+    if (!seg.prompt?.includes(ASSET_STYLE_ZH)) err(where, `素材段 ${seg.id} 的 prompt 缺少黑白红剪影画风行（art-style.mjs ASSET_STYLE_ZH）`);
+    for (const h of HEXES) if (!seg.prompt?.includes(h)) { err(where, `素材段 ${seg.id} 缺少色板 ${h}`); break; }
+    for (const n of NEG_ART) if (!seg.negative?.includes(n)) { err(where, `素材段 ${seg.id} 的 negative 缺少风格负面词：${n}`); break; }
+    if (OLD_STYLE_DATA.test((seg.prompt || '') + (seg.negative || ''))) err(where, `素材段 ${seg.id} 含旧彩色水墨措辞`);
+    styleChecked.art++;
     if (!seg.id || segIds.has(seg.id)) err(where, `素材段 id 缺失或重复：${seg.id}`);
     segIds.add(seg.id);
     if (!seg.id.startsWith(scene.id + '.sheet.')) err(where, `素材段 id 应以 ${scene.id}.sheet. 开头：${seg.id}`);
@@ -457,10 +478,25 @@ for (let i = 0; i < list.length; i++) for (let j = i + 1; j < list.length; j++) 
 }
 if (index.totals.v1 !== v1 || index.totals.outline !== outline || (index.totals.full !== undefined && index.totals.full !== full)) err('index', 'totals 与实际不一致');
 
+// 旧彩色水墨措辞扫描：章节数据、查看器数据脚本、文档
+{
+  const ROOT = resolve(DATA, '..', '..');
+  const scan = (dir, re, ext) => { if (!existsSync(dir)) return; for (const f of readdirSync(dir)) if (ext.test(f)) {
+    const m = readFileSync(join(dir, f), 'utf8').match(re); if (m) err(join(dir, f).slice(ROOT.length + 1), `含旧彩色水墨措辞：${m[0]}（美术方向见 video/docs/art-style.md）`); } };
+  scan(join(DATA, 'chapters'), OLD_STYLE_DATA, /\.json$/);
+  scan(join(DATA, '..', 'viewer', 'data'), OLD_STYLE_DATA, /\.js$/);
+  scan(join(DATA, '..', 'docs'), OLD_STYLE_DOCS, /\.md$/);
+  scan(join(ROOT, 'docs'), OLD_STYLE_DOCS, /^13-art-style\.md$/);
+  scan(join(ROOT, 'plan'), OLD_STYLE_DOCS, /\.md$/);
+  if (styleChecked.video !== videoScenes) err('style', `videoPrompt 风格检查数 ${styleChecked.video} ≠ 场景数 ${videoScenes}`);
+  if (styleChecked.art !== artSheets) err('style', `素材提示词风格检查数 ${styleChecked.art} ≠ 素材图数 ${artSheets}`);
+}
+
 // 同一来源挂在多个节点上会重复计数：按“场景 + 内容”去重
 const pendingUniq = new Set(pending.map(p => { const [w, ...rest] = p.split('：'); return w.split(' ').slice(0, 2).join(' ').replace(/\.[^. ]+$/, '') + '：' + rest.join('：'); }));
 const pendingScenes = new Set([...pendingUniq].map(k => k.split('：')[0].split(' ')[0]));
 console.log(`章节 ${bundles.length}，场景 ${allScenes.size}（完整 ${full}，大纲级 ${outline}；首版发布批次 v1=${v1}），水墨素材 ${artSheets} 张图 / ${artAssets} 件，水墨视频提示词 ${videoScenes} 场 / ${videoShots} 镜，待核验日期/来源 ${pending.length} 处（去重 ${pendingUniq.size} 条，涉及 ${pendingScenes.size} 个场景）`);
 if (showPending) for (const p of pending) console.log('  待核验 ' + p);
 if (errors.length) { console.error(`错误 ${errors.length} 个：\n` + errors.map(e => '  ' + e).join('\n')); process.exit(1); }
+console.log(`美术风格检查：videoPrompt ${styleChecked.video} 场、素材提示词 ${styleChecked.art} 张均为黑白红武侠水墨剪影风格`);
 console.log('校验通过：0 个错误');
