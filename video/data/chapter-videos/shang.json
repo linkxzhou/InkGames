@@ -47,7 +47,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "网开三面",
    "narration": "汤见野人四面张网，命去其三面：欲左者左，欲右者右。",
    "ambience": [
@@ -58,7 +58,7 @@
    "motionPrompt": "small birds rise and scatter across the paper sky, the net sways and drops, grass bends in the wind; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "shang-01.jpg",
    "clip": "shang-01.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 2,
@@ -67,7 +67,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "伊尹放太甲",
    "narration": "太甲不遵汤法，伊尹把他放到桐宫，三年悔过，迎回复位。",
    "ambience": [
@@ -78,7 +78,7 @@
    "motionPrompt": "pine branches sway, fallen leaves drift past, the light shifts slowly from pale to grey as seasons pass, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "shang-02.jpg",
    "clip": "shang-02.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 3,
@@ -87,7 +87,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "盘庚迁殷",
    "narration": "盘庚要渡河迁都，众人怨而不从，他三番作诰劝说。",
    "ambience": [
@@ -99,7 +99,7 @@
    "motionPrompt": "wind pushes their robes, the river flows slowly, the crowd sways, mist drifts across the far shore; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "shang-03.jpg",
    "clip": "shang-03.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 4,
@@ -108,7 +108,7 @@
     6,
     7
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "殷人渡河",
    "narration": "舟楫载着宗庙重器过河，商在殷地一住就是两百多年。",
    "ambience": [
@@ -119,7 +119,7 @@
    "motionPrompt": "the boats glide slowly across, oars dip in rhythm, mist drifts, ripples spread; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "shang-04.jpg",
    "clip": "shang-04.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 5,
@@ -128,7 +128,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "妇好出征",
    "narration": "卜辞里写着：妇好领兵一万三千，出征羌方。",
    "ambience": [
@@ -139,7 +139,7 @@
    "motionPrompt": "wind lifts her cloak and the banner, the ranks advance a single step, dust drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "shang-05.jpg",
    "clip": "shang-05.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 6,
@@ -148,7 +148,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "西伯羑里演易",
    "narration": "西伯被纣囚在羑里，相传就在狱中推演了《周易》。",
    "ambience": [
@@ -159,7 +159,7 @@
    "motionPrompt": "dust floats in the shaft of light, he moves the stalks slowly, shadows of the bars creep across the floor; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "shang-06.jpg",
    "clip": "shang-06.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 7,
@@ -168,7 +168,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "牧野誓师",
    "narration": "甲子日清晨，武王在牧野誓师，左杖黄钺，右秉白旄。",
    "ambience": [
@@ -180,7 +180,7 @@
    "motionPrompt": "the standard streams in the wind, mist rolls across the ranks, chariot banners ripple, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "shang-07.jpg",
    "clip": "shang-07.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 8,
@@ -189,7 +189,7 @@
     6,
     7
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "前徒倒戈，殷亡",
    "narration": "纣兵前徒倒戈，纣王登鹿台，蒙衣其珠玉，自焚而死。",
    "ambience": [
@@ -200,7 +200,17 @@
    "motionPrompt": "flames waver, black ink smoke billows upward and spreads, embers drift, the camera pulls back slowly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "shang-08.jpg",
    "clip": "shang-08.mp4",
-   "status": "pending"
+   "status": "done"
   }
- ]
+ ],
+ "output": {
+  "mp4": "video/viewer/assets/chapter-videos/shang.mp4",
+  "poster": "video/viewer/assets/chapter-videos/shang-poster.jpg",
+  "durationSec": 65.12,
+  "crossfadeSec": 0.7,
+  "audio": true,
+  "narration": true,
+  "status": "done",
+  "loudnessLUFS": -16.0
+ }
 }
