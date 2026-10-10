@@ -1264,6 +1264,17 @@
   ],
   "title": "Diaoyu Fortress: Where the Scourge of God Broke His Whip"
  },
+ "nansong.ehu": {
+  "end": "The meeting ends without a winner; six years later Zhu Xi invites Lu to lecture at White Deer Grotto and has his words carved in stone, and their split becomes the divide between Principle and Mind learning.",
+  "shots": [
+   "At the foot of Goose Lake Hill several sedan chairs stop before the gate of an old temple",
+   "In the lecture hall scholars of two schools sit facing each other across a long table",
+   "Lu Jiuling recites a poem first and Lu Jiuyuan answers: the work of ease and simplicity lasts and grows great",
+   "Hearing the line \"fragmented labours drift and sink\" Zhu Xi's face changes",
+   "After three days of argument no one has convinced anyone and the chairs outside the gate disperse one by one"
+  ],
+  "title": "The Goose Lake Meeting: Zhu Xi and Lu Jiuyuan"
+ },
  "nansong.huangtiandang": {
   "end": "Fire arrows break the Song fleet and Wuzhu escapes north, but Jin never again crosses the river lightly.",
   "shots": [
@@ -1286,6 +1297,17 @@
   ],
   "title": "Banxian Hall: Jia Sidao"
  },
+ "nansong.kaixi": {
+  "end": "Shi Miyuan takes power; in 1208 Han's coffin is opened and his head sent to the Jin in a box to buy the Jiading peace, and Shi rules alone for over twenty years.",
+  "shots": [
+   "At court in Lin'an an edict for the northern campaign is read and the whole hall cheers",
+   "On the Huai the Song take a few small towns, then are routed below Suzhou",
+   "In a Sichuan headquarters a general accepts the seal of King of Shu sent by the Jin",
+   "In the palace the empress and a vice minister confer in low voices over a note the emperor never signed",
+   "On the road to court at dawn guards of the Palace Command stop the chief minister's chair and hustle him into the Yujin Garden"
+  ],
+  "title": "The Head in a Box: The Kaixi Campaign and Han Tuozhou"
+ },
  "nansong.liqingzhao": {
   "end": "In her afterword she reflects that what is gathered must scatter; she edits and presents the thirty-chapter Records on Metal and Stone.",
   "shots": [
@@ -1296,6 +1318,28 @@
    "By lamplight she opens his manuscript and writes the afterword"
   ],
   "title": "Records on Metal and Stone: Li Qingzhao"
+ },
+ "nansong.luyou": {
+  "end": "Sixty years after Lu You's death the Southern Song falls with the Central Plains never recovered, and Lin Jingxi writes: your descendants see the realm united, but how will they tell you at the altar?",
+  "shots": [
+   "On the Board of Rites list Lu You's name stands near the top until the chief minister's red brush strikes it out",
+   "Outside the camp at Nanzheng autumn wind sweeps Dasan Pass as a poet in iron armour rides the frontier",
+   "In the snow he braces a long spear and faces down a tiger",
+   "In the old house at Shanyin a white-haired man listens to the night storm and dreams of armoured horses on frozen rivers",
+   "On his deathbed he asks his sons for brush and paper and writes his last poem"
+  ],
+  "title": "Do Not Forget to Tell Me at the Family Altar: Lu You"
+ },
+ "nansong.songci": {
+  "end": "The five-scroll book becomes the forensic standard of the Yuan, Ming and Qing and is translated into Korean, Japanese and European languages; Song Ci dies in office at Guangzhou two years later.",
+  "shots": [
+   "In the judicial commissioner's hall backlogged files are piled like hills as Song Ci reads them one by one",
+   "In roadside grass lies a body with a dozen wounds, yet nothing has been taken",
+   "Song Ci has the villagers bring every sickle in their homes and lay them out under the blazing sun",
+   "Flies come one by one and settle on a single sickle",
+   "Song Ci lifts that sickle and its owner falls to his knees"
+  ],
+  "title": "Collected Cases of Injustice Rectified: Song Ci"
  },
  "nansong.xiangyang": {
   "end": "After Fancheng falls, Lü Wenhuan surrenders Xiangyang in 1273; with the Yangtze gate open, the Yuan reach Lin'an three years later.",
