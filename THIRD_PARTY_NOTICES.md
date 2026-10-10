@@ -1,6 +1,6 @@
 # 第三方组件与许可登记
 
-> 依据 [AGENTS.md](./AGENTS.md) §6 许可红线：新增依赖仅允许 MIT / BSD / Apache / LGPL（不修改、独立分发），并在此登记。
+> 依据 [docs/AGENTS.md](./docs/AGENTS.md) §6 许可红线：新增依赖仅允许 MIT / BSD / Apache / LGPL（不修改、独立分发），并在此登记。
 > 本文件只登记**实际随本项目分发的组件**；`thirdparty/inkField` 是受限许可的只读快照，明确排除在发布物之外（见文末）。
 
 ## 运行依赖
