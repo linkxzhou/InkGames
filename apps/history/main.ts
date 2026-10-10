@@ -1,7 +1,7 @@
 import { advanceFrameClock } from '@inkgames/engine';
 import { chaosPresentation, chaosShapes } from './chaos-data';
 import { createChaos, type ChaosView } from "./procedural";
-import chapter from '../../plan/11-history-game-data/chapters/00-shanggu.json';
+import chapter from '../../video/data/chapters/00-shanggu.json';
 
 interface HistoryWindow extends Window { __historyHash?: (frame: number) => number }
 

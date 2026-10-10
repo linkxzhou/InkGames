@@ -2,7 +2,7 @@
 
 状态：**M0–M4 已完成，M5 部分完成，Pixi/p5/原生 WebGL2 已清理**（见 §7）。渲染栈只剩 `three@0.186.1` + `matter-js@0.20.0`。入口：`apps/scroll/`（切片）、`apps/story/`（叙事）、`apps/history/`（历史动画）、`apps/gallery/`（参照画廊）、`apps/props/`（二十个道具页）。公共 API 从 `src/index.ts` 导出。真实 GPU 未实测。
 
-历史游戏的叙事、过场数据和缺口优先级在 [12 · 引擎缺口](./12-history-game-engine-gaps.md)，故事结构在 [11 · 故事与玩法](./11-history-game-story-design.md)。本文写引擎怎么搭，并与第 12 章的模块名对齐。剧情正文不在这里展开。两边若措辞不一致，以 §11 已确认的条目为准，其余模块名以本文与第 12 章已经对齐的名字为准。
+历史游戏的叙事、过场数据和缺口优先级在 [12 · 引擎缺口](../video/docs/engine-gaps.md)，故事结构在 [11 · 故事与玩法](../video/docs/story-design.md)。本文写引擎怎么搭，并与第 12 章的模块名对齐。剧情正文不在这里展开。两边若措辞不一致，以 §11 已确认的条目为准，其余模块名以本文与第 12 章已经对齐的名字为准。
 
 ## 0. 所有者已经定下的事
 
@@ -40,7 +40,7 @@
         │       CameraRig 跟随
         │       InkSurface 渗流、皴法勾边、竹的摆动（只影响画面）
         │
-        └─ 过场模式（CutscenePlayer，见 plan/12 §2）
+        └─ 过场模式（CutscenePlayer，见 video/docs/engine-gaps §2）
               帧时钟 60 fps，笔画不跳帧
               物理世界暂停
               墨面、镜头、文字、效果、声音按 CutsceneDef 的轨道走
@@ -48,7 +48,7 @@
         │
         ▼
    WebGLRenderer.render（画布）
-   DOM 覆盖层：菜单、长文本、选项（plan/12 G-10）
+   DOM 覆盖层：菜单、长文本、选项（video/docs/engine-gaps G-10）
 ```
 
 玩法固定步和过场帧时钟共用这一条 RAF，由 `SceneDirector` 决定当前是哪一个。两条时钟不在同一帧里各推一次权威物理。
@@ -57,13 +57,13 @@
 
 `InkView` 持有 `WebGLRenderer`、`Scene` 和画布。画布以 1280×720 为内部分辨率，CSS 用 `object-fit: contain`。`devicePixelRatio` 上限为 2；截图姿态传 1。
 
-**坐标（已确认，见 §11）。** 物理、笔刷、过场 JSON 共用像素平面，Y 向下：`Matter` 的 `gravity.y` 为正，`InkBrushEngine` 的点和 [内容数据格式](./11-history-game-content-schema.md) 里 `CutsceneDef.canvas`、`CameraKey.x/y` 都是这套数。相机 `up` 为 `(0, -1, 0)`。`lookAt` 在这个 up 下会把视野滚 180° 并镜像 X，所以 `CameraRig.place` 在 `lookAt` 之后把 `camera.scale.x` 设为 `-1`，世界 +x 在画面右侧，世界 +y 仍向下。刚体的 `position.x/y` **原样**写入 `mesh.position.x/y`。Z 不从物理来。负缩放反转缠绕，需要看见的填充用 `DoubleSide`。
+**坐标（已确认，见 §11）。** 物理、笔刷、过场 JSON 共用像素平面，Y 向下：`Matter` 的 `gravity.y` 为正，`InkBrushEngine` 的点和 [内容数据格式](../video/docs/content-schema.md) 里 `CutsceneDef.canvas`、`CameraKey.x/y` 都是这套数。相机 `up` 为 `(0, -1, 0)`。`lookAt` 在这个 up 下会把视野滚 180° 并镜像 X，所以 `CameraRig.place` 在 `lookAt` 之后把 `camera.scale.x` 设为 `-1`，世界 +x 在画面右侧，世界 +y 仍向下。刚体的 `position.x/y` **原样**写入 `mesh.position.x/y`。Z 不从物理来。负缩放反转缠绕，需要看见的填充用 `DoubleSide`。
 
-层深继续用 `INK_LAYER_Z`（`src/core/ink-camera.ts`）：远景 −80、玩法纸面 0、角色与道具 40、文字 120。这四个数是像素级的视差偏移，不是米。`plan/12` 要求过场里的墨面平面直接放在这些 Z 上。相机放在 `z = inkCameraDistance(height)`（720p 下约 623 px），朝原点看，fov 保持 π/3。这时 z = 0 的一层在画面上是 1:1，和现行 `inkLayerScale` 一致，只是缩放改由透视相机产生，不再手乘精灵缩放。
+层深继续用 `INK_LAYER_Z`（`src/core/ink-camera.ts`）：远景 −80、玩法纸面 0、角色与道具 40、文字 120。这四个数是像素级的视差偏移，不是米。`video/docs/engine-gaps` 要求过场里的墨面平面直接放在这些 Z 上。相机放在 `z = inkCameraDistance(height)`（720p 下约 623 px），朝原点看，fov 保持 π/3。这时 z = 0 的一层在画面上是 1:1，和现行 `inkLayerScale` 一致，只是缩放改由透视相机产生，不再手乘精灵缩放。
 
 玩法跟随：相机在 X/Y 上以每帧 5% 的比例靠向角色，再夹进关卡包围盒；关卡比视口短时居中。十卡 `InkStage` 的 ±48×36 限制留在那条舞台上。变焦改相机到纸面的距离：`zoom` 1.1 表示拉近到默认距离的 1/1.1。`CameraKey.zoom` 用同一含义。切片演示不改变 zoom。
 
-正交相机保留为调试开关。正交投影下物体大小不随 Z 变化，坡和碰撞框更好对，但 plan/12 的四层 Z 视差和「镜头远近改线宽」都要另做。默认镜头是透视。
+正交相机保留为调试开关。正交投影下物体大小不随 Z 变化，坡和碰撞框更好对，但 video/docs/engine-gaps 的四层 Z 视差和「镜头远近改线宽」都要另做。默认镜头是透视。
 
 视差：远山墨面放在 z = −80，近景枝叶放在 z 略大于 0 且仍在相机前面。碰撞体全部在 z = 0 的剖面上。网格可以在 Z 上有起伏（山石的厚度、地面的凹凸），这块起伏只给画面和洇染用，不写进 Matter。
 
@@ -115,7 +115,7 @@ mesh.position.z = link.z
 
 ## 2. 模块、职责、API 草案
 
-名字与 [plan/12 §3](./12-history-game-engine-gaps.md#3-引擎缺口清单) 的缺口表一致。下表的「优先级」是历史游戏那一侧的优先级；引擎垂直切片的先后在 §8，两套切片怎么衔接在 §6。
+名字与 [video/docs/engine-gaps §3](../video/docs/engine-gaps.md#3-引擎缺口清单) 的缺口表一致。下表的「优先级」是历史游戏那一侧的优先级；引擎垂直切片的先后在 §8，两套切片怎么衔接在 §6。
 
 | 模块 | 计划中的文件 | 职责 | 对应缺口 | 优先级 |
 |---|---|---|---|---|
@@ -138,7 +138,7 @@ mesh.position.z = link.z
 | UI | `apps/` 的 DOM 层 + 长卷场景 | 菜单、选择、简版时间线；长卷墨迹走 `InkSurface` | G-10 | P0 选择与字幕；完整长卷为 P1 |
 | 玩法模板 | `src/plugins/` 下按模板一个文件 | `defineGameplay({ id, requires, setup, onEvent })` | G-14 | P0 先决斗、对话时机、解谜各一个 |
 
-`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore` 的方法名用 plan/12 已经写过的草案，这里不另起一套：
+`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore` 的方法名用 video/docs/engine-gaps 已经写过的草案，这里不另起一套：
 
 ```ts
 interface SceneDirector {
@@ -181,7 +181,7 @@ interface SaveStore {
 }
 ```
 
-`scene`、`cue`、存档的字段以 [内容数据格式](./11-history-game-content-schema.md) 的 `CutsceneDef`、`AudioCue`、`SyncPoint`、`SaveGame` 为准。实现时把上面的 `unknown` 换成那些 `interface`，并从 `src/index.ts` 导出。对象契约用 `interface`。
+`scene`、`cue`、存档的字段以 [内容数据格式](../video/docs/content-schema.md) 的 `CutsceneDef`、`AudioCue`、`SyncPoint`、`SaveGame` 为准。实现时把上面的 `unknown` 换成那些 `interface`，并从 `src/index.ts` 导出。对象契约用 `interface`。
 
 `InkSurface` 的形状按 G-01：
 
@@ -222,7 +222,7 @@ interface InkEffects {
 
 资源：渲染目标、监听、音频节点都登记清理，`dispose()` 幂等。过场和场景切换时由 `SceneDirector` 成对释放，不把纹理留到下一章。
 
-内容格式校验、`StoryRuntime`、`SaveStore`、`AudioBus` 的调度已经在 `src/core/`，由 `tests/narrative.test.ts` 覆盖，不创建 WebGL。页面只读 `plan/11-history-game-data`，不改那些 JSON。
+内容格式校验、`StoryRuntime`、`SaveStore`、`AudioBus` 的调度已经在 `src/core/`，由 `tests/narrative.test.ts` 覆盖，不创建 WebGL。页面只读 `video`，不改那些 JSON。
 
 ## 3. 现有水墨管线怎么进 three.js
 
@@ -306,7 +306,7 @@ Playfield 碰撞（角色 × 地面）
 
 后退：渗流 pass 关掉时，只在接触 UV 上盖一枚圆章，相当于现在蹄下的墨点，仍能看出踩过。
 
-`effects.inkDisperse` 和角色脚步走同一个盖章入口。过场里的马蹄、行军用 `EffectCue.kind = 'inkDisperse'`，不必真的生成一个 Matter 角色。这是 plan/12 的 G-16，优先级 P1。引擎切片里先接上脚步。
+`effects.inkDisperse` 和角色脚步走同一个盖章入口。过场里的马蹄、行军用 `EffectCue.kind = 'inkDisperse'`，不必真的生成一个 Matter 角色。这是 video/docs/engine-gaps 的 G-16，优先级 P1。引擎切片里先接上脚步。
 
 ### 4.2 毛笔皴法与动态勾边
 
@@ -343,7 +343,7 @@ Playfield 碰撞（角色 × 地面）
 
 `effects.bambooBreak(id, impulse)` 就是上面的第 2–4 步。过场可以不经过武器扫掠直接调它（G-16，P1）。
 
-人物骨骼是另一件事（plan/12 G-13，P1）。竹的切片用顶点位移，不先上 `Skeleton`。若所有者希望断口沿真实的骨来弯，再把 `BambooRig` 换成 `SkinnedMesh`，接口 `bambooBreak` 不变。
+人物骨骼是另一件事（video/docs/engine-gaps G-13，P1）。竹的切片用顶点位移，不先上 `Skeleton`。若所有者希望断口沿真实的骨来弯，再把 `BambooRig` 换成 `SkinnedMesh`，接口 `bambooBreak` 不变。
 
 后退：不撕网格，换成两段预先分开的模型，断口上仍用现行哥特笔在墨面泼一笔。
 
@@ -365,19 +365,19 @@ Playfield 碰撞（角色 × 地面）
 
 水刷裁桥的规则留在 CPU 几何里，和现在的 `eraseBridge` 一样：先改矩形刚体，再 `InkSurface.wash`。
 
-## 6. 和 plan/12 的衔接
+## 6. 和 video/docs/engine-gaps 的衔接
 
-| 主题 | 本文 | plan/12 |
+| 主题 | 本文 | video/docs/engine-gaps |
 |---|---|---|
 | 墨面 | `InkSurface`，平面或地形纹理 | G-01，P0，历史垂直切片的前提 |
-| 场景 / 剧情 / 过场 / 录制 / 声音 / 字幕 / 存档 / UI | 模块名和 API 草案与 G-02..G-07、G-09、G-10 相同，本文不另写故事流程 | 那些缺口的优先级和荆轲开场的验收以 plan/12 为准 |
+| 场景 / 剧情 / 过场 / 录制 / 声音 / 字幕 / 存档 / UI | 模块名和 API 草案与 G-02..G-07、G-09、G-10 相同，本文不另写故事流程 | 那些缺口的优先级和荆轲开场的验收以 video/docs/engine-gaps 为准 |
 | 三项画面 | §4 是技术设计。脚步洇染、皴法、断竹在引擎切片里就要看得见 | 叙事触发 `inkDisperse` / `bambooBreak` 是 G-16，P1，不挡住战国三幕 |
 | 开场 18–35 秒、上下文不重建 | 见 §10 结转。过场侧的对策是 G-08 关键帧和 G-19 | 引用的就是这两条事实 |
 | 时钟 | 玩法固定步 + 过场帧时钟，过场时物理暂停 | §2.2 的帧时钟、同步点、追步 |
 | 层 Z | 像素视差，−80 / 0 / 40 / 120 | 过场 `layers[].z` 直接用这些数 |
-| 工作量的人周 | 本文不估日历 | plan/12 表格里的人周仍以那份草案为准 |
+| 工作量的人周 | 本文不估日历 | video/docs/engine-gaps 表格里的人周仍以那份草案为准 |
 
-历史游戏的 M1（完璧归赵、窃符救赵、易水寒）可以在 `InkSurface` 能按帧画画、`CutscenePlayer` 能跑通一条轨道之后开始。引擎自己的垂直切片更早：一条能走的坡、地面上的墨、两块皴法石头、一竿可砍的竹。两件事共用 `InkView` 和 `InkSurface`，不共用验收标准。史实、旁白和史评的验收只写在 plan/12。
+历史游戏的 M1（完璧归赵、窃符救赵、易水寒）可以在 `InkSurface` 能按帧画画、`CutscenePlayer` 能跑通一条轨道之后开始。引擎自己的垂直切片更早：一条能走的坡、地面上的墨、两块皴法石头、一竿可砍的竹。两件事共用 `InkView` 和 `InkSurface`，不共用验收标准。史实、旁白和史评的验收只写在 video/docs/engine-gaps。
 
 ## 7. 从 PixiJS 迁走（2026-10-09 已完成）
 
@@ -419,12 +419,12 @@ Playfield 碰撞（角色 × 地面）
 
 ## 8. 里程碑
 
-- [x] **M0 文档。** 本计划、docs 里的切片说明、与 plan/12 的模块名对齐。所有者已按 §11 逐条确认（2026-10-09）。
+- [x] **M0 文档。** 本计划、docs 里的切片说明、与 video/docs/engine-gaps 的模块名对齐。所有者已按 §11 逐条确认（2026-10-09）。
 - [x] **M1 能走的坡。** `InkView`、透视侧视、`Playfield` 固定步和插值、角色圆、折线地面。`tests/playfield.test.ts` 不创建 GL。
 - [x] **M2 墨面。** `InkSurface` 提供 `paint` / `update` / `texture`。过场播放器接在 M5。
 - [x] **M3 三样画面。** `TerrainSeep`（512×256）、`createCunRock` 勾边、`BambooView` 墨滴。SwiftShader 截图见 `node scripts/gpu-check.mjs --shots`。真实 GPU 未实测。
 - [x] **M4 动作补全。** 单向平台、击退、扫掠、可砍。`InkView.washAt` 先 `washBridge` 再 `InkSurface.wash`。演示页 `apps/scroll/`。
-- [~] **M5 叙事宿主。** `SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`StoryStage` 已从 `src/index.ts` 导出。`apps/story/` 只读荆轲样例：正史开场按帧时钟走，Canvas 字幕画出「易水寒」，选择处可进正史或野史，检查点可 `resume`。`PostStack` 没有类；flow / distort / metallic / wash / fade 由 `StoryStage` 写到墨面或淡出平面，遮罩是画布暗角。玩法节点只显示目标并等待继续。配音文件不在仓库里，`AudioBus` 用振荡器占位。景深、录制回放、plan/12 M1 的三场景通关、两次播放末帧逐像素一致、独显帧时都未做。CPU 证据是 `tests/narrative.test.ts`。无头截图只证明着色器能编过。
+- [~] **M5 叙事宿主。** `SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`StoryStage` 已从 `src/index.ts` 导出。`apps/story/` 只读荆轲样例：正史开场按帧时钟走，Canvas 字幕画出「易水寒」，选择处可进正史或野史，检查点可 `resume`。`PostStack` 没有类；flow / distort / metallic / wash / fade 由 `StoryStage` 写到墨面或淡出平面，遮罩是画布暗角。玩法节点只显示目标并等待继续。配音文件不在仓库里，`AudioBus` 用振荡器占位。景深、录制回放、video/docs/engine-gaps M1 的三场景通关、两次播放末帧逐像素一致、独显帧时都未做。CPU 证据是 `tests/narrative.test.ts`。无头截图只证明着色器能编过。
 
 坡度行走、击退和扫掠写在 `Playfield` 上，没有单独的 `ActorController` 或 `Combat` 类。竹的显示类名是 `BambooView`。`InkView` 与 `StoryStage` 在 `webglcontextrestored` 后重建渲染目标并从丢失前的 `snapshot` 贴回；`InkScene`（`apps/history/`）目前不重建。真实 GPU 未实测。
 
@@ -470,11 +470,11 @@ Playfield 碰撞（角色 × 地面）
 
 **性能（真实 GPU，未做之前一律写未实测）**
 
-- 目标帧 16.6 ms。过场墨面每帧计算沿用 plan/12 G-21 的目标：≤ 8 ms。
+- 目标帧 16.6 ms。过场墨面每帧计算沿用 video/docs/engine-gaps G-21 的目标：≤ 8 ms。
 - 洇染两张 pass，分辨率 512×256。山石每个多一次外壳绘制。粒子 ≤ 256。
 - Safari、Firefox、手机不在切片的通过条件里。
 
-历史开场「五个镜头末帧逐像素一致」只约束过场帧时钟下的 `InkSurface`，写在 plan/12 的 M1。渗流和勾边噪声不纳入那条逐像素条款。
+历史开场「五个镜头末帧逐像素一致」只约束过场帧时钟下的 `InkSurface`，写在 video/docs/engine-gaps 的 M1。渗流和勾边噪声不纳入那条逐像素条款。
 
 ## 10. 风险与结转
 
@@ -522,7 +522,7 @@ Playfield 碰撞（角色 × 地面）
 14. **两套时钟。已确认。** 玩法固定步带插值；过场用帧时钟并且不跳笔；过场期间物理暂停。确认当时过场播放器还没写。随后 `CutscenePlayer` 按帧推进，`StoryStage` 播过场时不调用 `Playfield`。跳过会把实时笔画收成一次 `paint`。
 15. **两条切片。已确认。** 引擎切片包含坡、洇染、皴法、断竹。历史游戏 M1 等 `InkSurface` 可用再开始，G-16 的叙事触发保持 P1。
 16. **字幕。已确认。** P0 用 Canvas 纹理，不引入 troika-three-text 或其它文字依赖。`InkText` 已在 `/story/` 的过场里画标题和旁白，关卡页 `/scroll/` 仍没有字幕。
-17. **模块名。已确认。** 与 plan/12 对齐为 `InkSurface`、`CameraRig`、`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`PostStack`。
+17. **模块名。已确认。** 与 video/docs/engine-gaps 对齐为 `InkSurface`、`CameraRig`、`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`PostStack`。
 18. **真实 GPU。已确认。** 由所有者在自己的 Mac（Apple Silicon，Chrome）上验收。在那之前文档保持「未实测」。仓库提供一条本地命令 `node scripts/gpu-check.mjs`：无头时只证明着色器能编过、没有 GL 错误；真实 GPU 的画面以所有者那次为准。
 
 
@@ -532,4 +532,4 @@ Playfield 碰撞（角色 × 地面）
 
 它是独立预演：未接入 `StoryStage` / `CutscenePlayer` 轨道，墨层为预绘制结果、播放中无逐帧新反馈，天裂用墨线淡出而非遮罩，关节为刚性分件旋转，上下文丢失不重建，也无真实音频。真实 GPU 观感与性能未实测。
 
-图片显影用的 `InkAnimation` 仍导出，但不是现行历史动画方向，`/history/` 已不再调用。计划与状态见 [历史动画专项](./12-history-game-ink-animation-production-plan.md) 与 [缺口 §6](./12-history-game-engine-gaps.md#6-纯引擎水墨动画实现方案2026-10-09-重新评估)。M0–M5 状态不变：`PostStack`、景深、录制、玩法模板仍开着。
+图片显影用的 `InkAnimation` 仍导出，但不是现行历史动画方向，`/history/` 已不再调用。计划与状态见 [历史动画专项](../video/docs/production-plan.md) 与 [缺口 §6](../video/docs/engine-gaps.md#6-纯引擎水墨动画实现方案2026-10-09-重新评估)。M0–M5 状态不变：`PostStack`、景深、录制、玩法模板仍开着。

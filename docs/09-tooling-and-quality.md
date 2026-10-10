@@ -33,7 +33,7 @@
 | `ink-camera.test.ts` | 层深缩放与虫蚀采样的确定性 |
 | `ink-animation.test.ts` | 图片显影镜头的边界、seek 求值与非法镜头（对照实验用） |
 
-测试不创建 WebGL，也不比较截图像素。领域数据另有一条独立校验：`node plan/11-history-game-data/tools/validate.mjs` 检查 21 章 / 157 场景 / 分镜连续性与字符串引用（当前 0 错误）。
+测试不创建 WebGL，也不比较截图像素。领域数据另有一条独立校验：`node video/tools/validate.mjs` 检查 21 章 / 157 场景 / 分镜连续性与字符串引用（当前 0 错误）。
 
 ## 浏览器冒烟
 
@@ -61,7 +61,7 @@ node scripts/gpu-check.mjs --shots
 
 `--shots` 用无头 Chromium 加 SwiftShader 打开 `/scroll/?pose=rest` 与 `?pose=cut`，对 rest 调用 `window.__sliceLose` / `__sliceRestore`（`WEBGL_lose_context`），再打开 `/story/?pose=title` 与 `?pose=fork`（fork 必须停在 `choice`）。截图写到 `GPU_CHECK_OUT`（缺省 `/opt/cursor/artifacts/screenshots/`）。通过条件是 ready 旗标为真、GL 错误为 0、无 `pageerror`。
 
-过场「同一机器连播两次、镜头末帧一致」仍是 [plan/12](../plan/12-history-game-engine-gaps.md) 的验收，没有做。性能目标（整帧 16.6 ms、过场墨面每帧 ≤ 8 ms）未实测。
+过场「同一机器连播两次、镜头末帧一致」仍是 [video/docs/engine-gaps](../video/docs/engine-gaps.md) 的验收，没有做。性能目标（整帧 16.6 ms、过场墨面每帧 ≤ 8 ms）未实测。
 
 ## 对照素材
 

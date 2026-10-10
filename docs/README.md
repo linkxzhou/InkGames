@@ -12,7 +12,7 @@
 
 首页 `/` 列出这些入口和二十张道具卡。
 
-**仍未完成**：完整玩法模拟、`PostStack` 类、景深、2.0 录制回放、`InkScene` 的上下文恢复、真实配音、真实 GPU 验收。`defineGameplay` 只返回动词和说明。设计在 [引擎计划](../plan/10-three-matter-side-scroller-plan.md)；历史游戏叙事与缺口在 [plan/11](../plan/11-history-game-story-design.md)、[plan/12](../plan/12-history-game-engine-gaps.md)；历史动画的实施与状态在 [plan/12 动画计划](../plan/12-history-game-ink-animation-production-plan.md)。
+**仍未完成**：完整玩法模拟、`PostStack` 类、景深、2.0 录制回放、`InkScene` 的上下文恢复、真实配音、真实 GPU 验收。`defineGameplay` 只返回动词和说明。设计在 [引擎计划](../plan/10-three-matter-side-scroller-plan.md)；历史游戏叙事与缺口在 [video/docs/story-design](../video/docs/story-design.md)、[video/docs/engine-gaps](../video/docs/engine-gaps.md)；历史动画的实施与状态在 [video/docs/production-plan 动画计划](../video/docs/production-plan.md)。
 
 历史检索和 2026-10-09 的出处在 [第 11 章](./11-references-and-research.md)。和 inkEngine 的逐项对照在 [第 12 章](./12-inkengine-parity-audit.md)：文末是 three.js `InkSurface` 的 SwiftShader 并排差，历史总表提到的 Pixi `InkWash` 已删除。真实 GPU 未实测。
 

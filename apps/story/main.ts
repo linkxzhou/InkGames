@@ -1,5 +1,5 @@
 import { parseScenePackage, StoryStage } from '@inkgames/engine';
-import example from '../../plan/11-history-game-data/scene-zhanguo-jingke.example.json';
+import example from '../../video/data/examples/05-09-zhanguo-jingke.json';
 
 interface StoryWindow extends Window {
   __storyReady?: boolean;

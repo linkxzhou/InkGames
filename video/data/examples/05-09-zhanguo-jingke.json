@@ -1,0 +1,1192 @@
+{
+ "_comment": "video/docs/content-schema.md 的完整样例：一个场景文件、它的开场动画脚本和中文字符串表。正式内容会拆成三个文件。引擎目标为 three.js + Matter.js（当前 src 仍是 PixiJS），此文件只用于评审格式，尚无运行时读取它。",
+ "scene": {
+  "format": "inkgames.scene",
+  "version": 1,
+  "id": "zhanguo.jingke",
+  "chapter": "zhanguo",
+  "order": 9,
+  "title": "scene.zhanguo.jingke.title",
+  "subtitle": "scene.zhanguo.jingke.subtitle",
+  "when": {
+   "start": -227,
+   "precision": "year",
+   "display": "前 227 年",
+   "era": "秦王政二十年",
+   "verify": "done"
+  },
+  "key": true,
+  "template": "duel",
+  "props": [
+   "sword",
+   "shield",
+   "banner",
+   "water",
+   "landscape",
+   "figure"
+  ],
+  "characters": [
+   "jingke",
+   "dan",
+   "tianguang",
+   "fanyuqi",
+   "qinwuyang",
+   "gaojianli",
+   "qinwang",
+   "xiawuju"
+  ],
+  "anchors": {
+   "entry": {
+    "id": "anchor.zhanguo.dan-return",
+    "title": "anchor.dan-return",
+    "when": {
+     "start": -232,
+     "precision": "year",
+     "display": "前 232 年",
+     "era": "秦王政十五年，燕王喜二十三年",
+     "verify": "done",
+     "notes": "《史记·六国年表》燕王喜二十三年：太子丹质于秦，亡来归；《燕召公世家》同"
+    },
+    "sources": [
+     {
+      "kind": "canon",
+      "title": "史记",
+      "section": "刺客列传"
+     },
+     {
+      "kind": "canon",
+      "title": "史记",
+      "section": "六国年表"
+     }
+    ]
+   },
+   "exit": {
+    "id": "anchor.zhanguo.yan-ji-falls",
+    "title": "anchor.yan-ji-falls",
+    "when": {
+     "start": -226,
+     "precision": "year",
+     "display": "前 226 年",
+     "era": "秦王政二十一年",
+     "verify": "done",
+     "notes": "《史记·秦始皇本纪》二十一年：取燕蓟城，得太子丹之首；《燕召公世家》作燕王喜二十九年，同为前 226 年"
+    },
+    "sources": [
+     {
+      "kind": "canon",
+      "title": "史记",
+      "section": "秦始皇本纪"
+     },
+     {
+      "kind": "canon",
+      "title": "史记",
+      "section": "刺客列传"
+     }
+    ]
+   }
+  },
+  "opening": "cutscene.zhanguo.jingke.opening",
+  "fork": {
+   "at": "fork",
+   "prompt": "scene.zhanguo.jingke.fork.prompt"
+  },
+  "plot": {
+   "start": "opening",
+   "nodes": [
+    {
+     "id": "opening",
+     "kind": "cutscene",
+     "line": "canon",
+     "cutscene": "cutscene.zhanguo.jingke.opening",
+     "when": {
+      "start": -227,
+      "precision": "year",
+      "display": "前 227 年",
+      "era": "秦王政二十年",
+      "verify": "done"
+     },
+     "next": [
+      "fork"
+     ],
+     "sources": [
+      {
+       "kind": "canon",
+       "title": "史记",
+       "section": "刺客列传"
+      },
+      {
+       "kind": "canon",
+       "title": "战国策",
+       "section": "燕策三"
+      }
+     ]
+    },
+    {
+     "id": "fork",
+     "kind": "choice",
+     "line": "canon",
+     "when": {
+      "start": -227,
+      "precision": "year",
+      "display": "前 227 年",
+      "era": "秦王政二十年",
+      "verify": "done"
+     },
+     "choices": [
+      {
+       "id": "pick.canon",
+       "label": "scene.zhanguo.jingke.pick.canon",
+       "seal": "canon",
+       "to": "c.audience"
+      },
+      {
+       "id": "pick.legend",
+       "label": "scene.zhanguo.jingke.pick.legend",
+       "seal": "legend",
+       "to": "l.zither"
+      },
+      {
+       "id": "pick.whatif",
+       "label": "scene.zhanguo.jingke.pick.whatif",
+       "seal": "whatif",
+       "to": "w.stub",
+       "requires": {
+        "all": [
+         {
+          "cleared": "zhanguo.jingke/canon"
+         },
+         {
+          "cleared": "zhanguo.jingke/legend"
+         }
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "c.audience",
+     "kind": "gameplay",
+     "line": "canon",
+     "checkpoint": true,
+     "when": {
+      "start": -227,
+      "precision": "year",
+      "display": "前 227 年",
+      "era": "秦王政二十年",
+      "verify": "done"
+     },
+     "gameplay": {
+      "template": "dialogue-timing",
+      "params": {
+       "goal": "稳住秦舞阳并完成献图礼",
+       "failTo": "c.audience",
+       "grades": [
+        "史识"
+       ]
+      }
+     },
+     "next": [
+      "c.pillar"
+     ],
+     "sources": [
+      {
+       "kind": "canon",
+       "title": "史记",
+       "section": "刺客列传"
+      }
+     ]
+    },
+    {
+     "id": "c.pillar",
+     "kind": "gameplay",
+     "line": "canon",
+     "checkpoint": true,
+     "when": {
+      "start": -227,
+      "precision": "year",
+      "display": "前 227 年",
+      "era": "秦王政二十年",
+      "verify": "done"
+     },
+     "gameplay": {
+      "template": "duel",
+      "params": {
+       "player": "jingke",
+       "opponent": "qinwang",
+       "weapon": "sword",
+       "arena": "xianyang-hall",
+       "scriptedOutcome": "miss",
+       "beats": [
+        "sleeve-torn",
+        "circle-pillar",
+        "medicine-bag",
+        "draw-sword",
+        "left-thigh",
+        "dagger-hits-pillar"
+       ],
+       "grades": [
+        "笔意",
+        "寻迹"
+       ]
+      }
+     },
+     "next": [
+      "c.end"
+     ],
+     "sources": [
+      {
+       "kind": "canon",
+       "title": "史记",
+       "section": "刺客列传"
+      }
+     ]
+    },
+    {
+     "id": "c.end",
+     "kind": "ending",
+     "line": "canon",
+     "ending": "end.canon",
+     "next": []
+    },
+    {
+     "id": "l.zither",
+     "kind": "cutscene",
+     "line": "legend",
+     "cutscene": "cutscene.zhanguo.jingke.legend-zither",
+     "when": {
+      "start": -227,
+      "precision": "year",
+      "display": "前 227 年",
+      "era": "秦王政二十年",
+      "verify": "done"
+     },
+     "label": "scene.zhanguo.jingke.legend.disclaimer",
+     "next": [
+      "l.escape"
+     ],
+     "sources": [
+      {
+       "kind": "biji",
+       "title": "燕丹子",
+       "notes": "旧题无名氏，成书年代有先秦、汉代、六朝诸说，属野史"
+      },
+      {
+       "kind": "novel",
+       "title": "东周列国志",
+       "section": "第一百六、一百七回",
+       "corpus": {
+        "file": "野史/东周列国志.pdf",
+        "pages": "p.439–447"
+       }
+      }
+     ]
+    },
+    {
+     "id": "l.escape",
+     "kind": "gameplay",
+     "line": "legend",
+     "checkpoint": true,
+     "when": {
+      "start": -227,
+      "precision": "year",
+      "display": "前 227 年",
+      "era": "秦王政二十年",
+      "verify": "done"
+     },
+     "gameplay": {
+      "template": "riddle-escape",
+      "params": {
+       "player": "qinwang",
+       "clues": [
+        "zither.sleeve",
+        "zither.screen",
+        "zither.sword"
+       ],
+       "actions": {
+        "zither.sleeve": "blade-swipe",
+        "zither.screen": "jump",
+        "zither.sword": "draw-on-back"
+       },
+       "timeLimitFrames": 3600,
+       "failTo": "l.escape"
+      }
+     },
+     "next": [
+      "l.end"
+     ],
+     "sources": [
+      {
+       "kind": "biji",
+       "title": "燕丹子",
+       "notes": "旧题无名氏，成书年代有先秦、汉代、六朝诸说，属野史"
+      },
+      {
+       "kind": "novel",
+       "title": "东周列国志",
+       "section": "第一百六、一百七回",
+       "corpus": {
+        "file": "野史/东周列国志.pdf",
+        "pages": "p.439–447"
+       }
+      }
+     ]
+    },
+    {
+     "id": "l.end",
+     "kind": "ending",
+     "line": "legend",
+     "ending": "end.legend",
+     "next": []
+    },
+    {
+     "id": "w.stub",
+     "kind": "ending",
+     "line": "whatif",
+     "ending": "end.whatif",
+     "next": [],
+     "notes": "垂直切片只留入口，不做内容"
+    }
+   ]
+  },
+  "endings": [
+   {
+    "id": "end.canon",
+    "kind": "canon",
+    "title": "scene.zhanguo.jingke.end.canon",
+    "cutscene": "cutscene.zhanguo.jingke.end-canon",
+    "mergeTo": "anchor.zhanguo.yan-ji-falls",
+    "sources": [
+     {
+      "kind": "canon",
+      "title": "史记",
+      "section": "刺客列传"
+     }
+    ]
+   },
+   {
+    "id": "end.legend",
+    "kind": "legend",
+    "title": "scene.zhanguo.jingke.end.legend",
+    "cutscene": "cutscene.zhanguo.jingke.end-legend",
+    "mergeTo": "anchor.zhanguo.yan-ji-falls",
+    "sources": [
+     {
+      "kind": "biji",
+      "title": "燕丹子",
+      "notes": "旧题无名氏，成书年代有先秦、汉代、六朝诸说，属野史"
+     },
+     {
+      "kind": "novel",
+      "title": "东周列国志",
+      "section": "第一百六、一百七回",
+      "corpus": {
+       "file": "野史/东周列国志.pdf",
+       "pages": "p.439–447"
+      }
+     }
+    ],
+    "notes": "野史线结局与史实一致（荆轲死），属于汇流"
+   },
+   {
+    "id": "end.whatif",
+    "kind": "divergent",
+    "title": "scene.zhanguo.jingke.end.whatif",
+    "archive": "yiwenlu",
+    "sources": []
+   }
+  ],
+  "coda": {
+   "compare": [
+    {
+     "topic": "秦王如何脱身",
+     "canon": "《史记》：秦王绝袖而起，环柱而走；侍医夏无且以药囊提荆轲；左右呼“王负剑”，秦王拔剑断荆轲左股",
+     "legend": "《燕丹子》系说法：秦王请听琴而死，琴声暗示绝袖、越屏风、负剑（《东周列国志》第一百七回亦采此说）",
+     "sources": [
+      {
+       "kind": "canon",
+       "title": "史记",
+       "section": "刺客列传"
+      },
+      {
+       "kind": "biji",
+       "title": "燕丹子",
+       "notes": "旧题无名氏，成书年代有先秦、汉代、六朝诸说，属野史"
+      },
+      {
+       "kind": "novel",
+       "title": "东周列国志",
+       "section": "第一百六、一百七回",
+       "corpus": {
+        "file": "野史/东周列国志.pdf",
+        "pages": "p.439–447"
+       }
+      }
+     ]
+    },
+    {
+     "topic": "太子丹归燕",
+     "canon": "《史记》：丹质秦，见秦王遇之不善，亡归",
+     "legend": "乌头白、马生角，秦王乃放丹（《燕丹子》系传说；《东周列国志》第一百六回载）",
+     "sources": [
+      {
+       "kind": "canon",
+       "title": "史记",
+       "section": "刺客列传"
+      },
+      {
+       "kind": "biji",
+       "title": "燕丹子",
+       "notes": "旧题无名氏，成书年代有先秦、汉代、六朝诸说，属野史"
+      },
+      {
+       "kind": "novel",
+       "title": "东周列国志",
+       "section": "第一百六、一百七回",
+       "corpus": {
+        "file": "野史/东周列国志.pdf",
+        "pages": "p.439–447"
+       }
+      }
+     ]
+    }
+   ],
+   "unlocks": {
+    "cards": [
+     "event.yishui-farewell",
+     "event.tu-qiong-bi-xian",
+     "person.jingke",
+     "person.dan",
+     "person.xiawuju"
+    ],
+    "seal": "seal.yishui"
+   }
+  },
+  "verify": "pending",
+  "reviewers": {
+   "history": null,
+   "copyright": null
+  }
+ },
+ "opening": {
+  "format": "inkgames.cutscene",
+  "version": 1,
+  "id": "cutscene.zhanguo.jingke.opening",
+  "canvas": {
+   "width": 1280,
+   "height": 720,
+   "paper": [
+    214,
+    206,
+    188
+   ],
+   "seed": 227,
+   "note": "width/height 是墨面渲染目标（纸面纹理）的像素尺寸，不是屏幕尺寸"
+  },
+  "clock": {
+   "fps": 60,
+   "mode": "frame"
+  },
+  "durationFrames": 5400,
+  "layers": [
+   {
+    "id": "far",
+    "z": -80,
+    "kind": "inkPlane",
+    "transparent": true,
+    "note": "远山：three.js 中位于相机后方的墨面平面"
+   },
+   {
+    "id": "sheet",
+    "z": 0,
+    "kind": "inkPlane",
+    "paper": true,
+    "note": "游戏平面 z=0，Matter 物理所在平面"
+   },
+   {
+    "id": "actors",
+    "z": 40,
+    "kind": "inkPlane",
+    "transparent": true,
+    "note": "人物与道具；迁移后可换成骨骼模型 + 墨描边"
+   },
+   {
+    "id": "overlay",
+    "z": 120,
+    "kind": "screen",
+    "transparent": true,
+    "note": "题字、字幕、印章，屏幕空间"
+   }
+  ],
+  "shots": [
+   {
+    "id": "s1.title",
+    "from": 0,
+    "to": 600,
+    "note": "纸面淡入，远山一笔一笔画出，竖排题字"
+   },
+   {
+    "id": "s2.yan-court",
+    "from": 600,
+    "to": 1560,
+    "note": "燕宫：太子丹与荆轲；樊於期首级匣、督亢图"
+   },
+   {
+    "id": "s3.yishui",
+    "from": 1560,
+    "to": 3000,
+    "note": "易水送别：白衣、风、水、击筑"
+   },
+   {
+    "id": "s4.xianyang",
+    "from": 3000,
+    "to": 4680,
+    "note": "咸阳宫：铜柱、秦王、秦舞阳色变、献图"
+   },
+   {
+    "id": "s5.dagger",
+    "from": 4680,
+    "to": 5400,
+    "note": "图穷匕见：飞白一刀，画面定格，出现两方印章"
+   }
+  ],
+  "tracks": {
+   "strokes": [
+    {
+     "at": 0,
+     "layer": "far",
+     "mode": "live",
+     "source": {
+      "prop": "landscape",
+      "parts": [
+       "farHill"
+      ],
+      "placement": {
+       "x": 640,
+       "y": 360,
+       "variant": 1
+      }
+     }
+    },
+    {
+     "at": 240,
+     "layer": "sheet",
+     "mode": "live",
+     "source": {
+      "prop": "landscape",
+      "parts": [
+       "nearHill",
+       "ground"
+      ],
+      "placement": {
+       "x": 640,
+       "y": 420
+      }
+     }
+    },
+    {
+     "at": 660,
+     "layer": "actors",
+     "mode": "live",
+     "source": {
+      "prop": "figure",
+      "placement": {
+       "x": 460,
+       "y": 520,
+       "pose": 0,
+       "variant": 1
+      }
+     },
+     "label": "太子丹"
+    },
+    {
+     "at": 780,
+     "layer": "actors",
+     "mode": "live",
+     "source": {
+      "prop": "figure",
+      "placement": {
+       "x": 820,
+       "y": 520,
+       "pose": 1,
+       "mirror": true,
+       "variant": 2
+      }
+     },
+     "label": "荆轲"
+    },
+    {
+     "at": 1080,
+     "layer": "sheet",
+     "mode": "live",
+     "source": {
+      "brush": "figure.robe",
+      "color": "brown",
+      "path": {
+       "type": "polyline",
+       "points": [
+        [
+         600,
+         600
+        ],
+        [
+         700,
+         600
+        ],
+        [
+         700,
+         650
+        ],
+        [
+         600,
+         650
+        ],
+        [
+         600,
+         600
+        ]
+       ]
+      },
+      "speed": 4
+     },
+     "label": "匣"
+    },
+    {
+     "at": 1260,
+     "layer": "sheet",
+     "mode": "live",
+     "source": {
+      "brush": "landscape.post",
+      "color": "tan",
+      "path": {
+       "type": "polyline",
+       "points": [
+        [
+         720,
+         600
+        ],
+        [
+         900,
+         610
+        ]
+       ]
+      },
+      "speed": 3
+     },
+     "label": "地图卷"
+    },
+    {
+     "at": 1620,
+     "layer": "sheet",
+     "mode": "live",
+     "source": {
+      "prop": "water",
+      "placement": {
+       "x": 0,
+       "y": 548,
+       "width": 1280
+      }
+     }
+    },
+    {
+     "at": 1800,
+     "layer": "actors",
+     "mode": "live",
+     "source": {
+      "prop": "banner",
+      "placement": {
+       "x": 300,
+       "y": 520,
+       "pose": -0.6
+      }
+     },
+     "label": "送行者衣袂与旌旗"
+    },
+    {
+     "at": 2040,
+     "layer": "actors",
+     "mode": "live",
+     "source": {
+      "prop": "figure",
+      "placement": {
+       "x": 700,
+       "y": 520,
+       "pose": 1,
+       "variant": 3
+      }
+     },
+     "label": "白衣送别（robe 改用 white，需笔刷覆盖能力，见 video/docs/engine-gaps G-13）"
+    },
+    {
+     "at": 2400,
+     "layer": "sheet",
+     "mode": "live",
+     "source": {
+      "brush": "water.crest",
+      "color": "white",
+      "path": {
+       "type": "polyline",
+       "points": [
+        [
+         200,
+         560
+        ],
+        [
+         500,
+         555
+        ],
+        [
+         900,
+         562
+        ],
+        [
+         1200,
+         556
+        ]
+       ]
+      },
+      "speed": 12
+     },
+     "label": "风起水寒"
+    },
+    {
+     "at": 3060,
+     "layer": "sheet",
+     "mode": "live",
+     "source": {
+      "brush": "sword.ridge",
+      "color": "black",
+      "path": {
+       "type": "polyline",
+       "points": [
+        [
+         300,
+         120
+        ],
+        [
+         300,
+         600
+        ]
+       ]
+      },
+      "speed": 11
+     },
+     "label": "铜柱"
+    },
+    {
+     "at": 3180,
+     "layer": "sheet",
+     "mode": "live",
+     "source": {
+      "brush": "sword.ridge",
+      "color": "black",
+      "path": {
+       "type": "polyline",
+       "points": [
+        [
+         980,
+         120
+        ],
+        [
+         980,
+         600
+        ]
+       ]
+      },
+      "speed": 11
+     },
+     "label": "铜柱"
+    },
+    {
+     "at": 3360,
+     "layer": "actors",
+     "mode": "live",
+     "source": {
+      "prop": "figure",
+      "placement": {
+       "x": 900,
+       "y": 520,
+       "pose": 0,
+       "mirror": true,
+       "variant": 4
+      }
+     },
+     "label": "秦王"
+    },
+    {
+     "at": 4140,
+     "layer": "actors",
+     "mode": "instant",
+     "source": {
+      "prop": "sword",
+      "parts": [
+       "blade",
+       "edge"
+      ],
+      "placement": {
+       "x": 640,
+       "y": 470,
+       "scale": 0.4
+      }
+     },
+     "label": "匕首（金属咬痕）"
+    },
+    {
+     "at": 4740,
+     "layer": "overlay",
+     "mode": "live",
+     "source": {
+      "brush": "sword.slash",
+      "color": "black",
+      "path": {
+       "type": "polyline",
+       "points": [
+        [
+         380,
+         420
+        ],
+        [
+         640,
+         380
+        ],
+        [
+         900,
+         360
+        ]
+       ]
+      },
+      "speed": 22
+     },
+     "label": "图穷匕见的一笔飞白"
+    }
+   ],
+   "camera": [
+    {
+     "at": 0,
+     "x": 0,
+     "y": 0,
+     "zoom": 1,
+     "ease": "linear"
+    },
+    {
+     "at": 1560,
+     "x": -40,
+     "y": 0,
+     "zoom": 1,
+     "ease": "inOutSine"
+    },
+    {
+     "at": 3000,
+     "x": 40,
+     "y": -10,
+     "zoom": 1,
+     "ease": "inOutSine"
+    },
+    {
+     "at": 4400,
+     "x": 20,
+     "y": 0,
+     "zoom": 1.05,
+     "ease": "inOutSine",
+     "shake": {
+      "amp": 2,
+      "frames": 120
+     },
+     "label": "秦舞阳色变"
+    },
+    {
+     "at": 4740,
+     "x": 0,
+     "y": 0,
+     "zoom": 1.1,
+     "ease": "outQuad",
+     "dof": {
+      "focusZ": 40,
+      "blur": 0.6
+     },
+     "label": "需要 G-11 变焦与景深"
+    }
+   ],
+   "text": [
+    {
+     "at": 120,
+     "until": 560,
+     "kind": "title",
+     "key": "scene.zhanguo.jingke.title",
+     "style": "brush-calligraphy",
+     "orientation": "vertical",
+     "x": 1120,
+     "y": 120
+    },
+    {
+     "at": 360,
+     "until": 560,
+     "kind": "seal",
+     "key": "scene.zhanguo.jingke.when",
+     "style": "seal",
+     "x": 1180,
+     "y": 420
+    },
+    {
+     "at": 640,
+     "until": 1500,
+     "kind": "subtitle",
+     "vo": "vo.01"
+    },
+    {
+     "at": 1000,
+     "until": 1540,
+     "kind": "subtitle",
+     "vo": "vo.02"
+    },
+    {
+     "at": 2100,
+     "until": 2700,
+     "kind": "subtitle",
+     "vo": "vo.03"
+    },
+    {
+     "at": 2700,
+     "until": 3000,
+     "kind": "caption",
+     "key": "scene.zhanguo.jingke.quote.yishui",
+     "style": "kaiti",
+     "orientation": "vertical",
+     "x": 160,
+     "y": 120,
+     "source": {
+      "kind": "canon",
+      "title": "史记",
+      "section": "刺客列传"
+     }
+    },
+    {
+     "at": 3400,
+     "until": 4600,
+     "kind": "subtitle",
+     "vo": "vo.04"
+    },
+    {
+     "at": 4800,
+     "until": 5400,
+     "kind": "subtitle",
+     "vo": "vo.05"
+    }
+   ],
+   "effects": [
+    {
+     "at": 0,
+     "kind": "fade",
+     "from": 0,
+     "to": 1,
+     "frames": 90
+    },
+    {
+     "at": 1620,
+     "kind": "flow",
+     "layer": "sheet",
+     "target": "lastStroke",
+     "params": {
+      "blendType": 0,
+      "iterations": 4
+     }
+    },
+    {
+     "at": 4140,
+     "kind": "metallic",
+     "layer": "actors",
+     "target": "lastStroke",
+     "params": {
+      "size": 14
+     }
+    },
+    {
+     "at": 4760,
+     "kind": "distort",
+     "layer": "sheet",
+     "params": {
+      "displacementB": 20,
+      "displacementC": 50,
+      "extent": "frame"
+     },
+     "frames": 60
+    },
+    {
+     "at": 4700,
+     "kind": "mask",
+     "layer": "sheet",
+     "shape": {
+      "rect": [
+       0,
+       0,
+       1280,
+       720
+      ]
+     },
+     "params": {
+      "vignette": 0.35
+     },
+     "label": "需要 G-10 遮罩"
+    },
+    {
+     "at": 5280,
+     "kind": "freeze"
+    }
+   ],
+   "audio": [
+    {
+     "at": 0,
+     "bus": "bgm",
+     "asset": "audio/bgm/zhu-theme.ogg",
+     "gainDb": -12,
+     "fadeInFrames": 120,
+     "loop": true
+    },
+    {
+     "at": 0,
+     "bus": "amb",
+     "asset": "audio/amb/wind-plain.ogg",
+     "gainDb": -20,
+     "loop": true
+    },
+    {
+     "at": 640,
+     "bus": "vo",
+     "asset": "audio/vo/zh-Hans/jingke-01.ogg",
+     "key": "vo.01",
+     "duck": {
+      "bus": "bgm",
+      "db": -8
+     }
+    },
+    {
+     "at": 1000,
+     "bus": "vo",
+     "asset": "audio/vo/zh-Hans/jingke-02.ogg",
+     "key": "vo.02",
+     "duck": {
+      "bus": "bgm",
+      "db": -8
+     }
+    },
+    {
+     "at": 1560,
+     "bus": "amb",
+     "asset": "audio/amb/river-cold.ogg",
+     "gainDb": -16,
+     "loop": true,
+     "crossfadeFrames": 120
+    },
+    {
+     "at": 2100,
+     "bus": "vo",
+     "asset": "audio/vo/zh-Hans/jingke-03.ogg",
+     "key": "vo.03",
+     "duck": {
+      "bus": "bgm",
+      "db": -8
+     }
+    },
+    {
+     "at": 2700,
+     "bus": "sfx",
+     "asset": "audio/sfx/zhu-strike.ogg",
+     "gainDb": -6
+    },
+    {
+     "at": 3000,
+     "bus": "bgm",
+     "action": "stop",
+     "fadeOutFrames": 180
+    },
+    {
+     "at": 3000,
+     "bus": "amb",
+     "asset": "audio/amb/palace-hall.ogg",
+     "gainDb": -22,
+     "loop": true,
+     "crossfadeFrames": 90
+    },
+    {
+     "at": 3400,
+     "bus": "vo",
+     "asset": "audio/vo/zh-Hans/jingke-04.ogg",
+     "key": "vo.04"
+    },
+    {
+     "at": 4400,
+     "bus": "sfx",
+     "asset": "audio/sfx/heartbeat.ogg",
+     "gainDb": -10
+    },
+    {
+     "at": 4740,
+     "bus": "sfx",
+     "asset": "audio/sfx/dagger-unsheathe.ogg",
+     "gainDb": -3
+    },
+    {
+     "at": 4800,
+     "bus": "vo",
+     "asset": "audio/vo/zh-Hans/jingke-05.ogg",
+     "key": "vo.05"
+    }
+   ],
+   "sync": [
+    {
+     "id": "sync.vo02",
+     "at": 1540,
+     "waitFor": "vo-end",
+     "vo": "vo.02",
+     "maxWaitFrames": 120
+    },
+    {
+     "id": "sync.vo04",
+     "at": 4600,
+     "waitFor": "vo-end",
+     "vo": "vo.04",
+     "maxWaitFrames": 120
+    },
+    {
+     "id": "sync.fork",
+     "at": 5400,
+     "waitFor": "input"
+    }
+   ]
+  },
+  "bake": {
+   "allowed": true,
+   "keyframes": [
+    600,
+    1560,
+    3000,
+    4680
+   ],
+   "note": "按 video/docs/engine-gaps G-08，每个镜头结束时缓存纸面纹理，跳过/回看时直接贴图"
+  }
+ },
+ "strings": {
+  "locale": "zh-Hans",
+  "strings": {
+   "scene.zhanguo.jingke.title": "易水寒",
+   "scene.zhanguo.jingke.subtitle": "荆轲刺秦王",
+   "scene.zhanguo.jingke.when": "秦王政二十年",
+   "vo.01": "秦王政二十年。秦军已破赵，兵锋直指燕境。",
+   "vo.02": "燕太子丹曾为质于秦，归国之后，日夜所思，唯有报秦。",
+   "vo.03": "处士田光荐卫人荆轲。为求一见秦王，荆轲携秦亡将樊於期之首，与燕国督亢之图。",
+   "scene.zhanguo.jingke.quote.yishui": "风萧萧兮易水寒，壮士一去兮不复还。",
+   "vo.04": "咸阳宫上，副使秦舞阳面色骤变。荆轲回顾一笑，独自捧图上前。",
+   "vo.05": "图卷徐徐展开，展到尽头——",
+   "scene.zhanguo.jingke.fork.prompt": "此刻落笔，循哪一卷而书？",
+   "scene.zhanguo.jingke.pick.canon": "正史 · 《史记》所载",
+   "scene.zhanguo.jingke.pick.legend": "野史 · 琴声三问",
+   "scene.zhanguo.jingke.pick.whatif": "推演 · 若舞阳不惧（未开放）",
+   "scene.zhanguo.jingke.legend.disclaimer": "以下为野史所载，出自《燕丹子》一系的传说，《史记》不载。",
+   "scene.zhanguo.jingke.end.canon": "荆轲倚柱而笑，事终不成。次年，秦军破蓟。",
+   "scene.zhanguo.jingke.end.legend": "一曲未终，秦王已越屏而去。荆轲之结局，与正史同。",
+   "scene.zhanguo.jingke.end.whatif": "异闻 · 未开放",
+   "anchor.dan-return": "太子丹自秦亡归",
+   "anchor.yan-ji-falls": "秦破蓟城"
+  },
+  "_note": "以上文字为本项目原创（史记原句“风萧萧兮易水寒……”为公有领域古籍引文，已在 caption 的 source 字段标明出处）。"
+ }
+}

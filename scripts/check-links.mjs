@@ -1,4 +1,4 @@
-// 校验 README / docs / plan / AGENTS 中的本地相对链接
+// 校验 README / docs / plan / video / AGENTS 中的本地相对链接
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -18,6 +18,7 @@ const files = [
   join(root, 'AGENTS.md'),
   ...walk(join(root, 'docs')),
   ...walk(join(root, 'plan')),
+  ...walk(join(root, 'video')),
 ];
 
 const missing = [];

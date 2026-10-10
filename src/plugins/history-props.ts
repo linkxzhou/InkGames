@@ -18,7 +18,7 @@ export interface HistoryProp {
   readonly blurb: string;
 }
 
-/** Twenty props the history chapters actually call for. Scene ids are plan/11 outline ids. */
+/** Twenty props the history chapters actually call for. Scene ids are the outline ids in video/docs/chapter-outline.md. */
 export const HISTORY_PROPS: readonly HistoryProp[] = [
   { id: 'sword', title: '剑', scenes: ['05-09 易水寒', '07-01 鸿门宴'], physics: 'cut', action: '挥剑', blurb: '长锋可砍断旁边的木桩。' },
   { id: 'dagger', title: '匕首与地图', scenes: ['05-09 图穷匕见'], physics: 'fall', action: '图穷', blurb: '卷轴松开后匕首落下。' },

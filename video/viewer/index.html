@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>墨史 · 二十一章剧情数据浏览</title>
+<style>
+/* =====================================================================
+   墨史 · 剧情数据浏览器（video/viewer/index.html）
+   ---------------------------------------------------------------------
+   - 外观与人物关系图沿用 05-09-jingke-relations.html（history-santi 模板）
+     的配色变量、主题、人物/关系类型颜色与卡片样式。
+   - 数据来自 data/*.js（由 tools/build-viewer-data.mjs 从 chapters/*.json
+     生成，设置 window.HISTORY_GAME_INDEX / HISTORY_GAME_CHAPTERS）。
+     双击即可用 file:// 打开，不发起任何网络请求，不依赖外部库。
+   ===================================================================== */
+:root{
+  --bg:#efe6d3; --paper:#f7f1e3; --ink:#3a3329; --muted:#8a7f6d;
+  --accent:#a63a2e; --accent2:#3e5c76; --edge:#9a8f7c;
+  --font:"Kaiti SC","STKaiti","KaiTi","FangSong","SimSun",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);display:flex;flex-direction:column;overflow:hidden}
+#bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px 16px;
+  background:var(--paper);border-bottom:1px solid var(--edge);z-index:40;flex:0 0 auto}
+.brand{display:flex;align-items:center;gap:10px;margin-right:8px}
+.seal-badge{width:36px;height:36px;background:var(--accent);color:var(--paper);
+  display:grid;place-items:center;font-size:20px;font-weight:bold;border-radius:4px;
+  transform:rotate(-4deg);box-shadow:0 1px 3px rgba(0,0,0,.25);flex:0 0 auto}
+#btitle{font-size:clamp(19px,2.2vw,26px);letter-spacing:2px;font-weight:bold}
+#bsub{font-size:clamp(11px,1.1vw,13px);color:var(--muted);margin-top:2px}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.tools button,.tools select{font:inherit;font-size:clamp(13px,1.1vw,15px);color:var(--ink);background:rgba(255,255,255,.5);
+  border:1px solid var(--edge);border-radius:4px;padding:5px 12px;min-height:30px;cursor:pointer}
+.tools button:hover{border-color:var(--accent)}
+.tools label{font-size:13px;color:var(--muted)}
+#chapTabs{flex:0 0 auto;display:flex;gap:4px;overflow-x:auto;padding:6px 12px;background:rgba(255,255,255,.35);border-bottom:1px solid var(--edge)}
+#chapTabs button{font:inherit;font-size:14px;white-space:nowrap;border:1px solid var(--edge);background:var(--paper);color:var(--ink);
+  border-radius:4px;padding:3px 10px;cursor:pointer}
+#chapTabs button.active{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+#chapTabs button small{color:inherit;opacity:.7;margin-left:3px}
+#quote{flex:0 0 auto;padding:6px 16px;background:rgba(255,255,255,.35);border-bottom:1px solid var(--edge);
+  font-size:clamp(11px,1.1vw,13px);color:var(--muted);line-height:1.6;text-align:center}
+/* 时间轴 */
+#timeline{flex:0 0 auto;height:96px;background:var(--paper);border-bottom:1px solid var(--edge);position:relative;overflow-x:auto;overflow-y:hidden}
+#tlsvg{display:block;height:96px}
+.tl-dot{cursor:pointer}
+.tl-label{font-family:var(--font);font-size:13px;fill:var(--ink)}
+.tl-year{font-family:var(--font);font-size:11px;fill:var(--muted)}
+/* 主体 */
+#main{flex:1;overflow:auto;padding:14px 16px 40px;display:grid;grid-template-columns:minmax(300px,1fr) minmax(380px,1.4fr);gap:14px;align-content:start}
+.card{background:var(--paper);border:1px solid var(--edge);border-radius:6px;padding:12px 14px;box-shadow:0 1px 4px rgba(0,0,0,.08);min-width:0}
+.card h2{font-size:17px;letter-spacing:1px;border-bottom:1px solid var(--edge);padding-bottom:6px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.card h2 small{font-size:12px;color:var(--muted);font-weight:normal}
+.wide{grid-column:1 / -1}
+.meta{font-size:14px;line-height:1.75}
+.meta b{color:var(--muted);font-weight:normal;margin-right:4px}
+.tag{display:inline-block;font-size:12px;border:1px solid var(--edge);border-radius:8px;padding:0 6px;margin:1px 2px;background:rgba(255,255,255,.5)}
+.tag.v1{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+.tag.full{border-color:var(--accent);color:var(--accent)}
+.tag.pend{color:var(--accent);border-color:var(--accent)}
+.src{font-size:13px;color:var(--muted);line-height:1.6}
+.sname{font-size:24px;font-weight:bold;letter-spacing:3px}
+.ssub{font-size:15px;color:var(--muted);margin-left:8px}
+table.cmp{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}
+table.cmp td,table.cmp th{border:1px solid var(--edge);padding:4px 6px;vertical-align:top;text-align:left}
+table.cmp th{background:rgba(255,255,255,.4);font-weight:normal;color:var(--muted)}
+/* 剧情树 */
+#tree{position:relative;overflow:auto;min-height:220px}
+#treeInner{position:relative}
+#treeSvg{position:absolute;left:0;top:0;pointer-events:none}
+.tn{position:absolute;width:170px;min-height:54px;background:var(--paper);border:1px solid var(--edge);border-left:4px solid var(--lc,#999);
+  border-radius:6px;padding:4px 6px 4px 8px;font-size:12px;line-height:1.4;box-shadow:0 1px 4px rgba(0,0,0,.10)}
+.tn .k{font-size:11px;color:var(--muted)}
+.tn .t{font-weight:bold;font-size:13px}
+.tn.ending{border-style:double;border-width:3px 3px 3px 5px}
+.lane-label{position:absolute;left:6px;font-size:13px;color:var(--muted);writing-mode:vertical-rl;letter-spacing:2px;font-weight:bold}
+/* 关系图（沿用模板节点样式） */
+#graph{position:relative;height:420px;overflow:hidden;background:var(--paper);border-radius:4px}
+#gsvg{position:absolute;left:0;top:0}
+.elabel{fill:var(--ink);stroke:var(--paper);stroke-width:5px;paint-order:stroke;font-family:var(--font);font-size:13px}
+.node{position:absolute;width:120px;height:52px;background:var(--paper);border:1px solid var(--edge);border-left:4px solid var(--ntc,#999);
+  border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;box-shadow:0 1px 4px rgba(0,0,0,.10);cursor:default}
+.node:hover{box-shadow:0 0 0 2px var(--accent),0 3px 10px rgba(0,0,0,.2)}
+.seal{position:absolute;left:-10px;top:-10px;width:20px;height:20px;border-radius:50%;background:var(--ntc,#999);color:#f7f1e3;font-size:11px;display:grid;place-items:center;box-shadow:0 1px 2px rgba(0,0,0,.3)}
+.nname{font-size:16px;font-weight:bold;letter-spacing:1px;line-height:1.2}
+.ntitle{font-size:11px;color:var(--muted);max-width:110px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.ncamp{position:absolute;bottom:-9px;right:2px;font-size:11px;color:var(--muted);background:var(--paper);border:1px solid var(--edge);border-radius:8px;padding:0 5px}
+#tip{position:fixed;max-width:320px;background:var(--paper);border:1px solid var(--edge);border-radius:6px;padding:8px 10px;font-size:14px;line-height:1.7;
+  box-shadow:0 4px 14px rgba(0,0,0,.2);pointer-events:none;display:none;z-index:60}
+.tip-name{font-size:17px;font-weight:bold;color:var(--accent)}
+.tip-meta{color:var(--muted);font-size:13px}
+#legend{font-size:12px;display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px}
+.lg-row{display:flex;align-items:center;gap:4px}
+.lg-char{width:16px;height:16px;border-radius:50%;color:#f7f1e3;font-size:10px;display:grid;place-items:center}
+.lg-line{width:22px;height:0;border-top:2px solid var(--edge)}
+.lg-line.dash{border-top-style:dashed}.lg-line.dotted{border-top-style:dotted}
+/* 分镜与音频 */
+#shots{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px}
+.shot{flex:0 0 auto;min-width:150px;border:1px solid var(--edge);border-radius:6px;background:rgba(255,255,255,.4);padding:6px 8px;font-size:12px;line-height:1.55}
+.shot h4{font-size:13px;display:flex;justify-content:space-between;gap:6px}
+.shot h4 span{color:var(--muted);font-weight:normal}
+.shot .vo{color:var(--ink);margin-top:4px;font-size:13px}
+.shot .cam{color:var(--accent2)}
+.shot .els{color:var(--muted)}
+#audio{position:relative;overflow-x:auto}
+.lane{position:relative;height:26px;border-bottom:1px dashed var(--edge);margin-left:46px}
+.lane-name{position:absolute;left:-46px;top:4px;font-size:12px;color:var(--muted);width:42px;text-align:right}
+.cue{position:absolute;top:3px;height:20px;border-radius:3px;font-size:11px;line-height:20px;padding:0 4px;white-space:nowrap;overflow:hidden;color:var(--paper);background:var(--accent2);opacity:.9}
+.cue.bgm{background:var(--accent)}.cue.amb{background:#5d7a4e}.cue.sfx{background:#7a2e1e}.cue.vo{background:var(--accent2)}
+.ruler{position:relative;height:18px;margin-left:46px;font-size:10px;color:var(--muted)}
+.ruler span{position:absolute;top:0;border-left:1px solid var(--edge);padding-left:2px}
+.scene-list{display:flex;flex-direction:column;gap:4px;max-height:260px;overflow:auto}
+.scene-list button{font:inherit;font-size:13px;text-align:left;border:1px solid var(--edge);background:rgba(255,255,255,.4);border-radius:4px;padding:3px 8px;cursor:pointer;color:var(--ink)}
+.scene-list button.active{border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
+.scene-list button.outline{color:var(--muted)}
+.empty{color:var(--muted);font-size:13px;padding:10px}
+/* 水墨素材提示词 */
+.seg{border:1px solid var(--edge);border-radius:6px;background:rgba(255,255,255,.4);padding:8px 10px;margin-bottom:10px}
+.seg-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;border-bottom:1px dashed var(--edge);padding-bottom:5px;margin-bottom:6px}
+.seg-h b{font-size:14px}
+.seg-h span{font-size:12px;color:var(--muted)}
+.seg-h button{font:inherit;font-size:12px;color:var(--ink);background:var(--paper);border:1px solid var(--edge);border-radius:4px;padding:2px 9px;cursor:pointer;margin-left:auto}
+.seg-h button:hover{border-color:var(--accent);color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:3px 4px;font-size:12px}
+.chips .tag{background:rgba(255,255,255,.7)}
+.sub{font-size:12px;color:var(--muted);margin:6px 0 2px}
+pre.prompt{white-space:pre-wrap;word-break:break-word;font-family:ui-monospace,Menlo,Consolas,"Songti SC",monospace;font-size:12px;line-height:1.65;
+  background:var(--paper);border:1px dashed var(--edge);border-radius:4px;padding:6px 8px;max-height:240px;overflow:auto;margin:0}
+#artTabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+#artTabs button{font:inherit;font-size:12px;color:var(--ink);background:rgba(255,255,255,.5);border:1px solid var(--edge);border-radius:4px;padding:3px 10px;cursor:pointer}
+#artTabs button:hover{border-color:var(--accent)}
+#artTabs button.active{background:var(--accent2);color:var(--paper);border-color:var(--accent2)}
+#hint{position:fixed;left:50%;bottom:6px;transform:translateX(-50%);font-size:12px;color:var(--muted);background:var(--paper);border:1px solid var(--edge);border-radius:10px;padding:2px 12px;opacity:.92;white-space:nowrap;z-index:50}
+@media (max-width:900px){ #main{grid-template-columns:1fr} #hint{white-space:normal;left:8px;right:8px;transform:none} }
+</style>
+</head>
+<body>
+<header id="bar">
+  <div class="brand">
+    <div class="seal-badge">史</div>
+    <div><div id="btitle">墨史 · 剧情数据</div><div id="bsub"></div></div>
+  </div>
+  <div class="tools">
+    <label for="chapSel">章节</label><select id="chapSel" title="选择章节"></select>
+    <label for="sceneSel">场景</label><select id="sceneSel" title="选择场景"></select>
+    <select id="themeSel" title="主题风格"></select>
+  </div>
+</header>
+<nav id="chapTabs"></nav>
+<div id="quote"></div>
+<div id="timeline"><svg id="tlsvg"></svg></div>
+<main id="main">
+  <section class="card" id="cardInfo"></section>
+  <section class="card" id="cardGraph"><h2>人物关系 <small id="gcount"></small></h2><div id="graph"><svg id="gsvg"></svg><div id="gnodes"></div></div><div id="legend"></div></section>
+  <section class="card wide" id="cardTree"><h2>剧情树 <small>正史主干 · 野史/演义/异说支线 · 推演（未开放）</small></h2><div id="tree"></div></section>
+  <section class="card wide" id="cardShots"><h2>开场动画分镜 <small id="shotMeta"></small></h2><div id="shots"></div></section>
+  <section class="card wide" id="cardAudio"><h2>音频提示 <small id="audioMeta"></small></h2><div id="audio"></div></section>
+  <section class="card wide" id="cardArt"><h2>水墨素材提示词 <small id="artMeta"></small></h2><div id="artTabs"></div><div id="art"></div></section>
+</main>
+<div id="tip"></div>
+<div id="hint">选择章节与场景 · 点击时间轴上的场景 · 实心点为完整场景（detail: full），空心为大纲级；★ 为首版发布批次（v1）</div>
+
+<script src="data/index.js"></script>
+<script src="data/00-shanggu.js"></script>
+<script src="data/01-xia.js"></script>
+<script src="data/02-shang.js"></script>
+<script src="data/03-xizhou.js"></script>
+<script src="data/04-chunqiu.js"></script>
+<script src="data/05-zhanguo.js"></script>
+<script src="data/06-qin.js"></script>
+<script src="data/07-xihan.js"></script>
+<script src="data/08-donghan.js"></script>
+<script src="data/09-sanguo.js"></script>
+<script src="data/10-liangjin.js"></script>
+<script src="data/11-nanbeichao.js"></script>
+<script src="data/12-sui.js"></script>
+<script src="data/13-tang.js"></script>
+<script src="data/14-wudai.js"></script>
+<script src="data/15-beisong.js"></script>
+<script src="data/16-liaojin.js"></script>
+<script src="data/17-nansong.js"></script>
+<script src="data/18-yuan.js"></script>
+<script src="data/19-ming.js"></script>
+<script src="data/20-qing.js"></script>
+<script>
+"use strict";
+const NS = "http://www.w3.org/2000/svg";
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function el(tag, attrs, text){ const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; return e; }
+
+/* 与 05-09-jingke-relations.html 一致的类型与主题 */
+const NTYPE = {
+  ruler:{label:"君主",char:"君",color:"#a63a2e"}, minister:{label:"文臣",char:"臣",color:"#3e5c76"},
+  general:{label:"武将",char:"将",color:"#3f5c4b"}, scholar:{label:"文人",char:"士",color:"#b08d4f"},
+  royal:{label:"宗室后妃",char:"后",color:"#6b5b8a"}, other:{label:"其他",char:"人",color:"#7a746b"}
+};
+const ETYPE = {
+  family:{label:"亲属",color:"#a63a2e",dash:""}, sub:{label:"君臣/从属",color:"#8a7f6d",dash:"8 6"},
+  ally:{label:"盟友/合作",color:"#3e5c76",dash:""}, rival:{label:"对手/敌对",color:"#7a2e1e",dash:"6 4"},
+  mentor:{label:"师生/提携",color:"#5d7a4e",dash:"2 5"}, other:{label:"其他",color:"#9a8f7c",dash:""}
+};
+const THEMES = {
+  classic:{label:"古典宣纸",vars:{bg:"#efe6d3",paper:"#f7f1e3",ink:"#3a3329",muted:"#8a7f6d",accent:"#a63a2e",accent2:"#3e5c76",edge:"#9a8f7c"}},
+  bronze:{label:"先秦青铜",vars:{bg:"#d8d2bd",paper:"#e7e0c9",ink:"#2e3a32",muted:"#7c7560",accent:"#a98454",accent2:"#3d7a6e",edge:"#968d74"}},
+  lacquer:{label:"漆器朱黑",vars:{bg:"#ede4d2",paper:"#f5eee0",ink:"#241b14",muted:"#8a7a68",accent:"#9e2b25",accent2:"#4a3b2a",edge:"#a08c74"}},
+  silk:{label:"绢本唐宋",vars:{bg:"#e7d9b6",paper:"#f0e5c6",ink:"#4a3826",muted:"#8f7c55",accent:"#8c6d3f",accent2:"#5f6f7a",edge:"#b09a6e"}},
+  palace:{label:"明清宫廷",vars:{bg:"#efe3cf",paper:"#f8efdf",ink:"#3a2418",muted:"#8d7560",accent:"#b0302a",accent2:"#a07a2c",edge:"#a88c6c"}},
+  modern:{label:"近现代报章",vars:{bg:"#f0eee9",paper:"#faf9f6",ink:"#222222",muted:"#8a8a8a",accent:"#b5412f",accent2:"#3f5c6e",edge:"#b0aca2"}}
+};
+/* 按时代推荐主题（模板说明：先秦→青铜；汉魏→漆器；唐宋→绢本；明清→金红；近现代→报章） */
+function themeFor(order){ return order <= 5 ? "bronze" : order <= 11 ? "lacquer" : order <= 17 ? "silk" : "palace"; }
+const LINE = { canon:{label:"正史",color:"#a63a2e"}, legend:{label:"野史/演义/异说",color:"#3e5c76"}, whatif:{label:"推演",color:"#9a8f7c"} };
+const KIND = { cutscene:"过场", choice:"抉择", gameplay:"玩法", ending:"结局", dialogue:"对话" };
+/* 素材类型（artPrompts[].assets[].kind） */
+const ART_KIND = { figure:"人物", prop:"器物", scenery:"环境", fx:"特效" };
+
+const INDEX = window.HISTORY_GAME_INDEX;
+const CH = window.HISTORY_GAME_CHAPTERS || {};
+let cur = { ch:null, bundle:null, entry:null, theme:null, userTheme:false };
+
+function T(key){
+  if (key == null) return "";
+  const e = cur.entry, b = cur.bundle;
+  const s1 = e && e.strings && e.strings.strings, s2 = b && b.strings && b.strings.strings;
+  if (s1 && key in s1) return s1[key];
+  if (s2 && key in s2) return s2[key];
+  return key;
+}
+function yearText(y){ if (y == null || isNaN(y)) return ""; return y < 0 ? "前" + (-y) : String(y); }
+function srcText(s){
+  if (!s) return "";
+  let t = (s.title ? "《" + s.title + "》" : "") + (s.section ? "·" + s.section : "");
+  if (s.corpus) t += "（" + (s.corpus.file || "") + " " + (s.corpus.pages || "") + "）";
+  if (s.notes) t += "〔" + s.notes + "〕";
+  return '<span class="tag">' + esc(s.kind) + '</span>' + esc(t);
+}
+function applyTheme(name){
+  const t = THEMES[name] || THEMES.classic; cur.theme = name;
+  for (const k in t.vars) document.documentElement.style.setProperty("--" + k, t.vars[k]);
+  const sel = $("#themeSel"); if (sel.value !== name) sel.value = name;
+}
+
+/* ---------- 章节与场景选择 ---------- */
+function init(){
+  if (!INDEX){ $("#main").innerHTML = '<div class="empty">缺少 data/index.js：请先运行 node tools/build-viewer-data.mjs</div>'; return; }
+  const cs = $("#chapSel"), tabs = $("#chapTabs");
+  INDEX.chapters.forEach(c => {
+    const o = document.createElement("option"); o.value = c.id; o.textContent = c.no + " " + c.name + "（完整 " + fullOf(c) + "/" + c.scenes + "）"; cs.appendChild(o);
+    const b = document.createElement("button"); b.dataset.id = c.id; b.innerHTML = esc(c.name) + "<small>" + fullOf(c) + "/" + c.scenes + "</small>";
+    b.addEventListener("click", () => selectChapter(c.id)); tabs.appendChild(b);
+  });
+  cs.addEventListener("change", () => selectChapter(cs.value));
+  $("#sceneSel").addEventListener("change", () => selectScene($("#sceneSel").value));
+  const ts = $("#themeSel");
+  for (const k in THEMES){ const o = document.createElement("option"); o.value = k; o.textContent = THEMES[k].label; ts.appendChild(o); }
+  ts.addEventListener("change", () => { cur.userTheme = true; applyTheme(ts.value); });
+  const tot = INDEX.totals || {};
+  $("#bsub").textContent = INDEX.chapters.length + " 章 · " + (tot.scenes ?? "") + " 场景 · 完整 " + fullOf(tot) + " · 大纲级 " + (tot.outline ?? "") + " · 首版批次 " + (tot.v1 ?? "");
+  const h = new URLSearchParams(location.hash.slice(1));
+  selectChapter(h.get("ch") || INDEX.chapters[0].id, h.get("sc"));
+  window.addEventListener("resize", () => { if (cur.entry) { renderGraph(); renderTimeline(); } });
+}
+function selectChapter(id, sceneId){
+  const meta = INDEX.chapters.find(c => c.id === id) || INDEX.chapters[0];
+  const bundle = CH[meta.id];
+  cur.ch = meta; cur.bundle = bundle; $("#main").scrollTop = 0;
+  $("#chapSel").value = meta.id;
+  document.querySelectorAll("#chapTabs button").forEach(b => b.classList.toggle("active", b.dataset.id === meta.id));
+  const at = document.querySelector('#chapTabs button[data-id="' + meta.id + '"]'); if (at && at.scrollIntoView) at.scrollIntoView({block:"nearest", inline:"nearest"});
+  if (!bundle){ $("#main").innerHTML = '<div class="empty">章节脚本 data/' + esc(meta.file) + ' 未加载</div>'; return; }
+  if (!cur.userTheme) applyTheme(themeFor(bundle.chapter.order));
+  const ss = $("#sceneSel"); ss.textContent = "";
+  bundle.scenes.forEach(e => {
+    const o = document.createElement("option"); o.value = e.scene.id;
+    o.textContent = e.outlineId + " " + strOf(e, e.scene.title) + (isFull(e) ? "" : "（大纲）") + (e.v1 ? " ★" : ""); ss.appendChild(o);
+  });
+  const ch = bundle.chapter;
+  $("#quote").innerHTML = "第 " + esc(meta.no) + " 章 · <b>" + esc(meta.name) + "</b> · " + esc(ch.span && ch.span.display || meta.span) +
+    " · 场景 " + meta.scenes + "（完整 " + fullOf(meta) + "，大纲级 " + meta.outline + "；首版批次 " + meta.v1 + "）" +
+    (ch.keyScenes && ch.keyScenes.length ? " · 关键场景：" + ch.keyScenes.map(k => esc(strOf(bundle.scenes.find(s => s.scene.id === k), "scene." + k + ".title"))).join("、") : "");
+  const first = bundle.scenes.find(e => e.scene.id === sceneId) || bundle.scenes.find(e => isFull(e)) || bundle.scenes[0];
+  selectScene(first.scene.id);
+}
+function isFull(e){ return e.detail ? e.detail === "full" : !!e.v1; }
+function fullOf(c){ return c && c.full !== undefined ? c.full : (c && c.v1 !== undefined ? c.v1 : ""); }
+function strOf(e, key){ const s = e && e.strings && e.strings.strings; return s && key in s ? s[key] : key; }
+function selectScene(id){
+  cur.entry = cur.bundle.scenes.find(e => e.scene.id === id) || cur.bundle.scenes[0];
+  $("#sceneSel").value = cur.entry.scene.id;
+  try { history.replaceState(null, "", "#ch=" + cur.ch.id + "&sc=" + cur.entry.scene.id); } catch (e) {}
+  renderTimeline(); renderInfo(); renderGraph(); renderTree(); renderShots(); renderAudio(); renderArt();
+}
+
+/* ---------- 时间轴 ---------- */
+function renderTimeline(){
+  const svg = $("#tlsvg"); svg.textContent = "";
+  const sc = cur.bundle.scenes;
+  const ys = sc.map(e => e.scene.when && typeof e.scene.when.start === "number" ? e.scene.when.start : null);
+  const known = ys.filter(v => v != null);
+  const W = Math.max($("#timeline").clientWidth || 800, sc.length * 92), pad = 60;
+  svg.setAttribute("width", W); svg.setAttribute("viewBox", "0 0 " + W + " 96");
+  const lo = known.length ? Math.min(...known) : 0, hi = known.length ? Math.max(...known) : 1;
+  /* 位置：按年份比例与序号均分混合，避免同年场景重叠 */
+  const pos = sc.map((e, i) => {
+    const even = pad + (W - 2 * pad) * (sc.length > 1 ? i / (sc.length - 1) : .5);
+    if (ys[i] == null || hi === lo) return even;
+    const byYear = pad + (W - 2 * pad) * (ys[i] - lo) / (hi - lo);
+    return byYear * .5 + even * .5;
+  });
+  svg.appendChild(el("line", {x1: pad - 20, y1: 44, x2: W - pad + 20, y2: 44, stroke: "var(--edge)", "stroke-width": 2}));
+  sc.forEach((e, i) => {
+    const x = pos[i], on = e === cur.entry, key = e.scene.key;
+    const g = el("g", {"class": "tl-dot", "data-id": e.scene.id});
+    g.appendChild(el("circle", {cx: x, cy: 44, r: on ? 10 : 7, fill: isFull(e) ? "var(--accent)" : "var(--paper)", stroke: on ? "var(--ink)" : "var(--accent)", "stroke-width": on ? 3 : 2}));
+    if (key) g.appendChild(el("rect", {x: x - 4, y: 40, width: 8, height: 8, fill: "var(--paper)", transform: "rotate(45 " + x + " 44)"}));
+    const lab = el("text", {x: x, y: i % 2 ? 76 : 24, "text-anchor": "middle", "class": "tl-label", "font-weight": on ? "bold" : "normal"}, strOf(e, e.scene.title));
+    const yr = el("text", {x: x, y: i % 2 ? 90 : 10, "text-anchor": "middle", "class": "tl-year"}, (e.scene.when && e.scene.when.display) || "");
+    g.appendChild(lab); g.appendChild(yr);
+    g.addEventListener("click", () => selectScene(e.scene.id));
+    svg.appendChild(g);
+  });
+}
+
+/* ---------- 场景信息 ---------- */
+function anchorText(a){ if (!a) return "—"; return esc(T(a.title) || a.id) + "（" + esc(a.when && a.when.display || "") + "）"; }
+function renderInfo(){
+  const e = cur.entry, s = e.scene, w = s.when || {};
+  let h = '<h2><span><span class="sname">' + esc(T(s.title)) + '</span><span class="ssub">' + esc(T(s.subtitle)) + '</span></span>' +
+    '<small>' + esc(e.outlineId) + ' ' + (isFull(e) ? '<span class="tag full">完整场景</span>' : '<span class="tag">大纲级</span>') + (e.v1 ? '<span class="tag v1">首版批次</span>' : '') +
+    (s.key ? '<span class="tag">关键</span>' : '') + '</small></h2><div class="meta">';
+  h += '<div><b>时间</b>' + esc(w.display || "") + (w.era ? "（" + esc(w.era) + "）" : "") + (w.verify === "pending" ? ' <span class="tag pend">待核验</span>' : '') + (w.notes ? '<div class="src">' + esc(w.notes) + '</div>' : '') + '</div>';
+  h += '<div><b>场景 id</b>' + esc(s.id) + ' <b>玩法模板</b>' + esc(s.template || "") + '</div>';
+  h += '<div><b>道具</b>' + (s.props || []).map(p => '<span class="tag">' + esc(p) + '</span>').join("") + '</div>';
+  if (isFull(e)){
+    const an = s.anchors || {};
+    h += '<div><b>入口</b>' + anchorText(an.entry) + ' → <b>出口</b>' + anchorText(an.exit) + '</div>';
+    if (s.fork) h += '<div><b>抉择</b>' + esc(T(s.fork.prompt)) + '</div>';
+    const cmp = (s.coda && s.coda.compare) || [];
+    if (cmp.length){
+      h += '<b>史评 · 对照</b><table class="cmp"><tr><th>议题</th><th>正史</th><th>野史/异说</th></tr>' +
+        cmp.map(c => '<tr><td>' + esc(T(c.topic)) + '</td><td>' + esc(T(c.canon)) + '</td><td>' + esc(T(c.legend)) + '</td></tr>').join("") + '</table>';
+    }
+    const un = (s.coda && s.coda.unlocks) || {};
+    const unl = Array.isArray(un) ? un : [].concat(un.cards || [], un.seal ? [un.seal] : []);
+    if (unl.length) h += '<div style="margin-top:6px"><b>解锁</b>' + unl.map(u => '<span class="tag">' + esc(typeof u === "string" ? u : (u.id || JSON.stringify(u))) + '</span>').join("") + '</div>';
+    const srcs = []; const seen = new Set();
+    (s.plot.nodes || []).concat(s.endings || []).forEach(n => (n.sources || []).forEach(x => { const k = JSON.stringify(x); if (!seen.has(k)) { seen.add(k); srcs.push(x); } }));
+    h += '<div style="margin-top:6px"><b>出处</b><div class="src">' + srcs.map(srcText).join("<br>") + '</div></div>';
+  } else {
+    const hk = s.hooks || {};
+    h += '<div><b>正史钩子</b>' + esc(T(hk.canon)) + '</div><div><b>野史钩子</b>' + esc(T(hk.legend)) + '</div><div><b>玩法</b>' + esc(T(hk.play)) + '</div>';
+    h += '<div style="margin-top:6px"><b>出处</b><div class="src">' + (s.sources || []).map(srcText).join("<br>") + '</div></div>';
+  }
+  h += '</div><div style="margin-top:8px"><b class="src">本章场景</b><div class="scene-list">' +
+    cur.bundle.scenes.map(x => '<button data-id="' + esc(x.scene.id) + '" class="' + (x === e ? "active " : "") + (isFull(x) ? "" : "outline") + '">' +
+      esc(x.outlineId) + ' ' + esc(strOf(x, x.scene.title)) + ' · ' + esc(x.scene.when && x.scene.when.display || "") + (x.v1 ? " ★" : "") + '</button>').join("") + '</div></div>';
+  $("#cardInfo").innerHTML = h;
+  $("#cardInfo").querySelectorAll(".scene-list button").forEach(b => b.addEventListener("click", () => selectScene(b.dataset.id)));
+}
+
+/* ---------- 人物关系图（沿用模板的节点卡片与连线样式；环形自动排布） ---------- */
+function renderGraph(){
+  const e = cur.entry, cast = e.cast || [], rels = e.relations || [];
+  const box = $("#graph"), W = box.clientWidth || 600, H = box.clientHeight || 420, NW = 120, NH = 52;
+  const svg = $("#gsvg"), wrap = $("#gnodes");
+  svg.textContent = ""; wrap.textContent = "";
+  svg.setAttribute("width", W); svg.setAttribute("height", H);
+  $("#gcount").textContent = cast.length + " 人 · " + rels.length + " 条关系";
+  if (!cast.length){ wrap.innerHTML = '<div class="empty">此场景暂无人物数据</div>'; renderLegend(); return; }
+  const deg = {}; rels.forEach(r => { deg[r.from] = (deg[r.from] || 0) + 1; deg[r.to] = (deg[r.to] || 0) + 1; });
+  const order = cast.slice().sort((a, b) => (deg[b.id] || 0) - (deg[a.id] || 0));
+  const P = {}, cx = W / 2, cy = H / 2;
+  const rx = Math.max(60, W / 2 - NW / 2 - 16), ry = Math.max(60, H / 2 - NH / 2 - 18);
+  order.forEach((n, i) => {
+    const hub = rels.length > 0 && order.length > 3;
+    if (i === 0 && hub) { P[n.id] = {x: cx, y: cy}; return; }
+    const k = hub ? i - 1 : i, m = hub ? order.length - 1 : order.length;
+    const a = -Math.PI / 2 + 2 * Math.PI * k / m;
+    P[n.id] = {x: cx + rx * Math.cos(a), y: cy + ry * Math.sin(a)};
+  });
+  rels.forEach(r => {
+    const a = P[r.from], b = P[r.to]; if (!a || !b) return;
+    const t = ETYPE[r.type] || ETYPE.other;
+    const ln = el("line", {x1: a.x, y1: a.y, x2: b.x, y2: b.y, stroke: t.color, "stroke-width": 2, "stroke-dasharray": t.dash});
+    svg.appendChild(ln);
+    if (r.directed){
+      const ang = Math.atan2(b.y - a.y, b.x - a.x);
+      const ex = b.x - Math.cos(ang) * (NW / 2 + 4) * Math.abs(Math.cos(ang)) - Math.cos(ang) * (NH / 2) * Math.abs(Math.sin(ang));
+      const ey = b.y - Math.sin(ang) * (NH / 2 + 4);
+      const len = 12, w = 6, ax = ex - len * Math.cos(ang), ay = ey - len * Math.sin(ang);
+      const dx = Math.cos(ang + Math.PI / 2) * w, dy = Math.sin(ang + Math.PI / 2) * w;
+      svg.appendChild(el("polygon", {points: ex + "," + ey + " " + (ax + dx) + "," + (ay + dy) + " " + (ax - dx) + "," + (ay - dy), fill: t.color}));
+    }
+    svg.appendChild(el("text", {x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 - 5, "text-anchor": "middle", "class": "elabel"}, r.relation || ""));
+  });
+  cast.forEach(n => {
+    const p = P[n.id], ty = NTYPE[n.type] || NTYPE.other;
+    const d = document.createElement("div"); d.className = "node";
+    d.style.left = (p.x - NW / 2) + "px"; d.style.top = (p.y - NH / 2) + "px"; d.style.setProperty("--ntc", ty.color);
+    d.innerHTML = '<span class="seal">' + ty.char + '</span><span class="nname">' + esc(n.name) + '</span>' +
+      (n.title ? '<span class="ntitle">' + esc(n.title) + '</span>' : '') + (n.camp ? '<span class="ncamp">' + esc(n.camp) + '</span>' : '');
+    d.addEventListener("pointerenter", ev => showTip(ev, n));
+    d.addEventListener("pointermove", moveTip);
+    d.addEventListener("pointerleave", () => { $("#tip").style.display = "none"; });
+    wrap.appendChild(d);
+  });
+  renderLegend();
+}
+function renderLegend(){
+  let h = "";
+  for (const k in NTYPE) h += '<span class="lg-row"><span class="lg-char" style="background:' + NTYPE[k].color + '">' + NTYPE[k].char + '</span>' + NTYPE[k].label + '</span>';
+  for (const k in ETYPE){ const v = ETYPE[k]; h += '<span class="lg-row"><span class="lg-line ' + (v.dash ? (v.dash === "2 5" ? "dotted" : "dash") : "") + '" style="border-color:' + v.color + '"></span>' + v.label + '</span>'; }
+  $("#legend").innerHTML = h;
+}
+function showTip(ev, n){
+  const t = $("#tip"), ty = NTYPE[n.type] || NTYPE.other;
+  t.innerHTML = '<div class="tip-name">' + esc(n.name) + '</div><div class="tip-meta">' + esc([n.title, n.camp, ty.label].filter(Boolean).join(" · ")) + '</div>' + (n.bio ? '<div>' + esc(n.bio) + '</div>' : '');
+  t.style.display = "block"; moveTip(ev);
+}
+function moveTip(ev){ const t = $("#tip"); t.style.left = Math.min(ev.clientX + 14, innerWidth - 330) + "px"; t.style.top = (ev.clientY + 14) + "px"; }
+
+/* ---------- 剧情树 ---------- */
+function nodeText(n, endings){
+  if (n.kind === "cutscene") return {k: "过场" + (n.label ? " · 声明" : ""), t: n.dialogue ? T(n.dialogue) : (n.label ? T(n.label) : (n.cutscene || "").replace(/^cutscene\./, ""))};
+  if (n.kind === "choice") return {k: "抉择", t: (n.dialogue ? T(n.dialogue) + "：" : "") + (n.choices || []).map(c => T(c.label)).join(" / ")};
+  if (n.kind === "dialogue") return {k: "对话", t: T(n.dialogue) || n.id};
+  if (n.kind === "gameplay"){ const g = n.gameplay || {}, p = g.params || {}; return {k: "玩法 · " + (g.template || ""), t: p.goal || (p.beats || []).join("、") || (p.clues ? "线索：" + p.clues.length : "") || n.id}; }
+  if (n.kind === "ending"){
+    const en = endings.find(x => x.id === n.ending) || {};
+    const tail = en.mergeTo ? "⇢ 汇入 " + en.mergeTo.replace(/^anchor\./, "") : en.archive ? "⇢ 归档《" + (en.archive === "yiwenlu" ? "异闻录" : en.archive) + "》" : "";
+    return {k: "结局 · " + (en.kind || "") + (tail ? " " + tail : ""), t: T(en.title) || n.ending};
+  }
+  return {k: KIND[n.kind] || n.kind, t: n.id};
+}
+function renderTree(){
+  const e = cur.entry, box = $("#tree");
+  box.textContent = "";
+  if (!isFull(e)){
+    const hk = e.scene.hooks || {};
+    box.innerHTML = '<div class="empty">大纲级场景（detail: outline）：只有剧情钩子，尚无完整剧情树。<br>正史：' + esc(T(hk.canon)) + '<br>野史：' + esc(T(hk.legend)) + '<br>玩法：' + esc(T(hk.play)) + '</div>';
+    return;
+  }
+  const nodes = e.scene.plot.nodes, endings = e.scene.endings || [], byId = {};
+  nodes.forEach(n => byId[n.id] = n);
+  const succ = n => (n.next || []).concat((n.choices || []).map(c => c.to));
+  const depth = {}, q = [e.scene.plot.start]; depth[q[0]] = 0;
+  while (q.length){ const id = q.shift(), n = byId[id]; if (!n) continue; succ(n).forEach(t => { if (!(t in depth)) { depth[t] = depth[id] + 1; q.push(t); } }); }
+  const lanes = ["canon", "legend", "whatif"], laneY = {}, colW = 200, rowH = 92, x0 = 40;
+  const slot = {}; let y = 10;
+  lanes.forEach(l => {
+    const ns = nodes.filter(n => (n.line || "canon") === l);
+    const per = {}; ns.forEach(n => { const d = depth[n.id] ?? 0; per[d] = (per[d] || 0) + 1; });
+    const rows = Math.max(1, ...Object.values(per));
+    laneY[l] = y; y += rows * rowH + 14;
+  });
+  const used = {};
+  nodes.forEach(n => {
+    const l = n.line || "canon", d = depth[n.id] ?? 0, k = l + d; used[k] = (used[k] || 0);
+    slot[n.id] = {x: x0 + d * colW, y: laneY[l] + used[k] * rowH}; used[k]++;
+  });
+  const maxD = Math.max(0, ...Object.values(depth));
+  const inner = document.createElement("div"); inner.id = "treeInner";
+  inner.style.width = (x0 + (maxD + 1) * colW + 20) + "px"; inner.style.height = y + "px";
+  const svg = el("svg", {id: "treeSvg", width: x0 + (maxD + 1) * colW + 20, height: y});
+  svg.appendChild(el("defs", {})).innerHTML = '<marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#8a7f6d"/></marker>';
+  lanes.forEach(l => {
+    if (!nodes.some(n => (n.line || "canon") === l)) return;
+    const lab = document.createElement("div"); lab.className = "lane-label"; lab.style.top = laneY[l] + "px"; lab.style.color = LINE[l].color; lab.textContent = {canon:"正史", legend:"野史", whatif:"推演"}[l];
+    inner.appendChild(lab);
+  });
+  nodes.forEach(n => succ(n).forEach(t => {
+    const a = slot[n.id], b = slot[t]; if (!a || !b) return;
+    const x1 = a.x + 170, y1 = a.y + 28, x2 = b.x, y2 = b.y + 28, mx = (x1 + x2) / 2;
+    const tl = (byId[t] && byId[t].line) || "canon";
+    svg.appendChild(el("path", {d: "M" + x1 + "," + y1 + " C" + mx + "," + y1 + " " + mx + "," + y2 + " " + x2 + "," + y2, fill: "none", stroke: LINE[tl].color, "stroke-width": 1.6, "stroke-dasharray": tl === "whatif" ? "4 4" : "", "marker-end": "url(#arr)"}));
+  }));
+  inner.appendChild(svg);
+  nodes.forEach(n => {
+    const s = slot[n.id], tx = nodeText(n, endings), l = n.line || "canon";
+    const d = document.createElement("div"); d.className = "tn" + (n.kind === "ending" ? " ending" : "");
+    d.style.left = s.x + "px"; d.style.top = s.y + "px"; d.style.setProperty("--lc", LINE[l].color);
+    const req = (n.choices || []).some(c => c.requires) ? " · 推演需通关正史与野史" : "";
+    d.innerHTML = '<div class="k">' + esc(tx.k) + (n.checkpoint ? " · 存档点" : "") + esc(req) + '</div><div class="t">' + esc(String(tx.t).slice(0, 80)) + '</div>';
+    d.title = n.id + (n.label ? "\n" + T(n.label) : "");
+    inner.appendChild(d);
+  });
+  box.appendChild(inner);
+}
+
+/* ---------- 分镜 ---------- */
+function renderShots(){
+  const e = cur.entry, box = $("#shots");
+  box.textContent = "";
+  const op = e.opening;
+  if (!isFull(e) || !op){ box.innerHTML = '<div class="empty">大纲级场景尚无开场动画分镜。</div>'; $("#shotMeta").textContent = ""; return; }
+  const fps = (op.clock && op.clock.fps) || 60, tr = op.tracks || {};
+  $("#shotMeta").textContent = op.id + " · " + op.durationFrames + " 帧 @" + fps + "fps ≈ " + (op.durationFrames / fps).toFixed(0) + " 秒 · 笔画 " + (tr.strokes || []).length + " · 镜头 " + (op.shots || []).length;
+  const inShot = (s, at) => at >= s.from && at < s.to;
+  (op.shots || []).forEach(s => {
+    const strokes = (tr.strokes || []).filter(x => inShot(s, x.at));
+    const cams = (tr.camera || []).filter(x => inShot(s, x.at));
+    const texts = (tr.text || []).filter(x => inShot(s, x.at));
+    const fx = (tr.effects || []).filter(x => inShot(s, x.at));
+    const vos = texts.map(t => t.vo ? T(t.vo) || T("vo." + t.vo) : t.key ? T(t.key) : "").filter(Boolean);
+    const vo = vos.map(v => resolveVo(v)).join(" ");
+    const d = document.createElement("div"); d.className = "shot";
+    d.style.width = Math.max(150, Math.min(420, (s.to - s.from) / 5)) + "px";
+    d.innerHTML = '<h4>' + esc(s.id) + ' <span>' + (s.from / fps).toFixed(0) + '–' + (s.to / fps).toFixed(0) + 's</span></h4>' +
+      '<div>' + esc(s.note || "") + '</div>' +
+      '<div class="cam">镜头：' + esc(cams.map(c => c.label || ("zoom " + c.zoom)).join(" → ") || "延续") + '</div>' +
+      '<div class="els">笔画：' + esc(strokes.map(x => x.label || (x.source && x.source.prop)).filter(Boolean).join("、") || "—") +
+      (fx.length ? '<br>特效：' + esc(fx.map(f => f.kind).join("、")) : '') + '</div>' +
+      (vo ? '<div class="vo">“' + esc(vo) + '”</div>' : '');
+    box.appendChild(d);
+  });
+}
+function resolveVo(v){
+  const e = cur.entry, s = e.strings && e.strings.strings;
+  if (!s) return v;
+  if (v in s) return s[v];
+  const k = Object.keys(s).find(k => k.endsWith("." + v)); return k ? s[k] : v;
+}
+
+/* ---------- 音频 ---------- */
+function renderAudio(){
+  const e = cur.entry, box = $("#audio");
+  box.textContent = "";
+  if (!isFull(e) || !e.opening){ box.innerHTML = '<div class="empty">大纲级场景尚无音频提示。</div>'; $("#audioMeta").textContent = ""; return; }
+  const op = e.opening, fps = (op.clock && op.clock.fps) || 60, dur = op.durationFrames;
+  const cues = (op.tracks.audio || []);
+  $("#audioMeta").textContent = cues.length + " 条（bgm 背景乐 / amb 环境声 / vo 旁白 / sfx 音效）· 同步点 " + (op.tracks.sync || []).map(s => s.id || s.kind || s.at).join("、");
+  const width = Math.max(box.clientWidth - 60, 900), sx = f => f / dur * width;
+  const ruler = document.createElement("div"); ruler.className = "ruler"; ruler.style.width = width + "px";
+  for (let f = 0; f <= dur; f += fps * 10){ const sp = document.createElement("span"); sp.style.left = sx(f) + "px"; sp.textContent = (f / fps) + "s"; ruler.appendChild(sp); }
+  box.appendChild(ruler);
+  ["bgm", "amb", "vo", "sfx"].forEach(bus => {
+    const lane = document.createElement("div"); lane.className = "lane"; lane.style.width = width + "px";
+    lane.innerHTML = '<span class="lane-name">' + bus + '</span>';
+    const list = cues.filter(c => c.bus === bus);
+    list.forEach((c, i) => {
+      const nextSame = list[i + 1];
+      const stop = c.action === "stop";
+      const end = stop ? c.at + (c.fadeOutFrames || fps) : c.loop ? (nextSame ? nextSame.at : dur) : c.at + (bus === "vo" ? fps * 6 : fps * 2);
+      const d = document.createElement("div"); d.className = "cue " + bus;
+      d.style.left = sx(c.at) + "px"; d.style.width = Math.max(26, sx(end) - sx(c.at) - 2) + "px";
+      const name = stop ? "淡出停止" : (c.asset || "").split("/").pop().replace(/\.ogg$/, "");
+      const voT = c.key ? resolveVo(c.key) : "";
+      d.textContent = name + (c.duck ? " ↓" : "");
+      d.title = (c.at / fps).toFixed(1) + "s · " + bus + " · " + (c.asset || c.action || "") + (c.gainDb != null ? " · " + c.gainDb + "dB" : "") + (c.duck ? " · 压低 " + c.duck.bus + " " + c.duck.db + "dB" : "") + (voT ? "\n" + voT : "");
+      lane.appendChild(d);
+    });
+    box.appendChild(lane);
+  });
+}
+
+/* ---------- 水墨素材提示词 ---------- */
+function copyText(text, btn){
+  const done = ok => { if (btn){ const old = btn.textContent; btn.textContent = ok ? "已复制" : "复制失败"; setTimeout(() => { btn.textContent = old; }, 1200); } };
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(() => done(true), () => done(fallbackCopy(text)));
+  } else done(fallbackCopy(text));
+}
+function fallbackCopy(text){
+  const ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.left = "-9999px";
+  document.body.appendChild(ta); ta.select();
+  let ok = false; try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+  document.body.removeChild(ta); return ok;
+}
+function segText(s){
+  return s.id + "  [" + s.categoryLabel + " 第 " + s.segment + "/" + s.segmentsInCategory + " 段 · " + s.grid.cols + "×" + s.grid.rows + " · " +
+    "规划裁切 " + s.spec.sizePx[0] + "×" + s.spec.sizePx[1] + " · " + s.spec.model + " · " + s.spec.background + " · API 未实测]\n" +
+    "素材清单：" + s.assets.map(a => a.slot + ". " + a.name + (a.note ? "（" + a.note + "）" : "")).join("；") + "\n" +
+    "— 提示词 —\n" + s.prompt + "\n— 负面提示词 —\n" + (s.negative || "");
+}
+function renderArt(){
+  const e = cur.entry, box = $("#art"), tabs = $("#artTabs");
+  box.textContent = ""; tabs.textContent = "";
+  const segs = e.artPrompts || [];
+  if (!segs.length){
+    box.innerHTML = '<div class="empty">此场景还没有水墨素材提示词：在仓库根目录运行 <b>node video/tools/build-art-prompts.mjs</b> 生成，再运行 <b>node tools/build-viewer-data.mjs</b> 刷新 data/*.js。</div>';
+    $("#artMeta").textContent = ""; return;
+  }
+  const total = segs.reduce((n, s) => n + s.assets.length, 0);
+  const cats = [...new Set(segs.map(s => s.category))];
+  $("#artMeta").textContent = segs.length + " 段（一段 = 一张图，最多 16 件；透明背景规划，出图规格未实测）· 共 " + total + " 件素材 · " +
+    (segs[0].spec && segs[0].spec.model || "");
+  let filter = "*";
+  const draw = () => {
+    box.textContent = "";
+    segs.filter(s => filter === "*" || s.category === filter).forEach(s => {
+      const d = document.createElement("div"); d.className = "seg";
+      const head = document.createElement("div"); head.className = "seg-h";
+      head.innerHTML = '<b>' + esc(s.id) + '</b><span>' + esc(s.categoryLabel) + ' · 第 ' + s.segment + '/' + s.segmentsInCategory +
+        ' 段 · ' + s.grid.cols + '×' + s.grid.rows + ' 格 · 规划裁切 ' + s.spec.sizePx[0] + '×' + s.spec.sizePx[1] + ' · ' + s.spec.cellPx + 'px/格 · ' + esc(s.spec.model) + '（API 未实测）</span>';
+      const cb = document.createElement("button"); cb.textContent = "复制本段";
+      cb.addEventListener("click", () => copyText(segText(s), cb));
+      head.appendChild(cb);
+      d.appendChild(head);
+      const chips = document.createElement("div"); chips.className = "chips";
+      s.assets.forEach(a => {
+        const t = document.createElement("span"); t.className = "tag";
+        t.textContent = a.slot + ". " + a.name + "（" + (ART_KIND[a.kind] || a.kind) + "）";
+        if (a.note) t.title = a.note;
+        chips.appendChild(t);
+      });
+      d.appendChild(chips);
+      const add = (label, text) => {
+        const h = document.createElement("div"); h.className = "sub"; h.textContent = label; d.appendChild(h);
+        const p = document.createElement("pre"); p.className = "prompt"; p.textContent = text; d.appendChild(p);
+      };
+      add("提示词（" + s.grid.cols + "×" + s.grid.rows + " 网格，逐格清单）", s.prompt);
+      if (s.negative) add("负面提示词", s.negative);
+      box.appendChild(d);
+    });
+  };
+  const mk = (label, value) => {
+    const b = document.createElement("button"); b.textContent = label;
+    if (value === filter) b.classList.add("active");
+    b.addEventListener("click", () => {
+      filter = value;
+      [].forEach.call(tabs.children, c => c.classList.remove("active"));
+      b.classList.add("active"); draw();
+    });
+    tabs.appendChild(b);
+  };
+  mk("全部 " + segs.length, "*");
+  cats.forEach(c => mk((segs.find(s => s.category === c) || {}).categoryLabel + " " + segs.filter(s => s.category === c).length, c));
+  const all = document.createElement("button"); all.textContent = "复制本场景全部提示词";
+  all.addEventListener("click", () => copyText(segs.map(segText).join("\n\n"), all));
+  all.style.marginLeft = "auto";
+  tabs.appendChild(all);
+  draw();
+}
+
+init();
+</script>
+</body>
+</html>
