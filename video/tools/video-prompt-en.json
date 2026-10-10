@@ -1352,6 +1352,17 @@
   ],
   "title": "Nine Princes Fight for the Throne: Yongzheng's Succession"
  },
+ "qing.hongloumeng": {
+  "end": "Cao Xueqin dies poor around a New Year's Eve with the book unfinished; the eighty chapters circulate in manuscript until Cheng Weiyuan and Gao E print a 120-chapter edition in 1791, and who wrote the last forty is still debated.",
+  "shots": [
+   "The gate of the Nanjing textile commission is sealed and the whole household boards carts heading north",
+   "In thatched huts below the Western Hills a middle-aged man spreads manuscript paper on a broken table",
+   "A friend visits; he buys wine on credit and talks of the old splendour beside the Qinhuai River",
+   "In the margins of the manuscript someone has filled every space with notes in red",
+   "At the start of the book he writes four lines: pages of absurd words, a handful of bitter tears"
+  ],
+  "title": "Pages of Absurd Words: Cao Xueqin"
+ },
  "qing.humen": {
   "end": "The destruction lasts over twenty days; the Opium War breaks out the next year.",
   "shots": [
@@ -1373,6 +1384,28 @@
    "Full speed ahead"
   ],
   "title": "The Battle of the Yellow Sea: Zhiyuan"
+ },
+ "qing.malgaerni": {
+  "end": "The embassy leaves empty-handed by way of Canton; four decades later British ships return with guns, and the boy who took the purse is among the MPs who back the war.",
+  "shots": [
+   "Off Dagu a Western warship under full sail rides at anchor, its holds full of gifts",
+   "The carts carrying the gifts fly small flags reading \"Tribute envoy of England\"",
+   "Outside the tent hall at Rehe the ministers argue for days over whether to kneel",
+   "Inside, the emperor in his eighties unties a purse from his belt and hands it to a twelve-year-old boy",
+   "An edict is written: the Celestial Empire abounds in all things and lacks nothing"
+  ],
+  "title": "The Celestial Empire Lacks Nothing: The Macartney Embassy"
+ },
+ "qing.nibuchu": {
+  "end": "The Treaty of Nerchinsk is China's first border treaty with a Western state; the next year boundary stones in five scripts are raised, and the eastern frontier stays largely quiet for over a century.",
+  "shots": [
+   "By the Amur, Qing troops ring the fort of Albazin as those inside dig cellars in the snow",
+   "An embassy rides north across the steppe, two robed Western missionaries among its ranks",
+   "Outside Nerchinsk two tents stand side by side, each guarded by the same number of soldiers",
+   "The envoys cannot understand each other, so the missionaries carry every word across in Latin",
+   "The treaty is written in Manchu, Russian and Latin, and both sides seal it together"
+  ],
+  "title": "Nerchinsk: Albazin and the Border Treaty"
  },
  "qing.qianlong": {
   "end": "Jiaqing lists twenty crimes and orders Heshen to kill himself; folk sayings exaggerate his fortune, which official history does not quantify.",
@@ -1429,6 +1462,17 @@
   ],
   "title": "Tianjing: the Taiping Heavenly Kingdom"
  },
+ "qing.wenziyu": {
+  "end": "Yongzheng spares Zeng Jing while Lü Liuliang's corpse is exhumed and mutilated; within two months of his death Qianlong has Zeng and Zhang executed and the book withdrawn, so the emperor's defence becomes a banned book.",
+  "shots": [
+   "In Xi'an a scholar stops the governor-general's sedan chair and hands up a letter",
+   "The letter urges him to rise against the Qing, calling him a descendant of Yue Fei",
+   "In a secret room the governor and the scholar burn incense and swear an oath, and the scholar finally names his teacher",
+   "In the Forbidden City the emperor rebuts the scholar's charges one by one in his own hand",
+   "A book is printed and sent to every school in the empire for scholars to read"
+  ],
+  "title": "Awakening from Delusion: The Zeng Jing Case"
+ },
  "qing.wuchang": {
   "end": "Province after province joins; the Republic of China is founded on New Year's Day 1912, the emperor abdicates on 12 February, and two thousand years of monarchy end.",
   "shots": [
@@ -1461,6 +1505,28 @@
    "The city falls; Shi Kefa tries to cut his throat and survives"
   ],
   "title": "Yangzhou: Shi Kefa"
+ },
+ "qing.yuanmingyuan": {
+  "end": "Under the Convention of Peking Tianjin is opened, part of Kowloon ceded and the indemnity raised; Xianfeng dies at Rehe the next year without returning, and the ruins suffer further plunder.",
+  "shots": [
+   "Pavilions mirror in the lakes of the Yuanmingyuan and the fountains of the Western Mansions still play",
+   "Before dawn the imperial carriage hurries out of the north gate, bound for Rehe",
+   "Allied soldiers storm the garden and strip it of porcelain, paintings and jewels",
+   "Thick smoke covers the sky west of Beijing as the fire burns for three days and nights",
+   "Prince Gong signs in the hall of the Board of Rites while the sky outside is still grey"
+  ],
+  "title": "Garden of Gardens: The Burning of the Yuanmingyuan"
+ },
+ "qing.zengguofan": {
+  "end": "Zeng rebuilds the army and takes Wuchang that autumn, but Shi Dakai beats him again at Hukou and Jiujiang; the Xiang Army fights on for over a decade before taking Tianjing in 1864.",
+  "shots": [
+   "On the Xiang River a civil official drills a band of farmer-soldiers at the oars",
+   "On the river at Jinggang the Xiang Army's boats are scattered by the wind as Taiping craft sweep downstream",
+   "Zeng Guofan stands at the bow watching his fleet break, leaps into the river, and an aide plunges in after him",
+   "Almost at once news of victory comes from Xiangtan, where Taqibu routs the Taiping",
+   "Back in Changsha he writes four words in his memorial: defeated again, fighting again"
+  ],
+  "title": "Defeated Again, Fighting Again: Zeng Guofan and the Xiang Army"
  },
  "qing.zhengchenggong": {
   "end": "After a nine-month siege Coyett surrenders and the Dutch leave Taiwan; Zheng Chenggong dies that same year.",

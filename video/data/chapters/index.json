@@ -228,16 +228,16 @@
    "name": "清",
    "file": "chapters/20-qing.json",
    "span": "1636/1644—1912 年",
-   "scenes": 14,
+   "scenes": 20,
    "v1": 6,
-   "full": 14,
+   "full": 20,
    "outline": 0
   }
  ],
  "totals": {
-  "scenes": 288,
+  "scenes": 294,
   "v1": 66,
-  "full": 288,
+  "full": 294,
   "outline": 0
  }
 }
