@@ -61,7 +61,7 @@ def roman(name):
     parts = [x for x in name.replace('·', '·').split('、') if x]
     return ' and '.join(filter(None, (one(x) for x in parts))) or None
 
-names = set()
+names, camps = set(), set()
 for f in sorted(glob.glob(os.path.join(DATA, '*.json'))):
     if f.endswith('index.json'):
         continue
@@ -69,7 +69,20 @@ for f in sorted(glob.glob(os.path.join(DATA, '*.json'))):
     for s in d['scenes']:
         for c in s.get('cast', []):
             names.add(c['name'])
+            if c.get('camp'):
+                camps.add(c['camp'])
 out = {}
+CAMP = {'突厥': 'Turkic', '东突厥': 'Eastern Turkic', '匈奴': 'Xiongnu', '北匈奴': 'Northern Xiongnu', '契丹': 'Khitan', '辽': 'Liao (Khitan)', '蒙古': 'Mongol',
+        '女真': 'Jurchen', '金': 'Jin (Jurchen)', '西夏': 'Western Xia', '吐蕃': 'Tibetan Empire', '回纥': 'Uighur', '鲜卑': 'Xianbei', '后金': 'Later Jin',
+        '荷兰': 'Dutch', '法国': 'French', '法': 'French', '日本': 'Japanese', '英国': 'British', '英': 'British', '高句丽': 'Goguryeo', '太平天国': 'Taiping',
+        '西辽': 'Western Liao', '花剌子模': 'Khwarazm', '大月氏': 'Greater Yuezhi', '月氏': 'Yuezhi', '康居': 'Kangju', '鄯善': 'Shanshan', '渤海': 'Bohai',
+        '高昌': 'Gaochang', '天竺': 'India', '塞尔柱': 'Seljuk', '俄': 'Russian', '沙俄': 'Russian', '民间': 'commoners', '神话': 'myth', '传说': 'legend'}
+camps = camps - set(names)
+for n in sorted(camps):
+    if n in CAMP:
+        out[n] = CAMP[n]
+    elif all('\u4e00' <= ch <= '\u9fff' for ch in n):
+        out[n] = ''.join(lazy_pinyin(n)).capitalize()
 for n in sorted(names):
     if all('\u4e00' <= ch <= '\u9fff' or ch in '·、（）' for ch in n):
         r = roman(n.split('（')[0])
