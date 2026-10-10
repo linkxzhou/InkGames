@@ -20,6 +20,7 @@
    "liaojin.abaoji",
    "liaojin.xiaotaihou",
    "liaojin.yuanhao",
+   "liaojin.xiaoguanyin",
    "liaojin.hubudagang",
    "liaojin.dashi",
    "liaojin.wushan",
@@ -6553,6 +6554,2186 @@
    }
   },
   {
+   "outlineId": "16-11",
+   "v1": false,
+   "detail": "full",
+   "scene": {
+    "format": "inkgames.scene",
+    "version": 1,
+    "id": "liaojin.xiaoguanyin",
+    "chapter": "liaojin",
+    "order": 4,
+    "title": "scene.liaojin.xiaoguanyin.title",
+    "subtitle": "scene.liaojin.xiaoguanyin.subtitle",
+    "when": {
+     "start": 1075,
+     "precision": "month",
+     "display": "1075 年十一月",
+     "era": "辽道宗大康元年",
+     "verify": "done",
+     "notes": "《辽史·道宗纪三》《后妃传·道宗宣懿皇后萧氏》：大康元年，为宫婢单登等诬陷，赐死"
+    },
+    "key": false,
+    "template": "court",
+    "props": [
+     "figure",
+     "water-brush",
+     "landscape"
+    ],
+    "characters": [
+     "xiaoguanyin",
+     "liaodaozong",
+     "yelvyixin",
+     "zhaoweiyi"
+    ],
+    "anchors": {
+     "entry": {
+      "id": "anchor.liaojin.huixinyuan",
+      "title": "anchor.huixinyuan",
+      "when": {
+       "start": 1074,
+       "precision": "circa",
+       "display": "约 1074 年",
+       "era": "辽道宗咸雍末",
+       "verify": "done",
+       "notes": "《焚椒录》所记；年份约数"
+      },
+      "sources": [
+       {
+        "kind": "classic",
+        "title": "焚椒录",
+        "section": "辽王鼎撰"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.liaojin.cisi",
+      "title": "anchor.cisi",
+      "when": {
+       "start": 1075,
+       "precision": "month",
+       "display": "1075 年十一月",
+       "era": "大康元年",
+       "verify": "done",
+       "notes": "《辽史·后妃传》"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "辽史",
+        "section": "后妃传"
+       },
+       {
+        "kind": "canon",
+        "title": "辽史",
+        "section": "道宗纪三"
+       }
+      ]
+     }
+    },
+    "opening": "cutscene.liaojin.xiaoguanyin.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.liaojin.xiaoguanyin.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.liaojin.xiaoguanyin.opening",
+       "when": {
+        "start": 1075,
+        "precision": "month",
+        "display": "1075 年十一月",
+        "era": "辽道宗大康元年",
+        "verify": "done",
+        "notes": "《辽史·道宗纪三》《后妃传·道宗宣懿皇后萧氏》：大康元年，为宫婢单登等诬陷，赐死"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "后妃传"
+        },
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "道宗纪三"
+        },
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "奸臣传上·耶律乙辛"
+        },
+        {
+         "kind": "classic",
+         "title": "焚椒录",
+         "section": "辽王鼎撰，记宣懿皇后冤案始末"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": 1075,
+        "precision": "month",
+        "display": "1075 年十一月",
+        "era": "辽道宗大康元年",
+        "verify": "done",
+        "notes": "《辽史·道宗纪三》《后妃传·道宗宣懿皇后萧氏》：大康元年，为宫婢单登等诬陷，赐死"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.liaojin.xiaoguanyin.pick.canon",
+         "seal": "canon",
+         "to": "c.intro"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.liaojin.xiaoguanyin.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.liaojin.xiaoguanyin.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "liaojin.xiaoguanyin/canon"
+           },
+           {
+            "cleared": "liaojin.xiaoguanyin/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": 1075,
+        "precision": "month",
+        "display": "1075 年十一月",
+        "era": "辽道宗大康元年",
+        "verify": "done",
+        "notes": "《辽史·道宗纪三》《后妃传·道宗宣懿皇后萧氏》：大康元年，为宫婢单登等诬陷，赐死"
+       },
+       "dialogue": "scene.liaojin.xiaoguanyin.canon.intro",
+       "next": [
+        "c.jianlie"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "后妃传"
+        },
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "道宗纪三"
+        },
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "奸臣传上·耶律乙辛"
+        },
+        {
+         "kind": "classic",
+         "title": "焚椒录",
+         "section": "辽王鼎撰，记宣懿皇后冤案始末"
+        }
+       ]
+      },
+      {
+       "id": "c.jianlie",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 1075,
+        "precision": "month",
+        "display": "1075 年十一月",
+        "era": "辽道宗大康元年",
+        "verify": "done",
+        "notes": "《辽史·道宗纪三》《后妃传·道宗宣懿皇后萧氏》：大康元年，为宫婢单登等诬陷，赐死"
+       },
+       "gameplay": {
+        "template": "court",
+        "params": {
+         "goal": "以皇后的身份上书劝谏道宗不要轻身远猎",
+         "beats": [
+          "write",
+          "submit",
+          "wait"
+         ],
+         "failTo": "c.jianlie",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.huixin"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "后妃传"
+        },
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "道宗纪三"
+        },
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "奸臣传上·耶律乙辛"
+        },
+        {
+         "kind": "classic",
+         "title": "焚椒录",
+         "section": "辽王鼎撰，记宣懿皇后冤案始末"
+        }
+       ]
+      },
+      {
+       "id": "c.huixin",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 1075,
+        "precision": "month",
+        "display": "1075 年十一月",
+        "era": "辽道宗大康元年",
+        "verify": "done",
+        "notes": "《辽史·道宗纪三》《后妃传·道宗宣懿皇后萧氏》：大康元年，为宫婢单登等诬陷，赐死"
+       },
+       "gameplay": {
+        "template": "calligraphy",
+        "params": {
+         "goal": "写下《回心院》十首，交给伶官谱曲",
+         "beats": [
+          "compose",
+          "brush",
+          "entrust"
+         ],
+         "failTo": "c.huixin",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.bianyuan"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "后妃传"
+        },
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "道宗纪三"
+        },
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "奸臣传上·耶律乙辛"
+        },
+        {
+         "kind": "classic",
+         "title": "焚椒录",
+         "section": "辽王鼎撰，记宣懿皇后冤案始末"
+        }
+       ]
+      },
+      {
+       "id": "c.bianyuan",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 1075,
+        "precision": "month",
+        "display": "1075 年十一月",
+        "era": "辽道宗大康元年",
+        "verify": "done",
+        "notes": "《辽史·道宗纪三》《后妃传·道宗宣懿皇后萧氏》：大康元年，为宫婢单登等诬陷，赐死"
+       },
+       "gameplay": {
+        "template": "court",
+        "params": {
+         "goal": "在审案的大帐中为自己与赵惟一辩白",
+         "beats": [
+          "plead",
+          "argue",
+          "endure"
+         ],
+         "failTo": "c.bianyuan",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "后妃传"
+        },
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "道宗纪三"
+        },
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "奸臣传上·耶律乙辛"
+        },
+        {
+         "kind": "classic",
+         "title": "焚椒录",
+         "section": "辽王鼎撰，记宣懿皇后冤案始末"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.liaojin.xiaoguanyin.legend-intro",
+       "when": {
+        "start": 1075,
+        "precision": "month",
+        "display": "1075 年十一月",
+        "era": "辽道宗大康元年",
+        "verify": "done",
+        "notes": "《辽史·道宗纪三》《后妃传·道宗宣懿皇后萧氏》：大康元年，为宫婢单登等诬陷，赐死"
+       },
+       "label": "scene.liaojin.xiaoguanyin.legend.disclaimer",
+       "dialogue": "scene.liaojin.xiaoguanyin.legend.intro",
+       "next": [
+        "l.juemingci"
+       ],
+       "sources": [
+        {
+         "kind": "classic",
+         "title": "焚椒录",
+         "section": "辽王鼎撰，大安五年（1089）序；记《回心院》《十香词》与《绝命辞》"
+        }
+       ]
+      },
+      {
+       "id": "l.juemingci",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 1075,
+        "precision": "month",
+        "display": "1075 年十一月",
+        "era": "辽道宗大康元年",
+        "verify": "done",
+        "notes": "《辽史·道宗纪三》《后妃传·道宗宣懿皇后萧氏》：大康元年，为宫婢单登等诬陷，赐死"
+       },
+       "gameplay": {
+        "template": "calligraphy",
+        "params": {
+         "goal": "在最后的时刻写下《绝命辞》",
+         "beats": [
+          "recall",
+          "compose",
+          "seal"
+         ],
+         "failTo": "l.juemingci",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.shixiang"
+       ],
+       "sources": [
+        {
+         "kind": "classic",
+         "title": "焚椒录",
+         "section": "辽王鼎撰，大安五年（1089）序；记《回心院》《十香词》与《绝命辞》"
+        }
+       ]
+      },
+      {
+       "id": "l.shixiang",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 1075,
+        "precision": "month",
+        "display": "1075 年十一月",
+        "era": "辽道宗大康元年",
+        "verify": "done",
+        "notes": "《辽史·道宗纪三》《后妃传·道宗宣懿皇后萧氏》：大康元年，为宫婢单登等诬陷，赐死"
+       },
+       "gameplay": {
+        "template": "riddle",
+        "params": {
+         "goal": "从《十香词》的字句里找出拼凑与伪造的痕迹",
+         "beats": [
+          "read",
+          "compare",
+          "expose"
+         ],
+         "failTo": "l.shixiang",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "classic",
+         "title": "焚椒录",
+         "section": "辽王鼎撰，大安五年（1089）序；记《回心院》《十香词》与《绝命辞》"
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
+     {
+      "id": "end.canon",
+      "kind": "canon",
+      "title": "scene.liaojin.xiaoguanyin.end.canon",
+      "cutscene": "cutscene.liaojin.xiaoguanyin.end-canon",
+      "mergeTo": "anchor.liaojin.cisi",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "辽史",
+        "section": "后妃传"
+       },
+       {
+        "kind": "canon",
+        "title": "辽史",
+        "section": "道宗纪三"
+       },
+       {
+        "kind": "canon",
+        "title": "辽史",
+        "section": "奸臣传上·耶律乙辛"
+       },
+       {
+        "kind": "classic",
+        "title": "焚椒录",
+        "section": "辽王鼎撰，记宣懿皇后冤案始末"
+       }
+      ]
+     },
+     {
+      "id": "end.legend",
+      "title": "scene.liaojin.xiaoguanyin.end.legend",
+      "cutscene": "cutscene.liaojin.xiaoguanyin.end-legend",
+      "sources": [
+       {
+        "kind": "classic",
+        "title": "焚椒录",
+        "section": "辽王鼎撰，大安五年（1089）序；记《回心院》《十香词》与《绝命辞》"
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.liaojin.cisi",
+      "notes": "野史线结局与正史出口一致，属于汇流"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.liaojin.xiaoguanyin.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
+     }
+    ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "冤案经过",
+       "canon": "《辽史·后妃传》：为耶律乙辛所诬，赐死",
+       "legend": "《焚椒录》：详记单登、乙辛构陷与《十香词》来历",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "后妃传"
+        },
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "道宗纪三"
+        },
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "奸臣传上·耶律乙辛"
+        },
+        {
+         "kind": "classic",
+         "title": "焚椒录",
+         "section": "辽王鼎撰，记宣懿皇后冤案始末"
+        },
+        {
+         "kind": "classic",
+         "title": "焚椒录",
+         "section": "辽王鼎撰，大安五年（1089）序；记《回心院》《十香词》与《绝命辞》"
+        }
+       ]
+      },
+      {
+       "topic": "平反",
+       "canon": "《辽史》：乾统初追谥宣懿皇后",
+       "legend": "《焚椒录》成书于道宗大安年间",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "后妃传"
+        },
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "道宗纪三"
+        },
+        {
+         "kind": "canon",
+         "title": "辽史",
+         "section": "奸臣传上·耶律乙辛"
+        },
+        {
+         "kind": "classic",
+         "title": "焚椒录",
+         "section": "辽王鼎撰，记宣懿皇后冤案始末"
+        },
+        {
+         "kind": "classic",
+         "title": "焚椒录",
+         "section": "辽王鼎撰，大安五年（1089）序；记《回心院》《十香词》与《绝命辞》"
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.xiaoguanyin",
+       "person.xiaoguanyin"
+      ],
+      "seal": "seal.xiaoguanyin"
+     }
+    },
+    "verify": "pending",
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.liaojin.xiaoguanyin.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      212,
+      208,
+      198
+     ],
+     "seed": 67928
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "秋捺钵的大帐外，皇帝骑马远去追猎，皇后站在帐前"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "冷清的宫院里，她抱着琵琶，写下《回心院》十首"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "一个宫婢把一页写着艳词的纸递到枢密使手里"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "皇帝看着纸上的字，那正是皇后的笔迹"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "白练垂下，琵琶的弦断了"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "grass"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 560
+        }
+       },
+       "label": "草"
+      },
+      {
+       "at": 96,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "brown",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           200,
+           520
+          ],
+          [
+           260,
+           440
+          ],
+          [
+           320,
+           520
+          ]
+         ]
+        },
+        "speed": 4
+       },
+       "label": "营帐"
+      },
+      {
+       "at": 156,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "brown",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           880,
+           520
+          ],
+          [
+           940,
+           440
+          ],
+          [
+           1000,
+           520
+          ]
+         ]
+        },
+        "speed": 4
+       },
+       "label": "营帐"
+      },
+      {
+       "at": 192,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 420,
+         "y": 540,
+         "gait": 1
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 252,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "war-horse",
+        "placement": {
+         "x": 760,
+         "y": 560,
+         "gait": 0,
+         "mirror": true
+        }
+       },
+       "label": "骑兵"
+      },
+      {
+       "at": 288,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 300,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 4
+        }
+       },
+       "label": "辽道宗"
+      },
+      {
+       "at": 384,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 980,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 5
+        }
+       },
+       "label": "萧观音"
+      },
+      {
+       "at": 660,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 750,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 840,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 940,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "water-brush.stroke",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           640,
+           180
+          ],
+          [
+           640,
+           260
+          ],
+          [
+           620,
+           330
+          ],
+          [
+           660,
+           400
+          ]
+         ]
+        },
+        "speed": 2
+       },
+       "label": "书写"
+      },
+      {
+       "at": 1220,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "萧观音"
+      },
+      {
+       "at": 1620,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 1710,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 1800,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 2060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "water-brush.stroke",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           640,
+           180
+          ],
+          [
+           640,
+           260
+          ],
+          [
+           620,
+           330
+          ],
+          [
+           660,
+           400
+          ]
+         ]
+        },
+        "speed": 2
+       },
+       "label": "书写"
+      },
+      {
+       "at": 2500,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "耶律乙辛"
+      },
+      {
+       "at": 3060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 3150,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 3240,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 3580,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "water-brush.stroke",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           640,
+           180
+          ],
+          [
+           640,
+           260
+          ],
+          [
+           620,
+           330
+          ],
+          [
+           660,
+           400
+          ]
+         ]
+        },
+        "speed": 2
+       },
+       "label": "书写"
+      },
+      {
+       "at": 4100,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "辽道宗"
+      },
+      {
+       "at": 4740,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 4830,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 4920,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 4940,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "萧观音"
+      },
+      {
+       "at": 5140,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "十香"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "pan"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "still"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.liaojin.xiaoguanyin.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.liaojin.xiaoguanyin.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 2700,
+       "until": 3000,
+       "kind": "caption",
+       "key": "scene.liaojin.xiaoguanyin.quote",
+       "style": "kaiti",
+       "orientation": "vertical",
+       "x": 160,
+       "y": 120,
+       "source": {
+        "kind": "classic",
+        "title": "焚椒录",
+        "section": "回心院词"
+       }
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 282,
+       "kind": "inkDisperse",
+       "layer": "terrain",
+       "params": {
+        "origin": [
+         600,
+         600
+        ],
+        "radius": 260,
+        "frames": 180
+       },
+       "label": "马蹄墨散（新引擎：地形动态纹理）"
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/pipa.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/steppe-wind.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 300,
+       "bus": "sfx",
+       "asset": "audio/sfx/hoofbeats.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/silence-room.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xiaoguanyin-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xiaoguanyin-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1080,
+       "bus": "sfx",
+       "asset": "audio/sfx/pipa.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/silence-room.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xiaoguanyin-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/silk-rustle.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/palace-hall.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xiaoguanyin-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3840,
+       "bus": "sfx",
+       "asset": "audio/sfx/silence.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/silence-room.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/string-snap.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xiaoguanyin-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/string-snap.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.liaojin.xiaoguanyin.title": "十香词",
+     "scene.liaojin.xiaoguanyin.subtitle": "萧观音",
+     "scene.liaojin.xiaoguanyin.when": "十香",
+     "vo.01": "辽道宗的皇后萧观音美丽而有才学，能诗，善弹琵琶。道宗好猎，常年骑马出入山林，皇后上书劝谏，渐渐失宠。",
+     "vo.02": "她写了十首《回心院》词，盼望皇帝回心转意，让伶官赵惟一谱曲演奏。",
+     "vo.03": "北院枢密使耶律乙辛与皇后、太子不和。他让人写了一组艳词《十香词》，托宫婢单登请皇后亲笔抄写。",
+     "vo.04": "乙辛拿着皇后的手迹，诬告她与赵惟一私通。道宗大怒，命乙辛审理此案。",
+     "vo.05": "案子很快定了。大康元年十一月——",
+     "scene.liaojin.xiaoguanyin.quote": "扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。",
+     "scene.liaojin.xiaoguanyin.fork.prompt": "十香词——依《辽史》直书，还是听笔记《焚椒录》？",
+     "anchor.huixinyuan": "萧观音作《回心院》词，望道宗回心",
+     "anchor.cisi": "宣懿皇后被诬与伶官赵惟一私通，赐自尽",
+     "scene.liaojin.xiaoguanyin.pick.canon": "正史 · 《辽史》所载",
+     "scene.liaojin.xiaoguanyin.canon.intro": "一位会写词的皇后，写了十首词盼丈夫回来。另一组十首词，要了她的命。",
+     "scene.liaojin.xiaoguanyin.end.canon": "道宗赐皇后自尽，赵惟一被族诛。两年后，耶律乙辛又诬陷太子耶律濬谋反，太子被废后遭杀害。直到道宗晚年乙辛的奸谋败露，后来天祚帝即位，才为宣懿皇后追复名号。",
+     "scene.liaojin.xiaoguanyin.pick.legend": "笔记 · 焚椒录",
+     "scene.liaojin.xiaoguanyin.legend.disclaimer": "以下取辽人王鼎《焚椒录》：作者自称得之于亲见者，详记《十香词》的来历与皇后临终所作《绝命辞》。此书是辽代存世的少数私人著述之一，所记细节《辽史》多未采。",
+     "scene.liaojin.xiaoguanyin.legend.intro": "焚椒录里说，皇后临死前，向皇帝请求再见一面，没有得到允许。",
+     "scene.liaojin.xiaoguanyin.end.legend": "焚椒录说，皇后望着帝所在的方向，作《绝命辞》后自尽。这本书让一桩冤案在正史之外留下了另一份证词。",
+     "scene.liaojin.xiaoguanyin.pick.whatif": "推演 · 若道宗不信（未开放）",
+     "scene.liaojin.xiaoguanyin.end.whatif": "异闻 · 未开放"
+    }
+   },
+   "cast": [
+    {
+     "id": "xiaoguanyin",
+     "name": "萧观音",
+     "title": "辽道宗宣懿皇后",
+     "camp": "辽",
+     "type": "royal",
+     "bio": "工诗善琵琶，被诬以《十香词》赐死"
+    },
+    {
+     "id": "liaodaozong",
+     "name": "辽道宗",
+     "title": "耶律洪基",
+     "camp": "辽",
+     "type": "ruler",
+     "bio": "听信谗言，赐皇后自尽"
+    },
+    {
+     "id": "yelvyixin",
+     "name": "耶律乙辛",
+     "title": "北院枢密使",
+     "camp": "辽",
+     "type": "minister",
+     "bio": "构陷皇后与太子"
+    },
+    {
+     "id": "zhaoweiyi",
+     "name": "赵惟一",
+     "title": "伶官",
+     "camp": "辽",
+     "type": "other",
+     "bio": "被诬与皇后私通，族诛"
+    }
+   ],
+   "relations": [
+    {
+     "from": "liaodaozong",
+     "to": "xiaoguanyin",
+     "relation": "夫妻",
+     "type": "family"
+    },
+    {
+     "from": "yelvyixin",
+     "to": "xiaoguanyin",
+     "relation": "构陷",
+     "type": "rival"
+    },
+    {
+     "from": "zhaoweiyi",
+     "to": "xiaoguanyin",
+     "relation": "奏《回心院》",
+     "type": "other"
+    }
+   ],
+   "artPrompts": [
+    {
+     "id": "liaojin.xiaoguanyin.sheet.cast.1",
+     "category": "cast",
+     "categoryLabel": "人物立绘",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "liaojin.xiaoguanyin.art.cast.xiaoguanyin",
+       "name": "萧观音（辽道宗宣懿皇后）",
+       "kind": "figure",
+       "note": "辽·宗室后妃",
+       "ref": {
+        "prop": "figure",
+        "actor": "xiaoguanyin"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "liaojin.xiaoguanyin.art.cast.liaodaozong",
+       "name": "辽道宗（耶律洪基）",
+       "kind": "figure",
+       "note": "辽·君主",
+       "ref": {
+        "prop": "figure",
+        "actor": "liaodaozong"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "liaojin.xiaoguanyin.art.cast.yelvyixin",
+       "name": "耶律乙辛（北院枢密使）",
+       "kind": "figure",
+       "note": "辽·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "yelvyixin"
+       }
+      },
+      {
+       "slot": 4,
+       "id": "liaojin.xiaoguanyin.art.cast.zhaoweiyi",
+       "name": "赵惟一（伶官）",
+       "kind": "figure",
+       "note": "辽·其他",
+       "ref": {
+        "prop": "figure",
+        "actor": "zhaoweiyi"
+       }
+      }
+     ],
+     "prompt": "黑白红武侠水墨剪影素材图（人物立绘），题材：十香词·萧观音（1075 年十一月）。\n画风：高反差黑白红武侠水墨剪影风（类《影之刃》，简化版）——大块黑色剪影与平涂灰阶，粗笔棱角边缘，枯笔飞白；少纹理、少装饰；色板只用黑白红：墨黑 #141414、焦灰 #3a3a3a、中灰 #6e6e6c、淡灰 #a8a8a4、雾灰 #d2d1cc、纸白 #eceae4、朱砂红 #b3241c；朱砂红是唯一的强调色，只用于血、落日、旗帜与印章，单帧面积不超过一成。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 萧观音（辽道宗宣懿皇后）（辽·宗室后妃）；2. 辽道宗（耶律洪基）（辽·君主）。\n第 2 行：3. 耶律乙辛（北院枢密使）（辽·文臣）；4. 赵惟一（伶官）（辽·其他）。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏, 全彩, 多色, 粉彩, 马卡龙色, Q 版, 萌系, 大头娃娃, 精细繁复纹理, 大量渐变的 CG 质感, 金色高光, 蒸汽朋克机械, 细密界画线条, 复杂五官",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "liaojin.xiaoguanyin.sheet.props.1",
+     "category": "props",
+     "categoryLabel": "道具器物",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "liaojin.xiaoguanyin.art.props.1",
+       "name": "水刷",
+       "kind": "prop",
+       "note": "大号毛笔，笔锋含墨将滴",
+       "ref": {
+        "prop": "water-brush"
+       }
+      }
+     ],
+     "prompt": "黑白红武侠水墨剪影素材图（道具器物），题材：十香词·萧观音（1075 年十一月）。\n画风：高反差黑白红武侠水墨剪影风（类《影之刃》，简化版）——大块黑色剪影与平涂灰阶，粗笔棱角边缘，枯笔飞白；少纹理、少装饰；色板只用黑白红：墨黑 #141414、焦灰 #3a3a3a、中灰 #6e6e6c、淡灰 #a8a8a4、雾灰 #d2d1cc、纸白 #eceae4、朱砂红 #b3241c；朱砂红是唯一的强调色，只用于血、落日、旗帜与印章，单帧面积不超过一成。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 水刷（大号毛笔，笔锋含墨将滴）；2. 留空。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏, 全彩, 多色, 粉彩, 马卡龙色, Q 版, 萌系, 大头娃娃, 精细繁复纹理, 大量渐变的 CG 质感, 金色高光, 蒸汽朋克机械, 细密界画线条, 复杂五官",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "liaojin.xiaoguanyin.sheet.scenery.1",
+     "category": "scenery",
+     "categoryLabel": "场景环境",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 4,
+      "rows": 3
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "liaojin.xiaoguanyin.art.scenery.1",
+       "name": "远山（淡墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 2,
+       "id": "liaojin.xiaoguanyin.art.scenery.2",
+       "name": "近坡（中墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 3,
+       "id": "liaojin.xiaoguanyin.art.scenery.3",
+       "name": "土坡地线",
+       "kind": "scenery"
+      },
+      {
+       "slot": 4,
+       "id": "liaojin.xiaoguanyin.art.scenery.4",
+       "name": "草丛（枯笔）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 5,
+       "id": "liaojin.xiaoguanyin.art.scenery.5",
+       "name": "宫殿台基",
+       "kind": "scenery"
+      },
+      {
+       "slot": 6,
+       "id": "liaojin.xiaoguanyin.art.scenery.6",
+       "name": "朱漆立柱",
+       "kind": "scenery"
+      },
+      {
+       "slot": 7,
+       "id": "liaojin.xiaoguanyin.art.scenery.7",
+       "name": "仕宦屏风",
+       "kind": "scenery"
+      },
+      {
+       "slot": 8,
+       "id": "liaojin.xiaoguanyin.art.scenery.8",
+       "name": "几案与席",
+       "kind": "scenery"
+      },
+      {
+       "slot": 9,
+       "id": "liaojin.xiaoguanyin.art.scenery.9",
+       "name": "草",
+       "kind": "scenery"
+      },
+      {
+       "slot": 10,
+       "id": "liaojin.xiaoguanyin.art.scenery.10",
+       "name": "营帐",
+       "kind": "scenery"
+      },
+      {
+       "slot": 11,
+       "id": "liaojin.xiaoguanyin.art.scenery.11",
+       "name": "殿柱",
+       "kind": "scenery"
+      },
+      {
+       "slot": 12,
+       "id": "liaojin.xiaoguanyin.art.scenery.12",
+       "name": "屋檐",
+       "kind": "scenery"
+      }
+     ],
+     "prompt": "黑白红武侠水墨剪影素材图（场景环境），题材：十香词·萧观音（1075 年十一月）。\n画风：高反差黑白红武侠水墨剪影风（类《影之刃》，简化版）——大块黑色剪影与平涂灰阶，粗笔棱角边缘，枯笔飞白；少纹理、少装饰；色板只用黑白红：墨黑 #141414、焦灰 #3a3a3a、中灰 #6e6e6c、淡灰 #a8a8a4、雾灰 #d2d1cc、纸白 #eceae4、朱砂红 #b3241c；朱砂红是唯一的强调色，只用于血、落日、旗帜与印章，单帧面积不超过一成。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：4×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 远山（淡墨）；2. 近坡（中墨）；3. 土坡地线；4. 草丛（枯笔）。\n第 2 行：5. 宫殿台基；6. 朱漆立柱；7. 仕宦屏风；8. 几案与席。\n第 3 行：9. 草；10. 营帐；11. 殿柱；12. 屋檐。\n排版参考尺寸：2048×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏, 全彩, 多色, 粉彩, 马卡龙色, Q 版, 萌系, 大头娃娃, 精细繁复纹理, 大量渐变的 CG 质感, 金色高光, 蒸汽朋克机械, 细密界画线条, 复杂五官",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       2048,
+       1536
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "liaojin.xiaoguanyin.sheet.effects.1",
+     "category": "effects",
+     "categoryLabel": "水墨特效",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "liaojin.xiaoguanyin.art.effects.1",
+       "name": "泼墨墨点飞溅",
+       "kind": "fx"
+      },
+      {
+       "slot": 2,
+       "id": "liaojin.xiaoguanyin.art.effects.2",
+       "name": "飞白笔触",
+       "kind": "fx"
+      },
+      {
+       "slot": 3,
+       "id": "liaojin.xiaoguanyin.art.effects.3",
+       "name": "水流笔迹",
+       "kind": "fx"
+      },
+      {
+       "slot": 4,
+       "id": "liaojin.xiaoguanyin.art.effects.4",
+       "name": "墨滴下坠",
+       "kind": "fx"
+      }
+     ],
+     "prompt": "黑白红武侠水墨剪影素材图（水墨特效），题材：十香词·萧观音（1075 年十一月）。\n画风：高反差黑白红武侠水墨剪影风（类《影之刃》，简化版）——大块黑色剪影与平涂灰阶，粗笔棱角边缘，枯笔飞白；少纹理、少装饰；色板只用黑白红：墨黑 #141414、焦灰 #3a3a3a、中灰 #6e6e6c、淡灰 #a8a8a4、雾灰 #d2d1cc、纸白 #eceae4、朱砂红 #b3241c；朱砂红是唯一的强调色，只用于血、落日、旗帜与印章，单帧面积不超过一成。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触。\n第 2 行：3. 水流笔迹；4. 墨滴下坠。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏, 全彩, 多色, 粉彩, 马卡龙色, Q 版, 萌系, 大头娃娃, 精细繁复纹理, 大量渐变的 CG 质感, 金色高光, 蒸汽朋克机械, 细密界画线条, 复杂五官",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    }
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 65,
+    "style": {
+     "zh": "高反差黑白红武侠水墨剪影风（类《影之刃》，简化版）：纸白或浅灰宣纸底，大块平涂、少纹理；人物为高反差黑色剪影，粗笔棱角边缘，枯笔飞白拖尾，面部几乎不画五官；背景只用三到四层灰阶平涂的远山、雾气、竹林与建筑剪影，大面积留白；横向侧视构图，武侠电影式的冷峻、肃杀与戏剧张力；动作以剪影姿态和运动拖影表达，命中或高潮时大块泼墨与朱红血雾喷溅；色板只用黑白红：墨黑 #141414、焦灰 #3a3a3a、中灰 #6e6e6c、淡灰 #a8a8a4、雾灰 #d2d1cc、纸白 #eceae4、朱砂红 #b3241c；朱砂红是唯一的强调色，只用于血、落日、旗帜与印章，单帧面积不超过一成。",
+     "en": "in the style of high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified): paper-white or pale grey xuan ground, big flat shapes with minimal texture; characters as high-contrast black silhouettes with bold angular brush edges and dry-brush flying-white trails, almost no facial features; backgrounds limited to three or four flat grey layers of mountains, mist, bamboo and architecture in silhouette, with generous empty space; side-view wuxia staging, dark, cold and dramatic; action told through silhouette poses and motion trails, with big splash-ink and vermilion blood-spray accents only on hits or the climax; strict black-white-red palette: ink black #141414, charcoal grey #3a3a3a, mid grey #6e6e6c, pale grey #a8a8a4, fog grey #d2d1cc, paper white #eceae4, vermilion red #b3241c; vermilion is the only strong accent, used only for blood, sun, banners and seals, under 10% of any frame."
+    },
+    "setting": {
+     "zh": "辽 · 西夏 · 金 · 辽道宗大康元年（1075 年十一月）。草原毡帐、捺钵营地、城塞、雪原。",
+     "en": "Liao, Western Xia and Jin (907–1234), 1075 CE — steppe felt tents, seasonal royal camps, frontier forts, snowfields."
+    },
+    "characters": [
+     {
+      "id": "xiaoguanyin",
+      "name": "萧观音",
+      "nameEn": "Xiao Guanyin",
+      "onScreen": true,
+      "zh": "萧观音（辽·辽道宗宣懿皇后）：契丹装束：髡发、左衽窄袖袍、皮靴；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；工诗善琵琶，被诬以《十香词》赐死",
+      "en": "Xiao Guanyin (萧观音) — royal / consort, Liao (Khitan); Khitan dress: shaved crown, left-lapel narrow-sleeved robe, leather boots; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance"
+     },
+     {
+      "id": "liaodaozong",
+      "name": "辽道宗",
+      "nameEn": "Liao Daozong",
+      "onScreen": true,
+      "zh": "辽道宗（辽·耶律洪基）：契丹装束：髡发、左衽窄袖袍、皮靴；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；听信谗言，赐皇后自尽",
+      "en": "Liao Daozong (辽道宗) — ruler, Liao (Khitan); Khitan dress: shaved crown, left-lapel narrow-sleeved robe, leather boots; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance"
+     },
+     {
+      "id": "yelvyixin",
+      "name": "耶律乙辛",
+      "nameEn": "Yelü Yixin",
+      "onScreen": true,
+      "zh": "耶律乙辛（辽·北院枢密使）：契丹装束：髡发、左衽窄袖袍、皮靴；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；构陷皇后与太子",
+      "en": "Yelü Yixin (耶律乙辛) — minister, Liao (Khitan); Khitan dress: shaved crown, left-lapel narrow-sleeved robe, leather boots; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance"
+     },
+     {
+      "id": "zhaoweiyi",
+      "name": "赵惟一",
+      "nameEn": "Zhao Weiyi",
+      "onScreen": false,
+      "zh": "赵惟一（辽·伶官）：契丹装束：髡发、左衽窄袖袍、皮靴；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；被诬与皇后私通，族诛",
+      "en": "Zhao Weiyi (赵惟一) — commoner, Liao (Khitan); Khitan dress: shaved crown, left-lapel narrow-sleeved robe, leather boots; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 12,
+      "figures": [
+       "liaodaozong",
+       "xiaoguanyin"
+      ],
+      "vo": "辽道宗的皇后萧观音美丽而有才学，能诗，善弹琵琶。道宗好猎，常年骑马出入山林，皇后上书劝谏，渐渐失宠。",
+      "zh": "镜头 1（0–12 秒，12 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：草、营帐；主体：辽道宗、萧观音、骑兵｜动作：秋捺钵的大帐外，皇帝骑马远去追猎，皇后站在帐前｜水墨效果：宣纸留白淡入；营帐三角黑块剪影，灯火留白；马蹄踏处墨点四溅；墨点四散（如马蹄踏墨）｜声音：环境：草原风；音效：马蹄声｜屏幕文字：片名「十香词」竖排书法与朱印「十香」；底部旁白字幕｜旁白：「辽道宗的皇后萧观音美丽而有才学，能诗，善弹琵琶。道宗好猎，常年骑马出入山林，皇后上书劝谏，渐渐失宠。」",
+      "en": "Shot 1 (0–12 s, 12 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: grass, army tents; subject: Liao Daozong, Xiao Guanyin, cavalry | Action: Outside the great autumn hunting tent the emperor rides off in pursuit of game while the empress stands before the tent | Ink FX: fade in from blank xuan paper; triangular black tent silhouettes with lamps left as paper white; ink spatters where hooves strike; ink dispersing outward like hoofprints in wet ink | Sound: ambience: steppe wind; SFX: hoofbeats | On-screen text: vertical brush-calligraphy title 「十香词」 with vermilion seal 「十香」; Chinese subtitles at bottom | VO (Mandarin): 「辽道宗的皇后萧观音美丽而有才学，能诗，善弹琵琶。道宗好猎，常年骑马出入山林，皇后上书劝谏，渐渐失宠。」"
+     },
+     {
+      "n": 2,
+      "startSec": 12,
+      "durationSec": 9,
+      "figures": [
+       "xiaoguanyin"
+      ],
+      "vo": "她写了十首《回心院》词，盼望皇帝回心转意，让伶官赵惟一谱曲演奏。",
+      "zh": "镜头 2（12–21 秒，9 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：殿柱、屋檐、书写；主体：萧观音｜动作：冷清的宫院里，她抱着琵琶，写下《回心院》十首｜水墨效果：宣纸留白淡入；黑色立柱剪影切分画面，纵深三层灰｜声音：环境：寂静室内；音效：琵琶一声｜屏幕文字：底部旁白字幕｜旁白：「她写了十首《回心院》词，盼望皇帝回心转意，让伶官赵惟一谱曲演奏。」",
+      "en": "Shot 2 (12–21 s, 9 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: palace pillars, palace eaves, 书写; subject: Xiao Guanyin | Action: In a lonely palace courtyard she holds her pipa and writes ten songs, \"Return to the Heart Court\" | Ink FX: fade in from blank xuan paper; black pillar silhouettes slicing the frame, three grey layers of depth | Sound: ambience: quiet room tone; SFX: pipa phrase | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「她写了十首《回心院》词，盼望皇帝回心转意，让伶官赵惟一谱曲演奏。」"
+     },
+     {
+      "n": 3,
+      "startSec": 21,
+      "durationSec": 12,
+      "figures": [
+       "yelvyixin"
+      ],
+      "vo": "北院枢密使耶律乙辛与皇后、太子不和。他让人写了一组艳词《十香词》，托宫婢单登请皇后亲笔抄写。",
+      "zh": "镜头 3（21–33 秒，12 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：殿柱、屋檐、书写；主体：耶律乙辛｜动作：一个宫婢把一页写着艳词的纸递到枢密使手里｜水墨效果：墨点放大化入本镜；黑色立柱剪影切分画面，纵深三层灰｜声音：环境：寂静室内；音效：衣袂摩挲｜屏幕文字：引文「扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。」竖排楷书；底部旁白字幕｜旁白：「北院枢密使耶律乙辛与皇后、太子不和。他让人写了一组艳词《十香词》，托宫婢单登请皇后亲笔抄写。」",
+      "en": "Shot 3 (21–33 s, 12 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: palace pillars, palace eaves, 书写; subject: Yelü Yixin | Action: A palace maid hands a page of erotic verse to the privy councillor | Ink FX: an ink dot expands into the shot; black pillar silhouettes slicing the frame, three grey layers of depth | Sound: ambience: quiet room tone; SFX: rustling silk | On-screen text: vertical kaishu quotation 「扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。」; Chinese subtitles at bottom | VO (Mandarin): 「北院枢密使耶律乙辛与皇后、太子不和。他让人写了一组艳词《十香词》，托宫婢单登请皇后亲笔抄写。」"
+     },
+     {
+      "n": 4,
+      "startSec": 33,
+      "durationSec": 9,
+      "figures": [
+       "liaodaozong"
+      ],
+      "vo": "乙辛拿着皇后的手迹，诬告她与赵惟一私通。道宗大怒，命乙辛审理此案。",
+      "zh": "镜头 4（33–42 秒，9 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：殿柱、屋檐、书写；主体：辽道宗｜动作：皇帝看着纸上的字，那正是皇后的笔迹｜水墨效果：墨点放大化入本镜；黑色立柱剪影切分画面，纵深三层灰｜声音：环境：宫殿回响；音效：静默｜屏幕文字：底部旁白字幕｜旁白：「乙辛拿着皇后的手迹，诬告她与赵惟一私通。道宗大怒，命乙辛审理此案。」",
+      "en": "Shot 4 (33–42 s, 9 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: palace pillars, palace eaves, 书写; subject: Liao Daozong | Action: The emperor stares at the page: it is in the empress's own hand | Ink FX: an ink dot expands into the shot; black pillar silhouettes slicing the frame, three grey layers of depth | Sound: ambience: palace hall reverb; SFX: silence | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「乙辛拿着皇后的手迹，诬告她与赵惟一私通。道宗大怒，命乙辛审理此案。」"
+     },
+     {
+      "n": 5,
+      "startSec": 42,
+      "durationSec": 6,
+      "figures": [
+       "xiaoguanyin"
+      ],
+      "vo": "案子很快定了。大康元年十一月——",
+      "zh": "镜头 5（42–48 秒，6 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：殿柱、屋檐；主体：萧观音；飞白题字「十香」｜动作：白练垂下，琵琶的弦断了｜水墨效果：浓墨泼满画面后切入；黑色立柱剪影切分画面，纵深三层灰；四角暗角收拢；画面定格成一幅水墨画；大块泼墨炸开，朱红血雾斜向喷溅后定格｜声音：环境：寂静室内；音效：弦断｜屏幕文字：底部旁白字幕｜旁白：「案子很快定了。大康元年十一月——」",
+      "en": "Shot 5 (42–48 s, 6 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: palace pillars, palace eaves; subject: Xiao Guanyin; dry-brush calligraphy 「十香」 | Action: A white silk cord hangs down and a pipa string snaps | Ink FX: ink floods the frame, then cut; black pillar silhouettes slicing the frame, three grey layers of depth; vignette closing in from the corners; freeze into a still ink painting; a big splash of ink bursts and a diagonal vermilion blood-spray hangs in a freeze-frame | Sound: ambience: quiet room tone; SFX: snapping string | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「案子很快定了。大康元年十一月——」"
+     },
+     {
+      "n": 6,
+      "startSec": 48,
+      "durationSec": 11,
+      "figures": [
+       "xiaoguanyin"
+      ],
+      "vo": "道宗赐皇后自尽，赵惟一被族诛。两年后，耶律乙辛又诬陷太子耶律濬谋反，太子被废后遭杀害。",
+      "zh": "镜头 6（48–59 秒，11 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：萧观音｜动作：正史结局：道宗赐皇后自尽，赵惟一被族诛。两年后，耶律乙辛又诬陷太子耶律濬谋反，太子被废后遭杀害。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「道宗赐皇后自尽，赵惟一被族诛。两年后，耶律乙辛又诬陷太子耶律濬谋反，太子被废后遭杀害。」",
+      "en": "Shot 6 (48–59 s, 11 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Xiao Guanyin | Action: Canonical outcome: The empress is ordered to die and the musician's clan executed; two years later Yelü Yixin frames the crown prince too, and only under Tianzuo is the empress posthumously restored. | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「道宗赐皇后自尽，赵惟一被族诛。两年后，耶律乙辛又诬陷太子耶律濬谋反，太子被废后遭杀害。」"
+     },
+     {
+      "n": 7,
+      "startSec": 59,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。",
+      "zh": "镜头 7（59–65 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。」，下署《焚椒录·回心院词》；右下角朱印「十香」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。」",
+      "en": "Shot 7 (59–65 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。」 signed 《焚椒录·回心院词》; vermilion seal 「十香」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。」"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：琵琶，铿锵急切或婉转低回，随剧情由缓入急、高潮前骤停留白；环境声：草原风、寂静室内、宫殿回响；音效：马蹄声、琵琶一声、衣袂摩挲、静默、弦断；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: pipa lute, tense tremolo or wistful phrases, building gradually and cutting to silence before the climax; ambience: steppe wind, quiet room tone, palace hall reverb; SFX: hoofbeats, pipa phrase, rustling silk, silence, snapping string; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「十香词」，副题「萧观音」，朱印「十香」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。」——《焚椒录·回心院词》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「十香词」, subtitle 「萧观音」, vermilion seal 「十香」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。」 — 《焚椒录·回心院词》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，全彩，多色，粉彩，马卡龙色，Q 版，萌系，大头娃娃，精细繁复纹理，大量渐变的 CG 质感，金色高光，蒸汽朋克机械，细密界画线条，复杂五官，时代错置：清代辫发与马褂",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, full colour, multicolour, pastel, candy colours, cute, chibi, big-head proportions, busy detailed textures, gradient-heavy CG, gold highlights, steampunk machinery, dense ruled-line detail, detailed faces, anachronisms: Qing queues and magua jackets"
+    },
+    "narration": [
+     "辽道宗的皇后萧观音美丽而有才学，能诗，善弹琵琶。道宗好猎，常年骑马出入山林，皇后上书劝谏，渐渐失宠。",
+     "她写了十首《回心院》词，盼望皇帝回心转意，让伶官赵惟一谱曲演奏。",
+     "北院枢密使耶律乙辛与皇后、太子不和。他让人写了一组艳词《十香词》，托宫婢单登请皇后亲笔抄写。",
+     "乙辛拿着皇后的手迹，诬告她与赵惟一私通。道宗大怒，命乙辛审理此案。",
+     "案子很快定了。大康元年十一月——",
+     "道宗赐皇后自尽，赵惟一被族诛。两年后，耶律乙辛又诬陷太子耶律濬谋反，太子被废后遭杀害。",
+     "扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】辽 · 西夏 · 金 · 十香词（萧观音）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 65 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：高反差黑白红武侠水墨剪影风（类《影之刃》，简化版）：纸白或浅灰宣纸底，大块平涂、少纹理；人物为高反差黑色剪影，粗笔棱角边缘，枯笔飞白拖尾，面部几乎不画五官；背景只用三到四层灰阶平涂的远山、雾气、竹林与建筑剪影，大面积留白；横向侧视构图，武侠电影式的冷峻、肃杀与戏剧张力；动作以剪影姿态和运动拖影表达，命中或高潮时大块泼墨与朱红血雾喷溅；色板只用黑白红：墨黑 #141414、焦灰 #3a3a3a、中灰 #6e6e6c、淡灰 #a8a8a4、雾灰 #d2d1cc、纸白 #eceae4、朱砂红 #b3241c；朱砂红是唯一的强调色，只用于血、落日、旗帜与印章，单帧面积不超过一成。\n\n时代与场景：辽 · 西夏 · 金 · 辽道宗大康元年（1075 年十一月）。草原毡帐、捺钵营地、城塞、雪原。\n\n人物：\n- 萧观音（辽·辽道宗宣懿皇后）：契丹装束：髡发、左衽窄袖袍、皮靴；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；工诗善琵琶，被诬以《十香词》赐死\n- 辽道宗（辽·耶律洪基）：契丹装束：髡发、左衽窄袖袍、皮靴；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；听信谗言，赐皇后自尽\n- 耶律乙辛（辽·北院枢密使）：契丹装束：髡发、左衽窄袖袍、皮靴；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；构陷皇后与太子\n- 赵惟一（辽·伶官）：契丹装束：髡发、左衽窄袖袍、皮靴；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；被诬与皇后私通，族诛\n\n分镜：\n镜头 1（0–12 秒，12 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：草、营帐；主体：辽道宗、萧观音、骑兵｜动作：秋捺钵的大帐外，皇帝骑马远去追猎，皇后站在帐前｜水墨效果：宣纸留白淡入；营帐三角黑块剪影，灯火留白；马蹄踏处墨点四溅；墨点四散（如马蹄踏墨）｜声音：环境：草原风；音效：马蹄声｜屏幕文字：片名「十香词」竖排书法与朱印「十香」；底部旁白字幕｜旁白：「辽道宗的皇后萧观音美丽而有才学，能诗，善弹琵琶。道宗好猎，常年骑马出入山林，皇后上书劝谏，渐渐失宠。」\n镜头 2（12–21 秒，9 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：殿柱、屋檐、书写；主体：萧观音｜动作：冷清的宫院里，她抱着琵琶，写下《回心院》十首｜水墨效果：宣纸留白淡入；黑色立柱剪影切分画面，纵深三层灰｜声音：环境：寂静室内；音效：琵琶一声｜屏幕文字：底部旁白字幕｜旁白：「她写了十首《回心院》词，盼望皇帝回心转意，让伶官赵惟一谱曲演奏。」\n镜头 3（21–33 秒，12 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：殿柱、屋檐、书写；主体：耶律乙辛｜动作：一个宫婢把一页写着艳词的纸递到枢密使手里｜水墨效果：墨点放大化入本镜；黑色立柱剪影切分画面，纵深三层灰｜声音：环境：寂静室内；音效：衣袂摩挲｜屏幕文字：引文「扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。」竖排楷书；底部旁白字幕｜旁白：「北院枢密使耶律乙辛与皇后、太子不和。他让人写了一组艳词《十香词》，托宫婢单登请皇后亲笔抄写。」\n镜头 4（33–42 秒，9 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：殿柱、屋檐、书写；主体：辽道宗｜动作：皇帝看着纸上的字，那正是皇后的笔迹｜水墨效果：墨点放大化入本镜；黑色立柱剪影切分画面，纵深三层灰｜声音：环境：宫殿回响；音效：静默｜屏幕文字：底部旁白字幕｜旁白：「乙辛拿着皇后的手迹，诬告她与赵惟一私通。道宗大怒，命乙辛审理此案。」\n镜头 5（42–48 秒，6 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：殿柱、屋檐；主体：萧观音；飞白题字「十香」｜动作：白练垂下，琵琶的弦断了｜水墨效果：浓墨泼满画面后切入；黑色立柱剪影切分画面，纵深三层灰；四角暗角收拢；画面定格成一幅水墨画；大块泼墨炸开，朱红血雾斜向喷溅后定格｜声音：环境：寂静室内；音效：弦断｜屏幕文字：底部旁白字幕｜旁白：「案子很快定了。大康元年十一月——」\n镜头 6（48–59 秒，11 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：萧观音｜动作：正史结局：道宗赐皇后自尽，赵惟一被族诛。两年后，耶律乙辛又诬陷太子耶律濬谋反，太子被废后遭杀害。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「道宗赐皇后自尽，赵惟一被族诛。两年后，耶律乙辛又诬陷太子耶律濬谋反，太子被废后遭杀害。」\n镜头 7（59–65 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。」，下署《焚椒录·回心院词》；右下角朱印「十香」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。」\n\n声音：背景乐：琵琶，铿锵急切或婉转低回，随剧情由缓入急、高潮前骤停留白；环境声：草原风、寂静室内、宫殿回响；音效：马蹄声、琵琶一声、衣袂摩挲、静默、弦断；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「十香词」，副题「萧观音」，朱印「十香」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。」——《焚椒录·回心院词》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，全彩，多色，粉彩，马卡龙色，Q 版，萌系，大头娃娃，精细繁复纹理，大量渐变的 CG 质感，金色高光，蒸汽朋克机械，细密界画线条，复杂五官，时代错置：清代辫发与马褂",
+     "en": "[Ink-wash video prompt] Liao, Western Xia and Jin (907–1234) · The Ten Fragrances: Empress Xiao Guanyin (「十香词」)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 65 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: in the style of high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified): paper-white or pale grey xuan ground, big flat shapes with minimal texture; characters as high-contrast black silhouettes with bold angular brush edges and dry-brush flying-white trails, almost no facial features; backgrounds limited to three or four flat grey layers of mountains, mist, bamboo and architecture in silhouette, with generous empty space; side-view wuxia staging, dark, cold and dramatic; action told through silhouette poses and motion trails, with big splash-ink and vermilion blood-spray accents only on hits or the climax; strict black-white-red palette: ink black #141414, charcoal grey #3a3a3a, mid grey #6e6e6c, pale grey #a8a8a4, fog grey #d2d1cc, paper white #eceae4, vermilion red #b3241c; vermilion is the only strong accent, used only for blood, sun, banners and seals, under 10% of any frame.\n\nSetting: Liao, Western Xia and Jin (907–1234), 1075 CE — steppe felt tents, seasonal royal camps, frontier forts, snowfields.\n\nCharacters:\n- Xiao Guanyin (萧观音) — royal / consort, Liao (Khitan); Khitan dress: shaved crown, left-lapel narrow-sleeved robe, leather boots; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance\n- Liao Daozong (辽道宗) — ruler, Liao (Khitan); Khitan dress: shaved crown, left-lapel narrow-sleeved robe, leather boots; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance\n- Yelü Yixin (耶律乙辛) — minister, Liao (Khitan); Khitan dress: shaved crown, left-lapel narrow-sleeved robe, leather boots; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance\n- Zhao Weiyi (赵惟一) — commoner, Liao (Khitan); Khitan dress: shaved crown, left-lapel narrow-sleeved robe, leather boots; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance\n\nStoryboard:\nShot 1 (0–12 s, 12 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: grass, army tents; subject: Liao Daozong, Xiao Guanyin, cavalry | Action: Outside the great autumn hunting tent the emperor rides off in pursuit of game while the empress stands before the tent | Ink FX: fade in from blank xuan paper; triangular black tent silhouettes with lamps left as paper white; ink spatters where hooves strike; ink dispersing outward like hoofprints in wet ink | Sound: ambience: steppe wind; SFX: hoofbeats | On-screen text: vertical brush-calligraphy title 「十香词」 with vermilion seal 「十香」; Chinese subtitles at bottom | VO (Mandarin): 「辽道宗的皇后萧观音美丽而有才学，能诗，善弹琵琶。道宗好猎，常年骑马出入山林，皇后上书劝谏，渐渐失宠。」\nShot 2 (12–21 s, 9 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: palace pillars, palace eaves, 书写; subject: Xiao Guanyin | Action: In a lonely palace courtyard she holds her pipa and writes ten songs, \"Return to the Heart Court\" | Ink FX: fade in from blank xuan paper; black pillar silhouettes slicing the frame, three grey layers of depth | Sound: ambience: quiet room tone; SFX: pipa phrase | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「她写了十首《回心院》词，盼望皇帝回心转意，让伶官赵惟一谱曲演奏。」\nShot 3 (21–33 s, 12 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: palace pillars, palace eaves, 书写; subject: Yelü Yixin | Action: A palace maid hands a page of erotic verse to the privy councillor | Ink FX: an ink dot expands into the shot; black pillar silhouettes slicing the frame, three grey layers of depth | Sound: ambience: quiet room tone; SFX: rustling silk | On-screen text: vertical kaishu quotation 「扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。」; Chinese subtitles at bottom | VO (Mandarin): 「北院枢密使耶律乙辛与皇后、太子不和。他让人写了一组艳词《十香词》，托宫婢单登请皇后亲笔抄写。」\nShot 4 (33–42 s, 9 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: palace pillars, palace eaves, 书写; subject: Liao Daozong | Action: The emperor stares at the page: it is in the empress's own hand | Ink FX: an ink dot expands into the shot; black pillar silhouettes slicing the frame, three grey layers of depth | Sound: ambience: palace hall reverb; SFX: silence | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「乙辛拿着皇后的手迹，诬告她与赵惟一私通。道宗大怒，命乙辛审理此案。」\nShot 5 (42–48 s, 6 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: palace pillars, palace eaves; subject: Xiao Guanyin; dry-brush calligraphy 「十香」 | Action: A white silk cord hangs down and a pipa string snaps | Ink FX: ink floods the frame, then cut; black pillar silhouettes slicing the frame, three grey layers of depth; vignette closing in from the corners; freeze into a still ink painting; a big splash of ink bursts and a diagonal vermilion blood-spray hangs in a freeze-frame | Sound: ambience: quiet room tone; SFX: snapping string | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「案子很快定了。大康元年十一月——」\nShot 6 (48–59 s, 11 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Xiao Guanyin | Action: Canonical outcome: The empress is ordered to die and the musician's clan executed; two years later Yelü Yixin frames the crown prince too, and only under Tianzuo is the empress posthumously restored. | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「道宗赐皇后自尽，赵惟一被族诛。两年后，耶律乙辛又诬陷太子耶律濬谋反，太子被废后遭杀害。」\nShot 7 (59–65 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。」 signed 《焚椒录·回心院词》; vermilion seal 「十香」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。」\n\nSound: Music: pipa lute, tense tremolo or wistful phrases, building gradually and cutting to silence before the climax; ambience: steppe wind, quiet room tone, palace hall reverb; SFX: hoofbeats, pipa phrase, rustling silk, silence, snapping string; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「十香词」, subtitle 「萧观音」, vermilion seal 「十香」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「扫深殿，闭久金铺暗。游丝络网尘作堆，积岁青苔厚阶面。」 — 《焚椒录·回心院词》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, full colour, multicolour, pastel, candy colours, cute, chibi, big-head proportions, busy detailed textures, gradient-heavy CG, gold highlights, steampunk machinery, dense ruled-line detail, detailed faces, anachronisms: Qing queues and magua jackets"
+    }
+   }
+  },
+  {
    "outlineId": "16-03",
    "v1": true,
    "detail": "full",
@@ -6561,7 +8742,7 @@
     "version": 1,
     "id": "liaojin.hubudagang",
     "chapter": "liaojin",
-    "order": 4,
+    "order": 5,
     "title": "scene.liaojin.hubudagang.title",
     "subtitle": "scene.liaojin.hubudagang.subtitle",
     "when": {
@@ -8579,7 +10760,7 @@
     "version": 1,
     "id": "liaojin.dashi",
     "chapter": "liaojin",
-    "order": 5,
+    "order": 6,
     "title": "scene.liaojin.dashi.title",
     "subtitle": "scene.liaojin.dashi.subtitle",
     "when": {
@@ -10736,7 +12917,7 @@
     "version": 1,
     "id": "liaojin.wushan",
     "chapter": "liaojin",
-    "order": 6,
+    "order": 7,
     "title": "scene.liaojin.wushan.title",
     "subtitle": "scene.liaojin.wushan.subtitle",
     "when": {
@@ -12994,7 +15175,7 @@
     "version": 1,
     "id": "liaojin.dading",
     "chapter": "liaojin",
-    "order": 7,
+    "order": 8,
     "title": "scene.liaojin.dading.title",
     "subtitle": "scene.liaojin.dading.subtitle",
     "when": {
@@ -15206,7 +17387,7 @@
     "version": 1,
     "id": "liaojin.xixiawang",
     "chapter": "liaojin",
-    "order": 8,
+    "order": 9,
     "title": "scene.liaojin.xixiawang.title",
     "subtitle": "scene.liaojin.xixiawang.subtitle",
     "when": {
@@ -17352,7 +19533,7 @@
     "version": 1,
     "id": "liaojin.sanfeng",
     "chapter": "liaojin",
-    "order": 9,
+    "order": 10,
     "title": "scene.liaojin.sanfeng.title",
     "subtitle": "scene.liaojin.sanfeng.subtitle",
     "when": {
@@ -19444,7 +21625,7 @@
     "version": 1,
     "id": "liaojin.caizhou",
     "chapter": "liaojin",
-    "order": 10,
+    "order": 11,
     "title": "scene.liaojin.caizhou.title",
     "subtitle": "scene.liaojin.caizhou.subtitle",
     "when": {

@@ -21,9 +21,11 @@
    "liangjin.bawang",
    "liangjin.yongjia",
    "liangjin.zuti",
+   "liangjin.xinting",
    "liangjin.lanting",
    "liangjin.huanwen",
    "liangjin.feishui",
+   "liangjin.daoyun",
    "liangjin.taoqian",
    "liangjin.liuyu"
   ],
@@ -10708,6 +10710,1892 @@
    }
   },
   {
+   "outlineId": "10-11",
+   "v1": false,
+   "detail": "full",
+   "scene": {
+    "format": "inkgames.scene",
+    "version": 1,
+    "id": "liangjin.xinting",
+    "chapter": "liangjin",
+    "order": 6,
+    "title": "scene.liangjin.xinting.title",
+    "subtitle": "scene.liangjin.xinting.subtitle",
+    "when": {
+     "start": 317,
+     "precision": "circa",
+     "display": "约 317 年",
+     "era": "东晋建武元年前后",
+     "verify": "done",
+     "notes": "《世说新语·言语》《晋书·王导传》不书年；事在过江之初，约数"
+    },
+    "key": false,
+    "template": "banquet",
+    "props": [
+     "figure",
+     "water",
+     "landscape"
+    ],
+    "characters": [
+     "wangdao",
+     "simarui_x",
+     "zhouyi",
+     "wangdun"
+    ],
+    "anchors": {
+     "entry": {
+      "id": "anchor.liangjin.guojiang",
+      "title": "anchor.guojiang",
+      "when": {
+       "start": 317,
+       "precision": "circa",
+       "display": "约 317 年",
+       "era": "晋元帝建武初",
+       "verify": "done",
+       "notes": "《世说新语·言语》"
+      },
+      "sources": [
+       {
+        "kind": "biji",
+        "title": "世说新语",
+        "section": "言语"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.liangjin.dengji",
+      "title": "anchor.dengji",
+      "when": {
+       "start": 318,
+       "precision": "month",
+       "display": "318 年三月",
+       "era": "东晋太兴元年",
+       "verify": "done",
+       "notes": "《晋书·元帝纪》《王导传》"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "晋书",
+        "section": "元帝纪"
+       },
+       {
+        "kind": "canon",
+        "title": "晋书",
+        "section": "王导传"
+       }
+      ]
+     }
+    },
+    "opening": "cutscene.liangjin.xinting.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.liangjin.xinting.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.liangjin.xinting.opening",
+       "when": {
+        "start": 317,
+        "precision": "circa",
+        "display": "约 317 年",
+        "era": "东晋建武元年前后",
+        "verify": "done",
+        "notes": "《世说新语·言语》《晋书·王导传》不书年；事在过江之初，约数"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "言语"
+        },
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "王导传"
+        },
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "元帝纪"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": 317,
+        "precision": "circa",
+        "display": "约 317 年",
+        "era": "东晋建武元年前后",
+        "verify": "done",
+        "notes": "《世说新语·言语》《晋书·王导传》不书年；事在过江之初，约数"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.liangjin.xinting.pick.canon",
+         "seal": "canon",
+         "to": "c.intro"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.liangjin.xinting.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.liangjin.xinting.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "liangjin.xinting/canon"
+           },
+           {
+            "cleared": "liangjin.xinting/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": 317,
+        "precision": "circa",
+        "display": "约 317 年",
+        "era": "东晋建武元年前后",
+        "verify": "done",
+        "notes": "《世说新语·言语》《晋书·王导传》不书年；事在过江之初，约数"
+       },
+       "dialogue": "scene.liangjin.xinting.canon.intro",
+       "next": [
+        "c.yanji"
+       ],
+       "sources": [
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "言语"
+        },
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "王导传"
+        },
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "元帝纪"
+        }
+       ]
+      },
+      {
+       "id": "c.yanji",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 317,
+        "precision": "circa",
+        "display": "约 317 年",
+        "era": "东晋建武元年前后",
+        "verify": "done",
+        "notes": "《世说新语·言语》《晋书·王导传》不书年；事在过江之初，约数"
+       },
+       "gameplay": {
+        "template": "banquet",
+        "params": {
+         "goal": "在新亭的宴席上安抚南渡士人的情绪",
+         "beats": [
+          "serve",
+          "listen",
+          "watch"
+         ],
+         "failTo": "c.yanji",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.biance"
+       ],
+       "sources": [
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "言语"
+        },
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "王导传"
+        },
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "元帝纪"
+        }
+       ]
+      },
+      {
+       "id": "c.biance",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 317,
+        "precision": "circa",
+        "display": "约 317 年",
+        "era": "东晋建武元年前后",
+        "verify": "done",
+        "notes": "《世说新语·言语》《晋书·王导传》不书年；事在过江之初，约数"
+       },
+       "gameplay": {
+        "template": "dialogue-timing",
+        "params": {
+         "goal": "以王导的身份在众人哭泣时开口，扭转满座的气氛",
+         "beats": [
+          "wait",
+          "rise",
+          "speak"
+         ],
+         "failTo": "c.biance",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.ciwei"
+       ],
+       "sources": [
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "言语"
+        },
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "王导传"
+        },
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "元帝纪"
+        }
+       ]
+      },
+      {
+       "id": "c.ciwei",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 317,
+        "precision": "circa",
+        "display": "约 317 年",
+        "era": "东晋建武元年前后",
+        "verify": "done",
+        "notes": "《世说新语·言语》《晋书·王导传》不书年；事在过江之初，约数"
+       },
+       "gameplay": {
+        "template": "court",
+        "params": {
+         "goal": "在登基大典上推辞同坐御床的殊礼",
+         "beats": [
+          "bow",
+          "decline",
+          "timing"
+         ],
+         "failTo": "c.ciwei",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "言语"
+        },
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "王导传"
+        },
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "元帝纪"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.liangjin.xinting.legend-intro",
+       "when": {
+        "start": 317,
+        "precision": "circa",
+        "display": "约 317 年",
+        "era": "东晋建武元年前后",
+        "verify": "done",
+        "notes": "《世说新语·言语》《晋书·王导传》不书年；事在过江之初，约数"
+       },
+       "label": "scene.liangjin.xinting.legend.disclaimer",
+       "dialogue": "scene.liangjin.xinting.legend.intro",
+       "next": [
+        "l.chuyou"
+       ],
+       "sources": [
+        {
+         "kind": "novel",
+         "title": "蔡东藩·两晋演义",
+         "section": "第二十回 战阳平苟晞破贼垒 佐琅琊王导集名流",
+         "corpus": {
+          "file": "野史/两晋演义.pdf",
+          "pages": "p.63–65"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.chuyou",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 317,
+        "precision": "circa",
+        "display": "约 317 年",
+        "era": "东晋建武元年前后",
+        "verify": "done",
+        "notes": "《世说新语·言语》《晋书·王导传》不书年；事在过江之初，约数"
+       },
+       "gameplay": {
+        "template": "journey",
+        "params": {
+         "goal": "安排琅邪王乘肩舆出游，让江东士族在路旁看见北来名士的仪仗",
+         "beats": [
+          "plan",
+          "parade",
+          "observe"
+         ],
+         "failTo": "l.chuyou",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "l.yanxian"
+       ],
+       "sources": [
+        {
+         "kind": "novel",
+         "title": "蔡东藩·两晋演义",
+         "section": "第二十回 战阳平苟晞破贼垒 佐琅琊王导集名流",
+         "corpus": {
+          "file": "野史/两晋演义.pdf",
+          "pages": "p.63–65"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.yanxian",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 317,
+        "precision": "circa",
+        "display": "约 317 年",
+        "era": "东晋建武元年前后",
+        "verify": "done",
+        "notes": "《世说新语·言语》《晋书·王导传》不书年；事在过江之初，约数"
+       },
+       "gameplay": {
+        "template": "dialogue-timing",
+        "params": {
+         "goal": "登门请顾荣、贺循出仕，赢得江东大族",
+         "beats": [
+          "visit",
+          "persuade",
+          "bow"
+         ],
+         "failTo": "l.yanxian",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "novel",
+         "title": "蔡东藩·两晋演义",
+         "section": "第二十回 战阳平苟晞破贼垒 佐琅琊王导集名流",
+         "corpus": {
+          "file": "野史/两晋演义.pdf",
+          "pages": "p.63–65"
+         }
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
+     {
+      "id": "end.canon",
+      "kind": "canon",
+      "title": "scene.liangjin.xinting.end.canon",
+      "cutscene": "cutscene.liangjin.xinting.end-canon",
+      "mergeTo": "anchor.liangjin.dengji",
+      "sources": [
+       {
+        "kind": "biji",
+        "title": "世说新语",
+        "section": "言语"
+       },
+       {
+        "kind": "canon",
+        "title": "晋书",
+        "section": "王导传"
+       },
+       {
+        "kind": "canon",
+        "title": "晋书",
+        "section": "元帝纪"
+       }
+      ]
+     },
+     {
+      "id": "end.legend",
+      "title": "scene.liangjin.xinting.end.legend",
+      "cutscene": "cutscene.liangjin.xinting.end-legend",
+      "sources": [
+       {
+        "kind": "novel",
+        "title": "蔡东藩·两晋演义",
+        "section": "第二十回 战阳平苟晞破贼垒 佐琅琊王导集名流",
+        "corpus": {
+         "file": "野史/两晋演义.pdf",
+         "pages": "p.63–65"
+        }
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.liangjin.dengji",
+      "notes": "野史线结局与正史出口一致，属于汇流"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.liangjin.xinting.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
+     }
+    ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "新亭之叹",
+       "canon": "《世说新语·言语》：周侯中坐而叹",
+       "legend": "《晋书·王导传》同，文字略异",
+       "sources": [
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "言语"
+        },
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "王导传"
+        },
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "元帝纪"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·两晋演义",
+         "section": "第二十回 战阳平苟晞破贼垒 佐琅琊王导集名流",
+         "corpus": {
+          "file": "野史/两晋演义.pdf",
+          "pages": "p.63–65"
+         }
+        }
+       ]
+      },
+      {
+       "topic": "王与马共天下",
+       "canon": "《晋书·王敦传》：时人为之语曰“王与马，共天下”",
+       "legend": "东晋前期门阀与皇权共治的格局",
+       "sources": [
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "言语"
+        },
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "王导传"
+        },
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "元帝纪"
+        },
+        {
+         "kind": "novel",
+         "title": "蔡东藩·两晋演义",
+         "section": "第二十回 战阳平苟晞破贼垒 佐琅琊王导集名流",
+         "corpus": {
+          "file": "野史/两晋演义.pdf",
+          "pages": "p.63–65"
+         }
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.xinting",
+       "person.wangdao"
+      ],
+      "seal": "seal.xinting"
+     }
+    },
+    "verify": "pending",
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.liangjin.xinting.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      218,
+      212,
+      198
+     ],
+     "seed": 1012
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "建康城南，新亭临江，一群南渡的士人席地饮酒"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "一个名士望着江水叹气：风景不殊，正自有山河之异"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "众人相视流泪，有人掩面痛哭"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "丞相拍案而起，脸色一变"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "一年后的登基大典，皇帝拉着丞相的衣袖，要他同坐御床"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "water",
+        "placement": {
+         "x": 0,
+         "y": 548,
+         "width": 1280
+        }
+       },
+       "label": "河水"
+      },
+      {
+       "at": 160,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "landscape",
+        "parts": [
+         "nearHill",
+         "ground"
+        ],
+        "placement": {
+         "x": 640,
+         "y": 420
+        }
+       },
+       "label": "近山与地面"
+      },
+      {
+       "at": 320,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 350,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 380,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 410,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 660,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "water",
+        "placement": {
+         "x": 0,
+         "y": 548,
+         "width": 1280
+        }
+       },
+       "label": "河水"
+      },
+      {
+       "at": 1080,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "周顗"
+      },
+      {
+       "at": 1620,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 1650,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 1680,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 1710,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 2280,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "周顗"
+      },
+      {
+       "at": 3060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "prop": "water",
+        "placement": {
+         "x": 0,
+         "y": 548,
+         "width": 1280
+        }
+       },
+       "label": "河水"
+      },
+      {
+       "at": 3840,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "王导"
+      },
+      {
+       "at": 4740,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 4830,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 4890,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "司马睿"
+      },
+      {
+       "at": 4920,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 5040,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "王导"
+      },
+      {
+       "at": 5190,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "共天下"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "pan"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "label": "still"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.liangjin.xinting.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.liangjin.xinting.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 2700,
+       "until": 3000,
+       "kind": "caption",
+       "key": "scene.liangjin.xinting.quote",
+       "style": "kaiti",
+       "orientation": "vertical",
+       "x": 160,
+       "y": 120,
+       "source": {
+        "kind": "biji",
+        "title": "世说新语",
+        "section": "言语"
+       }
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 20,
+       "kind": "flow",
+       "layer": "sheet",
+       "target": "lastStroke",
+       "params": {
+        "blendType": 0,
+        "iterations": 4
+       }
+      },
+      {
+       "at": 680,
+       "kind": "flow",
+       "layer": "sheet",
+       "target": "lastStroke",
+       "params": {
+        "blendType": 0,
+        "iterations": 4
+       }
+      },
+      {
+       "at": 3080,
+       "kind": "flow",
+       "layer": "sheet",
+       "target": "lastStroke",
+       "params": {
+        "blendType": 0,
+        "iterations": 4
+       }
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/guqin.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/river-calm.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 300,
+       "bus": "sfx",
+       "asset": "audio/sfx/cup-clink.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/wind-low.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xinting-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xinting-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1080,
+       "bus": "sfx",
+       "asset": "audio/sfx/silence.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/wind-low.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xinting-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/weeping.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/wind-high.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xinting-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3840,
+       "bus": "sfx",
+       "asset": "audio/sfx/cup-clink.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/palace-hall.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/cup-clink.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/xinting-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/bronze-bell.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.liangjin.xinting.title": "新亭对泣",
+     "scene.liangjin.xinting.subtitle": "王与马共天下",
+     "scene.liangjin.xinting.when": "新亭",
+     "vo.01": "永嘉之乱后，洛阳陷落，中原的士族纷纷渡江南下，投奔镇守建康的琅邪王司马睿。每到天气好的日子，他们就相约到城南的新亭饮宴。",
+     "vo.02": "一天，名士周顗坐在席中叹道：风景没有什么不同，只是山河已经换了主人。",
+     "vo.03": "众人听了，相视流泪。",
+     "vo.04": "只有王导变了脸色，说：大家应当同心协力辅佐王室，收复神州，何至于像楚囚一样相对哭泣！众人收泪谢罪。",
+     "vo.05": "318 年，司马睿即皇帝位。登基那天，他命王导上前——",
+     "scene.liangjin.xinting.quote": "当共戮力王室，克复神州，何至作楚囚相对！",
+     "scene.liangjin.xinting.fork.prompt": "新亭对泣——依《晋书》直书，还是听演义《两晋演义》？",
+     "anchor.guojiang": "中原士族南渡，聚饮新亭",
+     "anchor.dengji": "司马睿即皇帝位，命王导同坐御床",
+     "scene.liangjin.xinting.pick.canon": "正史 · 《晋书》所载",
+     "scene.liangjin.xinting.canon.intro": "南渡的士人在江边哭泣，只有一个人不哭。这个人后来与皇帝一同坐在了御床上。",
+     "scene.liangjin.xinting.end.canon": "王导推辞说：若太阳与万物同辉，百姓仰望什么呢？元帝才作罢。当时王导在内执政，从兄王敦在外掌兵，时人说“王与马，共天下”。",
+     "scene.liangjin.xinting.pick.legend": "演义 · 两晋演义",
+     "scene.liangjin.xinting.legend.disclaimer": "以下取蔡东藩《两晋演义》第二十回“佐琅琊王导集名流”的敷演：小说写王导为琅邪王延揽江东名士、安排出游以收人望。此事本于《晋书·王导传》所记王导请顾荣、贺循等出仕，演义添了不少场面。",
+     "scene.liangjin.xinting.legend.intro": "演义里，王导说：琅邪王初到江东，名望未著，须得先让吴人心服。",
+     "scene.liangjin.xinting.end.legend": "演义里江东士族纷纷来附，司马睿在建康站稳了脚跟。东晋立国，北来与南方士族共同撑起了这个江左朝廷。",
+     "scene.liangjin.xinting.pick.whatif": "推演 · 若北伐即起（未开放）",
+     "scene.liangjin.xinting.end.whatif": "异闻 · 未开放"
+    }
+   },
+   "cast": [
+    {
+     "id": "wangdao",
+     "name": "王导",
+     "title": "琅邪王氏，丞相",
+     "camp": "晋",
+     "type": "minister",
+     "bio": "新亭愀然变色，劝众人戮力王室"
+    },
+    {
+     "id": "simarui_x",
+     "name": "司马睿",
+     "title": "琅邪王，后为晋元帝",
+     "camp": "晋",
+     "type": "ruler",
+     "bio": "登基时引王导同坐御床"
+    },
+    {
+     "id": "zhouyi",
+     "name": "周顗",
+     "title": "名士",
+     "camp": "晋",
+     "type": "minister",
+     "bio": "新亭叹“风景不殊，正自有山河之异”"
+    },
+    {
+     "id": "wangdun",
+     "name": "王敦",
+     "title": "王导从兄，大将军",
+     "camp": "晋",
+     "type": "general",
+     "bio": "镇武昌，掌长江上游兵权"
+    }
+   ],
+   "relations": [
+    {
+     "from": "wangdao",
+     "to": "simarui_x",
+     "relation": "辅佐",
+     "type": "sub",
+     "directed": true
+    },
+    {
+     "from": "wangdao",
+     "to": "wangdun",
+     "relation": "从兄弟",
+     "type": "family"
+    },
+    {
+     "from": "wangdao",
+     "to": "zhouyi",
+     "relation": "同僚",
+     "type": "ally"
+    }
+   ],
+   "artPrompts": [
+    {
+     "id": "liangjin.xinting.sheet.cast.1",
+     "category": "cast",
+     "categoryLabel": "人物立绘",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "liangjin.xinting.art.cast.wangdao",
+       "name": "王导（琅邪王氏，丞相）",
+       "kind": "figure",
+       "note": "晋·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "wangdao"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "liangjin.xinting.art.cast.simarui_x",
+       "name": "司马睿（琅邪王，后为晋元帝）",
+       "kind": "figure",
+       "note": "晋·君主",
+       "ref": {
+        "prop": "figure",
+        "actor": "simarui_x"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "liangjin.xinting.art.cast.zhouyi",
+       "name": "周顗（名士）",
+       "kind": "figure",
+       "note": "晋·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "zhouyi"
+       }
+      },
+      {
+       "slot": 4,
+       "id": "liangjin.xinting.art.cast.wangdun",
+       "name": "王敦（王导从兄，大将军）",
+       "kind": "figure",
+       "note": "晋·武将",
+       "ref": {
+        "prop": "figure",
+        "actor": "wangdun"
+       }
+      }
+     ],
+     "prompt": "黑白红武侠水墨剪影素材图（人物立绘），题材：新亭对泣·王与马共天下（约 317 年）。\n画风：高反差黑白红武侠水墨剪影风（类《影之刃》，简化版）——大块黑色剪影与平涂灰阶，粗笔棱角边缘，枯笔飞白；少纹理、少装饰；色板只用黑白红：墨黑 #141414、焦灰 #3a3a3a、中灰 #6e6e6c、淡灰 #a8a8a4、雾灰 #d2d1cc、纸白 #eceae4、朱砂红 #b3241c；朱砂红是唯一的强调色，只用于血、落日、旗帜与印章，单帧面积不超过一成。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 王导（琅邪王氏，丞相）（晋·文臣）；2. 司马睿（琅邪王，后为晋元帝）（晋·君主）。\n第 2 行：3. 周顗（名士）（晋·文臣）；4. 王敦（王导从兄，大将军）（晋·武将）。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏, 全彩, 多色, 粉彩, 马卡龙色, Q 版, 萌系, 大头娃娃, 精细繁复纹理, 大量渐变的 CG 质感, 金色高光, 蒸汽朋克机械, 细密界画线条, 复杂五官",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "liangjin.xinting.sheet.scenery.1",
+     "category": "scenery",
+     "categoryLabel": "场景环境",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 4,
+      "rows": 4
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "liangjin.xinting.art.scenery.1",
+       "name": "远山（淡墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 2,
+       "id": "liangjin.xinting.art.scenery.2",
+       "name": "近坡（中墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 3,
+       "id": "liangjin.xinting.art.scenery.3",
+       "name": "土坡地线",
+       "kind": "scenery"
+      },
+      {
+       "slot": 4,
+       "id": "liangjin.xinting.art.scenery.4",
+       "name": "草丛（枯笔）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 5,
+       "id": "liangjin.xinting.art.scenery.5",
+       "name": "大江水面",
+       "kind": "scenery"
+      },
+      {
+       "slot": 6,
+       "id": "liangjin.xinting.art.scenery.6",
+       "name": "白色飞白浪花",
+       "kind": "scenery"
+      },
+      {
+       "slot": 7,
+       "id": "liangjin.xinting.art.scenery.7",
+       "name": "涟漪",
+       "kind": "scenery"
+      },
+      {
+       "slot": 8,
+       "id": "liangjin.xinting.art.scenery.8",
+       "name": "宴席几案",
+       "kind": "scenery"
+      },
+      {
+       "slot": 9,
+       "id": "liangjin.xinting.art.scenery.9",
+       "name": "青铜酒器",
+       "kind": "scenery"
+      },
+      {
+       "slot": 10,
+       "id": "liangjin.xinting.art.scenery.10",
+       "name": "烛台",
+       "kind": "scenery"
+      },
+      {
+       "slot": 11,
+       "id": "liangjin.xinting.art.scenery.11",
+       "name": "帷帐",
+       "kind": "scenery"
+      },
+      {
+       "slot": 12,
+       "id": "liangjin.xinting.art.scenery.12",
+       "name": "殿柱",
+       "kind": "scenery"
+      },
+      {
+       "slot": 13,
+       "id": "liangjin.xinting.art.scenery.13",
+       "name": "屋檐",
+       "kind": "scenery"
+      }
+     ],
+     "prompt": "黑白红武侠水墨剪影素材图（场景环境），题材：新亭对泣·王与马共天下（约 317 年）。\n画风：高反差黑白红武侠水墨剪影风（类《影之刃》，简化版）——大块黑色剪影与平涂灰阶，粗笔棱角边缘，枯笔飞白；少纹理、少装饰；色板只用黑白红：墨黑 #141414、焦灰 #3a3a3a、中灰 #6e6e6c、淡灰 #a8a8a4、雾灰 #d2d1cc、纸白 #eceae4、朱砂红 #b3241c；朱砂红是唯一的强调色，只用于血、落日、旗帜与印章，单帧面积不超过一成。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：4×4 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 远山（淡墨）；2. 近坡（中墨）；3. 土坡地线；4. 草丛（枯笔）。\n第 2 行：5. 大江水面；6. 白色飞白浪花；7. 涟漪；8. 宴席几案。\n第 3 行：9. 青铜酒器；10. 烛台；11. 帷帐；12. 殿柱。\n第 4 行：13. 屋檐；14. 留空；15. 留空；16. 留空。\n排版参考尺寸：2048×2048 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏, 全彩, 多色, 粉彩, 马卡龙色, Q 版, 萌系, 大头娃娃, 精细繁复纹理, 大量渐变的 CG 质感, 金色高光, 蒸汽朋克机械, 细密界画线条, 复杂五官",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       2048,
+       2048
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "liangjin.xinting.sheet.effects.1",
+     "category": "effects",
+     "categoryLabel": "水墨特效",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "liangjin.xinting.art.effects.1",
+       "name": "泼墨墨点飞溅",
+       "kind": "fx"
+      },
+      {
+       "slot": 2,
+       "id": "liangjin.xinting.art.effects.2",
+       "name": "飞白笔触",
+       "kind": "fx"
+      }
+     ],
+     "prompt": "黑白红武侠水墨剪影素材图（水墨特效），题材：新亭对泣·王与马共天下（约 317 年）。\n画风：高反差黑白红武侠水墨剪影风（类《影之刃》，简化版）——大块黑色剪影与平涂灰阶，粗笔棱角边缘，枯笔飞白；少纹理、少装饰；色板只用黑白红：墨黑 #141414、焦灰 #3a3a3a、中灰 #6e6e6c、淡灰 #a8a8a4、雾灰 #d2d1cc、纸白 #eceae4、朱砂红 #b3241c；朱砂红是唯一的强调色，只用于血、落日、旗帜与印章，单帧面积不超过一成。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏, 全彩, 多色, 粉彩, 马卡龙色, Q 版, 萌系, 大头娃娃, 精细繁复纹理, 大量渐变的 CG 质感, 金色高光, 蒸汽朋克机械, 细密界画线条, 复杂五官",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    }
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 68,
+    "style": {
+     "zh": "高反差黑白红武侠水墨剪影风（类《影之刃》，简化版）：纸白或浅灰宣纸底，大块平涂、少纹理；人物为高反差黑色剪影，粗笔棱角边缘，枯笔飞白拖尾，面部几乎不画五官；背景只用三到四层灰阶平涂的远山、雾气、竹林与建筑剪影，大面积留白；横向侧视构图，武侠电影式的冷峻、肃杀与戏剧张力；动作以剪影姿态和运动拖影表达，命中或高潮时大块泼墨与朱红血雾喷溅；色板只用黑白红：墨黑 #141414、焦灰 #3a3a3a、中灰 #6e6e6c、淡灰 #a8a8a4、雾灰 #d2d1cc、纸白 #eceae4、朱砂红 #b3241c；朱砂红是唯一的强调色，只用于血、落日、旗帜与印章，单帧面积不超过一成。",
+     "en": "in the style of high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified): paper-white or pale grey xuan ground, big flat shapes with minimal texture; characters as high-contrast black silhouettes with bold angular brush edges and dry-brush flying-white trails, almost no facial features; backgrounds limited to three or four flat grey layers of mountains, mist, bamboo and architecture in silhouette, with generous empty space; side-view wuxia staging, dark, cold and dramatic; action told through silhouette poses and motion trails, with big splash-ink and vermilion blood-spray accents only on hits or the climax; strict black-white-red palette: ink black #141414, charcoal grey #3a3a3a, mid grey #6e6e6c, pale grey #a8a8a4, fog grey #d2d1cc, paper white #eceae4, vermilion red #b3241c; vermilion is the only strong accent, used only for blood, sun, banners and seals, under 10% of any frame."
+    },
+    "setting": {
+     "zh": "两晋 · 东晋建武元年前后（约 317 年）。江南园林、曲水、竹林、建康城。",
+     "en": "Western and Eastern Jin (266–420), c. 317 CE — Jiangnan gardens, winding streams, bamboo groves, Jiankang city."
+    },
+    "characters": [
+     {
+      "id": "wangdao",
+      "name": "王导",
+      "nameEn": "Wang Dao",
+      "onScreen": true,
+      "zh": "王导（晋·琅邪王氏，丞相）：褒衣博带，宽衫，小冠，手执麈尾；文臣朝服与官帽，持笏或文书；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；新亭愀然变色，劝众人戮力王室",
+      "en": "Wang Dao (王导) — minister, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; civil official's court robe and cap, holding a tablet or documents; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance"
+     },
+     {
+      "id": "simarui_x",
+      "name": "司马睿",
+      "nameEn": "Sima Rui",
+      "onScreen": true,
+      "zh": "司马睿（晋·琅邪王，后为晋元帝）：褒衣博带，宽衫，小冠，手执麈尾；君主装束，冠冕或礼服，神情威严；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；登基时引王导同坐御床",
+      "en": "Sima Rui (司马睿) — ruler, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; sovereign's regalia, crown or ceremonial robe, commanding presence; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance"
+     },
+     {
+      "id": "zhouyi",
+      "name": "周顗",
+      "nameEn": "Zhou Yi",
+      "onScreen": true,
+      "zh": "周顗（晋·名士）：褒衣博带，宽衫，小冠，手执麈尾；文臣朝服与官帽，持笏或文书；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；新亭叹“风景不殊，正自有山河之异”",
+      "en": "Zhou Yi (周顗) — minister, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; civil official's court robe and cap, holding a tablet or documents; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance"
+     },
+     {
+      "id": "wangdun",
+      "name": "王敦",
+      "nameEn": "Wang Dun",
+      "onScreen": false,
+      "zh": "王敦（晋·王导从兄，大将军）：褒衣博带，宽衫，小冠，手执麈尾；武将甲胄披挂，佩剑或执兵器；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；镇武昌，掌长江上游兵权",
+      "en": "Wang Dun (王敦) — general, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; general in full armour, sword or weapon in hand; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 14,
+      "figures": [],
+      "vo": "永嘉之乱后，洛阳陷落，中原的士族纷纷渡江南下，投奔镇守建康的琅邪王司马睿。每到天气好的日子，他们就相约到城南的新亭饮宴。",
+      "zh": "镜头 1（0–14 秒，14 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：河水、近山与地面；主体：众人｜动作：建康城南，新亭临江，一群南渡的士人席地饮酒｜水墨效果：宣纸留白淡入；湿笔横扫成水纹，墨在水中化开；水墨流动晕染｜声音：环境：平缓河水；音效：碰杯｜屏幕文字：片名「新亭对泣」竖排书法与朱印「新亭」；底部旁白字幕｜旁白：「永嘉之乱后，洛阳陷落，中原的士族纷纷渡江南下，投奔镇守建康的琅邪王司马睿。每到天气好的日子，他们就相约到城南的新亭饮宴。」",
+      "en": "Shot 1 (0–14 s, 14 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: river, near hills and ground; subject: crowd | Action: South of Jiankang, at the Xinting pavilion above the river, émigré gentlemen sit drinking on the ground | Ink FX: fade in from blank xuan paper; wet horizontal strokes forming ripples, ink dissolving in water; flowing ink wash bleeding across the paper | Sound: ambience: calm river; SFX: clinking cups | On-screen text: vertical brush-calligraphy title 「新亭对泣」 with vermilion seal 「新亭」; Chinese subtitles at bottom | VO (Mandarin): 「永嘉之乱后，洛阳陷落，中原的士族纷纷渡江南下，投奔镇守建康的琅邪王司马睿。每到天气好的日子，他们就相约到城南的新亭饮宴。」"
+     },
+     {
+      "n": 2,
+      "startSec": 14,
+      "durationSec": 9,
+      "figures": [
+       "zhouyi"
+      ],
+      "vo": "一天，名士周顗坐在席中叹道：风景没有什么不同，只是山河已经换了主人。",
+      "zh": "镜头 2（14–23 秒，9 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：河水；主体：周顗｜动作：一个名士望着江水叹气：风景不殊，正自有山河之异｜水墨效果：墨点放大化入本镜；湿笔横扫成水纹，墨在水中化开；水墨流动晕染｜声音：环境：低风；音效：静默｜屏幕文字：底部旁白字幕｜旁白：「一天，名士周顗坐在席中叹道：风景没有什么不同，只是山河已经换了主人。」",
+      "en": "Shot 2 (14–23 s, 9 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: river; subject: Zhou Yi | Action: One famous scholar gazes at the river and sighs: the scenery is no different, only the rivers and mountains have changed | Ink FX: an ink dot expands into the shot; wet horizontal strokes forming ripples, ink dissolving in water; flowing ink wash bleeding across the paper | Sound: ambience: low wind; SFX: silence | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「一天，名士周顗坐在席中叹道：风景没有什么不同，只是山河已经换了主人。」"
+     },
+     {
+      "n": 3,
+      "startSec": 23,
+      "durationSec": 6,
+      "figures": [
+       "zhouyi"
+      ],
+      "vo": "众人听了，相视流泪。",
+      "zh": "镜头 3（23–29 秒，6 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：主体：周顗、众人｜动作：众人相视流泪，有人掩面痛哭｜水墨效果：宣纸留白淡入｜声音：环境：低风；音效：哭泣｜屏幕文字：引文「当共戮力王室，克复神州，何至作楚囚相对！」竖排楷书；底部旁白字幕｜旁白：「众人听了，相视流泪。」",
+      "en": "Shot 3 (23–29 s, 6 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: subject: Zhou Yi, crowd | Action: They look at one another and weep; some cover their faces and sob | Ink FX: fade in from blank xuan paper | Sound: ambience: low wind; SFX: weeping | On-screen text: vertical kaishu quotation 「当共戮力王室，克复神州，何至作楚囚相对！」; Chinese subtitles at bottom | VO (Mandarin): 「众人听了，相视流泪。」"
+     },
+     {
+      "n": 4,
+      "startSec": 29,
+      "durationSec": 12,
+      "figures": [
+       "wangdao"
+      ],
+      "vo": "只有王导变了脸色，说：大家应当同心协力辅佐王室，收复神州，何至于像楚囚一样相对哭泣！众人收泪谢罪。",
+      "zh": "镜头 4（29–41 秒，12 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：河水；主体：王导｜动作：丞相拍案而起，脸色一变｜水墨效果：墨点放大化入本镜；湿笔横扫成水纹，墨在水中化开；水墨流动晕染｜声音：环境：高处疾风；音效：碰杯｜屏幕文字：底部旁白字幕｜旁白：「只有王导变了脸色，说：大家应当同心协力辅佐王室，收复神州，何至于像楚囚一样相对哭泣！众人收泪谢罪。」",
+      "en": "Shot 4 (29–41 s, 12 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: river; subject: Wang Dao | Action: The chancellor strikes the table and rises, his face hardening | Ink FX: an ink dot expands into the shot; wet horizontal strokes forming ripples, ink dissolving in water; flowing ink wash bleeding across the paper | Sound: ambience: high wind; SFX: clinking cups | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「只有王导变了脸色，说：大家应当同心协力辅佐王室，收复神州，何至于像楚囚一样相对哭泣！众人收泪谢罪。」"
+     },
+     {
+      "n": 5,
+      "startSec": 41,
+      "durationSec": 7,
+      "figures": [
+       "simarui_x",
+       "wangdao"
+      ],
+      "vo": "318 年，司马睿即皇帝位。登基那天，他命王导上前——",
+      "zh": "镜头 5（41–48 秒，7 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：殿柱、屋檐；主体：司马睿、王导；飞白题字「共天下」｜动作：一年后的登基大典，皇帝拉着丞相的衣袖，要他同坐御床｜水墨效果：浓墨泼满画面后切入；黑色立柱剪影切分画面，纵深三层灰；四角暗角收拢；画面定格成一幅水墨画；大块泼墨炸开，朱红血雾斜向喷溅后定格｜声音：环境：宫殿回响；音效：碰杯、青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「318 年，司马睿即皇帝位。登基那天，他命王导上前——」",
+      "en": "Shot 5 (41–48 s, 7 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: palace pillars, palace eaves; subject: Sima Rui, Wang Dao; dry-brush calligraphy 「共天下」 | Action: A year later at the enthronement, the emperor tugs the chancellor's sleeve, asking him to share the imperial couch | Ink FX: ink floods the frame, then cut; black pillar silhouettes slicing the frame, three grey layers of depth; vignette closing in from the corners; freeze into a still ink painting; a big splash of ink bursts and a diagonal vermilion blood-spray hangs in a freeze-frame | Sound: ambience: palace hall reverb; SFX: clinking cups, bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「318 年，司马睿即皇帝位。登基那天，他命王导上前——」"
+     },
+     {
+      "n": 6,
+      "startSec": 48,
+      "durationSec": 14,
+      "figures": [
+       "simarui_x",
+       "wangdao"
+      ],
+      "vo": "王导推辞说：若太阳与万物同辉，百姓仰望什么呢？元帝才作罢。当时王导在内执政，从兄王敦在外掌兵，时人说“王与马，共天下”。",
+      "zh": "镜头 6（48–62 秒，14 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：司马睿、王导｜动作：正史结局：王导推辞说：若太阳与万物同辉，百姓仰望什么呢？元帝才作罢。当时王导在内执政，从兄王敦在外掌兵，时人说“王与马，共天下”。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「王导推辞说：若太阳与万物同辉，百姓仰望什么呢？元帝才作罢。当时王导在内执政，从兄王敦在外掌兵，时人说“王与马，共天下”。」",
+      "en": "Shot 6 (48–62 s, 14 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Sima Rui, Wang Dao | Action: Canonical outcome: Wang Dao declines — if the sun shared its light with all things, what would the people look up to? — and people say \"the Wang and the Sima share the realm\". | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「王导推辞说：若太阳与万物同辉，百姓仰望什么呢？元帝才作罢。当时王导在内执政，从兄王敦在外掌兵，时人说“王与马，共天下”。」"
+     },
+     {
+      "n": 7,
+      "startSec": 62,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "当共戮力王室，克复神州，何至作楚囚相对！",
+      "zh": "镜头 7（62–68 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「当共戮力王室，克复神州，何至作楚囚相对！」，下署《世说新语·言语》；右下角朱印「新亭」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「当共戮力王室，克复神州，何至作楚囚相对！」",
+      "en": "Shot 7 (62–68 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「当共戮力王室，克复神州，何至作楚囚相对！」 signed 《世说新语·言语》; vermilion seal 「新亭」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「当共戮力王室，克复神州，何至作楚囚相对！」"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：平缓河水、低风、高处疾风、宫殿回响；音效：碰杯、静默、哭泣、青铜钟声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: calm river, low wind, high wind, palace hall reverb; SFX: clinking cups, silence, weeping, bronze bell; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「新亭对泣」，副题「王与马共天下」，朱印「新亭」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「当共戮力王室，克复神州，何至作楚囚相对！」——《世说新语·言语》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「新亭对泣」, subtitle 「王与马共天下」, vermilion seal 「新亭」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「当共戮力王室，克复神州，何至作楚囚相对！」 — 《世说新语·言语》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，全彩，多色，粉彩，马卡龙色，Q 版，萌系，大头娃娃，精细繁复纹理，大量渐变的 CG 质感，金色高光，蒸汽朋克机械，细密界画线条，复杂五官，时代错置：清代辫发与马褂、幞头与圆领袍",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, full colour, multicolour, pastel, candy colours, cute, chibi, big-head proportions, busy detailed textures, gradient-heavy CG, gold highlights, steampunk machinery, dense ruled-line detail, detailed faces, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes"
+    },
+    "narration": [
+     "永嘉之乱后，洛阳陷落，中原的士族纷纷渡江南下，投奔镇守建康的琅邪王司马睿。每到天气好的日子，他们就相约到城南的新亭饮宴。",
+     "一天，名士周顗坐在席中叹道：风景没有什么不同，只是山河已经换了主人。",
+     "众人听了，相视流泪。",
+     "只有王导变了脸色，说：大家应当同心协力辅佐王室，收复神州，何至于像楚囚一样相对哭泣！众人收泪谢罪。",
+     "318 年，司马睿即皇帝位。登基那天，他命王导上前——",
+     "王导推辞说：若太阳与万物同辉，百姓仰望什么呢？元帝才作罢。当时王导在内执政，从兄王敦在外掌兵，时人说“王与马，共天下”。",
+     "当共戮力王室，克复神州，何至作楚囚相对！"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】两晋 · 新亭对泣（王与马共天下）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 68 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：高反差黑白红武侠水墨剪影风（类《影之刃》，简化版）：纸白或浅灰宣纸底，大块平涂、少纹理；人物为高反差黑色剪影，粗笔棱角边缘，枯笔飞白拖尾，面部几乎不画五官；背景只用三到四层灰阶平涂的远山、雾气、竹林与建筑剪影，大面积留白；横向侧视构图，武侠电影式的冷峻、肃杀与戏剧张力；动作以剪影姿态和运动拖影表达，命中或高潮时大块泼墨与朱红血雾喷溅；色板只用黑白红：墨黑 #141414、焦灰 #3a3a3a、中灰 #6e6e6c、淡灰 #a8a8a4、雾灰 #d2d1cc、纸白 #eceae4、朱砂红 #b3241c；朱砂红是唯一的强调色，只用于血、落日、旗帜与印章，单帧面积不超过一成。\n\n时代与场景：两晋 · 东晋建武元年前后（约 317 年）。江南园林、曲水、竹林、建康城。\n\n人物：\n- 王导（晋·琅邪王氏，丞相）：褒衣博带，宽衫，小冠，手执麈尾；文臣朝服与官帽，持笏或文书；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；新亭愀然变色，劝众人戮力王室\n- 司马睿（晋·琅邪王，后为晋元帝）：褒衣博带，宽衫，小冠，手执麈尾；君主装束，冠冕或礼服，神情威严；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；登基时引王导同坐御床\n- 周顗（晋·名士）：褒衣博带，宽衫，小冠，手执麈尾；文臣朝服与官帽，持笏或文书；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；新亭叹“风景不殊，正自有山河之异”\n- 王敦（晋·王导从兄，大将军）：褒衣博带，宽衫，小冠，手执麈尾；武将甲胄披挂，佩剑或执兵器；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；镇武昌，掌长江上游兵权\n\n分镜：\n镜头 1（0–14 秒，14 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：河水、近山与地面；主体：众人｜动作：建康城南，新亭临江，一群南渡的士人席地饮酒｜水墨效果：宣纸留白淡入；湿笔横扫成水纹，墨在水中化开；水墨流动晕染｜声音：环境：平缓河水；音效：碰杯｜屏幕文字：片名「新亭对泣」竖排书法与朱印「新亭」；底部旁白字幕｜旁白：「永嘉之乱后，洛阳陷落，中原的士族纷纷渡江南下，投奔镇守建康的琅邪王司马睿。每到天气好的日子，他们就相约到城南的新亭饮宴。」\n镜头 2（14–23 秒，9 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：河水；主体：周顗｜动作：一个名士望着江水叹气：风景不殊，正自有山河之异｜水墨效果：墨点放大化入本镜；湿笔横扫成水纹，墨在水中化开；水墨流动晕染｜声音：环境：低风；音效：静默｜屏幕文字：底部旁白字幕｜旁白：「一天，名士周顗坐在席中叹道：风景没有什么不同，只是山河已经换了主人。」\n镜头 3（23–29 秒，6 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：主体：周顗、众人｜动作：众人相视流泪，有人掩面痛哭｜水墨效果：宣纸留白淡入｜声音：环境：低风；音效：哭泣｜屏幕文字：引文「当共戮力王室，克复神州，何至作楚囚相对！」竖排楷书；底部旁白字幕｜旁白：「众人听了，相视流泪。」\n镜头 4（29–41 秒，12 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：河水；主体：王导｜动作：丞相拍案而起，脸色一变｜水墨效果：墨点放大化入本镜；湿笔横扫成水纹，墨在水中化开；水墨流动晕染｜声音：环境：高处疾风；音效：碰杯｜屏幕文字：底部旁白字幕｜旁白：「只有王导变了脸色，说：大家应当同心协力辅佐王室，收复神州，何至于像楚囚一样相对哭泣！众人收泪谢罪。」\n镜头 5（41–48 秒，7 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：殿柱、屋檐；主体：司马睿、王导；飞白题字「共天下」｜动作：一年后的登基大典，皇帝拉着丞相的衣袖，要他同坐御床｜水墨效果：浓墨泼满画面后切入；黑色立柱剪影切分画面，纵深三层灰；四角暗角收拢；画面定格成一幅水墨画；大块泼墨炸开，朱红血雾斜向喷溅后定格｜声音：环境：宫殿回响；音效：碰杯、青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「318 年，司马睿即皇帝位。登基那天，他命王导上前——」\n镜头 6（48–62 秒，14 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：司马睿、王导｜动作：正史结局：王导推辞说：若太阳与万物同辉，百姓仰望什么呢？元帝才作罢。当时王导在内执政，从兄王敦在外掌兵，时人说“王与马，共天下”。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「王导推辞说：若太阳与万物同辉，百姓仰望什么呢？元帝才作罢。当时王导在内执政，从兄王敦在外掌兵，时人说“王与马，共天下”。」\n镜头 7（62–68 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「当共戮力王室，克复神州，何至作楚囚相对！」，下署《世说新语·言语》；右下角朱印「新亭」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「当共戮力王室，克复神州，何至作楚囚相对！」\n\n声音：背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：平缓河水、低风、高处疾风、宫殿回响；音效：碰杯、静默、哭泣、青铜钟声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「新亭对泣」，副题「王与马共天下」，朱印「新亭」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「当共戮力王室，克复神州，何至作楚囚相对！」——《世说新语·言语》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，全彩，多色，粉彩，马卡龙色，Q 版，萌系，大头娃娃，精细繁复纹理，大量渐变的 CG 质感，金色高光，蒸汽朋克机械，细密界画线条，复杂五官，时代错置：清代辫发与马褂、幞头与圆领袍",
+     "en": "[Ink-wash video prompt] Western and Eastern Jin (266–420) · Weeping at Xinting: Wang and Sima Share the Realm (「新亭对泣」)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 68 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: in the style of high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified): paper-white or pale grey xuan ground, big flat shapes with minimal texture; characters as high-contrast black silhouettes with bold angular brush edges and dry-brush flying-white trails, almost no facial features; backgrounds limited to three or four flat grey layers of mountains, mist, bamboo and architecture in silhouette, with generous empty space; side-view wuxia staging, dark, cold and dramatic; action told through silhouette poses and motion trails, with big splash-ink and vermilion blood-spray accents only on hits or the climax; strict black-white-red palette: ink black #141414, charcoal grey #3a3a3a, mid grey #6e6e6c, pale grey #a8a8a4, fog grey #d2d1cc, paper white #eceae4, vermilion red #b3241c; vermilion is the only strong accent, used only for blood, sun, banners and seals, under 10% of any frame.\n\nSetting: Western and Eastern Jin (266–420), c. 317 CE — Jiangnan gardens, winding streams, bamboo groves, Jiankang city.\n\nCharacters:\n- Wang Dao (王导) — minister, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; civil official's court robe and cap, holding a tablet or documents; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance\n- Sima Rui (司马睿) — ruler, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; sovereign's regalia, crown or ceremonial robe, commanding presence; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance\n- Zhou Yi (周顗) — minister, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; civil official's court robe and cap, holding a tablet or documents; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance\n- Wang Dun (王敦) — general, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; general in full armour, sword or weapon in hand; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance\n\nStoryboard:\nShot 1 (0–14 s, 14 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: river, near hills and ground; subject: crowd | Action: South of Jiankang, at the Xinting pavilion above the river, émigré gentlemen sit drinking on the ground | Ink FX: fade in from blank xuan paper; wet horizontal strokes forming ripples, ink dissolving in water; flowing ink wash bleeding across the paper | Sound: ambience: calm river; SFX: clinking cups | On-screen text: vertical brush-calligraphy title 「新亭对泣」 with vermilion seal 「新亭」; Chinese subtitles at bottom | VO (Mandarin): 「永嘉之乱后，洛阳陷落，中原的士族纷纷渡江南下，投奔镇守建康的琅邪王司马睿。每到天气好的日子，他们就相约到城南的新亭饮宴。」\nShot 2 (14–23 s, 9 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: river; subject: Zhou Yi | Action: One famous scholar gazes at the river and sighs: the scenery is no different, only the rivers and mountains have changed | Ink FX: an ink dot expands into the shot; wet horizontal strokes forming ripples, ink dissolving in water; flowing ink wash bleeding across the paper | Sound: ambience: low wind; SFX: silence | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「一天，名士周顗坐在席中叹道：风景没有什么不同，只是山河已经换了主人。」\nShot 3 (23–29 s, 6 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: subject: Zhou Yi, crowd | Action: They look at one another and weep; some cover their faces and sob | Ink FX: fade in from blank xuan paper | Sound: ambience: low wind; SFX: weeping | On-screen text: vertical kaishu quotation 「当共戮力王室，克复神州，何至作楚囚相对！」; Chinese subtitles at bottom | VO (Mandarin): 「众人听了，相视流泪。」\nShot 4 (29–41 s, 12 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: river; subject: Wang Dao | Action: The chancellor strikes the table and rises, his face hardening | Ink FX: an ink dot expands into the shot; wet horizontal strokes forming ripples, ink dissolving in water; flowing ink wash bleeding across the paper | Sound: ambience: high wind; SFX: clinking cups | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「只有王导变了脸色，说：大家应当同心协力辅佐王室，收复神州，何至于像楚囚一样相对哭泣！众人收泪谢罪。」\nShot 5 (41–48 s, 7 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: palace pillars, palace eaves; subject: Sima Rui, Wang Dao; dry-brush calligraphy 「共天下」 | Action: A year later at the enthronement, the emperor tugs the chancellor's sleeve, asking him to share the imperial couch | Ink FX: ink floods the frame, then cut; black pillar silhouettes slicing the frame, three grey layers of depth; vignette closing in from the corners; freeze into a still ink painting; a big splash of ink bursts and a diagonal vermilion blood-spray hangs in a freeze-frame | Sound: ambience: palace hall reverb; SFX: clinking cups, bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「318 年，司马睿即皇帝位。登基那天，他命王导上前——」\nShot 6 (48–62 s, 14 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Sima Rui, Wang Dao | Action: Canonical outcome: Wang Dao declines — if the sun shared its light with all things, what would the people look up to? — and people say \"the Wang and the Sima share the realm\". | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「王导推辞说：若太阳与万物同辉，百姓仰望什么呢？元帝才作罢。当时王导在内执政，从兄王敦在外掌兵，时人说“王与马，共天下”。」\nShot 7 (62–68 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「当共戮力王室，克复神州，何至作楚囚相对！」 signed 《世说新语·言语》; vermilion seal 「新亭」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「当共戮力王室，克复神州，何至作楚囚相对！」\n\nSound: Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: calm river, low wind, high wind, palace hall reverb; SFX: clinking cups, silence, weeping, bronze bell; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「新亭对泣」, subtitle 「王与马共天下」, vermilion seal 「新亭」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「当共戮力王室，克复神州，何至作楚囚相对！」 — 《世说新语·言语》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, full colour, multicolour, pastel, candy colours, cute, chibi, big-head proportions, busy detailed textures, gradient-heavy CG, gold highlights, steampunk machinery, dense ruled-line detail, detailed faces, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes"
+    }
+   }
+  },
+  {
    "outlineId": "10-05",
    "v1": false,
    "detail": "full",
@@ -10716,7 +12604,7 @@
     "version": 1,
     "id": "liangjin.lanting",
     "chapter": "liangjin",
-    "order": 6,
+    "order": 7,
     "title": "scene.liangjin.lanting.title",
     "subtitle": "scene.liangjin.lanting.subtitle",
     "when": {
@@ -12674,7 +14562,7 @@
     "version": 1,
     "id": "liangjin.huanwen",
     "chapter": "liangjin",
-    "order": 7,
+    "order": 8,
     "title": "scene.liangjin.huanwen.title",
     "subtitle": "scene.liangjin.huanwen.subtitle",
     "when": {
@@ -14832,7 +16720,7 @@
     "version": 1,
     "id": "liangjin.feishui",
     "chapter": "liangjin",
-    "order": 8,
+    "order": 9,
     "title": "scene.liangjin.feishui.title",
     "subtitle": "scene.liangjin.feishui.subtitle",
     "when": {
@@ -17017,6 +18905,2176 @@
    }
   },
   {
+   "outlineId": "10-12",
+   "v1": false,
+   "detail": "full",
+   "scene": {
+    "format": "inkgames.scene",
+    "version": 1,
+    "id": "liangjin.daoyun",
+    "chapter": "liangjin",
+    "order": 10,
+    "title": "scene.liangjin.daoyun.title",
+    "subtitle": "scene.liangjin.daoyun.subtitle",
+    "when": {
+     "start": 399,
+     "precision": "year",
+     "display": "399 年",
+     "era": "东晋隆安三年",
+     "verify": "done",
+     "notes": "《晋书·列女传·王凝之妻谢氏》：孙恩之难，凝之及诸子皆为贼所害，道韫举措自若；孙恩攻会稽在隆安三年"
+    },
+    "key": false,
+    "template": "breakout",
+    "props": [
+     "blade",
+     "figure",
+     "landscape"
+    ],
+    "characters": [
+     "xiedaoyun",
+     "xiean_d",
+     "xielang",
+     "wangningzhi",
+     "sunen"
+    ],
+    "anchors": {
+     "entry": {
+      "id": "anchor.liangjin.yongxu",
+      "title": "anchor.yongxu",
+      "when": {
+       "start": 360,
+       "precision": "circa",
+       "display": "约 4 世纪中叶",
+       "era": "东晋穆帝至哀帝时",
+       "verify": "done",
+       "notes": "《世说新语·言语》不书年，约数"
+      },
+      "sources": [
+       {
+        "kind": "biji",
+        "title": "世说新语",
+        "section": "言语"
+       }
+      ]
+     },
+     "exit": {
+      "id": "anchor.liangjin.jiemian",
+      "title": "anchor.jiemian",
+      "when": {
+       "start": 399,
+       "precision": "year",
+       "display": "399 年",
+       "era": "东晋隆安三年",
+       "verify": "done",
+       "notes": "《晋书·列女传》"
+      },
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "晋书",
+        "section": "列女传"
+       }
+      ]
+     }
+    },
+    "opening": "cutscene.liangjin.daoyun.opening",
+    "fork": {
+     "at": "fork",
+     "prompt": "scene.liangjin.daoyun.fork.prompt"
+    },
+    "plot": {
+     "start": "opening",
+     "nodes": [
+      {
+       "id": "opening",
+       "kind": "cutscene",
+       "line": "canon",
+       "cutscene": "cutscene.liangjin.daoyun.opening",
+       "when": {
+        "start": 399,
+        "precision": "year",
+        "display": "399 年",
+        "era": "东晋隆安三年",
+        "verify": "done",
+        "notes": "《晋书·列女传·王凝之妻谢氏》：孙恩之难，凝之及诸子皆为贼所害，道韫举措自若；孙恩攻会稽在隆安三年"
+       },
+       "next": [
+        "fork"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "列女传"
+        },
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "言语"
+        },
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "贤媛"
+        }
+       ]
+      },
+      {
+       "id": "fork",
+       "kind": "choice",
+       "line": "canon",
+       "when": {
+        "start": 399,
+        "precision": "year",
+        "display": "399 年",
+        "era": "东晋隆安三年",
+        "verify": "done",
+        "notes": "《晋书·列女传·王凝之妻谢氏》：孙恩之难，凝之及诸子皆为贼所害，道韫举措自若；孙恩攻会稽在隆安三年"
+       },
+       "choices": [
+        {
+         "id": "pick.canon",
+         "label": "scene.liangjin.daoyun.pick.canon",
+         "seal": "canon",
+         "to": "c.intro"
+        },
+        {
+         "id": "pick.legend",
+         "label": "scene.liangjin.daoyun.pick.legend",
+         "seal": "legend",
+         "to": "l.intro"
+        },
+        {
+         "id": "pick.whatif",
+         "label": "scene.liangjin.daoyun.pick.whatif",
+         "seal": "whatif",
+         "to": "w.stub",
+         "requires": {
+          "all": [
+           {
+            "cleared": "liangjin.daoyun/canon"
+           },
+           {
+            "cleared": "liangjin.daoyun/legend"
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "id": "c.intro",
+       "kind": "dialogue",
+       "line": "canon",
+       "when": {
+        "start": 399,
+        "precision": "year",
+        "display": "399 年",
+        "era": "东晋隆安三年",
+        "verify": "done",
+        "notes": "《晋书·列女传·王凝之妻谢氏》：孙恩之难，凝之及诸子皆为贼所害，道韫举措自若；孙恩攻会稽在隆安三年"
+       },
+       "dialogue": "scene.liangjin.daoyun.canon.intro",
+       "next": [
+        "c.yongxue"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "列女传"
+        },
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "言语"
+        },
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "贤媛"
+        }
+       ]
+      },
+      {
+       "id": "c.yongxue",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 399,
+        "precision": "year",
+        "display": "399 年",
+        "era": "东晋隆安三年",
+        "verify": "done",
+        "notes": "《晋书·列女传·王凝之妻谢氏》：孙恩之难，凝之及诸子皆为贼所害，道韫举措自若；孙恩攻会稽在隆安三年"
+       },
+       "gameplay": {
+        "template": "riddle",
+        "params": {
+         "goal": "在叔父的雪日考问中，想出比“撒盐”更好的比喻",
+         "beats": [
+          "observe",
+          "compare",
+          "answer"
+         ],
+         "failTo": "c.yongxue",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.chudao"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "列女传"
+        },
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "言语"
+        },
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "贤媛"
+        }
+       ]
+      },
+      {
+       "id": "c.chudao",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 399,
+        "precision": "year",
+        "display": "399 年",
+        "era": "东晋隆安三年",
+        "verify": "done",
+        "notes": "《晋书·列女传·王凝之妻谢氏》：孙恩之难，凝之及诸子皆为贼所害，道韫举措自若；孙恩攻会稽在隆安三年"
+       },
+       "gameplay": {
+        "template": "breakout",
+        "params": {
+         "goal": "在会稽城破时持刀出门，护着家人冲出乱兵",
+         "beats": [
+          "draw",
+          "strike",
+          "escape"
+         ],
+         "failTo": "c.chudao",
+         "grades": [
+          "笔意",
+          "寻迹"
+         ]
+        }
+       },
+       "next": [
+        "c.huwaisun"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "列女传"
+        },
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "言语"
+        },
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "贤媛"
+        }
+       ]
+      },
+      {
+       "id": "c.huwaisun",
+       "kind": "gameplay",
+       "line": "canon",
+       "checkpoint": true,
+       "when": {
+        "start": 399,
+        "precision": "year",
+        "display": "399 年",
+        "era": "东晋隆安三年",
+        "verify": "done",
+        "notes": "《晋书·列女传·王凝之妻谢氏》：孙恩之难，凝之及诸子皆为贼所害，道韫举措自若；孙恩攻会稽在隆安三年"
+       },
+       "gameplay": {
+        "template": "dialogue-timing",
+        "params": {
+         "goal": "在孙恩面前保下年幼的外孙",
+         "beats": [
+          "stand",
+          "speak",
+          "protect"
+         ],
+         "failTo": "c.huwaisun",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "c.end"
+       ],
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "列女传"
+        },
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "言语"
+        },
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "贤媛"
+        }
+       ]
+      },
+      {
+       "id": "c.end",
+       "kind": "ending",
+       "line": "canon",
+       "ending": "end.canon",
+       "next": []
+      },
+      {
+       "id": "l.intro",
+       "kind": "cutscene",
+       "line": "legend",
+       "cutscene": "cutscene.liangjin.daoyun.legend-intro",
+       "when": {
+        "start": 399,
+        "precision": "year",
+        "display": "399 年",
+        "era": "东晋隆安三年",
+        "verify": "done",
+        "notes": "《晋书·列女传·王凝之妻谢氏》：孙恩之难，凝之及诸子皆为贼所害，道韫举措自若；孙恩攻会稽在隆安三年"
+       },
+       "label": "scene.liangjin.daoyun.legend.disclaimer",
+       "dialogue": "scene.liangjin.daoyun.legend.intro",
+       "next": [
+        "l.guining"
+       ],
+       "sources": [
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "贤媛",
+         "notes": "“不意天壤之中，乃有王郎！”"
+        }
+       ]
+      },
+      {
+       "id": "l.guining",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 399,
+        "precision": "year",
+        "display": "399 年",
+        "era": "东晋隆安三年",
+        "verify": "done",
+        "notes": "《晋书·列女传·王凝之妻谢氏》：孙恩之难，凝之及诸子皆为贼所害，道韫举措自若；孙恩攻会稽在隆安三年"
+       },
+       "gameplay": {
+        "template": "dialogue-timing",
+        "params": {
+         "goal": "以谢道韫的身份回答叔父谢安：王郎是逸少之子，人才也不坏，你为何不满",
+         "beats": [
+          "listen",
+          "sigh",
+          "answer"
+         ],
+         "failTo": "l.guining",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.buzhang"
+       ],
+       "sources": [
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "贤媛",
+         "notes": "“不意天壤之中，乃有王郎！”"
+        }
+       ]
+      },
+      {
+       "id": "l.buzhang",
+       "kind": "gameplay",
+       "line": "legend",
+       "checkpoint": true,
+       "when": {
+        "start": 399,
+        "precision": "year",
+        "display": "399 年",
+        "era": "东晋隆安三年",
+        "verify": "done",
+        "notes": "《晋书·列女传·王凝之妻谢氏》：孙恩之难，凝之及诸子皆为贼所害，道韫举措自若；孙恩攻会稽在隆安三年"
+       },
+       "gameplay": {
+        "template": "court",
+        "params": {
+         "goal": "隔着青绫步障替小叔王献之与客人辩论，把客人说得理屈",
+         "beats": [
+          "listen",
+          "argue",
+          "win"
+         ],
+         "failTo": "l.buzhang",
+         "grades": [
+          "史识"
+         ]
+        }
+       },
+       "next": [
+        "l.end"
+       ],
+       "sources": [
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "贤媛",
+         "notes": "“不意天壤之中，乃有王郎！”"
+        }
+       ]
+      },
+      {
+       "id": "l.end",
+       "kind": "ending",
+       "line": "legend",
+       "ending": "end.legend",
+       "next": []
+      },
+      {
+       "id": "w.stub",
+       "kind": "ending",
+       "line": "whatif",
+       "ending": "end.whatif",
+       "next": [],
+       "notes": "首版只留入口，不做内容"
+      }
+     ]
+    },
+    "endings": [
+     {
+      "id": "end.canon",
+      "kind": "canon",
+      "title": "scene.liangjin.daoyun.end.canon",
+      "cutscene": "cutscene.liangjin.daoyun.end-canon",
+      "mergeTo": "anchor.liangjin.jiemian",
+      "sources": [
+       {
+        "kind": "canon",
+        "title": "晋书",
+        "section": "列女传"
+       },
+       {
+        "kind": "biji",
+        "title": "世说新语",
+        "section": "言语"
+       },
+       {
+        "kind": "biji",
+        "title": "世说新语",
+        "section": "贤媛"
+       }
+      ]
+     },
+     {
+      "id": "end.legend",
+      "title": "scene.liangjin.daoyun.end.legend",
+      "cutscene": "cutscene.liangjin.daoyun.end-legend",
+      "sources": [
+       {
+        "kind": "biji",
+        "title": "世说新语",
+        "section": "贤媛",
+        "notes": "“不意天壤之中，乃有王郎！”"
+       }
+      ],
+      "kind": "legend",
+      "mergeTo": "anchor.liangjin.jiemian",
+      "notes": "野史线结局与正史出口一致，属于汇流"
+     },
+     {
+      "id": "end.whatif",
+      "kind": "divergent",
+      "title": "scene.liangjin.daoyun.end.whatif",
+      "archive": "yiwenlu",
+      "sources": []
+     }
+    ],
+    "coda": {
+     "compare": [
+      {
+       "topic": "咏絮",
+       "canon": "《世说新语·言语》：撒盐空中差可拟 / 未若柳絮因风起",
+       "legend": "后世以“咏絮之才”称女子之才",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "列女传"
+        },
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "言语"
+        },
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "贤媛"
+        },
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "贤媛",
+         "notes": "“不意天壤之中，乃有王郎！”"
+        }
+       ]
+      },
+      {
+       "topic": "孙恩之难",
+       "canon": "《晋书·列女传》：抽刃出门，手杀数人",
+       "legend": "《晋书·王羲之传》附凝之：凝之不设备，为孙恩所害",
+       "sources": [
+        {
+         "kind": "canon",
+         "title": "晋书",
+         "section": "列女传"
+        },
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "言语"
+        },
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "贤媛"
+        },
+        {
+         "kind": "biji",
+         "title": "世说新语",
+         "section": "贤媛",
+         "notes": "“不意天壤之中，乃有王郎！”"
+        }
+       ]
+      }
+     ],
+     "unlocks": {
+      "cards": [
+       "event.daoyun",
+       "person.xiedaoyun"
+      ],
+      "seal": "seal.daoyun"
+     }
+    },
+    "verify": "pending",
+    "reviewers": {
+     "history": null,
+     "copyright": null
+    }
+   },
+   "opening": {
+    "format": "inkgames.cutscene",
+    "version": 1,
+    "id": "cutscene.liangjin.daoyun.opening",
+    "canvas": {
+     "width": 1280,
+     "height": 720,
+     "paper": [
+      218,
+      212,
+      198
+     ],
+     "seed": 79697
+    },
+    "clock": {
+     "fps": 60,
+     "mode": "frame"
+    },
+    "durationFrames": 5400,
+    "layers": [
+     {
+      "id": "far",
+      "z": -80,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "terrain",
+      "z": -20,
+      "kind": "terrain",
+      "transparent": true,
+      "note": "地形网格，墨散动态纹理（新引擎）"
+     },
+     {
+      "id": "sheet",
+      "z": 0,
+      "kind": "inkPlane",
+      "paper": true
+     },
+     {
+      "id": "actors",
+      "z": 40,
+      "kind": "inkPlane",
+      "transparent": true
+     },
+     {
+      "id": "overlay",
+      "z": 120,
+      "kind": "screen",
+      "transparent": true
+     }
+    ],
+    "shots": [
+     {
+      "id": "s1",
+      "from": 0,
+      "to": 600,
+      "note": "谢家庭院，大雪纷纷，几个孩子围着叔父讲论文义"
+     },
+     {
+      "id": "s2",
+      "from": 600,
+      "to": 1560,
+      "note": "叔父问：白雪纷纷何所似？一个男孩说：撒盐空中差可拟"
+     },
+     {
+      "id": "s3",
+      "from": 1560,
+      "to": 3000,
+      "note": "一个女孩答：未若柳絮因风起"
+     },
+     {
+      "id": "s4",
+      "from": 3000,
+      "to": 4680,
+      "note": "四十年后，会稽城破，火光中她抽出一把刀，带着婢女冲出门"
+     },
+     {
+      "id": "s5",
+      "from": 4680,
+      "to": 5400,
+      "note": "敌首面前，她抱着外孙站定：事在王门，何关他族"
+     }
+    ],
+    "tracks": {
+     "strokes": [
+      {
+       "at": 0,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           300,
+           120
+          ],
+          [
+           300,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 90,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "sword.ridge",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           980,
+           120
+          ],
+          [
+           980,
+           600
+          ]
+         ]
+        },
+        "speed": 11
+       },
+       "label": "殿柱"
+      },
+      {
+       "at": 120,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "banner.gust",
+        "color": "white",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           120,
+           200
+          ],
+          [
+           300,
+           220
+          ],
+          [
+           520,
+           180
+          ],
+          [
+           760,
+           230
+          ],
+          [
+           1000,
+           190
+          ],
+          [
+           1180,
+           210
+          ]
+         ]
+        },
+        "speed": 14
+       },
+       "label": "雪"
+      },
+      {
+       "at": 180,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           220,
+           130
+          ],
+          [
+           640,
+           70
+          ],
+          [
+           1060,
+           130
+          ]
+         ]
+        },
+        "speed": 6
+       },
+       "label": "屋檐"
+      },
+      {
+       "at": 240,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 360,
+         "y": 540,
+         "pose": 0,
+         "variant": 1,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 270,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 520,
+         "y": 540,
+         "pose": 1,
+         "variant": 2,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 300,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 680,
+         "y": 540,
+         "pose": 0,
+         "variant": 3,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 330,
+       "layer": "actors",
+       "mode": "instant",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 840,
+         "y": 540,
+         "pose": 1,
+         "variant": 4,
+         "scale": 0.6
+        }
+       },
+       "label": "众人"
+      },
+      {
+       "at": 360,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 300,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 4
+        }
+       },
+       "label": "谢安"
+      },
+      {
+       "at": 660,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "banner.gust",
+        "color": "white",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           120,
+           200
+          ],
+          [
+           300,
+           220
+          ],
+          [
+           520,
+           180
+          ],
+          [
+           760,
+           230
+          ],
+          [
+           1000,
+           190
+          ],
+          [
+           1180,
+           210
+          ]
+         ]
+        },
+        "speed": 14
+       },
+       "label": "雪"
+      },
+      {
+       "at": 940,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "谢朗"
+      },
+      {
+       "at": 1220,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "谢安"
+      },
+      {
+       "at": 1620,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "banner.gust",
+        "color": "white",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           120,
+           200
+          ],
+          [
+           300,
+           220
+          ],
+          [
+           520,
+           180
+          ],
+          [
+           760,
+           230
+          ],
+          [
+           1000,
+           190
+          ],
+          [
+           1180,
+           210
+          ]
+         ]
+        },
+        "speed": 14
+       },
+       "label": "雪"
+      },
+      {
+       "at": 2280,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 820,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 2
+        }
+       },
+       "label": "谢道韫"
+      },
+      {
+       "at": 3060,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "dark_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           80,
+           470
+          ],
+          [
+           80,
+           430
+          ],
+          [
+           140,
+           430
+          ],
+          [
+           140,
+           450
+          ],
+          [
+           200,
+           450
+          ],
+          [
+           200,
+           430
+          ],
+          [
+           260,
+           430
+          ],
+          [
+           260,
+           450
+          ],
+          [
+           1020,
+           450
+          ],
+          [
+           1020,
+           430
+          ],
+          [
+           1080,
+           430
+          ],
+          [
+           1080,
+           450
+          ],
+          [
+           1200,
+           450
+          ],
+          [
+           1200,
+           470
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "城墙雉堞"
+      },
+      {
+       "at": 3450,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "ink-bomb",
+        "parts": [
+         "burst",
+         "spill"
+        ],
+        "placement": {
+         "x": 980,
+         "y": 500
+        }
+       },
+       "label": "火"
+      },
+      {
+       "at": 3840,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "blade",
+        "placement": {
+         "x": 560,
+         "y": 480
+        }
+       },
+       "label": "blade"
+      },
+      {
+       "at": 4230,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 300,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 4
+        }
+       },
+       "label": "谢道韫"
+      },
+      {
+       "at": 4740,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "landscape.post",
+        "color": "dark_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           80,
+           470
+          ],
+          [
+           80,
+           430
+          ],
+          [
+           140,
+           430
+          ],
+          [
+           140,
+           450
+          ],
+          [
+           200,
+           450
+          ],
+          [
+           200,
+           430
+          ],
+          [
+           260,
+           430
+          ],
+          [
+           260,
+           450
+          ],
+          [
+           1020,
+           450
+          ],
+          [
+           1020,
+           430
+          ],
+          [
+           1080,
+           430
+          ],
+          [
+           1080,
+           450
+          ],
+          [
+           1200,
+           450
+          ],
+          [
+           1200,
+           470
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "城墙雉堞"
+      },
+      {
+       "at": 4860,
+       "layer": "sheet",
+       "mode": "live",
+       "source": {
+        "brush": "ink-bomb.spill",
+        "color": "medium_gray",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           200,
+           500
+          ],
+          [
+           420,
+           380
+          ],
+          [
+           640,
+           420
+          ],
+          [
+           900,
+           300
+          ],
+          [
+           1100,
+           340
+          ]
+         ]
+        },
+        "speed": 5
+       },
+       "label": "烟"
+      },
+      {
+       "at": 4980,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 640,
+         "y": 520,
+         "pose": 0,
+         "mirror": false,
+         "variant": 3
+        }
+       },
+       "label": "谢道韫"
+      },
+      {
+       "at": 5100,
+       "layer": "actors",
+       "mode": "live",
+       "source": {
+        "prop": "figure",
+        "placement": {
+         "x": 300,
+         "y": 520,
+         "pose": 1,
+         "mirror": true,
+         "variant": 4
+        }
+       },
+       "label": "孙恩"
+      },
+      {
+       "at": 5220,
+       "layer": "overlay",
+       "mode": "live",
+       "source": {
+        "brush": "sword.slash",
+        "color": "black",
+        "path": {
+         "type": "polyline",
+         "points": [
+          [
+           380,
+           420
+          ],
+          [
+           640,
+           380
+          ],
+          [
+           900,
+           360
+          ]
+         ]
+        },
+        "speed": 22
+       },
+       "label": "咏絮"
+      }
+     ],
+     "camera": [
+      {
+       "at": 0,
+       "x": 0,
+       "y": 0,
+       "zoom": 1,
+       "ease": "linear",
+       "label": "still"
+      },
+      {
+       "at": 600,
+       "x": -40,
+       "y": -10,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 1560,
+       "x": 30,
+       "y": 0,
+       "zoom": 1.08,
+       "ease": "inOutSine",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.4
+       },
+       "label": "push"
+      },
+      {
+       "at": 3000,
+       "x": 40,
+       "y": -10,
+       "zoom": 1,
+       "ease": "inOutSine",
+       "shake": {
+        "amp": 2,
+        "frames": 120
+       },
+       "label": "shake"
+      },
+      {
+       "at": 4680,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "shake": {
+        "amp": 2,
+        "frames": 60
+       },
+       "label": "climax"
+      },
+      {
+       "at": 4740,
+       "x": 0,
+       "y": 0,
+       "zoom": 1.1,
+       "ease": "outQuad",
+       "dof": {
+        "focusZ": 40,
+        "blur": 0.6
+       },
+       "label": "定格前推近"
+      }
+     ],
+     "text": [
+      {
+       "at": 120,
+       "until": 560,
+       "kind": "title",
+       "key": "scene.liangjin.daoyun.title",
+       "style": "brush-calligraphy",
+       "orientation": "vertical",
+       "x": 1120,
+       "y": 120
+      },
+      {
+       "at": 360,
+       "until": 560,
+       "kind": "seal",
+       "key": "scene.liangjin.daoyun.when",
+       "style": "seal",
+       "x": 1180,
+       "y": 420
+      },
+      {
+       "at": 640,
+       "until": 1000,
+       "kind": "subtitle",
+       "vo": "vo.01"
+      },
+      {
+       "at": 1000,
+       "until": 1540,
+       "kind": "subtitle",
+       "vo": "vo.02"
+      },
+      {
+       "at": 1860,
+       "until": 2640,
+       "kind": "subtitle",
+       "vo": "vo.03"
+      },
+      {
+       "at": 2700,
+       "until": 3000,
+       "kind": "caption",
+       "key": "scene.liangjin.daoyun.quote",
+       "style": "kaiti",
+       "orientation": "vertical",
+       "x": 160,
+       "y": 120,
+       "source": {
+        "kind": "biji",
+        "title": "世说新语",
+        "section": "言语"
+       }
+      },
+      {
+       "at": 3300,
+       "until": 4600,
+       "kind": "subtitle",
+       "vo": "vo.04"
+      },
+      {
+       "at": 4800,
+       "until": 5400,
+       "kind": "subtitle",
+       "vo": "vo.05"
+      }
+     ],
+     "effects": [
+      {
+       "at": 0,
+       "kind": "fade",
+       "from": 0,
+       "to": 1,
+       "frames": 90
+      },
+      {
+       "at": 3510,
+       "kind": "distort",
+       "layer": "sheet",
+       "params": {
+        "displacementB": 16,
+        "displacementC": 40,
+        "extent": "frame"
+       },
+       "frames": 90
+      },
+      {
+       "at": 3880,
+       "kind": "metallic",
+       "layer": "actors",
+       "target": "lastStroke",
+       "params": {
+        "size": 12
+       }
+      },
+      {
+       "at": 4700,
+       "kind": "mask",
+       "layer": "sheet",
+       "shape": {
+        "rect": [
+         0,
+         0,
+         1280,
+         720
+        ]
+       },
+       "params": {
+        "vignette": 0.35
+       }
+      },
+      {
+       "at": 5280,
+       "kind": "freeze"
+      }
+     ],
+     "audio": [
+      {
+       "at": 0,
+       "bus": "bgm",
+       "asset": "audio/bgm/guqin.ogg",
+       "gainDb": -12,
+       "fadeInFrames": 120,
+       "loop": true
+      },
+      {
+       "at": 0,
+       "bus": "amb",
+       "asset": "audio/amb/wind-low.ogg",
+       "gainDb": -20,
+       "loop": true
+      },
+      {
+       "at": 300,
+       "bus": "sfx",
+       "asset": "audio/sfx/silk-rustle.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 600,
+       "bus": "amb",
+       "asset": "audio/amb/wind-low.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 640,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/daoyun-01.ogg",
+       "key": "vo.01",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1000,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/daoyun-02.ogg",
+       "key": "vo.02",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 1080,
+       "bus": "sfx",
+       "asset": "audio/sfx/silence.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 1560,
+       "bus": "amb",
+       "asset": "audio/amb/wind-chime.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 1860,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/daoyun-03.ogg",
+       "key": "vo.03",
+       "duck": {
+        "bus": "bgm",
+        "db": -8
+       }
+      },
+      {
+       "at": 2280,
+       "bus": "sfx",
+       "asset": "audio/sfx/wind-chime.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 3000,
+       "bus": "amb",
+       "asset": "audio/amb/fire.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 3000,
+       "bus": "bgm",
+       "action": "stop",
+       "fadeOutFrames": 180
+      },
+      {
+       "at": 3300,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/daoyun-04.ogg",
+       "key": "vo.04"
+      },
+      {
+       "at": 3840,
+       "bus": "sfx",
+       "asset": "audio/sfx/blade.ogg",
+       "gainDb": -6
+      },
+      {
+       "at": 4680,
+       "bus": "amb",
+       "asset": "audio/amb/wind-after.ogg",
+       "gainDb": -20,
+       "loop": true,
+       "crossfadeFrames": 120
+      },
+      {
+       "at": 4720,
+       "bus": "sfx",
+       "asset": "audio/sfx/blade.ogg",
+       "gainDb": -3
+      },
+      {
+       "at": 4800,
+       "bus": "vo",
+       "asset": "audio/vo/zh-Hans/daoyun-05.ogg",
+       "key": "vo.05"
+      },
+      {
+       "at": 5040,
+       "bus": "sfx",
+       "asset": "audio/sfx/blade.ogg",
+       "gainDb": -6
+      }
+     ],
+     "sync": [
+      {
+       "id": "sync.vo02",
+       "at": 1540,
+       "waitFor": "vo-end",
+       "vo": "vo.02",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.vo04",
+       "at": 4600,
+       "waitFor": "vo-end",
+       "vo": "vo.04",
+       "maxWaitFrames": 120
+      },
+      {
+       "id": "sync.fork",
+       "at": 5400,
+       "waitFor": "input"
+      }
+     ]
+    },
+    "bake": {
+     "allowed": true,
+     "keyframes": [
+      600,
+      1560,
+      3000,
+      4680
+     ]
+    }
+   },
+   "strings": {
+    "locale": "zh-Hans",
+    "strings": {
+     "scene.liangjin.daoyun.title": "咏絮之才",
+     "scene.liangjin.daoyun.subtitle": "谢道韫",
+     "scene.liangjin.daoyun.when": "咏絮",
+     "vo.01": "一个下雪的日子，太傅谢安把子侄们聚在一起讲论文义。雪下得急了，谢安高兴地问：白雪纷纷何所似？",
+     "vo.02": "侄子谢朗说：撒盐空中差可拟。",
+     "vo.03": "侄女谢道韫说：未若柳絮因风起。谢安大笑，十分高兴。",
+     "vo.04": "谢道韫后来嫁给王羲之的儿子王凝之。399 年，孙恩起兵攻会稽，身为会稽内史的王凝之信奉五斗米道，不设防备，与几个儿子都被杀了。谢道韫听说敌兵将至，神色自若，命婢女抬着肩舆，自己抽刀出门，亲手杀了几个人，才被俘获。",
+     "vo.05": "她的外孙刘涛当时只有几岁，孙恩要杀他。谢道韫说——",
+     "scene.liangjin.daoyun.quote": "未若柳絮因风起。",
+     "scene.liangjin.daoyun.fork.prompt": "咏絮之才——依《晋书》直书，还是听轶事「世说新语·贤媛」？",
+     "anchor.yongxu": "谢安雪日问“何所似”，道韫答以柳絮",
+     "anchor.jiemian": "道韫持刃杀数人，被执，孙恩为之改容，不害其外孙",
+     "scene.liangjin.daoyun.pick.canon": "正史 · 《晋书》所载",
+     "scene.liangjin.daoyun.canon.intro": "一个下雪天，一个女孩说出了比兄长更好的比喻。四十年后，她提着刀走出了被攻破的会稽城。",
+     "scene.liangjin.daoyun.end.canon": "谢道韫说：“事在王门，何关他族！此小儿是外孙，必欲加诛，宁先见杀。”孙恩虽然凶狠，也为之改容，没有杀那个孩子。此后她寡居会稽，家中整肃，太守刘柳慕名求见，她素髻端坐，谈议清雅，刘柳退而叹服。",
+     "scene.liangjin.daoyun.pick.legend": "轶事 · 世说新语·贤媛",
+     "scene.liangjin.daoyun.legend.disclaimer": "以下取《世说新语·贤媛》所载谢道韫婚后的怨言：她嫁王凝之后回娘家，大为不悦，说想不到天地之间竟有王郎这样的人。《世说》多录名士轶事，记言可信度不一。",
+     "scene.liangjin.daoyun.legend.intro": "世说新语里说，谢道韫嫁到王家以后，回娘家时闷闷不乐。",
+     "scene.liangjin.daoyun.end.legend": "她数了一遍自家叔伯兄弟的名士，说：不意天壤之中，乃有王郎！这句抱怨与“柳絮因风起”一起，成了谢道韫最为人所知的两句话。",
+     "scene.liangjin.daoyun.pick.whatif": "推演 · 若王凝之设防（未开放）",
+     "scene.liangjin.daoyun.end.whatif": "异闻 · 未开放"
+    }
+   },
+   "cast": [
+    {
+     "id": "xiedaoyun",
+     "name": "谢道韫",
+     "title": "谢奕之女，王凝之之妻",
+     "camp": "晋",
+     "type": "other",
+     "bio": "雪日咏絮；孙恩之乱持刃出门杀数人"
+    },
+    {
+     "id": "xiean_d",
+     "name": "谢安",
+     "title": "道韫之叔，太傅",
+     "camp": "晋",
+     "type": "minister",
+     "bio": "雪日讲论文义，问“白雪纷纷何所似”"
+    },
+    {
+     "id": "xielang",
+     "name": "谢朗",
+     "title": "道韫从兄，小字胡儿",
+     "camp": "晋",
+     "type": "other",
+     "bio": "答“撒盐空中差可拟”"
+    },
+    {
+     "id": "wangningzhi",
+     "name": "王凝之",
+     "title": "王羲之之子，会稽内史",
+     "camp": "晋",
+     "type": "minister",
+     "bio": "信五斗米道，不设备，被孙恩所杀"
+    },
+    {
+     "id": "sunen",
+     "name": "孙恩",
+     "title": "五斗米道首领",
+     "camp": "晋",
+     "type": "other",
+     "bio": "攻陷会稽，杀王凝之"
+    }
+   ],
+   "relations": [
+    {
+     "from": "xiean_d",
+     "to": "xiedaoyun",
+     "relation": "叔侄",
+     "type": "family",
+     "directed": true
+    },
+    {
+     "from": "xiedaoyun",
+     "to": "wangningzhi",
+     "relation": "夫妻",
+     "type": "family"
+    },
+    {
+     "from": "sunen",
+     "to": "wangningzhi",
+     "relation": "杀之",
+     "type": "rival"
+    }
+   ],
+   "artPrompts": [
+    {
+     "id": "liangjin.daoyun.sheet.cast.1",
+     "category": "cast",
+     "categoryLabel": "人物立绘",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 3,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "liangjin.daoyun.art.cast.xiedaoyun",
+       "name": "谢道韫（谢奕之女，王凝之之妻）",
+       "kind": "figure",
+       "note": "晋·其他",
+       "ref": {
+        "prop": "figure",
+        "actor": "xiedaoyun"
+       }
+      },
+      {
+       "slot": 2,
+       "id": "liangjin.daoyun.art.cast.xiean_d",
+       "name": "谢安（道韫之叔，太傅）",
+       "kind": "figure",
+       "note": "晋·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "xiean_d"
+       }
+      },
+      {
+       "slot": 3,
+       "id": "liangjin.daoyun.art.cast.xielang",
+       "name": "谢朗（道韫从兄，小字胡儿）",
+       "kind": "figure",
+       "note": "晋·其他",
+       "ref": {
+        "prop": "figure",
+        "actor": "xielang"
+       }
+      },
+      {
+       "slot": 4,
+       "id": "liangjin.daoyun.art.cast.wangningzhi",
+       "name": "王凝之（王羲之之子，会稽内史）",
+       "kind": "figure",
+       "note": "晋·文臣",
+       "ref": {
+        "prop": "figure",
+        "actor": "wangningzhi"
+       }
+      },
+      {
+       "slot": 5,
+       "id": "liangjin.daoyun.art.cast.sunen",
+       "name": "孙恩（五斗米道首领）",
+       "kind": "figure",
+       "note": "晋·其他",
+       "ref": {
+        "prop": "figure",
+        "actor": "sunen"
+       }
+      }
+     ],
+     "prompt": "黑白红武侠水墨剪影素材图（人物立绘），题材：咏絮之才·谢道韫（399 年）。\n画风：高反差黑白红武侠水墨剪影风（类《影之刃》，简化版）——大块黑色剪影与平涂灰阶，粗笔棱角边缘，枯笔飞白；少纹理、少装饰；色板只用黑白红：墨黑 #141414、焦灰 #3a3a3a、中灰 #6e6e6c、淡灰 #a8a8a4、雾灰 #d2d1cc、纸白 #eceae4、朱砂红 #b3241c；朱砂红是唯一的强调色，只用于血、落日、旗帜与印章，单帧面积不超过一成。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 谢道韫（谢奕之女，王凝之之妻）（晋·其他）；2. 谢安（道韫之叔，太傅）（晋·文臣）；3. 谢朗（道韫从兄，小字胡儿）（晋·其他）。\n第 2 行：4. 王凝之（王羲之之子，会稽内史）（晋·文臣）；5. 孙恩（五斗米道首领）（晋·其他）；6. 留空。\n排版参考尺寸：1536×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏, 全彩, 多色, 粉彩, 马卡龙色, Q 版, 萌系, 大头娃娃, 精细繁复纹理, 大量渐变的 CG 质感, 金色高光, 蒸汽朋克机械, 细密界画线条, 复杂五官",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "liangjin.daoyun.sheet.props.1",
+     "category": "props",
+     "categoryLabel": "道具器物",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 2,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "liangjin.daoyun.art.props.1",
+       "name": "大刀",
+       "kind": "prop",
+       "note": "厚背大刀，刃口留白，刀柄缠绳",
+       "ref": {
+        "prop": "blade"
+       }
+      }
+     ],
+     "prompt": "黑白红武侠水墨剪影素材图（道具器物），题材：咏絮之才·谢道韫（399 年）。\n画风：高反差黑白红武侠水墨剪影风（类《影之刃》，简化版）——大块黑色剪影与平涂灰阶，粗笔棱角边缘，枯笔飞白；少纹理、少装饰；色板只用黑白红：墨黑 #141414、焦灰 #3a3a3a、中灰 #6e6e6c、淡灰 #a8a8a4、雾灰 #d2d1cc、纸白 #eceae4、朱砂红 #b3241c；朱砂红是唯一的强调色，只用于血、落日、旗帜与印章，单帧面积不超过一成。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：2×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 大刀（厚背大刀，刃口留白，刀柄缠绳）；2. 留空。\n第 2 行：3. 留空；4. 留空。\n排版参考尺寸：1024×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏, 全彩, 多色, 粉彩, 马卡龙色, Q 版, 萌系, 大头娃娃, 精细繁复纹理, 大量渐变的 CG 质感, 金色高光, 蒸汽朋克机械, 细密界画线条, 复杂五官",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1024,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "liangjin.daoyun.sheet.scenery.1",
+     "category": "scenery",
+     "categoryLabel": "场景环境",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 4,
+      "rows": 3
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "liangjin.daoyun.art.scenery.1",
+       "name": "远山（淡墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 2,
+       "id": "liangjin.daoyun.art.scenery.2",
+       "name": "近坡（中墨）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 3,
+       "id": "liangjin.daoyun.art.scenery.3",
+       "name": "土坡地线",
+       "kind": "scenery"
+      },
+      {
+       "slot": 4,
+       "id": "liangjin.daoyun.art.scenery.4",
+       "name": "草丛（枯笔）",
+       "kind": "scenery"
+      },
+      {
+       "slot": 5,
+       "id": "liangjin.daoyun.art.scenery.5",
+       "name": "军营帐幕",
+       "kind": "scenery"
+      },
+      {
+       "slot": 6,
+       "id": "liangjin.daoyun.art.scenery.6",
+       "name": "旌旗阵列",
+       "kind": "scenery"
+      },
+      {
+       "slot": 7,
+       "id": "liangjin.daoyun.art.scenery.7",
+       "name": "拒马鹿角",
+       "kind": "scenery"
+      },
+      {
+       "slot": 8,
+       "id": "liangjin.daoyun.art.scenery.8",
+       "name": "殿柱",
+       "kind": "scenery"
+      },
+      {
+       "slot": 9,
+       "id": "liangjin.daoyun.art.scenery.9",
+       "name": "屋檐",
+       "kind": "scenery"
+      },
+      {
+       "slot": 10,
+       "id": "liangjin.daoyun.art.scenery.10",
+       "name": "城墙雉堞",
+       "kind": "scenery"
+      }
+     ],
+     "prompt": "黑白红武侠水墨剪影素材图（场景环境），题材：咏絮之才·谢道韫（399 年）。\n画风：高反差黑白红武侠水墨剪影风（类《影之刃》，简化版）——大块黑色剪影与平涂灰阶，粗笔棱角边缘，枯笔飞白；少纹理、少装饰；色板只用黑白红：墨黑 #141414、焦灰 #3a3a3a、中灰 #6e6e6c、淡灰 #a8a8a4、雾灰 #d2d1cc、纸白 #eceae4、朱砂红 #b3241c；朱砂红是唯一的强调色，只用于血、落日、旗帜与印章，单帧面积不超过一成。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：4×3 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 远山（淡墨）；2. 近坡（中墨）；3. 土坡地线；4. 草丛（枯笔）。\n第 2 行：5. 军营帐幕；6. 旌旗阵列；7. 拒马鹿角；8. 殿柱。\n第 3 行：9. 屋檐；10. 城墙雉堞；11. 留空；12. 留空。\n排版参考尺寸：2048×1536 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏, 全彩, 多色, 粉彩, 马卡龙色, Q 版, 萌系, 大头娃娃, 精细繁复纹理, 大量渐变的 CG 质感, 金色高光, 蒸汽朋克机械, 细密界画线条, 复杂五官",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       2048,
+       1536
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    },
+    {
+     "id": "liangjin.daoyun.sheet.effects.1",
+     "category": "effects",
+     "categoryLabel": "水墨特效",
+     "segment": 1,
+     "segmentsInCategory": 1,
+     "grid": {
+      "cols": 3,
+      "rows": 2
+     },
+     "assets": [
+      {
+       "slot": 1,
+       "id": "liangjin.daoyun.art.effects.1",
+       "name": "泼墨墨点飞溅",
+       "kind": "fx"
+      },
+      {
+       "slot": 2,
+       "id": "liangjin.daoyun.art.effects.2",
+       "name": "飞白笔触",
+       "kind": "fx"
+      },
+      {
+       "slot": 3,
+       "id": "liangjin.daoyun.art.effects.3",
+       "name": "刀光斩击",
+       "kind": "fx"
+      },
+      {
+       "slot": 4,
+       "id": "liangjin.daoyun.art.effects.4",
+       "name": "血点（朱红，克制）",
+       "kind": "fx"
+      },
+      {
+       "slot": 5,
+       "id": "liangjin.daoyun.art.effects.5",
+       "name": "火",
+       "kind": "fx",
+       "note": "过场笔画所绘"
+      },
+      {
+       "slot": 6,
+       "id": "liangjin.daoyun.art.effects.6",
+       "name": "烟",
+       "kind": "fx",
+       "note": "过场笔画所绘"
+      }
+     ],
+     "prompt": "黑白红武侠水墨剪影素材图（水墨特效），题材：咏絮之才·谢道韫（399 年）。\n画风：高反差黑白红武侠水墨剪影风（类《影之刃》，简化版）——大块黑色剪影与平涂灰阶，粗笔棱角边缘，枯笔飞白；少纹理、少装饰；色板只用黑白红：墨黑 #141414、焦灰 #3a3a3a、中灰 #6e6e6c、淡灰 #a8a8a4、雾灰 #d2d1cc、纸白 #eceae4、朱砂红 #b3241c；朱砂红是唯一的强调色，只用于血、落日、旗帜与印章，单帧面积不超过一成。\n背景：纯透明（alpha 通道；无纸纹、无底色、无投影、无环境光），每格可整格抠图。\n版式：3×2 均匀网格，自上而下、自左而右排列；每格只放一件完整独立素材，居中等大、四周留白、互不重叠、风格统一。\n清单：\n第 1 行：1. 泼墨墨点飞溅；2. 飞白笔触；3. 刀光斩击。\n第 2 行：4. 血点（朱红，克制）；5. 火（过场笔画所绘）；6. 烟（过场笔画所绘）。\n排版参考尺寸：1536×1024 像素，每格按 512×512 切分；实际生成尺寸以所用服务返回值为准，裁切前须确认比例与透明通道。只有墨线与墨块，不加任何文字、书法、印章、边框、网格线、水印。",
+     "negative": "文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏, 全彩, 多色, 粉彩, 马卡龙色, Q 版, 萌系, 大头娃娃, 精细繁复纹理, 大量渐变的 CG 质感, 金色高光, 蒸汽朋克机械, 细密界画线条, 复杂五官",
+     "spec": {
+      "model": "gpt-image-2.5",
+      "apiVerified": false,
+      "sizePx": [
+       1536,
+       1024
+      ],
+      "cellPx": 512,
+      "background": "transparent",
+      "cutout": true
+     }
+    }
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 73,
+    "style": {
+     "zh": "高反差黑白红武侠水墨剪影风（类《影之刃》，简化版）：纸白或浅灰宣纸底，大块平涂、少纹理；人物为高反差黑色剪影，粗笔棱角边缘，枯笔飞白拖尾，面部几乎不画五官；背景只用三到四层灰阶平涂的远山、雾气、竹林与建筑剪影，大面积留白；横向侧视构图，武侠电影式的冷峻、肃杀与戏剧张力；动作以剪影姿态和运动拖影表达，命中或高潮时大块泼墨与朱红血雾喷溅；色板只用黑白红：墨黑 #141414、焦灰 #3a3a3a、中灰 #6e6e6c、淡灰 #a8a8a4、雾灰 #d2d1cc、纸白 #eceae4、朱砂红 #b3241c；朱砂红是唯一的强调色，只用于血、落日、旗帜与印章，单帧面积不超过一成。",
+     "en": "in the style of high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified): paper-white or pale grey xuan ground, big flat shapes with minimal texture; characters as high-contrast black silhouettes with bold angular brush edges and dry-brush flying-white trails, almost no facial features; backgrounds limited to three or four flat grey layers of mountains, mist, bamboo and architecture in silhouette, with generous empty space; side-view wuxia staging, dark, cold and dramatic; action told through silhouette poses and motion trails, with big splash-ink and vermilion blood-spray accents only on hits or the climax; strict black-white-red palette: ink black #141414, charcoal grey #3a3a3a, mid grey #6e6e6c, pale grey #a8a8a4, fog grey #d2d1cc, paper white #eceae4, vermilion red #b3241c; vermilion is the only strong accent, used only for blood, sun, banners and seals, under 10% of any frame."
+    },
+    "setting": {
+     "zh": "两晋 · 东晋隆安三年（399 年）。江南园林、曲水、竹林、建康城。",
+     "en": "Western and Eastern Jin (266–420), 399 CE — Jiangnan gardens, winding streams, bamboo groves, Jiankang city."
+    },
+    "characters": [
+     {
+      "id": "xiedaoyun",
+      "name": "谢道韫",
+      "nameEn": "Xie Daoyun",
+      "onScreen": true,
+      "zh": "谢道韫（晋·谢奕之女，王凝之之妻）：褒衣博带，宽衫，小冠，手执麈尾；女子衣着，依身份；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；雪日咏絮；孙恩之乱持刃出门杀数人",
+      "en": "Xie Daoyun (谢道韫) — commoner, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; female dress appropriate to rank; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance"
+     },
+     {
+      "id": "xiean_d",
+      "name": "谢安",
+      "nameEn": "Xie An",
+      "onScreen": true,
+      "zh": "谢安（晋·道韫之叔，太傅）：褒衣博带，宽衫，小冠，手执麈尾；文臣朝服与官帽，持笏或文书；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；雪日讲论文义，问“白雪纷纷何所似”",
+      "en": "Xie An (谢安) — minister, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; civil official's court robe and cap, holding a tablet or documents; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance"
+     },
+     {
+      "id": "xielang",
+      "name": "谢朗",
+      "nameEn": "Xie Lang",
+      "onScreen": true,
+      "zh": "谢朗（晋·道韫从兄，小字胡儿）：褒衣博带，宽衫，小冠，手执麈尾；依身份的平民、工匠、侍从或兵卒衣着；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；答“撒盐空中差可拟”",
+      "en": "Xie Lang (谢朗) — commoner, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; commoner, artisan, attendant or soldier clothing as appropriate; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance"
+     },
+     {
+      "id": "sunen",
+      "name": "孙恩",
+      "nameEn": "Sun En",
+      "onScreen": true,
+      "zh": "孙恩（晋·五斗米道首领）：褒衣博带，宽衫，小冠，手执麈尾；依身份的平民、工匠、侍从或兵卒衣着；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；攻陷会稽，杀王凝之",
+      "en": "Sun En (孙恩) — commoner, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; commoner, artisan, attendant or soldier clothing as appropriate; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance"
+     },
+     {
+      "id": "wangningzhi",
+      "name": "王凝之",
+      "nameEn": "Wang Ningzhi",
+      "onScreen": false,
+      "zh": "王凝之（晋·王羲之之子，会稽内史）：褒衣博带，宽衫，小冠，手执麈尾；文臣朝服与官帽，持笏或文书；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；信五斗米道，不设备，被孙恩所杀",
+      "en": "Wang Ningzhi (王凝之) — minister, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; civil official's court robe and cap, holding a tablet or documents; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 12,
+      "figures": [
+       "xiean_d"
+      ],
+      "vo": "一个下雪的日子，太傅谢安把子侄们聚在一起讲论文义。雪下得急了，谢安高兴地问：白雪纷纷何所似？",
+      "zh": "镜头 1（0–12 秒，12 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：殿柱、屋檐；主体：谢安、众人；飞白题字「雪」｜动作：谢家庭院，大雪纷纷，几个孩子围着叔父讲论文义｜水墨效果：宣纸留白淡入；黑色立柱剪影切分画面，纵深三层灰；留白为雪，枯笔点出雪片｜声音：环境：低风；音效：衣袂摩挲｜屏幕文字：片名「咏絮之才」竖排书法与朱印「咏絮」；底部旁白字幕｜旁白：「一个下雪的日子，太傅谢安把子侄们聚在一起讲论文义。雪下得急了，谢安高兴地问：白雪纷纷何所似？」",
+      "en": "Shot 1 (0–12 s, 12 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: palace pillars, palace eaves; subject: Xie An, crowd; dry-brush calligraphy 「雪」 | Action: In the Xie courtyard, heavy snow falling, children gather round their uncle to discuss literature | Ink FX: fade in from blank xuan paper; black pillar silhouettes slicing the frame, three grey layers of depth; blank paper as snow, dry-brush flakes | Sound: ambience: low wind; SFX: rustling silk | On-screen text: vertical brush-calligraphy title 「咏絮之才」 with vermilion seal 「咏絮」; Chinese subtitles at bottom | VO (Mandarin): 「一个下雪的日子，太傅谢安把子侄们聚在一起讲论文义。雪下得急了，谢安高兴地问：白雪纷纷何所似？」"
+     },
+     {
+      "n": 2,
+      "startSec": 12,
+      "durationSec": 6,
+      "figures": [
+       "xielang",
+       "xiean_d"
+      ],
+      "vo": "侄子谢朗说：撒盐空中差可拟。",
+      "zh": "镜头 2（12–18 秒，6 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：主体：谢朗、谢安；飞白题字「雪」｜动作：叔父问：白雪纷纷何所似？一个男孩说：撒盐空中差可拟｜水墨效果：墨点放大化入本镜；留白为雪，枯笔点出雪片｜声音：环境：低风；音效：静默｜屏幕文字：底部旁白字幕｜旁白：「侄子谢朗说：撒盐空中差可拟。」",
+      "en": "Shot 2 (12–18 s, 6 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: subject: Xie Lang, Xie An; dry-brush calligraphy 「雪」 | Action: The uncle asks what the falling snow is like; a boy says: salt tossed into the air | Ink FX: an ink dot expands into the shot; blank paper as snow, dry-brush flakes | Sound: ambience: low wind; SFX: silence | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「侄子谢朗说：撒盐空中差可拟。」"
+     },
+     {
+      "n": 3,
+      "startSec": 18,
+      "durationSec": 7,
+      "figures": [
+       "xiedaoyun"
+      ],
+      "vo": "侄女谢道韫说：未若柳絮因风起。谢安大笑，十分高兴。",
+      "zh": "镜头 3（18–25 秒，7 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：主体：谢道韫；飞白题字「雪」｜动作：一个女孩答：未若柳絮因风起｜水墨效果：墨点放大化入本镜；留白为雪，枯笔点出雪片｜声音：环境：风铃；音效：风铃｜屏幕文字：引文「未若柳絮因风起。」竖排楷书；底部旁白字幕｜旁白：「侄女谢道韫说：未若柳絮因风起。谢安大笑，十分高兴。」",
+      "en": "Shot 3 (18–25 s, 7 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: subject: Xie Daoyun; dry-brush calligraphy 「雪」 | Action: A girl answers: better to say willow catkins rising on the wind | Ink FX: an ink dot expands into the shot; blank paper as snow, dry-brush flakes | Sound: ambience: wind chimes; SFX: wind chimes | On-screen text: vertical kaishu quotation 「未若柳絮因风起。」; Chinese subtitles at bottom | VO (Mandarin): 「侄女谢道韫说：未若柳絮因风起。谢安大笑，十分高兴。」"
+     },
+     {
+      "n": 4,
+      "startSec": 25,
+      "durationSec": 23,
+      "figures": [
+       "xiedaoyun"
+      ],
+      "vo": "谢道韫后来嫁给王羲之的儿子王凝之。399 年，孙恩起兵攻会稽，身为会稽内史的王凝之信奉五斗米道，不设防备，与几个儿子都被杀了。谢道韫听说敌兵将至，神色自若，命婢女抬着肩舆，自己抽刀出门，亲手杀了几个人，才被俘获。",
+      "zh": "镜头 4（25–48 秒，23 秒）｜运镜：手持式轻微震动，节奏急促｜构图：中景：城墙雉堞；主体：谢道韫、火、大刀｜动作：四十年后，会稽城破，火光中她抽出一把刀，带着婢女冲出门｜水墨效果：墨迹溅开切入；焦墨勾出城垛轮廓；平涂黑焰剪影，焰心一抹朱红；热浪与烟气扭曲；兵刃金属寒光一闪｜声音：环境：火声；音效：刀声｜屏幕文字：底部旁白字幕｜旁白：「谢道韫后来嫁给王羲之的儿子王凝之。399 年，孙恩起兵攻会稽，身为会稽内史的王凝之信奉五斗米道，不设防备，与几个儿子都被杀了。谢道韫听说敌兵将至，神色自若，命婢女抬着肩舆，自己抽刀出门，亲手杀了几个人，才被俘获。」",
+      "en": "Shot 4 (25–48 s, 23 s) | Camera: subtle handheld shake, urgent rhythm | Composition: midground: crenellated city wall; subject: Xie Daoyun, fire (splashed ink), broadsword | Action: Forty years later Kuaiji falls; amid the flames she draws a knife and charges out with her maids | Ink FX: cut in on an ink splatter; scorched-ink outline of battlements; flat black flame silhouettes with a single vermilion core; heat-haze and smoke distortion; a cold metallic glint on the blade | Sound: ambience: fire; SFX: blade | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「谢道韫后来嫁给王羲之的儿子王凝之。399 年，孙恩起兵攻会稽，身为会稽内史的王凝之信奉五斗米道，不设防备，与几个儿子都被杀了。谢道韫听说敌兵将至，神色自若，命婢女抬着肩舆，自己抽刀出门，亲手杀了几个人，才被俘获。」"
+     },
+     {
+      "n": 5,
+      "startSec": 48,
+      "durationSec": 7,
+      "figures": [
+       "xiedaoyun",
+       "sunen"
+      ],
+      "vo": "她的外孙刘涛当时只有几岁，孙恩要杀他。谢道韫说——",
+      "zh": "镜头 5（48–55 秒，7 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：城墙雉堞、烟；主体：谢道韫、孙恩；飞白题字「咏絮」｜动作：敌首面前，她抱着外孙站定：事在王门，何关他族｜水墨效果：浓墨泼满画面后切入；焦墨勾出城垛轮廓；淡墨烟气横向飘散；四角暗角收拢；画面定格成一幅水墨画；大块泼墨炸开，朱红血雾斜向喷溅后定格｜声音：环境：战后余风；音效：刀声｜屏幕文字：底部旁白字幕｜旁白：「她的外孙刘涛当时只有几岁，孙恩要杀他。谢道韫说——」",
+      "en": "Shot 5 (48–55 s, 7 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: crenellated city wall, smoke; subject: Xie Daoyun, Sun En; dry-brush calligraphy 「咏絮」 | Action: Facing the rebel leader she stands holding her grandson: this concerns the Wang house, not other clans | Ink FX: ink floods the frame, then cut; scorched-ink outline of battlements; pale ink smoke drifting sideways; vignette closing in from the corners; freeze into a still ink painting; a big splash of ink bursts and a diagonal vermilion blood-spray hangs in a freeze-frame | Sound: ambience: lingering wind after battle; SFX: blade | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「她的外孙刘涛当时只有几岁，孙恩要杀他。谢道韫说——」"
+     },
+     {
+      "n": 6,
+      "startSec": 55,
+      "durationSec": 12,
+      "figures": [
+       "xiedaoyun",
+       "sunen"
+      ],
+      "vo": "谢道韫说：“事在王门，何关他族！此小儿是外孙，必欲加诛，宁先见杀。”孙恩虽然凶狠，也为之改容，没有杀那个孩子。",
+      "zh": "镜头 6（55–67 秒，12 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：谢道韫、孙恩｜动作：正史结局：谢道韫说：“事在王门，何关他族！此小儿是外孙，必欲加诛，宁先见杀。”孙恩虽然凶狠，也为之改容，没有杀那个孩子。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「谢道韫说：“事在王门，何关他族！此小儿是外孙，必欲加诛，宁先见杀。”孙恩虽然凶狠，也为之改容，没有杀那个孩子。」",
+      "en": "Shot 6 (55–67 s, 12 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Xie Daoyun, Sun En | Action: Canonical outcome: Sun En, moved, spares the child; widowed, Xie Daoyun lives on at Kuaiji, and the governor who visits leaves in admiration of her conversation. | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「谢道韫说：“事在王门，何关他族！此小儿是外孙，必欲加诛，宁先见杀。”孙恩虽然凶狠，也为之改容，没有杀那个孩子。」"
+     },
+     {
+      "n": 7,
+      "startSec": 67,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "未若柳絮因风起。",
+      "zh": "镜头 7（67–73 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「未若柳絮因风起。」，下署《世说新语·言语》；右下角朱印「咏絮」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「未若柳絮因风起。」",
+      "en": "Shot 7 (67–73 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「未若柳絮因风起。」 signed 《世说新语·言语》; vermilion seal 「咏絮」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「未若柳絮因风起。」"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：低风、风铃、火声、战后余风；音效：衣袂摩挲、静默、风铃、刀声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: low wind, wind chimes, fire, lingering wind after battle; SFX: rustling silk, silence, wind chimes, blade; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「咏絮之才」，副题「谢道韫」，朱印「咏絮」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「未若柳絮因风起。」——《世说新语·言语》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「咏絮之才」, subtitle 「谢道韫」, vermilion seal 「咏絮」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「未若柳絮因风起。」 — 《世说新语·言语》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，全彩，多色，粉彩，马卡龙色，Q 版，萌系，大头娃娃，精细繁复纹理，大量渐变的 CG 质感，金色高光，蒸汽朋克机械，细密界画线条，复杂五官，时代错置：清代辫发与马褂、幞头与圆领袍",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, full colour, multicolour, pastel, candy colours, cute, chibi, big-head proportions, busy detailed textures, gradient-heavy CG, gold highlights, steampunk machinery, dense ruled-line detail, detailed faces, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes"
+    },
+    "narration": [
+     "一个下雪的日子，太傅谢安把子侄们聚在一起讲论文义。雪下得急了，谢安高兴地问：白雪纷纷何所似？",
+     "侄子谢朗说：撒盐空中差可拟。",
+     "侄女谢道韫说：未若柳絮因风起。谢安大笑，十分高兴。",
+     "谢道韫后来嫁给王羲之的儿子王凝之。399 年，孙恩起兵攻会稽，身为会稽内史的王凝之信奉五斗米道，不设防备，与几个儿子都被杀了。谢道韫听说敌兵将至，神色自若，命婢女抬着肩舆，自己抽刀出门，亲手杀了几个人，才被俘获。",
+     "她的外孙刘涛当时只有几岁，孙恩要杀他。谢道韫说——",
+     "谢道韫说：“事在王门，何关他族！此小儿是外孙，必欲加诛，宁先见杀。”孙恩虽然凶狠，也为之改容，没有杀那个孩子。",
+     "未若柳絮因风起。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】两晋 · 咏絮之才（谢道韫）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 73 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：高反差黑白红武侠水墨剪影风（类《影之刃》，简化版）：纸白或浅灰宣纸底，大块平涂、少纹理；人物为高反差黑色剪影，粗笔棱角边缘，枯笔飞白拖尾，面部几乎不画五官；背景只用三到四层灰阶平涂的远山、雾气、竹林与建筑剪影，大面积留白；横向侧视构图，武侠电影式的冷峻、肃杀与戏剧张力；动作以剪影姿态和运动拖影表达，命中或高潮时大块泼墨与朱红血雾喷溅；色板只用黑白红：墨黑 #141414、焦灰 #3a3a3a、中灰 #6e6e6c、淡灰 #a8a8a4、雾灰 #d2d1cc、纸白 #eceae4、朱砂红 #b3241c；朱砂红是唯一的强调色，只用于血、落日、旗帜与印章，单帧面积不超过一成。\n\n时代与场景：两晋 · 东晋隆安三年（399 年）。江南园林、曲水、竹林、建康城。\n\n人物：\n- 谢道韫（晋·谢奕之女，王凝之之妻）：褒衣博带，宽衫，小冠，手执麈尾；女子衣着，依身份；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；雪日咏絮；孙恩之乱持刃出门杀数人\n- 谢安（晋·道韫之叔，太傅）：褒衣博带，宽衫，小冠，手执麈尾；文臣朝服与官帽，持笏或文书；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；雪日讲论文义，问“白雪纷纷何所似”\n- 谢朗（晋·道韫从兄，小字胡儿）：褒衣博带，宽衫，小冠，手执麈尾；依身份的平民、工匠、侍从或兵卒衣着；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；答“撒盐空中差可拟”\n- 孙恩（晋·五斗米道首领）：褒衣博带，宽衫，小冠，手执麈尾；依身份的平民、工匠、侍从或兵卒衣着；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；攻陷会稽，杀王凝之\n- 王凝之（晋·王羲之之子，会稽内史）：褒衣博带，宽衫，小冠，手执麈尾；文臣朝服与官帽，持笏或文书；黑色剪影造型，只保留冠帽、袖摆、兵器与甲片的大轮廓，头身比约 1:7，姿态一眼可读；信五斗米道，不设备，被孙恩所杀\n\n分镜：\n镜头 1（0–12 秒，12 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：殿柱、屋檐；主体：谢安、众人；飞白题字「雪」｜动作：谢家庭院，大雪纷纷，几个孩子围着叔父讲论文义｜水墨效果：宣纸留白淡入；黑色立柱剪影切分画面，纵深三层灰；留白为雪，枯笔点出雪片｜声音：环境：低风；音效：衣袂摩挲｜屏幕文字：片名「咏絮之才」竖排书法与朱印「咏絮」；底部旁白字幕｜旁白：「一个下雪的日子，太傅谢安把子侄们聚在一起讲论文义。雪下得急了，谢安高兴地问：白雪纷纷何所似？」\n镜头 2（12–18 秒，6 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：主体：谢朗、谢安；飞白题字「雪」｜动作：叔父问：白雪纷纷何所似？一个男孩说：撒盐空中差可拟｜水墨效果：墨点放大化入本镜；留白为雪，枯笔点出雪片｜声音：环境：低风；音效：静默｜屏幕文字：底部旁白字幕｜旁白：「侄子谢朗说：撒盐空中差可拟。」\n镜头 3（18–25 秒，7 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：主体：谢道韫；飞白题字「雪」｜动作：一个女孩答：未若柳絮因风起｜水墨效果：墨点放大化入本镜；留白为雪，枯笔点出雪片｜声音：环境：风铃；音效：风铃｜屏幕文字：引文「未若柳絮因风起。」竖排楷书；底部旁白字幕｜旁白：「侄女谢道韫说：未若柳絮因风起。谢安大笑，十分高兴。」\n镜头 4（25–48 秒，23 秒）｜运镜：手持式轻微震动，节奏急促｜构图：中景：城墙雉堞；主体：谢道韫、火、大刀｜动作：四十年后，会稽城破，火光中她抽出一把刀，带着婢女冲出门｜水墨效果：墨迹溅开切入；焦墨勾出城垛轮廓；平涂黑焰剪影，焰心一抹朱红；热浪与烟气扭曲；兵刃金属寒光一闪｜声音：环境：火声；音效：刀声｜屏幕文字：底部旁白字幕｜旁白：「谢道韫后来嫁给王羲之的儿子王凝之。399 年，孙恩起兵攻会稽，身为会稽内史的王凝之信奉五斗米道，不设防备，与几个儿子都被杀了。谢道韫听说敌兵将至，神色自若，命婢女抬着肩舆，自己抽刀出门，亲手杀了几个人，才被俘获。」\n镜头 5（48–55 秒，7 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：城墙雉堞、烟；主体：谢道韫、孙恩；飞白题字「咏絮」｜动作：敌首面前，她抱着外孙站定：事在王门，何关他族｜水墨效果：浓墨泼满画面后切入；焦墨勾出城垛轮廓；淡墨烟气横向飘散；四角暗角收拢；画面定格成一幅水墨画；大块泼墨炸开，朱红血雾斜向喷溅后定格｜声音：环境：战后余风；音效：刀声｜屏幕文字：底部旁白字幕｜旁白：「她的外孙刘涛当时只有几岁，孙恩要杀他。谢道韫说——」\n镜头 6（55–67 秒，12 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：谢道韫、孙恩｜动作：正史结局：谢道韫说：“事在王门，何关他族！此小儿是外孙，必欲加诛，宁先见杀。”孙恩虽然凶狠，也为之改容，没有杀那个孩子。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「谢道韫说：“事在王门，何关他族！此小儿是外孙，必欲加诛，宁先见杀。”孙恩虽然凶狠，也为之改容，没有杀那个孩子。」\n镜头 7（67–73 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「未若柳絮因风起。」，下署《世说新语·言语》；右下角朱印「咏絮」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「未若柳絮因风起。」\n\n声音：背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：低风、风铃、火声、战后余风；音效：衣袂摩挲、静默、风铃、刀声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「咏絮之才」，副题「谢道韫」，朱印「咏絮」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「未若柳絮因风起。」——《世说新语·言语》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，全彩，多色，粉彩，马卡龙色，Q 版，萌系，大头娃娃，精细繁复纹理，大量渐变的 CG 质感，金色高光，蒸汽朋克机械，细密界画线条，复杂五官，时代错置：清代辫发与马褂、幞头与圆领袍",
+     "en": "[Ink-wash video prompt] Western and Eastern Jin (266–420) · Willow Catkins on the Wind: Xie Daoyun (「咏絮之才」)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 73 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: in the style of high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified): paper-white or pale grey xuan ground, big flat shapes with minimal texture; characters as high-contrast black silhouettes with bold angular brush edges and dry-brush flying-white trails, almost no facial features; backgrounds limited to three or four flat grey layers of mountains, mist, bamboo and architecture in silhouette, with generous empty space; side-view wuxia staging, dark, cold and dramatic; action told through silhouette poses and motion trails, with big splash-ink and vermilion blood-spray accents only on hits or the climax; strict black-white-red palette: ink black #141414, charcoal grey #3a3a3a, mid grey #6e6e6c, pale grey #a8a8a4, fog grey #d2d1cc, paper white #eceae4, vermilion red #b3241c; vermilion is the only strong accent, used only for blood, sun, banners and seals, under 10% of any frame.\n\nSetting: Western and Eastern Jin (266–420), 399 CE — Jiangnan gardens, winding streams, bamboo groves, Jiankang city.\n\nCharacters:\n- Xie Daoyun (谢道韫) — commoner, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; female dress appropriate to rank; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance\n- Xie An (谢安) — minister, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; civil official's court robe and cap, holding a tablet or documents; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance\n- Xie Lang (谢朗) — commoner, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; commoner, artisan, attendant or soldier clothing as appropriate; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance\n- Sun En (孙恩) — commoner, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; commoner, artisan, attendant or soldier clothing as appropriate; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance\n- Wang Ningzhi (王凝之) — minister, Jin; loose wide-sleeved robes with broad sashes, small caps, flywhisk in hand; civil official's court robe and cap, holding a tablet or documents; rendered as a black silhouette keeping only the big shapes of headgear, sleeves, weapon and armour plates, about 7 heads tall, pose readable at a glance\n\nStoryboard:\nShot 1 (0–12 s, 12 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: palace pillars, palace eaves; subject: Xie An, crowd; dry-brush calligraphy 「雪」 | Action: In the Xie courtyard, heavy snow falling, children gather round their uncle to discuss literature | Ink FX: fade in from blank xuan paper; black pillar silhouettes slicing the frame, three grey layers of depth; blank paper as snow, dry-brush flakes | Sound: ambience: low wind; SFX: rustling silk | On-screen text: vertical brush-calligraphy title 「咏絮之才」 with vermilion seal 「咏絮」; Chinese subtitles at bottom | VO (Mandarin): 「一个下雪的日子，太傅谢安把子侄们聚在一起讲论文义。雪下得急了，谢安高兴地问：白雪纷纷何所似？」\nShot 2 (12–18 s, 6 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: subject: Xie Lang, Xie An; dry-brush calligraphy 「雪」 | Action: The uncle asks what the falling snow is like; a boy says: salt tossed into the air | Ink FX: an ink dot expands into the shot; blank paper as snow, dry-brush flakes | Sound: ambience: low wind; SFX: silence | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「侄子谢朗说：撒盐空中差可拟。」\nShot 3 (18–25 s, 7 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: subject: Xie Daoyun; dry-brush calligraphy 「雪」 | Action: A girl answers: better to say willow catkins rising on the wind | Ink FX: an ink dot expands into the shot; blank paper as snow, dry-brush flakes | Sound: ambience: wind chimes; SFX: wind chimes | On-screen text: vertical kaishu quotation 「未若柳絮因风起。」; Chinese subtitles at bottom | VO (Mandarin): 「侄女谢道韫说：未若柳絮因风起。谢安大笑，十分高兴。」\nShot 4 (25–48 s, 23 s) | Camera: subtle handheld shake, urgent rhythm | Composition: midground: crenellated city wall; subject: Xie Daoyun, fire (splashed ink), broadsword | Action: Forty years later Kuaiji falls; amid the flames she draws a knife and charges out with her maids | Ink FX: cut in on an ink splatter; scorched-ink outline of battlements; flat black flame silhouettes with a single vermilion core; heat-haze and smoke distortion; a cold metallic glint on the blade | Sound: ambience: fire; SFX: blade | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「谢道韫后来嫁给王羲之的儿子王凝之。399 年，孙恩起兵攻会稽，身为会稽内史的王凝之信奉五斗米道，不设防备，与几个儿子都被杀了。谢道韫听说敌兵将至，神色自若，命婢女抬着肩舆，自己抽刀出门，亲手杀了几个人，才被俘获。」\nShot 5 (48–55 s, 7 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: crenellated city wall, smoke; subject: Xie Daoyun, Sun En; dry-brush calligraphy 「咏絮」 | Action: Facing the rebel leader she stands holding her grandson: this concerns the Wang house, not other clans | Ink FX: ink floods the frame, then cut; scorched-ink outline of battlements; pale ink smoke drifting sideways; vignette closing in from the corners; freeze into a still ink painting; a big splash of ink bursts and a diagonal vermilion blood-spray hangs in a freeze-frame | Sound: ambience: lingering wind after battle; SFX: blade | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「她的外孙刘涛当时只有几岁，孙恩要杀他。谢道韫说——」\nShot 6 (55–67 s, 12 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Xie Daoyun, Sun En | Action: Canonical outcome: Sun En, moved, spares the child; widowed, Xie Daoyun lives on at Kuaiji, and the governor who visits leaves in admiration of her conversation. | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「谢道韫说：“事在王门，何关他族！此小儿是外孙，必欲加诛，宁先见杀。”孙恩虽然凶狠，也为之改容，没有杀那个孩子。」\nShot 7 (67–73 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「未若柳絮因风起。」 signed 《世说新语·言语》; vermilion seal 「咏絮」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「未若柳絮因风起。」\n\nSound: Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: low wind, wind chimes, fire, lingering wind after battle; SFX: rustling silk, silence, wind chimes, blade; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「咏絮之才」, subtitle 「谢道韫」, vermilion seal 「咏絮」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「未若柳絮因风起。」 — 《世说新语·言语》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, full colour, multicolour, pastel, candy colours, cute, chibi, big-head proportions, busy detailed textures, gradient-heavy CG, gold highlights, steampunk machinery, dense ruled-line detail, detailed faces, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes"
+    }
+   }
+  },
+  {
    "outlineId": "10-07",
    "v1": false,
    "detail": "full",
@@ -17025,7 +21083,7 @@
     "version": 1,
     "id": "liangjin.taoqian",
     "chapter": "liangjin",
-    "order": 9,
+    "order": 11,
     "title": "scene.liangjin.taoqian.title",
     "subtitle": "scene.liangjin.taoqian.subtitle",
     "when": {
@@ -19005,7 +23063,7 @@
     "version": 1,
     "id": "liangjin.liuyu",
     "chapter": "liangjin",
-    "order": 10,
+    "order": 12,
     "title": "scene.liangjin.liuyu.title",
     "subtitle": "scene.liangjin.liuyu.subtitle",
     "when": {
