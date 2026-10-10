@@ -94,7 +94,7 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 - 运镜指令不一定被遵守，只作参考。
 - 生成器据此：高潮镜改为“缓推到近景后定格成关键帧静帧”，不做急推与震屏；朱红血雾只给刺杀、交战类高潮镜（约 26 场），其余高潮只泼墨定格；落款镜只留空纸，引文与朱印后期叠加。
 - 这些约束是 `art-style.mjs` 的 `MOTION_ZH/EN` 与 `NEG_MOTION_ZH/EN`，生成器写进每个 `videoPrompt`，校验器逐场检查。
-- 章节开场短片（每朝一支 16:9，约 40–60 秒）：剧本 `video/data/chapter-videos/<chapter>.json` → 静帧 → 图生视频 → `video/tools/build-chapter-video.py` 合成 → 查看器清单 `video/viewer/assets/chapter-videos/index.{json,js}`。流程与状态见 [chapter-videos.md](./video/docs/chapter-videos.md)；原始片段不进仓库。2026-10-10 上古一章完成。
+- 章节开场短片（每朝一支 16:9，约 40–60 秒）：剧本 `video/data/chapter-videos/<chapter>.json` → 静帧 → 图生视频 → `video/tools/build-chapter-video.py` 合成 → 查看器清单 `video/viewer/assets/chapter-videos/index.{json,js}`。合成前逐帧调色锁回黑白红色板（`chapter_grade.py`），声音全部原创合成（edge-tts 旁白 + numpy 五声配乐与环境声，−16 LUFS，`chapter_audio.py`）。流程与状态见 [chapter-videos.md](./video/docs/chapter-videos.md)；原始片段不进仓库，不出 webm。2026-10-10 上古一章完成（有声，65 秒）。
 
 ## 7. 三件套矩阵与推广路线（2026-10-10 定）
 
