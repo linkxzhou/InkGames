@@ -85,9 +85,9 @@
    "name": "楚汉 · 西汉",
    "file": "chapters/07-xihan.json",
    "span": "前 206—公元 8 年",
-   "scenes": 12,
+   "scenes": 20,
    "v1": 4,
-   "full": 12,
+   "full": 20,
    "outline": 0
   },
   {
@@ -235,9 +235,9 @@
   }
  ],
  "totals": {
-  "scenes": 229,
+  "scenes": 237,
   "v1": 66,
-  "full": 229,
+  "full": 237,
   "outline": 0
  }
 }
