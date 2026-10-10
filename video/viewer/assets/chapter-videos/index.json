@@ -61,6 +61,18 @@
    "shots": 7,
    "audio": true
   },
+  "xihan": {
+   "title": {
+    "zh": "楚汉 · 西汉",
+    "en": "Western Han"
+   },
+   "mp4": "assets/chapter-videos/xihan.mp4",
+   "poster": "assets/chapter-videos/xihan-poster.jpg",
+   "posterWebp": "assets/chapter-videos/xihan-poster.webp",
+   "durationSec": 109.04,
+   "shots": 14,
+   "audio": true
+  },
   "xizhou": {
    "title": {
     "zh": "西周",
