@@ -1352,6 +1352,17 @@
   ],
   "title": "Nine Princes Fight for the Throne: Yongzheng's Succession"
  },
+ "qing.gengzi": {
+  "end": "The court reaches Xi'an; the Boxer Protocol is signed with eleven powers for an indemnity of 450 million taels, Li Hongzhang dies two months later, and on their return the court posthumously raises Consort Zhen.",
+  "shots": [
+   "In Beijing red-turbaned Boxers pour into the streets and church roofs go up in flames",
+   "Behind the legation walls on Dongjiaomin Lane foreign soldiers block doors and windows with sandbags",
+   "Before dawn the empress dowager pins up her hair in a plain bun, changes into summer clothes and boards a common mule cart with the emperor",
+   "By a well in the palace a eunuch leads a frail young woman away",
+   "Outside the Desheng Gate the cart has barely left when white flags cover the city wall"
+  ],
+  "title": "The Boxer Year: The Court Flees West"
+ },
  "qing.hongloumeng": {
   "end": "Cao Xueqin dies poor around a New Year's Eve with the book unfinished; the eighty chapters circulate in manuscript until Cheng Weiyuan and Gao E print a 120-chapter edition in 1791, and who wrote the last forty is still debated.",
   "shots": [
@@ -1385,6 +1396,17 @@
   ],
   "title": "The Battle of the Yellow Sea: Zhiyuan"
  },
+ "qing.keju": {
+  "end": "That winter the Ministry of Education is founded and thirteen centuries of exams end; thousands of old-style scholars lose their path, some to schools, some abroad, some like Liu Dapeng keeping an empty village school.",
+  "shots": [
+   "In the Jiangnan examination hall over twenty thousand cells stretch in long rows, each just big enough for one man",
+   "An old candidate lights a candle in his cell and writes an eight-legged essay stroke by stroke",
+   "In a governor-general's office several ministers sign a memorial: while the exams last, the schools cannot rise",
+   "On a new school's sports ground students in short jackets follow their instructor in drill",
+   "In a Shanxi village a tutor closes his diary; the pupils outside the window have all gone"
+  ],
+  "title": "The End of the Exams: A Hall Used for Thirteen Centuries"
+ },
  "qing.malgaerni": {
   "end": "The embassy leaves empty-handed by way of Canton; four decades later British ships return with guns, and the boy who took the purse is among the MPs who back the war.",
   "shots": [
@@ -1417,6 +1439,17 @@
    "Five days after the retired emperor dies, Heshen is arrested"
   ],
   "title": "Southern Tours and Heshen: the Qianlong Era"
+ },
+ "qing.qiujin": {
+  "end": "Qiu Jin is executed at Xuanting Crossing in Shaoxing at dawn, barely past thirty; the next year Wu Zhiying and Xu Zihua risk their safety to bury her beside the Xiling Bridge on West Lake.",
+  "shots": [
+   "On a Japanese quay a Chinese woman in kimono with a short sword at her side steps off the boat",
+   "On the Datong school ground she rides and teaches the students to shoot",
+   "News comes from Anqing that Xu Xilin's assassination has failed and his heart has been cut out",
+   "Troops surround the school; she does not leave but sits inside waiting for them",
+   "On the interrogation paper she writes just seven characters: autumn wind, autumn rain, sorrow beyond bearing"
+  ],
+  "title": "Autumn Wind, Autumn Rain: Qiu Jin, Heroine of Jianhu"
  },
  "qing.sanfan": {
   "end": "In 1689 China and Russia sign the Treaty of Nerchinsk fixing the eastern border.",
@@ -1495,6 +1528,28 @@
   ],
   "title": "1898: the Hundred Days' Reform"
  },
+ "qing.xinyou": {
+  "end": "Sushun is seized at Miyun and beheaded at Caishikou, Zaiyuan and Duanhua ordered to kill themselves; the era name becomes Tongzhi and Empress Dowager Cixi holds power for nearly half a century.",
+  "shots": [
+   "At the sickbed in the Rehe palace eight ministers kneel in a row to hear the emperor's last words",
+   "Two young empresses dowager sit behind a screen, each holding a seal",
+   "Prince Gong arrives from Beijing for the mourning and confers in secret with the empress dowager",
+   "In autumn rain the emperor's coffin moves slowly along the mountain road while the empresses' carriages take a shortcut ahead",
+   "In Beijing the palace gate shuts and a eunuch reading the edict names three ministers"
+  ],
+  "title": "Ruling from Behind the Screen: The Xinyou Coup"
+ },
+ "qing.yangnaiwu": {
+  "end": "Ge Pinlian died of illness, not poison; Yang Naiwu and Bi Xiugu are freed, magistrate Liu Xitong is exiled to Heilongjiang and many Zhejiang officials are dismissed, while Yang returns to silkworms and Bi becomes a nun.",
+  "shots": [
+   "In a small town in Yuhang a young tofu-shop worker dies suddenly with bloody fluid at his mouth",
+   "In the county hall the ankle press tightens and a scholar finally nods",
+   "A woman with a bundle on her back walks a thousand miles to petition in Beijing",
+   "In a Shanghai newspaper office typesetters set the case into the paper issue after issue",
+   "At Haihui Temple the coffin is opened and the coroner's silver needle stays bright"
+  ],
+  "title": "Yang Naiwu and Little Cabbage: The Strangest Case of the Late Qing"
+ },
  "qing.yangzhou": {
   "end": "Shi Kefa dies defiant before Dodo; ten days of massacre follow, and his clothes are buried at Plum Blossom Ridge.",
   "shots": [
@@ -1549,6 +1604,17 @@
    "Pursuing the enemy to Lang Son"
   ],
   "title": "Zhennan Pass: Feng Zicai"
+ },
+ "qing.zuozongtang": {
+  "end": "Zuo's march backs Zeng Jize's talks in St Petersburg; the 1881 treaty recovers most of Ili, Xinjiang becomes a province in 1884, and Zuo dies in Fuzhou the next year.",
+  "shots": [
+   "At court two factions argue endlessly over the coast and the frontier",
+   "Along the Hexi Corridor column after column of soldiers farm as they advance west",
+   "Below the Tianshan Liu Jintang's army rides through the night and the cities of the south open their gates",
+   "Outside Suzhou a black-lacquered coffin is lifted onto a cart behind the army",
+   "A man of sixty-eight on horseback looks back once at Jiayu Pass"
+  ],
+  "title": "With a Coffin Beyond the Pass: Zuo Zongtang Recovers Xinjiang"
  },
  "sanguo.baima": {
   "end": "Cao Cao forbids pursuit — each serves his own lord — and Guan Yu returns to Liu Bei, keeping the title Marquis of Hanshou ever after.",
