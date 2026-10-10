@@ -47,7 +47,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "启继禹位，家天下始",
    "narration": "禹死之后，诸侯不朝益而朝启，天下自此传子。",
    "ambience": [
@@ -58,7 +58,7 @@
    "motionPrompt": "the vermilion banner ripples, incense smoke curls up from the cauldron, the kneeling rows bow slowly in a wave, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xia-01.jpg",
    "clip": "xia-01.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 2,
@@ -67,7 +67,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "少康出奔有虞",
    "narration": "浇杀夏后相，遗腹子少康长大，逃到有虞做了庖正。",
    "ambience": [
@@ -78,7 +78,7 @@
    "motionPrompt": "mist drifts along the river, his cloak and the reeds sway, he walks forward a few steps, a slow lateral pan; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xia-02.jpg",
    "clip": "xia-02.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 3,
@@ -87,7 +87,7 @@
     6,
     7
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "少康中兴",
    "narration": "他凭一成之田、一旅之众，收拾夏众，复了禹的旧业。",
    "ambience": [
@@ -98,7 +98,7 @@
    "motionPrompt": "the pennant flutters, more figures emerge slowly from the mist to join the line, clouds stream overhead; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xia-03.jpg",
    "clip": "xia-03.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 4,
@@ -107,7 +107,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "孔甲御龙",
    "narration": "孔甲好方鬼神，天降二龙，刘累学扰龙来侍奉。",
    "ambience": [
@@ -118,7 +118,7 @@
    "motionPrompt": "the dragons' coils turn slowly in the water, ink ripples spread, mist rises, a very slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xia-04.jpg",
    "clip": "xia-04.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 5,
@@ -127,7 +127,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "夏桀与妹喜",
    "narration": "桀伐有施，得妹喜，与她日夜饮酒，不理朝政。",
    "ambience": [
@@ -138,7 +138,7 @@
    "motionPrompt": "the lantern dots flicker, the pool surface ripples, silk sleeves drift, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep her silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xia-05.jpg",
    "clip": "xia-05.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 6,
@@ -147,7 +147,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "商汤誓师伐夏",
    "narration": "汤誓师伐桀，引夏民之言：时日曷丧，予及汝皆亡。",
    "ambience": [
@@ -158,7 +158,7 @@
    "motionPrompt": "banners ripple in strong wind, dust drifts across the ranks, the pale sun dims slightly, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xia-06.jpg",
    "clip": "xia-06.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 7,
@@ -167,7 +167,7 @@
     6,
     7
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "鸣条之战，夏亡",
    "narration": "战于鸣条之野，桀败走南巢，夏朝四百余年而终。",
    "ambience": [
@@ -178,7 +178,17 @@
    "motionPrompt": "the torn banner stirs in the wind, dust drifts, the red sun sinks slowly, the camera pulls back; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xia-07.jpg",
    "clip": "xia-07.mp4",
-   "status": "pending"
+   "status": "done"
   }
- ]
+ ],
+ "output": {
+  "mp4": "video/viewer/assets/chapter-videos/xia.mp4",
+  "poster": "video/viewer/assets/chapter-videos/xia-poster.jpg",
+  "durationSec": 57.83,
+  "crossfadeSec": 0.7,
+  "audio": true,
+  "narration": true,
+  "status": "done",
+  "loudnessLUFS": -16.0
+ }
 }
