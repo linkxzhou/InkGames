@@ -14,6 +14,18 @@ window.CHAPTER_VIDEOS = {
    "shots": 13,
    "audio": true
   },
+  "qin": {
+   "title": {
+    "zh": "秦",
+    "en": "Qin"
+   },
+   "mp4": "assets/chapter-videos/qin.mp4",
+   "poster": "assets/chapter-videos/qin-poster.jpg",
+   "posterWebp": "assets/chapter-videos/qin-poster.webp",
+   "durationSec": 72.42,
+   "shots": 9,
+   "audio": true
+  },
   "shang": {
    "title": {
     "zh": "商",
