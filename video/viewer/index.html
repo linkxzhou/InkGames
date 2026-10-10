@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>墨史 · 二十一章中国历史水墨剧情</title>
+<title>烽火 · 二十一章中国历史水墨剧情</title>
 <style>
 /* =====================================================================
-   墨史 · 内容站（video/viewer/index.html）
+   烽火 · 内容站（video/viewer/index.html）
    ---------------------------------------------------------------------
    - 视觉按 video/docs/art-style.md：简化版黑白红武侠水墨剪影。只用色板七色，
-     朱砂红只作印章、当前章节与少量强调。纸纹、笔触、山影都是本页内联 SVG，
-     不加载外部图片、字体或库，双击即可用 file:// 打开。
+     朱砂红只作印章、当前章节与少量强调。纸纹与笔触是内联 SVG，开卷图是本地
+     assets/fenghuo-hero.{webp,jpg}（相对路径），不加载外部图片、字体或库，双击即可用 file:// 打开。
    - 数据来自 data/*.js（由 tools/build-viewer-data.mjs 从 chapters/*.json
      生成，设置 window.HISTORY_GAME_INDEX / HISTORY_GAME_CHAPTERS）。
      只静态加载 data/index.js；章节脚本在切到该章时用动态 <script> 按需加载，
@@ -54,7 +54,7 @@ button,select{font:inherit;color:inherit}
 
 /* ---------- 开卷（hero） ---------- */
 #hero{position:relative;overflow:hidden;border-bottom:1px solid var(--rule)}
-#hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:center;gap:24px;min-height:min(560px,78vh);padding-top:40px;padding-bottom:40px}
+#hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:24px;min-height:min(560px,78vh);padding-top:40px;padding-bottom:40px}
 .hero-txt{position:relative;z-index:2}
 .kicker{font-size:13px;letter-spacing:.42em;color:var(--mid)}
 .hero-title{display:flex;align-items:flex-start;gap:18px;margin:10px 0 6px}
@@ -73,8 +73,11 @@ button,select{font:inherit;color:inherit}
 .btn:hover{background:var(--ink);color:var(--paper)}
 .btn.primary{background:var(--ink);color:var(--paper)}
 .btn.primary:hover{background:var(--char)}
-.hero-art{position:relative;height:100%;min-height:380px}
-.hero-art svg{position:absolute;inset:0;width:100%;height:100%;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 22%),linear-gradient(to bottom,transparent 0,#000 18%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 22%),linear-gradient(to bottom,transparent 0,#000 18%);mask-composite:intersect}
+.hero-art{position:absolute;z-index:1;top:0;right:0;bottom:0;width:min(1180px,78%);pointer-events:none}
+.hero-art picture,.hero-art img{display:block;width:100%;height:100%}
+.hero-art img{object-fit:cover;object-position:62% 46%;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 34%),linear-gradient(to bottom,transparent 0,#000 10%,#000 84%,transparent 100%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent 0,#000 34%),linear-gradient(to bottom,transparent 0,#000 10%,#000 84%,transparent 100%);mask-composite:intersect}
 
 /* ---------- 二十一朝 · 长卷 ---------- */
 .band{padding:46px 0 10px}
@@ -221,9 +224,13 @@ pre.prompt{white-space:pre-wrap;word-break:break-word;font-family:var(--mono);fo
 footer{border-top:1px solid var(--rule);padding:28px 0 40px;color:var(--mid);font-size:12.5px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 
+@media (max-width:1200px) and (min-width:981px){ .hero-art{width:70%} .hero-p{max-width:24em} }
 @media (max-width:980px){
   #hero .wrap{grid-template-columns:1fr;min-height:0;padding-top:28px;padding-bottom:0}
-  .hero-art{min-height:240px;height:260px;margin:0 calc(-1 * clamp(16px,4vw,40px))}
+  #hero{display:flex;flex-direction:column-reverse}
+  .hero-art{position:relative;width:100%;height:auto;aspect-ratio:16/9}
+  .hero-art img{object-position:60% 50%;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 14%,#000 80%,transparent 100%);-webkit-mask-composite:source-over;mask-image:linear-gradient(to bottom,transparent 0,#000 14%,#000 80%,transparent 100%);mask-composite:add}
+  #hero .wrap{padding-top:0;padding-bottom:30px}
   #main{grid-template-columns:1fr}
 }
 @media (max-width:640px){
@@ -252,7 +259,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 <a class="sr" href="#chapter">跳到本章</a>
 <header id="bar">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="墨史 · 回到开卷"><span class="seal seal-s" aria-hidden="true">史</span><span id="btitle">墨史</span></a>
+    <a class="brand" href="#top" aria-label="烽火 · 回到开卷"><span class="seal seal-s" aria-hidden="true">烽</span><span id="btitle">烽火</span></a>
     <div class="tools">
       <label for="chapSel">章</label><select id="chapSel" title="选择章节"></select>
       <label for="sceneSel">场</label><select id="sceneSel" title="选择场景"></select>
@@ -265,7 +272,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   <div class="wrap">
     <div class="hero-txt">
       <div class="kicker">中国历史 · 水墨剧情</div>
-      <div class="hero-title"><h1 id="htitle">墨史</h1><span class="seal seal-l" aria-hidden="true">正史野史</span></div>
+      <div class="hero-title"><h1 id="htitle">烽火</h1><span class="seal seal-l" aria-hidden="true">正史野史</span></div>
       <p class="hero-sub">一卷黑白，半点朱红</p>
       <span class="stroke" aria-hidden="true"></span>
       <p class="hero-p">从女娲补天到清末变局，二十一朝、数百个场景。每一场都有正史与野史两条线、人物关系、出处，以及可直接用于水墨短片的分镜与提示词。</p>
@@ -275,36 +282,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
         <button class="btn" id="randBtn" type="button">随机一场</button>
       </div>
     </div>
-    <div class="hero-art"><svg viewBox="0 0 800 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
-<defs>
- <filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="7"/></filter>
- <filter id="rough2" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".09" numOctaves="2" seed="9"/><feDisplacementMap in="SourceGraphic" scale="2.6"/></filter>
- <filter id="dry" x="0" y="-20%" width="100%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".004 .38" numOctaves="2" seed="3" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3.2 2.15" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in" result="c"/><feDisplacementMap in="c" in2="n" scale="5"/></filter>
- <filter id="mist" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
- <linearGradient id="fadeL" x1="0" x2="1"><stop offset="0" stop-color="#eceae4"/><stop offset=".32" stop-color="#eceae4" stop-opacity="0"/></linearGradient>
-</defs>
-<circle cx="560" cy="150" r="50" fill="#b3241c" filter="url(#rough2)"/>
-<path d="M468,120 q6,-6 12,0 q6,-6 12,0" stroke="#3a3a3a" stroke-width="1.6" fill="none"/><path d="M500,96 q6,-6 12,0 q6,-6 12,0" stroke="#3a3a3a" stroke-width="1.6" fill="none"/><path d="M430,140 q6,-6 12,0 q6,-6 12,0" stroke="#3a3a3a" stroke-width="1.6" fill="none"/>
-<path d="M-20,530 L-20.0,284.2 L-2.1,284.7 L9.1,273.6 L22.6,264.9 L39.8,240.1 L48.5,240.8 L61.8,224.7 L70.2,210.9 L86.7,191.6 L105.7,188.6 L114.4,173.8 L128.9,187.1 L141.5,182.3 L154.7,189.0 L165.6,204.5 L179.5,215.1 L190.5,225.0 L204.0,236.2 L212.7,248.4 L227.3,249.2 L237.8,253.4 L255.8,235.3 L268.0,238.0 L284.3,234.6 L297.5,230.8 L313.4,225.3 L328.3,238.9 L346.2,240.9 L361.2,237.2 L372.3,246.3 L385.4,230.6 L399.9,224.1 L415.9,198.8 L429.2,182.1 L446.3,161.8 L459.1,151.7 L467.8,142.8 L484.1,159.9 L499.2,164.7 L509.5,178.8 L528.9,209.4 L543.3,229.2 L554.3,235.7 L573.4,248.5 L586.9,246.2 L601.5,252.9 L609.9,246.9 L627.5,238.0 L644.2,226.0 L658.4,214.3 L671.6,201.7 L689.7,205.9 L700.4,206.0 L714.2,208.4 L726.5,217.4 L741.9,229.0 L755.4,231.4 L766.4,242.5 L781.3,263.8 L798.7,275.0 L816.2,277.3 L820,530 Z" fill="#d2d1cc" filter="url(#rough)"/>
-<ellipse cx="420" cy="318" rx="420" ry="26" fill="#eceae4" opacity=".85" filter="url(#mist)"/>
-<path d="M-20,530 L-20.0,314.5 L-3.7,287.6 L4.3,290.5 L18.6,278.4 L28.7,273.1 L41.8,271.0 L50.5,270.5 L61.5,278.7 L78.2,292.8 L90.6,296.5 L100.4,299.0 L107.9,309.5 L118.1,313.7 L133.9,317.9 L146.5,310.0 L153.9,306.0 L162.4,300.2 L179.2,280.9 L188.1,270.9 L203.0,249.0 L218.9,234.9 L233.7,226.3 L250.3,242.4 L259.0,248.6 L273.1,262.3 L285.4,278.5 L301.5,296.1 L316.7,304.6 L332.3,315.6 L344.0,311.0 L360.0,309.4 L371.9,299.9 L382.2,303.7 L391.0,305.1 L400.8,304.8 L410.9,306.4 L424.9,304.3 L437.1,311.0 L449.9,312.9 L459.1,320.0 L475.3,328.8 L483.2,334.0 L497.4,337.5 L506.4,334.8 L514.2,331.5 L524.0,321.0 L539.6,306.0 L551.8,300.8 L561.4,279.9 L577.0,261.7 L591.1,241.9 L601.8,237.1 L615.4,235.2 L631.8,244.9 L646.0,261.4 L655.7,284.6 L664.4,288.7 L678.2,308.2 L685.8,323.1 L694.5,317.0 L705.0,327.8 L719.3,319.5 L729.8,312.9 L741.3,313.7 L755.6,304.2 L770.0,295.8 L784.0,289.7 L793.4,295.3 L803.6,295.0 L815.1,315.0 L820,530 Z" fill="#a8a8a4" filter="url(#rough)"/>
-<ellipse cx="300" cy="392" rx="380" ry="22" fill="#eceae4" opacity=".8" filter="url(#mist)"/>
-<path d="M-20,530 L-20.0,427.0 L-9.6,428.5 L1.2,431.2 L7.7,424.2 L20.4,426.5 L28.3,434.1 L38.0,431.0 L47.9,426.6 L55.1,424.1 L68.0,416.4 L79.9,408.9 L86.4,403.6 L97.2,386.3 L103.4,384.8 L113.2,370.7 L126.2,355.5 L139.6,341.4 L152.0,339.4 L165.5,349.8 L172.3,347.1 L180.0,364.5 L189.5,372.0 L197.9,380.8 L207.0,389.1 L217.7,401.2 L230.9,409.3 L244.3,413.0 L258.3,407.4 L265.6,406.1 L279.3,398.1 L289.8,388.7 L297.5,384.9 L308.1,372.7 L314.6,376.2 L328.6,364.3 L341.0,368.7 L348.2,369.3 L360.3,380.8 L366.7,381.2 L373.0,385.9 L381.7,392.4 L395.5,394.7 L409.5,396.8 L416.1,401.1 L422.4,397.1 L431.6,401.5 L438.9,394.3 L451.8,395.0 L465.5,398.5 L474.5,391.8 L484.7,392.3 L495.4,390.5 L506.4,395.0 L516.5,390.5 L528.2,390.8 L536.6,401.4 L546.8,400.0 L552.9,400.7 L563.5,400.3 L574.5,411.3 L580.9,413.6 L590.7,417.5 L599.5,420.5 L611.4,416.0 L617.9,424.8 L631.6,422.5 L641.2,427.6 L649.8,426.0 L658.3,426.7 L669.1,426.6 L678.1,432.3 L684.3,430.2 L696.2,427.5 L704.0,433.2 L711.9,426.3 L721.3,432.1 L728.2,427.9 L736.8,433.7 L746.3,434.0 L753.7,428.2 L764.9,434.3 L774.5,426.9 L781.5,430.3 L789.0,433.4 L801.7,426.5 L809.9,433.4 L820,530 Z" fill="#6e6e6c" filter="url(#rough)"/>
-<ellipse cx="260" cy="468" rx="360" ry="20" fill="#eceae4" opacity=".75" filter="url(#mist)"/>
-<path d="M500,530 L528,402 L556,352 L578,334 L612,318 L660,320 L700,304 L760,300 L820,292 L820,530 Z" fill="#141414" filter="url(#rough)"/>
-<path d="M548,372 L520,392 L536,398 L512,430 L540,420" fill="#141414" filter="url(#rough)"/>
-<path d="M566.0,344.0 Q555.0,304.0 533.0,274.0" stroke="#141414" stroke-width="5.0" fill="none" stroke-linecap="round"/><path d="M487.0,278.0 L523.8,267.0 L565.2,269.0 L574.4,277.0 Z" fill="#141414"/><path d="M487.3,264.0 L517.7,253.0 L551.9,255.0 L559.5,263.0 Z" fill="#141414"/><path d="M490.7,252.0 L513.1,241.0 L538.3,243.0 L543.9,251.0 Z" fill="#141414"/><path d="M495.2,242.0 L509.6,231.0 L525.8,233.0 L529.4,241.0 Z" fill="#141414"/>
-<g transform="translate(626,316) scale(1.15)" filter="url(#rough2)">
- <path d="M-36,-95 L-2,-121 L34,-97 L19,-93 L-21,-92 Z" fill="#141414"/>
- <path d="M-8,-93 L8,-93 L9,-86 L-7,-86 Z" fill="#141414"/>
- <path d="M-15,-86 L13,-86 L20,-60 L46,-66 L74,-58 L56,-52 L88,-40 L54,-38 L66,-26 L36,-26 L22,-12 L18,0 L10,0 L4,-22 L-2,-22 L-8,0 L-16,0 L-14,-30 L-20,-58 Z" fill="#141414"/>
- <path d="M6,-88 C30,-96 52,-92 78,-104 C66,-90 48,-86 30,-84" fill="#141414"/>
- <path d="M-16,-62 L-66,-6" stroke="#141414" stroke-width="2.6" stroke-linecap="round"/>
- <path d="M-21,-70 L-11,-55" stroke="#141414" stroke-width="5" stroke-linecap="round"/>
-</g>
-<path d="M-10,500 C120,470 260,476 420,488 C300,500 160,508 -10,520 Z" fill="#141414" filter="url(#dry)"/>
-</svg></div>
   </div>
+  <div class="hero-art"><picture><source srcset="assets/fenghuo-hero.webp" type="image/webp"><img src="assets/fenghuo-hero.jpg" width="1280" height="720" alt="水墨长城：烽火台燃起红色烽火，黑色狼烟升起，右侧悬崖上一名持矛武士的剪影" fetchpriority="high" decoding="async"></picture></div>
 </section>
 
 <section class="band" id="dynasties" aria-labelledby="dyn-h">
@@ -341,7 +320,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     </main>
   </div>
 </section>
-<footer><div class="wrap"><span>墨史 · InkGames 历史内容线 · 美术：高反差黑白红武侠水墨剪影（简化版）</span><span id="bsub"></span></div></footer>
+<footer><div class="wrap"><span>烽火 · InkGames 历史内容线 · 美术：高反差黑白红武侠水墨剪影（简化版）</span><span id="bsub"></span></div></footer>
 <div id="tip" role="tooltip"></div>
 
 <script src="data/index.js"></script>
@@ -768,7 +747,7 @@ function allVideoScenes(chapterId){
   return out;
 }
 function videoMarkdown(list){
-  return "# 墨史 · 水墨视频生成提示词\n\n共 " + list.length + " 个场景。每个场景先中文后英文；生成器单镜时长不够时，可按“分镜”逐镜生成再剪辑。\n\n" +
+  return "# 烽火 · 水墨视频生成提示词\n\n共 " + list.length + " 个场景。每个场景先中文后英文；生成器单镜时长不够时，可按“分镜”逐镜生成再剪辑。\n\n" +
     list.map(x => "## " + x.outlineId + " " + x.chapterTitle + " · " + x.title + (x.subtitle ? "（" + x.subtitle + "）" : "") + "\n\n`" + x.id + "` · " + x.videoPrompt.aspectRatio + " · 约 " + x.videoPrompt.durationSec + " 秒 · " + x.videoPrompt.shots.length + " 镜\n\n### 中文\n\n```text\n" + x.videoPrompt.prompt.zh + "\n```\n\n### English\n\n```text\n" + x.videoPrompt.prompt.en + "\n```\n").join("\n");
 }
 function renderVideo(){
