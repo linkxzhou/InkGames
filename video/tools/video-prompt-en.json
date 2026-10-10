@@ -1891,6 +1891,17 @@
   ],
   "title": "War Drums from Yuyang: the An Lushan Rebellion and Mawei"
  },
+ "tang.baijuyi": {
+  "end": "Bai Juyi spends nearly four years at Jiangzhou, building a cottage below Incense Burner Peak on Mount Lu, then moves on to Zhongzhou and ends his days in Luoyang as the Layman of Xiangshan.",
+  "shots": [
+   "In Chang'an's Jing'an ward before dawn a chief minister is cut down by assassins on his way to court",
+   "A month later a small boat drifts east down the Yangtze carrying the banished official",
+   "On an autumn night at Penpu, among maple leaves and reeds, the host sees off a guest and hears a pipa from the next boat",
+   "After many calls a woman comes out, pipa half hiding her face, and plays with lowered eyes",
+   "The song ends with one stroke across all four strings like tearing silk, and the one who weeps most is the Sima of Jiangzhou"
+  ],
+  "title": "The Pipa at Xunyang: Bai Juyi"
+ },
  "tang.caizhou": {
   "end": "By dawn the army is inside; Wu Yuanji is captured and executed, Huaixi is pacified and the Hebei governors tremble.",
   "shots": [
@@ -1924,6 +1935,17 @@
   ],
   "title": "A Plea Written on Silk: Di Renjie"
  },
+ "tang.dufu": {
+  "end": "Along this road Du Fu writes the Three Officers and Three Partings; that autumn he quits office and heads west into Shu, building a thatched cottage by the Huanhua stream in Chengdu.",
+  "shots": [
+   "At dusk a gaunt middle-aged man walks into Shihao village and knocks at a door",
+   "At midnight fists pound the gate; the old man vaults the back wall and the old woman goes out to answer",
+   "The officer roars and the old woman weeps: my three sons went to Ye, two are already dead",
+   "She says: old as I am, let me go with you to Heyang, I can still cook the army's breakfast",
+   "At dawn as he sets out, only the old man stands at the gate to see him off"
+  ],
+  "title": "Night Conscription at Shihao: Du Fu"
+ },
  "tang.guoziyi": {
   "end": "The Uighurs renew their alliance and together they crush Tibet at Lingtai; a disaster for Guanzhong is averted.",
   "shots": [
@@ -1935,6 +1957,28 @@
   ],
   "title": "Facing the Uighurs Alone: Guo Ziyi"
  },
+ "tang.hanyu": {
+  "end": "Han Yu spends eight months in Chaozhou opening schools, freeing bondservants and driving off crocodiles, so the river and hill there bear his name; the next emperor recalls him as Chancellor of the Imperial Academy.",
+  "shots": [
+   "In Chang'an the Buddha bone is carried into the palace; nobles and commoners rush to give alms, some burning their scalps and arms",
+   "By lamplight the Vice Minister of Justice writes his memorial: the Buddha was a barbarian",
+   "The emperor reads it, flings it down and demands the writer's death",
+   "That same day he is escorted out of Chang'an heading south",
+   "At Lan Pass in heavy snow the horse can go no further, and his grandnephew catches up from behind"
+  ],
+  "title": "Remonstrating against the Buddha Relic: Banished to Chaozhou"
+ },
+ "tang.hongxian": {
+  "end": "In the histories Xue Song dies in 773 and Tian Chengsi seizes Xiangzhou two years later; the court's punitive campaign fails, and the three Hebei garrisons stay hereditary for over a century.",
+  "shots": [
+   "In the Luzhou commander's residence the governor sits alone at night, sighing at the watch drums",
+   "A maid in black comes in: why is my master troubled",
+   "She binds her hair in a high knot, tucks a dragon-patterned dagger at her breast and vanishes into the night",
+   "In the Weibo bedchamber Tian Chengsi snores like thunder, a golden box at his bedside",
+   "The box in hand, she is back in Luzhou before the morning bell"
+  ],
+  "title": "Red Thread Steals the Golden Box: Weibo and Zhaoyi"
+ },
  "tang.huangchao": {
   "end": "Tang and the Shatuo retake Chang'an, Zhu Wen defects, and Huang Chao dies in 884; the Tang survives only in name.",
   "shots": [
@@ -1945,6 +1989,17 @@
    "The whole city clad in golden armour"
   ],
   "title": "A Heaven-Piercing Fragrance: Huang Chao Takes Chang'an"
+ },
+ "tang.huichang": {
+  "end": "Xuanzong executes Zhao Guizhen and restores some temples, but Buddhism never regains its early Tang glory; Ennin returns to Japan in 847 and his diary becomes a priceless record of late Tang life.",
+  "shots": [
+   "At the Zisheng temple in Chang'an a Japanese monk records the day's edict by lamplight",
+   "Temple halls are torn down and bronze Buddhas hauled away to be melted into coins",
+   "Tens of thousands of monks and nuns take off their robes and walk out of the temple gates",
+   "He too changes into lay clothes and leaves the city gate with sutras on his back",
+   "The next spring a bell tolls from the palace: the emperor who took elixirs is dead"
+  ],
+  "title": "The Huichang Suppression: Ennin's Eyewitness"
  },
  "tang.hulao": {
   "end": "The Xia army collapses; shown the captive Dou Jiande, Wang Shichong surrenders Luoyang.",
@@ -1989,6 +2044,17 @@
    "She sets it down: how could the chief ministers have missed such a man"
   ],
   "title": "The Call to Arms against Wu Zhao: Luo Binwang"
+ },
+ "tang.shangguan": {
+  "end": "Shen never challenges Song again; a year later in the Tanglong coup Wan'er greets Li Longji with candles and her draft will but is beheaded beneath the banner, and Xuanzong later has her writings collected in twenty scrolls.",
+  "shots": [
+   "On the last day of the first month a festooned tower rises before the tent-hall by Kunming Lake, over a hundred court poems piled below",
+   "A woman climbs the tower and reads them page by page",
+   "Rejected poems drift down from the tower and the poets each pick up their own",
+   "Only two men remain below, Shen Quanqi and Song Zhiwen, gazing up",
+   "The last page flutters down: it is Shen Quanqi's"
+  ],
+  "title": "Weighing the Talents of the Realm: Shangguan Wan'er"
  },
  "tang.suiyang": {
   "end": "The starving city falls in the tenth month; Zhang Xun and thirty-six others die defiant, and relief arrives three days late, but the south is saved.",
@@ -2088,6 +2154,17 @@
    "At Nalanda, mountains of scriptures"
   ],
   "title": "Journey West: Xuanzang's Pilgrimage"
+ },
+ "tang.yanzhenqing": {
+  "end": "Li Xilie's men hold him back; in the eighth month of 784 eunuchs strangle him at the Longxing temple in Caizhou at seventy-seven, and Emperor Dezong suspends court for five days.",
+  "shots": [
+   "Changshan falls and its governor, taken to Luoyang, curses An Lushan to his face",
+   "Two years later in an office in Puzhou, Yan Zhenqing has only a wooden box holding his nephew's skull",
+   "He writes the elegy; at \"the father captured, the son dead, the nest overturned, the eggs smashed\" his brush grows wild, crossing out and writing again",
+   "Over twenty years later in Caizhou the rebel piles firewood in the courtyard to burn the old man in his seventies",
+   "The old man straightens his robe and cap and walks straight toward the fire"
+  ],
+  "title": "Draft Elegy for My Nephew: Yan Zhenqing"
  },
  "wudai.chenqiao": {
   "end": "The Zhou emperor abdicates and Zhao Kuangyin founds the Song; the capital stays orderly throughout.",
