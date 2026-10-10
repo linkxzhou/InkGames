@@ -39,7 +39,7 @@
 | [08-donghan](./08-donghan/README.md) | 新 · 东汉 | 14 |
 | [09-sanguo](./09-sanguo/README.md) | 三国 | 26 |
 | [10-liangjin](./10-liangjin/README.md) | 两晋 | 12 |
-| [11-nanbeichao](./11-nanbeichao/README.md) | 南北朝 | 10 |
+| [11-nanbeichao](./11-nanbeichao/README.md) | 南北朝 | 14 |
 | [12-sui](./12-sui/README.md) | 隋 | 10 |
 | [13-tang](./13-tang/README.md) | 唐 | 26 |
 | [14-wudai](./14-wudai/README.md) | 五代十国 | 10 |

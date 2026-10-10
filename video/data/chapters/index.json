@@ -129,9 +129,9 @@
    "name": "南北朝",
    "file": "chapters/11-nanbeichao.json",
    "span": "420—589 年",
-   "scenes": 10,
+   "scenes": 14,
    "v1": 2,
-   "full": 10,
+   "full": 14,
    "outline": 0
   },
   {
@@ -235,9 +235,9 @@
   }
  ],
  "totals": {
-  "scenes": 308,
+  "scenes": 312,
   "v1": 66,
-  "full": 308,
+  "full": 312,
   "outline": 0
  }
 }
