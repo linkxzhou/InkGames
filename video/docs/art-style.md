@@ -76,6 +76,15 @@
 | 少量、符合时代的道具；中国样式刀剑（环首刀、长剑） | 蒸汽朋克机械、现代器物、日本刀（武士刀） |
 | 山石用块面 | 细密皴纹 |
 
+### 2.7 不出现现代元素（2026-10-11 定）
+
+画面里只能有本朝及以前的东西。**所有提示词的负面词都必须带这一句**（`art-style.mjs` 的 `NEG_MODERN_ZH` / `NEG_MODERN_EN`）：
+
+- 中文：`不出现任何现代元素：现代建筑、电线、电线杆、公路、车辆、玻璃、塑料、现代服饰、眼镜、手表、枪械、电灯、招牌或文字标识`
+- 英文：`no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering`
+
+`build-video-prompts.mjs`（`videoPrompt.negative` zh/en）、`build-art-prompts.mjs`（`artPrompts[].negative`）、章节片头剧本（`video/data/chapter-videos/*.json` 的 `negative`、每镜 `imagePrompt` 的 Negative 段与 `motionPrompt`）和批量文件 `/workspace/chapter-video/batch.jsonl` 都带这一句，`validate.mjs` 逐条检查。审片时发现电线杆样的直杆、路面、车辆、玻璃反光、招牌文字等，按变形镜头处理（重生成）。
+
 ## 3. AI 视频生成（2026-10-10 实测）
 
 - 流程：每镜先出一张本风格静帧作首帧，再图生视频。
@@ -83,6 +92,7 @@
 - 所以提示词只要克制的动势（衣袖轻摆、云雾缓移、镜头缓推），并写明“保持构图稳定，不变形，不新增物体”；打斗与刺杀用关键帧静帧加剪辑，或交给 InkGames 引擎渲染。
 - 印章字和题字会出乱码：生成画面里不放文字，片名、印章、字幕后期叠加。运镜指令不一定被遵守。
 - 生成器据此：高潮镜改为“缓推到近景后定格成关键帧静帧”，不做急推与震屏；朱红血雾只给刺杀、交战类高潮镜（约 26 场），其余高潮只泼墨定格；落款镜只留空纸，引文与朱印后期叠加。
+- 现代元素禁令见 §2.7，与运动负面词一起写进每个提示词。
 - 这些约束在 `art-style.mjs` 的 `MOTION_*`、`NEG_MOTION_*` 里，由 `build-video-prompts.mjs` 写进每个 `videoPrompt`，`validate.mjs` 逐场检查。
 
 ## 4. 在数据里的落点
@@ -97,4 +107,4 @@
 
 **Reference.** S-Game's *Shadow Blade* series is used only as a mood reference — no assets or images are copied and its characters are never named. Prompts call the look "high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified)". Public interviews and press describe the series as dark, gritty wuxia ("kungfupunk") with low-saturation cool backgrounds against red and gold highlights, bold black-and-white character silhouettes, and finely ruled-line environments; we keep only the black-white-red contrast, silhouettes, splash/blood-spray hits and side-view drama, and drop gold highlights, steampunk machinery, ruled-line detail and rich materials.
 
-**Simplified rules.** Palette: ink black #141414, charcoal #3a3a3a, mid grey #6e6e6c, pale grey #a8a8a4, fog grey #d2d1cc, paper white #eceae4, and vermilion #b3241c as the only accent (blood, sun, banners, seals; under 10% of a frame, one red area per frame). Lines: bold angular side-brush contours, dry-brush trails only along motion, no ruled lines or texture strokes. Composition: side view, horizon in the lower third, three or four flat grey depth layers, subject 30–50% of frame height with plenty of empty paper. Characters: ~7 heads tall, silhouette-first (headgear, sleeves, weapon, armour plates), almost no facial features, period costume reduced to outline. Effects: big ink splash plus diagonal vermilion blood-spray freeze on hits or the climax only; flat black flames with a red core; no glows or particles. Generators read these constants from `video/tools/art-style.mjs`.
+**Simplified rules.** Palette: ink black #141414, charcoal #3a3a3a, mid grey #6e6e6c, pale grey #a8a8a4, fog grey #d2d1cc, paper white #eceae4, and vermilion #b3241c as the only accent (blood, sun, banners, seals; under 10% of a frame, one red area per frame). Lines: bold angular side-brush contours, dry-brush trails only along motion, no ruled lines or texture strokes. Composition: side view, horizon in the lower third, three or four flat grey depth layers, subject 30–50% of frame height with plenty of empty paper. Characters: ~7 heads tall, silhouette-first (headgear, sleeves, weapon, armour plates), almost no facial features, period costume reduced to outline. Effects: big ink splash plus diagonal vermilion blood-spray freeze on hits or the climax only; flat black flames with a red core; no glows or particles. No modern elements: every prompt's negative carries "no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering" (`NEG_MODERN_EN` / `NEG_MODERN_ZH`), checked by `validate.mjs`. Generators read these constants from `video/tools/art-style.mjs`.

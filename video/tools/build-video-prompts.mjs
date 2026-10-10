@@ -11,7 +11,7 @@
 //
 // 用法：在仓库根目录运行 `node video/tools/build-video-prompts.mjs`
 // 幂等：重复运行整体替换 videoPrompt，不影响其它字段。无第三方依赖。
-import { STYLE_ZH, STYLE_EN, FIGURE_ZH, FIGURE_EN, NEG_STYLE_ZH, NEG_STYLE_EN, HIT_FX_ZH, HIT_FX_EN, MOTION_ZH, MOTION_EN, NEG_MOTION_ZH, NEG_MOTION_EN } from './art-style.mjs';
+import { STYLE_ZH, STYLE_EN, FIGURE_ZH, FIGURE_EN, NEG_STYLE_ZH, NEG_STYLE_EN, HIT_FX_ZH, HIT_FX_EN, MOTION_ZH, MOTION_EN, NEG_MOTION_ZH, NEG_MOTION_EN, NEG_MODERN_ZH, NEG_MODERN_EN } from './art-style.mjs';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -352,7 +352,7 @@ function build(bundle, entry, chapterTitle) {
     en: `No text of any kind inside the generated frames (seal characters come out garbled in tests); add everything in post: vertical brush-calligraphy title 「${title}」, subtitle 「${subtitle}」 and vermilion seal 「${seal}」 at upper right; Simplified Chinese subtitles, bottom centre${quote ? `; quotation 「${quote}」 — ${qsrc}, vertical kaishu` : ''}; overlaid text must match the source exactly`,
   };
   const [pnz, pne] = periodNeg(order);
-  const negative = { zh: NEG_ZH + '，' + NEG_STYLE_ZH + '，' + NEG_MOTION_ZH + (pnz.length ? '，时代错置：' + pnz.join('、') : ''), en: NEG_EN + ', ' + NEG_STYLE_EN + ', ' + NEG_MOTION_EN + (pne.length ? ', anachronisms: ' + pne.join(', ') : '') };
+  const negative = { zh: NEG_ZH + '，' + NEG_STYLE_ZH + '，' + NEG_MOTION_ZH + (pnz.length ? '，时代错置：' + pnz.join('、') : '') + '；' + NEG_MODERN_ZH, en: NEG_EN + ', ' + NEG_STYLE_EN + ', ' + NEG_MOTION_EN + (pne.length ? ', anachronisms: ' + pne.join(', ') : '') + '; ' + NEG_MODERN_EN };
 
   const shotLineZh = s => `镜头 ${s.n}（${s.startSec}–${s.startSec + s.durationSec} 秒，${s.durationSec} 秒）｜运镜：${s.camera.zh}｜构图：${s.composition.zh}｜动作：${s.action.zh}｜水墨效果：${s.ink.zh}｜声音：${s.sound.zh}${s.text.zh ? '｜后期叠加文字：' + s.text.zh : ''}${s.vo ? '｜旁白：「' + s.vo + '」' : ''}`;
   const shotLineEn = s => `Shot ${s.n} (${s.startSec}–${s.startSec + s.durationSec} s, ${s.durationSec} s) | Camera: ${s.camera.en} | Composition: ${s.composition.en} | Action: ${s.action.en} | Ink FX: ${s.ink.en} | Sound: ${s.sound.en}${s.text.en ? ' | Text added in post: ' + s.text.en : ''}${s.vo ? ' | VO (Mandarin): 「' + s.vo + '」' : ''}`;
