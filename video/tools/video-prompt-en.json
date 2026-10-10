@@ -21,6 +21,17 @@
   ],
   "title": "Releasing Military Power over Wine: Emperor Taizu of Song"
  },
+ "beisong.bisheng": {
+  "end": "Bi Sheng tried wooden type too, but uneven grain swelled with water and stuck to the paste; after his death his clay type passed to Shen Kuo's kinsmen, who kept it as a treasure.",
+  "shots": [
+   "In a printing shop carved wooden blocks are stacked to the ceiling, each good for a single page",
+   "A commoner craftsman shapes small squares of clay and carves a reversed character into each, thin as a coin's rim",
+   "The furnace fires the clay type hard and the pieces are filed one by one into wooden racks",
+   "On an iron plate spread with resin, wax and paper ash the type fills a frame, is warmed over fire and pressed flat as a whetstone",
+   "Two iron plates take turns, one printing while the other is set, and sheet after sheet is peeled away"
+  ],
+  "title": "Clay Movable Type: Bi Sheng"
+ },
  "beisong.chanyuan": {
   "end": "Song and Liao swear the Chanyuan treaty with annual silver and silk; there is no major war for over a century.",
   "shots": [
@@ -54,6 +65,17 @@
   ],
   "title": "Bangyuan Cave: Fang La and Song Jiang"
  },
+ "beisong.fanzhongyan": {
+  "end": "Fan serves on in Hangzhou and Qingzhou and dies at Xuzhou in 1052; the reforms fail, but Wang Anshi takes them up again two decades later, and \"first to worry, last to rejoice\" becomes the scholar's creed.",
+  "shots": [
+   "On the walls of Yanzhou the northwest wind whips sand as a civil official inspects the forts",
+   "In the Tianzhang Pavilion the emperor hands him brush and paper and presses him to write down his reforms",
+   "At court the officials he has cut stand grim-faced as rumours call them a faction",
+   "In his Dengzhou study he unrolls a painting of Dongting Lake sent by an old friend in Yuezhou",
+   "He writes the final line: be first to worry for the world, and last to enjoy its pleasures"
+  ],
+  "title": "First to Worry: Fan Zhongyan and the Qingli Reforms"
+ },
  "beisong.haoshuichuan": {
   "end": "Ren Fu fights to the death with a dozen arrows in him; after more defeats Song and Xia make peace in 1044.",
   "shots": [
@@ -64,6 +86,17 @@
    "The Xia army closes in on every side"
   ],
   "title": "Haoshui River: Li Yuanhao"
+ },
+ "beisong.huizong": {
+  "end": "In the 1126 siege the Genyue's trees are cut for firewood and its rocks broken into catapult stones; Zhu Mian is exiled and executed, and a year later both emperors are carried north by the Jin.",
+  "shots": [
+   "By Lake Tai hundreds of labourers haul a huge rock from the lakebed with ropes",
+   "Rock barges choke the Bian Canal; bridges are torn down and city gates cut open to let them pass",
+   "Northeast of Kaifeng an artificial mountain rises day by day, stocked with rare birds and beasts",
+   "In a pavilion the emperor takes up his brush and writes the mountain's name in lean, hard strokes",
+   "Beacon fires flare in the north; he hands the throne to the crown prince and leaves the capital by night"
+  ],
+  "title": "The Flower and Rock Convoys: Emperor Huizong and the Genyue"
  },
  "beisong.jingkang": {
   "end": "In 1127 Jin carries off both emperors and the court; Northern Song ends and Prince Kang takes the throne at Yingtian.",
@@ -86,6 +119,39 @@
    "The emperor opens the coffin himself and finds his mother's face as if alive"
   ],
   "title": "A Civet Cat for the Crown Prince: Empress Dowager Liu and Consort Li"
+ },
+ "beisong.ouyangxiu": {
+  "end": "The 1057 roll includes Su Shi, Su Zhe, Zeng Gong, Zhang Zai and Cheng Hao; failed candidates jeer at Ouyang in the street, but from then on examination prose turns plain.",
+  "shots": [
+   "Thousands of candidates file into the examination hall while the examiners wait behind the screen",
+   "The chief examiner lifts his red brush and strikes through a paper full of strange characters from top to bottom",
+   "Another paper has the examiners slapping the table, and Mei Yaochen carries it to the chief examiner",
+   "Suspecting it is by his own protégé Zeng Gong, the examiner ranks it only second to avoid favouritism",
+   "The sealed name is opened and reads: Su Shi"
+  ],
+  "title": "The Roll of a Thousand Years: Ouyang Xiu Sets the Exam"
+ },
+ "beisong.shenkuo": {
+  "end": "The Liao claim fails and Shen presents his map of the journey; later at Yanzhou he studies the local \"rock oil\", and after the fall of Yongle in 1082 he is demoted and writes the Dream Pool Essays in retirement.",
+  "shots": [
+   "In the Bureau of Military Affairs archive an official searches roll by roll through the dust",
+   "He finds an old boundary agreement naming the ancient Great Wall as the line, while the Liao claim land south of it",
+   "With the document and his escort he rides north through snow, recording every mountain and river",
+   "In the Liao tent the chief minister questions him again and again, and he answers each point from the documents",
+   "At last the Liao have nothing left to say; he rolls up the document, rises and takes his leave"
+  ],
+  "title": "The Old Files of the Bureau: Shen Kuo's Embassy to Liao"
+ },
+ "beisong.simaguang": {
+  "end": "Shenzong dies the next year; Sima Guang becomes chief minister and abolishes nearly all the new laws, Wang Anshi sighs \"even this too?\" and dies, and Sima dies in office a few months later.",
+  "shots": [
+   "At court two old friends quarrel bitterly over the new laws, and one leaves the capital",
+   "In the Garden of Solitary Delight in Luoyang a study lamp burns all night between bamboo and herb beds",
+   "The compilers turn thirteen centuries of events into long drafts, the manuscripts piling up across the rooms",
+   "He revises a draft again and again in neat script without a single cursive stroke",
+   "Nineteen years on, 294 scrolls are delivered to the palace"
+  ],
+  "title": "My Strength Is Spent: Sima Guang and the Comprehensive Mirror"
  },
  "beisong.wutai": {
   "end": "Pardoned with help from the dowager and ministers, Su Shi is banished to Huangzhou, where he farms the eastern slope and calls himself Dongpo.",
