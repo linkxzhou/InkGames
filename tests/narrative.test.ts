@@ -32,15 +32,17 @@ describe('history content', () => {
 
   it('loads the chapter index and every bundle', () => {
     expect(index.chapters.length).toBe(21);
-    expect(index.totals.scenes).toBe(157);
-    expect(index.chapters.length).toBeGreaterThan(10);
+    expect(index.totals.scenes).toBeGreaterThanOrEqual(210);
     const files = readdirSync(resolve(data, 'chapters')).filter(name => name.endsWith('.json') && name !== 'index.json');
     expect(files.length).toBe(index.chapters.length);
+    let total = 0;
     for (const file of files) {
       const bundle = parseChapterBundle(readJson(resolve(data, 'chapters', file)));
       expect(bundle.chapter.id.length).toBeGreaterThan(0);
-      expect(bundle.scenes.length).toBeGreaterThan(0);
+      expect(bundle.scenes.length).toBeGreaterThanOrEqual(10);
+      total += bundle.scenes.length;
     }
+    expect(total).toBe(index.totals.scenes);
   });
 
   it('matches the jingke example to the zhanguo bundle', () => {
