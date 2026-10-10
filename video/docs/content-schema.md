@@ -188,7 +188,7 @@ export interface Condition {
 
 ### 2.6 过场（开场动画）
 
-过场是一组按帧排列的轨道，由 [12 §2](./engine-gaps.md#2-开场动画管线) 的过场播放器执行。
+过场是一组按帧排列的轨道，由 [§2](./engine-gaps.md#2-开场动画管线) 的过场播放器执行。
 
 ```ts
 export interface CutsceneDef {
