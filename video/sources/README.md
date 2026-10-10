@@ -41,7 +41,7 @@
 | [10-liangjin](./10-liangjin/README.md) | 两晋 | 12 |
 | [11-nanbeichao](./11-nanbeichao/README.md) | 南北朝 | 10 |
 | [12-sui](./12-sui/README.md) | 隋 | 10 |
-| [13-tang](./13-tang/README.md) | 唐 | 19 |
+| [13-tang](./13-tang/README.md) | 唐 | 26 |
 | [14-wudai](./14-wudai/README.md) | 五代十国 | 10 |
 | [15-beisong](./15-beisong/README.md) | 北宋 | 10 |
 | [16-liaojin](./16-liaojin/README.md) | 辽 · 西夏 · 金 | 11 |
