@@ -47,7 +47,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "掘地见母",
    "narration": "庄公誓不见母，又悔，掘地及泉，隧而相见。",
    "ambience": [
@@ -58,7 +58,7 @@
    "motionPrompt": "light drifts down through dust, water drips, their robes stir, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep her silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "chunqiu-01.jpg",
    "clip": "chunqiu-01.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 2,
@@ -67,7 +67,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "齐桓公九合诸侯",
    "narration": "管仲相齐，桓公九合诸侯，一匡天下，尊王攘夷。",
    "ambience": [
@@ -78,7 +78,7 @@
    "motionPrompt": "banners ripple in the wind, incense smoke drifts across, the rows bow slowly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "chunqiu-02.jpg",
    "clip": "chunqiu-02.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 3,
@@ -87,7 +87,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "一鼓作气",
    "narration": "曹刿说：一鼓作气，再而衰，三而竭。鲁军以此胜齐。",
    "ambience": [
@@ -98,7 +98,7 @@
    "motionPrompt": "the drum skin trembles after a beat, dust drifts between the armies, banners stir, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "chunqiu-03.jpg",
    "clip": "chunqiu-03.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 4,
@@ -107,7 +107,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "泓水之战",
    "narration": "楚军半渡，宋襄公说不鼓不成列，等敌列阵才战，大败。",
    "ambience": [
@@ -118,7 +118,7 @@
    "motionPrompt": "river water churns around the wading ranks, banners on the near bank stir, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "chunqiu-04.jpg",
    "clip": "chunqiu-04.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 5,
@@ -127,7 +127,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "绵上之火",
    "narration": "介子推不言禄，与母隐于绵山，后世以寒食纪念他。",
    "ambience": [
@@ -139,7 +139,7 @@
    "motionPrompt": "smoke drifts up and spreads into the sky, pine branches sway, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "chunqiu-05.jpg",
    "clip": "chunqiu-05.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 6,
@@ -148,7 +148,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "退避三舍",
    "narration": "晋文公践当年之诺，退避三舍，然后在城濮大败楚军。",
    "ambience": [
@@ -160,7 +160,7 @@
    "motionPrompt": "the column recedes slowly, dust rises behind the wheels, banners ripple; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "chunqiu-06.jpg",
    "clip": "chunqiu-06.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 7,
@@ -169,7 +169,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "楚庄王问鼎",
    "narration": "楚庄王观兵周郊，问鼎之大小轻重；王孙满答：在德不在鼎。",
    "ambience": [
@@ -180,7 +180,7 @@
    "motionPrompt": "smoke from braziers drifts across, their sleeves stir, a slow push in toward the cauldron; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "chunqiu-07.jpg",
    "clip": "chunqiu-07.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 8,
@@ -189,7 +189,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "赵氏孤儿",
    "narration": "下宫之难，赵氏几乎灭门，孤儿赵武被藏匿得活。",
    "ambience": [
@@ -200,7 +200,7 @@
    "motionPrompt": "the lantern dots flicker, his robe streams, rain mist drifts, he steps forward; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "chunqiu-08.jpg",
    "clip": "chunqiu-08.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 9,
@@ -209,7 +209,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "伍子胥过昭关",
    "narration": "伍子胥出奔，过昭关，后来引吴兵入郢，报了父兄之仇。",
    "ambience": [
@@ -220,7 +220,7 @@
    "motionPrompt": "mist flows through the pass, his cloak and hair stream in the wind, he steps forward; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "chunqiu-09.jpg",
    "clip": "chunqiu-09.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 10,
@@ -229,7 +229,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "鱼腹藏剑",
    "narration": "公子光设宴，专诸把短剑藏在鱼腹中献上。",
    "ambience": [
@@ -240,7 +240,7 @@
    "motionPrompt": "candle flames waver, steam rises from the fish, the guards stand still, a slow push in that ends on a single ink splash held still; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "chunqiu-10.jpg",
    "clip": "chunqiu-10.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 11,
@@ -249,7 +249,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "老子出关",
    "narration": "老子西出函谷，关令尹喜请他著书，于是留下五千言。",
    "ambience": [
@@ -260,7 +260,7 @@
    "motionPrompt": "mist streams through the pass, the ox walks slowly, the old man's sleeves stir; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "chunqiu-11.jpg",
    "clip": "chunqiu-11.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 12,
@@ -269,7 +269,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "卧薪尝胆",
    "narration": "越王勾践败于会稽，卧薪尝胆，十年生聚，十年教训。",
    "ambience": [
@@ -280,7 +280,7 @@
    "motionPrompt": "the hanging gall sways slightly, rain streaks past the doorway, the candle flame flickers; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "chunqiu-12.jpg",
    "clip": "chunqiu-12.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 13,
@@ -289,7 +289,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "陈蔡绝粮",
    "narration": "孔子困于陈蔡之间，绝粮七日，仍讲诵弦歌不衰。",
    "ambience": [
@@ -300,7 +300,17 @@
    "motionPrompt": "wind moves the grass and their sleeves, the teacher's hands move slowly over the strings, clouds drift; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "chunqiu-13.jpg",
    "clip": "chunqiu-13.mp4",
-   "status": "pending"
+   "status": "done"
   }
- ]
+ ],
+ "output": {
+  "mp4": "video/viewer/assets/chapter-videos/chunqiu.mp4",
+  "poster": "video/viewer/assets/chapter-videos/chunqiu-poster.jpg",
+  "durationSec": 101.62,
+  "crossfadeSec": 0.7,
+  "audio": true,
+  "narration": true,
+  "status": "done",
+  "loudnessLUFS": -16.1
+ }
 }

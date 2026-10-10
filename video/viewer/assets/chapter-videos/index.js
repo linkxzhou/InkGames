@@ -2,6 +2,18 @@
 window.CHAPTER_VIDEOS = {
  "version": 1,
  "chapters": {
+  "chunqiu": {
+   "title": {
+    "zh": "春秋",
+    "en": "Spring and Autumn"
+   },
+   "mp4": "assets/chapter-videos/chunqiu.mp4",
+   "poster": "assets/chapter-videos/chunqiu-poster.jpg",
+   "posterWebp": "assets/chapter-videos/chunqiu-poster.webp",
+   "durationSec": 101.62,
+   "shots": 13,
+   "audio": true
+  },
   "shang": {
    "title": {
     "zh": "商",

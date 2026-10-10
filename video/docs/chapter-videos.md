@@ -49,7 +49,7 @@
 | 夏 | `chapter-videos/xia.json`（5 场入镜 → 7 镜） | 7/7 完成 | v2 7/7 完成（镜 5 推镜时右侧出现红柱楼阁，调色后保留为少量朱红） | 完成：`xia.mp4` 57.8 秒 · 1280×720 · 约 11.1 MB · 有声（-16.0 LUFS）；海报 jpg/webp |
 | 商 | `chapter-videos/shang.json`（6 场入镜 → 8 镜） | 8/8 完成 | v2 8/8 完成（镜 2 按提示光线由淡转灰，结尾偏暗；镜 6 墙上出现人影，未变形） | 完成：`shang.mp4` 65.1 秒 · 1280×720 · 约 14.6 MB · 有声（-16.0 LUFS）；海报 jpg/webp |
 | 西周 | `chapter-videos/xizhou.json`（9 场入镜 → 9 镜） | 9/9 完成 | v2 9/9 完成（镜 1 山头两人后段略融成一块剪影；镜 6 天上有一条墨龙（静帧自带，稳定）） | 完成：`xizhou.mp4` 72.4 秒 · 1280×720 · 约 16.0 MB · 有声（-16.1 LUFS）；海报 jpg/webp |
-| 春秋 | `chapter-videos/chunqiu.json`（18 场 → 13 镜，约 1:42） | 0/13 | 0/13 | 待出片 |
+| 春秋 | `chapter-videos/chunqiu.json`（13 场入镜 → 13 镜） | 13/13 完成 | v2 13/13 完成（镜 10 专诸一镜朱红布幔与地面红色较多，未超出色板） | 完成：`chunqiu.mp4` 101.6 秒 · 1280×720 · 约 24.8 MB · 有声（-16.1 LUFS）；海报 jpg/webp |
 | 战国 | `chapter-videos/zhanguo.json`（22 场 → 15 镜，约 1:56） | 0/15 | 0/15 | 待出片 |
 | 秦 | `chapter-videos/qin.json`（10 场 → 9 镜，约 1:12） | 0/9 | 0/9 | 待出片 |
 | 楚汉 · 西汉 | `chapter-videos/xihan.json`（20 场 → 14 镜，约 1:49） | 0/14 | 0/14 | 待出片 |
