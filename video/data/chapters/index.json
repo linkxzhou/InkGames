@@ -8,9 +8,9 @@
    "name": "上古",
    "file": "chapters/00-shanggu.json",
    "span": "传说时代（无确年）",
-   "scenes": 4,
+   "scenes": 10,
    "v1": 2,
-   "full": 4,
+   "full": 10,
    "outline": 0
   },
   {
@@ -19,9 +19,9 @@
    "name": "夏",
    "file": "chapters/01-xia.json",
    "span": "约前 2070—约前 1600 年",
-   "scenes": 3,
+   "scenes": 10,
    "v1": 2,
-   "full": 3,
+   "full": 10,
    "outline": 0
   },
   {
@@ -30,9 +30,9 @@
    "name": "商",
    "file": "chapters/02-shang.json",
    "span": "约前 1600—前 1046 年",
-   "scenes": 4,
+   "scenes": 10,
    "v1": 2,
-   "full": 4,
+   "full": 10,
    "outline": 0
   },
   {
@@ -41,9 +41,9 @@
    "name": "西周",
    "file": "chapters/03-xizhou.json",
    "span": "前 1046—前 771 年",
-   "scenes": 4,
+   "scenes": 10,
    "v1": 2,
-   "full": 4,
+   "full": 10,
    "outline": 0
   },
   {
@@ -52,9 +52,9 @@
    "name": "春秋",
    "file": "chapters/04-chunqiu.json",
    "span": "前 770—前 476 年",
-   "scenes": 7,
+   "scenes": 10,
    "v1": 3,
-   "full": 7,
+   "full": 10,
    "outline": 0
   },
   {
@@ -63,9 +63,9 @@
    "name": "战国",
    "file": "chapters/05-zhanguo.json",
    "span": "前 475—前 221 年",
-   "scenes": 9,
+   "scenes": 10,
    "v1": 5,
-   "full": 9,
+   "full": 10,
    "outline": 0
   },
   {
@@ -74,9 +74,9 @@
    "name": "秦",
    "file": "chapters/06-qin.json",
    "span": "前 221—前 207 年",
-   "scenes": 6,
+   "scenes": 10,
    "v1": 4,
-   "full": 6,
+   "full": 10,
    "outline": 0
   },
   {
@@ -235,9 +235,9 @@
   }
  ],
  "totals": {
-  "scenes": 157,
+  "scenes": 190,
   "v1": 66,
-  "full": 157,
+  "full": 190,
   "outline": 0
  }
 }
