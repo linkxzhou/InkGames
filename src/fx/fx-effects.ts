@@ -59,12 +59,13 @@ function tangent(pts: readonly (readonly [number, number])[], s: number): readon
 function brush(ctx: FxStep, poly: Poly): void {
   const span = poly.t1 - poly.t0;
   if (span <= 0 || ctx.t < poly.t0) return;
-  const raw = clamp01((ctx.t - poly.t0) / span);
-  const prevRaw = clamp01(raw - ctx.dt / (span * ctx.duration));
-  const head = easeInOutSine(raw);
-  const from = easeInOutSine(prevRaw);
-  if (raw >= 1 && prevRaw >= 1) return;
-  const samples = 2;
+  const raw = (ctx.t - poly.t0) / span;
+  const step = ctx.dt / (span * ctx.duration);
+  // 写完就停。若用 clamp 后的 raw 判断，短笔会永远占着末点，把后面的笔挤出 16 个印戳。
+  if (raw - step >= 1) return;
+  const head = easeInOutSine(clamp01(raw));
+  const from = easeInOutSine(clamp01(raw - step));
+  const samples = 5;
   for (let i = 1; i <= samples; i++) {
     const s = from + (head - from) * (i / samples);
     const p = pointAt(poly.pts, s);
@@ -87,42 +88,49 @@ function alive(list: readonly FxParticle[]): FxParticle[] {
 }
 
 function stepDrop(ctx: FxStep): void {
-  ctx.flow = 0.55;
-  ctx.diffuse = 0.62;
-  ctx.evaporate = ctx.t < 0.45 ? 0.15 : 0.55;
+  const hit = ctx.t >= 0.1;
+  ctx.flow = hit ? 1.15 : 0.02;
+  ctx.diffuse = !hit ? 0.04 : ctx.t < 0.4 ? 0.42 : 0.22;
+  ctx.evaporate = ctx.t < 0.75 ? 0.08 : 0.4;
+  // 下落时先清掉上一帧，避免竖线；入水后只在短窗注入，之后交给平流拉出羽流。
+  ctx.fade = hit ? 0.004 : 0.45;
   const fall = clamp01(ctx.t / 0.1);
-  const y = 0.16 + fall * 0.46;
-  if (ctx.t < 0.12) {
-    splat(ctx, { x: 0.5, y, radius: 0.012, amount: 0.95, water: 0.2, pigment: 0, vx: 0, vy: 0.4 });
+  const y = 0.14 + fall * 0.48;
+  if (!hit) {
+    splat(ctx, { x: 0.5, y, radius: 0.07, amount: 1, water: 0.2, pigment: 0, vx: 0, vy: 0.15 });
+    return;
   }
-  if (ctx.t >= 0.1) {
-    const grow = easeOutExpo(clamp01((ctx.t - 0.1) / 0.72));
+  const grow = easeOutExpo(clamp01((ctx.t - 0.1) / 0.5));
+  // 小核一直留着，羽流才交给平流；大团每帧重印会把结构抹成一块饼。
+  if (ctx.t < 0.82) {
     splat(ctx, {
-      x: 0.5, y: 0.64 + grow * 0.02, radius: 0.02 + grow * 0.05,
-      amount: 0.9 - grow * 0.25, water: 0.95, pigment: 0, vx: 0, vy: 0.05,
+      x: 0.5, y: 0.56,
+      radius: 0.075,
+      amount: 0.95, water: 1, pigment: 0, vx: 0, vy: 0.02,
     });
+  }
+  if (ctx.t < 0.62) {
     for (let i = 0; i < 6; i++) {
-      const ang = (i / 6) * TWO_PI + 0.35 + ctx.time * 0.35;
-      const rad = 0.015 + grow * (0.1 + (i % 3) * 0.025);
-      const tip = 0.55 + grow * 0.45;
+      const ang = (i / 6) * TWO_PI + 0.35 + ctx.time * 0.22;
+      const rad = 0.05 + grow * (0.22 + (i % 3) * 0.05);
       splat(ctx, {
         x: 0.5 + inkCos(ang) * rad,
-        y: 0.64 + inkSin(ang) * rad * 0.72 + grow * 0.05,
-        radius: 0.01 + (1 - tip) * 0.012,
-        amount: 0.55 * (1 - grow * 0.35),
-        water: 0.8,
+        y: 0.54 + inkSin(ang) * rad * 0.72,
+        radius: 0.045 + grow * 0.04,
+        amount: 0.55,
+        water: 0.95,
         pigment: 0,
-        vx: inkCos(ang + 1.4) * 0.25,
-        vy: inkSin(ang + 1.4) * 0.25 + 0.08,
+        vx: inkCos(ang + 1.2) * 0.55,
+        vy: inkSin(ang + 1.2) * 0.4 + 0.12,
       });
     }
   }
 }
 
 function stepSplash(ctx: FxStep): void {
-  ctx.flow = 0.2;
-  ctx.diffuse = ctx.t < 0.25 ? 0.15 : 0.55;
-  ctx.evaporate = ctx.t > 0.55 ? 0.8 : 0.2;
+  ctx.flow = 0.7;
+  ctx.diffuse = ctx.t < 0.2 ? 0.25 : 0.8;
+  ctx.evaporate = ctx.t > 0.6 ? 0.45 : 0.12;
   if ((ctx.mem[0] ?? 0) < 1 && ctx.t < 0.2) {
     const born = ctx.mem[0] ?? 0;
     const want = 36;
@@ -135,10 +143,10 @@ function stepSplash(ctx: FxStep): void {
       ctx.particles.push({
         x: 0.36 + ctx.rng.range(-0.02, 0.03),
         y: 0.5 + ctx.rng.range(-0.03, 0.03),
-        vx: inkCos(ang) * speed,
-        vy: inkSin(ang) * speed * 0.65,
-        radius: 0.006 + big * 0.028,
-        amount: 0.55 + big * 0.45,
+        vx: inkCos(ang) * speed * 1.4,
+        vy: inkSin(ang) * speed * 0.9,
+        radius: 0.03 + big * 0.09,
+        amount: 0.7 + big * 0.3,
         water: 0.15,
         pigment: ctx.rng.next() < 0.16 ? 0.25 : 0,
         life: 0.35 + ctx.rng.next() * 0.3,
@@ -148,9 +156,9 @@ function stepSplash(ctx: FxStep): void {
     ctx.mem[0] = ctx.particles.length;
   }
   if (ctx.t < 0.08) {
-    splat(ctx, { x: 0.34, y: 0.48, radius: 0.07, amount: 1, water: 0.7, pigment: 0, vx: 0.2, vy: 0 });
-    splat(ctx, { x: 0.4, y: 0.54, radius: 0.045, amount: 0.85, water: 0.65, pigment: 0, vx: 0.15, vy: 0.05 });
-    splat(ctx, { x: 0.3, y: 0.44, radius: 0.03, amount: 0.7, water: 0.5, pigment: 0, vx: 0.1, vy: -0.04 });
+    splat(ctx, { x: 0.34, y: 0.5, radius: 0.16, amount: 0.9, water: 0.8, pigment: 0, vx: 0.45, vy: 0.05 });
+    splat(ctx, { x: 0.5, y: 0.58, radius: 0.1, amount: 0.75, water: 0.75, pigment: 0, vx: 0.5, vy: 0.1 });
+    splat(ctx, { x: 0.22, y: 0.42, radius: 0.08, amount: 0.6, water: 0.65, pigment: 0, vx: 0.15, vy: -0.08 });
   }
   for (const p of ctx.particles) {
     if (p.life <= 0) continue;
@@ -162,7 +170,7 @@ function stepSplash(ctx: FxStep): void {
       p.vy *= 0.96;
     } else {
       p.water = 0.65;
-      p.radius += ctx.dt * 0.012;
+      p.radius += ctx.dt * 0.04;
     }
   }
   const list = ctx.particles;
@@ -180,16 +188,16 @@ function stepSplash(ctx: FxStep): void {
 }
 
 function stepWipe(ctx: FxStep): void {
-  ctx.flow = 0.35;
-  ctx.diffuse = ctx.t < 0.5 ? 0.85 : 0.2;
-  ctx.evaporate = ctx.t < 0.48 ? 0.05 : 0.35;
+  ctx.flow = 0.6;
+  ctx.diffuse = ctx.t < 0.5 ? 1 : 0.25;
+  ctx.evaporate = ctx.t < 0.48 ? 0.04 : 0.3;
   const seeds: readonly (readonly [number, number])[] = [[0.12, 0.16], [0.86, 0.22], [0.2, 0.84], [0.72, 0.78]];
   if (ctx.t < 0.5) {
     const grow = easeOutCubic(clamp01(ctx.t / 0.48));
     for (const [x, y] of seeds) {
       splat(ctx, {
-        x, y, radius: 0.02 + grow * 0.16, amount: 0.85, water: 1,
-        pigment: 0, vx: (0.5 - x) * -0.1, vy: (0.5 - y) * -0.1,
+        x, y, radius: 0.07 + grow * 0.32, amount: 0.72, water: 1,
+        pigment: 0, vx: (0.5 - x) * -0.2, vy: (0.5 - y) * -0.2,
       });
     }
   }
@@ -197,25 +205,25 @@ function stepWipe(ctx: FxStep): void {
 }
 
 function stepTitle(ctx: FxStep): void {
-  ctx.flow = 0.05;
-  ctx.diffuse = 0.22;
-  ctx.evaporate = 0.45;
-  const ox = 0.38;
-  const oy = 0.46;
+  ctx.flow = 0.08;
+  ctx.diffuse = 0.45;
+  ctx.evaporate = 0.28;
+  const ox = 0.42;
+  const oy = 0.5;
   brush(ctx, {
-    pts: [[ox, oy - 0.18], [ox + 0.005, oy], [ox, oy + 0.1], [ox - 0.045, oy + 0.16]],
-    t0: 0.06, t1: 0.3, width0: 0.02, width1: 0.008, water0: 0.75, water1: 0.18, amount: 0.98, pigment: 0,
+    pts: [[ox, oy - 0.32], [ox + 0.01, oy - 0.02], [ox - 0.02, oy + 0.16], [ox - 0.1, oy + 0.28]],
+    t0: 0.06, t1: 0.3, width0: 0.07, width1: 0.025, water0: 0.9, water1: 0.2, amount: 1, pigment: 0,
   });
   brush(ctx, {
-    pts: [[ox, oy - 0.02], [ox - 0.08, oy + 0.05], [ox - 0.17, oy + 0.16]],
-    t0: 0.36, t1: 0.55, width0: 0.016, width1: 0.005, water0: 0.5, water1: 0.08, amount: 0.9, pigment: 0,
+    pts: [[ox - 0.02, oy - 0.02], [ox - 0.16, oy + 0.08], [ox - 0.32, oy + 0.26]],
+    t0: 0.36, t1: 0.55, width0: 0.055, width1: 0.016, water0: 0.7, water1: 0.08, amount: 0.95, pigment: 0,
   });
   brush(ctx, {
-    pts: [[ox + 0.01, oy], [ox + 0.1, oy + 0.05], [ox + 0.2, oy + 0.13], [ox + 0.24, oy + 0.145]],
-    t0: 0.6, t1: 0.82, width0: 0.022, width1: 0.004, water0: 0.45, water1: 0.05, amount: 0.95, pigment: 0,
+    pts: [[ox + 0.02, oy], [ox + 0.16, oy + 0.08], [ox + 0.32, oy + 0.2], [ox + 0.38, oy + 0.24]],
+    t0: 0.6, t1: 0.82, width0: 0.07, width1: 0.012, water0: 0.55, water1: 0.04, amount: 1, pigment: 0,
   });
   if (ctx.t > 0.86 && ctx.t < 0.94) {
-    splat(ctx, { x: 0.64, y: 0.64, radius: 0.028, amount: 0.8, water: 0.28, pigment: 0.25, vx: 0, vy: 1 });
+    splat(ctx, { x: 0.78, y: 0.72, radius: 0.06, amount: 0.85, water: 0.35, pigment: 0.25, vx: 0, vy: 1 });
   }
   if (ctx.fadeOut && ctx.t > 0.8) ctx.fade = 0.03;
 }
@@ -227,21 +235,22 @@ function stepMist(ctx: FxStep): void {
 }
 
 function stepSmoke(ctx: FxStep): void {
-  ctx.flow = 0.9;
-  ctx.diffuse = 0.35;
-  ctx.evaporate = 0.25;
-  ctx.fade = 0.006;
-  for (let i = 0; i < 3; i++) {
-    const n = valueNoise(ctx.time * 0.8 + i, i * 2.2, 9);
+  ctx.flow = 1.1;
+  ctx.diffuse = 0.5;
+  ctx.evaporate = 0.18;
+  ctx.fade = 0.008;
+  for (let i = 0; i < 5; i++) {
+    const n = valueNoise(ctx.time * 0.5 + i, i * 2.2, 9);
+    const rise = (ctx.time * 0.08 + i * 0.17) % 1;
     splat(ctx, {
-      x: 0.48 + (n - 0.5) * 0.12,
-      y: 0.72 - (ctx.time * 0.04 % 0.2),
-      radius: 0.03 + n * 0.03,
-      amount: 0.35 + n * 0.25,
-      water: 0.7,
+      x: 0.5 + (n - 0.5) * 0.36 + inkSin(i + ctx.time) * 0.04,
+      y: 0.92 - rise * 0.7,
+      radius: 0.16 + n * 0.1 - rise * 0.06,
+      amount: 0.55 + n * 0.3,
+      water: 0.9,
       pigment: 0,
-      vx: (n - 0.5) * 0.4,
-      vy: -0.35,
+      vx: (n - 0.5) * 0.6,
+      vy: -0.7,
     });
   }
 }
@@ -258,8 +267,8 @@ function stepDissolve(ctx: FxStep): void {
       y: 0.42 + ctx.rng.range(-0.18, 0.2),
       vx: 0.15 + ctx.rng.next() * 0.35,
       vy: ctx.rng.range(-0.15, 0.05),
-      radius: 0.006 + ctx.rng.next() * 0.012,
-      amount: 0.45,
+      radius: 0.02 + ctx.rng.next() * 0.04,
+      amount: 0.6,
       water: 0.35,
       pigment: ctx.t > 0.45 ? 0.5 : 0,
       life: 0.7,
@@ -277,72 +286,77 @@ function stepDissolve(ctx: FxStep): void {
 }
 
 function stepReveal(ctx: FxStep): void {
-  ctx.flow = 0.25;
-  ctx.diffuse = 0.9;
-  ctx.evaporate = ctx.t < 0.7 ? 0.08 : 0.7;
+  ctx.flow = 0.45;
+  ctx.diffuse = 1;
+  ctx.evaporate = ctx.t < 0.7 ? 0.06 : 0.5;
   const grow = easeOutCubic(ctx.t);
-  splat(ctx, { x: 0.62, y: 0.52, radius: 0.02 + grow * 0.08, amount: 0.75, water: 1, pigment: 0, vx: 0, vy: 0 });
-  splat(ctx, { x: 0.4, y: 0.4, radius: 0.015 + grow * 0.06, amount: 0.55, water: 0.9, pigment: 0, vx: 0, vy: 0 });
+  splat(ctx, { x: 0.58, y: 0.55, radius: 0.08 + grow * 0.28, amount: 0.85, water: 1, pigment: 0, vx: 0, vy: 0 });
+  splat(ctx, { x: 0.32, y: 0.4, radius: 0.06 + grow * 0.22, amount: 0.7, water: 1, pigment: 0, vx: 0, vy: 0 });
+  splat(ctx, { x: 0.72, y: 0.7, radius: 0.05 + grow * 0.16, amount: 0.6, water: 0.9, pigment: 0, vx: 0.05, vy: 0.05 });
 }
 
 function stepRiver(ctx: FxStep): void {
-  ctx.flow = 0.3;
-  ctx.diffuse = 0.2;
-  ctx.evaporate = 0.5;
-  if (ctx.rng.next() < 0.4) {
+  ctx.flow = 0.65;
+  ctx.diffuse = 0.55;
+  ctx.evaporate = 0.22;
+  ctx.fade = 0.006;
+  for (let i = 0; i < 4; i++) {
+    const n = valueNoise(ctx.time * 0.35 + i * 1.7, 2.2, 5);
+    const drift = (ctx.time * 0.07 + i * 0.23) % 1;
     splat(ctx, {
-      x: (ctx.time * 0.12) % 1,
-      y: 0.66 + valueNoise(ctx.time, 2, 4) * 0.04,
-      radius: 0.008,
-      amount: 0.35,
-      water: 0.2,
+      x: drift,
+      y: 0.4 + i * 0.12 + (n - 0.5) * 0.05,
+      radius: 0.07 + n * 0.03,
+      amount: 0.32,
+      water: 0.95,
       pigment: 0.5,
-      vx: 1, vy: 0,
+      vx: 0.55,
+      vy: (n - 0.5) * 0.15,
     });
   }
 }
 
 function stepStreak(ctx: FxStep): void {
-  ctx.flow = 0.02;
-  ctx.diffuse = 0.02;
-  ctx.evaporate = 1.2;
+  ctx.flow = 0.04;
+  ctx.diffuse = 0.12;
+  ctx.evaporate = 0.7;
   const u = easeInOutSine(clamp01(ctx.t / 0.72));
-  const x = 0.08 + u * 0.84;
-  const y = 0.58 - u * 0.12;
-  const hairs = u > 0.62 ? 3 : 1;
+  const x = 0.06 + u * 0.88;
+  const y = 0.62 - u * 0.18;
+  const hairs = u > 0.55 ? 4 : 1;
   for (let i = 0; i < hairs; i++) {
-    const off = (i - 1) * 0.012 * u;
+    const off = (i - 1.5) * 0.035 * u;
     splat(ctx, {
       x, y: y + off,
-      radius: (0.04 - u * 0.03) * (i === 1 || hairs === 1 ? 1 : 0.45),
-      amount: 0.95 * (1 - u * 0.35),
-      water: 0.42 * (1 - u),
+      radius: (0.09 - u * 0.05) * (i === 1 || hairs === 1 ? 1 : 0.4),
+      amount: 0.95 * (1 - u * 0.3),
+      water: 0.5 * (1 - u),
       pigment: 0,
-      vx: 1, vy: -0.15,
+      vx: 1.2, vy: -0.2,
     });
   }
 }
 
 function stepRain(ctx: FxStep): void {
-  ctx.flow = 0.1;
-  ctx.diffuse = 0.45;
-  ctx.evaporate = 0.7;
-  ctx.fade = 0.01;
-  if (ctx.particles.length < 10 && ctx.rng.next() < 0.7) {
+  ctx.flow = 0.15;
+  ctx.diffuse = 0.55;
+  ctx.evaporate = 0.55;
+  ctx.fade = 0.012;
+  if (ctx.particles.length < 14 && ctx.rng.next() < 0.85) {
     ctx.particles.push({
       x: ctx.rng.next(),
-      y: 0.72 + ctx.rng.range(0, 0.2),
+      y: 0.55 + ctx.rng.range(0, 0.4),
       vx: 0, vy: 0,
-      radius: 0.008,
-      amount: 0.4,
-      water: 0.7,
+      radius: 0.055,
+      amount: 0.5,
+      water: 0.95,
       pigment: 0.5,
-      life: 0.45,
+      life: 0.7,
     });
   }
   for (const p of ctx.particles) {
     p.life -= ctx.dt;
-    p.radius += ctx.dt * 0.02;
+    p.radius += ctx.dt * 0.05;
     p.amount *= 0.985;
     splat(ctx, { x: p.x, y: p.y, radius: p.radius, amount: p.amount, water: p.water, pigment: p.pigment, vx: 0, vy: 1 });
   }
@@ -357,43 +371,44 @@ function stepSeal(ctx: FxStep): void {
   ctx.diffuse = 0.15;
   ctx.evaporate = 0.3;
   if (ctx.t > 0.24 && ctx.t < 0.55) {
-    splat(ctx, { x: 0.5, y: 0.5, radius: 0.07, amount: 0.25, water: 0.22, pigment: 0.25, vx: 0, vy: 0 });
+    splat(ctx, { x: 0.5, y: 0.5, radius: 0.16, amount: 0.4, water: 0.45, pigment: 0.25, vx: 0, vy: 0 });
   }
 }
 
 function stepBamboo(ctx: FxStep): void {
-  ctx.flow = 0.02;
-  ctx.diffuse = 0.12;
-  ctx.evaporate = 0.6;
-  const x = 0.72;
+  ctx.flow = 0.04;
+  ctx.diffuse = 0.22;
+  ctx.evaporate = 0.4;
+  const x = 0.48;
   for (let i = 0; i < 5; i++) {
-    const y0 = 0.9 - i * 0.13;
-    const y1 = y0 - 0.11;
+    const y0 = 0.96 - i * 0.16;
+    const y1 = y0 - 0.14;
     brush(ctx, {
-      pts: [[x, y0], [x + 0.004, (y0 + y1) / 2], [x, y1]],
-      t0: 0.04 + i * 0.1, t1: 0.12 + i * 0.1,
-      width0: 0.012, width1: 0.008, water0: 0.45, water1: 0.15, amount: 0.9, pigment: 0,
+      pts: [[x, y0], [x + 0.016, (y0 + y1) / 2], [x - 0.01, y1]],
+      t0: 0.02 + i * 0.09, t1: 0.1 + i * 0.09,
+      width0: 0.055, width1: 0.032, water0: 0.75, water1: 0.3, amount: 1, pigment: 0,
     });
     brush(ctx, {
-      pts: [[x - 0.02, y1], [x + 0.02, y1]],
-      t0: 0.12 + i * 0.1, t1: 0.15 + i * 0.1,
-      width0: 0.008, width1: 0.008, water0: 0.2, water1: 0.1, amount: 1, pigment: 0,
+      pts: [[x - 0.07, y1], [x + 0.08, y1]],
+      t0: 0.1 + i * 0.09, t1: 0.125 + i * 0.09,
+      width0: 0.026, width1: 0.02, water0: 0.45, water1: 0.2, amount: 1, pigment: 0,
     });
   }
   brush(ctx, {
-    pts: [[x, 0.48], [x + 0.08, 0.4], [x + 0.14, 0.34]],
-    t0: 0.62, t1: 0.74, width0: 0.007, width1: 0.003, water0: 0.3, water1: 0.05, amount: 0.8, pigment: 0,
+    pts: [[x, 0.36], [x + 0.16, 0.24], [x + 0.28, 0.16]],
+    t0: 0.52, t1: 0.64, width0: 0.028, width1: 0.012, water0: 0.5, water1: 0.1, amount: 0.95, pigment: 0,
   });
   const leaves: readonly (readonly [number, number, number, number])[] = [
-    [0.78, 0.36, 0.86, 0.28],
-    [0.8, 0.38, 0.9, 0.36],
-    [0.76, 0.4, 0.7, 0.32],
+    [0.64, 0.22, 0.9, 0.06],
+    [0.66, 0.28, 0.92, 0.38],
+    [0.4, 0.3, 0.1, 0.1],
+    [0.38, 0.38, 0.08, 0.46],
   ];
   leaves.forEach((leaf, i) => {
     brush(ctx, {
-      pts: [[leaf[0], leaf[1]], [leaf[2], leaf[3]]],
-      t0: 0.76 + i * 0.06, t1: 0.84 + i * 0.06,
-      width0: 0.012, width1: 0.002, water0: 0.4, water1: 0.05, amount: 0.85, pigment: 0,
+      pts: [[leaf[0], leaf[1]], [(leaf[0] + leaf[2]) / 2, (leaf[1] + leaf[3]) / 2 - 0.02], [leaf[2], leaf[3]]],
+      t0: 0.66 + i * 0.07, t1: 0.76 + i * 0.07,
+      width0: 0.05, width1: 0.012, water0: 0.6, water1: 0.08, amount: 0.95, pigment: 0,
     });
   });
 }
@@ -403,8 +418,8 @@ function stepPlum(ctx: FxStep): void {
   ctx.diffuse = 0.1;
   ctx.evaporate = 0.55;
   brush(ctx, {
-    pts: [[0.05, 0.72], [0.22, 0.6], [0.4, 0.5], [0.58, 0.36], [0.7, 0.28]],
-    t0: 0.04, t1: 0.38, width0: 0.02, width1: 0.006, water0: 0.15, water1: 0.05, amount: 0.9, pigment: 0,
+    pts: [[0.04, 0.82], [0.22, 0.68], [0.4, 0.52], [0.58, 0.36], [0.78, 0.22]],
+    t0: 0.04, t1: 0.38, width0: 0.05, width1: 0.016, water0: 0.35, water1: 0.08, amount: 0.95, pigment: 0,
   });
   brush(ctx, {
     pts: [[0.4, 0.5], [0.48, 0.42], [0.52, 0.32]],
@@ -421,7 +436,7 @@ function stepPlum(ctx: FxStep): void {
       const ang = -1.1 + petal * 1.25;
       splat(ctx, {
         x: x + inkCos(ang) * 0.016, y: y + inkSin(ang) * 0.014,
-        radius: 0.011, amount: 0.7, water: 0.4, pigment: 0.25, vx: inkCos(ang), vy: inkSin(ang),
+        radius: 0.035, amount: 0.8, water: 0.55, pigment: 0.25, vx: inkCos(ang), vy: inkSin(ang),
       });
     }
     if (k > 0.85) splat(ctx, { x, y, radius: 0.004, amount: 1, water: 0.05, pigment: 0, vx: 0, vy: -1 });
@@ -429,24 +444,27 @@ function stepPlum(ctx: FxStep): void {
 }
 
 function stepFlame(ctx: FxStep): void {
-  ctx.flow = 0.85;
-  ctx.diffuse = 0.3;
-  ctx.evaporate = 0.45;
-  ctx.fade = 0.01;
-  for (let i = 0; i < 5; i++) {
-    const phase = (ctx.time * 0.7 + i * 0.17) % 1;
-    const rise = phase;
-    const x = 0.5 + inkSin(i * 1.7 + ctx.time * 3) * 0.06 + (i - 2) * 0.035;
-    const y = 0.78 - rise * 0.42;
-    const curl = inkSin(rise * 6 + i) * 0.04 * rise;
+  ctx.flow = 1.45;
+  ctx.diffuse = 0.62;
+  ctx.evaporate = 0.16;
+  // 火舌在动，淡出要快，否则历史位置会堆成一根黑棍。
+  ctx.fade = 0.04;
+  splat(ctx, {
+    x: 0.5, y: 0.8, radius: 0.26, amount: 0.75, water: 1, pigment: 0.25, vx: 0, vy: -0.35,
+  });
+  for (let i = 0; i < 6; i++) {
+    const phase = (ctx.time * 0.4 + i * 0.16) % 1;
+    const sway = inkSin(i * 1.7 + ctx.time * 1.6) * (0.08 + phase * 0.1);
+    const x = 0.5 + sway + (i - 2.5) * 0.07;
+    const y = 0.86 - phase * 0.7;
     splat(ctx, {
-      x: x + curl, y,
-      radius: 0.03 * (1 - rise * 0.75),
-      amount: 0.75 * (1 - rise * 0.5),
-      water: 0.15 * (1 - rise),
-      pigment: rise < 0.45 ? 0.25 : 0,
-      vx: curl * 4,
-      vy: -0.8,
+      x, y,
+      radius: 0.16 * (1 - phase * 0.35),
+      amount: 0.7 * (1 - phase * 0.25),
+      water: 0.9 * (1 - phase * 0.55),
+      pigment: phase < 0.4 ? 0.25 : 0,
+      vx: sway * 1.4,
+      vy: -0.85,
     });
   }
 }
@@ -459,41 +477,40 @@ function stepBolt(ctx: FxStep): void {
     [0.56, 0.06], [0.46, 0.22], [0.6, 0.36], [0.42, 0.52], [0.58, 0.68], [0.48, 0.9],
   ];
   brush(ctx, {
-    pts: spine, t0: 0.06, t1: 0.22, width0: 0.016, width1: 0.006, water0: 0.12, water1: 0.04, amount: 1, pigment: 0,
+    pts: spine, t0: 0.06, t1: 0.22, width0: 0.045, width1: 0.02, water0: 0.35, water1: 0.06, amount: 1, pigment: 0,
   });
   brush(ctx, {
     pts: [[0.6, 0.36], [0.72, 0.42], [0.78, 0.4]],
-    t0: 0.16, t1: 0.26, width0: 0.008, width1: 0.002, water0: 0.08, water1: 0.02, amount: 0.8, pigment: 0,
+    t0: 0.16, t1: 0.26, width0: 0.028, width1: 0.01, water0: 0.25, water1: 0.05, amount: 0.85, pigment: 0,
   });
   if (ctx.t > 0.24 && ctx.t < 0.4) {
-    splat(ctx, { x: 0.48, y: 0.9, radius: 0.02 + (ctx.t - 0.24), amount: 0.6, water: 0.4, pigment: 0, vx: 0.2, vy: 0.1 });
+    splat(ctx, { x: 0.48, y: 0.88, radius: 0.08 + (ctx.t - 0.24) * 0.4, amount: 0.75, water: 0.7, pigment: 0, vx: 0.3, vy: 0.15 });
   }
   if (ctx.t > 0.45) ctx.fade = 0.03;
 }
 
 function stepSlash(ctx: FxStep): void {
-  ctx.diffuse = 0.03;
-  ctx.evaporate = 1.1;
+  ctx.diffuse = 0.4;
+  ctx.evaporate = 0.55;
   const u = easeInOutSine(clamp01(ctx.t / 0.72));
   if (ctx.t > 0.8) {
-    ctx.fade = 0.045;
+    ctx.fade = 0.02;
     return;
   }
-  const ang = -1.05 + u * 2.2;
-  const x = 0.5 + inkCos(ang) * 0.22;
-  const y = 0.5 + inkSin(ang) * 0.11;
-  const tx = inkCos(ang + 1.5708);
-  const ty = inkSin(ang + 1.5708);
+  const x = 0.12 + u * 0.76;
+  const y = 0.28 + u * 0.48;
+  const tx = 0.84;
+  const ty = 0.54;
   const belly = 1 - Math.abs(u - 0.42) * 1.7;
-  const width = 0.007 + (belly > 0 ? belly * 0.018 : 0);
+  const width = 0.028 + (belly > 0 ? belly * 0.07 : 0);
   for (let i = 0; i < 3; i++) {
-    const along = (i - 1) * 0.018;
+    const along = (i - 1) * 0.045;
     splat(ctx, {
       x: x + tx * along,
       y: y + ty * along,
       radius: width * (i === 1 ? 1 : 0.45),
       amount: i === 1 ? 0.95 : 0.4,
-      water: 0.05 + (1 - u) * 0.2,
+      water: 0.15 + (1 - u) * 0.6,
       pigment: 0,
       vx: tx,
       vy: ty,
@@ -506,12 +523,26 @@ function stepScroll(ctx: FxStep): void {
 }
 
 function stepRipple(ctx: FxStep): void {
-  ctx.diffuse = 0.4;
-  ctx.evaporate = 0.35;
-  ctx.flow = 0.15;
-  if (ctx.t < 0.35) {
-    const g = easeOutCubic(ctx.t / 0.35);
-    splat(ctx, { x: 0.5, y: 0.5, radius: 0.012 + g * 0.02, amount: 0.7, water: 0.9, pigment: 0.5, vx: 0, vy: 0 });
+  ctx.diffuse = 0.7;
+  ctx.evaporate = 0.2;
+  ctx.flow = 0.35;
+  const g = easeOutCubic(clamp01(ctx.t / 0.7));
+  splat(ctx, { x: 0.5, y: 0.5, radius: 0.05 + g * 0.08, amount: 0.55, water: 1, pigment: 0.5, vx: 0, vy: 0 });
+  if (ctx.t > 0.15 && ctx.t < 0.7) {
+    const rad = 0.12 + g * 0.28;
+    for (let i = 0; i < 4; i++) {
+      const ang = (i / 4) * TWO_PI + 0.4;
+      splat(ctx, {
+        x: 0.5 + inkCos(ang) * rad,
+        y: 0.5 + inkSin(ang) * rad * 0.72,
+        radius: 0.045,
+        amount: 0.28,
+        water: 0.9,
+        pigment: 0.5,
+        vx: inkCos(ang) * 0.4,
+        vy: inkSin(ang) * 0.3,
+      });
+    }
   }
 }
 
@@ -523,12 +554,12 @@ function stepCondense(ctx: FxStep): void {
   if (ctx.particles.length < 16) {
     for (let i = ctx.particles.length; i < 16; i++) {
       const ang = (i / 16) * TWO_PI + (i % 3) * 0.35;
-      const rad = 0.1 + (i % 5) * 0.038;
+      const rad = 0.22 + (i % 5) * 0.06;
       ctx.particles.push({
         x: 0.5 + inkCos(ang) * rad + ((i * 5) % 7) * 0.008 - 0.02,
         y: 0.52 + inkSin(ang) * rad * 0.8 + ((i * 3) % 5) * 0.01,
         vx: 0, vy: 0,
-        radius: 0.007 + (i % 4) * 0.007,
+        radius: 0.03 + (i % 4) * 0.02,
         amount: 0.35 + (i % 3) * 0.15,
         water: 0.4 + (i % 2) * 0.3,
         pigment: 0,
@@ -558,8 +589,8 @@ function stepAge(ctx: FxStep): void {
   ctx.diffuse = 0.08;
   ctx.evaporate = 0.2;
   brush(ctx, {
-    pts: [[0.15, 0.45], [0.32, 0.36], [0.5, 0.42], [0.7, 0.32], [0.88, 0.4]],
-    t0: 0, t1: 0.08, width0: 0.02, width1: 0.012, water0: 0.4, water1: 0.2, amount: 0.8, pigment: 0,
+    pts: [[0.08, 0.48], [0.28, 0.32], [0.5, 0.42], [0.72, 0.26], [0.92, 0.38]],
+    t0: 0, t1: 0.12, width0: 0.06, width1: 0.03, water0: 0.7, water1: 0.3, amount: 0.85, pigment: 0,
   });
   brush(ctx, {
     pts: [[0.2, 0.62], [0.35, 0.7], [0.48, 0.6]],
@@ -572,27 +603,27 @@ function stepFlock(ctx: FxStep): void {
 }
 
 function stepMap(ctx: FxStep): void {
-  ctx.flow = 0.15;
-  ctx.diffuse = 0.35;
-  ctx.evaporate = 0.4;
+  ctx.flow = 0.12;
+  ctx.diffuse = 0.16;
+  ctx.evaporate = 0.75;
   brush(ctx, {
-    pts: [[0.15, 0.3], [0.32, 0.38], [0.48, 0.48], [0.6, 0.62], [0.78, 0.7]],
-    t0: 0.08, t1: 0.4, width0: 0.008, width1: 0.006, water0: 0.7, water1: 0.45, amount: 0.55, pigment: 0.5,
+    pts: [[0.06, 0.3], [0.24, 0.42], [0.46, 0.55], [0.68, 0.68], [0.94, 0.78]],
+    t0: 0.08, t1: 0.4, width0: 0.08, width1: 0.05, water0: 0.85, water1: 0.4, amount: 0.9, pigment: 0.5,
   });
   brush(ctx, {
-    pts: [[0.28, 0.28], [0.4, 0.24], [0.55, 0.3], [0.7, 0.22]],
-    t0: 0.36, t1: 0.62, width0: 0.016, width1: 0.01, water0: 0.2, water1: 0.08, amount: 0.75, pigment: 0,
+    pts: [[0.1, 0.4], [0.32, 0.2], [0.55, 0.32], [0.84, 0.14]],
+    t0: 0.36, t1: 0.62, width0: 0.09, width1: 0.05, water0: 0.45, water1: 0.15, amount: 0.95, pigment: 0,
   });
   const towns: readonly (readonly [number, number])[] = [[0.34, 0.4], [0.52, 0.5], [0.66, 0.36]];
   towns.forEach(([x, y], i) => {
     const t0 = 0.64 + i * 0.08;
     if (ctx.t > t0 && ctx.t < t0 + 0.08) {
-      splat(ctx, { x, y, radius: 0.012, amount: 0.9, water: 0.25, pigment: 0.25, vx: 0, vy: 0 });
+      splat(ctx, { x, y, radius: 0.04, amount: 0.95, water: 0.4, pigment: 0.25, vx: 0, vy: 0 });
     }
   });
   if (ctx.t > 0.5 && ctx.t < 0.85) {
     const g = easeOutCubic((ctx.t - 0.5) / 0.35);
-    splat(ctx, { x: 0.46, y: 0.46, radius: 0.04 + g * 0.08, amount: 0.28, water: 0.8, pigment: 0.25, vx: 0, vy: 0 });
+    splat(ctx, { x: 0.46, y: 0.5, radius: 0.1 + g * 0.12, amount: 0.16, water: 0.7, pigment: 0.25, vx: 0, vy: 0 });
   }
 }
 
@@ -601,8 +632,8 @@ function stepShock(ctx: FxStep): void {
   ctx.diffuse = 0.2;
   ctx.evaporate = 0.6;
   ctx.flash = ctx.t < 0.05 ? 0.35 : 0;
-  if (ctx.t < 0.12) {
-    splat(ctx, { x: 0.5, y: 0.52, radius: 0.02 + ctx.t, amount: 1, water: 0.4, pigment: 0, vx: 0, vy: 0 });
+  if (ctx.t < 0.16) {
+    splat(ctx, { x: 0.5, y: 0.52, radius: 0.08 + ctx.t * 0.45, amount: 0.9, water: 1, pigment: 0, vx: 0, vy: 0 });
   }
   const rad = easeOutQuart(clamp01(ctx.t / 0.7)) * 0.4;
   if (ctx.t > 0.05 && ctx.t < 0.55 && ctx.rng.next() < 0.8) {
@@ -610,8 +641,8 @@ function stepShock(ctx: FxStep): void {
     splat(ctx, {
       x: 0.5 + inkCos(ang) * rad,
       y: 0.52 + inkSin(ang) * rad * 0.85,
-      radius: 0.008,
-      amount: 0.45,
+      radius: 0.055,
+      amount: 0.55,
       water: 0.2,
       pigment: 0,
       vx: inkCos(ang),

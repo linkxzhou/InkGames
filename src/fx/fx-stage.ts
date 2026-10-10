@@ -61,8 +61,8 @@ export class InkFxStage {
       this.splatA.push(new Vector4());
       this.splatB.push(new Vector4());
     }
-    const simW = Math.max(320, Math.round(this.width * 0.5));
-    const simH = Math.max(180, Math.round(this.height * 0.5));
+    const simW = Math.max(480, Math.round(this.width * 0.75));
+    const simH = Math.max(270, Math.round(this.height * 0.75));
     this.clearMat = this.material(FX_CLEAR, {});
     this.simMat = this.material(FX_SIM, {
       uState: { value: null },
