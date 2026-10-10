@@ -249,6 +249,10 @@ def ambience_track(total, segs, rng, xf):
     return y
 
 # ---------------- narration ----------------
+# edge-tts speaking rate. -29% (2026-10-11) makes the lines about 1.3x as long as the earlier -8%, slowed at
+# synthesis time so the voice stays natural (no time-stretching); build-chapter-video.py --narration-rate overrides it.
+NARRATION_RATE = '-29%'
+
 def tts_bin():
     for c in (os.environ.get('EDGE_TTS'), shutil.which('edge-tts'), '/workspace/.venv-audio/bin/edge-tts'):
         if c and os.path.exists(c): return c

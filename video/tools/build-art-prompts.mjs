@@ -8,7 +8,7 @@
 //
 // 用法：在仓库根目录运行 `node video/tools/build-art-prompts.mjs`
 // 幂等：重复运行会用新结果整体替换 artPrompts，不影响其它字段。无第三方依赖。
-import { ASSET_STYLE_ZH, NEG_STYLE_ZH } from './art-style.mjs';
+import { ASSET_STYLE_ZH, NEG_STYLE_ZH, NEG_MODERN_ZH } from './art-style.mjs';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -230,7 +230,7 @@ function buildPrompt(seg, ctx) {
   return prompt;
 }
 
-const NEGATIVE = '文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏, ' + NEG_STYLE_ZH.replace(/，/g, ', ');
+const NEGATIVE = '文字, 书法, 题字, 印章, 边框, 网格线, 底纹, 纸纹, 背景色, 白底, 阴影, 倒影, 水印, 写实照片, 3D 渲染, 厚涂, 现代器物, 现代服饰, 多余肢体, 五官崩坏, ' + NEG_STYLE_ZH.replace(/，/g, ', ') + '; ' + NEG_MODERN_ZH;
 
 function buildSceneArtPrompts(bundle, entry) {
   const scene = entry.scene;

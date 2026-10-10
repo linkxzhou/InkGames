@@ -5,7 +5,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readdirSync, statSync } from 'node:fs';
-import { STYLE_ZH, STYLE_EN, STYLE_REF_ZH, STYLE_REF_EN, PALETTE, NEG_STYLE_ZH, NEG_STYLE_EN, ASSET_STYLE_ZH, MOTION_ZH, MOTION_EN, NEG_MOTION_ZH, NEG_MOTION_EN } from './art-style.mjs';
+import { STYLE_ZH, STYLE_EN, STYLE_REF_ZH, STYLE_REF_EN, PALETTE, NEG_STYLE_ZH, NEG_STYLE_EN, ASSET_STYLE_ZH, MOTION_ZH, MOTION_EN, NEG_MOTION_ZH, NEG_MOTION_EN, NEG_MODERN_ZH, NEG_MODERN_EN } from './art-style.mjs';
 
 const DATA = resolve(dirname(fileURLToPath(import.meta.url)), '..', 'data');
 const showPending = process.argv.includes('--pending');
@@ -140,6 +140,7 @@ function checkVideoPrompt(where, v, cast) {
   if (!v.negative?.zh?.includes(NEG_STYLE_ZH) || !v.negative?.en?.includes(NEG_STYLE_EN)) err(where, 'videoPrompt.negative 缺少风格负面词（全彩、Q 版、写实、繁复纹理等）');
   if (!v.prompt?.zh?.includes(MOTION_ZH) || !v.prompt?.en?.includes(MOTION_EN)) err(where, 'videoPrompt.prompt 缺少首帧图生视频与动势克制说明（art-style.mjs MOTION_ZH/EN）');
   if (!v.negative?.zh?.includes(NEG_MOTION_ZH) || !v.negative?.en?.includes(NEG_MOTION_EN)) err(where, 'videoPrompt.negative 缺少运动失败模式负面词');
+  if (!v.negative?.zh?.includes(NEG_MODERN_ZH) || !v.negative?.en?.includes(NEG_MODERN_EN)) err(where, 'videoPrompt.negative 缺少现代元素禁令（art-style.mjs NEG_MODERN_ZH/EN）');
   if (OLD_STYLE_DATA.test(JSON.stringify(v))) err(where, `videoPrompt 含旧彩色水墨措辞：${JSON.stringify(v).match(OLD_STYLE_DATA)[0]}`);
   styleChecked.video++;
   for (const c of v.characters || []) if (!ids.has(c.id)) err(where, `videoPrompt 人物不在 cast：${c.id}`);
@@ -156,6 +157,7 @@ function checkArtPrompts(where, list, scene, cast) {
     if (!seg.prompt?.includes(ASSET_STYLE_ZH)) err(where, `素材段 ${seg.id} 的 prompt 缺少黑白红剪影画风行（art-style.mjs ASSET_STYLE_ZH）`);
     for (const h of HEXES) if (!seg.prompt?.includes(h)) { err(where, `素材段 ${seg.id} 缺少色板 ${h}`); break; }
     for (const n of NEG_ART) if (!seg.negative?.includes(n)) { err(where, `素材段 ${seg.id} 的 negative 缺少风格负面词：${n}`); break; }
+    if (!seg.negative?.includes(NEG_MODERN_ZH)) err(where, `素材段 ${seg.id} 的 negative 缺少现代元素禁令（art-style.mjs NEG_MODERN_ZH）`);
     if (OLD_STYLE_DATA.test((seg.prompt || '') + (seg.negative || ''))) err(where, `素材段 ${seg.id} 含旧彩色水墨措辞`);
     styleChecked.art++;
     if (!seg.id || segIds.has(seg.id)) err(where, `素材段 id 缺失或重复：${seg.id}`);
@@ -495,8 +497,9 @@ if (index.totals.v1 !== v1 || index.totals.outline !== outline || (index.totals.
 }
 
 // 章节片头剧本 video/data/chapter-videos/<ch>.json：镜数 = clamp(4 + ceil(场景数/2), 6, 16)（上古为 8 镜旧例），
-// 镜头按章节时间线排序、来源场景存在、旁白 15–30 字、8 秒、提示词带风格块与负面词、运动提示词固定结尾、环境声已实现
+// 镜头按章节时间线排序、来源场景存在、旁白 15–30 字、镜长 8–12.5 秒、提示词带风格块、负面词与现代元素禁令、运动提示词固定结尾、环境声已实现
 const NARR_PUNCT = /[，。；、：！？「」『』《》〈〉·—\s]/g;
+const SHOT_MAX = 12.5;  // 秒：8 s 片段 × 最多 1.35 倍放慢 + 末帧停留，旁白 30 字也放得下
 const MOTION_END = /keep (his|her|their) silhouette consistent, no morphing, no new figures, no text\. Only black, grey, paper white and vermilion\.$/;
 let chapterScripts = 0, chapterScriptShots = 0;
 {
@@ -513,6 +516,7 @@ let chapterScripts = 0, chapterScriptShots = 0;
     const want = id === 'shanggu' ? 8 : Math.max(6, Math.min(16, 4 + Math.ceil(order.length / 2)));
     chapterScripts++; chapterScriptShots += sp.shots.length;
     if (sp.chapter !== id) err(where, `chapter 字段 ${sp.chapter} ≠ 文件名`);
+    if (!String(sp.negative || '').includes(NEG_MODERN_EN)) err(where, 'negative 缺少现代元素禁令（art-style.mjs NEG_MODERN_EN）');
     if (sp.shots.length !== want) err(where, `镜数 ${sp.shots.length}，按 clamp(4 + ceil(${order.length}/2), 6, 16) 应为 ${want}`);
     let last = -1;
     sp.shots.forEach((sh, i) => {
@@ -526,10 +530,13 @@ let chapterScripts = 0, chapterScriptShots = 0;
       if (!sh.zh || !String(sh.zh).trim()) err(w, '缺少 zh 字幕');
       const n = String(sh.narration || '').replace(NARR_PUNCT, '').length;
       if (n < 15 || n > 30) err(w, `旁白应为 15–30 字，实际 ${n}`);
-      if (Math.abs(Number(sh.durationSec) - 8) > 2.01) err(w, `时长 ${sh.durationSec}s，应为 8 s（旁白过长时最多 +2 s）`);
+      // 镜长 = max(8, 旁白偏移 + 旁白 + 换气 + 转场)：旁白放慢后镜头可超过 8 s（片段放慢 + 末帧停留），上限 SHOT_MAX
+      if (!(Number(sh.durationSec) >= 7.9 && Number(sh.durationSec) <= SHOT_MAX)) err(w, `时长 ${sh.durationSec}s，应在 8–${SHOT_MAX} s（8 s 片段，旁白长时放慢片段并停留末帧）`);
+      if (sh.clipSlowdown != null && !(sh.clipSlowdown >= 1 && sh.clipSlowdown <= 1.35)) err(w, `clipSlowdown ${sh.clipSlowdown} 应在 1–1.35`);
       if (!/^[\x20-\x7e\u2013\u2014\u2019]+$/.test(sh.imagePrompt || '')) err(w, 'imagePrompt 应为英文');
       if (!/wuxia ink silhouette/.test(sh.imagePrompt || '') || !/#b3241c/.test(sh.imagePrompt || '') || !/Negative: other colours, gold/.test(sh.imagePrompt || '')) err(w, 'imagePrompt 缺少风格块或负面词');
       if (id !== 'shanggu' && !MOTION_END.test(sh.motionPrompt || '')) err(w, 'motionPrompt 缺少固定结尾（keep … silhouette consistent … vermilion.）');
+      if (!(sh.imagePrompt || '').includes(NEG_MODERN_EN) || !(sh.motionPrompt || '').includes(NEG_MODERN_EN)) err(w, 'imagePrompt / motionPrompt 缺少现代元素禁令（art-style.mjs NEG_MODERN_EN）');
       if (!Array.isArray(sh.ambience) || !sh.ambience.length) err(w, '缺少 ambience');
       else for (const a of sh.ambience) if (!AMB.has(a)) err(w, '环境声未在 chapter_audio.py 实现：' + a);
       if (!['pending', 'done'].includes(sh.status)) err(w, 'status 应为 pending 或 done');

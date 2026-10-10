@@ -46,3 +46,7 @@ export const MOTION_EN = 'Workflow: for each shot first render a still in this s
 /** 运动类负面词：实测失败模式。 */
 export const NEG_MOTION_ZH = '人物融化变形，墨迹倒流，血液倒流，卷轴融化，画面中途新增物体，构图漂移，画面内文字与印章字';
 export const NEG_MOTION_EN = 'melting or morphing figures, ink or blood flowing backwards, melting scrolls, objects appearing mid-shot, drifting composition, any text or seal characters inside the frame';
+
+/** 现代元素禁令（2026-10-11 定）：所有提示词的负面词都必须带这一句，validate.mjs 逐条检查。 */
+export const NEG_MODERN_ZH = '不出现任何现代元素：现代建筑、电线、电线杆、公路、车辆、玻璃、塑料、现代服饰、眼镜、手表、枪械、电灯、招牌或文字标识';
+export const NEG_MODERN_EN = 'no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering';

@@ -70,7 +70,7 @@ window.CHAPTER_VIDEOS = {
    "mp4": "assets/chapter-videos/shanggu.mp4",
    "poster": "assets/chapter-videos/shanggu-poster.jpg",
    "posterWebp": "assets/chapter-videos/shanggu-poster.webp",
-   "durationSec": 65.12,
+   "durationSec": 67.33,
    "shots": 8,
    "audio": true
   },

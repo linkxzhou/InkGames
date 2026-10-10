@@ -106,22 +106,23 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 2. 每镜一张本风格 16:9 静帧（`GenerateImage`，只有父代理能调用）。
 3. 图生视频 720p、8 s（`GenerateVideo`，同上）：动势丰富但受控——神话或历史氛围、墨晕、风、雾、流水、旗帜、缓慢运镜；**不拍兵刃与肢体接触**，交战与刺杀只拍之前或之后的氛围（旗、雾、血红落日、定住的一团泼墨）。
 4. 逐帧调色锁回色板：`video/tools/chapter_grade.py`（灰阶 + 朱砂红，其余色相去色；可按镜 `grade.redScale` / `redMaskBelow`）。
-5. 声音：edge-tts `zh-CN-YunjianNeural` 旁白；原创程序合成的五声音阶配乐与按镜环境声（`video/tools/chapter_audio.py`，环境声名必须在其 `AMB` 表里）；旁白时配乐闪避，整轨 −16 LUFS、−1.5 dBTP，AAC 160k 立体声。
-6. 合成：`python3 video/tools/build-chapter-video.py <ch>` —— 3 s 片名卡（朱印）、0.7 s 交叉溶解、字幕烧在下三分之一、末镜停 3 s，H.264 + AAC，**只出 mp4，不出 webm**；旁白超出时该镜末帧最多延 2 s。
+5. 声音：edge-tts `zh-CN-YunjianNeural` 旁白，语速 rate −29%（2026-10-11 起，比原来的 −8% 慢约 1.3 倍，在合成时放慢，不做变速拉伸；`build-chapter-video.py --narration-rate` 可改）；原创程序合成的五声音阶配乐与按镜环境声（`video/tools/chapter_audio.py`，环境声名必须在其 `AMB` 表里）；旁白时配乐闪避，整轨 −16 LUFS、−1.5 dBTP，AAC 160k 立体声。
+6. 合成：`python3 video/tools/build-chapter-video.py <ch>` —— 3 s 片名卡（朱印）、**1.2 s 水墨洇染转场**（`video/tools/ink_transition.py`：片名卡 → 首镜、镜与镜之间、末镜 → 空白纸面；`--transition fade` 退回旧的 0.7 s 交叉溶解）、字幕烧在下三分之一、末镜停 3 s，H.264 + AAC，**只出 mp4，不出 webm**；镜长按旁白伸长（见下“长度”），不截断旁白。
 7. 写清单 `video/viewer/assets/chapter-videos/index.{json,js}`，查看器居中播放块（`file://` 可用）。
 
 **规则**
 
 - 色板与负面词同 §5；画面里不出现任何文字（字幕、片名、印章都是后期叠加）。
+- **不出现现代元素**：所有提示词（静帧、动势、场景 `videoPrompt`、素材 `artPrompts`、`batch.jsonl`）的负面词都带 `no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering`（中文版见 `art-style.mjs` `NEG_MODERN_ZH`），校验器逐条检查；审片发现现代或时代错置的东西按变形镜头重生成。
 - `motionPrompt` 统一以 `keep his/her/their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.` 结尾。
 - 旁白 15–30 字，原创措辞，忠于场景数据与其史源；古籍只引短句。不用任何有版权的音乐或音效。
 - 原始静帧与片段不进仓库，放 `/workspace/chapter-video/<ch>/`（新一轮片段放 `v2/`）；合成前看接触表，**严重变形的镜头重生成**（每镜最多重试 2 次）。
 
-**长度**：镜数 = clamp(4 + ceil(场景数 / 2), 6, 16)，每镜 8 s；场景越多片子越长。上古按 8 镜旧例保留。按 2026-10-10 的实际场景数（共 241 镜，其余 20 章 233 镜）：
+**长度**：镜数 = clamp(4 + ceil(场景数 / 2), 6, 16)；每镜 8 s 片段，镜长 = max(8, 0.6 + 旁白时长 + 0.4 换气 + 1.2 转场) s，超出 8 s 的部分先把片段放慢（minterpolate 补帧，最多 1.35 倍），仍不够再停留末帧；校验器要求每镜 8–12.5 s。场景越多片子越长。上古按 8 镜旧例保留。按 2026-10-10 的实际场景数（共 241 镜，其余 20 章 233 镜）：
 
 | 章 | 场景 | 镜数 | 估计时长 |
 |---|---|---|---|
-| 上古（`shanggu`） | 7 | 8（旧例） | 1:05 |
+| 上古（`shanggu`） | 7 | 8（旧例） | 1:07（实测，新规则） |
 | 夏（`xia`） | 5 | 7 | 0:58 |
 | 商（`shang`） | 7 | 8 | 1:05 |
 | 西周（`xizhou`） | 9 | 9 | 1:12 |
@@ -143,11 +144,11 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 | 明（`ming`） | 26 | 16 | 2:04 |
 | 清（`qing`） | 26 | 16 | 2:04 |
 
-估计时长 = 3.7 + 8 × 镜数 + 3 − 0.7 × 镜数（片名卡、交叉溶解、末镜停留），未计旁白延长；16 镜约 2 分 04 秒，旁白长时到约 2 分 13 秒。
+表中估计时长按旧规则（8 s 一镜、0.7 s 交叉溶解）：3.7 + 8 × 镜数 + 3 − 0.7 × 镜数。新规则（−29% 旁白、1.2 s 水墨转场、末尾洇回纸面 0.8 s）：时长 = 4.2 + Σ镜长 + 3 + 2.0 − 1.2 × (镜数 + 1)，镜长平均约 8.7 s 时 ≈ 8 + 7.5 × 镜数；上古 8 镜实测 67.3 s（旧 65.1 s），16 镜约 2 分 08 秒。
 
-**体积**：720p、crf 28–30，约 0.2 MB/s；每章 mp4 上限 30 MB（校验器拦截）。
+**体积**：720p、crf 28–30，约 0.2 MB/s；每章 mp4 上限 30 MB（校验器拦截）；16 镜的章若超限就把该章 crf 提到 30，不删镜。
 
-**校验器检查**：每份剧本的镜数符合公式、`sceneId` 属于本章且按时间线排序、`sourceShots` 在范围内、旁白 15–30 字、8 s（延长不超过 2 s）、`imagePrompt` 带风格块与负面词、`motionPrompt` 固定结尾、环境声已实现、`clip` 命名为 `<ch>-NN.mp4`；已合成的章节再查清单、文件与 30 MB 上限。
+**校验器检查**：每份剧本的镜数符合公式、`sceneId` 属于本章且按时间线排序、`sourceShots` 在范围内、旁白 15–30 字、镜长 8–12.5 s（`clipSlowdown` ≤ 1.35）、`negative` / `imagePrompt` / `motionPrompt` 带现代元素禁令、`imagePrompt` 带风格块与负面词、`motionPrompt` 固定结尾、环境声已实现、`clip` 命名为 `<ch>-NN.mp4`；已合成的章节再查清单、文件与 30 MB 上限。
 
 ## 8. 三件套矩阵与推广路线（2026-10-10 定）
 
@@ -173,6 +174,7 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 | 2026-10-10 | 美术方向改为类《影之刃》的简化黑白红剪影；校验器强制风格；随后继续扩写各章 | `9cb7672`、`75a2e61` 及之后 |
 | 2026-10-10 | 定下“内容站 → 视频 → 游戏”三件套（§8）；查看器改版为黑白红水墨内容站（开卷、二十一朝长卷、场景卡），页面不再显示“首发”标记（数据里的 `v1` 字段保留） | 本次改版提交 |
 | 2026-10-10 | 上古片头（有声，65 s）上线；定下章节片头制作规范（§7）：镜数随场景数增长、8 s 一镜、每章 ≤ 30 MB；其余 20 章剧本写好（233 镜，待出片） | `ee43529` 及之后 |
+| 2026-10-11 | 上古片头改版（67.3 s）：旁白放慢到 rate −29%（约 1.3 倍长），镜长随旁白伸长（片段 minterpolate 放慢 ≤ 1.35 倍）；1.2 s 水墨洇染转场取代交叉溶解（`ink_transition.py`，`--transition fade` 可退回）；所有提示词加“不出现现代元素”负面词并由校验器检查；其余章节待按新规则重建 | 本地提交，待审 |
 
 ## 10. 关键记忆与规则
 
