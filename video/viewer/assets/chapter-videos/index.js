@@ -61,6 +61,18 @@ window.CHAPTER_VIDEOS = {
    "durationSec": 72.42,
    "shots": 9,
    "audio": true
+  },
+  "zhanguo": {
+   "title": {
+    "zh": "战国",
+    "en": "Warring States"
+   },
+   "mp4": "assets/chapter-videos/zhanguo.mp4",
+   "poster": "assets/chapter-videos/zhanguo-poster.jpg",
+   "posterWebp": "assets/chapter-videos/zhanguo-poster.webp",
+   "durationSec": 116.21,
+   "shots": 15,
+   "audio": true
   }
  }
 };
