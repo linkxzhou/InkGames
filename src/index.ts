@@ -61,6 +61,10 @@ export { SceneDirector } from './core/scene-director';
 export type { DirectorPhase, DirectorView } from './core/scene-director';
 export { StoryStage } from './core/story-stage';
 export type { StoryStageOptions } from './core/story-stage';
+export { createInkFx, listInkFx, INK_FX_PIGMENTS } from './fx/ink-fx';
+export type { InkFx, InkFxFrame, InkFxInfo, InkFxParams, InkSplat } from './fx/ink-fx';
+export { InkFxStage } from './fx/fx-stage';
+export type { InkFxStageOptions } from './fx/fx-stage';
 export { resolveStrokeCue, samplePolyline } from './core/stroke-cues';
 export type {
   ChapterBundle, ChapterIndex, CutsceneDef, SceneDef, ScenePackage, StringTable, SaveGame, PlotLine, PlotNode,

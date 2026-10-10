@@ -141,3 +141,5 @@ scene.add(new Mesh(new PlaneGeometry(640, 480), new MeshBasicMaterial({ map: sur
 - `strokePath` 在主线程里连续跑完整笔（几十到上百帧的 pass）。SwiftShader 上很慢，真实 GPU 上快得多，但没有实测数据。
 - 着色器里的 `hash` 用了 `sin`，只影响显示。CPU 侧的笔刷只用四则、`Math.sqrt` / `Math.hypot` 和多项式正余弦。
 - 透明墨层叠在纸上时用 `multiply`（在 three.js 里由材质透明度与合成顺序表达），等价于直接画在纸上。
+
+晕开、转场、刀光这一类动态不走上面的逐笔反馈。它们用半分辨率密度场，见 [第 13 章](./13-ink-motion-fx.md)。

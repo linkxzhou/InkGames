@@ -18,6 +18,7 @@ export default defineConfig({
         story: resolve(__dirname, 'apps/story/index.html'),
         history: resolve(__dirname, 'apps/history/index.html'),
         gallery: resolve(__dirname, 'apps/gallery/index.html'),
+        fx: resolve(__dirname, 'apps/fx/index.html'),
         'prop-sword': resolve(__dirname, 'apps/props/sword/index.html'),
         'prop-dagger': resolve(__dirname, 'apps/props/dagger/index.html'),
         'prop-slip': resolve(__dirname, 'apps/props/slip/index.html'),

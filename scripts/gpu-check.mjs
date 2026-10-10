@@ -52,6 +52,7 @@ if (!shots) {
   console.log(`叙事演示：${base}/story/`);
   console.log(`历史动画：${base}/history/`);
   console.log(`参照画廊：${base}/gallery/`);
+  console.log(`水墨动态：${base}/fx/`);
   console.log(`历史道具：${base}/props/sword/`);
   console.log('在 Mac（Apple Silicon）的 Chrome 里打开这些页。无头 SwiftShader 不能代替这次验收，文档保持「未实测」。');
   console.log('Ctrl+C 结束。');
@@ -237,6 +238,29 @@ try {
       await page.screenshot({ path: file, fullPage: true });
       console.log(file);
       if (errors.length) failures.push(`gallery: ${errors.join(' | ')}`);
+      await page.close();
+    }
+    const fxShots = [
+      ['fx-index', '/fx/'],
+      ['fx-drop', '/fx/?fx=drop&still=0.5'],
+      ['fx-seal', '/fx/?fx=seal&still=0.5'],
+    ];
+    for (const [name, path] of fxShots) {
+      const page = await browser.newPage({ viewport: { width: 1200, height: 800 } });
+      const errors = [];
+      page.on('pageerror', error => errors.push(error.message));
+      page.on('console', message => {
+        if (message.type() === 'error') errors.push(message.text());
+      });
+      await page.goto(`${base}${path}`, { waitUntil: 'domcontentloaded', timeout: 120000 });
+      await page.waitForFunction(() => window.__fxReady === true && window.__fxGl === 0, undefined, { timeout: 180000 });
+      const gl = await page.evaluate(() => window.__fxGl ?? 0);
+      console.log(name, gl, await page.title());
+      if (gl !== 0) errors.push(`gl error ${gl}`);
+      const file = join(outDir, `${name}.png`);
+      await page.screenshot({ path: file });
+      console.log(file);
+      if (errors.length) failures.push(`${name}: ${errors.join(' | ')}`);
       await page.close();
     }
   } finally {

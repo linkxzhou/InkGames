@@ -7,16 +7,16 @@
 | 命令 | 做什么 |
 |---|---|
 | `install` | `yarn install`。失败时脚本直接退出并提示检查网络，不会跳过。 |
-| `dev` | Vite，`apps/` 为根，默认 `127.0.0.1:5173`。`/` 是首页，链到切片、叙事、历史、画廊和二十个道具页。 |
+| `dev` | Vite，`apps/` 为根，默认 `127.0.0.1:5173`。`/` 是首页，链到切片、叙事、历史、画廊、水墨动态和二十个道具页。 |
 | `typecheck` | `tsc --noEmit`，`strict`。 |
-| `build` | 类型检查后 `vite build`，产物在 `dist/`。入口含首页、切片、叙事、历史、画廊和二十个道具页。 |
+| `build` | 类型检查后 `vite build`，产物在 `dist/`。入口含首页、切片、叙事、历史、画廊、水墨动态和二十个道具页。 |
 | `test` | `vitest run`。 |
 | `links` | `scripts/check-links.mjs` 检查 README、AGENTS、`docs/`、`plan/` 的相对链接。 |
 | `check` | `typecheck` + `test` + `links`。提交前跑这个。 |
 | `browser` | 先 `build`，再 `scripts/browser-smoke.mjs`。 |
 | `clean` | 删 `dist/` 和 Vite/Vitest 缓存。 |
 
-## 单测覆盖什么（12 个文件，64 项）
+## 单测覆盖什么（14 个文件，80 项）
 
 | 文件 | 覆盖 |
 |---|---|
@@ -32,6 +32,7 @@
 | `history-props.test.ts` | 二十件道具、笔画外接框宽高都超过 30、落下位移、砍断木桩、`defineGameplay` 保留目标原文 |
 | `ink-camera.test.ts` | 层深缩放与虫蚀采样的确定性 |
 | `ink-animation.test.ts` | 图片显影镜头的边界、seek 求值与非法镜头（对照实验用） |
+| `ink-fx.test.ts` | 二十四笔水墨动态的名单、时长、速度、dispose、晕开、泼溅、转场退潮、印章震动与标题起笔 |
 
 测试不创建 WebGL，也不比较截图像素。领域数据另有一条独立校验：`node plan/11-history-game-data/tools/validate.mjs` 检查 21 章 / 157 场景 / 分镜连续性与字符串引用（当前 0 错误）。
 
@@ -59,10 +60,10 @@ node scripts/gpu-check.mjs
 node scripts/gpu-check.mjs --shots
 ```
 
-`--shots` 用无头 Chromium 加 SwiftShader 打开 `/scroll/?pose=rest` 与 `?pose=cut`，对 rest 调用 `window.__sliceLose` / `__sliceRestore`（`WEBGL_lose_context`），再打开 `/story/?pose=title` 与 `?pose=fork`（fork 必须停在 `choice`）。截图写到 `GPU_CHECK_OUT`（缺省 `/opt/cursor/artifacts/screenshots/`）。通过条件是 ready 旗标为真、GL 错误为 0、无 `pageerror`。
+`--shots` 用无头 Chromium 加 SwiftShader 打开 `/scroll/?pose=rest` 与 `?pose=cut`，对 rest 调用 `window.__sliceLose` / `__sliceRestore`（`WEBGL_lose_context`），再打开 `/story/?pose=title` 与 `?pose=fork`（fork 必须停在 `choice`），以及 `/fx/`、`/fx/?fx=drop&still=0.5`、`/fx/?fx=seal&still=0.5`。截图写到 `GPU_CHECK_OUT`（缺省 `/opt/cursor/artifacts/screenshots/`）。通过条件是 ready 旗标为真、GL 错误为 0、无 `pageerror`。
 
 过场「同一机器连播两次、镜头末帧一致」仍是 [plan/12](../plan/12-history-game-engine-gaps.md) 的验收，没有做。性能目标（整帧 16.6 ms、过场墨面每帧 ≤ 8 ms）未实测。
 
 ## 对照素材
 
-`/compare/` 页面与 `scripts/capture-parity.mjs` 原先在 640×480 上把 Pixi `InkWash` 与 inkEngine 宿主页并排。**Pixi 一侧已随 `InkWash` 删除，这条自动对照链路当前不可运行**。`scripts/inkengine-host.html` 仍可重放道具页导出的笔画。`gpu-check.mjs --shots` 截切片、叙事、历史、画廊和二十个道具静帧。差异结论留在 [第 12 章](./12-inkengine-parity-audit.md)，其中 Pixi 列的数值属于历史记录。
+`/compare/` 页面与 `scripts/capture-parity.mjs` 原先在 640×480 上把 Pixi `InkWash` 与 inkEngine 宿主页并排。**Pixi 一侧已随 `InkWash` 删除，这条自动对照链路当前不可运行**。`scripts/inkengine-host.html` 仍可重放道具页导出的笔画。`gpu-check.mjs --shots` 截切片、叙事、历史、画廊、水墨动态和二十个道具静帧。差异结论留在 [第 12 章](./12-inkengine-parity-audit.md)，其中 Pixi 列的数值属于历史记录。

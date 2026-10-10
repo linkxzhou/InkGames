@@ -11,6 +11,7 @@
 - `apps/story/index.html` → 「易水寒」叙事演示
 - `apps/history/index.html` → 上古「混沌开卷」历史动画
 - `apps/gallery/index.html` → 参照画廊（构建会带上五张参照 PNG，只供并排显示）
+- `apps/fx/index.html` → 二十四笔水墨动态
 - `apps/props/<id>/index.html` → 二十个道具页
 
 别名 `@inkgames/engine` 指向 `src/index.ts`。生产包不复制 `thirdparty/inkEngine` 或 `thirdparty/inkField`。原先的十卡首页、`/inkcross/`、`/wuxia/`、`/compare/` 不再打包（源文件已删除）。
@@ -32,6 +33,7 @@
 - `/story/`：看「易水寒」开场，做正史 / 野史选择，走检查点恢复。
 - `/history/`：看纯程序生成的「混沌开卷」五幕。
 - `/gallery/`：看五张程序水墨和旁边的参照图。
+- `/fx/`：看二十四笔程序水墨动态，悬停循环，点击全屏。
 - `/props/<id>/`：看一件历史道具，并触发砍、落、燃或流。
 
 嵌入方若只用库，从 `@inkgames/engine` 引 `InkView` / `StoryStage` / `InkScene` / `InkSurface`，不要拷 `apps/` 里的示例逻辑。README 的快速上手可复制 `docs/01` 的 `InkView` 片段。
