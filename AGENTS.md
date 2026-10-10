@@ -97,7 +97,7 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 
 ## 7. 三件套矩阵与推广路线（2026-10-10 定）
 
-- 三件套：① 历史内容站——`video/viewer/index.html` 改成水墨风格的公开内容站（不再是开发工具）；② 每个场景用站内的分镜与 `videoPrompt` 做一支水墨短片；③ 用同一份内容做 InkGames 水墨游戏引擎，再用引擎做游戏。
+- 三件套：① 历史内容站「烽火」——`video/viewer/index.html` 改成水墨风格的公开内容站（不再是开发工具；开卷图 `video/viewer/assets/fenghuo-hero.{webp,jpg}`）；② 每个场景用站内的分镜与 `videoPrompt` 做一支水墨短片；③ 用同一份内容做 InkGames 水墨游戏引擎，再用引擎做游戏。
 - 推广路线：内容站 → 社交媒体短视频 → 游戏玩家。
 - 三者共用 `video/data/` 与 [art-style.md](./video/docs/art-style.md)；站点的视觉同样只用黑白红色板，朱砂红只给印章、当前章节与少量强调。
 
