@@ -47,5 +47,5 @@
 | [16-liaojin](./16-liaojin/README.md) | 辽 · 西夏 · 金 | 11 |
 | [17-nansong](./17-nansong/README.md) | 南宋 | 10 |
 | [18-yuan](./18-yuan/README.md) | 元 | 11 |
-| [19-ming](./19-ming/README.md) | 明 | 19 |
+| [19-ming](./19-ming/README.md) | 明 | 26 |
 | [20-qing](./20-qing/README.md) | 清 | 14 |

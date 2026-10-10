@@ -835,6 +835,17 @@
   ],
   "title": "The Qi Family Army: Victory at Taizhou"
  },
+ "ming.qinliangyu": {
+  "end": "Back in Sichuan she resists Zhang Xianzhong, who dares not approach Shizhu; she dies past seventy, the only woman given her own biography for military merit in the dynastic histories.",
+  "shots": [
+   "By the Hun River a Sichuan force with long white-staffed spears fights to the last as its commander falls",
+   "In the Shizhu chieftain's hall a woman general sets aside mourning white and puts on armour",
+   "The White Staff Army leaves Sichuan, crosses the Qinling and marches north",
+   "Below Yongping the spears stand thick and the Later Jin cavalry pulls back",
+   "On the terrace the emperor hands her a scroll of poems himself: robes of Shu brocade she cut herself"
+  ],
+  "title": "The White Staff Army Comes to the Rescue: Qin Liangyu"
+ },
  "ming.saerhu": {
   "end": "Within five days three Ming armies are destroyed with forty-five thousand dead, and the balance in Liaodong is reversed.",
   "shots": [
@@ -857,6 +868,17 @@
   ],
   "title": "The Examination Scandal: Tang Yin"
  },
+ "ming.tingji": {
+  "end": "The case is closed as the work of a madman; five years later the prince reigns a single month before dying after the red pill, and the Three Cases feed a decade of factional strife.",
+  "shots": [
+   "At dusk a man with a jujube-wood club bursts through the Ciqing Palace gate and fells the old eunuch on guard",
+   "He fights his way to the eaves of the front hall before the attendants bring him down",
+   "In the Ministry of Justice prison an official sets a bowl of rice before the prisoner: tell the truth and you eat",
+   "The prisoner names two eunuchs, both serving in Consort Zheng's palace",
+   "The emperor who has not seen his ministers in twenty-five years takes the crown prince's hand in the Cining Palace: this boy is most filial and I love him dearly"
+  ],
+  "title": "The Club Attack Case: The Ciqing Palace"
+ },
  "ming.tumubao": {
   "end": "Esen fails after five days and withdraws; the captive emperor returns, regains the throne eight years later, and has Yu Qian executed.",
   "shots": [
@@ -867,6 +889,17 @@
    "Cannon fire outside the Desheng Gate"
   ],
   "title": "Tumu and the Defence of Beijing: Yu Qian"
+ },
+ "ming.wanggongchang": {
+  "end": "Relief silver is handed out while Wei Zhongxian keeps crushing opponents; a year later the emperor dies, and whether gunpowder, earthquake or meteor caused the blast is still unknown.",
+  "shots": [
+   "On the morning of the sixth day of the fifth month the Wanggong gunpowder works in southwest Beijing lies silent",
+   "With a huge blast a black cloud shoots skyward like a giant lingzhi mushroom",
+   "For miles around houses are flattened and tiles, people and beasts are flung into the air",
+   "In the Qianqing Palace the emperor drops his bowl and runs for the Jiaotai Hall; an attendant beside him is struck by a falling tile",
+   "As the dust settles an edict of self-reproach issues from the palace"
+  ],
+  "title": "The Tianqi Explosion: Disaster at the Wanggong Works"
  },
  "ming.wangyangming": {
   "end": "The prince is captured within forty-odd days; to avoid the emperor's farce of recapturing him, Wang hands the prisoner to the eunuch Zhang Yong.",
@@ -879,6 +912,39 @@
   ],
   "title": "Defeating the Prince of Ning: Wang Shouren"
  },
+ "ming.weizhongxian": {
+  "end": "Wei Zhongxian hangs himself at Fucheng and Madam Ke is flogged to death; Chongzhen has the corpse dismembered and punishes over two hundred eunuch partisans, yet the Ming falls seventeen years later.",
+  "shots": [
+   "In living shrines across the land wooden statues wear python robes as officials line up to kneel and hail the Nine-Thousand-Year Lord",
+   "By lamplight the Vice Censor-in-Chief writes his memorial, listing twenty-four great crimes one by one",
+   "In the imperial prison sacks of earth press on him and iron nails are driven into his ears",
+   "Under his pillow lies a letter in blood: laugh, laugh, and laugh again",
+   "Three years later in an inn at Fucheng an old eunuch listens to a ditty outside the window and unties his sash"
+  ],
+  "title": "Lord of Nine Thousand Years: Wei Zhongxian and the Donglin"
+ },
+ "ming.xuguangqi": {
+  "end": "Ricci dies in Beijing in 1610 and the emperor grants him a burial ground; Xu Guangqi rises to grand secretary, compiles the Chongzhen calendar and the Complete Treatise on Agriculture, and the last nine books wait 250 years for Li Shanlan and Wylie.",
+  "shots": [
+   "Inside Xuanwu Gate in Beijing a long-nosed Westerner holds a thick book while the Hanlin scholar opposite writes it down",
+   "The paper fills with points, lines and circles beside the new words they coin: point, line, surface, parallel, right angle",
+   "In the palace a Western chiming clock strikes as the emperor and eunuchs crowd round",
+   "The first six books are done; Ricci wants to go on, but the scholar decides to print first",
+   "In his preface he writes: in a hundred years everyone will study this"
+  ],
+  "title": "Euclid's Elements: Xu Guangqi and Matteo Ricci"
+ },
+ "ming.xukexia": {
+  "end": "Xu Xiake builds a stupa for Jingwen, travels on to Tengchong, revises the Mount Jizu gazetteer for Mu Zeng in Lijiang, and is carried home by litter when his feet fail, dying the next year.",
+  "shots": [
+   "At his door in Jiangyin a man of fifty and a monk shoulder their packs and board a small westbound boat",
+   "Moored on the Xiang River at night, bandits leap aboard and in the firelight the monk refuses to let go of his sutras",
+   "In a Nanning temple the dying monk hands him a sutra written in blood: take me to Mount Jizu",
+   "Carrying the monk's ashes he crosses the high mountains of Guangxi and Guizhou",
+   "On the summit of Mount Jizu he lays down the ashes and sutra as the morning bell rings"
+  ],
+  "title": "The Great Journey West: Xu Xiake"
+ },
  "ming.yangjisheng": {
   "end": "Yang Jisheng dies at forty mourned by the realm; seven years later Yan Song falls, his son is beheaded and he starves, and Yang's couplet \"iron shoulders bear the Way\" endures.",
   "shots": [
@@ -889,6 +955,17 @@
    "At the western execution ground he recites his last poem: noble spirit returns to the void, a loyal heart shines for ages"
   ],
   "title": "Iron Shoulders Bear the Way: Yang Jisheng"
+ },
+ "ming.yuanchonghuan": {
+  "end": "After eight months in prison Yuan Chonghuan is dismembered in the western market, childless and dispossessed; only when the Qing compiled the Ming History from its own archives was the ruse revealed.",
+  "shots": [
+   "North of the Great Wall the Later Jin cavalry swings round through the Mongol steppe and bursts in at Da'ankou",
+   "The commander rides day and night with nine thousand horsemen to reach the walls of Beijing",
+   "Outside the Guangqu Gate he fights in armour bristling with arrows",
+   "In the Later Jin camp two officers deliberately whisper outside the tent of a captured eunuch",
+   "At the audience on the terrace the emperor gives the word and guards strip the commander's cap on the spot"
+  ],
+  "title": "The Jisi Incursion: The Death of Yuan Chonghuan"
  },
  "ming.zhangjuzheng": {
   "end": "The treasury fills for ten years; within two years of his death his family is stripped of everything and his reforms undone until he is rehabilitated in the 1620s.",
