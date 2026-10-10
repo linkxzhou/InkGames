@@ -445,7 +445,7 @@ for (const [sid, e] of allScenes) {
   for (const n of e.scene.plot?.nodes || []) if (n.gameplay) uniq('玩法目标', n.gameplay.params?.goal, sid);
 }
 // 近似重复：两个场景共用 3 个以上人物且占较小一方的 60% 以上
-const NEAR_OK = new Set(['qin.changcheng|qin.shaqiu', 'qin.fenshu|qin.shaqiu', 'xizhou.hezun|xizhou.zhougong', 'sanguo.chibi|sanguo.dandao', 'wudai.chenqiao|beisong.beijiu', 'shang.tangdao|xia.mingtiao']);  // 秦筑城与沙丘、焚书与沙丘、周公东征与营成周、赤壁与单刀会、陈桥与杯酒、鸣条灭夏与汤祷桑林：同一批人物，不同事件
+const NEAR_OK = new Set(['qin.changcheng|qin.shaqiu', 'qin.fenshu|qin.shaqiu', 'xizhou.hezun|xizhou.zhougong', 'sanguo.chibi|sanguo.dandao', 'wudai.chenqiao|beisong.beijiu', 'shang.tangdao|xia.mingtiao', 'tang.anshi|tang.libai']);  // 秦筑城与沙丘、焚书与沙丘、周公东征与营成周、赤壁与单刀会、陈桥与杯酒、鸣条灭夏与汤祷桑林、安史之乱与李白在长安：同一批人物，不同事件
 const list = [...allScenes.values()];
 for (let i = 0; i < list.length; i++) for (let j = i + 1; j < list.length; j++) {
   const a = new Set((list[i].cast || []).map(c => c.name)), bn = (list[j].cast || []).map(c => c.name);

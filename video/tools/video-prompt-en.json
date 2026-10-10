@@ -1902,6 +1902,28 @@
   ],
   "title": "Into Caizhou on a Snowy Night: Li Su"
  },
+ "tang.daluosi": {
+  "end": "Gao Xianzhi returns to Anxi and is later executed at Tongguan on a false charge; Du Huan lives among the Abbasids for over ten years, returns by sea to Guangzhou in 762 and writes one of the earliest Chinese eyewitness accounts of the Arab world.",
+  "shots": [
+   "On the steppe west of the Pamirs thirty thousand Tang troops march more than seven hundred li",
+   "Below the walls of Talas the Tang and Abbasid armies face each other for five days",
+   "At night the Karluk troops within the Tang ranks suddenly turn their blades",
+   "The routed army jams the mountain pass; a general swinging a great club clears a road through men and horses",
+   "A captured Tang soldier looks back east as he is marched toward western cities"
+  ],
+  "title": "Talas: Gao Xianzhi's Western Campaign"
+ },
+ "tang.direnjie": {
+  "end": "Wu Zetian spares the seven and demotes Di Renjie to Pengze; later chief minister again, he persuades her to recall the Prince of Luling, and men say all the peaches and plums of the realm grow at his gate.",
+  "shots": [
+   "In the interrogation bureau inside the Lijing gate few who enter come out alive",
+   "The chief minister confesses at once: the Zhou has renewed all things, an old Tang servant accepts death, the treason is true",
+   "At night he tears silk from his quilt, writes out the injustice and sews it into a padded coat",
+   "His son unpicks the coat his father sent home and the silk letter falls out",
+   "The empress asks why he confessed; he answers: had I not, I would already be dead under the lash"
+  ],
+  "title": "A Plea Written on Silk: Di Renjie"
+ },
  "tang.guoziyi": {
   "end": "The Uighurs renew their alliance and together they crush Tibet at Lingtai; a disaster for Guanzhong is averted.",
   "shots": [
@@ -1935,6 +1957,39 @@
   ],
   "title": "Hulao: Two Kings Captured in One Battle"
  },
+ "tang.jianzhen": {
+  "end": "Jianzhen reaches Nara, sets up the ordination platform at Tōdai-ji, founds Tōshōdai-ji and dies there in 763, honoured in Japan as the Great Master who crossed the sea.",
+  "shots": [
+   "At the Daming Temple in Yangzhou two Japanese monks kneel before an old master",
+   "First, second, third attempt — each time the ship is seized by officials or smashed by waves",
+   "On the fifth voyage a gale drives the ship to Hainan Island",
+   "On the way back Eiei dies and the old monk loses his sight",
+   "On the sixth voyage an envoy ship lands at Satsuma and the blind old man steps ashore"
+  ],
+  "title": "Six Crossings to Japan: Jianzhen Sails East"
+ },
+ "tang.libai": {
+  "end": "Gao Lishi tells Lady Yang a line compares her to Zhao Feiyan, the emperor's offers of office are blocked, and Li Bai leaves Chang'an with a gift of gold, soon meeting the younger Du Fu in Luoyang.",
+  "shots": [
+   "At the Ziji Temple in Chang'an an old man finishes reading \"The Hard Road to Shu\" and unhooks his golden tortoise to trade for wine",
+   "At the Chenxiang Pavilion the peonies bloom and the emperor sends men to the taverns to find Li Bai",
+   "Helped into the palace and splashed with cold water, he lifts his brush through bleary eyes",
+   "He stretches out a foot for Gao Lishi to pull off his boot",
+   "Clouds long for her robes, flowers for her face; the poem is done and the hall falls silent"
+  ],
+  "title": "The Banished Immortal: Li Bai in Chang'an"
+ },
+ "tang.luobinwang": {
+  "end": "Xu Jingye turns south instead of marching on Luoyang and is crushed within three months; Luo Binwang vanishes — killed, drowned, or fled to become a monk.",
+  "shots": [
+   "In Yangzhou the banner to restore the Prince of Luling goes up and more than a hundred thousand enlist",
+   "In headquarters a middle-aged scholar drafts a proclamation",
+   "In the Luoyang palace the empress dowager reads the opening lines with a smile",
+   "At \"the earth on the tomb is not yet dry, to whom is the orphan entrusted\" her face changes",
+   "She sets it down: how could the chief ministers have missed such a man"
+  ],
+  "title": "The Call to Arms against Wu Zhao: Luo Binwang"
+ },
  "tang.suiyang": {
   "end": "The starving city falls in the tenth month; Zhang Xun and thirty-six others die defiant, and relief arrives three days late, but the south is saved.",
   "shots": [
@@ -1946,6 +2001,17 @@
   ],
   "title": "Suiyang: Zhang Xun and Xu Yuan"
  },
+ "tang.wangbo": {
+  "end": "Wang Bo adds a poem to his preface; the next year he falls into the sea crossing to Jiaozhi and dies of shock, remembered as one of the Four Paragons of early Tang.",
+  "shots": [
+   "On the ninth day of the ninth month a feast fills the Tengwang Pavilion above the Gan River, autumn water stretching to the sky",
+   "The governor has paper and brush carried round for a preface; the guests all decline",
+   "A young man in his twenties takes the brush and begins at once",
+   "The governor withdraws to change and has each sentence reported to him",
+   "Sunset clouds fly with a lone wild duck; autumn water shares one colour with the endless sky"
+  ],
+  "title": "Sunset Clouds and a Lone Duck: The Preface to the Tengwang Pavilion"
+ },
  "tang.weishui": {
   "end": "Illig is captured and the Eastern Turks fall; the old emperor rejoices and the steppe peoples hail Taizong as Heavenly Khagan.",
   "shots": [
@@ -1956,6 +2022,17 @@
    "Through fog in the Yin mountains they strike the khagan's tent"
   ],
   "title": "The Wei River Pact: Li Jing Defeats the Turks"
+ },
+ "tang.weizheng": {
+  "end": "Taizong says he has lost a mirror, yet soon suspects Wei Zheng of faction and topples his stele, until returning from the failed Korean campaign he sighs that Wei Zheng would have stopped him and has it raised again.",
+  "shots": [
+   "In the Taiji Hall a slight minister keeps speaking despite the emperor's darkening face",
+   "After court the emperor fumes: one day I will kill that country bumpkin",
+   "The empress stands in the courtyard in court robes and congratulates him: a wise lord makes upright ministers",
+   "When Wei Zheng lies dying the emperor brings the crown prince to his house, which lacks even a main hall",
+   "The emperor pulls down the stele he himself wrote, then orders it raised again"
+  ],
+  "title": "A Man as a Mirror: Wei Zheng"
  },
  "tang.wencheng": {
   "end": "Songtsen Gampo bows as a son-in-law, adopts Tang dress and builds her a city; Tang–Tibetan contacts flourish.",
@@ -1978,6 +2055,17 @@
    "At the Qianling tomb, a stele without words"
   ],
   "title": "The Blank Stele: Wu Zetian"
+ },
+ "tang.xiantian": {
+  "end": "Princess Taiping dies at home, her sons and partisans executed except Xue Chongjian, her wealth rivalling the imperial treasury, and in the twelfth month the era becomes Kaiyuan.",
+  "shots": [
+   "In the Chang'an palace the chief ministers all head to the princess's mansion after court",
+   "An informer reports: the princess plans for the guards to storm the palace from the Wude Hall on the fourth day of the seventh month",
+   "On the third the young emperor leads three hundred men from the Wude Hall through the Qianhua Gate",
+   "The retired emperor climbs the Chengtian Gate tower and hears the fighting below",
+   "Three days later the princess is brought back from a mountain temple and ordered to die"
+  ],
+  "title": "The Xiantian Coup: Princess Taiping"
  },
  "tang.xuanwu": {
   "end": "Jiancheng and Yuanji are killed; Li Shimin becomes crown prince three days later and emperor in the eighth month.",
