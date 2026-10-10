@@ -18,8 +18,13 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PINYIN = existsSync(join(root, 'tools', 'name-pinyin.json'))
   ? JSON.parse(readFileSync(join(root, 'tools', 'name-pinyin.json'), 'utf8')) : {};
+const EN = existsSync(join(root, 'tools', 'video-prompt-en.json'))
+  ? JSON.parse(readFileSync(join(root, 'tools', 'video-prompt-en.json'), 'utf8')) : {};
+const missingEn = [];
 const FPS_OUT = 24;
-const END_SEC = 10, SEAL_SEC = 6;
+// 旁白语速：普通话纪录片约每秒 4.5 字；镜头时长 = 旁白时长 + 2 秒呼吸，至少 6 秒
+const voSec = s => Math.max(6, Math.ceil(s.replace(/[，。、；：！？「」“”—…\s]/g, '').length / 4.5) + 2);
+const SEAL_SEC = 6;
 
 /* ---------- 章：时代、服饰、场景细节 ---------- */
 // [英文朝代名, 服饰(zh), 服饰(en), 场景细节(zh), 场景细节(en)]
@@ -89,6 +94,20 @@ const EFFECT = {
   inkDisperse: ['墨点四散（如马蹄踏墨）', 'ink dispersing outward like hoofprints in wet ink'],
   metallic: ['兵刃金属寒光一闪', 'a cold metallic glint on the blade'],
   bambooBreak: ['竹简断裂、墨迹飞溅', 'bamboo slips snapping with ink spatter'],
+};
+const ELEM_INK = {
+  火: ['泼墨成火，焰尖点朱砂', 'splashed ink flames tipped with vermilion'], 烟: ['淡墨烟气横向飘散', 'pale ink smoke drifting sideways'],
+  河水: ['湿笔横扫成水纹，墨在水中化开', 'wet horizontal strokes forming ripples, ink dissolving in water'], 江海: ['大笔湿墨铺出海面，浪头留白', 'broad wet-ink sea with white-paper wave crests'],
+  洪水: ['浓淡墨层层涌动成洪流', 'layered dark and pale ink surging as a flood'], 雨: ['细密斜线笔触成雨', 'fine slanted strokes for rain'], 雪: ['留白为雪，枯笔点出雪片', 'blank paper as snow, dry-brush flakes'],
+  骑兵: ['马蹄踏处墨点四溅', 'ink spatters where hooves strike'], 军阵: ['淡墨人影成排，远处虚化', 'rows of pale ink figures fading into distance'], 长兵如林: ['枯笔竖线密如森林', 'dense dry-brush verticals like a forest of spears'],
+  城墙雉堞: ['焦墨勾出城垛轮廓', 'scorched-ink outline of battlements'], 殿柱: ['重墨立柱，空间纵深', 'heavy ink pillars giving depth'], 舟: ['舟影一笔带过，水痕拖尾', 'a boat in one stroke with a trailing wake'],
+  月: ['月轮留白，四周淡墨烘染', 'moon left blank with pale wash around it'], 云: ['云气以淡墨晕染流动', 'clouds as moving pale wash'], 营帐: ['营帐三角墨块，灯火点朱', 'triangular tent shapes with vermilion lamp dots'],
+  竹: ['竹叶撇笔，风中摇动', 'flicked bamboo leaves swaying'], 沙: ['干笔擦出沙地', 'dry-brush scumbled sand'], 潮: ['长线湿笔成潮水推进', 'long wet strokes advancing as tide'], 星: ['墨夜中留白点星', 'stars as untouched dots in an ink night'],
+};
+const TRANS = {
+  still: ['宣纸留白淡入', 'fade in from blank xuan paper'], pan: ['沿画卷横向延展接入', 'continues sideways like an unrolling scroll'],
+  push: ['墨点放大化入本镜', 'an ink dot expands into the shot'], shake: ['墨迹溅开切入', 'cut in on an ink splatter'],
+  climax: ['浓墨泼满画面后切入', 'ink floods the frame, then cut'], pull: ['墨色收拢后拉开', 'ink contracts, then opens out'],
 };
 const LAYER = { far: ['远景', 'background'], terrain: ['中景', 'midground'], sheet: ['中景', 'midground'], actors: ['主体', 'foreground subject'], overlay: ['题字', 'calligraphy overlay'] };
 const ELEM_EN = {
@@ -161,11 +180,19 @@ function periodNeg(order) {
 
 function lookFor(member, order) {
   const camp = member.camp || '';
-  for (const [re, zh, en] of CAMP_LOOK) if (re.test(camp)) return [zh, en];
   const t = TYPE_LOOK[member.type] || TYPE_LOOK.other;
   const fem = FEMALE.test(member.title || '') || /公主|皇后|太后|夫人|女$|姬$/.test(member.name);
+  for (const [re, zh, en] of CAMP_LOOK) if (re.test(camp)) {
+    if (fem && /游牧/.test(zh)) return ['草原贵妇装束：镶毛长袍、高冠、珠饰', 'steppe noblewoman: fur-trimmed robe, tall headdress, beads and jewellery'];
+    return [zh, en];
+  }
   const [mz, fz] = ERA[order][1].split('|'), [me, fe] = ERA[order][2].split('|');
-  const z = fem ? (fz || mz) : mz, e = fem ? (fe || me) : me;
+  let z = fem ? (fz || mz) : mz, e = fem ? (fe || me) : me;
+  // 文臣、学者、宗室与女子不披甲执兵：从时代服饰里去掉甲胄兵器
+  if (fem || ['minister', 'scholar', 'royal'].includes(member.type)) {
+    z = z.split('，').filter(x => !/甲|铠|剑|刀|戈|戟|弩|钺|战车/.test(x)).join('，') || z;
+    e = e.split(/,\s*|;\s*/).filter(x => !/armou?r|sword|\bge\b|halberd|crossbow|axe|chariot|dagger|blade/.test(x)).join(', ') || e;
+  }
   return [z + '；' + (fem && member.type === 'other' ? '女子衣着，依身份' : t[0]), e + '; ' + (fem && member.type === 'other' ? 'female dress appropriate to rank' : t[1])];
 }
 const nameEn = n => PINYIN[n] || n;
@@ -230,15 +257,20 @@ function build(bundle, entry, chapterTitle) {
       (figs.length || groupsEn.subj.length) && 'subject: ' + [...figs.map(f => nameEn(f.name)), ...groupsEn.subj].join(', '),
       groupsEn.over.length && 'dry-brush calligraphy 「' + groupsEn.over.join('」「') + '」',
     ].filter(Boolean).join('; ') || 'mostly empty paper with faint distant hills';
-    const inkZh = [i === 0 ? '宣纸留白淡入' : '墨晕转场（上一镜墨色晕开化入本镜）', ...fx.filter(k => k !== 'fade').map(k => EFFECT[k][0])];
-    const inkEn = [i === 0 ? 'fade in from blank xuan paper' : 'ink-bleed transition from the previous shot', ...fx.filter(k => k !== 'fade').map(k => EFFECT[k][1])];
+    const tr0 = TRANS[i === 0 ? 'still' : cam[0]] || TRANS.pan;
+    const elemInk = [...new Set(strokes.map(x => (x.label || '').replace(/（.*$/, '')).filter(l => ELEM_INK[l]))].slice(0, 2);
+    const inkZh = [tr0[0], ...elemInk.map(l => ELEM_INK[l][0]), ...fx.filter(k => k !== 'fade').map(k => EFFECT[k][0])];
+    const inkEn = [tr0[1], ...elemInk.map(l => ELEM_INK[l][1]), ...fx.filter(k => k !== 'fade').map(k => EFFECT[k][1])];
     if (cam.includes('climax')) { inkZh.push('泼墨飞溅，朱砂一点'); inkEn.push('ink splash with a single vermilion accent'); }
     const auds = (tr.audio || []).filter(inS).filter(a => a.asset && (a.bus === 'amb' || a.bus === 'sfx'));
     const ambs = [...new Set(auds.filter(a => a.bus === 'amb').map(a => assetId(a.asset)))];
     const sfxs = [...new Set(auds.filter(a => a.bus === 'sfx').map(a => assetId(a.asset)))];
-    const vo = (tr.text || []).filter(inS).filter(t => t.kind === 'subtitle' && t.vo).map(t => T(t.vo)).join('');
+    // 视频按“一镜一句旁白”对齐（规格里五个镜头与五句旁白一一对应）；过场动画的字幕时间轴另有安排
+    const vo = S[`vo.${String(i + 1).padStart(2, '0')}`] || '';
     const cap = (tr.text || []).filter(inS).find(t => t.kind === 'caption');
-    const dur = sec(s.to - s.from);
+    const dur = vo ? voSec(vo) : Math.max(6, Math.min(10, Math.round(sec(s.to - s.from) * 0.6)));
+    const enNote = EN[scene.id]?.shots?.[i];
+    if (!enNote) missingEn.push(`${scene.id} shot ${i + 1}`);
     const soundZh = [ambs.length && '环境：' + ambs.map(a => snd(a, 0)).join('、'), sfxs.length && '音效：' + sfxs.map(a => snd(a, 0)).join('、')].filter(Boolean).join('；') || '仅背景乐';
     const soundEn = [ambs.length && 'ambience: ' + ambs.map(a => snd(a, 1)).join(', '), sfxs.length && 'SFX: ' + sfxs.map(a => snd(a, 1)).join(', ')].filter(Boolean).join('; ') || 'music only';
     const textZh = [i === 0 && `片名「${title}」竖排书法与朱印「${seal}」`, cap && `引文「${T(cap.key)}」竖排楷书`, vo && '底部旁白字幕'].filter(Boolean).join('；');
@@ -247,7 +279,7 @@ function build(bundle, entry, chapterTitle) {
       n: i + 1, startSec: t0, durationSec: dur, figures: figs.map(f => f.id),
       camera: { zh: cam.map(c => CAMERA[c][0]).join('，再'), en: cam.map(c => CAMERA[c][1]).join(', then ') },
       composition: { zh: compZh, en: compEn },
-      action: { zh: s.note || '', en: s.note ? `(scene action, Chinese) ${s.note}` : '' },
+      action: { zh: s.note || '', en: enNote || s.note || '' },
       ink: { zh: inkZh.join('；'), en: inkEn.join('; ') },
       sound: { zh: soundZh, en: soundEn },
       text: { zh: textZh, en: textEn },
@@ -258,17 +290,19 @@ function build(bundle, entry, chapterTitle) {
   // 结局镜
   const endFig = shots.length ? shots[shots.length - 1].figures : [];
   const endVo = endText ? firstSentences(endText, 70) : '';
+  const endEn = EN[scene.id]?.end;
+  if (!endEn) missingEn.push(`${scene.id} end`);
   shots.push({
-    n: shots.length + 1, startSec: t0, durationSec: END_SEC, figures: endFig,
+    n: shots.length + 1, startSec: t0, durationSec: endVo ? voSec(endVo) : 8, figures: endFig,
     camera: { zh: '缓慢拉远成全景，画面如长卷收束', en: 'slow pull-back to a wide shot, closing like a handscroll' },
     composition: { zh: '主体退为远景中的小小身影，四周大片留白；' + (endFig.length ? '人物：' + endFig.map(id => castById.get(id)?.name).join('、') : '山河远景'), en: 'the subject recedes into a tiny figure amid vast empty paper; ' + (endFig.length ? 'figures: ' + endFig.map(id => nameEn(castById.get(id)?.name || id)).join(', ') : 'distant landscape') },
-    action: { zh: '正史结局：' + (endVo || '事件落幕'), en: '(canonical outcome, Chinese) ' + (endVo || '') },
+    action: { zh: '正史结局：' + (endVo || '事件落幕'), en: 'Canonical outcome: ' + (endEn || endVo || '') },
     ink: { zh: '墨色由浓转淡，水痕慢慢洇开，余墨流向画外', en: 'ink fades from dense to pale, water marks spreading, residual ink drifting off-frame' },
     sound: { zh: '背景乐回落，余音与环境声', en: 'music settles, lingering tail and ambience' },
     text: { zh: '底部旁白字幕', en: 'Chinese subtitles at bottom' },
     vo: endVo,
   });
-  t0 += END_SEC;
+  t0 += shots[shots.length - 1].durationSec;
   // 落款镜
   shots.push({
     n: shots.length + 1, startSec: t0, durationSec: SEAL_SEC, figures: [],
@@ -288,12 +322,12 @@ function build(bundle, entry, chapterTitle) {
   const characters = ordered.map(c => {
     const [lz, le] = lookFor(c, order);
     const hint = (c.title || '') + (c.bio || '');
-    const ageZh = /少年|十几岁|年幼|幼主|幼子|童/.test(hint) ? '少年（十余岁）' : /老将|老臣|白发|老人|老妪|晚年|年老/.test(hint) ? '老年' : `年龄依史实（此时为${year}）`;
-    const ageEn = /少年|十几岁|年幼|幼主|幼子|童/.test(hint) ? 'a teenager' : /老将|老臣|白发|老人|老妪|晚年|年老/.test(hint) ? 'elderly' : `age as historically attested in ${whenEn(scene.when)}`;
+    const ageZh = /少年|十几岁|年幼|幼主|幼子|童/.test(hint) ? '少年（十余岁）' : /老将|老臣|白发|老人|老妪|晚年|年老/.test(hint) ? '老年' : '';
+    const ageEn = /少年|十几岁|年幼|幼主|幼子|童/.test(hint) ? 'a teenager' : /老将|老臣|白发|老人|老妪|晚年|年老/.test(hint) ? 'elderly' : '';
     return {
       id: c.id, name: c.name, nameEn: nameEn(c.name), onScreen: appearing.has(c.id),
-      zh: `${c.name}（${c.camp}·${c.title}）：${lz}；${ageZh}；${c.bio}`,
-      en: `${nameEn(c.name)} (${c.name}) — ${TYPE_EN[c.type] || 'figure'}, ${c.camp} camp; ${le}; ${ageEn}`,
+      zh: `${c.name}（${c.camp}·${c.title}）：${lz}${ageZh ? '；' + ageZh : ''}；${c.bio}`,
+      en: `${nameEn(c.name)} (${c.name}) — ${TYPE_EN[c.type] || 'figure'}, ${PINYIN[c.camp] || c.camp}; ${le}${ageEn ? '; ' + ageEn : ''}`,
     };
   });
 
@@ -339,7 +373,7 @@ function build(bundle, entry, chapterTitle) {
     `负面提示词：${negative.zh}`,
   ].join('\n\n');
   const en = [
-    `[Ink-wash video prompt] ${era[0]} · "${title}" (${subtitle})`,
+    `[Ink-wash video prompt] ${era[0]} · ${EN[scene.id]?.title || subtitle} (「${title}」)`,
     `Format: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), ${FPS_OUT} fps, about ${t0} s total, ${shots.length} shots; generate shot by shot and edit together if a shot exceeds the generator's limit.`,
     `Style: ${style.en}`,
     `Setting: ${setting.en}`,
@@ -374,3 +408,4 @@ for (const c of index.chapters) {
   writeFileSync(file, JSON.stringify(bundle, null, 1));
 }
 console.log(`共 ${n} 个场景生成 videoPrompt，${shotsN} 个镜头`);
+if (missingEn.length) console.log(`缺英文分镜 ${missingEn.length} 处（video/tools/video-prompt-en.json），例：${missingEn.slice(0, 5).join('；')}`);
