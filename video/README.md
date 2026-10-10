@@ -69,6 +69,8 @@ node video/tools/validate.mjs              # 必须 0 个错误
 
 ## 水墨视频提示词
 
+美术风格：高反差黑白红武侠水墨剪影（类《影之刃》，简化版），见 [docs/art-style.md](docs/art-style.md)；所有提示词的风格行、色板与负面词由 `tools/art-style.mjs` 统一给出。
+
 查看器每个场景都有“水墨视频提示词”面板：中/英切换、复制整段、复制负面提示词、逐镜复制，以及导出本章或全部场景（Markdown / JSON）。字段说明见 [content-schema.md §2.11](docs/content-schema.md#211-水墨视频生成提示词videoprompt)。
 
 ## 内容规则

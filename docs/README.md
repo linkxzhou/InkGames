@@ -14,7 +14,7 @@
 
 **仍未完成**：完整玩法模拟、`PostStack` 类、景深、2.0 录制回放、`InkScene` 的上下文恢复、真实配音、真实 GPU 验收。`defineGameplay` 只返回动词和说明。设计在 [引擎计划](../plan/10-three-matter-side-scroller-plan.md)；历史游戏叙事与缺口在 [video/docs/story-design](../video/docs/story-design.md)、[video/docs/engine-gaps](../video/docs/engine-gaps.md)；历史动画的实施与状态在 [video/docs/production-plan 动画计划](../video/docs/production-plan.md)。
 
-历史检索和 2026-10-09 的出处在 [第 11 章](./11-references-and-research.md)。和 inkEngine 的逐项对照在 [第 12 章](./12-inkengine-parity-audit.md)：文末是 three.js `InkSurface` 的 SwiftShader 并排差，历史总表提到的 Pixi `InkWash` 已删除。真实 GPU 未实测。
+历史检索和 2026-10-09 的出处在 [第 11 章](./11-references-and-research.md)。美术方向（黑白红武侠水墨剪影）与引擎影响在 [第 13 章](./13-art-style.md)。和 inkEngine 的逐项对照在 [第 12 章](./12-inkengine-parity-audit.md)：文末是 three.js `InkSurface` 的 SwiftShader 并排差，历史总表提到的 Pixi `InkWash` 已删除。真实 GPU 未实测。
 
 | 章 | 内容 | 已导出的现行实现 |
 |---|---|---|
@@ -28,6 +28,7 @@
 | [08 玩法与存档](./08-gameplay-and-persistence.md) | 叙事流程、存档、录制缺口 | `SceneDirector`、`SaveStore`、`CutscenePlayer` |
 | [09 验证](./09-tooling-and-quality.md) | `build.sh`、单测、SwiftShader 冒烟、确定性回归 | 现行脚本与测试清单 |
 | [10 交付](./10-shipping-and-ecosystem.md) | 依赖与许可 | `three@0.186.1`、`matter-js@0.20.0`、Perlin |
+| [13 美术风格](./13-art-style.md) | 黑白红武侠水墨剪影（类《影之刃》，简化版）与引擎影响 | `video/tools/art-style.mjs`、`ink-palette` |
 
 公共类型和函数只从 [`src/index.ts`](../src/index.ts) 导出。应用代码用别名 `@inkgames/engine`，不要去 import `src/core/` 或 `src/plugins/` 的内部文件。
 

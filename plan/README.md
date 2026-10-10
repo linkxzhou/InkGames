@@ -29,4 +29,6 @@
 | [历史动画制作计划](../video/docs/production-plan.md) | 混沌开卷纯引擎实施、E0–E4 状态、验收与性能；**§15 为权威状态核对** | 现行执行文档；E0–E3 未全部达标 |
 | [video/](../video/README.md) | 21 章剧情数据（`video/data/chapters/`，221 场景全部为完整场景，每章 ≥10 场，首版发布批次 v1=66）、语料目录、荆轲样例与关系图、工具（`video/tools/`）、浏览页 [video/viewer/index.html](../video/viewer/index.html)、史源摘要（`video/sources/`）、每场景水墨视频提示词（`videoPrompt`） | 以 [video/README.md](../video/README.md) 为准 |
 
+美术方向：**高反差黑白红武侠水墨剪影（类《影之刃》，简化版）**，见 [docs/13 · 美术风格与引擎影响](../docs/13-art-style.md) 与 [风格指南](../video/docs/art-style.md)；引擎侧意味着黑白红色板、剪影人物、泼墨/血雾打击效果、简化背景。
+
 `artPrompts`（886 张图 / 5848 件素材）保留为**创作提示与美术参考**，不再作为运行时出图方案；动画画面由引擎生成，见 [缺口 §6](../video/docs/engine-gaps.md#6-纯引擎水墨动画实现方案2026-10-09-重新评估)。

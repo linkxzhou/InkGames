@@ -11,6 +11,7 @@
 //
 // 用法：在仓库根目录运行 `node video/tools/build-video-prompts.mjs`
 // 幂等：重复运行整体替换 videoPrompt，不影响其它字段。无第三方依赖。
+import { STYLE_ZH, STYLE_EN, FIGURE_ZH, FIGURE_EN, NEG_STYLE_ZH, NEG_STYLE_EN, HIT_FX_ZH, HIT_FX_EN } from './art-style.mjs';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -96,12 +97,12 @@ const EFFECT = {
   bambooBreak: ['竹简断裂、墨迹飞溅', 'bamboo slips snapping with ink spatter'],
 };
 const ELEM_INK = {
-  火: ['泼墨成火，焰尖点朱砂', 'splashed ink flames tipped with vermilion'], 烟: ['淡墨烟气横向飘散', 'pale ink smoke drifting sideways'],
+  火: ['平涂黑焰剪影，焰心一抹朱红', 'flat black flame silhouettes with a single vermilion core'], 烟: ['淡墨烟气横向飘散', 'pale ink smoke drifting sideways'],
   河水: ['湿笔横扫成水纹，墨在水中化开', 'wet horizontal strokes forming ripples, ink dissolving in water'], 江海: ['大笔湿墨铺出海面，浪头留白', 'broad wet-ink sea with white-paper wave crests'],
   洪水: ['浓淡墨层层涌动成洪流', 'layered dark and pale ink surging as a flood'], 雨: ['细密斜线笔触成雨', 'fine slanted strokes for rain'], 雪: ['留白为雪，枯笔点出雪片', 'blank paper as snow, dry-brush flakes'],
-  骑兵: ['马蹄踏处墨点四溅', 'ink spatters where hooves strike'], 军阵: ['淡墨人影成排，远处虚化', 'rows of pale ink figures fading into distance'], 长兵如林: ['枯笔竖线密如森林', 'dense dry-brush verticals like a forest of spears'],
-  城墙雉堞: ['焦墨勾出城垛轮廓', 'scorched-ink outline of battlements'], 殿柱: ['重墨立柱，空间纵深', 'heavy ink pillars giving depth'], 舟: ['舟影一笔带过，水痕拖尾', 'a boat in one stroke with a trailing wake'],
-  月: ['月轮留白，四周淡墨烘染', 'moon left blank with pale wash around it'], 云: ['云气以淡墨晕染流动', 'clouds as moving pale wash'], 营帐: ['营帐三角墨块，灯火点朱', 'triangular tent shapes with vermilion lamp dots'],
+  骑兵: ['马蹄踏处墨点四溅', 'ink spatters where hooves strike'], 军阵: ['成排剪影由黑到灰逐层退远', 'rows of silhouettes stepping back from black to grey'], 长兵如林: ['枯笔竖线密如森林', 'dense dry-brush verticals like a forest of spears'],
+  城墙雉堞: ['焦墨勾出城垛轮廓', 'scorched-ink outline of battlements'], 殿柱: ['黑色立柱剪影切分画面，纵深三层灰', 'black pillar silhouettes slicing the frame, three grey layers of depth'], 舟: ['舟影一笔带过，水痕拖尾', 'a boat in one stroke with a trailing wake'],
+  月: ['月轮留白，四周淡墨烘染', 'moon left blank with pale wash around it'], 云: ['云气以淡墨晕染流动', 'clouds as moving pale wash'], 营帐: ['营帐三角黑块剪影，灯火留白', 'triangular black tent silhouettes with lamps left as paper white'],
   竹: ['竹叶撇笔，风中摇动', 'flicked bamboo leaves swaying'], 沙: ['干笔擦出沙地', 'dry-brush scumbled sand'], 潮: ['长线湿笔成潮水推进', 'long wet strokes advancing as tide'], 星: ['墨夜中留白点星', 'stars as untouched dots in an ink night'],
 };
 const TRANS = {
@@ -265,7 +266,7 @@ function build(bundle, entry, chapterTitle) {
     const elemInk = [...new Set(strokes.map(x => (x.label || '').replace(/（.*$/, '')).filter(l => ELEM_INK[l]))].slice(0, 2);
     const inkZh = [tr0[0], ...elemInk.map(l => ELEM_INK[l][0]), ...fx.filter(k => k !== 'fade').map(k => EFFECT[k][0])];
     const inkEn = [tr0[1], ...elemInk.map(l => ELEM_INK[l][1]), ...fx.filter(k => k !== 'fade').map(k => EFFECT[k][1])];
-    if (cam.includes('climax')) { inkZh.push('泼墨飞溅，朱砂一点'); inkEn.push('ink splash with a single vermilion accent'); }
+    if (cam.includes('climax')) { inkZh.push(HIT_FX_ZH); inkEn.push(HIT_FX_EN); }
     const auds = (tr.audio || []).filter(inS).filter(a => a.asset && (a.bus === 'amb' || a.bus === 'sfx'));
     const ambs = [...new Set(auds.filter(a => a.bus === 'amb').map(a => assetId(a.asset)))];
     const sfxs = [...new Set(auds.filter(a => a.bus === 'sfx').map(a => assetId(a.asset)))];
@@ -330,18 +331,12 @@ function build(bundle, entry, chapterTitle) {
     const ageEn = /少年|十几岁|年幼|幼主|幼子|童/.test(hint) ? 'a teenager' : /老将|老臣|白发|老人|老妪|晚年|年老|七十|八十|老母/.test(hint) ? 'elderly' : '';
     return {
       id: c.id, name: c.name, nameEn: nameEn(c.name), onScreen: appearing.has(c.id),
-      zh: `${c.name}（${c.camp}·${c.title}）：${lz}${ageZh ? '；' + ageZh : ''}；${c.bio}`,
-      en: `${nameEn(c.name)} (${c.name}) — ${TYPE_EN[c.type] || 'figure'}, ${PINYIN[c.camp] || c.camp}; ${le}${ageEn ? '; ' + ageEn : ''}`,
+      zh: `${c.name}（${c.camp}·${c.title}）：${lz}${ageZh ? '；' + ageZh : ''}；${FIGURE_ZH}；${c.bio}`,
+      en: `${nameEn(c.name)} (${c.name}) — ${TYPE_EN[c.type] || 'figure'}, ${PINYIN[c.camp] || c.camp}; ${le}${ageEn ? '; ' + ageEn : ''}; ${FIGURE_EN}`,
     };
   });
 
-  const pal = palette.map(p => COLOR[p]).filter(Boolean).filter(c => c[0] !== '墨黑');
-  const paletteZh = '水墨黑白灰为主，' + (pal.length ? '点缀色克制：' + pal.map(c => c[0]).join('、') + '，' : '') + '朱砂红只用于印章、旗帜、血或火光的一点';
-  const paletteEn = 'monochrome black-grey' + (pal.length ? ' with restrained ' + pal.map(c => c[1]).join(' and ') + ' accents' : '') + ' and a touch of vermilion for seals, banners, blood or fire';
-  const style = {
-    zh: `中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；${paletteZh}；人物以写意线描为主，面部简笔，不做写实刻画。`,
-    en: 'Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; ' + paletteEn + '; figures in expressive xieyi line, simplified faces, not photorealistic.',
-  };
+  const style = { zh: STYLE_ZH, en: STYLE_EN };
   const setting = {
     zh: `${chapterTitle} · ${scene.when.era || ''}（${year}）。${era[3]}。`,
     en: `${era[0]}, ${whenEn(scene.when)} — ${era[4]}.`,
@@ -358,7 +353,7 @@ function build(bundle, entry, chapterTitle) {
     en: `Title: vertical brush calligraphy 「${title}」, subtitle 「${subtitle}」, vermilion seal 「${seal}」 at upper right; subtitles: Simplified Chinese, bottom centre${quote ? `; quotation 「${quote}」 — ${qsrc}, vertical kaishu` : ''}; all Chinese text must be exact, no garbled or Latin text.`,
   };
   const [pnz, pne] = periodNeg(order);
-  const negative = { zh: NEG_ZH + (pnz.length ? '，时代错置：' + pnz.join('、') : ''), en: NEG_EN + (pne.length ? ', anachronisms: ' + pne.join(', ') : '') };
+  const negative = { zh: NEG_ZH + '，' + NEG_STYLE_ZH + (pnz.length ? '，时代错置：' + pnz.join('、') : ''), en: NEG_EN + ', ' + NEG_STYLE_EN + (pne.length ? ', anachronisms: ' + pne.join(', ') : '') };
 
   const shotLineZh = s => `镜头 ${s.n}（${s.startSec}–${s.startSec + s.durationSec} 秒，${s.durationSec} 秒）｜运镜：${s.camera.zh}｜构图：${s.composition.zh}｜动作：${s.action.zh}｜水墨效果：${s.ink.zh}｜声音：${s.sound.zh}${s.text.zh ? '｜屏幕文字：' + s.text.zh : ''}${s.vo ? '｜旁白：「' + s.vo + '」' : ''}`;
   const shotLineEn = s => `Shot ${s.n} (${s.startSec}–${s.startSec + s.durationSec} s, ${s.durationSec} s) | Camera: ${s.camera.en} | Composition: ${s.composition.en} | Action: ${s.action.en} | Ink FX: ${s.ink.en} | Sound: ${s.sound.en}${s.text.en ? ' | On-screen text: ' + s.text.en : ''}${s.vo ? ' | VO (Mandarin): 「' + s.vo + '」' : ''}`;
@@ -406,7 +401,8 @@ for (const c of index.chapters) {
   const ct = (bundle.strings && bundle.strings.strings && bundle.strings.strings[bundle.chapter.title]) || c.id;
   for (const entry of bundle.scenes) {
     if (!entry.opening) continue;
-    entry.videoPrompt = build(bundle, entry, ct);
+    // 简化剪影风：素材里的“皴法”等精细笔法词换成剪影说法
+    entry.videoPrompt = JSON.parse(JSON.stringify(build(bundle, entry, ct)).replaceAll('皴法山石', '山石剪影').replaceAll('textured rocks', 'rock silhouettes'));
     n++; shotsN += entry.videoPrompt.shots.length;
   }
   writeFileSync(file, JSON.stringify(bundle, null, 1));
