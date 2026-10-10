@@ -1352,6 +1352,17 @@
   ],
   "title": "Cao Chong Weighs the Elephant: A Precocious Child"
  },
+ "sanguo.caomao": {
+  "end": "Cao Mao dies at twenty; Sima Zhao blames Cheng Ji and exterminates his clan, Wang Jing dies with his mother for refusing to inform, and Cao Huan is enthroned, abdicating to Sima Yan five years later.",
+  "shots": [
+   "On the Lingyun Terrace the twenty-year-old emperor calls three ministers before him and produces an edict",
+   "He throws the edict down: Sima Zhao's intentions are known to every passer-by",
+   "On a rainy night the emperor draws his sword, mounts his carriage and charges out of the palace with a few hundred servants and guards",
+   "Below the southern gate Jia Chong tells Cheng Ji: Lord Sima has fed you for just this day",
+   "A long halberd runs through the man in the carriage"
+  ],
+  "title": "Known to Every Passer-by: The Duke of Gaogui Village"
+ },
  "sanguo.changban": {
   "end": "Liu Bei joins Guan Yu's fleet and Liu Qi at Xiakou; having met Lu Su at Dangyang, the Sun–Liu alliance begins.",
   "shots": [
@@ -1384,6 +1395,17 @@
    "Guan Yu rises, blade in hand"
   ],
   "title": "The Single-Sword Meeting: Lu Su and Guan Yu"
+ },
+ "sanguo.dingjunshan": {
+  "end": "Xiahou Yuan falls and the Wei army breaks; Cao Cao comes to contest Hanzhong, utters \"chicken ribs\" and withdraws, and in July Liu Bei proclaims himself King of Hanzhong.",
+  "shots": [
+   "On the hills south of the Mian River in the Hanzhong basin, Liu Bei's camp rises overnight",
+   "At night Shu troops set fire to the abatis outside the Wei camp",
+   "The Wei commander leads four hundred men out to repair the abatis himself",
+   "On the summit Fa Zheng raises his hand: now we can strike",
+   "The old general charges downhill amid thundering drums and gongs, his blade falling on the men at the abatis"
+  ],
+  "title": "Mount Dingjun: Huang Zhong Slays Xiahou Yuan"
  },
  "sanguo.dongzhuo": {
   "end": "Lü Bu spears Dong Zhuo and Chang'an celebrates, but two months later Li Jue and Guo Si take the city and Wang Yun is killed.",
@@ -1462,6 +1484,17 @@
   ],
   "title": "Beneath an Overturned Nest: The Death of Kong Rong"
  },
+ "sanguo.lesi": {
+  "end": "Liu Shan lives seven peaceful years in Luoyang and dies in 271; some call him a fool, others a clever pretender, and \"too happy to miss Shu\" becomes an idiom.",
+  "shots": [
+   "At a banquet in the Prince of Jin's mansion in Luoyang the music and dances of Shu begin",
+   "The former Shu ministers bow their heads and weep; only the Duke of Anle laughs happily",
+   "The Prince of Jin asks: do you miss Shu",
+   "He sets down his cup: it is pleasant here, I do not miss Shu",
+   "The Prince of Jin turns to Jia Chong: can a man be so heartless"
+  ],
+  "title": "Happy Here: Not Missing Shu"
+ },
  "sanguo.longzhong": {
   "end": "Zhuge Liang leaves to serve Liu Bei, and the three-way division becomes Shu Han's grand strategy.",
   "shots": [
@@ -1484,6 +1517,17 @@
   ],
   "title": "Seven Captures of Meng Huo: Pacifying the South"
  },
+ "sanguo.qibu": {
+  "end": "Cao Pi is ashamed; Cao Zhi, moved from fief to fief and never employed, dies at forty-one as Prince of Chen, ranked by Zhong Rong among the highest poets.",
+  "shots": [
+   "On the Bronze Sparrow Terrace in Ye a youth writes a rhapsody in one stroke, astonishing the guests",
+   "Years later in the hall the emperor says coldly: make a poem within seven steps or be executed",
+   "He takes the first step, then the second",
+   "At the fifth and sixth steps he begins: beans are boiled to make a broth",
+   "The seventh step lands: born of the same root, why such haste to scorch each other"
+  ],
+  "title": "The Seven-Step Poem: Cao Zhi"
+ },
  "sanguo.qijun": {
   "end": "In the twelfth month Guan Yu and his son are captured and executed, and all of Jing passes to Wu.",
   "shots": [
@@ -1494,6 +1538,17 @@
    "Maicheng: an isolated town surrounded"
   ],
   "title": "Flooding the Seven Armies, Retreat to Maicheng"
+ },
+ "sanguo.shouchan": {
+  "end": "Emperor Xian becomes Duke of Shanyang, allowed the Han calendar and rites in his fief; he outlives Cao Pi by eight years, and Fanyang is renamed Fanchang.",
+  "shots": [
+   "In the palace at Xuchang an envoy comes a third time to demand the imperial seal",
+   "The empress calls the envoy in, rebukes him point by point, and throws the seal down the steps",
+   "At Fanyang a three-tiered altar rises, officials, the Xiongnu chanyu and envoys of the four quarters in ranks",
+   "The new king ascends, receives the seal and ribbon, and burns firewood in offering to Heaven",
+   "Descending after the rite he turns and says: now I understand what happened with Shun and Yu"
+  ],
+  "title": "The Abdication Terrace: Han Falls, Wei Rises"
  },
  "sanguo.sunce": {
   "end": "Sun Quan succeeds with Zhang Zhao leading the officials and Zhou Yu hurrying back for the funeral; Sun Quan will hold the east for more than fifty years and found the state of Wu.",
@@ -1517,6 +1572,17 @@
   ],
   "title": "Autumn Wind at Wuzhang Plains: the Falling Star"
  },
+ "sanguo.yanglu": {
+  "end": "Lu Kang dies in 274 and Yang Hu in 278, naming Du Yu his successor; the people of Xiangyang raise the Stele of Tears, and when Wu falls two years later the emperor weeps: this is Grand Tutor Yang's achievement.",
+  "shots": [
+   "On the Jing border the Jin general wears a light fur and loose sash instead of armour, with barely a dozen guards",
+   "A jar of wine is sent across to the Wu camp and its commander drinks without hesitation",
+   "Lu Kang falls ill; Yang Hu sends medicine and the Wu officers try to stop him drinking",
+   "Lu Kang lifts the bowl: would Yang Hu poison anyone",
+   "Years later a stele rises on Mount Xian and everyone who looks at it weeps"
+  ],
+  "title": "The Friendship of Yang and Lu: Would Yang Hu Poison a Man"
+ },
  "sanguo.yiling": {
   "end": "The Shu army collapses and Liu Bei retreats to Baidi, dying the next year after entrusting his son to Zhuge Liang.",
   "shots": [
@@ -1527,6 +1593,17 @@
    "Each man carries a bundle of reeds; fire attack"
   ],
   "title": "Burning the Linked Camps: the Battle of Yiling"
+ },
+ "sanguo.yinping": {
+  "end": "Liu Shan surrenders and Shu Han ends after forty-three years; Deng Ai is falsely accused and killed on the way to prison, and Zhong Hui soon dies in his own failed revolt.",
+  "shots": [
+   "The cliffs of Jiange stand like a gate, Shu banners crowd the pass and the Wei army halts below",
+   "On the Yinping trail a Wei column cuts through the mountain and hangs plank roads on the cliffs",
+   "The cliff is too steep; the commander wraps himself in felt and rolls down",
+   "Outside Mianzhu Zhuge Liang's son forms his line and dies in battle",
+   "At the north gate of Chengdu the emperor, hands bound, a coffin carried behind him, comes out to surrender"
+  ],
+  "title": "Crossing Yinping in Secret: Deng Ai Enters Shu"
  },
  "sanguo.zhujiu": {
   "end": "Thunder happens to roll and Liu Bei blames his start on it; soon he leaves Xu to intercept Yuan Shu, kills Che Zhou in Xu Province, and the girdle-edict plotters are executed.",
