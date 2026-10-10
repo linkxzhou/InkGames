@@ -115,13 +115,13 @@ button,select{font:inherit;color:inherit}
 /* ---------- 本章 ---------- */
 #chapter{scroll-margin-top:60px;padding-top:36px}
 /* 章节开场视频：长卷之下、场景卡之上 */
-#chVideo{margin:22px 0 4px}
+#chVideo{margin:22px auto 4px;max-width:880px;text-align:center}
 #chVideo[hidden]{display:none}
-#chVideo .cv-frame{position:relative;aspect-ratio:16/9;max-width:880px;background:var(--paper);clip-path:polygon(0 1.2%,99.4% 0,100% 98.6%,.5% 100%);box-shadow:inset 0 0 0 1px var(--mist)}
+#chVideo .cv-frame{position:relative;aspect-ratio:16/9;max-width:880px;margin:0 auto;background:var(--paper);clip-path:polygon(0 1.2%,99.4% 0,100% 98.6%,.5% 100%);box-shadow:inset 0 0 0 1px var(--mist)}
 #chVideo .cv-frame::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 26px 6px rgba(236,234,228,.85)}
 #chVideo video{display:block;width:100%;height:100%;object-fit:cover;background:var(--paper)}
 #chVideo video:focus-visible{outline:3px solid var(--red);outline-offset:-3px}
-#chVideo figcaption{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:13px;color:var(--mid);letter-spacing:.04em}
+#chVideo figcaption{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:10px;font-size:13px;color:var(--mid);letter-spacing:.04em}
 #chVideo .cv-seal{display:inline-flex;align-items:center;justify-content:center;width:22px;height:40px;writing-mode:vertical-rl;font-family:var(--kai);font-size:12px;line-height:1;color:var(--paper);background:var(--fill-seal);clip-path:polygon(6% 2%,96% 0,100% 97%,0 100%)}
 #chVideo figcaption b{font-family:var(--kai);font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.1em}
 .ch-head{display:grid;grid-template-columns:auto 1fr;gap:clamp(16px,3vw,36px);align-items:end;margin-bottom:6px}
@@ -509,7 +509,7 @@ function renderChapterVideo(meta){
   { const s = document.createElement("source"); s.src = e.mp4; s.type = "video/mp4"; v.appendChild(s); }
   v.setAttribute("aria-label", meta.name + " 开场短片");
   v.load();
-  $("#chVidCap").innerHTML = "<b>" + esc(meta.name) + "</b> 开场短片 · " + Math.round(e.durationSec) + " 秒 · " + e.shots + " 镜 · 无声";
+  $("#chVidCap").innerHTML = "<b>" + esc(meta.name) + "</b> 开场短片 · " + Math.round(e.durationSec) + " 秒 · " + e.shots + " 镜 · " + (e.audio ? "有声（旁白 · 配乐）" : "无声");
 }
 function jump(sel){ const t = $(sel); if (t) t.scrollIntoView({behavior: REDUCE ? "auto" : "smooth", block: "start"}); }
 function spanShort(s){ s = String(s || ""); if (/传说/.test(s)) return "传说"; const m = s.replace(/约|公元/g, "").match(/前?\d+/); return m ? m[0] : s.slice(0, 4); }
