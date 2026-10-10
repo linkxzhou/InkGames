@@ -37,7 +37,7 @@
 | [06-qin](./06-qin/README.md) | 秦 | 10 |
 | [07-xihan](./07-xihan/README.md) | 楚汉 · 西汉 | 20 |
 | [08-donghan](./08-donghan/README.md) | 新 · 东汉 | 14 |
-| [09-sanguo](./09-sanguo/README.md) | 三国 | 12 |
+| [09-sanguo](./09-sanguo/README.md) | 三国 | 19 |
 | [10-liangjin](./10-liangjin/README.md) | 两晋 | 12 |
 | [11-nanbeichao](./11-nanbeichao/README.md) | 南北朝 | 10 |
 | [12-sui](./12-sui/README.md) | 隋 | 10 |
