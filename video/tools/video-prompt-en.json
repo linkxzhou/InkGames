@@ -109,6 +109,17 @@
   ],
   "title": "Chenjiagu: Yang Ye"
  },
+ "chunqiu.baolixi": {
+  "end": "Duke Mu gives Baili Xi the government of Qin and calls him the Minister of Five Ram Skins; on his advice Jian Shu is brought in as a senior minister, and Qin begins its rise over the Western Rong.",
+  "shots": [
+   "On the outskirts of Wan in Chu, a white-haired old man drives an ox along a field ridge",
+   "A Qin envoy holds up five black ram skins and tells the Chu men he has come to ransom a runaway slave",
+   "In the palace at Yong, Duke Mu of Qin unties the old man's ropes himself",
+   "Ruler and minister sit facing each other for three days and nights as the bamboo slips pile up",
+   "The old man rises and bows: \"I am not the equal of my friend Jian Shu.\""
+  ],
+  "title": "Five Ram Skins: Baili Xi"
+ },
  "chunqiu.changshao": {
   "end": "The Qi army breaks and is pursued; three years later Cao Mo seizes Duke Huan with a dagger at Ke and land is returned.",
   "shots": [
@@ -120,6 +131,17 @@
   ],
   "title": "One Drum Roll of Courage: the Battle of Changshao"
  },
+ "chunqiu.chencai": {
+  "end": "Confucius laughs at Yan Hui's answer; Zigong reaches Chu, King Zhao sends troops to escort them, and the party escapes.",
+  "shots": [
+   "On open ground between Chen and Cai, a train of carts is surrounded in the wilds",
+   "On the seventh day the disciples lie in the grass too weak to rise",
+   "Zilu comes in angry: does a gentleman also come to the end of his road?",
+   "Beside the cart the master plays the qin, and the music does not stop",
+   "Yan Hui comes in and says: the master's Way is too great for the world to hold"
+  ],
+  "title": "Starving Between Chen and Cai: Confucius on the Road"
+ },
  "chunqiu.chengpu": {
   "end": "The Chu army is defeated and Ziyu kills himself; Duke Wen gathers the lords at Jiantu and is named hegemon.",
   "shots": [
@@ -130,6 +152,17 @@
    "Horses draped in tiger skins; the Chu right wing collapses"
   ],
   "title": "Retreating Three Stages: the Battle of Chengpu"
+ },
+ "chunqiu.hongshui": {
+  "end": "Song is routed and the duke wounded; he dies of the wound the next summer. \"No drums before the enemy is in ranks\" becomes a line argued over for two thousand years.",
+  "shots": [
+   "On the north bank of the Hong the Song army has formed up, banners taut in the winter wind",
+   "Across the river the Chu army begins to wade over, men and horses crowding mid-stream",
+   "Marshal Ziyu rides up to the chariot: they are many, we are few, strike before they finish crossing",
+   "Chu lands but has not yet formed ranks; Ziyu begs again, and the duke still shakes his head",
+   "Chu's line is formed, drums thunder, the Song ranks break and an arrow strikes the duke in the thigh"
+  ],
+  "title": "The Battle of the Hong River: Duke Xiang's Benevolence"
  },
  "chunqiu.huangong": {
   "end": "At Kuiqiu the lords honour Qi; Duke Huan becomes the first hegemon of the Spring and Autumn era.",
@@ -152,6 +185,28 @@
    "Qi returns the lands of Yun, Huan and Guiyin"
   ],
   "title": "The Meeting at Jiagu: Confucius Leads the Rites"
+ },
+ "chunqiu.jiezitui": {
+  "end": "The duke cannot find him and grants the land of Mianshang in his name, \"to record my fault.\" The Zuo zhuan and the Shiji end there; neither mentions burning the hill.",
+  "shots": [
+   "Outside the palace gate at Jiang, the companions of exile queue for rewards amid carts and horses",
+   "A gaunt middle-aged man stands apart from the crowd, turns and walks away",
+   "In a thatched hut his old mother asks: shouldn't you at least tell him?",
+   "Mother and son shoulder a little grain and walk into the deep hills of Mianshang",
+   "The duke's carriage reaches the foot of the mountain and finds only cloud and mist"
+  ],
+  "title": "Fire on Mianshang: Jie Zitui"
+ },
+ "chunqiu.laozi": {
+  "end": "Laozi finishes two books, some five thousand words on the Way and Virtue, then leaves, and no one knows where he ends. Sima Qian records two other candidates and admits no one can say which is true.",
+  "shots": [
+   "In the royal archive at Luoyi, bamboo slips are stacked to the roof beams",
+   "A middle-aged visitor from Lu respectfully asks about the rites; the old man says only a few words",
+   "Years later the old man rides a black ox slowly toward the western pass",
+   "The pass keeper stops him: Master, you are going into hiding, write a book for me first",
+   "The first line is brushed onto the slips: \"The Way that can be spoken is not the constant Way.\""
+  ],
+  "title": "Purple Air from the East: Laozi Leaves Through the Pass"
  },
  "chunqiu.wending": {
   "end": "Wangsun Man answers that Heaven's mandate remains and the cauldrons' weight may not be asked; Chu withdraws.",
@@ -186,6 +241,17 @@
   ],
   "title": "Xian Gao Feeds the Army: the Battle of Xiao"
  },
+ "chunqiu.yanzi": {
+  "end": "Duke Jing understands and lightens his punishments; the Zuo zhuan says the words of a humane man bring wide benefit.",
+  "shots": [
+   "In the markets of Linzi, Yanzi's old house is squeezed against the noisy bazaar",
+   "Duke Jing sends word: your house is damp and loud, move somewhere high and dry",
+   "Yanzi declines; the duke laughs: living by the market, do you know what is dear and what is cheap?",
+   "Shoe stalls are piled high with shoes, while crowds buy artificial feet for those whose feet were cut off as punishment",
+   "Yanzi answers: \"Artificial feet are dear, shoes are cheap.\""
+  ],
+  "title": "Feet Dear, Shoes Cheap: Yanzi"
+ },
  "chunqiu.zhaoguan": {
   "end": "Wu troops enter Ying; Wu Zixu digs up King Ping's corpse and flogs it, as the Shiji records.",
   "shots": [
@@ -218,6 +284,28 @@
    "Not until the Yellow Springs shall we meet again"
   ],
   "title": "Meeting His Mother Underground: Duke Zhuang of Zheng"
+ },
+ "chunqiu.zhuanzhu": {
+  "end": "The dagger pierces King Liao's armour and the guards cut Zhuan Zhu down; Prince Guang's hidden soldiers pour out and he takes the throne as King Helü.",
+  "shots": [
+   "In the Wu capital, King Liao's guards line both sides of the road from the palace to Prince Guang's gate",
+   "At the banquet every servant is searched, guards with long blades flank the aisle",
+   "Prince Guang complains of a sore foot, leaves the table and slips down into the cellar",
+   "A cook carries a roast fish up to the hall, its belly slightly swollen",
+   "He tears open the fish and draws a dagger"
+  ],
+  "title": "A Blade in the Fish: Zhuan Zhu Kills King Liao"
+ },
+ "chunqiu.zichan": {
+  "end": "Zichan replies that he cannot provide for future generations, he is only trying to save his own age. Twenty years later Jin casts its own law cauldron.",
+  "shots": [
+   "In the village school of the Zheng capital, gentlemen gather to debate the government's merits",
+   "Minister Ranming advises: better to tear the school down",
+   "Zichan waves the idea away: these people are my teachers",
+   "Six years later, founders pour the text of the laws into a great bronze cauldron",
+   "A letter arrives from Jin; Shuxiang writes that once people know the laws they will no longer fear their betters"
+  ],
+  "title": "Casting the Penal Code: Zichan of Zheng"
  },
  "donghan.banchao": {
   "end": "Shanshan submits and sends a hostage; Ban Chao spends thirty years in the Western Regions and becomes Protector General.",
@@ -2199,6 +2287,39 @@
   ],
   "title": "Strategy on Paper: the Battle of Changping"
  },
+ "zhanguo.fanju": {
+  "end": "Fan Ju spares Xu Jia for the gift of a coarse silk robe but sends word to the King of Wei: send me Wei Qi's head; Wei Qi flees and finally takes his own life.",
+  "shots": [
+   "In the Wei chancellor's mansion a retainer is beaten until his ribs break, rolled in a mat and dumped in the latrine",
+   "At night he crawls out of the mat; a friend hides him and he takes the name Zhang Lu",
+   "In a detached palace at Xianyang the King of Qin dismisses his attendants and kneels to ask",
+   "On the map his finger runs from Han and Wei to Qi and Chu: befriend the far, attack the near",
+   "Years later the Wei envoy Xu Jia kneels at the steps of the Qin chancellor's mansion and finally sees who the chancellor is"
+  ],
+  "title": "Befriend the Far, Attack the Near: Fan Ju Comes to Qin"
+ },
+ "zhanguo.ganluo": {
+  "end": "Zhao cedes five cities, Qin recalls Zhang Tang and the King of Qin makes Gan Luo a senior minister; after this the histories never mention him again.",
+  "shots": [
+   "In the chancellor's mansion, Lü Buwei sits at his desk in silent displeasure",
+   "A boy steps forward: let me go and persuade Zhang Tang",
+   "At Zhang Tang's house the boy asks: how do your merits compare with Bai Qi's?",
+   "Outside the city, the King of Zhao comes out in person to greet the twelve-year-old Qin envoy",
+   "On the map five cities are circled in vermilion and pass to Qin"
+  ],
+  "title": "A Senior Minister at Twelve: Gan Luo"
+ },
+ "zhanguo.hanfei": {
+  "end": "The pardon comes too late; Sima Qian grieves that the author of \"The Difficulties of Persuasion\" could not escape them himself, yet Han Fei's ideas guide Qin's unification.",
+  "shots": [
+   "In the Xianyang palace the King of Qin puts down the slips: if I could meet this man I would die without regret",
+   "Li Si answers: it was written by Han Fei, a prince of Han",
+   "The Han envoy's carriage enters Xianyang; the man aboard stammers when he speaks",
+   "In the Yunyang prison a jailer brings a bowl of poison",
+   "When the pardon arrives the cell holds only a scroll of \"The Difficulties of Persuasion\""
+  ],
+  "title": "The Difficulties of Persuasion: The Death of Han Fei"
+ },
  "zhanguo.hufu": {
   "end": "Prince Zhang's revolt fails; besieged for three months, the abdicated king eats sparrow chicks and starves at Shaqiu.",
   "shots": [
@@ -2243,6 +2364,28 @@
   ],
   "title": "Cold Waters of the Yi: Jing Ke Attempts to Kill the King of Qin"
  },
+ "zhanguo.libing": {
+  "end": "With Dujiangyan, the Chengdu plain becomes a \"Land of Abundance\" free from flood and drought; an Eastern Han stone statue of Li Bing was excavated there in 1974.",
+  "shots": [
+   "Where the Min leaves the mountains, the river rushes down thick with silt and half the farmland below lies flooded",
+   "The new governor stands on Mount Yulei, watching the current beneath him",
+   "Labourers fill bamboo cages with stones and sink them one by one mid-stream into a fish-mouth levee",
+   "On the cliff they burn firewood against the rock, douse it with cold water and the stone cracks apart",
+   "The Bottle-Neck is cut through, the river splits in two and clear water flows into the Chengdu plain"
+  ],
+  "title": "Dujiangyan: Li Bing Tames the River"
+ },
+ "zhanguo.lvbuwei": {
+  "end": "Zichu reaches the Qin camp, later becomes King Zhuangxiang and makes Lü Buwei chancellor; when Ying Zheng succeeds, Lü is honoured as \"Second Father\".",
+  "shots": [
+   "In the streets of Handan a shabby Qin hostage walks by with his head down, his carriage worn",
+   "A wealthy merchant watches him and murmurs: this is a rare commodity worth hoarding",
+   "At home the merchant asks his father: how many times profit from farming? from jade? from setting up a ruler?",
+   "In Xianyang, Lady Huayang accepts a cart of treasure and listens to tales of the hostage who longs for her",
+   "With Qin besieging Handan, the hostage slips out of the gate carrying six hundred jin of gold"
+  ],
+  "title": "Rare Goods Worth Hoarding: Lü Buwei"
+ },
  "zhanguo.maling": {
   "end": "Pang Juan, outwitted and beaten, cuts his own throat; Qi crushes Wei and captures Crown Prince Shen, and Sun Bin becomes famous.",
   "shots": [
@@ -2254,6 +2397,17 @@
   ],
   "title": "Besiege Wei to Save Zhao: Guiling and Maling"
  },
+ "zhanguo.mengzi": {
+  "end": "King Hui cannot use his advice; he soon dies, and after meeting his successor Mencius remarks that he \"does not look like a ruler\" and leaves Wei.",
+  "shots": [
+   "In the palace at Daliang, a white-haired ruler waits for a guest from afar",
+   "The king's first question: venerable sir, what profit will you bring my state?",
+   "Mencius follows the logic down: the king speaks of profit, then the ministers, then the gentlemen and commoners",
+   "The king falls silent; beyond the hall lies a Wei that has lost its crown prince on the battlefield",
+   "Mencius says: let Your Majesty speak only of humaneness and rightness — why speak of profit?"
+  ],
+  "title": "Why Speak of Profit? Mencius Meets King Hui of Liang"
+ },
  "zhanguo.qiefu": {
   "end": "The Qin army lifts the siege; Hou Ying faces north and kills himself on the day the prince reaches Jin Bi's camp.",
   "shots": [
@@ -2264,6 +2418,17 @@
    "At Ye an iron mace strikes"
   ],
   "title": "Stealing the Tally to Save Zhao: Lord Xinling"
+ },
+ "zhanguo.quyuan": {
+  "end": "Qu Yuan writes \"Embracing the Sand\", clasps a stone and drowns himself in the Miluo; Chu declines and falls to Qin within decades.",
+  "shots": [
+   "The gate of Ying closes behind a man in a tall hat with a long sword, driven out of the city",
+   "Hair unbound, he walks the marsh shore chanting, his face haggard",
+   "A fisherman pauses his boat: aren't you the Lord of the Three Clans? how did you come to this?",
+   "News arrives that Ying has fallen; the northern sky burns red",
+   "At the Miluo river he picks up a stone and walks into the water"
+  ],
+  "title": "Embracing the Sand: Qu Yuan"
  },
  "zhanguo.sanjia": {
   "end": "Zhi Bo's army collapses and his clan is destroyed; fifty years later the Zhou king names Wei, Zhao and Han as states.",
@@ -2287,6 +2452,17 @@
   ],
   "title": "Moving the Log: Shang Yang's Reforms"
  },
+ "zhanguo.sujin": {
+  "end": "\"Because you are now high and rich,\" she says; Su Qin hands out a thousand pieces of gold to his clan. The Shiji's claim that Qin dared not leave the Hangu Pass for fifteen years is widely thought exaggerated.",
+  "shots": [
+   "At home in Luoyang, a man in a worn-out black sable coat comes to the door; his wife stays at her loom, his sister-in-law will not cook for him",
+   "Late at night he dozes over the slips and drives an awl into his own thigh",
+   "In the Yan palace he traces a line on the map linking six states",
+   "Zhao, Han, Wei, Qi, Chu: his carriage passes from court to court",
+   "Passing Luoyang again, his carts fill the road and his sister-in-law kneels by the roadside, afraid to look up"
+  ],
+  "title": "The Vertical Alliance: Su Qin Holds Six Seals"
+ },
  "zhanguo.wanbi": {
   "end": "Lin Xiangru is promoted above Lian Po; Lian Po later begs forgiveness carrying thorns, and general and minister are reconciled.",
   "shots": [
@@ -2297,5 +2473,49 @@
    "Within five paces"
   ],
   "title": "Returning the Jade Intact: the Meeting at Mianchi"
+ },
+ "zhanguo.wuqi": {
+  "end": "Wu Qi dies under the arrows; King Su has more than seventy clans executed for wounding the royal corpse, and Chu's reforms die with him.",
+  "shots": [
+   "Outside Ying, Wu Qi rides past newly opened fields, trailed by the carts of nobles moved off their fiefs",
+   "White banners hang in the Chu palace: King Dao is dead",
+   "At the palace gate, the royal kinsmen burst into the mourning hall with bows and crossbows",
+   "Driven to the bier, Wu Qi throws himself over the king's body",
+   "Arrows pour in, bristling from Wu Qi and striking the king's corpse too"
+  ],
+  "title": "Shielded by a Corpse: The Death of Wu Qi"
+ },
+ "zhanguo.ximenbao": {
+  "end": "The officials kowtow until their foreheads bleed and no one in Ye mentions the River God's bride again; Ximen Bao sets the people to digging twelve canals that water their fields.",
+  "shots": [
+   "On the bank of the Zhang, a red silk tent is pitched on the shoal and a girl is pushed inside",
+   "An old shaman leans on her staff, a dozen female disciples behind her, the elders and petty officials standing by",
+   "The new magistrate looks the girl over and shakes his head: she won't do, please go and tell the River God yourself",
+   "Constables lift the old shaman and throw her into the river",
+   "The magistrate waits on the bank, bowing, for a long time, then says: perhaps the elders should go and hurry her"
+  ],
+  "title": "The River God's Bride: Ximen Bao Governs Ye"
+ },
+ "zhanguo.zhangyi": {
+  "end": "In 312 BCE Chu is crushed at Danyang, eighty thousand beheaded and Qu Gai captured; a second all-out attack is defeated again at Lantian.",
+  "shots": [
+   "In the hall at Ying, the Qin envoy unrolls a map and points to the Shang–Yu region",
+   "The ministers offer congratulations; one official alone looks grave",
+   "A Chu champion rides to the Qi border and insults the King of Qi to his face",
+   "In Xianyang, Zhang Yi emerges on a crutch: I have a fief of six li to offer Your Majesty",
+   "At Danyang the Chu banners fall and their commander is captured"
+  ],
+  "title": "Six Li of Land: Zhang Yi Cheats Chu"
+ },
+ "zhanguo.zhuangzi": {
+  "end": "Zhuangzi never takes office; his debate with Hui Shi on the bridge over the Hao about the happiness of fish becomes the most famous dialogue in Chinese philosophy.",
+  "shots": [
+   "By the Pu river a thin man sits on a rock fishing, his rod perfectly still",
+   "Two Chu officials stand behind him holding gifts: the king wishes to entrust you with his state",
+   "Without turning he asks: I hear Chu has a sacred tortoise, dead three thousand years, kept in the ancestral hall",
+   "In the riverside mud a tortoise drags its tail slowly past",
+   "He waves them off: go, I would rather drag my tail in the mud"
+  ],
+  "title": "Dragging Its Tail in the Mud: Zhuang Zhou"
  }
 }

@@ -32,8 +32,8 @@
 | [01-xia](./01-xia/README.md) | 夏 | 5 |
 | [02-shang](./02-shang/README.md) | 商 | 7 |
 | [03-xizhou](./03-xizhou/README.md) | 西周 | 9 |
-| [04-chunqiu](./04-chunqiu/README.md) | 春秋 | 10 |
-| [05-zhanguo](./05-zhanguo/README.md) | 战国 | 10 |
+| [04-chunqiu](./04-chunqiu/README.md) | 春秋 | 18 |
+| [05-zhanguo](./05-zhanguo/README.md) | 战国 | 22 |
 | [06-qin](./06-qin/README.md) | 秦 | 10 |
 | [07-xihan](./07-xihan/README.md) | 楚汉 · 西汉 | 12 |
 | [08-donghan](./08-donghan/README.md) | 新 · 东汉 | 10 |
