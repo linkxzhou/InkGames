@@ -714,6 +714,28 @@
   ],
   "title": "The Tangut Script: Yuanhao Declares Himself Emperor"
  },
+ "ming.dali": {
+  "end": "134 are jailed, over 180 flogged and more than ten die; Yang Shen, beaten twice, is exiled to Yongchang in Yunnan, and the emperor holds power for over forty years.",
+  "shots": [
+   "A fifteen-year-old prince arrives from Anlu and refuses to enter the capital with the rites of a crown prince",
+   "For three years memorials pile up and the senior grand secretary resigns",
+   "By the Golden Water Bridge a Hanlin scholar cries out: to die for principle, today is the day",
+   "Over two hundred officials kneel weeping before the Zuoshun Gate, calling on the Founding Emperor and Emperor Xiaozong",
+   "Guards come out with lists and drag them away one by one, the beating of the court staves unceasing"
+  ],
+  "title": "The Zuoshun Gate: The Great Rites Controversy"
+ },
+ "ming.fangxiaoru": {
+  "end": "The prince has him dismembered in the market at forty-six, hundreds of his kin and friends die with him, and only in the Wanli years are the Jianwen martyrs rehabilitated.",
+  "shots": [
+   "Fire lights up the palace in Nanjing and the Jianwen emperor vanishes",
+   "A scholar in mourning clothes is dragged into the hall, his weeping filling the steps",
+   "The Prince of Yan comes down the steps: sir, do not torment yourself, I only mean to be a Duke of Zhou to a young king",
+   "Paper and ink are set before him; he takes the brush and writes four great characters: the Yan bandit usurps the throne",
+   "He throws down the brush: if I die, I die, but this edict I will not write"
+  ],
+  "title": "The Edict Will Not Be Written: Fang Xiaoru"
+ },
  "ming.hairui": {
   "end": "The emperor calls Hai Rui a Bigan but denies being King Zhou; when the emperor dies, Hai Rui weeps and vomits his prison meal, then is freed.",
   "shots": [
@@ -746,6 +768,28 @@
    "Fire in the palace"
   ],
   "title": "Jingnan: the Jinchuan Gate"
+ },
+ "ming.lishizhen": {
+  "end": "Li Shizhen dies in 1593 without seeing it printed; three years later the Compendium appears in Nanjing, the emperor merely notes \"kept for reading\", and the book spreads to Japan and Europe.",
+  "shots": [
+   "In the hills of Qizhou a middle-aged physician with a herb basket crouches to study a white-flowered plant",
+   "He brews the flower into wine, drinks himself half-drunk and has someone laugh and dance beside him to see if he follows",
+   "In his study drafts pile to the rafters; he strikes out the old ones and rewrites for the third time",
+   "At the Yanshan Garden in Taicang he lays fifty-two scrolls before the leading man of letters and asks for a preface",
+   "With the last scroll finished he writes the title at the head"
+  ],
+  "title": "The Compendium of Materia Medica: Li Shizhen"
+ },
+ "ming.liujin": {
+  "end": "The emperor orders Liu Jin put to death by slicing, the streets packed with onlookers, and his partisans are stripped of rank or die in prison.",
+  "shots": [
+   "Officials kneel outside the Fengtian Gate in the blazing sun, waiting on a eunuch's judgement",
+   "In a Ningxia camp two men talk by lamplight; one traces the character \"Jin\" on the table",
+   "At the victory banquet Liu Jin leaves early and Zhang Yong draws a memorial from his sleeve",
+   "Late at night the emperor himself leads the raid on Liu Jin's house, gold and silver piled like hills",
+   "Two daggers are found hidden in his fan and the emperor roars: the slave really meant to rebel"
+  ],
+  "title": "The Standing Emperor: The Fall of Liu Jin"
  },
  "ming.meishan": {
   "end": "The Chongzhen emperor hangs himself on Coal Hill; Li Zicheng enters Beijing, and forty days later the Qing come through the pass.",
@@ -802,6 +846,17 @@
   ],
   "title": "Sarhu: Four Armies Lost"
  },
+ "ming.tangyin": {
+  "end": "Scorning the clerkship, Tang Yin lives by selling paintings in his Peach Blossom Dock studio, carving a seal \"Nanjing Laureate\", and whether the case was unjust is still debated.",
+  "shots": [
+   "The Nanjing examination list is posted, a Suzhou man's name at the top",
+   "The next year a great boat carries two graduates north to the capital in luxury",
+   "Right after the metropolitan exam rumours sweep the capital: someone had the questions in advance",
+   "In the Embroidered Uniform Guard prison the provincial laureate is chained and interrogated",
+   "Released and demoted to a petty clerk in Zhejiang, he turns and walks back to Suzhou"
+  ],
+  "title": "The Examination Scandal: Tang Yin"
+ },
  "ming.tumubao": {
   "end": "Esen fails after five days and withdraws; the captive emperor returns, regains the throne eight years later, and has Yu Qian executed.",
   "shots": [
@@ -824,6 +879,17 @@
   ],
   "title": "Defeating the Prince of Ning: Wang Shouren"
  },
+ "ming.yangjisheng": {
+  "end": "Yang Jisheng dies at forty mourned by the realm; seven years later Yan Song falls, his son is beheaded and he starves, and Yang's couplet \"iron shoulders bear the Way\" endures.",
+  "shots": [
+   "After three days of fasting a War Ministry official writes by lamplight: Yan Song has ten great crimes",
+   "The memorial reaches the West Park and the chief grand secretary murmurs in the emperor's ear",
+   "After a hundred strokes of the staff, the prisoner cuts the rotting flesh from his leg with a shard of bowl",
+   "His wife kneels outside the palace gate holding a petition to die in her husband's place",
+   "At the western execution ground he recites his last poem: noble spirit returns to the void, a loyal heart shines for ages"
+  ],
+  "title": "Iron Shoulders Bear the Way: Yang Jisheng"
+ },
  "ming.zhangjuzheng": {
   "end": "The treasury fills for ten years; within two years of his death his family is stripped of everything and his reforms undone until he is rehabilitated in the 1620s.",
   "shots": [
@@ -845,6 +911,17 @@
    "Envoys from Bengal present a 'qilin'"
   ],
   "title": "Seven Voyages: Zheng He"
+ },
+ "ming.zhuyuanzhang": {
+  "end": "Guo Zixing, struck by his looks, unties him himself and makes him a bodyguard, later marrying him to his adopted daughter Lady Ma; sixteen years later he proclaims the Ming at Yingtian.",
+  "shots": [
+   "Drought grips Huaibei, the fields nothing but cracked earth, and a youth kneels before three fresh graves",
+   "He shaves his head and sweeps floors, burns incense and strikes the bell at the Huangjue Temple",
+   "The temple runs out of grain; alms bowl in hand he walks alone along the roads of western Huai",
+   "A letter reaches the temple: his fellow villager Tang He urges him to join the army at Haozhou",
+   "At the Haozhou gate the guards tie up the monk and prepare to behead him as a spy"
+  ],
+  "title": "Monk of the Huangjue Temple: Zhu Yuanzhang Joins the Army"
  },
  "nanbeichao.changchou": {
   "end": "Wei thinks the Song well supplied and fears an ambush; Tan Daoji returns intact, but is later executed: you destroy your own Great Wall!",
