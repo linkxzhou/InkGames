@@ -11,8 +11,7 @@ window.CHAPTER_VIDEOS = {
    "poster": "assets/chapter-videos/shanggu-poster.jpg",
    "posterWebp": "assets/chapter-videos/shanggu-poster.webp",
    "durationSec": 49.46,
-   "shots": 8,
-   "webm": "assets/chapter-videos/shanggu.webm"
+   "shots": 8
   }
  }
 };

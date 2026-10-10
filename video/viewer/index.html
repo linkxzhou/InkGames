@@ -506,7 +506,7 @@ function renderChapterVideo(meta){
   if (v.dataset.ch === meta.id) return;
   v.pause(); v.dataset.ch = meta.id; v.textContent = "";
   v.poster = e.posterWebp || e.poster;
-  [[e.mp4, "video/mp4"], [e.webm, "video/webm"]].filter(x => x[0]).forEach(([src, type]) => { const s = document.createElement("source"); s.src = src; s.type = type; v.appendChild(s); });
+  { const s = document.createElement("source"); s.src = e.mp4; s.type = "video/mp4"; v.appendChild(s); }
   v.setAttribute("aria-label", meta.name + " 开场短片");
   v.load();
   $("#chVidCap").innerHTML = "<b>" + esc(meta.name) + "</b> 开场短片 · " + Math.round(e.durationSec) + " 秒 · " + e.shots + " 镜 · 无声";
