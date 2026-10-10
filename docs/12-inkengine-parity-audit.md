@@ -66,6 +66,6 @@ flow、distort、metallic 各有一张对照页（`/compare/?scene=flow|distort|
 
 ![modes 场景：左边 Pixi，右边 three.js](./images/parity-modes-swiftshader.png)
 
-`scripts/gpu-check.mjs --shots` 不再打开已删除的 `/compare/`。它截切片、叙事、历史动画，以及 `/props/<id>/?pose=still` 和 `/gallery/`。SwiftShader，真实 GPU 未实测。
+`scripts/gpu-check.mjs --shots` 不再打开已删除的 `/compare/`。它截切片、叙事、历史动画，以及 `/props/<id>/?pose=still`、`/gallery/` 和 `/fx/`（含 `drop`、`seal` 静帧）。SwiftShader，真实 GPU 未实测。
 
 剑、刀、矛、盾、旗、马、水这七件在道具页上导出与 `InkSurface` 相同的笔画，再用 `scripts/inkengine-host.html` 重放。左边是道具页舞台（含纸、地面、木桩），右边是同一组笔画在 inkEngine 纸上的结果。没有再算一个平均差：两边画布尺寸不同，不适合写成一个数。SwiftShader，不是逐像素重合。并排在 [docs/images/props](./images/props/)，例如 [剑](./images/props/prop-sword-ink.png)、[水](./images/props/prop-water-ink.png)。Safari、Firefox、独立显卡未实测。

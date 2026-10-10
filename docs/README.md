@@ -8,9 +8,10 @@
 | 叙事宿主 | `/story/` | `StoryStage`、`SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`InkText`、`AudioBus`、`SaveStore` |
 | 历史动画 | `/history/` | `InkScene`、`validatePresentation` / `poseAt`、`advanceFrameClock` |
 | 参照画廊 | `/gallery/` | `InkSurface`、`compileVectorInk`，旁边显示参照 PNG |
+| 水墨动态 | `/fx/` | `InkFxStage`、`createInkFx`，二十四笔程序动画 |
 | 历史道具 | `/props/<id>/` | `PropDemo`、`HISTORY_PROPS`、`paintHistoryProp` |
 
-首页 `/` 列出这些入口和二十张道具卡。
+首页 `/` 列出这些入口和二十张道具卡。水墨动态的参数和接入见 [第 13 章](./13-ink-motion-fx.md)。
 
 **仍未完成**：完整玩法模拟、`PostStack` 类、景深、2.0 录制回放、`InkScene` 的上下文恢复、真实配音、真实 GPU 验收。`defineGameplay` 只返回动词和说明。设计在 [引擎计划](../plan/10-three-matter-side-scroller-plan.md)；历史游戏叙事与缺口在 [plan/11](../plan/11-history-game-story-design.md)、[plan/12](../plan/12-history-game-engine-gaps.md)；历史动画的实施与状态在 [plan/12 动画计划](../plan/12-history-game-ink-animation-production-plan.md)。
 
@@ -28,6 +29,7 @@
 | [08 玩法与存档](./08-gameplay-and-persistence.md) | 叙事流程、存档、录制缺口 | `SceneDirector`、`SaveStore`、`CutscenePlayer` |
 | [09 验证](./09-tooling-and-quality.md) | `build.sh`、单测、SwiftShader 冒烟、确定性回归 | 现行脚本与测试清单 |
 | [10 交付](./10-shipping-and-ecosystem.md) | 依赖与许可 | `three@0.186.1`、`matter-js@0.20.0`、Perlin |
+| [13 水墨动态](./13-ink-motion-fx.md) | 二十四笔密度场特效、参数与接入 | `createInkFx`、`InkFxStage` |
 
 公共类型和函数只从 [`src/index.ts`](../src/index.ts) 导出。应用代码用别名 `@inkgames/engine`，不要去 import `src/core/` 或 `src/plugins/` 的内部文件。
 

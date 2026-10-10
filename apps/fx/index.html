@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1e2827" />
+  <title>水墨动态 · InkGames</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .fx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; max-width: 1280px; margin: 0 auto; }
+    .fx-card { position: relative; background: #efe8da; color: #1c1a18; border: 0; padding: 0; text-align: left; cursor: pointer; display: grid; }
+    .fx-card canvas, .fx-stage canvas { display: block; width: 100%; height: auto; background: #efe8da; }
+    .fx-card canvas.preview[hidden] { display: none; }
+    .fx-card h2 { font: 600 18px 'Songti SC', 'Noto Serif SC', serif; margin: 10px 12px 0; letter-spacing: 0.12em; }
+    .fx-card p { margin: 4px 12px 12px; font-size: 13px; line-height: 1.5; color: #4a4743; }
+    .fx-stage { position: fixed; inset: 0; background: rgba(20, 18, 16, 0.72); display: none; z-index: 20; align-items: center; justify-content: center; }
+    .fx-stage.open { display: flex; }
+    .fx-panel { width: min(1100px, 96vw); background: #efe8da; padding: 16px; display: grid; gap: 10px; }
+    .fx-panel header { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+    .fx-panel h2 { margin: 0; font: 600 28px 'Songti SC', serif; letter-spacing: 0.14em; }
+    .fx-controls { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; font-size: 13px; }
+    .fx-controls label { display: grid; gap: 4px; }
+    .fx-controls button { font: inherit; padding: 6px 12px; border: 1px solid #1c1a18; background: transparent; cursor: pointer; }
+    #fx-status { font-size: 13px; color: #4a4743; }
+  </style>
+</head>
+<body class="demo">
+  <header class="demo-header">
+    <a href="../" class="brand"><span class="brand-seal">墨</span><span>INKGAMES <small>水墨动态</small></span></a>
+    <a href="../" class="back">← 返回首页</a>
+  </header>
+  <main class="demo-layout">
+    <div class="demo-heading">
+      <div>
+        <span class="demo-index">特效</span>
+        <h1>二十四笔水墨动态</h1>
+      </div>
+      <p>悬停卡片循环播放，点击进入全屏。速度、浓度和颜色可以改。全部由引擎当场画出，没有素材视频。真实 GPU 未实测。</p>
+    </div>
+    <div id="grid" class="fx-grid"></div>
+  </main>
+  <div id="stage" class="fx-stage" hidden>
+    <div class="fx-panel">
+      <header>
+        <h2 id="fx-title">水墨</h2>
+        <button id="fx-close" type="button">关闭</button>
+      </header>
+      <canvas id="view" width="960" height="540"></canvas>
+      <div class="fx-controls">
+        <button id="fx-replay" type="button">重播</button>
+        <label>速度 <input id="fx-speed" type="range" min="0.4" max="2" step="0.1" value="1" /></label>
+        <label>浓度 <input id="fx-density" type="range" min="0.25" max="1" step="0.05" value="1" /></label>
+        <label>颜色
+          <select id="fx-pigment">
+            <option value="-1">效果本色</option>
+            <option value="0">焦墨</option>
+            <option value="0.25">朱砂</option>
+            <option value="0.5">花青</option>
+            <option value="0.75">赭石</option>
+            <option value="1">泥金</option>
+          </select>
+        </label>
+      </div>
+      <p id="fx-status" role="status"></p>
+    </div>
+  </div>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

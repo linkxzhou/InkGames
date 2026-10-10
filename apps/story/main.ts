@@ -1,4 +1,4 @@
-import { parseScenePackage, StoryStage } from '@inkgames/engine';
+import { InkFxStage, parseScenePackage, StoryStage } from '@inkgames/engine';
 import example from '../../plan/11-history-game-data/scene-zhanguo-jingke.example.json';
 
 interface StoryWindow extends Window {
@@ -106,12 +106,28 @@ if (pose === 'fork' || pose === 'canon') {
 paint(stage.director.view());
 host.__storyReady = true;
 
+const fxCanvas = document.querySelector<HTMLCanvasElement>('#fx');
+let fxStage: InkFxStage | undefined;
+let seenPhase = stage.director.view().phase;
+if (fxCanvas && !pose) {
+  fxStage = new InkFxStage(fxCanvas, { width: 960, height: 540, transparent: true });
+  fxStage.play('title', { fadeOut: true, speed: 1 });
+  seenPhase = stage.director.view().phase;
+}
+
 if (!pose) {
   let last = performance.now();
   const loop = (now: number): void => {
     const gap = now - last;
     last = now;
-    if (stage.director.view().phase === 'cutscene' && !stage.contextLost) {
+    const dt = Math.min(0.05, Math.max(0, gap / 1000));
+    fxStage?.update(dt);
+    const phaseNow = stage.director.view().phase;
+    if (fxStage && seenPhase === 'cutscene' && phaseNow === 'choice') {
+      fxStage.play('wipe', { speed: 1 });
+    }
+    seenPhase = phaseNow;
+    if (phaseNow === 'cutscene' && !stage.contextLost) {
       const steps = gap > 32 ? 2 : 1;
       let view = stage.director.view();
       for (let i = 0; i < steps; i++) view = stage.step();

@@ -1,4 +1,5 @@
-import { InkView } from '@inkgames/engine';
+import { InkFxStage, InkView, type InkFx } from '@inkgames/engine';
+import { Vector3 } from 'three';
 
 interface SliceWindow extends Window {
   __sliceReady?: boolean;
@@ -69,6 +70,7 @@ window.addEventListener('keydown', event => {
   if (event.code === 'Space') {
     event.preventDefault();
     view.playfield.attack();
+    swing();
   }
   if (event.code === 'KeyW' || event.code === 'ArrowUp') {
     if (held.has('ArrowDown') || held.has('KeyS')) view.playfield.dropThrough();
@@ -118,6 +120,38 @@ host.__sliceRestore = () => view.simulateContextRestore();
 host.__sliceReady = true;
 paintStatus();
 
+const fxCanvas = document.querySelector<HTMLCanvasElement>('#fx');
+const fxPoint = new Vector3();
+let fxStage: InkFxStage | undefined;
+let fx: InkFx | undefined;
+let fxMode = '';
+let hitX = 0.62;
+let hitY = 0.48;
+
+function actorUv(): { x: number; y: number } {
+  const poseNow = view.playfield.sample(view.playfield.actor.id, view.playfield.alpha);
+  if (!poseNow) return { x: hitX, y: hitY };
+  fxPoint.set(poseNow.x, poseNow.y - 36, 0);
+  fxPoint.project(view.cameraRig.active);
+  return {
+    x: Math.min(0.86, Math.max(0.14, fxPoint.x * 0.5 + 0.5)),
+    y: Math.min(0.86, Math.max(0.14, 1 - (fxPoint.y * 0.5 + 0.5))),
+  };
+}
+
+function swing(): void {
+  if (!fxStage) return;
+  const at = actorUv();
+  hitX = at.x;
+  hitY = at.y;
+  fx = fxStage.play('slash', { originX: hitX, originY: hitY, speed: 1 });
+  fxMode = 'slash';
+}
+
+if (fxCanvas && !pose) {
+  fxStage = new InkFxStage(fxCanvas, { width: 960, height: 540, transparent: true });
+}
+
 if (!pose) {
   let last = performance.now();
   const loop = (now: number): void => {
@@ -127,6 +161,11 @@ if (!pose) {
     last = now;
     steer();
     view.frame(dt);
+    if (fxStage && fxMode === 'slash' && fx && fx.progress > 0.62) {
+      fx = fxStage.play('splash', { keep: true, originX: hitX, originY: hitY, speed: 1.15 });
+      fxMode = 'splash';
+    }
+    fxStage?.update(dt);
     host.__sliceGl = view.glError;
     paintStatus();
     requestAnimationFrame(loop);

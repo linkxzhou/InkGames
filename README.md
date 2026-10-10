@@ -12,6 +12,7 @@
 | 叙事宿主 | `/story/` | 只读播放「易水寒」开场，可走正史 / 野史，支持检查点恢复。M5 部分完成 |
 | 历史动画 | `/history/` | 上古「混沌开卷」五幕，30 fps，画面全部由引擎笔刷生成，不加载参考图 |
 | 参照画廊 | `/gallery/` | 五张程序水墨，旁边是参照图。不是描图，也不是逐像素重合 |
+| 水墨动态 | `/fx/` | 二十四笔程序水墨。悬停循环，点击全屏。不使用素材视频 |
 | 历史道具 | `/props/<id>/` | 二十件道具各自一页，Matter.js 做砍、落、燃、流 |
 
 水墨层：切片用 `InkView` + `InkSurface`（three.js 渲染目标上跑从 [inkEngine](./thirdparty/inkEngine/README.md) 逐行移植的七种笔刷与着色器）；叙事用 `StoryStage` 的多层墨面；历史动画用 `InkScene` 的程序分件墨层。
@@ -22,7 +23,7 @@
 
 ```bash
 ./build.sh install
-./build.sh dev       # http://127.0.0.1:5173/  首页；/scroll/、/story/、/history/、/gallery/、/props/
+./build.sh dev       # http://127.0.0.1:5173/  首页；/scroll/、/story/、/history/、/gallery/、/fx/、/props/
 ./build.sh check     # 类型检查 + 单元测试 + 相对链接
 ./build.sh browser   # 构建后的无头 Chromium 冒烟（SwiftShader，三页 + 零图片请求）
 node scripts/gpu-check.mjs   # 本机打开切片、叙事、历史、画廊与道具。加 --shots 做无头截图
@@ -32,7 +33,7 @@ node scripts/gpu-check.mjs   # 本机打开切片、叙事、历史、画廊与�
 
 ## 阅读顺序
 
-- [文档](./docs/README.md)：01–10 写现行 API；[第 12 章](./docs/12-inkengine-parity-audit.md) 是与 inkEngine 的对照（总表为 Pixi 时代的历史记录）
+- [文档](./docs/README.md)：01–10 写现行 API；[第 12 章](./docs/12-inkengine-parity-audit.md) 是与 inkEngine 的对照（总表为 Pixi 时代的历史记录）；[第 13 章](./docs/13-ink-motion-fx.md) 是二十四笔水墨动态
 - [引擎计划](./plan/10-three-matter-side-scroller-plan.md)：M0–M4 已完成，M5 部分完成，§7 记录 Pixi/p5 清理结果
 - [历史游戏草案](./plan/README.md)：`plan/11` 故事与数据，`plan/12` 开场动画与引擎缺口
 - [历史动画制作计划](./plan/12-history-game-ink-animation-production-plan.md)：纯程序水墨的实施与 E0–E4 状态
