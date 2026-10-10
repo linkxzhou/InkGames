@@ -13,6 +13,18 @@ window.CHAPTER_VIDEOS = {
    "durationSec": 65.12,
    "shots": 8,
    "audio": true
+  },
+  "xia": {
+   "title": {
+    "zh": "夏",
+    "en": "Xia"
+   },
+   "mp4": "assets/chapter-videos/xia.mp4",
+   "poster": "assets/chapter-videos/xia-poster.jpg",
+   "posterWebp": "assets/chapter-videos/xia-poster.webp",
+   "durationSec": 57.83,
+   "shots": 7,
+   "audio": true
   }
  }
 };
