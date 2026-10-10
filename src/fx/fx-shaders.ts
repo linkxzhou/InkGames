@@ -212,12 +212,15 @@ float ridge(float x, float layer) {
 }
 float figure(vec2 fx) {
   vec2 p = fx - vec2(uOriginX, uOriginY + 0.02);
-  float head = length((p - vec2(0.0, -0.2)) / vec2(0.045, 0.055));
-  float torso = length((p - vec2(0.0, -0.02)) / vec2(0.055, 0.12));
-  vec2 c = p - vec2(0.0, 0.08);
-  float cloak = max(abs(c.x) * 1.6 + c.y * 0.15, abs(c.y));
-  cloak = cloak / 0.2;
-  return 1.0 - smoothstep(0.92, 1.08, min(head, min(torso, cloak)));
+  float n = fbm(fx * 11.0 + uSeed);
+  float head = length((p - vec2(0.01 * n, -0.2)) / vec2(0.04, 0.05));
+  float torso = length((p - vec2(0.0, -0.02)) / vec2(0.05, 0.11));
+  vec2 c = p - vec2((n - 0.5) * 0.02, 0.08);
+  float cloak = max(abs(c.x) * 1.7 + c.y * 0.2, abs(c.y) * 0.85);
+  cloak = cloak / 0.18;
+  float shape = 1.0 - smoothstep(0.82, 1.15, min(head, min(torso, cloak)) + (n - 0.5) * 0.35);
+  float grain = smoothstep(0.22, 0.62, fbm(fx * vec2(26.0, 48.0)));
+  return shape * mix(0.35, 1.0, grain);
 }
 float easeOut(float t) {
   float u = 1.0 - clamp(t, 0.0, 1.0);
@@ -249,32 +252,35 @@ void main() {
   float extra = 0.0;
   vec3 extraCol = vec3(0.08, 0.07, 0.06);
   if (uOverlay == 1) {
-    float fogN = fbm(vec2(fx.x * 2.2 + uTime * 0.04, fx.y * 1.4));
+    float fogN = fbm(vec2(fx.x * 1.6 + uTime * 0.03, fx.y * 0.8));
     for (int layer = 0; layer < 4; layer++) {
       float L = float(layer);
       float peak = ridge(fx.x, L);
-      float below = smoothstep(peak, peak + 0.01, fx.y);
-      float fade = exp(-(fx.y - peak) * (4.2 - L * 0.45));
-      float appear = smoothstep(0.04 + (3.0 - L) * 0.1, 0.42 + (3.0 - L) * 0.08, uProgress);
-      float cun = smoothstep(0.48, 0.72, fbm(vec2(fx.x * 22.0 + L, fx.y * 70.0)));
-      float ink = below * fade * appear * mix(0.55, 1.0, cun);
-      float band = 1.0 - smoothstep(0.18, 0.55, fogN + (1.0 - uProgress) * 0.55 + fx.y * 0.15);
+      float below = smoothstep(peak - 0.004, peak + 0.03, fx.y);
+      float fade = exp(-(fx.y - peak) * (5.4 - L * 0.35));
+      float appear = smoothstep(0.08 + (3.0 - L) * 0.12, 0.55 + (3.0 - L) * 0.06, uProgress);
+      float cun = fbm(vec2(fx.x * (18.0 + L * 6.0), fx.y * 80.0 + L));
+      float hemp = smoothstep(0.46, 0.74, cun);
+      float crest = smoothstep(0.012, 0.0, abs(fx.y - peak)) * smoothstep(0.35, 0.7, fbm(vec2(fx.x * 40.0, L)));
+      float ink = below * fade * appear * mix(0.02, 0.85, hemp);
+      ink = max(ink, crest * appear * 0.9);
+      float band = smoothstep(0.72, 0.28, fogN + (1.0 - uProgress) * 0.85 + max(fx.y - peak, 0.0) * 1.4);
       ink *= band;
-      vec3 mcol = mix(vec3(0.184, 0.290, 0.369), vec3(0.07, 0.06, 0.05), clamp(1.0 - L / 3.0, 0.0, 1.0));
-      mcol = mix(mcol, vec3(0.45, 0.43, 0.4), 0.35);
-      col = mix(col, mcol, clamp(ink, 0.0, 0.9));
-      extra = max(extra, ink);
+      vec3 mcol = mix(vec3(0.28, 0.36, 0.42), vec3(0.08, 0.07, 0.06), clamp(1.0 - L / 3.0, 0.0, 1.0));
+      col = mix(col, mcol, clamp(ink, 0.0, 0.82));
+      extra = max(extra, ink * 0.85);
     }
-    float mist = smoothstep(0.2, 0.7, fogN) * (1.0 - uProgress * 0.45) * 0.35;
-    col = mix(col, paper, mist);
+    float mist = smoothstep(0.25, 0.8, fogN) * (0.55 - uProgress * 0.25);
+    col = mix(col, paper, clamp(mist, 0.0, 0.65));
   } else if (uOverlay == 2) {
     for (int i = 0; i < 6; i++) {
       float fi = float(i);
       float base = 0.58 + fi * 0.055;
       float wave = sin(fx.x * (7.0 + fi) + uTime * (0.6 + fi * 0.15) + fi) * (0.012 + fi * 0.002);
       wave += (fbm(vec2(fx.x * 4.0 + uTime * 0.1, fi)) - 0.5) * 0.02;
-      float line = smoothstep(0.004 + fi * 0.0004, 0.0, abs(fx.y - base - wave));
-      float brk = step(0.42, fbm(vec2(fx.x * 18.0, fi * 3.0)));
+      float width = (0.003 + fi * 0.0012) * (0.45 + fbm(vec2(fx.x * 9.0, fi)) * 0.9);
+      float line = smoothstep(width, 0.0, abs(fx.y - base - wave));
+      float brk = smoothstep(0.28, 0.62, fbm(vec2(fx.x * 14.0, fi * 3.0)));
       float crest = 0.0;
       if (i == 2) {
         float curlx = fract(uTime * 0.18);
@@ -289,22 +295,23 @@ void main() {
   } else if (uOverlay == 3) {
     float press = smoothstep(0.0, 0.22, uProgress);
     float slam = 1.0;
-    if (uProgress > 0.22 && uProgress < 0.34) slam = 0.97;
+    if (uProgress > 0.22 && uProgress < 0.34) slam = 0.96;
     else if (uProgress >= 0.34) slam = 1.0;
-    float approach = mix(1.42, 1.0, smoothstep(0.0, 0.24, uProgress)) * slam;
+    float approach = mix(1.38, 1.0, smoothstep(0.0, 0.24, uProgress)) * slam;
     vec2 p = (fx - vec2(uOriginX, uOriginY)) * approach;
-    float box = max(abs(p.x), abs(p.y));
-    float border = smoothstep(0.2, 0.185, box) * smoothstep(0.145, 0.16, box);
-    float gap = step(0.72, fbm(vec2(atan(p.y, p.x) * 2.0, 4.0)));
-    border *= mix(0.15, 1.0, 1.0 - gap);
-    float v = smoothstep(0.012, 0.004, abs(p.x)) * step(abs(p.y), 0.1);
-    float h = smoothstep(0.01, 0.003, abs(p.y + 0.02)) * step(abs(p.x), 0.09);
-    float dotL = smoothstep(0.02, 0.008, length(p - vec2(-0.07, 0.05)));
-    float dotR = smoothstep(0.016, 0.006, length(p - vec2(0.06, -0.05)));
-    float grain = smoothstep(0.28, 0.62, fbm(p * 22.0 + uSeed));
-    float chip = step(0.86, fbm(p * 6.0));
-    float ink = (border + v + h + dotL + dotR) * grain * (1.0 - chip) * press;
-    float bleed = smoothstep(0.22, 0.16, box) * smoothstep(0.12, 0.15, box) * smoothstep(0.4, 0.8, uProgress) * 0.35;
+    p += (vec2(fbm(p * 8.0 + 2.0), fbm(p * 8.0 + 6.0)) - 0.5) * 0.012;
+    float box = max(abs(p.x) * (1.0 + fbm(vec2(p.y * 18.0, 3.0)) * 0.08), abs(p.y));
+    float border = smoothstep(0.205, 0.175, box) * smoothstep(0.13, 0.155, box);
+    float gap = smoothstep(0.55, 0.82, fbm(vec2(atan(p.y, p.x) * 1.4, 5.0)));
+    border *= mix(0.2, 1.0, 1.0 - gap);
+    float s1 = stroke(p, vec2(-0.09, 0.07), vec2(0.01, -0.01), 0.02);
+    float s2 = stroke(p, vec2(-0.02, -0.09), vec2(0.08, 0.02), 0.016);
+    float s3 = stroke(p, vec2(0.07, 0.08), vec2(-0.05, 0.0), 0.013);
+    float s4 = stroke(p, vec2(-0.06, 0.0), vec2(0.02, 0.06), 0.01);
+    float grain = smoothstep(0.18, 0.58, fbm(p * 36.0 + uSeed));
+    float chip = smoothstep(0.72, 0.9, fbm(p * 7.0));
+    float ink = (border + s1 + s2 + s3 + s4) * grain * (1.0 - chip * 0.85) * press;
+    float bleed = smoothstep(0.23, 0.15, box) * smoothstep(0.1, 0.14, box) * smoothstep(0.35, 0.8, uProgress) * 0.4;
     extra = ink + bleed;
     extraCol = mix(vec3(0.824, 0.282, 0.227), vec3(0.718, 0.196, 0.173), smoothstep(0.3, 0.7, uProgress));
     col = mix(col, extraCol, clamp(extra, 0.0, 1.0));
@@ -342,20 +349,27 @@ void main() {
     extraCol = uOverlay == 6 ? vec3(0.07, 0.06, 0.05) : vec3(0.25, 0.32, 0.38);
     col = mix(col, extraCol, clamp(extra, 0.0, 1.0));
   } else if (uOverlay == 7) {
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 7; i++) {
       float fi = float(i);
-      float spd = 0.08 + hash(vec2(fi, 2.0)) * 0.06;
-      float x = fract(uSeed * 0.1 + fi * 0.13 + uTime * spd);
-      float y = 0.18 + hash(vec2(fi, 4.0)) * 0.45 + sin(uTime * 0.7 + fi) * 0.02;
+      float spd = 0.05 + hash(vec2(fi, 2.0)) * 0.07;
+      float x = fract(uSeed * 0.17 + fi * 0.15 + uTime * spd);
+      float y = 0.16 + hash(vec2(fi, 4.0)) * 0.5 + sin(uTime * 0.6 + fi * 1.3) * 0.015;
       float depth = hash(vec2(fi, 8.0));
-      float sz = mix(0.045, 0.09, depth);
+      float sz = mix(0.05, 0.11, depth);
       vec2 q = (fx - vec2(x, y)) / sz;
-      float flap = sin(uTime * 7.0 + fi * 1.7) * 0.35;
-      float wing = stroke(q, vec2(-0.55, flap), vec2(0.0, 0.0), 0.08);
-      wing = max(wing, stroke(q, vec2(0.6, flap * 0.7), vec2(0.0, 0.0), 0.07));
-      float body = exp(-dot(q, q) / 0.02);
-      float bird = max(wing, body) * mix(0.35, 1.0, depth);
-      col = mix(col, vec3(0.06, 0.05, 0.045), clamp(bird, 0.0, 1.0));
+      float tilt = (hash(vec2(fi, 9.0)) - 0.5) * 0.8;
+      float flap = sin(uTime * (5.0 + depth * 4.0) + fi * 1.7);
+      vec2 wingL = vec2(-0.55, tilt + flap * 0.28);
+      vec2 wingR = vec2(0.42, -tilt * 0.4 + flap * 0.18);
+      float dry = smoothstep(0.35, 0.75, fbm(q * 6.0 + fi));
+      float wing = stroke(q, wingL, vec2(-0.05, 0.02), 0.11) * mix(0.25, 1.0, dry);
+      if (hash(vec2(fi, 1.0)) > 0.25) {
+        wing = max(wing, stroke(q, wingR, vec2(0.05, -0.02), 0.08) * mix(0.2, 0.9, dry));
+      }
+      float body = exp(-dot(q - vec2(0.0, 0.02), q - vec2(0.0, 0.02)) / 0.03);
+      body *= mix(0.55, 1.0, fbm(q * 9.0));
+      float bird = max(wing, body * 0.85) * mix(0.28, 1.0, depth);
+      col = mix(col, vec3(0.07, 0.06, 0.05), clamp(bird, 0.0, 0.92));
       extra = max(extra, bird);
     }
   } else if (uOverlay == 8) {

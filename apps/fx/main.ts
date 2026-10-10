@@ -5,6 +5,7 @@ interface FxWindow extends Window {
   __fxDone?: boolean;
   __fxGl?: number;
   __fxId?: string;
+  __fxShot?: (id: string, at: number) => number;
 }
 
 function must<T extends Element>(node: T | null, name: string): T {
@@ -131,6 +132,31 @@ for (const id of ['#fx-speed', '#fx-density', '#fx-pigment']) {
     if (playing) show(active);
   });
 }
+
+let shotId = '';
+let shotTime = 0;
+host.__fxShot = (id: string, at: number): number => {
+  const info = catalog.find(item => item.id === id);
+  const duration = info?.duration ?? 1;
+  const time = Math.min(duration, Math.max(0, at <= 1 ? at * duration : at));
+  if (hovered) rememberCard(hovered);
+  hovered = undefined;
+  mountOnPanel();
+  stageEl.hidden = false;
+  stageEl.classList.add('open');
+  if (shotId !== id || time + 1 / 120 < shotTime) {
+    stage.play(id, readParams());
+    shotId = id;
+    shotTime = 0;
+  }
+  const steps = Math.max(0, Math.round((time - shotTime) * 60));
+  for (let i = 0; i < steps; i++) stage.update(1 / 60);
+  shotTime = time;
+  playing = false;
+  host.__fxId = id;
+  host.__fxGl = stage.error;
+  return stage.error;
+};
 
 if (queryId) {
   stageEl.hidden = false;

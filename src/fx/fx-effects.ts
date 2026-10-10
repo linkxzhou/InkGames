@@ -472,34 +472,31 @@ function stepBolt(ctx: FxStep): void {
 }
 
 function stepSlash(ctx: FxStep): void {
-  ctx.diffuse = 0.04;
-  ctx.evaporate = 0.9;
-  const u = easeInOutSine(clamp01(ctx.t / 0.55));
-  if (u <= 0 || ctx.t > 0.7) {
-    if (ctx.t > 0.62) ctx.fade = 0.04;
+  ctx.diffuse = 0.03;
+  ctx.evaporate = 1.1;
+  const u = easeInOutSine(clamp01(ctx.t / 0.72));
+  if (ctx.t > 0.8) {
+    ctx.fade = 0.045;
     return;
   }
-  const ang = -0.9 + u * 2.0;
-  const x = 0.5 + inkCos(ang) * 0.2;
-  const y = 0.48 + inkSin(ang) * 0.1;
-  splat(ctx, {
-    x, y,
-    radius: 0.028 * (1 - u * 0.45),
-    amount: 0.95,
-    water: 0.35 * (1 - u),
-    pigment: 0,
-    vx: inkCos(ang + 1.2),
-    vy: inkSin(ang + 1.2),
-  });
-  if (u > 0.45) {
+  const ang = -1.05 + u * 2.2;
+  const x = 0.5 + inkCos(ang) * 0.22;
+  const y = 0.5 + inkSin(ang) * 0.11;
+  const tx = inkCos(ang + 1.5708);
+  const ty = inkSin(ang + 1.5708);
+  const belly = 1 - Math.abs(u - 0.42) * 1.7;
+  const width = 0.007 + (belly > 0 ? belly * 0.018 : 0);
+  for (let i = 0; i < 3; i++) {
+    const along = (i - 1) * 0.018;
     splat(ctx, {
-      x: x + inkCos(ang) * 0.03,
-      y: y + 0.02,
-      radius: 0.008,
-      amount: 0.5,
-      water: 0.1,
+      x: x + tx * along,
+      y: y + ty * along,
+      radius: width * (i === 1 ? 1 : 0.45),
+      amount: i === 1 ? 0.95 : 0.4,
+      water: 0.05 + (1 - u) * 0.2,
       pigment: 0,
-      vx: 0.4, vy: 0.2,
+      vx: tx,
+      vy: ty,
     });
   }
 }
@@ -525,14 +522,15 @@ function stepCondense(ctx: FxStep): void {
   const pull = clamp01((ctx.t - 0.05) / 0.7);
   if (ctx.particles.length < 16) {
     for (let i = ctx.particles.length; i < 16; i++) {
-      const ang = (i / 16) * TWO_PI;
+      const ang = (i / 16) * TWO_PI + (i % 3) * 0.35;
+      const rad = 0.1 + (i % 5) * 0.038;
       ctx.particles.push({
-        x: 0.5 + inkCos(ang) * (0.28 + (i % 3) * 0.04),
-        y: 0.52 + inkSin(ang) * 0.22,
+        x: 0.5 + inkCos(ang) * rad + ((i * 5) % 7) * 0.008 - 0.02,
+        y: 0.52 + inkSin(ang) * rad * 0.8 + ((i * 3) % 5) * 0.01,
         vx: 0, vy: 0,
-        radius: 0.012,
-        amount: 0.4,
-        water: 0.55,
+        radius: 0.007 + (i % 4) * 0.007,
+        amount: 0.35 + (i % 3) * 0.15,
+        water: 0.4 + (i % 2) * 0.3,
         pigment: 0,
         life: 2,
       });

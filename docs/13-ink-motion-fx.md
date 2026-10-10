@@ -112,4 +112,35 @@ CPU 侧的时间和粒子只用四则、`Math.sqrt` 和 `inkSin` / `inkCos`。�
 | `map` | 墨染舆图 | 4 | 否 | 先走河道，再皴一道山，最后点三座朱砂城并晕开一块势力 | 大地图、势力 |
 | `shock` | 墨晕冲击波 | 0.7 | 否 | 中心一顿，破碎墨环向外，环上留残点 | 范围技能、落地 |
 
-接触表放在 `docs/images/fx/`，挑选的录屏放在 `docs/videos/fx/`。每一笔的完整 webm 留在当次运行的产物目录，不全部进仓库。真实 GPU 未实测。
+## 这次无头画面里实际看到的
+
+下面是 SwiftShader 接触表上的判断，不是真实 GPU 验收，也没有测过 60fps。每笔的六帧接触表在 [docs/images/fx](./images/fx/drop.jpg)，完整 webm 在当次产物目录；仓库里留了六段代表录屏。
+
+| 效果 | 接触表 | 观感 |
+|---|---|---|
+| 墨滴晕开 | [drop](./images/fx/drop.jpg) | 中下留白，触须和一圈水痕都在。触须偏软，不是高速摄影那种细丝 |
+| 泼墨爆溅 | [splash](./images/fx/splash.jpg) | 偏向一侧，大团加小点，夹一点朱砂。同时能盖上的点只有十几个 |
+| 晕染转场 | [wipe](./images/fx/wipe.jpg) | 四角漫开再从中心退，边上有毛刺。盖住又揭开的是同一张纸，不是两场戏切换 |
+| 笔锋显字 | [title](./images/fx/title.jpg) | 三笔写成「水」，收笔有飞白，旁边一点朱砂。不是整幅书法 |
+| 云雾出山 | [mist](./images/fx/mist.jpg) | 山脊带皴，山脚被雾吃掉。仍是噪声山，不是手皴的长卷 |
+| 墨烟云涌 | [smoke](./images/fx/smoke.jpg) | 往上卷的丝缕，浓淡不匀。循环时更像一直在冒，而不是生了又散 |
+| 墨散成尘 | [dissolve](./images/fx/dissolve.jpg) | 剪影从一侧碎成墨点被带走。身子是一团墨，不是肖像 |
+| 晕染显影 | [reveal](./images/fx/reveal.jpg) | 湿晕里慢慢露出松和远山，先灰后略有颜色 |
+| 墨浪江河 | [river](./images/fx/river.jpg) | 断续的花青水纹，一道浪头沿河走。是线，不是一整面江水 |
+| 飞白疾扫 | [streak](./images/fx/streak.jpg) | 一道干笔扫过，末端分毫。短，纸上留白很多 |
+| 墨雨烟雨 | [rain](./images/fx/rain.jpg) | 斜丝加落点的小晕。丝本身比较直 |
+| 朱砂印章 | [seal](./images/fx/seal.jpg) | 缺角的朱砂印，纸纹吃色，印心是几笔而不是一个字 |
+| 墨竹生长 | [bamboo](./images/fx/bamboo.jpg) | 自下而上的节、一枝、三片叶，左边空着 |
+| 墨梅绽放 | [plum](./images/fx/plum.jpg) | 先干枝，再逐瓣点朱。花很小 |
+| 墨焰 | [flame](./images/fx/flame.jpg) | 根部朱砂，上端焦墨，边是卷的。一团火，不是一片火海 |
+| 墨雷闪电 | [bolt](./images/fx/bolt.jpg) | 先闪一下纸，再一道干笔折线，落点一小摊墨 |
+| 刀光墨痕 | [slash](./images/fx/slash.jpg) | 月牙，中间厚、两头收，后缘干。本身很短，录屏后半是停住的那一笔 |
+| 卷轴展开 | [scroll](./images/fx/scroll.jpg) | 轴分开，纸面打开，中间滞后出现一小段山影 |
+| 墨晕涟漪 | [ripple](./images/fx/ripple.jpg) | 中心湿点，外面几圈断开的细环 |
+| 墨聚成形 | [condense](./images/fx/condense.jpg) | 大小不一的墨点收拢，最后勾一圈毛边。轮廓仍简单 |
+| 墨褪纸旧 | [age](./images/fx/age.jpg) | 整张纸走赭，长出水渍和断笔。不是一张画满的旧地图 |
+| 墨鸟群飞 | [flock](./images/fx/flock.jpg) | 远淡近浓的两笔鸟。看得到在飞，不是写实的鸟 |
+| 墨染舆图 | [map](./images/fx/map.jpg) | 河道、一道皴、三座朱砂城和一块晕开的势力。留白多 |
+| 墨晕冲击波 | [shock](./images/fx/shock.jpg) | 破碎的墨环向外，环上留残点 |
+
+代表录屏：[晕开](./videos/fx/drop.webm)、[出山](./videos/fx/mist.webm)、[显字](./videos/fx/title.webm)、[刀光](./videos/fx/slash.webm)、[印章](./videos/fx/seal.webm)、[墨焰](./videos/fx/flame.webm)。真实 GPU、Safari、Firefox 未实测。
