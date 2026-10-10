@@ -14,6 +14,18 @@ window.CHAPTER_VIDEOS = {
    "shots": 13,
    "audio": true
   },
+  "donghan": {
+   "title": {
+    "zh": "新 · 东汉",
+    "en": "Eastern Han"
+   },
+   "mp4": "assets/chapter-videos/donghan.mp4",
+   "poster": "assets/chapter-videos/donghan-poster.jpg",
+   "posterWebp": "assets/chapter-videos/donghan-poster.webp",
+   "durationSec": 87.0,
+   "shots": 11,
+   "audio": true
+  },
   "qin": {
    "title": {
     "zh": "秦",
