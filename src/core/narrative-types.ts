@@ -308,6 +308,38 @@ export interface FullSceneEntry {
   readonly strings: StringTable;
   readonly cast: readonly CastMember[];
   readonly relations: readonly Relation[];
+  /** Authoring-only ink-wash video generation prompt (video/docs/content-schema.md §2.11); ignored at runtime. */
+  readonly videoPrompt?: VideoPrompt;
+}
+
+export interface Bilingual { readonly zh: string; readonly en: string }
+
+export interface VideoPromptShot {
+  readonly n: number;
+  readonly startSec: number;
+  readonly durationSec: number;
+  readonly figures: readonly string[];
+  readonly vo: string;
+  readonly zh: string;
+  readonly en: string;
+}
+
+export interface VideoPrompt {
+  readonly version: 1;
+  readonly generator: string;
+  readonly aspectRatio: string;
+  readonly resolution: readonly [number, number];
+  readonly fps: number;
+  readonly durationSec: number;
+  readonly style: Bilingual;
+  readonly setting: Bilingual;
+  readonly characters: readonly ({ readonly id: string; readonly name: string; readonly nameEn: string; readonly onScreen: boolean } & Bilingual)[];
+  readonly shots: readonly VideoPromptShot[];
+  readonly sound: Bilingual;
+  readonly onScreenText: Bilingual;
+  readonly negative: Bilingual;
+  readonly narration: readonly string[];
+  readonly prompt: Bilingual;
 }
 
 export interface OutlineSceneEntry {

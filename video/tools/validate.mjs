@@ -105,6 +105,28 @@ function checkCast(where, cast, rels, characters) {
   }
 }
 
+let videoScenes = 0, videoShots = 0;
+function checkVideoPrompt(where, v, cast) {
+  if (!v || typeof v !== 'object') return err(where, '缺少 videoPrompt（水墨视频生成提示词）：运行 node video/tools/build-video-prompts.mjs');
+  videoScenes++;
+  if (!v.prompt?.zh || !v.prompt?.en) err(where, 'videoPrompt.prompt 需要 zh 与 en');
+  if (!v.negative?.zh || !v.negative?.en) err(where, 'videoPrompt.negative 需要 zh 与 en');
+  if (!/^\d+:\d+$/.test(v.aspectRatio || '')) err(where, 'videoPrompt.aspectRatio 无效');
+  const shots = v.shots || [];
+  if (shots.length < 5 || shots.length > 8) err(where, `videoPrompt 镜头数应为 5–8：${shots.length}`);
+  videoShots += shots.length;
+  let t = 0;
+  const ids = new Set((cast || []).map(c => c.id));
+  for (const s of shots) {
+    if (!s.zh || !s.en) err(where, `videoPrompt 镜头 ${s.n} 缺少 zh/en`);
+    if (s.startSec !== t || !(s.durationSec > 0)) err(where, `videoPrompt 镜头 ${s.n} 时间不连续`);
+    t += s.durationSec;
+    for (const f of s.figures || []) if (!ids.has(f)) err(where, `videoPrompt 镜头 ${s.n} 人物不在 cast：${f}`);
+  }
+  if (t !== v.durationSec) err(where, 'videoPrompt.durationSec 与镜头时长之和不一致');
+  for (const c of v.characters || []) if (!ids.has(c.id)) err(where, `videoPrompt 人物不在 cast：${c.id}`);
+}
+
 function checkArtPrompts(where, list, scene, cast) {
   if (!Array.isArray(list) || !list.length) return err(where, '缺少 artPrompts（水墨素材提示词）');
   const segIds = new Set(); const assetIds = new Set();
@@ -358,6 +380,7 @@ for (const b of bundles) {
     if (e.scene.when?.start < last - 200) err(w, '场景时间明显早于前一场景，检查排序');
     last = e.scene.when?.start ?? last;
     checkArtPrompts(w, e.artPrompts, e.scene, e.cast);
+    if (e.opening) checkVideoPrompt(w, e.videoPrompt, e.cast);
     if (Array.isArray(e.artPrompts)) {
       artSheets += e.artPrompts.length;
       artAssets += e.artPrompts.reduce((n, s) => n + (s.assets?.length || 0), 0);
@@ -390,7 +413,7 @@ for (const b of bundles) {
 }
 if (index.totals.v1 !== v1 || index.totals.outline !== outline || (index.totals.full !== undefined && index.totals.full !== full)) err('index', 'totals 与实际不一致');
 
-console.log(`章节 ${bundles.length}，场景 ${allScenes.size}（完整 ${full}，大纲级 ${outline}；首版发布批次 v1=${v1}），水墨素材 ${artSheets} 张图 / ${artAssets} 件，待核验日期/来源 ${pending.length} 处`);
+console.log(`章节 ${bundles.length}，场景 ${allScenes.size}（完整 ${full}，大纲级 ${outline}；首版发布批次 v1=${v1}），水墨素材 ${artSheets} 张图 / ${artAssets} 件，水墨视频提示词 ${videoScenes} 场 / ${videoShots} 镜，待核验日期/来源 ${pending.length} 处`);
 if (showPending) for (const p of pending) console.log('  待核验 ' + p);
 if (errors.length) { console.error(`错误 ${errors.length} 个：\n` + errors.map(e => '  ' + e).join('\n')); process.exit(1); }
 console.log('校验通过：0 个错误');

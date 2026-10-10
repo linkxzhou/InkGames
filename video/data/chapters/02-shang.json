@@ -1893,7 +1893,158 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "商 · （约前 1600 年）。夯土宫殿、青铜礼器、甲骨占卜、战车。",
+     "en": "Shang dynasty (c. 1600–1046 BCE), c. 1599 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots."
+    },
+    "characters": [
+     {
+      "id": "tang",
+      "name": "汤",
+      "nameEn": "Tang",
+      "onScreen": true,
+      "zh": "汤（商·商王，名履）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 1600 年）；灭夏后还亳，作《汤诰》，改正朔",
+      "en": "Tang (汤) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in c. 1599 BCE"
+     },
+     {
+      "id": "lieren",
+      "name": "张网者",
+      "nameEn": "Zhang Wangzhe",
+      "onScreen": true,
+      "zh": "张网者（商·野外猎人）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为约前 1600 年）；张网四面而祝",
+      "en": "Zhang Wangzhe (张网者) — commoner, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in c. 1599 BCE"
+     },
+     {
+      "id": "yiyin",
+      "name": "伊尹",
+      "nameEn": "Yi Yin",
+      "onScreen": false,
+      "zh": "伊尹（商·阿衡）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 1600 年）；辅汤定天下",
+      "en": "Yi Yin (伊尹) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1599 BCE"
+     },
+     {
+      "id": "zhonghui",
+      "name": "仲虺",
+      "nameEn": "Zhong Hui",
+      "onScreen": false,
+      "zh": "仲虺（商·左相）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 1600 年）；作诰以释汤之惭德",
+      "en": "Zhong Hui (仲虺) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1599 BCE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山；中景：草、树、树冠｜动作：野外，四面张开的大网｜水墨效果：宣纸留白淡入｜声音：环境：鸟鸣｜屏幕文字：片名「网开三面」竖排书法与朱印「汤诰」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains; midground: grass, trees, tree canopy | Action: (scene action, Chinese) 野外，四面张开的大网 | Ink FX: fade in from blank xuan paper | Sound: ambience: birdsong | On-screen text: vertical brush-calligraphy title 「网开三面」 with vermilion seal 「汤诰」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [
+       "tang",
+       "lieren"
+      ],
+      "vo": "汤还没有伐夏的时候，有一次出行，看见野外的人张网四面，祝祷说：天下四方的鸟都进我的网。汤说：这样就把它们捉尽了。他让人去掉三面，只留一面，祝道：想往左的往左，想往右的往右，不听命的，再进我的网。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：草；主体：汤、张网者｜动作：汤命人解去三面，只留一面｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：鸟鸣；音效：绳索｜屏幕文字：底部旁白字幕｜旁白：「汤还没有伐夏的时候，有一次出行，看见野外的人张网四面，祝祷说：天下四方的鸟都进我的网。汤说：这样就把它们捉尽了。他让人去掉三面，只留一面，祝道：想往左的往左，想往右的往右，不听命的，再进我的网。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: grass; subject: Tang, Zhang Wangzhe | Action: (scene action, Chinese) 汤命人解去三面，只留一面 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: birdsong; SFX: rope | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「汤还没有伐夏的时候，有一次出行，看见野外的人张网四面，祝祷说：天下四方的鸟都进我的网。汤说：这样就把它们捉尽了。他让人去掉三面，只留一面，祝道：想往左的往左，想往右的往右，不听命的，再进我的网。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [],
+      "vo": "诸侯听说了，说汤的德行连禽兽都顾到了。后来汤灭了夏，回到亳都，作《汤诰》告诫诸侯。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：殿柱、屋檐；主体：众人、旌旗｜动作：亳都，诸侯列于阶下听诰｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：青铜钟声｜屏幕文字：引文「欲左，左。欲右，右。不用命，乃入吾网。」竖排楷书；底部旁白字幕｜旁白：「诸侯听说了，说汤的德行连禽兽都顾到了。后来汤灭了夏，回到亳都，作《汤诰》告诫诸侯。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: palace pillars, palace eaves; subject: crowd, banners | Action: (scene action, Chinese) 亳都，诸侯列于阶下听诰 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: bronze bell | On-screen text: vertical kaishu quotation 「欲左，左。欲右，右。不用命，乃入吾网。」; Chinese subtitles at bottom | VO (Mandarin): 「诸侯听说了，说汤的德行连禽兽都顾到了。后来汤灭了夏，回到亳都，作《汤诰》告诫诸侯。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [
+       "tang"
+      ],
+      "vo": "《吕氏春秋》又说，汤得天下之后，天大旱，五年没有收成。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：远景：远山；中景：沙；主体：汤｜动作：大旱，田地龟裂，五年不收｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：战后余风；音效：干风｜屏幕文字：底部旁白字幕｜旁白：「《吕氏春秋》又说，汤得天下之后，天大旱，五年没有收成。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: background: distant mountains; midground: sand; subject: Tang | Action: (scene action, Chinese) 大旱，田地龟裂，五年不收 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: lingering wind after battle; SFX: dry wind | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「《吕氏春秋》又说，汤得天下之后，天大旱，五年没有收成。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [
+       "tang"
+      ],
+      "vo": "汤走进了桑林——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：树、树冠；主体：汤；飞白题字「祷」｜动作：桑林之中，他剪下自己的头发｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：寂静室内；音效：雷声｜屏幕文字：底部旁白字幕｜旁白：「汤走进了桑林——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: trees, tree canopy; subject: Tang; dry-brush calligraphy 「祷」 | Action: (scene action, Chinese) 桑林之中，他剪下自己的头发 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: quiet room tone; SFX: thunder | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「汤走进了桑林——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [
+       "tang"
+      ],
+      "vo": "汤改正朔，易服色，上白，朝会以昼。殷商的制度从此立了下来。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：汤｜动作：正史结局：汤改正朔，易服色，上白，朝会以昼。殷商的制度从此立了下来。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「汤改正朔，易服色，上白，朝会以昼。殷商的制度从此立了下来。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Tang | Action: (canonical outcome, Chinese) 汤改正朔，易服色，上白，朝会以昼。殷商的制度从此立了下来。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「汤改正朔，易服色，上白，朝会以昼。殷商的制度从此立了下来。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "欲左，左。欲右，右。不用命，乃入吾网。",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「欲左，左。欲右，右。不用命，乃入吾网。」，下署《史记·殷本纪》；右下角朱印「汤诰」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「欲左，左。欲右，右。不用命，乃入吾网。」",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「欲左，左。欲右，右。不用命，乃入吾网。」 signed 《史记·殷本纪》; vermilion seal 「汤诰」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「欲左，左。欲右，右。不用命，乃入吾网。」"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：鸟鸣、宫殿回响、战后余风、寂静室内；音效：绳索、青铜钟声、干风、雷声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: birdsong, palace hall reverb, lingering wind after battle, quiet room tone; SFX: rope, bronze bell, dry wind, thunder; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「网开三面」，副题「汤祷桑林」，朱印「汤诰」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「欲左，左。欲右，右。不用命，乃入吾网。」——《史记·殷本纪》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「网开三面」, subtitle 「汤祷桑林」, vermilion seal 「汤诰」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「欲左，左。欲右，右。不用命，乃入吾网。」 — 《史记·殷本纪》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    },
+    "narration": [
+     "汤还没有伐夏的时候，有一次出行，看见野外的人张网四面，祝祷说：天下四方的鸟都进我的网。汤说：这样就把它们捉尽了。他让人去掉三面，只留一面，祝道：想往左的往左，想往右的往右，不听命的，再进我的网。",
+     "诸侯听说了，说汤的德行连禽兽都顾到了。后来汤灭了夏，回到亳都，作《汤诰》告诫诸侯。",
+     "《吕氏春秋》又说，汤得天下之后，天大旱，五年没有收成。",
+     "汤走进了桑林——",
+     "汤改正朔，易服色，上白，朝会以昼。殷商的制度从此立了下来。",
+     "欲左，左。欲右，右。不用命，乃入吾网。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】商 · 网开三面（汤祷桑林）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：商 · （约前 1600 年）。夯土宫殿、青铜礼器、甲骨占卜、战车。\n\n人物：\n- 汤（商·商王，名履）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 1600 年）；灭夏后还亳，作《汤诰》，改正朔\n- 张网者（商·野外猎人）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为约前 1600 年）；张网四面而祝\n- 伊尹（商·阿衡）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 1600 年）；辅汤定天下\n- 仲虺（商·左相）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 1600 年）；作诰以释汤之惭德\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山；中景：草、树、树冠｜动作：野外，四面张开的大网｜水墨效果：宣纸留白淡入｜声音：环境：鸟鸣｜屏幕文字：片名「网开三面」竖排书法与朱印「汤诰」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：草；主体：汤、张网者｜动作：汤命人解去三面，只留一面｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：鸟鸣；音效：绳索｜屏幕文字：底部旁白字幕｜旁白：「汤还没有伐夏的时候，有一次出行，看见野外的人张网四面，祝祷说：天下四方的鸟都进我的网。汤说：这样就把它们捉尽了。他让人去掉三面，只留一面，祝道：想往左的往左，想往右的往右，不听命的，再进我的网。」\n镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：殿柱、屋檐；主体：众人、旌旗｜动作：亳都，诸侯列于阶下听诰｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：青铜钟声｜屏幕文字：引文「欲左，左。欲右，右。不用命，乃入吾网。」竖排楷书；底部旁白字幕｜旁白：「诸侯听说了，说汤的德行连禽兽都顾到了。后来汤灭了夏，回到亳都，作《汤诰》告诫诸侯。」\n镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：远景：远山；中景：沙；主体：汤｜动作：大旱，田地龟裂，五年不收｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：战后余风；音效：干风｜屏幕文字：底部旁白字幕｜旁白：「《吕氏春秋》又说，汤得天下之后，天大旱，五年没有收成。」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：树、树冠；主体：汤；飞白题字「祷」｜动作：桑林之中，他剪下自己的头发｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：寂静室内；音效：雷声｜屏幕文字：底部旁白字幕｜旁白：「汤走进了桑林——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：汤｜动作：正史结局：汤改正朔，易服色，上白，朝会以昼。殷商的制度从此立了下来。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「汤改正朔，易服色，上白，朝会以昼。殷商的制度从此立了下来。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「欲左，左。欲右，右。不用命，乃入吾网。」，下署《史记·殷本纪》；右下角朱印「汤诰」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「欲左，左。欲右，右。不用命，乃入吾网。」\n\n声音：背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：鸟鸣、宫殿回响、战后余风、寂静室内；音效：绳索、青铜钟声、干风、雷声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「网开三面」，副题「汤祷桑林」，朱印「汤诰」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「欲左，左。欲右，右。不用命，乃入吾网。」——《史记·殷本纪》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "[Ink-wash video prompt] Shang dynasty (c. 1600–1046 BCE) · \"网开三面\" (汤祷桑林)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Shang dynasty (c. 1600–1046 BCE), c. 1599 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots.\n\nCharacters:\n- Tang (汤) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in c. 1599 BCE\n- Zhang Wangzhe (张网者) — commoner, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in c. 1599 BCE\n- Yi Yin (伊尹) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1599 BCE\n- Zhong Hui (仲虺) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1599 BCE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains; midground: grass, trees, tree canopy | Action: (scene action, Chinese) 野外，四面张开的大网 | Ink FX: fade in from blank xuan paper | Sound: ambience: birdsong | On-screen text: vertical brush-calligraphy title 「网开三面」 with vermilion seal 「汤诰」\nShot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: grass; subject: Tang, Zhang Wangzhe | Action: (scene action, Chinese) 汤命人解去三面，只留一面 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: birdsong; SFX: rope | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「汤还没有伐夏的时候，有一次出行，看见野外的人张网四面，祝祷说：天下四方的鸟都进我的网。汤说：这样就把它们捉尽了。他让人去掉三面，只留一面，祝道：想往左的往左，想往右的往右，不听命的，再进我的网。」\nShot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: palace pillars, palace eaves; subject: crowd, banners | Action: (scene action, Chinese) 亳都，诸侯列于阶下听诰 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: bronze bell | On-screen text: vertical kaishu quotation 「欲左，左。欲右，右。不用命，乃入吾网。」; Chinese subtitles at bottom | VO (Mandarin): 「诸侯听说了，说汤的德行连禽兽都顾到了。后来汤灭了夏，回到亳都，作《汤诰》告诫诸侯。」\nShot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: background: distant mountains; midground: sand; subject: Tang | Action: (scene action, Chinese) 大旱，田地龟裂，五年不收 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: lingering wind after battle; SFX: dry wind | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「《吕氏春秋》又说，汤得天下之后，天大旱，五年没有收成。」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: trees, tree canopy; subject: Tang; dry-brush calligraphy 「祷」 | Action: (scene action, Chinese) 桑林之中，他剪下自己的头发 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: quiet room tone; SFX: thunder | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「汤走进了桑林——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Tang | Action: (canonical outcome, Chinese) 汤改正朔，易服色，上白，朝会以昼。殷商的制度从此立了下来。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「汤改正朔，易服色，上白，朝会以昼。殷商的制度从此立了下来。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「欲左，左。欲右，右。不用命，乃入吾网。」 signed 《史记·殷本纪》; vermilion seal 「汤诰」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「欲左，左。欲右，右。不用命，乃入吾网。」\n\nSound: Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: birdsong, palace hall reverb, lingering wind after battle, quiet room tone; SFX: rope, bronze bell, dry wind, thunder; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「网开三面」, subtitle 「汤祷桑林」, vermilion seal 「汤诰」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「欲左，左。欲右，右。不用命，乃入吾网。」 — 《史记·殷本纪》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    }
+   }
   },
   {
    "outlineId": "02-01",
@@ -3700,7 +3851,164 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "商 · （约前 16 世纪）。夯土宫殿、青铜礼器、甲骨占卜、战车。",
+     "en": "Shang dynasty (c. 1600–1046 BCE), c. 1580 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots."
+    },
+    "characters": [
+     {
+      "id": "yiyin",
+      "name": "伊尹",
+      "nameEn": "Yi Yin",
+      "onScreen": true,
+      "zh": "伊尹（商·阿衡）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 16 世纪）；佐汤灭夏；太甲不明，放之于桐宫，摄行政当国三年",
+      "en": "Yi Yin (伊尹) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1580 BCE"
+     },
+     {
+      "id": "taijia",
+      "name": "太甲",
+      "nameEn": "Tai Jia",
+      "onScreen": true,
+      "zh": "太甲（商·商王，成汤嫡长孙）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 16 世纪）；即位三年暴虐乱德，居桐宫三年悔过，复位",
+      "en": "Tai Jia (太甲) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in c. 1580 BCE"
+     },
+     {
+      "id": "waibing",
+      "name": "外丙",
+      "nameEn": "Wai Bing",
+      "onScreen": false,
+      "zh": "外丙（商·成汤之子）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 16 世纪）；太丁早卒后继位（《殷本纪》）",
+      "en": "Wai Bing (外丙) — royal / consort, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1580 BCE"
+     },
+     {
+      "id": "zhongren",
+      "name": "中壬",
+      "nameEn": "Zhong Ren",
+      "onScreen": false,
+      "zh": "中壬（商·成汤之子）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 16 世纪）；外丙之后继位",
+      "en": "Zhong Ren (中壬) — royal / consort, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1580 BCE"
+     },
+     {
+      "id": "yizhi",
+      "name": "伊陟",
+      "nameEn": "Yi Zhi",
+      "onScreen": false,
+      "zh": "伊陟（商·伊尹之子）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 16 世纪）；后为太戊之相",
+      "en": "Yi Zhi (伊陟) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1580 BCE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山；中景：近山与地面、殿柱、屋檐｜动作：亳都宫室，远山一抹｜水墨效果：宣纸留白淡入｜声音：环境：宫殿回响｜屏幕文字：片名「桐宫」竖排书法与朱印「桐宫三年」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains; midground: near hills and ground, palace pillars, palace eaves | Action: (scene action, Chinese) 亳都宫室，远山一抹 | Ink FX: fade in from blank xuan paper | Sound: ambience: palace hall reverb | On-screen text: vertical brush-calligraphy title 「桐宫」 with vermilion seal 「桐宫三年」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [
+       "yiyin"
+      ],
+      "vo": "成汤崩，太子太丁未立而卒。外丙、中壬先后即位，都不长久。伊尹立太丁之子太甲。太甲即位三年，不明，暴虐，不遵汤法。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：主体：伊尹、众人、旌旗｜动作：成汤崩；外丙、中壬相继而立｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「成汤崩，太子太丁未立而卒。外丙、中壬先后即位，都不长久。伊尹立太丁之子太甲。太甲即位三年，不明，暴虐，不遵汤法。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: subject: Yi Yin, crowd, banners | Action: (scene action, Chinese) 成汤崩；外丙、中壬相继而立 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「成汤崩，太子太丁未立而卒。外丙、中壬先后即位，都不长久。伊尹立太丁之子太甲。太甲即位三年，不明，暴虐，不遵汤法。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [
+       "taijia"
+      ],
+      "vo": "伊尹把他放到桐宫，自己摄行政事，当国以朝诸侯。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：殿柱、屋檐；主体：太甲｜动作：太甲即位，不遵汤法｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：低语｜屏幕文字：引文「帝太甲居桐宫三年，悔过自责，反善。」竖排楷书；底部旁白字幕｜旁白：「伊尹把他放到桐宫，自己摄行政事，当国以朝诸侯。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: palace pillars, palace eaves; subject: Tai Jia | Action: (scene action, Chinese) 太甲即位，不遵汤法 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: murmuring | On-screen text: vertical kaishu quotation 「帝太甲居桐宫三年，悔过自责，反善。」; Chinese subtitles at bottom | VO (Mandarin): 「伊尹把他放到桐宫，自己摄行政事，当国以朝诸侯。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [
+       "yiyin",
+       "taijia"
+      ],
+      "vo": "桐宫在汤的墓旁。太甲在那里住了三年。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：树、树冠；主体：伊尹、太甲｜动作：伊尹送太甲至桐宫，汤之墓侧｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：林中鸟鸣；音效：脚步声｜屏幕文字：底部旁白字幕｜旁白：「桐宫在汤的墓旁。太甲在那里住了三年。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: trees, tree canopy; subject: Yi Yin, Tai Jia | Action: (scene action, Chinese) 伊尹送太甲至桐宫，汤之墓侧 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: forest birds; SFX: footsteps | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「桐宫在汤的墓旁。太甲在那里住了三年。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [],
+      "vo": "三年之后，伊尹要去看他是否真的悔过——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：主体：众人；飞白题字「迎王一笔」｜动作：三年后，伊尹率百官往迎｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：战后余风；音效：青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「三年之后，伊尹要去看他是否真的悔过——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: subject: crowd; dry-brush calligraphy 「迎王一笔」 | Action: (scene action, Chinese) 三年后，伊尹率百官往迎 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: lingering wind after battle; SFX: bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「三年之后，伊尹要去看他是否真的悔过——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "伊尹迎太甲而授之政。太甲修德，诸侯咸归，号为太宗。伊尹作《太甲训》三篇褒之。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：伊尹迎太甲而授之政。太甲修德，诸侯咸归，号为太宗。伊尹作《太甲训》三篇褒之。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「伊尹迎太甲而授之政。太甲修德，诸侯咸归，号为太宗。伊尹作《太甲训》三篇褒之。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 伊尹迎太甲而授之政。太甲修德，诸侯咸归，号为太宗。伊尹作《太甲训》三篇褒之。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「伊尹迎太甲而授之政。太甲修德，诸侯咸归，号为太宗。伊尹作《太甲训》三篇褒之。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "帝太甲居桐宫三年，悔过自责，反善。",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「帝太甲居桐宫三年，悔过自责，反善。」，下署《史记·殷本纪》；右下角朱印「桐宫三年」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「帝太甲居桐宫三年，悔过自责，反善。」",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「帝太甲居桐宫三年，悔过自责，反善。」 signed 《史记·殷本纪》; vermilion seal 「桐宫三年」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「帝太甲居桐宫三年，悔过自责，反善。」"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：铜鼓，庄重原始，随剧情由缓入急、高潮前骤停留白；环境声：宫殿回响、林中鸟鸣、战后余风；音效：青铜钟声、低语、脚步声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: bronze drums, solemn and primal, building gradually and cutting to silence before the climax; ambience: palace hall reverb, forest birds, lingering wind after battle; SFX: bronze bell, murmuring, footsteps; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「桐宫」，副题「伊尹放太甲」，朱印「桐宫三年」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「帝太甲居桐宫三年，悔过自责，反善。」——《史记·殷本纪》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「桐宫」, subtitle 「伊尹放太甲」, vermilion seal 「桐宫三年」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「帝太甲居桐宫三年，悔过自责，反善。」 — 《史记·殷本纪》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    },
+    "narration": [
+     "成汤崩，太子太丁未立而卒。外丙、中壬先后即位，都不长久。伊尹立太丁之子太甲。太甲即位三年，不明，暴虐，不遵汤法。",
+     "伊尹把他放到桐宫，自己摄行政事，当国以朝诸侯。",
+     "桐宫在汤的墓旁。太甲在那里住了三年。",
+     "三年之后，伊尹要去看他是否真的悔过——",
+     "伊尹迎太甲而授之政。太甲修德，诸侯咸归，号为太宗。伊尹作《太甲训》三篇褒之。",
+     "帝太甲居桐宫三年，悔过自责，反善。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】商 · 桐宫（伊尹放太甲）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：商 · （约前 16 世纪）。夯土宫殿、青铜礼器、甲骨占卜、战车。\n\n人物：\n- 伊尹（商·阿衡）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 16 世纪）；佐汤灭夏；太甲不明，放之于桐宫，摄行政当国三年\n- 太甲（商·商王，成汤嫡长孙）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 16 世纪）；即位三年暴虐乱德，居桐宫三年悔过，复位\n- 外丙（商·成汤之子）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 16 世纪）；太丁早卒后继位（《殷本纪》）\n- 中壬（商·成汤之子）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 16 世纪）；外丙之后继位\n- 伊陟（商·伊尹之子）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 16 世纪）；后为太戊之相\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山；中景：近山与地面、殿柱、屋檐｜动作：亳都宫室，远山一抹｜水墨效果：宣纸留白淡入｜声音：环境：宫殿回响｜屏幕文字：片名「桐宫」竖排书法与朱印「桐宫三年」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：主体：伊尹、众人、旌旗｜动作：成汤崩；外丙、中壬相继而立｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「成汤崩，太子太丁未立而卒。外丙、中壬先后即位，都不长久。伊尹立太丁之子太甲。太甲即位三年，不明，暴虐，不遵汤法。」\n镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：殿柱、屋檐；主体：太甲｜动作：太甲即位，不遵汤法｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：低语｜屏幕文字：引文「帝太甲居桐宫三年，悔过自责，反善。」竖排楷书；底部旁白字幕｜旁白：「伊尹把他放到桐宫，自己摄行政事，当国以朝诸侯。」\n镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：树、树冠；主体：伊尹、太甲｜动作：伊尹送太甲至桐宫，汤之墓侧｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：林中鸟鸣；音效：脚步声｜屏幕文字：底部旁白字幕｜旁白：「桐宫在汤的墓旁。太甲在那里住了三年。」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：主体：众人；飞白题字「迎王一笔」｜动作：三年后，伊尹率百官往迎｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：战后余风；音效：青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「三年之后，伊尹要去看他是否真的悔过——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：伊尹迎太甲而授之政。太甲修德，诸侯咸归，号为太宗。伊尹作《太甲训》三篇褒之。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「伊尹迎太甲而授之政。太甲修德，诸侯咸归，号为太宗。伊尹作《太甲训》三篇褒之。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「帝太甲居桐宫三年，悔过自责，反善。」，下署《史记·殷本纪》；右下角朱印「桐宫三年」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「帝太甲居桐宫三年，悔过自责，反善。」\n\n声音：背景乐：铜鼓，庄重原始，随剧情由缓入急、高潮前骤停留白；环境声：宫殿回响、林中鸟鸣、战后余风；音效：青铜钟声、低语、脚步声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「桐宫」，副题「伊尹放太甲」，朱印「桐宫三年」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「帝太甲居桐宫三年，悔过自责，反善。」——《史记·殷本纪》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "[Ink-wash video prompt] Shang dynasty (c. 1600–1046 BCE) · \"桐宫\" (伊尹放太甲)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Shang dynasty (c. 1600–1046 BCE), c. 1580 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots.\n\nCharacters:\n- Yi Yin (伊尹) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1580 BCE\n- Tai Jia (太甲) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in c. 1580 BCE\n- Wai Bing (外丙) — royal / consort, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1580 BCE\n- Zhong Ren (中壬) — royal / consort, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1580 BCE\n- Yi Zhi (伊陟) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1580 BCE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains; midground: near hills and ground, palace pillars, palace eaves | Action: (scene action, Chinese) 亳都宫室，远山一抹 | Ink FX: fade in from blank xuan paper | Sound: ambience: palace hall reverb | On-screen text: vertical brush-calligraphy title 「桐宫」 with vermilion seal 「桐宫三年」\nShot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: subject: Yi Yin, crowd, banners | Action: (scene action, Chinese) 成汤崩；外丙、中壬相继而立 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「成汤崩，太子太丁未立而卒。外丙、中壬先后即位，都不长久。伊尹立太丁之子太甲。太甲即位三年，不明，暴虐，不遵汤法。」\nShot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: palace pillars, palace eaves; subject: Tai Jia | Action: (scene action, Chinese) 太甲即位，不遵汤法 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: murmuring | On-screen text: vertical kaishu quotation 「帝太甲居桐宫三年，悔过自责，反善。」; Chinese subtitles at bottom | VO (Mandarin): 「伊尹把他放到桐宫，自己摄行政事，当国以朝诸侯。」\nShot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: trees, tree canopy; subject: Yi Yin, Tai Jia | Action: (scene action, Chinese) 伊尹送太甲至桐宫，汤之墓侧 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: forest birds; SFX: footsteps | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「桐宫在汤的墓旁。太甲在那里住了三年。」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: subject: crowd; dry-brush calligraphy 「迎王一笔」 | Action: (scene action, Chinese) 三年后，伊尹率百官往迎 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: lingering wind after battle; SFX: bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「三年之后，伊尹要去看他是否真的悔过——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 伊尹迎太甲而授之政。太甲修德，诸侯咸归，号为太宗。伊尹作《太甲训》三篇褒之。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「伊尹迎太甲而授之政。太甲修德，诸侯咸归，号为太宗。伊尹作《太甲训》三篇褒之。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「帝太甲居桐宫三年，悔过自责，反善。」 signed 《史记·殷本纪》; vermilion seal 「桐宫三年」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「帝太甲居桐宫三年，悔过自责，反善。」\n\nSound: Music: bronze drums, solemn and primal, building gradually and cutting to silence before the climax; ambience: palace hall reverb, forest birds, lingering wind after battle; SFX: bronze bell, murmuring, footsteps; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「桐宫」, subtitle 「伊尹放太甲」, vermilion seal 「桐宫三年」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「帝太甲居桐宫三年，悔过自责，反善。」 — 《史记·殷本纪》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    }
+   }
   },
   {
    "outlineId": "02-02",
@@ -5488,7 +5796,153 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "商 · （约前 1300 年）。夯土宫殿、青铜礼器、甲骨占卜、战车。",
+     "en": "Shang dynasty (c. 1600–1046 BCE), c. 1300 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots."
+    },
+    "characters": [
+     {
+      "id": "pangeng",
+      "name": "盘庚",
+      "nameEn": "Pan Geng",
+      "onScreen": true,
+      "zh": "盘庚（商·商王）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 1300 年）；排众议迁都于殷，作《盘庚》三篇以告民",
+      "en": "Pan Geng (盘庚) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in c. 1300 BCE"
+     },
+     {
+      "id": "zhongchen",
+      "name": "众臣",
+      "nameEn": "Zhong Chen",
+      "onScreen": false,
+      "zh": "众臣（商·在位者）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 1300 年）；多不欲徙，盘庚以先王之事告之",
+      "en": "Zhong Chen (众臣) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1300 BCE"
+     },
+     {
+      "id": "yinmin",
+      "name": "殷民",
+      "nameEn": "Yin Min",
+      "onScreen": false,
+      "zh": "殷民（商·众庶）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为约前 1300 年）；“咨胥皆怨，不欲徙”",
+      "en": "Yin Min (殷民) — commoner, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in c. 1300 BCE"
+     },
+     {
+      "id": "xiaoxin",
+      "name": "小辛",
+      "nameEn": "Xiao Xin",
+      "onScreen": false,
+      "zh": "小辛（商·盘庚之弟）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 1300 年）；盘庚崩后继位",
+      "en": "Xiao Xin (小辛) — royal / consort, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1300 BCE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山；中景：近山与地面、城墙雉堞｜动作：河北旧都，城郭衰败｜水墨效果：宣纸留白淡入｜声音：环境：旷野风声｜屏幕文字：片名「盘庚迁殷」竖排书法与朱印「盘庚迁殷」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains; midground: near hills and ground, crenellated city wall | Action: (scene action, Chinese) 河北旧都，城郭衰败 | Ink FX: fade in from blank xuan paper | Sound: ambience: wind over open plains | On-screen text: vertical brush-calligraphy title 「盘庚迁殷」 with vermilion seal 「盘庚迁殷」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [
+       "pangeng"
+      ],
+      "vo": "自中丁以来，商人屡迁其都，王室争立，诸侯不朝。盘庚欲迁于殷。众臣多不欲徙，民亦怨之。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：殿柱、屋檐；主体：盘庚、众人｜动作：盘庚登堂，告众臣以先王之事｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「自中丁以来，商人屡迁其都，王室争立，诸侯不朝。盘庚欲迁于殷。众臣多不欲徙，民亦怨之。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: palace pillars, palace eaves; subject: Pan Geng, crowd | Action: (scene action, Chinese) 盘庚登堂，告众臣以先王之事 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「自中丁以来，商人屡迁其都，王室争立，诸侯不朝。盘庚欲迁于殷。众臣多不欲徙，民亦怨之。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [],
+      "vo": "盘庚三次告谕，以先王之事说之：迁，是为了安民。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：手持式轻微震动，节奏急促｜构图：主体：众人；飞白题字「雨」｜动作：殷民聚众，“咨胥皆怨”｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：人群低语；音效：低语｜屏幕文字：引文「若颠木之有由蘖。」竖排楷书；底部旁白字幕｜旁白：「盘庚三次告谕，以先王之事说之：迁，是为了安民。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: subtle handheld shake, urgent rhythm | Composition: subject: crowd; dry-brush calligraphy 「雨」 | Action: (scene action, Chinese) 殷民聚众，“咨胥皆怨” | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: crowd murmur; SFX: murmuring | On-screen text: vertical kaishu quotation 「若颠木之有由蘖。」; Chinese subtitles at bottom | VO (Mandarin): 「盘庚三次告谕，以先王之事说之：迁，是为了安民。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [
+       "pangeng"
+      ],
+      "vo": "于是渡河，举族而迁。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：河水、舟；主体：盘庚｜动作：渡河：舟楫相接｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；水墨流动晕染｜声音：环境：平缓河水；音效：摇橹｜屏幕文字：底部旁白字幕｜旁白：「于是渡河，举族而迁。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: river, boat; subject: Pan Geng | Action: (scene action, Chinese) 渡河：舟楫相接 | Ink FX: ink-bleed transition from the previous shot; flowing ink wash bleeding across the paper | Sound: ambience: calm river; SFX: oars | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「于是渡河，举族而迁。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [],
+      "vo": "自此至纣之亡，商人不再迁都——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：殷；飞白题字「定都一笔」｜动作：殷：洹水之滨，新邑落成｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：战后余风；音效：河水决泄、青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「自此至纣之亡，商人不再迁都——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: 殷; dry-brush calligraphy 「定都一笔」 | Action: (scene action, Chinese) 殷：洹水之滨，新邑落成 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: lingering wind after battle; SFX: river bursting free, bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「自此至纣之亡，商人不再迁都——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "殷人定居新邑，商道复兴。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：殷人定居新邑，商道复兴。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「殷人定居新邑，商道复兴。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 殷人定居新邑，商道复兴。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「殷人定居新邑，商道复兴。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "若颠木之有由蘖。",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「若颠木之有由蘖。」，下署《尚书·盘庚上》；右下角朱印「盘庚迁殷」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「若颠木之有由蘖。」",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「若颠木之有由蘖。」 signed 《尚书·盘庚上》; vermilion seal 「盘庚迁殷」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「若颠木之有由蘖。」"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：铜鼓，庄重原始，随剧情由缓入急、高潮前骤停留白；环境声：旷野风声、宫殿回响、人群低语、平缓河水、战后余风；音效：青铜钟声、低语、摇橹、河水决泄；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: bronze drums, solemn and primal, building gradually and cutting to silence before the climax; ambience: wind over open plains, palace hall reverb, crowd murmur, calm river, lingering wind after battle; SFX: bronze bell, murmuring, oars, river bursting free; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「盘庚迁殷」，副题「殷人渡河」，朱印「盘庚迁殷」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「若颠木之有由蘖。」——《尚书·盘庚上》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「盘庚迁殷」, subtitle 「殷人渡河」, vermilion seal 「盘庚迁殷」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「若颠木之有由蘖。」 — 《尚书·盘庚上》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    },
+    "narration": [
+     "自中丁以来，商人屡迁其都，王室争立，诸侯不朝。盘庚欲迁于殷。众臣多不欲徙，民亦怨之。",
+     "盘庚三次告谕，以先王之事说之：迁，是为了安民。",
+     "于是渡河，举族而迁。",
+     "自此至纣之亡，商人不再迁都——",
+     "殷人定居新邑，商道复兴。",
+     "若颠木之有由蘖。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】商 · 盘庚迁殷（殷人渡河）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：商 · （约前 1300 年）。夯土宫殿、青铜礼器、甲骨占卜、战车。\n\n人物：\n- 盘庚（商·商王）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 1300 年）；排众议迁都于殷，作《盘庚》三篇以告民\n- 众臣（商·在位者）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 1300 年）；多不欲徙，盘庚以先王之事告之\n- 殷民（商·众庶）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为约前 1300 年）；“咨胥皆怨，不欲徙”\n- 小辛（商·盘庚之弟）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 1300 年）；盘庚崩后继位\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山；中景：近山与地面、城墙雉堞｜动作：河北旧都，城郭衰败｜水墨效果：宣纸留白淡入｜声音：环境：旷野风声｜屏幕文字：片名「盘庚迁殷」竖排书法与朱印「盘庚迁殷」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：殿柱、屋檐；主体：盘庚、众人｜动作：盘庚登堂，告众臣以先王之事｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「自中丁以来，商人屡迁其都，王室争立，诸侯不朝。盘庚欲迁于殷。众臣多不欲徙，民亦怨之。」\n镜头 3（26–50 秒，24 秒）｜运镜：手持式轻微震动，节奏急促｜构图：主体：众人；飞白题字「雨」｜动作：殷民聚众，“咨胥皆怨”｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：人群低语；音效：低语｜屏幕文字：引文「若颠木之有由蘖。」竖排楷书；底部旁白字幕｜旁白：「盘庚三次告谕，以先王之事说之：迁，是为了安民。」\n镜头 4（50–78 秒，28 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：河水、舟；主体：盘庚｜动作：渡河：舟楫相接｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；水墨流动晕染｜声音：环境：平缓河水；音效：摇橹｜屏幕文字：底部旁白字幕｜旁白：「于是渡河，举族而迁。」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：殷；飞白题字「定都一笔」｜动作：殷：洹水之滨，新邑落成｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：战后余风；音效：河水决泄、青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「自此至纣之亡，商人不再迁都——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：殷人定居新邑，商道复兴。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「殷人定居新邑，商道复兴。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「若颠木之有由蘖。」，下署《尚书·盘庚上》；右下角朱印「盘庚迁殷」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「若颠木之有由蘖。」\n\n声音：背景乐：铜鼓，庄重原始，随剧情由缓入急、高潮前骤停留白；环境声：旷野风声、宫殿回响、人群低语、平缓河水、战后余风；音效：青铜钟声、低语、摇橹、河水决泄；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「盘庚迁殷」，副题「殷人渡河」，朱印「盘庚迁殷」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「若颠木之有由蘖。」——《尚书·盘庚上》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "[Ink-wash video prompt] Shang dynasty (c. 1600–1046 BCE) · \"盘庚迁殷\" (殷人渡河)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Shang dynasty (c. 1600–1046 BCE), c. 1300 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots.\n\nCharacters:\n- Pan Geng (盘庚) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in c. 1300 BCE\n- Zhong Chen (众臣) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1300 BCE\n- Yin Min (殷民) — commoner, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in c. 1300 BCE\n- Xiao Xin (小辛) — royal / consort, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1300 BCE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains; midground: near hills and ground, crenellated city wall | Action: (scene action, Chinese) 河北旧都，城郭衰败 | Ink FX: fade in from blank xuan paper | Sound: ambience: wind over open plains | On-screen text: vertical brush-calligraphy title 「盘庚迁殷」 with vermilion seal 「盘庚迁殷」\nShot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: palace pillars, palace eaves; subject: Pan Geng, crowd | Action: (scene action, Chinese) 盘庚登堂，告众臣以先王之事 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「自中丁以来，商人屡迁其都，王室争立，诸侯不朝。盘庚欲迁于殷。众臣多不欲徙，民亦怨之。」\nShot 3 (26–50 s, 24 s) | Camera: subtle handheld shake, urgent rhythm | Composition: subject: crowd; dry-brush calligraphy 「雨」 | Action: (scene action, Chinese) 殷民聚众，“咨胥皆怨” | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: crowd murmur; SFX: murmuring | On-screen text: vertical kaishu quotation 「若颠木之有由蘖。」; Chinese subtitles at bottom | VO (Mandarin): 「盘庚三次告谕，以先王之事说之：迁，是为了安民。」\nShot 4 (50–78 s, 28 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: river, boat; subject: Pan Geng | Action: (scene action, Chinese) 渡河：舟楫相接 | Ink FX: ink-bleed transition from the previous shot; flowing ink wash bleeding across the paper | Sound: ambience: calm river; SFX: oars | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「于是渡河，举族而迁。」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: 殷; dry-brush calligraphy 「定都一笔」 | Action: (scene action, Chinese) 殷：洹水之滨，新邑落成 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: lingering wind after battle; SFX: river bursting free, bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「自此至纣之亡，商人不再迁都——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 殷人定居新邑，商道复兴。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「殷人定居新邑，商道复兴。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「若颠木之有由蘖。」 signed 《尚书·盘庚上》; vermilion seal 「盘庚迁殷」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「若颠木之有由蘖。」\n\nSound: Music: bronze drums, solemn and primal, building gradually and cutting to silence before the climax; ambience: wind over open plains, palace hall reverb, crowd murmur, calm river, lingering wind after battle; SFX: bronze bell, murmuring, oars, river bursting free; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「盘庚迁殷」, subtitle 「殷人渡河」, vermilion seal 「盘庚迁殷」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「若颠木之有由蘖。」 — 《尚书·盘庚上》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    }
+   }
   },
   {
    "outlineId": "02-03",
@@ -7213,7 +7667,170 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "商 · （约前 1250—前 1192 年）。夯土宫殿、青铜礼器、甲骨占卜、战车。",
+     "en": "Shang dynasty (c. 1600–1046 BCE), 1250 BCE–1192 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots."
+    },
+    "characters": [
+     {
+      "id": "fuhao",
+      "name": "妇好",
+      "nameEn": "Fu Hao",
+      "onScreen": true,
+      "zh": "妇好（商·武丁之妇）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为约前 1250—前 1192 年）；卜辞所见率兵征伐土方、羌方、巴方、夷方，主持祭祀",
+      "en": "Fu Hao (妇好) — general, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; general in full armour, sword or weapon in hand; age as historically attested in 1250 BCE–1192 BCE"
+     },
+     {
+      "id": "zhenren",
+      "name": "贞人",
+      "nameEn": "Zhen Ren",
+      "onScreen": true,
+      "zh": "贞人（商·占卜之官）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为约前 1250—前 1192 年）；在甲骨上刻下卜问与验辞",
+      "en": "Zhen Ren (贞人) — commoner, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1250 BCE–1192 BCE"
+     },
+     {
+      "id": "qiangfang",
+      "name": "羌方",
+      "nameEn": "Qiang Fang",
+      "onScreen": true,
+      "zh": "羌方（羌·商的西方方国）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为约前 1250—前 1192 年）；卜辞所见武丁时期的主要征伐对象之一",
+      "en": "Qiang Fang (羌方) — commoner, 羌 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1250 BCE–1192 BCE"
+     },
+     {
+      "id": "wuding",
+      "name": "武丁",
+      "nameEn": "Wu Ding",
+      "onScreen": false,
+      "zh": "武丁（商·商王）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 1250—前 1192 年）；《殷本纪》：得傅说为相，殷国大治；卜辞中屡为妇好占卜",
+      "en": "Wu Ding (武丁) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in 1250 BCE–1192 BCE"
+     },
+     {
+      "id": "fuyue",
+      "name": "傅说",
+      "nameEn": "Fu Shuo",
+      "onScreen": false,
+      "zh": "傅说（商·武丁之相）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 1250—前 1192 年）；《殷本纪》：武丁梦得圣人，求于傅险",
+      "en": "Fu Shuo (傅说) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in 1250 BCE–1192 BCE"
+     },
+     {
+      "id": "zuji",
+      "name": "祖己",
+      "nameEn": "Zu Ji",
+      "onScreen": false,
+      "zh": "祖己（商·贤臣）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 1250—前 1192 年）；《殷本纪》：武丁祭成汤，有飞雉登鼎耳而呴，祖己训王修政行德",
+      "en": "Zu Ji (祖己) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in 1250 BCE–1192 BCE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山；中景：河水、近山与地面｜动作：殷都之外，洹水与远山｜水墨效果：宣纸留白淡入；水墨流动晕染｜声音：环境：平缓河水｜屏幕文字：片名「妇好」竖排书法与朱印「妇好」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains; midground: river, near hills and ground | Action: (scene action, Chinese) 殷都之外，洹水与远山 | Ink FX: fade in from blank xuan paper; flowing ink wash bleeding across the paper | Sound: ambience: calm river | On-screen text: vertical brush-calligraphy title 「妇好」 with vermilion seal 「妇好」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [
+       "zhenren"
+      ],
+      "vo": "武丁即位，三年不言，政事决于冢宰，以观国风。他得傅说为相，殷国大治。卜辞里，还有一个常被提起的名字。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：卜；主体：贞人、火｜动作：贞人灼龟，裂纹爬满甲骨｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；热浪与烟气扭曲｜声音：环境：宫殿回响；音效：骨裂（甲骨灼裂）｜屏幕文字：底部旁白字幕｜旁白：「武丁即位，三年不言，政事决于冢宰，以观国风。他得傅说为相，殷国大治。卜辞里，还有一个常被提起的名字。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: 卜; subject: Zhen Ren, fire (splashed ink) | Action: (scene action, Chinese) 贞人灼龟，裂纹爬满甲骨 | Ink FX: ink-bleed transition from the previous shot; heat-haze and smoke distortion | Sound: ambience: palace hall reverb; SFX: cracking oracle bone | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「武丁即位，三年不言，政事决于冢宰，以观国风。他得傅说为相，殷国大治。卜辞里，还有一个常被提起的名字。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [
+       "fuhao"
+      ],
+      "vo": "妇好。王为她卜问出征吉凶，卜问她的病，卜问她的生育。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：主体：妇好、军阵、长兵如林、旌旗｜动作：妇好受命，三千之众与万旅集结｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：军营鼓声；音效：远处鼓声、号角｜屏幕文字：底部旁白字幕｜旁白：「妇好。王为她卜问出征吉凶，卜问她的病，卜问她的生育。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: subject: Fu Hao, army ranks, forest of spears, banners | Action: (scene action, Chinese) 妇好受命，三千之众与万旅集结 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: camp drums; SFX: distant drums, horn | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「妇好。王为她卜问出征吉凶，卜问她的病，卜问她的生育。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [
+       "qiangfang"
+      ],
+      "vo": "卜辞记她领兵伐土方、羌方、巴方，一次征集之众多达上万。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：手持式轻微震动，节奏急促｜构图：主体：羌方、骑兵、弓箭｜动作：西出伐羌，战车卷起尘土｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；墨点四散（如马蹄踏墨）｜声音：环境：远处厮杀声；音效：兵刃相击、箭雨｜屏幕文字：底部旁白字幕｜旁白：「卜辞记她领兵伐土方、羌方、巴方，一次征集之众多达上万。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: subtle handheld shake, urgent rhythm | Composition: subject: Qiang Fang, cavalry, bow | Action: (scene action, Chinese) 西出伐羌，战车卷起尘土 | Ink FX: ink-bleed transition from the previous shot; ink dispersing outward like hoofprints in wet ink | Sound: ambience: distant battle; SFX: clashing weapons, rain of arrows | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「卜辞记她领兵伐土方、羌方、巴方，一次征集之众多达上万。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [],
+      "vo": "甲骨上的裂纹，指向西方——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：主体：大刀；飞白题字「妇好之钺」｜动作：大钺一挥｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；兵刃金属寒光一闪；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：战后余风；音效：青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「甲骨上的裂纹，指向西方——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: subject: broadsword; dry-brush calligraphy 「妇好之钺」 | Action: (scene action, Chinese) 大钺一挥 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; a cold metallic glint on the blade; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: lingering wind after battle; SFX: bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「甲骨上的裂纹，指向西方——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "妇好凯旋，又主持祭祀。她先武丁而卒，葬于殷都宫殿区附近，王还为她卜问冥福。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：妇好凯旋，又主持祭祀。她先武丁而卒，葬于殷都宫殿区附近，王还为她卜问冥福。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「妇好凯旋，又主持祭祀。她先武丁而卒，葬于殷都宫殿区附近，王还为她卜问冥福。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 妇好凯旋，又主持祭祀。她先武丁而卒，葬于殷都宫殿区附近，王还为她卜问冥福。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「妇好凯旋，又主持祭祀。她先武丁而卒，葬于殷都宫殿区附近，王还为她卜问冥福。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文；右下角朱印「妇好」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation; vermilion seal 「妇好」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：铜鼓，庄重原始，随剧情由缓入急、高潮前骤停留白；环境声：平缓河水、宫殿回响、军营鼓声、远处厮杀声、战后余风；音效：骨裂（甲骨灼裂）、远处鼓声、号角、兵刃相击、箭雨、青铜钟声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: bronze drums, solemn and primal, building gradually and cutting to silence before the climax; ambience: calm river, palace hall reverb, camp drums, distant battle, lingering wind after battle; SFX: cracking oracle bone, distant drums, horn, clashing weapons, rain of arrows, bronze bell; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「妇好」，副题「女将出征」，朱印「妇好」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「妇好」, subtitle 「女将出征」, vermilion seal 「妇好」 at upper right; subtitles: Simplified Chinese, bottom centre; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    },
+    "narration": [
+     "武丁即位，三年不言，政事决于冢宰，以观国风。他得傅说为相，殷国大治。卜辞里，还有一个常被提起的名字。",
+     "妇好。王为她卜问出征吉凶，卜问她的病，卜问她的生育。",
+     "卜辞记她领兵伐土方、羌方、巴方，一次征集之众多达上万。",
+     "甲骨上的裂纹，指向西方——",
+     "妇好凯旋，又主持祭祀。她先武丁而卒，葬于殷都宫殿区附近，王还为她卜问冥福。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】商 · 妇好（女将出征）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：商 · （约前 1250—前 1192 年）。夯土宫殿、青铜礼器、甲骨占卜、战车。\n\n人物：\n- 妇好（商·武丁之妇）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为约前 1250—前 1192 年）；卜辞所见率兵征伐土方、羌方、巴方、夷方，主持祭祀\n- 贞人（商·占卜之官）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为约前 1250—前 1192 年）；在甲骨上刻下卜问与验辞\n- 羌方（羌·商的西方方国）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为约前 1250—前 1192 年）；卜辞所见武丁时期的主要征伐对象之一\n- 武丁（商·商王）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 1250—前 1192 年）；《殷本纪》：得傅说为相，殷国大治；卜辞中屡为妇好占卜\n- 傅说（商·武丁之相）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 1250—前 1192 年）；《殷本纪》：武丁梦得圣人，求于傅险\n- 祖己（商·贤臣）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 1250—前 1192 年）；《殷本纪》：武丁祭成汤，有飞雉登鼎耳而呴，祖己训王修政行德\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山；中景：河水、近山与地面｜动作：殷都之外，洹水与远山｜水墨效果：宣纸留白淡入；水墨流动晕染｜声音：环境：平缓河水｜屏幕文字：片名「妇好」竖排书法与朱印「妇好」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：卜；主体：贞人、火｜动作：贞人灼龟，裂纹爬满甲骨｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；热浪与烟气扭曲｜声音：环境：宫殿回响；音效：骨裂（甲骨灼裂）｜屏幕文字：底部旁白字幕｜旁白：「武丁即位，三年不言，政事决于冢宰，以观国风。他得傅说为相，殷国大治。卜辞里，还有一个常被提起的名字。」\n镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：主体：妇好、军阵、长兵如林、旌旗｜动作：妇好受命，三千之众与万旅集结｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：军营鼓声；音效：远处鼓声、号角｜屏幕文字：底部旁白字幕｜旁白：「妇好。王为她卜问出征吉凶，卜问她的病，卜问她的生育。」\n镜头 4（50–78 秒，28 秒）｜运镜：手持式轻微震动，节奏急促｜构图：主体：羌方、骑兵、弓箭｜动作：西出伐羌，战车卷起尘土｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；墨点四散（如马蹄踏墨）｜声音：环境：远处厮杀声；音效：兵刃相击、箭雨｜屏幕文字：底部旁白字幕｜旁白：「卜辞记她领兵伐土方、羌方、巴方，一次征集之众多达上万。」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：主体：大刀；飞白题字「妇好之钺」｜动作：大钺一挥｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；兵刃金属寒光一闪；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：战后余风；音效：青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「甲骨上的裂纹，指向西方——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：妇好凯旋，又主持祭祀。她先武丁而卒，葬于殷都宫殿区附近，王还为她卜问冥福。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「妇好凯旋，又主持祭祀。她先武丁而卒，葬于殷都宫殿区附近，王还为她卜问冥福。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文；右下角朱印「妇好」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处\n\n声音：背景乐：铜鼓，庄重原始，随剧情由缓入急、高潮前骤停留白；环境声：平缓河水、宫殿回响、军营鼓声、远处厮杀声、战后余风；音效：骨裂（甲骨灼裂）、远处鼓声、号角、兵刃相击、箭雨、青铜钟声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「妇好」，副题「女将出征」，朱印「妇好」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "[Ink-wash video prompt] Shang dynasty (c. 1600–1046 BCE) · \"妇好\" (女将出征)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Shang dynasty (c. 1600–1046 BCE), 1250 BCE–1192 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots.\n\nCharacters:\n- Fu Hao (妇好) — general, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; general in full armour, sword or weapon in hand; age as historically attested in 1250 BCE–1192 BCE\n- Zhen Ren (贞人) — commoner, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1250 BCE–1192 BCE\n- Qiang Fang (羌方) — commoner, 羌 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1250 BCE–1192 BCE\n- Wu Ding (武丁) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in 1250 BCE–1192 BCE\n- Fu Shuo (傅说) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in 1250 BCE–1192 BCE\n- Zu Ji (祖己) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in 1250 BCE–1192 BCE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains; midground: river, near hills and ground | Action: (scene action, Chinese) 殷都之外，洹水与远山 | Ink FX: fade in from blank xuan paper; flowing ink wash bleeding across the paper | Sound: ambience: calm river | On-screen text: vertical brush-calligraphy title 「妇好」 with vermilion seal 「妇好」\nShot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: 卜; subject: Zhen Ren, fire (splashed ink) | Action: (scene action, Chinese) 贞人灼龟，裂纹爬满甲骨 | Ink FX: ink-bleed transition from the previous shot; heat-haze and smoke distortion | Sound: ambience: palace hall reverb; SFX: cracking oracle bone | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「武丁即位，三年不言，政事决于冢宰，以观国风。他得傅说为相，殷国大治。卜辞里，还有一个常被提起的名字。」\nShot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: subject: Fu Hao, army ranks, forest of spears, banners | Action: (scene action, Chinese) 妇好受命，三千之众与万旅集结 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: camp drums; SFX: distant drums, horn | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「妇好。王为她卜问出征吉凶，卜问她的病，卜问她的生育。」\nShot 4 (50–78 s, 28 s) | Camera: subtle handheld shake, urgent rhythm | Composition: subject: Qiang Fang, cavalry, bow | Action: (scene action, Chinese) 西出伐羌，战车卷起尘土 | Ink FX: ink-bleed transition from the previous shot; ink dispersing outward like hoofprints in wet ink | Sound: ambience: distant battle; SFX: clashing weapons, rain of arrows | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「卜辞记她领兵伐土方、羌方、巴方，一次征集之众多达上万。」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: subject: broadsword; dry-brush calligraphy 「妇好之钺」 | Action: (scene action, Chinese) 大钺一挥 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; a cold metallic glint on the blade; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: lingering wind after battle; SFX: bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「甲骨上的裂纹，指向西方——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 妇好凯旋，又主持祭祀。她先武丁而卒，葬于殷都宫殿区附近，王还为她卜问冥福。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「妇好凯旋，又主持祭祀。她先武丁而卒，葬于殷都宫殿区附近，王还为她卜问冥福。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation; vermilion seal 「妇好」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source\n\nSound: Music: bronze drums, solemn and primal, building gradually and cutting to silence before the climax; ambience: calm river, palace hall reverb, camp drums, distant battle, lingering wind after battle; SFX: cracking oracle bone, distant drums, horn, clashing weapons, rain of arrows, bronze bell; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「妇好」, subtitle 「女将出征」, vermilion seal 「妇好」 at upper right; subtitles: Simplified Chinese, bottom centre; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    }
+   }
   },
   {
    "outlineId": "02-06",
@@ -8962,7 +9579,161 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "商 · （约前 13 世纪中叶）。夯土宫殿、青铜礼器、甲骨占卜、战车。",
+     "en": "Shang dynasty (c. 1600–1046 BCE), c. 1247 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots."
+    },
+    "characters": [
+     {
+      "id": "wuding",
+      "name": "武丁",
+      "nameEn": "Wu Ding",
+      "onScreen": true,
+      "zh": "武丁（商·商王）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 13 世纪中叶）；思复兴殷，夜梦得圣人名说",
+      "en": "Wu Ding (武丁) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in c. 1247 BCE"
+     },
+     {
+      "id": "fuyue",
+      "name": "傅说",
+      "nameEn": "Fu Shuo",
+      "onScreen": true,
+      "zh": "傅说（商·相）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 13 世纪中叶）；本为胥靡，筑于傅险，举以为相",
+      "en": "Fu Shuo (傅说) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1247 BCE"
+     },
+     {
+      "id": "zuji",
+      "name": "祖己",
+      "nameEn": "Zu Ji",
+      "onScreen": false,
+      "zh": "祖己（商·贤臣）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 13 世纪中叶）；雉雊之时劝武丁先修政事",
+      "en": "Zu Ji (祖己) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1247 BCE"
+     },
+     {
+      "id": "zhongzai",
+      "name": "冢宰",
+      "nameEn": "Zhong Zai",
+      "onScreen": false,
+      "zh": "冢宰（商·执政大臣）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 13 世纪中叶）；武丁不言时决定政事",
+      "en": "Zhong Zai (冢宰) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1247 BCE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [
+       "wuding"
+      ],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：殿柱、屋檐；主体：武丁｜动作：殷都宫中，新王一言不发｜水墨效果：宣纸留白淡入｜声音：环境：宫殿回响｜屏幕文字：片名「举于版筑」竖排书法与朱印「傅险」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: palace pillars, palace eaves; subject: Wu Ding | Action: (scene action, Chinese) 殷都宫中，新王一言不发 | Ink FX: fade in from blank xuan paper | Sound: ambience: palace hall reverb | On-screen text: vertical brush-calligraphy title 「举于版筑」 with vermilion seal 「傅险」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [
+       "fuyue"
+      ],
+      "vo": "武丁即位，想要复兴殷商，却找不到能辅佐他的人。他三年不说话，政事都交给冢宰决断，自己在一旁观察国中的风气。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：远景：月、云；主体：傅说｜动作：夜里，他梦见一个人的面容｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：夜风；音效：风铃｜屏幕文字：底部旁白字幕｜旁白：「武丁即位，想要复兴殷商，却找不到能辅佐他的人。他三年不说话，政事都交给冢宰决断，自己在一旁观察国中的风气。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: background: moon, clouds; subject: Fu Shuo | Action: (scene action, Chinese) 夜里，他梦见一个人的面容 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: night wind; SFX: wind chimes | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「武丁即位，想要复兴殷商，却找不到能辅佐他的人。他三年不说话，政事都交给冢宰决断，自己在一旁观察国中的风气。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [],
+      "vo": "一天夜里，他梦见一位圣人，名叫说。醒来后拿梦中的样子去对照群臣百官，都不是。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：远景：远山；中景：说；主体：众人｜动作：百官拿着画像，四处寻访｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：脚步声｜屏幕文字：引文「得说于傅险中。是时说为胥靡，筑于傅险。」竖排楷书；底部旁白字幕｜旁白：「一天夜里，他梦见一位圣人，名叫说。醒来后拿梦中的样子去对照群臣百官，都不是。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: background: distant mountains; midground: 说; subject: crowd | Action: (scene action, Chinese) 百官拿着画像，四处寻访 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: footsteps | On-screen text: vertical kaishu quotation 「得说于傅险中。是时说为胥靡，筑于傅险。」; Chinese subtitles at bottom | VO (Mandarin): 「一天夜里，他梦见一位圣人，名叫说。醒来后拿梦中的样子去对照群臣百官，都不是。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [
+       "fuyue"
+      ],
+      "vo": "于是派百工到野外去找。在傅险这个地方，有个正在服役筑墙的刑徒。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：远景：皴法山石；中景：沙；主体：傅说｜动作：傅险的工地上，一个刑徒在夯土筑墙｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：伐木｜屏幕文字：底部旁白字幕｜旁白：「于是派百工到野外去找。在傅险这个地方，有个正在服役筑墙的刑徒。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: background: textured rocks; midground: sand; subject: Fu Shuo | Action: (scene action, Chinese) 傅险的工地上，一个刑徒在夯土筑墙 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: wood chopping | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「于是派百工到野外去找。在傅险这个地方，有个正在服役筑墙的刑徒。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [
+       "wuding",
+       "fuyue"
+      ],
+      "vo": "他抬起头，满身泥土——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：主体：武丁、傅说；飞白题字「是也」｜动作：武丁见到他，说：就是他｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：寂静室内；音效：青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「他抬起头，满身泥土——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: subject: Wu Ding, Fu Shuo; dry-brush calligraphy 「是也」 | Action: (scene action, Chinese) 武丁见到他，说：就是他 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: quiet room tone; SFX: bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「他抬起头，满身泥土——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [
+       "wuding",
+       "fuyue"
+      ],
+      "vo": "武丁与说交谈，果然是圣人，就举他为相，以傅险为姓，号傅说。殷国大治，武丁修政行德，天下咸驩，殷道复兴。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：武丁、傅说｜动作：正史结局：武丁与说交谈，果然是圣人，就举他为相，以傅险为姓，号傅说。殷国大治，武丁修政行德，天下咸驩，殷道复兴。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「武丁与说交谈，果然是圣人，就举他为相，以傅险为姓，号傅说。殷国大治，武丁修政行德，天下咸驩，殷道复兴。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Wu Ding, Fu Shuo | Action: (canonical outcome, Chinese) 武丁与说交谈，果然是圣人，就举他为相，以傅险为姓，号傅说。殷国大治，武丁修政行德，天下咸驩，殷道复兴。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「武丁与说交谈，果然是圣人，就举他为相，以傅险为姓，号傅说。殷国大治，武丁修政行德，天下咸驩，殷道复兴。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "得说于傅险中。是时说为胥靡，筑于傅险。",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「得说于傅险中。是时说为胥靡，筑于傅险。」，下署《史记·殷本纪》；右下角朱印「傅险」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「得说于傅险中。是时说为胥靡，筑于傅险。」",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「得说于傅险中。是时说为胥靡，筑于傅险。」 signed 《史记·殷本纪》; vermilion seal 「傅险」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「得说于傅险中。是时说为胥靡，筑于傅险。」"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：宫殿回响、夜风、旷野风声、寂静室内；音效：风铃、脚步声、伐木、青铜钟声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: palace hall reverb, night wind, wind over open plains, quiet room tone; SFX: wind chimes, footsteps, wood chopping, bronze bell; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「举于版筑」，副题「傅说」，朱印「傅险」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「得说于傅险中。是时说为胥靡，筑于傅险。」——《史记·殷本纪》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「举于版筑」, subtitle 「傅说」, vermilion seal 「傅险」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「得说于傅险中。是时说为胥靡，筑于傅险。」 — 《史记·殷本纪》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    },
+    "narration": [
+     "武丁即位，想要复兴殷商，却找不到能辅佐他的人。他三年不说话，政事都交给冢宰决断，自己在一旁观察国中的风气。",
+     "一天夜里，他梦见一位圣人，名叫说。醒来后拿梦中的样子去对照群臣百官，都不是。",
+     "于是派百工到野外去找。在傅险这个地方，有个正在服役筑墙的刑徒。",
+     "他抬起头，满身泥土——",
+     "武丁与说交谈，果然是圣人，就举他为相，以傅险为姓，号傅说。殷国大治，武丁修政行德，天下咸驩，殷道复兴。",
+     "得说于傅险中。是时说为胥靡，筑于傅险。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】商 · 举于版筑（傅说）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：商 · （约前 13 世纪中叶）。夯土宫殿、青铜礼器、甲骨占卜、战车。\n\n人物：\n- 武丁（商·商王）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 13 世纪中叶）；思复兴殷，夜梦得圣人名说\n- 傅说（商·相）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 13 世纪中叶）；本为胥靡，筑于傅险，举以为相\n- 祖己（商·贤臣）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 13 世纪中叶）；雉雊之时劝武丁先修政事\n- 冢宰（商·执政大臣）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 13 世纪中叶）；武丁不言时决定政事\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：殿柱、屋檐；主体：武丁｜动作：殷都宫中，新王一言不发｜水墨效果：宣纸留白淡入｜声音：环境：宫殿回响｜屏幕文字：片名「举于版筑」竖排书法与朱印「傅险」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：远景：月、云；主体：傅说｜动作：夜里，他梦见一个人的面容｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：夜风；音效：风铃｜屏幕文字：底部旁白字幕｜旁白：「武丁即位，想要复兴殷商，却找不到能辅佐他的人。他三年不说话，政事都交给冢宰决断，自己在一旁观察国中的风气。」\n镜头 3（26–50 秒，24 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：远景：远山；中景：说；主体：众人｜动作：百官拿着画像，四处寻访｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：脚步声｜屏幕文字：引文「得说于傅险中。是时说为胥靡，筑于傅险。」竖排楷书；底部旁白字幕｜旁白：「一天夜里，他梦见一位圣人，名叫说。醒来后拿梦中的样子去对照群臣百官，都不是。」\n镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：远景：皴法山石；中景：沙；主体：傅说｜动作：傅险的工地上，一个刑徒在夯土筑墙｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：伐木｜屏幕文字：底部旁白字幕｜旁白：「于是派百工到野外去找。在傅险这个地方，有个正在服役筑墙的刑徒。」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：主体：武丁、傅说；飞白题字「是也」｜动作：武丁见到他，说：就是他｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：寂静室内；音效：青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「他抬起头，满身泥土——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：武丁、傅说｜动作：正史结局：武丁与说交谈，果然是圣人，就举他为相，以傅险为姓，号傅说。殷国大治，武丁修政行德，天下咸驩，殷道复兴。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「武丁与说交谈，果然是圣人，就举他为相，以傅险为姓，号傅说。殷国大治，武丁修政行德，天下咸驩，殷道复兴。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「得说于傅险中。是时说为胥靡，筑于傅险。」，下署《史记·殷本纪》；右下角朱印「傅险」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「得说于傅险中。是时说为胥靡，筑于傅险。」\n\n声音：背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：宫殿回响、夜风、旷野风声、寂静室内；音效：风铃、脚步声、伐木、青铜钟声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「举于版筑」，副题「傅说」，朱印「傅险」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「得说于傅险中。是时说为胥靡，筑于傅险。」——《史记·殷本纪》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "[Ink-wash video prompt] Shang dynasty (c. 1600–1046 BCE) · \"举于版筑\" (傅说)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Shang dynasty (c. 1600–1046 BCE), c. 1247 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots.\n\nCharacters:\n- Wu Ding (武丁) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in c. 1247 BCE\n- Fu Shuo (傅说) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1247 BCE\n- Zu Ji (祖己) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1247 BCE\n- Zhong Zai (冢宰) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1247 BCE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: palace pillars, palace eaves; subject: Wu Ding | Action: (scene action, Chinese) 殷都宫中，新王一言不发 | Ink FX: fade in from blank xuan paper | Sound: ambience: palace hall reverb | On-screen text: vertical brush-calligraphy title 「举于版筑」 with vermilion seal 「傅险」\nShot 2 (10–26 s, 16 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: background: moon, clouds; subject: Fu Shuo | Action: (scene action, Chinese) 夜里，他梦见一个人的面容 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: night wind; SFX: wind chimes | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「武丁即位，想要复兴殷商，却找不到能辅佐他的人。他三年不说话，政事都交给冢宰决断，自己在一旁观察国中的风气。」\nShot 3 (26–50 s, 24 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: background: distant mountains; midground: 说; subject: crowd | Action: (scene action, Chinese) 百官拿着画像，四处寻访 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: footsteps | On-screen text: vertical kaishu quotation 「得说于傅险中。是时说为胥靡，筑于傅险。」; Chinese subtitles at bottom | VO (Mandarin): 「一天夜里，他梦见一位圣人，名叫说。醒来后拿梦中的样子去对照群臣百官，都不是。」\nShot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: background: textured rocks; midground: sand; subject: Fu Shuo | Action: (scene action, Chinese) 傅险的工地上，一个刑徒在夯土筑墙 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: wood chopping | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「于是派百工到野外去找。在傅险这个地方，有个正在服役筑墙的刑徒。」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: subject: Wu Ding, Fu Shuo; dry-brush calligraphy 「是也」 | Action: (scene action, Chinese) 武丁见到他，说：就是他 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: quiet room tone; SFX: bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「他抬起头，满身泥土——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Wu Ding, Fu Shuo | Action: (canonical outcome, Chinese) 武丁与说交谈，果然是圣人，就举他为相，以傅险为姓，号傅说。殷国大治，武丁修政行德，天下咸驩，殷道复兴。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「武丁与说交谈，果然是圣人，就举他为相，以傅险为姓，号傅说。殷国大治，武丁修政行德，天下咸驩，殷道复兴。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「得说于傅险中。是时说为胥靡，筑于傅险。」 signed 《史记·殷本纪》; vermilion seal 「傅险」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「得说于傅险中。是时说为胥靡，筑于傅险。」\n\nSound: Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: palace hall reverb, night wind, wind over open plains, quiet room tone; SFX: wind chimes, footsteps, wood chopping, bronze bell; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「举于版筑」, subtitle 「傅说」, vermilion seal 「傅险」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「得说于傅险中。是时说为胥靡，筑于傅险。」 — 《史记·殷本纪》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    }
+   }
   },
   {
    "outlineId": "02-07",
@@ -10579,7 +11350,152 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "商 · （约前 1147—前 1113 年）。夯土宫殿、青铜礼器、甲骨占卜、战车。",
+     "en": "Shang dynasty (c. 1600–1046 BCE), 1147 BCE–1113 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots."
+    },
+    "characters": [
+     {
+      "id": "wuyi",
+      "name": "武乙",
+      "nameEn": "Wu Yi",
+      "onScreen": true,
+      "zh": "武乙（商·商王）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 1147—前 1113 年）；无道，为偶人谓之天神，射革囊之血，命曰射天",
+      "en": "Wu Yi (武乙) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in 1147 BCE–1113 BCE"
+     },
+     {
+      "id": "ouren",
+      "name": "偶人",
+      "nameEn": "Ou Ren",
+      "onScreen": true,
+      "zh": "偶人（商·木偶“天神”）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为约前 1147—前 1113 年）；与武乙博戏，代者行棋",
+      "en": "Ou Ren (偶人) — commoner, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1147 BCE–1113 BCE"
+     },
+     {
+      "id": "jili",
+      "name": "季历",
+      "nameEn": "Ji Li",
+      "onScreen": false,
+      "zh": "季历（周·周人首领）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为约前 1147—前 1113 年）；武乙之世征伐诸戎，周人渐强",
+      "en": "Ji Li (季历) — general, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; general in full armour, sword or weapon in hand; age as historically attested in 1147 BCE–1113 BCE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [
+       "ouren"
+      ],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：殿柱、屋檐；主体：偶人｜动作：殷都宫中，一个木偶披着天神的衣裳｜水墨效果：宣纸留白淡入｜声音：环境：宫殿回响｜屏幕文字：片名「射天」竖排书法与朱印「射天」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: palace pillars, palace eaves; subject: Ou Ren | Action: (scene action, Chinese) 殷都宫中，一个木偶披着天神的衣裳 | Ink FX: fade in from blank xuan paper | Sound: ambience: palace hall reverb | On-screen text: vertical brush-calligraphy title 「射天」 with vermilion seal 「射天」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [
+       "wuyi",
+       "ouren"
+      ],
+      "vo": "武乙是商代后期的王。《殷本纪》说他无道。他做了一个木偶，说这就是天神，和它下棋，让旁人替木偶走。天神输了，他就羞辱它。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：主体：武乙、偶人｜动作：王与木偶对坐博戏，旁人替木偶行棋｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：骰子｜屏幕文字：底部旁白字幕｜旁白：「武乙是商代后期的王。《殷本纪》说他无道。他做了一个木偶，说这就是天神，和它下棋，让旁人替木偶走。天神输了，他就羞辱它。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: subject: Wu Yi, Ou Ren | Action: (scene action, Chinese) 王与木偶对坐博戏，旁人替木偶行棋 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: dice | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「武乙是商代后期的王。《殷本纪》说他无道。他做了一个木偶，说这就是天神，和它下棋，让旁人替木偶走。天神输了，他就羞辱它。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [
+       "wuyi"
+      ],
+      "vo": "他又做了一个皮囊，盛满了血，挂在高处，仰面用箭去射，叫作“射天”。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：树、树冠；主体：武乙、弓箭｜动作：革囊高悬，里面盛满了血｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：绳索｜屏幕文字：引文「为革囊，盛血，仰而射之，命曰“射天”。」竖排楷书；底部旁白字幕｜旁白：「他又做了一个皮囊，盛满了血，挂在高处，仰面用箭去射，叫作“射天”。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: trees, tree canopy; subject: Wu Yi, bow | Action: (scene action, Chinese) 革囊高悬，里面盛满了血 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: rope | On-screen text: vertical kaishu quotation 「为革囊，盛血，仰而射之，命曰“射天”。」; Chinese subtitles at bottom | VO (Mandarin): 「他又做了一个皮囊，盛满了血，挂在高处，仰面用箭去射，叫作“射天”。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [],
+      "vo": "那时候，西方的周人首领季历，正在一个接一个地征伐戎狄。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：主体：弓箭；飞白题字「射天」｜动作：他拉开弓，一箭射穿革囊｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：战后余风；音效：箭矢破空｜屏幕文字：底部旁白字幕｜旁白：「那时候，西方的周人首领季历，正在一个接一个地征伐戎狄。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: subject: bow; dry-brush calligraphy 「射天」 | Action: (scene action, Chinese) 他拉开弓，一箭射穿革囊 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: lingering wind after battle; SFX: whistling arrow | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「那时候，西方的周人首领季历，正在一个接一个地征伐戎狄。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [
+       "wuyi"
+      ],
+      "vo": "武乙到黄河与渭水之间打猎，天上响起了雷——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：远景：云；中景：河水；主体：武乙；飞白题字「雨」｜动作：河渭之间，乌云压下来｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；水墨流动晕染；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：暴风雨；音效：雷声｜屏幕文字：底部旁白字幕｜旁白：「武乙到黄河与渭水之间打猎，天上响起了雷——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: background: clouds; midground: river; subject: Wu Yi; dry-brush calligraphy 「雨」 | Action: (scene action, Chinese) 河渭之间，乌云压下来 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; flowing ink wash bleeding across the paper; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: storm; SFX: thunder | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「武乙到黄河与渭水之间打猎，天上响起了雷——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [
+       "wuyi"
+      ],
+      "vo": "暴雷，武乙震死。他的儿子太丁继位。殷商的王位再传两代，就到了纣。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：武乙｜动作：正史结局：暴雷，武乙震死。他的儿子太丁继位。殷商的王位再传两代，就到了纣。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「暴雷，武乙震死。他的儿子太丁继位。殷商的王位再传两代，就到了纣。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Wu Yi | Action: (canonical outcome, Chinese) 暴雷，武乙震死。他的儿子太丁继位。殷商的王位再传两代，就到了纣。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「暴雷，武乙震死。他的儿子太丁继位。殷商的王位再传两代，就到了纣。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "为革囊，盛血，仰而射之，命曰“射天”。",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「为革囊，盛血，仰而射之，命曰“射天”。」，下署《史记·殷本纪》；右下角朱印「射天」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「为革囊，盛血，仰而射之，命曰“射天”。」",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「为革囊，盛血，仰而射之，命曰“射天”。」 signed 《史记·殷本纪》; vermilion seal 「射天」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「为革囊，盛血，仰而射之，命曰“射天”。」"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：宫殿回响、旷野风声、战后余风、暴风雨；音效：骰子、绳索、箭矢破空、雷声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: palace hall reverb, wind over open plains, lingering wind after battle, storm; SFX: dice, rope, whistling arrow, thunder; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「射天」，副题「武乙」，朱印「射天」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「为革囊，盛血，仰而射之，命曰“射天”。」——《史记·殷本纪》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「射天」, subtitle 「武乙」, vermilion seal 「射天」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「为革囊，盛血，仰而射之，命曰“射天”。」 — 《史记·殷本纪》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    },
+    "narration": [
+     "武乙是商代后期的王。《殷本纪》说他无道。他做了一个木偶，说这就是天神，和它下棋，让旁人替木偶走。天神输了，他就羞辱它。",
+     "他又做了一个皮囊，盛满了血，挂在高处，仰面用箭去射，叫作“射天”。",
+     "那时候，西方的周人首领季历，正在一个接一个地征伐戎狄。",
+     "武乙到黄河与渭水之间打猎，天上响起了雷——",
+     "暴雷，武乙震死。他的儿子太丁继位。殷商的王位再传两代，就到了纣。",
+     "为革囊，盛血，仰而射之，命曰“射天”。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】商 · 射天（武乙）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：商 · （约前 1147—前 1113 年）。夯土宫殿、青铜礼器、甲骨占卜、战车。\n\n人物：\n- 武乙（商·商王）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 1147—前 1113 年）；无道，为偶人谓之天神，射革囊之血，命曰射天\n- 偶人（商·木偶“天神”）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为约前 1147—前 1113 年）；与武乙博戏，代者行棋\n- 季历（周·周人首领）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为约前 1147—前 1113 年）；武乙之世征伐诸戎，周人渐强\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：殿柱、屋檐；主体：偶人｜动作：殷都宫中，一个木偶披着天神的衣裳｜水墨效果：宣纸留白淡入｜声音：环境：宫殿回响｜屏幕文字：片名「射天」竖排书法与朱印「射天」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：主体：武乙、偶人｜动作：王与木偶对坐博戏，旁人替木偶行棋｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：骰子｜屏幕文字：底部旁白字幕｜旁白：「武乙是商代后期的王。《殷本纪》说他无道。他做了一个木偶，说这就是天神，和它下棋，让旁人替木偶走。天神输了，他就羞辱它。」\n镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：树、树冠；主体：武乙、弓箭｜动作：革囊高悬，里面盛满了血｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：绳索｜屏幕文字：引文「为革囊，盛血，仰而射之，命曰“射天”。」竖排楷书；底部旁白字幕｜旁白：「他又做了一个皮囊，盛满了血，挂在高处，仰面用箭去射，叫作“射天”。」\n镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：主体：弓箭；飞白题字「射天」｜动作：他拉开弓，一箭射穿革囊｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：战后余风；音效：箭矢破空｜屏幕文字：底部旁白字幕｜旁白：「那时候，西方的周人首领季历，正在一个接一个地征伐戎狄。」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：远景：云；中景：河水；主体：武乙；飞白题字「雨」｜动作：河渭之间，乌云压下来｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；水墨流动晕染；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：暴风雨；音效：雷声｜屏幕文字：底部旁白字幕｜旁白：「武乙到黄河与渭水之间打猎，天上响起了雷——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：武乙｜动作：正史结局：暴雷，武乙震死。他的儿子太丁继位。殷商的王位再传两代，就到了纣。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「暴雷，武乙震死。他的儿子太丁继位。殷商的王位再传两代，就到了纣。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「为革囊，盛血，仰而射之，命曰“射天”。」，下署《史记·殷本纪》；右下角朱印「射天」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「为革囊，盛血，仰而射之，命曰“射天”。」\n\n声音：背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：宫殿回响、旷野风声、战后余风、暴风雨；音效：骰子、绳索、箭矢破空、雷声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「射天」，副题「武乙」，朱印「射天」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「为革囊，盛血，仰而射之，命曰“射天”。」——《史记·殷本纪》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "[Ink-wash video prompt] Shang dynasty (c. 1600–1046 BCE) · \"射天\" (武乙)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Shang dynasty (c. 1600–1046 BCE), 1147 BCE–1113 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots.\n\nCharacters:\n- Wu Yi (武乙) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in 1147 BCE–1113 BCE\n- Ou Ren (偶人) — commoner, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1147 BCE–1113 BCE\n- Ji Li (季历) — general, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; general in full armour, sword or weapon in hand; age as historically attested in 1147 BCE–1113 BCE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: palace pillars, palace eaves; subject: Ou Ren | Action: (scene action, Chinese) 殷都宫中，一个木偶披着天神的衣裳 | Ink FX: fade in from blank xuan paper | Sound: ambience: palace hall reverb | On-screen text: vertical brush-calligraphy title 「射天」 with vermilion seal 「射天」\nShot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: subject: Wu Yi, Ou Ren | Action: (scene action, Chinese) 王与木偶对坐博戏，旁人替木偶行棋 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: dice | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「武乙是商代后期的王。《殷本纪》说他无道。他做了一个木偶，说这就是天神，和它下棋，让旁人替木偶走。天神输了，他就羞辱它。」\nShot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: trees, tree canopy; subject: Wu Yi, bow | Action: (scene action, Chinese) 革囊高悬，里面盛满了血 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: rope | On-screen text: vertical kaishu quotation 「为革囊，盛血，仰而射之，命曰“射天”。」; Chinese subtitles at bottom | VO (Mandarin): 「他又做了一个皮囊，盛满了血，挂在高处，仰面用箭去射，叫作“射天”。」\nShot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: subject: bow; dry-brush calligraphy 「射天」 | Action: (scene action, Chinese) 他拉开弓，一箭射穿革囊 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: lingering wind after battle; SFX: whistling arrow | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「那时候，西方的周人首领季历，正在一个接一个地征伐戎狄。」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: background: clouds; midground: river; subject: Wu Yi; dry-brush calligraphy 「雨」 | Action: (scene action, Chinese) 河渭之间，乌云压下来 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; flowing ink wash bleeding across the paper; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: storm; SFX: thunder | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「武乙到黄河与渭水之间打猎，天上响起了雷——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Wu Yi | Action: (canonical outcome, Chinese) 暴雷，武乙震死。他的儿子太丁继位。殷商的王位再传两代，就到了纣。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「暴雷，武乙震死。他的儿子太丁继位。殷商的王位再传两代，就到了纣。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「为革囊，盛血，仰而射之，命曰“射天”。」 signed 《史记·殷本纪》; vermilion seal 「射天」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「为革囊，盛血，仰而射之，命曰“射天”。」\n\nSound: Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: palace hall reverb, wind over open plains, lingering wind after battle, storm; SFX: dice, rope, whistling arrow, thunder; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「射天」, subtitle 「武乙」, vermilion seal 「射天」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「为革囊，盛血，仰而射之，命曰“射天”。」 — 《史记·殷本纪》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    }
+   }
   },
   {
    "outlineId": "02-08",
@@ -12413,7 +13329,176 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "商 · （约前 11 世纪中叶）。夯土宫殿、青铜礼器、甲骨占卜、战车。",
+     "en": "Shang dynasty (c. 1600–1046 BCE), c. 1060 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots."
+    },
+    "characters": [
+     {
+      "id": "xibo",
+      "name": "姬昌",
+      "nameEn": "Ji Chang",
+      "onScreen": true,
+      "zh": "姬昌（周·西伯（周文王））：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 11 世纪中叶）；积善累德，诸侯向之；被囚羑里",
+      "en": "Ji Chang (姬昌) — ruler, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in c. 1060 BCE"
+     },
+     {
+      "id": "zhou",
+      "name": "纣",
+      "nameEn": "Zhou",
+      "onScreen": true,
+      "zh": "纣（商·商王）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 11 世纪中叶）；听崇侯虎之谮囚西伯，得美女宝物而赦之",
+      "en": "Zhou (纣) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in c. 1060 BCE"
+     },
+     {
+      "id": "hongyao",
+      "name": "闳夭",
+      "nameEn": "Hong Yao",
+      "onScreen": true,
+      "zh": "闳夭（周·周臣）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 11 世纪中叶）；求美女宝马，因费仲献纣",
+      "en": "Hong Yao (闳夭) — minister, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1060 BCE"
+     },
+     {
+      "id": "feizhong",
+      "name": "费仲",
+      "nameEn": "Fei Zhong",
+      "onScreen": true,
+      "zh": "费仲（商·纣之嬖臣）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 11 世纪中叶）；受周之献而为西伯说情",
+      "en": "Fei Zhong (费仲) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1060 BCE"
+     },
+     {
+      "id": "chonghouhu",
+      "name": "崇侯虎",
+      "nameEn": "Chong Houhu",
+      "onScreen": false,
+      "zh": "崇侯虎（崇·崇国之君）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 11 世纪中叶）；谮西伯于纣",
+      "en": "Chong Houhu (崇侯虎) — minister, 崇 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1060 BCE"
+     },
+     {
+      "id": "boyikao",
+      "name": "伯邑考",
+      "nameEn": "Bo Yikao",
+      "onScreen": false,
+      "zh": "伯邑考（周·西伯长子）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 11 世纪中叶）；《封神演义》中入朝赎父",
+      "en": "Bo Yikao (伯邑考) — royal / consort, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1060 BCE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山；中景：城墙雉堞、关门｜动作：朝歌城外，羑里的围墙｜水墨效果：宣纸留白淡入｜声音：环境：旷野风声｜屏幕文字：片名「羑里」竖排书法与朱印「羑里」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains; midground: crenellated city wall, gate | Action: (scene action, Chinese) 朝歌城外，羑里的围墙 | Ink FX: fade in from blank xuan paper | Sound: ambience: wind over open plains | On-screen text: vertical brush-calligraphy title 「羑里」 with vermilion seal 「羑里」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [
+       "xibo"
+      ],
+      "vo": "西伯姬昌积善累德，诸侯都向着他。崇侯虎对纣说：西伯这样下去，对帝不利。纣就把西伯囚禁在羑里。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：卦；主体：姬昌｜动作：囚室里，一个老人用蓍草排着卦｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：寂静室内；音效：竹简翻动｜屏幕文字：底部旁白字幕｜旁白：「西伯姬昌积善累德，诸侯都向着他。崇侯虎对纣说：西伯这样下去，对帝不利。纣就把西伯囚禁在羑里。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: 卦; subject: Ji Chang | Action: (scene action, Chinese) 囚室里，一个老人用蓍草排着卦 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: quiet room tone; SFX: bamboo slips rustling | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「西伯姬昌积善累德，诸侯都向着他。崇侯虎对纣说：西伯这样下去，对帝不利。纣就把西伯囚禁在羑里。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [
+       "hongyao"
+      ],
+      "vo": "司马迁后来写道：西伯被拘的时候，推演了《周易》。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：主体：闳夭、众人、骑兵｜动作：周人四处搜求美女、文马与奇物｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；墨点四散（如马蹄踏墨）｜声音：环境：旷野风声；音效：马蹄声｜屏幕文字：引文「此一物足以释西伯，况其多乎！」竖排楷书；底部旁白字幕｜旁白：「司马迁后来写道：西伯被拘的时候，推演了《周易》。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: subject: Hong Yao, crowd, cavalry | Action: (scene action, Chinese) 周人四处搜求美女、文马与奇物 | Ink FX: ink-bleed transition from the previous shot; ink dispersing outward like hoofprints in wet ink | Sound: ambience: wind over open plains; SFX: hoofbeats | On-screen text: vertical kaishu quotation 「此一物足以释西伯，况其多乎！」; Chinese subtitles at bottom | VO (Mandarin): 「司马迁后来写道：西伯被拘的时候，推演了《周易》。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [
+       "feizhong",
+       "zhou"
+      ],
+      "vo": "周人闳夭等人忧心忡忡，找来有莘氏的美女、骊戎的文马、有熊氏的九驷，通过纣的宠臣费仲献了上去。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：殿柱、屋檐；主体：费仲、纣｜动作：宝物经费仲之手送到纣的面前｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「周人闳夭等人忧心忡忡，找来有莘氏的美女、骊戎的文马、有熊氏的九驷，通过纣的宠臣费仲献了上去。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: palace pillars, palace eaves; subject: Fei Zhong, Zhou | Action: (scene action, Chinese) 宝物经费仲之手送到纣的面前 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「周人闳夭等人忧心忡忡，找来有莘氏的美女、骊戎的文马、有熊氏的九驷，通过纣的宠臣费仲献了上去。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [
+       "zhou"
+      ],
+      "vo": "纣看着这些东西，大喜——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：主体：纣；飞白题字「赦」｜动作：纣大笑：这一样就足以放他了｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：宫殿回响；音效：城门闭合｜屏幕文字：底部旁白字幕｜旁白：「纣看着这些东西，大喜——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: subject: Zhou; dry-brush calligraphy 「赦」 | Action: (scene action, Chinese) 纣大笑：这一样就足以放他了 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: palace hall reverb; SFX: gate slamming shut | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「纣看着这些东西，大喜——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [
+       "zhou"
+      ],
+      "vo": "纣赦西伯，赐之弓矢斧钺，使得专征伐。西伯归周，献洛西之地，请纣除炮格之刑，纣许之。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：纣｜动作：正史结局：纣赦西伯，赐之弓矢斧钺，使得专征伐。西伯归周，献洛西之地，请纣除炮格之刑，纣许之。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「纣赦西伯，赐之弓矢斧钺，使得专征伐。西伯归周，献洛西之地，请纣除炮格之刑，纣许之。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Zhou | Action: (canonical outcome, Chinese) 纣赦西伯，赐之弓矢斧钺，使得专征伐。西伯归周，献洛西之地，请纣除炮格之刑，纣许之。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「纣赦西伯，赐之弓矢斧钺，使得专征伐。西伯归周，献洛西之地，请纣除炮格之刑，纣许之。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "此一物足以释西伯，况其多乎！",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「此一物足以释西伯，况其多乎！」，下署《史记·周本纪》；右下角朱印「羑里」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「此一物足以释西伯，况其多乎！」",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「此一物足以释西伯，况其多乎！」 signed 《史记·周本纪》; vermilion seal 「羑里」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「此一物足以释西伯，况其多乎！」"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：旷野风声、寂静室内、宫殿回响；音效：竹简翻动、马蹄声、青铜钟声、城门闭合；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: wind over open plains, quiet room tone, palace hall reverb; SFX: bamboo slips rustling, hoofbeats, bronze bell, gate slamming shut; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「羑里」，副题「西伯拘而演易」，朱印「羑里」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「此一物足以释西伯，况其多乎！」——《史记·周本纪》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「羑里」, subtitle 「西伯拘而演易」, vermilion seal 「羑里」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「此一物足以释西伯，况其多乎！」 — 《史记·周本纪》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    },
+    "narration": [
+     "西伯姬昌积善累德，诸侯都向着他。崇侯虎对纣说：西伯这样下去，对帝不利。纣就把西伯囚禁在羑里。",
+     "司马迁后来写道：西伯被拘的时候，推演了《周易》。",
+     "周人闳夭等人忧心忡忡，找来有莘氏的美女、骊戎的文马、有熊氏的九驷，通过纣的宠臣费仲献了上去。",
+     "纣看着这些东西，大喜——",
+     "纣赦西伯，赐之弓矢斧钺，使得专征伐。西伯归周，献洛西之地，请纣除炮格之刑，纣许之。",
+     "此一物足以释西伯，况其多乎！"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】商 · 羑里（西伯拘而演易）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：商 · （约前 11 世纪中叶）。夯土宫殿、青铜礼器、甲骨占卜、战车。\n\n人物：\n- 姬昌（周·西伯（周文王））：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 11 世纪中叶）；积善累德，诸侯向之；被囚羑里\n- 纣（商·商王）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 11 世纪中叶）；听崇侯虎之谮囚西伯，得美女宝物而赦之\n- 闳夭（周·周臣）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 11 世纪中叶）；求美女宝马，因费仲献纣\n- 费仲（商·纣之嬖臣）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 11 世纪中叶）；受周之献而为西伯说情\n- 崇侯虎（崇·崇国之君）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；文臣朝服与官帽，持笏或文书；年龄依史实（此时为约前 11 世纪中叶）；谮西伯于纣\n- 伯邑考（周·西伯长子）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 11 世纪中叶）；《封神演义》中入朝赎父\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山；中景：城墙雉堞、关门｜动作：朝歌城外，羑里的围墙｜水墨效果：宣纸留白淡入｜声音：环境：旷野风声｜屏幕文字：片名「羑里」竖排书法与朱印「羑里」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：卦；主体：姬昌｜动作：囚室里，一个老人用蓍草排着卦｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：寂静室内；音效：竹简翻动｜屏幕文字：底部旁白字幕｜旁白：「西伯姬昌积善累德，诸侯都向着他。崇侯虎对纣说：西伯这样下去，对帝不利。纣就把西伯囚禁在羑里。」\n镜头 3（26–50 秒，24 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：主体：闳夭、众人、骑兵｜动作：周人四处搜求美女、文马与奇物｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；墨点四散（如马蹄踏墨）｜声音：环境：旷野风声；音效：马蹄声｜屏幕文字：引文「此一物足以释西伯，况其多乎！」竖排楷书；底部旁白字幕｜旁白：「司马迁后来写道：西伯被拘的时候，推演了《周易》。」\n镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：殿柱、屋檐；主体：费仲、纣｜动作：宝物经费仲之手送到纣的面前｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「周人闳夭等人忧心忡忡，找来有莘氏的美女、骊戎的文马、有熊氏的九驷，通过纣的宠臣费仲献了上去。」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：主体：纣；飞白题字「赦」｜动作：纣大笑：这一样就足以放他了｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：宫殿回响；音效：城门闭合｜屏幕文字：底部旁白字幕｜旁白：「纣看着这些东西，大喜——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：纣｜动作：正史结局：纣赦西伯，赐之弓矢斧钺，使得专征伐。西伯归周，献洛西之地，请纣除炮格之刑，纣许之。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「纣赦西伯，赐之弓矢斧钺，使得专征伐。西伯归周，献洛西之地，请纣除炮格之刑，纣许之。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「此一物足以释西伯，况其多乎！」，下署《史记·周本纪》；右下角朱印「羑里」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「此一物足以释西伯，况其多乎！」\n\n声音：背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：旷野风声、寂静室内、宫殿回响；音效：竹简翻动、马蹄声、青铜钟声、城门闭合；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「羑里」，副题「西伯拘而演易」，朱印「羑里」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「此一物足以释西伯，况其多乎！」——《史记·周本纪》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "[Ink-wash video prompt] Shang dynasty (c. 1600–1046 BCE) · \"羑里\" (西伯拘而演易)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Shang dynasty (c. 1600–1046 BCE), c. 1060 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots.\n\nCharacters:\n- Ji Chang (姬昌) — ruler, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in c. 1060 BCE\n- Zhou (纣) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in c. 1060 BCE\n- Hong Yao (闳夭) — minister, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1060 BCE\n- Fei Zhong (费仲) — minister, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1060 BCE\n- Chong Houhu (崇侯虎) — minister, 崇 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; civil official's court robe and cap, holding a tablet or documents; age as historically attested in c. 1060 BCE\n- Bo Yikao (伯邑考) — royal / consort, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1060 BCE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains; midground: crenellated city wall, gate | Action: (scene action, Chinese) 朝歌城外，羑里的围墙 | Ink FX: fade in from blank xuan paper | Sound: ambience: wind over open plains | On-screen text: vertical brush-calligraphy title 「羑里」 with vermilion seal 「羑里」\nShot 2 (10–26 s, 16 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: 卦; subject: Ji Chang | Action: (scene action, Chinese) 囚室里，一个老人用蓍草排着卦 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: quiet room tone; SFX: bamboo slips rustling | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「西伯姬昌积善累德，诸侯都向着他。崇侯虎对纣说：西伯这样下去，对帝不利。纣就把西伯囚禁在羑里。」\nShot 3 (26–50 s, 24 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: subject: Hong Yao, crowd, cavalry | Action: (scene action, Chinese) 周人四处搜求美女、文马与奇物 | Ink FX: ink-bleed transition from the previous shot; ink dispersing outward like hoofprints in wet ink | Sound: ambience: wind over open plains; SFX: hoofbeats | On-screen text: vertical kaishu quotation 「此一物足以释西伯，况其多乎！」; Chinese subtitles at bottom | VO (Mandarin): 「司马迁后来写道：西伯被拘的时候，推演了《周易》。」\nShot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: palace pillars, palace eaves; subject: Fei Zhong, Zhou | Action: (scene action, Chinese) 宝物经费仲之手送到纣的面前 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「周人闳夭等人忧心忡忡，找来有莘氏的美女、骊戎的文马、有熊氏的九驷，通过纣的宠臣费仲献了上去。」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: subject: Zhou; dry-brush calligraphy 「赦」 | Action: (scene action, Chinese) 纣大笑：这一样就足以放他了 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: palace hall reverb; SFX: gate slamming shut | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「纣看着这些东西，大喜——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Zhou | Action: (canonical outcome, Chinese) 纣赦西伯，赐之弓矢斧钺，使得专征伐。西伯归周，献洛西之地，请纣除炮格之刑，纣许之。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「纣赦西伯，赐之弓矢斧钺，使得专征伐。西伯归周，献洛西之地，请纣除炮格之刑，纣许之。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「此一物足以释西伯，况其多乎！」 signed 《史记·周本纪》; vermilion seal 「羑里」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「此一物足以释西伯，况其多乎！」\n\nSound: Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: wind over open plains, quiet room tone, palace hall reverb; SFX: bamboo slips rustling, hoofbeats, bronze bell, gate slamming shut; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「羑里」, subtitle 「西伯拘而演易」, vermilion seal 「羑里」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「此一物足以释西伯，况其多乎！」 — 《史记·周本纪》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    }
+   }
   },
   {
    "outlineId": "02-09",
@@ -14270,7 +15355,161 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "商 · （约前 11 世纪中叶）。夯土宫殿、青铜礼器、甲骨占卜、战车。",
+     "en": "Shang dynasty (c. 1600–1046 BCE), c. 1050 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots."
+    },
+    "characters": [
+     {
+      "id": "bigan",
+      "name": "比干",
+      "nameEn": "Bi Gan",
+      "onScreen": true,
+      "zh": "比干（商·王子、少师）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 11 世纪中叶）；强谏于纣，被剖心",
+      "en": "Bi Gan (比干) — royal / consort, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1050 BCE"
+     },
+     {
+      "id": "jizi",
+      "name": "箕子",
+      "nameEn": "Ji Zi",
+      "onScreen": true,
+      "zh": "箕子（商·纣之亲戚）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 11 世纪中叶）；见象箸而忧；佯狂为奴，被囚",
+      "en": "Ji Zi (箕子) — royal / consort, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1050 BCE"
+     },
+     {
+      "id": "weizi",
+      "name": "微子启",
+      "nameEn": "Wei Ziqi",
+      "onScreen": true,
+      "zh": "微子启（商·纣之庶兄）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 11 世纪中叶）；数谏不听，与太师、少师谋而去",
+      "en": "Wei Ziqi (微子启) — royal / consort, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1050 BCE"
+     },
+     {
+      "id": "zhou",
+      "name": "纣",
+      "nameEn": "Zhou",
+      "onScreen": true,
+      "zh": "纣（商·商王）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 11 世纪中叶）；淫乱不止，剖比干以观其心",
+      "en": "Zhou (纣) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in c. 1050 BCE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [
+       "zhou"
+      ],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：殿柱、屋檐；主体：纣、火｜动作：宫中宴上，一双象牙筷子｜水墨效果：宣纸留白淡入；热浪与烟气扭曲｜声音：环境：宫殿回响；音效：鼓声｜屏幕文字：片名「殷有三仁」竖排书法与朱印「三仁」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: palace pillars, palace eaves; subject: Zhou, fire (splashed ink) | Action: (scene action, Chinese) 宫中宴上，一双象牙筷子 | Ink FX: fade in from blank xuan paper; heat-haze and smoke distortion | Sound: ambience: palace hall reverb; SFX: drum | On-screen text: vertical brush-calligraphy title 「殷有三仁」 with vermilion seal 「三仁」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [
+       "jizi"
+      ],
+      "vo": "纣开始用象牙做筷子。箕子叹道：用了象牙筷，就要用玉杯；用了玉杯，就要远方的珍奇。奢侈从此开始了。纣越发淫乱。他的庶兄微子屡次劝谏不听，与太师、少师商量后离开了。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：殿柱、屋檐；主体：箕子｜动作：箕子看着筷子，长叹一声｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：风铃｜屏幕文字：底部旁白字幕｜旁白：「纣开始用象牙做筷子。箕子叹道：用了象牙筷，就要用玉杯；用了玉杯，就要远方的珍奇。奢侈从此开始了。纣越发淫乱。他的庶兄微子屡次劝谏不听，与太师、少师商量后离开了。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: palace pillars, palace eaves; subject: Ji Zi | Action: (scene action, Chinese) 箕子看着筷子，长叹一声 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: wind chimes | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「纣开始用象牙做筷子。箕子叹道：用了象牙筷，就要用玉杯；用了玉杯，就要远方的珍奇。奢侈从此开始了。纣越发淫乱。他的庶兄微子屡次劝谏不听，与太师、少师商量后离开了。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [
+       "weizi"
+      ],
+      "vo": "王子比干说：做臣子的，不能不以死相争。他强行进谏。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：远景：月；中景：城墙雉堞、关门；主体：微子启｜动作：微子夜里出城，回头望了一眼｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：夜风；音效：脚步声｜屏幕文字：引文「为人臣者，不得不以死争。」竖排楷书；底部旁白字幕｜旁白：「王子比干说：做臣子的，不能不以死相争。他强行进谏。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: background: moon; midground: crenellated city wall, gate; subject: Wei Ziqi | Action: (scene action, Chinese) 微子夜里出城，回头望了一眼 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: night wind; SFX: footsteps | On-screen text: vertical kaishu quotation 「为人臣者，不得不以死争。」; Chinese subtitles at bottom | VO (Mandarin): 「王子比干说：做臣子的，不能不以死相争。他强行进谏。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [
+       "bigan"
+      ],
+      "vo": "纣发怒了。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：殿柱、屋檐；主体：比干｜动作：比干跪在阶下，一连三日不肯起身｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：鼓声｜屏幕文字：底部旁白字幕｜旁白：「纣发怒了。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: palace pillars, palace eaves; subject: Bi Gan | Action: (scene action, Chinese) 比干跪在阶下，一连三日不肯起身 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: drum | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「纣发怒了。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [
+       "zhou"
+      ],
+      "vo": "他说：我听说圣人的心有七个孔——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：主体：纣；飞白题字「七窍」｜动作：纣站起来：听说圣人的心有七个孔｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：寂静室内；音效：墨击重音｜屏幕文字：底部旁白字幕｜旁白：「他说：我听说圣人的心有七个孔——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: subject: Zhou; dry-brush calligraphy 「七窍」 | Action: (scene action, Chinese) 纣站起来：听说圣人的心有七个孔 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: quiet room tone; SFX: heavy ink-hit accent | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「他说：我听说圣人的心有七个孔——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [
+       "zhou"
+      ],
+      "vo": "纣剖比干，观其心。箕子惧，佯狂为奴，纣又囚之。殷的太师、少师抱着祭器乐器奔周。不久，武王伐纣。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：纣｜动作：正史结局：纣剖比干，观其心。箕子惧，佯狂为奴，纣又囚之。殷的太师、少师抱着祭器乐器奔周。不久，武王伐纣。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「纣剖比干，观其心。箕子惧，佯狂为奴，纣又囚之。殷的太师、少师抱着祭器乐器奔周。不久，武王伐纣。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Zhou | Action: (canonical outcome, Chinese) 纣剖比干，观其心。箕子惧，佯狂为奴，纣又囚之。殷的太师、少师抱着祭器乐器奔周。不久，武王伐纣。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「纣剖比干，观其心。箕子惧，佯狂为奴，纣又囚之。殷的太师、少师抱着祭器乐器奔周。不久，武王伐纣。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "为人臣者，不得不以死争。",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「为人臣者，不得不以死争。」，下署《史记·殷本纪》；右下角朱印「三仁」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「为人臣者，不得不以死争。」",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「为人臣者，不得不以死争。」 signed 《史记·殷本纪》; vermilion seal 「三仁」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「为人臣者，不得不以死争。」"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：宫殿回响、夜风、寂静室内；音效：鼓声、风铃、脚步声、墨击重音；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: palace hall reverb, night wind, quiet room tone; SFX: drum, wind chimes, footsteps, heavy ink-hit accent; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「殷有三仁」，副题「比干」，朱印「三仁」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「为人臣者，不得不以死争。」——《史记·殷本纪》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「殷有三仁」, subtitle 「比干」, vermilion seal 「三仁」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「为人臣者，不得不以死争。」 — 《史记·殷本纪》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    },
+    "narration": [
+     "纣开始用象牙做筷子。箕子叹道：用了象牙筷，就要用玉杯；用了玉杯，就要远方的珍奇。奢侈从此开始了。纣越发淫乱。他的庶兄微子屡次劝谏不听，与太师、少师商量后离开了。",
+     "王子比干说：做臣子的，不能不以死相争。他强行进谏。",
+     "纣发怒了。",
+     "他说：我听说圣人的心有七个孔——",
+     "纣剖比干，观其心。箕子惧，佯狂为奴，纣又囚之。殷的太师、少师抱着祭器乐器奔周。不久，武王伐纣。",
+     "为人臣者，不得不以死争。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】商 · 殷有三仁（比干）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：商 · （约前 11 世纪中叶）。夯土宫殿、青铜礼器、甲骨占卜、战车。\n\n人物：\n- 比干（商·王子、少师）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 11 世纪中叶）；强谏于纣，被剖心\n- 箕子（商·纣之亲戚）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 11 世纪中叶）；见象箸而忧；佯狂为奴，被囚\n- 微子启（商·纣之庶兄）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 11 世纪中叶）；数谏不听，与太师、少师谋而去\n- 纣（商·商王）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 11 世纪中叶）；淫乱不止，剖比干以观其心\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：殿柱、屋檐；主体：纣、火｜动作：宫中宴上，一双象牙筷子｜水墨效果：宣纸留白淡入；热浪与烟气扭曲｜声音：环境：宫殿回响；音效：鼓声｜屏幕文字：片名「殷有三仁」竖排书法与朱印「三仁」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：殿柱、屋檐；主体：箕子｜动作：箕子看着筷子，长叹一声｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：风铃｜屏幕文字：底部旁白字幕｜旁白：「纣开始用象牙做筷子。箕子叹道：用了象牙筷，就要用玉杯；用了玉杯，就要远方的珍奇。奢侈从此开始了。纣越发淫乱。他的庶兄微子屡次劝谏不听，与太师、少师商量后离开了。」\n镜头 3（26–50 秒，24 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：远景：月；中景：城墙雉堞、关门；主体：微子启｜动作：微子夜里出城，回头望了一眼｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：夜风；音效：脚步声｜屏幕文字：引文「为人臣者，不得不以死争。」竖排楷书；底部旁白字幕｜旁白：「王子比干说：做臣子的，不能不以死相争。他强行进谏。」\n镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：殿柱、屋檐；主体：比干｜动作：比干跪在阶下，一连三日不肯起身｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：鼓声｜屏幕文字：底部旁白字幕｜旁白：「纣发怒了。」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：主体：纣；飞白题字「七窍」｜动作：纣站起来：听说圣人的心有七个孔｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：寂静室内；音效：墨击重音｜屏幕文字：底部旁白字幕｜旁白：「他说：我听说圣人的心有七个孔——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：纣｜动作：正史结局：纣剖比干，观其心。箕子惧，佯狂为奴，纣又囚之。殷的太师、少师抱着祭器乐器奔周。不久，武王伐纣。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「纣剖比干，观其心。箕子惧，佯狂为奴，纣又囚之。殷的太师、少师抱着祭器乐器奔周。不久，武王伐纣。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「为人臣者，不得不以死争。」，下署《史记·殷本纪》；右下角朱印「三仁」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「为人臣者，不得不以死争。」\n\n声音：背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：宫殿回响、夜风、寂静室内；音效：鼓声、风铃、脚步声、墨击重音；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「殷有三仁」，副题「比干」，朱印「三仁」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「为人臣者，不得不以死争。」——《史记·殷本纪》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "[Ink-wash video prompt] Shang dynasty (c. 1600–1046 BCE) · \"殷有三仁\" (比干)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Shang dynasty (c. 1600–1046 BCE), c. 1050 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots.\n\nCharacters:\n- Bi Gan (比干) — royal / consort, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1050 BCE\n- Ji Zi (箕子) — royal / consort, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1050 BCE\n- Wei Ziqi (微子启) — royal / consort, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1050 BCE\n- Zhou (纣) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in c. 1050 BCE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: palace pillars, palace eaves; subject: Zhou, fire (splashed ink) | Action: (scene action, Chinese) 宫中宴上，一双象牙筷子 | Ink FX: fade in from blank xuan paper; heat-haze and smoke distortion | Sound: ambience: palace hall reverb; SFX: drum | On-screen text: vertical brush-calligraphy title 「殷有三仁」 with vermilion seal 「三仁」\nShot 2 (10–26 s, 16 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: palace pillars, palace eaves; subject: Ji Zi | Action: (scene action, Chinese) 箕子看着筷子，长叹一声 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: wind chimes | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「纣开始用象牙做筷子。箕子叹道：用了象牙筷，就要用玉杯；用了玉杯，就要远方的珍奇。奢侈从此开始了。纣越发淫乱。他的庶兄微子屡次劝谏不听，与太师、少师商量后离开了。」\nShot 3 (26–50 s, 24 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: background: moon; midground: crenellated city wall, gate; subject: Wei Ziqi | Action: (scene action, Chinese) 微子夜里出城，回头望了一眼 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: night wind; SFX: footsteps | On-screen text: vertical kaishu quotation 「为人臣者，不得不以死争。」; Chinese subtitles at bottom | VO (Mandarin): 「王子比干说：做臣子的，不能不以死相争。他强行进谏。」\nShot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: palace pillars, palace eaves; subject: Bi Gan | Action: (scene action, Chinese) 比干跪在阶下，一连三日不肯起身 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: drum | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「纣发怒了。」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: subject: Zhou; dry-brush calligraphy 「七窍」 | Action: (scene action, Chinese) 纣站起来：听说圣人的心有七个孔 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: quiet room tone; SFX: heavy ink-hit accent | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「他说：我听说圣人的心有七个孔——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Zhou | Action: (canonical outcome, Chinese) 纣剖比干，观其心。箕子惧，佯狂为奴，纣又囚之。殷的太师、少师抱着祭器乐器奔周。不久，武王伐纣。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「纣剖比干，观其心。箕子惧，佯狂为奴，纣又囚之。殷的太师、少师抱着祭器乐器奔周。不久，武王伐纣。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「为人臣者，不得不以死争。」 signed 《史记·殷本纪》; vermilion seal 「三仁」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「为人臣者，不得不以死争。」\n\nSound: Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: palace hall reverb, night wind, quiet room tone; SFX: drum, wind chimes, footsteps, heavy ink-hit accent; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「殷有三仁」, subtitle 「比干」, vermilion seal 「三仁」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「为人臣者，不得不以死争。」 — 《史记·殷本纪》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    }
+   }
   },
   {
    "outlineId": "02-10",
@@ -15964,7 +17203,159 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "商 · （约前 1047 年）。夯土宫殿、青铜礼器、甲骨占卜、战车。",
+     "en": "Shang dynasty (c. 1600–1046 BCE), c. 1047 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots."
+    },
+    "characters": [
+     {
+      "id": "boyi",
+      "name": "伯夷",
+      "nameEn": "Bo Yi",
+      "onScreen": true,
+      "zh": "伯夷（孤竹·孤竹君长子）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 1047 年）；让国于弟，叩马谏武王，义不食周粟",
+      "en": "Bo Yi (伯夷) — royal / consort, 孤竹 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1047 BCE"
+     },
+     {
+      "id": "shuqi",
+      "name": "叔齐",
+      "nameEn": "Shu Qi",
+      "onScreen": true,
+      "zh": "叔齐（孤竹·孤竹君三子）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 1047 年）；不受父命，随兄出奔",
+      "en": "Shu Qi (叔齐) — royal / consort, 孤竹 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1047 BCE"
+     },
+     {
+      "id": "wuwang",
+      "name": "周武王",
+      "nameEn": "Zhou Wuwang",
+      "onScreen": true,
+      "zh": "周武王（周·周王）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 1047 年）；载文王木主东伐",
+      "en": "Zhou Wuwang (周武王) — ruler, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in c. 1047 BCE"
+     },
+     {
+      "id": "taigong",
+      "name": "太公望",
+      "nameEn": "Tai Gongwang",
+      "onScreen": false,
+      "zh": "太公望（周·师尚父）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为约前 1047 年）；称二人为义人，扶而去之",
+      "en": "Tai Gongwang (太公望) — general, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; general in full armour, sword or weapon in hand; age as historically attested in c. 1047 BCE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [
+       "boyi",
+       "shuqi"
+      ],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：殿柱、屋檐；主体：伯夷、叔齐｜动作：孤竹国，两位公子把君位推来推去｜水墨效果：宣纸留白淡入｜声音：环境：宫殿回响｜屏幕文字：片名「叩马而谏」竖排书法与朱印「采薇」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: palace pillars, palace eaves; subject: Bo Yi, Shu Qi | Action: (scene action, Chinese) 孤竹国，两位公子把君位推来推去 | Ink FX: fade in from blank xuan paper | Sound: ambience: palace hall reverb | On-screen text: vertical brush-calligraphy title 「叩马而谏」 with vermilion seal 「采薇」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [
+       "boyi"
+      ],
+      "vo": "伯夷、叔齐是孤竹国君的两个儿子。父亲想立叔齐，叔齐让给伯夷，伯夷不受，两人都出走了。他们听说西伯善养老人，就去投奔。走到时，西伯已经死了。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：远景：远山；中景：近山与地面；主体：伯夷｜动作：他们一路西行，投奔西伯｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：脚步声｜屏幕文字：底部旁白字幕｜旁白：「伯夷、叔齐是孤竹国君的两个儿子。父亲想立叔齐，叔齐让给伯夷，伯夷不受，两人都出走了。他们听说西伯善养老人，就去投奔。走到时，西伯已经死了。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: background: distant mountains; midground: near hills and ground; subject: Bo Yi | Action: (scene action, Chinese) 他们一路西行，投奔西伯 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: footsteps | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「伯夷、叔齐是孤竹国君的两个儿子。父亲想立叔齐，叔齐让给伯夷，伯夷不受，两人都出走了。他们听说西伯善养老人，就去投奔。走到时，西伯已经死了。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [
+       "wuwang"
+      ],
+      "vo": "武王载着文王的木主，向东去讨伐纣。两人拦住马头进谏。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：主体：周武王、军阵、长兵如林、旌旗｜动作：大军东出，车上载着文王的木主｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：战鼓｜屏幕文字：引文「以臣弑君，可谓仁乎？」竖排楷书；底部旁白字幕｜旁白：「武王载着文王的木主，向东去讨伐纣。两人拦住马头进谏。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: subject: Zhou Wuwang, army ranks, forest of spears, banners | Action: (scene action, Chinese) 大军东出，车上载着文王的木主 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: war drums | On-screen text: vertical kaishu quotation 「以臣弑君，可谓仁乎？」; Chinese subtitles at bottom | VO (Mandarin): 「武王载着文王的木主，向东去讨伐纣。两人拦住马头进谏。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [
+       "shuqi",
+       "boyi"
+      ],
+      "vo": "左右的人要动刀，太公说：这是义人。把他们扶到一边。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：主体：叔齐、伯夷、骑兵｜动作：两个老人拦住马头｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；墨点四散（如马蹄踏墨）｜声音：环境：旷野风声；音效：马嘶｜屏幕文字：底部旁白字幕｜旁白：「左右的人要动刀，太公说：这是义人。把他们扶到一边。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: subject: Shu Qi, Bo Yi, cavalry | Action: (scene action, Chinese) 两个老人拦住马头 | Ink FX: ink-bleed transition from the previous shot; ink dispersing outward like hoofprints in wet ink | Sound: ambience: wind over open plains; SFX: horse neigh | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「左右的人要动刀，太公说：这是义人。把他们扶到一边。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [],
+      "vo": "武王的大军继续前行。两个老人站在路边——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：近山与地面、草；飞白题字「薇」｜动作：首阳山上，只剩下野薇｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：战后余风；音效：风铃｜屏幕文字：底部旁白字幕｜旁白：「武王的大军继续前行。两个老人站在路边——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: near hills and ground, grass; dry-brush calligraphy 「薇」 | Action: (scene action, Chinese) 首阳山上，只剩下野薇 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: lingering wind after battle; SFX: wind chimes | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「武王的大军继续前行。两个老人站在路边——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "武王平殷乱，天下宗周。伯夷、叔齐耻之，义不食周粟，隐于首阳山，采薇而食，及饿且死，作歌曰：登彼西山兮，采其薇矣。遂饿死于首阳山。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：武王平殷乱，天下宗周。伯夷、叔齐耻之，义不食周粟，隐于首阳山，采薇而食，及饿且死，作歌曰：登彼西山兮，采其薇矣。遂饿死于首阳山。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「武王平殷乱，天下宗周。伯夷、叔齐耻之，义不食周粟，隐于首阳山，采薇而食，及饿且死，作歌曰：登彼西山兮，采其薇矣。遂饿死于首阳山。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 武王平殷乱，天下宗周。伯夷、叔齐耻之，义不食周粟，隐于首阳山，采薇而食，及饿且死，作歌曰：登彼西山兮，采其薇矣。遂饿死于首阳山。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「武王平殷乱，天下宗周。伯夷、叔齐耻之，义不食周粟，隐于首阳山，采薇而食，及饿且死，作歌曰：登彼西山兮，采其薇矣。遂饿死于首阳山。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "以臣弑君，可谓仁乎？",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「以臣弑君，可谓仁乎？」，下署《史记·伯夷列传》；右下角朱印「采薇」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「以臣弑君，可谓仁乎？」",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「以臣弑君，可谓仁乎？」 signed 《史记·伯夷列传》; vermilion seal 「采薇」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「以臣弑君，可谓仁乎？」"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：宫殿回响、旷野风声、战后余风；音效：脚步声、战鼓、马嘶、风铃；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: palace hall reverb, wind over open plains, lingering wind after battle; SFX: footsteps, war drums, horse neigh, wind chimes; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「叩马而谏」，副题「伯夷叔齐」，朱印「采薇」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「以臣弑君，可谓仁乎？」——《史记·伯夷列传》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「叩马而谏」, subtitle 「伯夷叔齐」, vermilion seal 「采薇」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「以臣弑君，可谓仁乎？」 — 《史记·伯夷列传》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    },
+    "narration": [
+     "伯夷、叔齐是孤竹国君的两个儿子。父亲想立叔齐，叔齐让给伯夷，伯夷不受，两人都出走了。他们听说西伯善养老人，就去投奔。走到时，西伯已经死了。",
+     "武王载着文王的木主，向东去讨伐纣。两人拦住马头进谏。",
+     "左右的人要动刀，太公说：这是义人。把他们扶到一边。",
+     "武王的大军继续前行。两个老人站在路边——",
+     "武王平殷乱，天下宗周。伯夷、叔齐耻之，义不食周粟，隐于首阳山，采薇而食，及饿且死，作歌曰：登彼西山兮，采其薇矣。遂饿死于首阳山。",
+     "以臣弑君，可谓仁乎？"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】商 · 叩马而谏（伯夷叔齐）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：商 · （约前 1047 年）。夯土宫殿、青铜礼器、甲骨占卜、战车。\n\n人物：\n- 伯夷（孤竹·孤竹君长子）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 1047 年）；让国于弟，叩马谏武王，义不食周粟\n- 叔齐（孤竹·孤竹君三子）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为约前 1047 年）；不受父命，随兄出奔\n- 周武王（周·周王）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为约前 1047 年）；载文王木主东伐\n- 太公望（周·师尚父）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为约前 1047 年）；称二人为义人，扶而去之\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：殿柱、屋檐；主体：伯夷、叔齐｜动作：孤竹国，两位公子把君位推来推去｜水墨效果：宣纸留白淡入｜声音：环境：宫殿回响｜屏幕文字：片名「叩马而谏」竖排书法与朱印「采薇」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：远景：远山；中景：近山与地面；主体：伯夷｜动作：他们一路西行，投奔西伯｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：脚步声｜屏幕文字：底部旁白字幕｜旁白：「伯夷、叔齐是孤竹国君的两个儿子。父亲想立叔齐，叔齐让给伯夷，伯夷不受，两人都出走了。他们听说西伯善养老人，就去投奔。走到时，西伯已经死了。」\n镜头 3（26–50 秒，24 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：主体：周武王、军阵、长兵如林、旌旗｜动作：大军东出，车上载着文王的木主｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：战鼓｜屏幕文字：引文「以臣弑君，可谓仁乎？」竖排楷书；底部旁白字幕｜旁白：「武王载着文王的木主，向东去讨伐纣。两人拦住马头进谏。」\n镜头 4（50–78 秒，28 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：主体：叔齐、伯夷、骑兵｜动作：两个老人拦住马头｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；墨点四散（如马蹄踏墨）｜声音：环境：旷野风声；音效：马嘶｜屏幕文字：底部旁白字幕｜旁白：「左右的人要动刀，太公说：这是义人。把他们扶到一边。」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：近山与地面、草；飞白题字「薇」｜动作：首阳山上，只剩下野薇｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：战后余风；音效：风铃｜屏幕文字：底部旁白字幕｜旁白：「武王的大军继续前行。两个老人站在路边——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：武王平殷乱，天下宗周。伯夷、叔齐耻之，义不食周粟，隐于首阳山，采薇而食，及饿且死，作歌曰：登彼西山兮，采其薇矣。遂饿死于首阳山。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「武王平殷乱，天下宗周。伯夷、叔齐耻之，义不食周粟，隐于首阳山，采薇而食，及饿且死，作歌曰：登彼西山兮，采其薇矣。遂饿死于首阳山。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「以臣弑君，可谓仁乎？」，下署《史记·伯夷列传》；右下角朱印「采薇」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「以臣弑君，可谓仁乎？」\n\n声音：背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：宫殿回响、旷野风声、战后余风；音效：脚步声、战鼓、马嘶、风铃；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「叩马而谏」，副题「伯夷叔齐」，朱印「采薇」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「以臣弑君，可谓仁乎？」——《史记·伯夷列传》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "[Ink-wash video prompt] Shang dynasty (c. 1600–1046 BCE) · \"叩马而谏\" (伯夷叔齐)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Shang dynasty (c. 1600–1046 BCE), c. 1047 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots.\n\nCharacters:\n- Bo Yi (伯夷) — royal / consort, 孤竹 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1047 BCE\n- Shu Qi (叔齐) — royal / consort, 孤竹 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in c. 1047 BCE\n- Zhou Wuwang (周武王) — ruler, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in c. 1047 BCE\n- Tai Gongwang (太公望) — general, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; general in full armour, sword or weapon in hand; age as historically attested in c. 1047 BCE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: palace pillars, palace eaves; subject: Bo Yi, Shu Qi | Action: (scene action, Chinese) 孤竹国，两位公子把君位推来推去 | Ink FX: fade in from blank xuan paper | Sound: ambience: palace hall reverb | On-screen text: vertical brush-calligraphy title 「叩马而谏」 with vermilion seal 「采薇」\nShot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: background: distant mountains; midground: near hills and ground; subject: Bo Yi | Action: (scene action, Chinese) 他们一路西行，投奔西伯 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: footsteps | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「伯夷、叔齐是孤竹国君的两个儿子。父亲想立叔齐，叔齐让给伯夷，伯夷不受，两人都出走了。他们听说西伯善养老人，就去投奔。走到时，西伯已经死了。」\nShot 3 (26–50 s, 24 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: subject: Zhou Wuwang, army ranks, forest of spears, banners | Action: (scene action, Chinese) 大军东出，车上载着文王的木主 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: war drums | On-screen text: vertical kaishu quotation 「以臣弑君，可谓仁乎？」; Chinese subtitles at bottom | VO (Mandarin): 「武王载着文王的木主，向东去讨伐纣。两人拦住马头进谏。」\nShot 4 (50–78 s, 28 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: subject: Shu Qi, Bo Yi, cavalry | Action: (scene action, Chinese) 两个老人拦住马头 | Ink FX: ink-bleed transition from the previous shot; ink dispersing outward like hoofprints in wet ink | Sound: ambience: wind over open plains; SFX: horse neigh | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「左右的人要动刀，太公说：这是义人。把他们扶到一边。」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: near hills and ground, grass; dry-brush calligraphy 「薇」 | Action: (scene action, Chinese) 首阳山上，只剩下野薇 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: lingering wind after battle; SFX: wind chimes | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「武王的大军继续前行。两个老人站在路边——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 武王平殷乱，天下宗周。伯夷、叔齐耻之，义不食周粟，隐于首阳山，采薇而食，及饿且死，作歌曰：登彼西山兮，采其薇矣。遂饿死于首阳山。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「武王平殷乱，天下宗周。伯夷、叔齐耻之，义不食周粟，隐于首阳山，采薇而食，及饿且死，作歌曰：登彼西山兮，采其薇矣。遂饿死于首阳山。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「以臣弑君，可谓仁乎？」 signed 《史记·伯夷列传》; vermilion seal 「采薇」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「以臣弑君，可谓仁乎？」\n\nSound: Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: palace hall reverb, wind over open plains, lingering wind after battle; SFX: footsteps, war drums, horse neigh, wind chimes; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「叩马而谏」, subtitle 「伯夷叔齐」, vermilion seal 「采薇」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「以臣弑君，可谓仁乎？」 — 《史记·伯夷列传》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    }
+   }
   },
   {
    "outlineId": "02-04",
@@ -17870,7 +19261,170 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "商 · （前 1046 年）。夯土宫殿、青铜礼器、甲骨占卜、战车。",
+     "en": "Shang dynasty (c. 1600–1046 BCE), 1046 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots."
+    },
+    "characters": [
+     {
+      "id": "wuwang",
+      "name": "周武王",
+      "nameEn": "Zhou Wuwang",
+      "onScreen": true,
+      "zh": "周武王（周·姬发）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为前 1046 年）；率诸侯伐纣，战于牧野",
+      "en": "Zhou Wuwang (周武王) — ruler, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in 1046 BCE"
+     },
+     {
+      "id": "shangfu",
+      "name": "师尚父",
+      "nameEn": "Shi Shangfu",
+      "onScreen": true,
+      "zh": "师尚父（周·吕尚，太公望）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为前 1046 年）；以大卒驰帝纣师",
+      "en": "Shi Shangfu (师尚父) — general, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; general in full armour, sword or weapon in hand; age as historically attested in 1046 BCE"
+     },
+     {
+      "id": "zhou",
+      "name": "纣",
+      "nameEn": "Zhou",
+      "onScreen": true,
+      "zh": "纣（商·帝辛）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为前 1046 年）；兵败，登鹿台自焚",
+      "en": "Zhou (纣) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in 1046 BCE"
+     },
+     {
+      "id": "zhougongdan",
+      "name": "周公旦",
+      "nameEn": "Zhou Gongdan",
+      "onScreen": false,
+      "zh": "周公旦（周·武王之弟）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为前 1046 年）；佐武王",
+      "en": "Zhou Gongdan (周公旦) — royal / consort, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in 1046 BCE"
+     },
+     {
+      "id": "weizi",
+      "name": "微子",
+      "nameEn": "Wei Zi",
+      "onScreen": false,
+      "zh": "微子（商·纣之庶兄）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为前 1046 年）；数谏不听，去之",
+      "en": "Wei Zi (微子) — royal / consort, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in 1046 BCE"
+     },
+     {
+      "id": "daji",
+      "name": "妲己",
+      "nameEn": "Da Ji",
+      "onScreen": false,
+      "zh": "妲己（商·纣之宠妃）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为前 1046 年）；《史记》载纣嬖之；《封神演义》写为狐妖",
+      "en": "Da Ji (妲己) — royal / consort, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in 1046 BCE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山；中景：近山与地面、殿柱、屋檐｜动作：商郊，晨雾之中远山与鹿台｜水墨效果：宣纸留白淡入｜声音：环境：旷野风声｜屏幕文字：片名「牧野」竖排书法与朱印「甲子朝」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains; midground: near hills and ground, palace pillars, palace eaves | Action: (scene action, Chinese) 商郊，晨雾之中远山与鹿台 | Ink FX: fade in from blank xuan paper | Sound: ambience: wind over open plains | On-screen text: vertical brush-calligraphy title 「牧野」 with vermilion seal 「甲子朝」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [],
+      "vo": "商纣之时，周人居西土，三分天下有其二。武王东观兵于孟津，诸侯不期而会者八百。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：河水、舟；主体：军阵、长兵如林｜动作：孟津：诸侯会师，渡河｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；水墨流动晕染｜声音：环境：平缓河水；音效：摇橹、远处鼓声｜屏幕文字：底部旁白字幕｜旁白：「商纣之时，周人居西土，三分天下有其二。武王东观兵于孟津，诸侯不期而会者八百。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: river, boat; subject: army ranks, forest of spears | Action: (scene action, Chinese) 孟津：诸侯会师，渡河 | Ink FX: ink-bleed transition from the previous shot; flowing ink wash bleeding across the paper | Sound: ambience: calm river; SFX: oars, distant drums | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「商纣之时，周人居西土，三分天下有其二。武王东观兵于孟津，诸侯不期而会者八百。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [
+       "wuwang",
+       "shangfu"
+      ],
+      "vo": "二月甲子昧爽，武王至于商郊牧野，誓师而战。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：主体：周武王、师尚父、旌旗｜动作：甲子昧爽，武王誓师于牧野｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：军营鼓声；音效：号角｜屏幕文字：引文「牝鸡之晨，惟家之索。」竖排楷书；底部旁白字幕｜旁白：「二月甲子昧爽，武王至于商郊牧野，誓师而战。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: subject: Zhou Wuwang, Shi Shangfu, banners | Action: (scene action, Chinese) 甲子昧爽，武王誓师于牧野 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: camp drums; SFX: horn | On-screen text: vertical kaishu quotation 「牝鸡之晨，惟家之索。」; Chinese subtitles at bottom | VO (Mandarin): 「二月甲子昧爽，武王至于商郊牧野，誓师而战。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [
+       "zhou"
+      ],
+      "vo": "纣发兵拒之。商师虽众，皆无战心，多有倒戈。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：手持式轻微震动，节奏急促｜构图：主体：纣、军阵、长兵如林、骑兵｜动作：纣师虽众，皆倒兵以战｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；墨点四散（如马蹄踏墨）｜声音：环境：远处厮杀声；音效：兵刃相击、众人呐喊｜屏幕文字：底部旁白字幕｜旁白：「纣发兵拒之。商师虽众，皆无战心，多有倒戈。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: subtle handheld shake, urgent rhythm | Composition: subject: Zhou, army ranks, forest of spears, cavalry | Action: (scene action, Chinese) 纣师虽众，皆倒兵以战 | Ink FX: ink-bleed transition from the previous shot; ink dispersing outward like hoofprints in wet ink | Sound: ambience: distant battle; SFX: clashing weapons, roaring crowd | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「纣发兵拒之。商师虽众，皆无战心，多有倒戈。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [],
+      "vo": "纣走入鹿台——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：主体：火；飞白题字「牧野一笔」｜动作：鹿台火起｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；热浪与烟气扭曲；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：火声；音效：烈火｜屏幕文字：底部旁白字幕｜旁白：「纣走入鹿台——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: subject: fire (splashed ink); dry-brush calligraphy 「牧野一笔」 | Action: (scene action, Chinese) 鹿台火起 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; heat-haze and smoke distortion; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: fire; SFX: roaring fire | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「纣走入鹿台——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "纣登鹿台自焚，武王入商，周代商而有天下。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：纣登鹿台自焚，武王入商，周代商而有天下。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「纣登鹿台自焚，武王入商，周代商而有天下。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 纣登鹿台自焚，武王入商，周代商而有天下。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「纣登鹿台自焚，武王入商，周代商而有天下。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "牝鸡之晨，惟家之索。",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「牝鸡之晨，惟家之索。」，下署《尚书·牧誓》；右下角朱印「甲子朝」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「牝鸡之晨，惟家之索。」",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「牝鸡之晨，惟家之索。」 signed 《尚书·牧誓》; vermilion seal 「甲子朝」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「牝鸡之晨，惟家之索。」"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：铜鼓，庄重原始，随剧情由缓入急、高潮前骤停留白；环境声：旷野风声、平缓河水、军营鼓声、远处厮杀声、火声；音效：摇橹、远处鼓声、号角、兵刃相击、众人呐喊、烈火；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: bronze drums, solemn and primal, building gradually and cutting to silence before the climax; ambience: wind over open plains, calm river, camp drums, distant battle, fire; SFX: oars, distant drums, horn, clashing weapons, roaring crowd, roaring fire; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「牧野」，副题「武王伐纣」，朱印「甲子朝」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「牝鸡之晨，惟家之索。」——《尚书·牧誓》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「牧野」, subtitle 「武王伐纣」, vermilion seal 「甲子朝」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「牝鸡之晨，惟家之索。」 — 《尚书·牧誓》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    },
+    "narration": [
+     "商纣之时，周人居西土，三分天下有其二。武王东观兵于孟津，诸侯不期而会者八百。",
+     "二月甲子昧爽，武王至于商郊牧野，誓师而战。",
+     "纣发兵拒之。商师虽众，皆无战心，多有倒戈。",
+     "纣走入鹿台——",
+     "纣登鹿台自焚，武王入商，周代商而有天下。",
+     "牝鸡之晨，惟家之索。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】商 · 牧野（武王伐纣）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：赭石、咖啡色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：商 · （前 1046 年）。夯土宫殿、青铜礼器、甲骨占卜、战车。\n\n人物：\n- 周武王（周·姬发）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为前 1046 年）；率诸侯伐纣，战于牧野\n- 师尚父（周·吕尚，太公望）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为前 1046 年）；以大卒驰帝纣师\n- 纣（商·帝辛）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为前 1046 年）；兵败，登鹿台自焚\n- 周公旦（周·武王之弟）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为前 1046 年）；佐武王\n- 微子（商·纣之庶兄）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为前 1046 年）；数谏不听，去之\n- 妲己（商·纣之宠妃）：交领右衽窄袖衣，玄赭二色，青铜钺与戈，贵族高冠；宫廷华服，发髻首饰精致；年龄依史实（此时为前 1046 年）；《史记》载纣嬖之；《封神演义》写为狐妖\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山；中景：近山与地面、殿柱、屋檐｜动作：商郊，晨雾之中远山与鹿台｜水墨效果：宣纸留白淡入｜声音：环境：旷野风声｜屏幕文字：片名「牧野」竖排书法与朱印「甲子朝」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：河水、舟；主体：军阵、长兵如林｜动作：孟津：诸侯会师，渡河｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；水墨流动晕染｜声音：环境：平缓河水；音效：摇橹、远处鼓声｜屏幕文字：底部旁白字幕｜旁白：「商纣之时，周人居西土，三分天下有其二。武王东观兵于孟津，诸侯不期而会者八百。」\n镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：主体：周武王、师尚父、旌旗｜动作：甲子昧爽，武王誓师于牧野｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：军营鼓声；音效：号角｜屏幕文字：引文「牝鸡之晨，惟家之索。」竖排楷书；底部旁白字幕｜旁白：「二月甲子昧爽，武王至于商郊牧野，誓师而战。」\n镜头 4（50–78 秒，28 秒）｜运镜：手持式轻微震动，节奏急促｜构图：主体：纣、军阵、长兵如林、骑兵｜动作：纣师虽众，皆倒兵以战｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；墨点四散（如马蹄踏墨）｜声音：环境：远处厮杀声；音效：兵刃相击、众人呐喊｜屏幕文字：底部旁白字幕｜旁白：「纣发兵拒之。商师虽众，皆无战心，多有倒戈。」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：主体：火；飞白题字「牧野一笔」｜动作：鹿台火起｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；热浪与烟气扭曲；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：火声；音效：烈火｜屏幕文字：底部旁白字幕｜旁白：「纣走入鹿台——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：纣登鹿台自焚，武王入商，周代商而有天下。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「纣登鹿台自焚，武王入商，周代商而有天下。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「牝鸡之晨，惟家之索。」，下署《尚书·牧誓》；右下角朱印「甲子朝」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「牝鸡之晨，惟家之索。」\n\n声音：背景乐：铜鼓，庄重原始，随剧情由缓入急、高潮前骤停留白；环境声：旷野风声、平缓河水、军营鼓声、远处厮杀声、火声；音效：摇橹、远处鼓声、号角、兵刃相击、众人呐喊、烈火；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「牧野」，副题「武王伐纣」，朱印「甲子朝」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「牝鸡之晨，惟家之索。」——《尚书·牧誓》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂、幞头与圆领袍、铁甲与马镫",
+     "en": "[Ink-wash video prompt] Shang dynasty (c. 1600–1046 BCE) · \"牧野\" (武王伐纣)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained terracotta ochre and brown accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Shang dynasty (c. 1600–1046 BCE), 1046 BCE — rammed-earth palaces, bronze ritual vessels, oracle-bone divination, chariots.\n\nCharacters:\n- Zhou Wuwang (周武王) — ruler, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in 1046 BCE\n- Shi Shangfu (师尚父) — general, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; general in full armour, sword or weapon in hand; age as historically attested in 1046 BCE\n- Zhou (纣) — ruler, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in 1046 BCE\n- Zhou Gongdan (周公旦) — royal / consort, 周 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in 1046 BCE\n- Wei Zi (微子) — royal / consort, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in 1046 BCE\n- Da Ji (妲己) — royal / consort, 商 camp; narrow-sleeved cross-collar robes in black and ochre, bronze axes and dagger-axes, tall noble caps; rich court dress, elaborate hair ornaments; age as historically attested in 1046 BCE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains; midground: near hills and ground, palace pillars, palace eaves | Action: (scene action, Chinese) 商郊，晨雾之中远山与鹿台 | Ink FX: fade in from blank xuan paper | Sound: ambience: wind over open plains | On-screen text: vertical brush-calligraphy title 「牧野」 with vermilion seal 「甲子朝」\nShot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: river, boat; subject: army ranks, forest of spears | Action: (scene action, Chinese) 孟津：诸侯会师，渡河 | Ink FX: ink-bleed transition from the previous shot; flowing ink wash bleeding across the paper | Sound: ambience: calm river; SFX: oars, distant drums | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「商纣之时，周人居西土，三分天下有其二。武王东观兵于孟津，诸侯不期而会者八百。」\nShot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: subject: Zhou Wuwang, Shi Shangfu, banners | Action: (scene action, Chinese) 甲子昧爽，武王誓师于牧野 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: camp drums; SFX: horn | On-screen text: vertical kaishu quotation 「牝鸡之晨，惟家之索。」; Chinese subtitles at bottom | VO (Mandarin): 「二月甲子昧爽，武王至于商郊牧野，誓师而战。」\nShot 4 (50–78 s, 28 s) | Camera: subtle handheld shake, urgent rhythm | Composition: subject: Zhou, army ranks, forest of spears, cavalry | Action: (scene action, Chinese) 纣师虽众，皆倒兵以战 | Ink FX: ink-bleed transition from the previous shot; ink dispersing outward like hoofprints in wet ink | Sound: ambience: distant battle; SFX: clashing weapons, roaring crowd | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「纣发兵拒之。商师虽众，皆无战心，多有倒戈。」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: subject: fire (splashed ink); dry-brush calligraphy 「牧野一笔」 | Action: (scene action, Chinese) 鹿台火起 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; heat-haze and smoke distortion; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: fire; SFX: roaring fire | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「纣走入鹿台——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 纣登鹿台自焚，武王入商，周代商而有天下。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「纣登鹿台自焚，武王入商，周代商而有天下。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「牝鸡之晨，惟家之索。」 signed 《尚书·牧誓》; vermilion seal 「甲子朝」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「牝鸡之晨，惟家之索。」\n\nSound: Music: bronze drums, solemn and primal, building gradually and cutting to silence before the climax; ambience: wind over open plains, calm river, camp drums, distant battle, fire; SFX: oars, distant drums, horn, clashing weapons, roaring crowd, roaring fire; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「牧野」, subtitle 「武王伐纣」, vermilion seal 「甲子朝」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「牝鸡之晨，惟家之索。」 — 《尚书·牧誓》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets, futou caps and round-collar robes, iron plate armour and stirrups"
+    }
+   }
   }
  ]
 }

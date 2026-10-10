@@ -1,4 +1,4 @@
-# 11 · 历史游戏内容数据格式（草案）
+# 历史游戏内容数据格式（草案）
 
 > 状态：**格式提案；规划期校验器已可运行**（`video/tools/validate.mjs`，§4.1）。数据：21 章 221 个场景全部为完整场景（`detail: 'full'`），其中首版发布批次 `v1` 66 个（§2.9）。运行时的叙事宿主模块（SceneDirector、StoryRuntime、CutscenePlayer、AudioBus、SaveStore、InkText，演示页 `/story/`）已在 main 上，尚未接入本格式的数据包。故事结构见 [故事与玩法](./story-design.md)，章节表见 [章节大纲](./chapter-outline.md)，运行时与引擎缺口见 [引擎缺口与路线](./engine-gaps.md)。
 > 引擎目标是 three.js + Matter.js。本格式只描述内容，不绑定渲染库：笔画、镜头、文字、音频都以“时间轴上的事件”表达，由运行时翻译成 three.js 调用。
@@ -467,6 +467,54 @@ export interface ArtPromptSegment {
 - 分类固定为 `cast / props / scenery / effects` 四类；没有素材的分类不产生段，因此大多数场景是 3–4 段。
 - `ref.prop` / `ref.parts` 用现有预设键（`sword`、`blade`、`banner`… 与其部件），`ref.actor` 用 `cast[].id`，方便抠图产物登记回引擎。
 - 画风基准是「写意水墨 + 焦墨/浓墨/淡墨分层 + 枯笔飞白 + 泼墨墨点飞溅，点缀色克制」，点缀色取章节 `look.palette`（对应 `src/core/ink-palette.ts` 的中文名与 RGB），不与具体某一幅参考图绑定。`grid` × `cellPx` 严格等于 `sizePx`（少量素材以空格补足至少 2 行）；按行列裁切前必须确认实际返回尺寸/alpha，必要时等比缩放加透明补边，不能直接把 `sizePx` 当作 API 的 `size` 传入。
+
+### 2.11 水墨视频生成提示词（videoPrompt）
+
+每个完整场景带一个 `videoPrompt`，给 AI 视频生成器用（用户把提示词贴进生成器出片）。它由 `node video/tools/build-video-prompts.mjs` 从场景自己的数据推出，**不手写**，所以和场景保持一致：
+
+| 来源 | 推出的内容 |
+|---|---|
+| `opening.shots` | 镜头 1–5：时长、动作（分镜 note） |
+| `opening.tracks.camera` 的 `label` | 运镜（still 固定远景、pan 横移、push 推近、shake 震动、climax 急推定格） |
+| `opening.tracks.strokes` 的图层与 `label` | 构图（far 远景 / sheet 中景 / actors 主体 / overlay 飞白题字）；`label` 与 `cast[].name` 相同的算出场人物 |
+| `opening.tracks.effects` | 水墨效果（淡入、晕染、墨散、金属寒光、定格……），镜与镜之间统一用墨晕转场 |
+| `opening.tracks.audio` | 背景乐乐器与情绪、环境声、音效 |
+| `opening.tracks.text` + `strings` | 旁白（普通话）、片名、朱印、引文字幕 |
+| `scene.endings` 中 `kind: 'canon'` 的结局 | 镜头 6：正史结局（拉远收束） |
+| 引文 `scene.<id>.quote` 与 caption 的 `source` | 镜头 7：落款（引文逐字写出、朱印落下） |
+| `cast` + 章 `order` | 人物造型：按朝代、阵营（匈奴/契丹/蒙古等另有装束）、身份推定服饰；年龄依史实，`title`/`bio` 里写明“少年”“老将”的照写 |
+| `chapter.look.palette` | 点缀色 |
+
+```ts
+interface Bilingual { zh: string; en: string }
+interface VideoPrompt {
+  version: 1;
+  generator: 'video/tools/build-video-prompts.mjs';
+  aspectRatio: '16:9';            // 横屏；竖屏 9:16 时主体居中（提示词里有说明）
+  resolution: [1920, 1080];
+  fps: 24;
+  durationSec: number;            // = 各镜 durationSec 之和（开场 90 秒 + 结局 10 秒 + 落款 6 秒）
+  style: Bilingual;               // 宣纸、五色墨、飞白泼墨、留白、朱砂点缀
+  setting: Bilingual;             // 朝代、年号、年份、时代场景细节
+  characters: { id: string; name: string; nameEn: string; onScreen: boolean; zh: string; en: string }[];
+  shots: {                        // 5–8 个（目前固定 7 个）
+    n: number; startSec: number; durationSec: number;
+    figures: string[];            // 出镜人物，cast id
+    vo: string;                   // 本镜旁白（中文）
+    zh: string; en: string;       // 单镜完整提示词：运镜｜构图｜动作｜水墨效果｜声音｜屏幕文字｜旁白
+  }[];
+  sound: Bilingual;
+  onScreenText: Bilingual;
+  negative: Bilingual;            // 负面提示词，含按朝代的时代错置项
+  narration: string[];            // 全部旁白，按镜头顺序
+  prompt: Bilingual;              // 整段可直接粘贴的完整提示词
+}
+```
+
+- 英文版人名用 `video/tools/name-pinyin.json`（`gen-name-pinyin.py` 用 pypinyin 生成，复姓、外族名、公主/皇后等另有修正）；表里没有的名字保留中文。镜头动作、旁白和屏幕文字在英文版里保留中文原文，因为这些文字要原样出现在画面或配音里。
+- 查看器的“水墨视频提示词”面板：中/英切换，整段复制、单镜复制，导出本章或全部场景为 Markdown / JSON。
+- 校验器检查：每个有开场的场景都有 `videoPrompt`；`prompt`、`negative` 中英俱全；镜头 5–8 个、时间连续、时长之和等于 `durationSec`；出镜人物都在 `cast` 里。
+- 和 `artPrompts` 一样，`videoPrompt` 只服务创作，运行时不读（`FullSceneEntry.videoPrompt` 为可选字段）。
 
 ## 3. 完整样例：易水寒 · 荆轲刺秦王
 
