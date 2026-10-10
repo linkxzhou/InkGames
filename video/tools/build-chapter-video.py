@@ -74,7 +74,7 @@ def run(cmd):
 
 def slow_clip(src, dst, factor, mode='mci'):
     """Stretch a clip by `factor` (>1 = slower) at synthesis time; mci = motion-compensated interpolation."""
-    key = f'{src}|{factor:.4f}|{mode}'
+    key = f'{src}|{os.path.getmtime(src)}|{factor:.4f}|{mode}'  # mtime: a re-graded or replaced clip invalidates the cache
     if os.path.exists(dst) and os.path.exists(dst + '.key') and open(dst + '.key').read() == key: return dst
     interp = {'mci': f',minterpolate=fps={FPS}:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1',
               'blend': f',minterpolate=fps={FPS}:mi_mode=blend'}.get(mode, f',fps={FPS}')
