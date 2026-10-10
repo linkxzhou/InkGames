@@ -45,7 +45,7 @@
 | [14-wudai](./14-wudai/README.md) | 五代十国 | 10 |
 | [15-beisong](./15-beisong/README.md) | 北宋 | 18 |
 | [16-liaojin](./16-liaojin/README.md) | 辽 · 西夏 · 金 | 11 |
-| [17-nansong](./17-nansong/README.md) | 南宋 | 10 |
+| [17-nansong](./17-nansong/README.md) | 南宋 | 14 |
 | [18-yuan](./18-yuan/README.md) | 元 | 11 |
 | [19-ming](./19-ming/README.md) | 明 | 26 |
 | [20-qing](./20-qing/README.md) | 清 | 26 |
