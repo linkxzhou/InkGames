@@ -1,6 +1,18 @@
 {
  "version": 1,
  "chapters": {
+  "shang": {
+   "title": {
+    "zh": "商",
+    "en": "Shang"
+   },
+   "mp4": "assets/chapter-videos/shang.mp4",
+   "poster": "assets/chapter-videos/shang-poster.jpg",
+   "posterWebp": "assets/chapter-videos/shang-poster.webp",
+   "durationSec": 65.12,
+   "shots": 8,
+   "audio": true
+  },
   "shanggu": {
    "title": {
     "zh": "上古",
