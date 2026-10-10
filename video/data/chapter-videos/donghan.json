@@ -47,7 +47,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "王莽改制",
    "narration": "王莽代汉建新，改币制、复井田，天下愈乱。",
    "ambience": [
@@ -58,7 +58,7 @@
    "motionPrompt": "incense drifts, the coins glint, the officials sway, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "donghan-01.jpg",
    "clip": "donghan-01.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 2,
@@ -67,7 +67,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "昆阳之战",
    "narration": "昆阳城下，刘秀率三千敢死者冲阵，雷雨大作，新军溃散。",
    "ambience": [
@@ -79,7 +79,7 @@
    "motionPrompt": "rain sheets sweep across, lightning flashes, banners tear in the wind, the frame holds still; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "donghan-02.jpg",
    "clip": "donghan-02.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 3,
@@ -88,7 +88,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "严子陵",
    "narration": "严光与光武同卧，以足加帝腹；太史奏客星犯御座。",
    "ambience": [
@@ -99,7 +99,7 @@
    "motionPrompt": "the river flows, the line sways, mist drifts, the star twinkles; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "donghan-03.jpg",
    "clip": "donghan-03.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 4,
@@ -108,7 +108,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "马革裹尸",
    "narration": "马援说：男儿当死于边野，以马革裹尸还葬耳。",
    "ambience": [
@@ -120,7 +120,7 @@
    "motionPrompt": "mist steams up from the jungle, leaves sway, the horse walks slowly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "donghan-04.jpg",
    "clip": "donghan-04.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 5,
@@ -129,7 +129,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "白马驮经",
    "narration": "明帝遣使求法，白马驮经东来，洛阳建起白马寺。",
    "ambience": [
@@ -140,7 +140,7 @@
    "motionPrompt": "the horse walks steadily, their robes stir, dust drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "donghan-05.jpg",
    "clip": "donghan-05.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 6,
@@ -149,7 +149,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "投笔从戎",
    "narration": "班超投笔从戎，夜率三十六人火攻匈奴使者，西域震服。",
    "ambience": [
@@ -160,7 +160,7 @@
    "motionPrompt": "wind drives sand across, the torch flame streams sideways, the tents billow; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "donghan-06.jpg",
    "clip": "donghan-06.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 7,
@@ -169,7 +169,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "燕然勒石",
    "narration": "窦宪大破北匈奴，登燕然山，班固作铭刻石而还。",
    "ambience": [
@@ -180,7 +180,7 @@
    "motionPrompt": "wind sweeps dust across the summit, banners stream, clouds move fast; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "donghan-07.jpg",
    "clip": "donghan-07.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 8,
@@ -189,7 +189,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "造纸与地动仪",
    "narration": "蔡伦造纸，张衡造地动仪，东汉的匠心留传至今。",
    "ambience": [
@@ -200,7 +200,7 @@
    "motionPrompt": "water drips from the mould, steam rises, a small ball on the urn trembles; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "donghan-08.jpg",
    "clip": "donghan-08.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 9,
@@ -209,7 +209,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "天知地知",
    "narration": "有人夜里送金，杨震说：天知，神知，我知，子知。",
    "ambience": [
@@ -220,7 +220,7 @@
    "motionPrompt": "the lamp flickers, curtains sway, the visitor bows lower; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "donghan-09.jpg",
    "clip": "donghan-09.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 10,
@@ -229,7 +229,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "党锢之祸",
    "narration": "宦官兴党锢之狱，李膺、范滂等名士相继下狱而死。",
    "ambience": [
@@ -240,7 +240,7 @@
    "motionPrompt": "rain falls, the line moves slowly forward, wet cloaks drip; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "donghan-10.jpg",
    "clip": "donghan-10.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 11,
@@ -249,7 +249,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.0,
    "zh": "黄巾起义",
    "narration": "苍天已死，黄天当立；张角一呼，三十六方同日而起。",
    "ambience": [
@@ -261,7 +261,17 @@
    "motionPrompt": "the headbands flutter, the crowd surges in waves, clouds churn; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "donghan-11.jpg",
    "clip": "donghan-11.mp4",
-   "status": "pending"
+   "status": "done"
   }
- ]
+ ],
+ "output": {
+  "mp4": "video/viewer/assets/chapter-videos/donghan.mp4",
+  "poster": "video/viewer/assets/chapter-videos/donghan-poster.jpg",
+  "durationSec": 87.0,
+  "crossfadeSec": 0.7,
+  "audio": true,
+  "narration": true,
+  "status": "done",
+  "loudnessLUFS": -16.0
+ }
 }
