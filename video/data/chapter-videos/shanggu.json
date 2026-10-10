@@ -105,7 +105,7 @@
     "water"
    ],
    "imagePrompt": "Waist-high wild grass in flat grey strokes along a river bank; a faceless man silhouette with a bundle of herbs holds a single leaf to his mouth; distant pale hills, wide empty paper; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering",
-   "motionPrompt": "tall grass sways around him, he turns his head and lifts a small leaf toward his mouth, a thin vermilion herb stalk stands in the distance, the camera pushes in toward his profile; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; keep the composition stable, no morphing, no new objects, no text",
+   "motionPrompt": "tall grass sways around him, he turns his head and lifts a small leaf toward his mouth, the camera pushes in toward his profile; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; keep the composition stable, no morphing, no new objects, no text",
    "still": "shanggu-04.jpg",
    "clip": "shanggu-04.mp4",
    "status": "done",
@@ -146,17 +146,13 @@
    "ambience": [
     "waves"
    ],
-   "imagePrompt": "On an eastern shore a small vermilion sun rises from flat grey water; a faceless man silhouette beside a tall wooden gnomon pole on the beach watches it; long thin shadow on the sand; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering",
-   "motionPrompt": "the vermilion sun rises a little above the sea, its reflection lengthens into a path of light across the water and wet sand, the figure's robe stirs, clouds drift, the camera pushes in slightly; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; keep the composition stable, no morphing, no new objects, no text",
+   "imagePrompt": "On an eastern shore a faceless robed figure silhouette kneels beside a primitive gnomon: a short rough-hewn wooden post set upright in a heap of stones, with a flat stone measuring slab laid on the sand at its foot; he holds a knotted cord; a small vermilion sun hangs to the right at mid-height above flat grey water; the post casts a shadow across the slab; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering, tall thin pole, telephone pole, utility pole, mast",
+   "motionPrompt": "the vermilion sun climbs slowly on the right and the post's shadow shortens across the stone slab, small waves roll in and break on the shore, the sea wind stirs his hair and robe, the knotted cord sways in his hand, clouds drift, the camera pushes in slightly; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; keep the composition stable, no morphing, no new objects, no text",
    "still": "shanggu-06.jpg",
    "clip": "shanggu-06.mp4",
    "status": "done",
    "grade": {
-    "redMaskBelow": [
-     0.56,
-     0.64
-    ],
-    "note": "red light streaks on the sand go to grey; only the sun stays vermilion"
+    "note": "new still (2026-10-11): the only red is the sun, right of centre at 0.26-0.59 of the frame height, so no redMaskBelow (the old [0.56, 0.64] mask would cut the bottom of the sun in the first seconds)"
    },
    "clipSlowdown": 1.022
   },
