@@ -1,6 +1,6 @@
 /**
- * Content contracts from plan/11-history-game-content-schema.md.
- * The JSON files stay in plan/11-history-game-data and are only read.
+ * Content contracts from video/docs/content-schema.md.
+ * The JSON files stay in video and are only read.
  */
 
 export interface HistoryDate {

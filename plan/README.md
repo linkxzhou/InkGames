@@ -14,7 +14,7 @@
 |---|---|
 | [10 · three.js + Matter.js](./10-three-matter-side-scroller-plan.md) | 现行引擎计划。**M0–M4 已完成**（`InkView`、`Playfield`、`InkSurface`、`apps/scroll/`）。**M5 部分完成**：叙事宿主能播荆轲开场、走正史 / 野史、检查点恢复；`PostStack`、景深、录制回放、玩法模板未做。真实 GPU 未实测。 |
 | `10-v2-pixi-matter-ink-game-engine-plan.md` | 已删除（PixiJS 舞台清单，随渲染栈清理一并作废）。 |
-| Pixi / p5 / 原生 WebGL2 相关条目 | **已作废并清理**，不再是待办；见 [引擎缺口 §6](./12-history-game-engine-gaps.md#6-纯引擎水墨动画实现方案2026-10-09-重新评估) 的现行方案。 |
+| Pixi / p5 / 原生 WebGL2 相关条目 | **已作废并清理**，不再是待办；见 [引擎缺口 §6](../video/docs/engine-gaps.md#6-纯引擎水墨动画实现方案2026-10-09-重新评估) 的现行方案。 |
 
 ## 历史水墨游戏（2026-10-09 草案）
 
@@ -22,11 +22,11 @@
 
 | 文件 | 内容 | 状态 |
 |---|---|---|
-| [11 · 故事与玩法设计](./11-history-game-story-design.md) | 章、场景、剧情图与时间线；正史/野史分支、汇流与结局；解锁；写作规范与工作流；语料分析结论；待决问题 | 草案，文本不改 |
-| [11 · 章节大纲](./11-history-game-chapter-outline.md) | 上古至清的章节与场景表（民国可选），道具与笔刷映射，史源 | 草案，文本不改 |
-| [11 · 内容数据格式](./11-history-game-content-schema.md) | JSON 数据契约、荆轲刺秦王完整样例、校验与测试 | 契约有效 |
-| [12 · 开场动画管线与引擎缺口](./12-history-game-engine-gaps.md) | 开场动画管线、P0/P1/P2 缺口清单、里程碑与垂直切片；**§6 为纯引擎实现方案；§4 已标注 M0 未通过、M1–M5 未开始** | §1–§5 为旧基线，以 §6 为准 |
-| [12 · 历史动画制作计划](./12-history-game-ink-animation-production-plan.md) | 混沌开卷纯引擎实施、E0–E4 状态、验收与性能；**§15 为权威状态核对** | 现行执行文档；E0–E3 未全部达标 |
-| [11-history-game-data/](./11-history-game-data/) | 语料目录（不含 PDF）、荆轲关系图、场景样例 JSON；21 章剧情数据（`chapters/`，157 场景全部为完整场景，首版发布批次 v1=66）、校验器与数据生成脚本（`tools/`：`validate.mjs`、`build-viewer-data.mjs`、`build-art-prompts.mjs`）、浏览页 [index.html](./11-history-game-data/index.html) | 数据校验通过（21 章 / 157 场景，0 错误，仍余 6 处待核验日期/出处） |
+| [11 · 故事与玩法设计](../video/docs/story-design.md) | 章、场景、剧情图与时间线；正史/野史分支、汇流与结局；解锁；写作规范与工作流；语料分析结论；待决问题 | 草案，文本不改 |
+| [11 · 章节大纲](../video/docs/chapter-outline.md) | 上古至清的章节与场景表（民国可选），道具与笔刷映射，史源 | 草案，文本不改 |
+| [11 · 内容数据格式](../video/docs/content-schema.md) | JSON 数据契约、荆轲刺秦王完整样例、校验与测试 | 契约有效 |
+| [12 · 开场动画管线与引擎缺口](../video/docs/engine-gaps.md) | 开场动画管线、P0/P1/P2 缺口清单、里程碑与垂直切片；**§6 为纯引擎实现方案；§4 已标注 M0 未通过、M1–M5 未开始** | §1–§5 为旧基线，以 §6 为准 |
+| [12 · 历史动画制作计划](../video/docs/production-plan.md) | 混沌开卷纯引擎实施、E0–E4 状态、验收与性能；**§15 为权威状态核对** | 现行执行文档；E0–E3 未全部达标 |
+| [11-history-game-data/](../video/) | 语料目录（不含 PDF）、荆轲关系图、场景样例 JSON；21 章剧情数据（`chapters/`，157 场景全部为完整场景，首版发布批次 v1=66）、校验器与数据生成脚本（`tools/`：`validate.mjs`、`build-viewer-data.mjs`、`build-art-prompts.mjs`）、浏览页 [index.html](../video/viewer/index.html) | 数据校验通过（21 章 / 157 场景，0 错误，仍余 6 处待核验日期/出处） |
 
-`artPrompts`（633 张图 / 4343 件素材）保留为**创作提示与美术参考**，不再作为运行时出图方案；动画画面由引擎生成，见 [缺口 §6](./12-history-game-engine-gaps.md#6-纯引擎水墨动画实现方案2026-10-09-重新评估)。
+`artPrompts`（633 张图 / 4343 件素材）保留为**创作提示与美术参考**，不再作为运行时出图方案；动画画面由引擎生成，见 [缺口 §6](../video/docs/engine-gaps.md#6-纯引擎水墨动画实现方案2026-10-09-重新评估)。

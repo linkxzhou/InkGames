@@ -55,7 +55,7 @@ interface PropBrush {
 }
 ```
 
-`PropPaintingId` 覆盖十个道具，外加背景用的 `landscape`、`water`、`figure`。`paintProp(id, placement)` 用 `src/plugins/prop-paintings.ts` 里的折线生成一组 `PropStroke`；`actionStroke(id, part, path, seed)` 复用同一部件的笔刷参数但换成自定义路径。`resolveStrokeCue(cue)`（`src/core/stroke-cues.ts`）把 `plan/11` 的过场 JSON 提示收成 `PropStroke[]`：`{ prop, placement }` 走 `paintProp`，`{ brush: '道具.部件', path, speed }` 走 `actionStroke` + `samplePolyline`。
+`PropPaintingId` 覆盖十个道具，外加背景用的 `landscape`、`water`、`figure`。`paintProp(id, placement)` 用 `src/plugins/prop-paintings.ts` 里的折线生成一组 `PropStroke`；`actionStroke(id, part, path, seed)` 复用同一部件的笔刷参数但换成自定义路径。`resolveStrokeCue(cue)`（`src/core/stroke-cues.ts`）把 `video/data/` 的过场 JSON 提示收成 `PropStroke[]`：`{ prop, placement }` 走 `paintProp`，`{ brush: '道具.部件', path, speed }` 走 `actionStroke` + `samplePolyline`。
 
 `finish` 由 `StoryStage` 在收笔脉冲上应用一次（`endOfStroke`），写入 `InkSurface` 的 flow / distort / metallic。
 
@@ -70,4 +70,4 @@ interface PropBrush {
 
 坡度行走、击退、扫掠和砍断写在 `Playfield` 的方法上，没有单独的 `ActorController` / `Combat` 类。皴法在 `src/core/cun-material.ts`，竹的显示在 `src/core/bamboo-rig.ts` 的 `BambooView`。
 
-还没有类的名字：`PostStack`、`defineGameplay`。过场效果由 `StoryStage` 直接写到墨面。历史游戏的优先级仍以 [plan/12 的缺口表](../plan/12-history-game-engine-gaps.md#3-引擎缺口清单) 为准。
+还没有类的名字：`PostStack`、`defineGameplay`。过场效果由 `StoryStage` 直接写到墨面。历史游戏的优先级仍以 [video/docs/engine-gaps 的缺口表](../video/docs/engine-gaps.md#3-引擎缺口清单) 为准。

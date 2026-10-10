@@ -23,7 +23,7 @@
 
 十个旧道具、`landscape` / `water` / `figure` 的笔刷仍在 `PROP_BRUSHES`。历史章节另有二十件，目录在 `HISTORY_PROPS`，画法走 `paintHistoryProp`：剑、刀、矛、盾、旗、马、水复用上表，其余在 `history-paintings.ts`，每件部件的笔刷不同。马是湿墨体积加飞白轮廓，旗面用 `wine_red` 多层湿笔（朱砂），不用会被洇成粉的 `red` 平涂。水在道具页上铺满 1600×900 的纸，不是一小块色块。
 
-每件道具一页。逻辑舞台是 1600×900，画布 CSS 铺满内容区，绘图缓冲跟 `devicePixelRatio`（上限 2）。道具画在透明精灵上，近白的底被抠掉，落在纸上，并按笔画像素框居中。`?pose=still` 停在落笔后，`?play=1` 约七秒后做出动作。Matter 世界的 Y 向下。砍会拆掉木桩并留一笔飞白；落、走、流会解除刚体的静态，走和流在画面内停住；燃会喷出八点；风让旗在原位左右摇（这一版 Matter 没有单独的重力系数，步进后把高度钉回）。动作前后墨迹都留在画面里。场景编号写在页面上，来自 `plan/11` 大纲，例如剑用于 `05-09 易水寒` 与 `07-01 鸿门宴`，水用于 `00-01 洪水` 与 `09-05 赤壁`。
+每件道具一页。逻辑舞台是 1600×900，画布 CSS 铺满内容区，绘图缓冲跟 `devicePixelRatio`（上限 2）。道具画在透明精灵上，近白的底被抠掉，落在纸上，并按笔画像素框居中。`?pose=still` 停在落笔后，`?play=1` 约七秒后做出动作。Matter 世界的 Y 向下。砍会拆掉木桩并留一笔飞白；落、走、流会解除刚体的静态，走和流在画面内停住；燃会喷出八点；风让旗在原位左右摇（这一版 Matter 没有单独的重力系数，步进后把高度钉回）。动作前后墨迹都留在画面里。场景编号写在页面上，来自 `video/docs/chapter-outline.md` 大纲，例如剑用于 `05-09 易水寒` 与 `07-01 鸿门宴`，水用于 `00-01 洪水` 与 `09-05 赤壁`。
 
 ## 参照画廊 `/gallery/`
 
@@ -55,7 +55,7 @@
 
 ## 叙事页 `/story/`
 
-`apps/story/` 只读导入 `plan/11-history-game-data/scene-zhanguo-jingke.example.json`，不改这些数据文件。`parseScenePackage` 收成 `ScenePackage`。`StoryStage` 拥有自己的 `WebGLRenderer` 和一层一个 `InkSurface`。开场 `cutscene.zhanguo.jingke.opening` 按 60 帧时钟播五个镜头；标题、旁白由 `InkText` 画在画布纹理上。缺的配音和 BGM 文件不在仓库里，`AudioBus` 用短振荡器占位，旁白结束帧仍按这段时长放开同步点。
+`apps/story/` 只读导入 `video/data/examples/05-09-zhanguo-jingke.json`，不改这些数据文件。`parseScenePackage` 收成 `ScenePackage`。`StoryStage` 拥有自己的 `WebGLRenderer` 和一层一个 `InkSurface`。开场 `cutscene.zhanguo.jingke.opening` 按 60 帧时钟播五个镜头；标题、旁白由 `InkText` 画在画布纹理上。缺的配音和 BGM 文件不在仓库里，`AudioBus` 用短振荡器占位，旁白结束帧仍按这段时长放开同步点。
 
 情节树：开场之后是选择。`pick.canon` 走上朝、柱、结局；`pick.legend` 走琴、逃、结局。缺过场定义的节点（野史琴）显示标签并等待继续。`pick.whatif` 要正史和野史都已通关才出现。玩法节点显示目标文字，例如「稳住秦舞阳」，点继续即完成，不跑对决。
 
@@ -73,4 +73,4 @@
 
 要复现一条 2.0 笔画，保存它的 `PropStroke`（笔刷、颜色、每帧的点、种子）再交给 `InkSurface.paint`。同一种子在 inkEngine 里对应 `p.randomSeed(seed)` 后的同一笔。`tests/ink-brush.test.ts` 锁的是笔触数据，不锁 GPU 图像。
 
-轨道字段以 [内容数据格式](../plan/11-history-game-content-schema.md) 为准；开场管线与未完成项的优先级以 [plan/12](../plan/12-history-game-engine-gaps.md#6-纯引擎水墨动画实现方案2026-10-09-重新评估) 为准；历史动画的逐项状态以 [动画计划 §15](../plan/12-history-game-ink-animation-production-plan.md) 为准。
+轨道字段以 [内容数据格式](../video/docs/content-schema.md) 为准；开场管线与未完成项的优先级以 [video/docs/engine-gaps](../video/docs/engine-gaps.md#6-纯引擎水墨动画实现方案2026-10-09-重新评估) 为准；历史动画的逐项状态以 [动画计划 §15](../video/docs/production-plan.md) 为准。

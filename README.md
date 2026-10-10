@@ -34,8 +34,8 @@ node scripts/gpu-check.mjs   # 本机打开切片、叙事、历史、画廊与�
 
 - [文档](./docs/README.md)：01–10 写现行 API；[第 12 章](./docs/12-inkengine-parity-audit.md) 是与 inkEngine 的对照（总表为 Pixi 时代的历史记录）
 - [引擎计划](./plan/10-three-matter-side-scroller-plan.md)：M0–M4 已完成，M5 部分完成，§7 记录 Pixi/p5 清理结果
-- [历史游戏草案](./plan/README.md)：`plan/11` 故事与数据，`plan/12` 开场动画与引擎缺口
-- [历史动画制作计划](./plan/12-history-game-ink-animation-production-plan.md)：纯程序水墨的实施与 E0–E4 状态
+- [历史水墨视频 / 游戏内容](./video/README.md)：`video/docs/` 故事、大纲、数据格式与引擎缺口，`video/data/` 章节数据，`video/viewer/` 查看页
+- [历史动画制作计划](./video/docs/production-plan.md)：纯程序水墨的实施与 E0–E4 状态
 - [资料附录](./docs/11-references-and-research.md)：p5 时代的笔记，以及 2026-10-09 补上的 three.js / Matter.js 出处
 - [第三方与许可](./THIRD_PARTY_NOTICES.md)
 

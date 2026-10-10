@@ -107,7 +107,7 @@ usage() {
   preview     构建后启动预览服务器 http://127.0.0.1:4173/
   test        运行 vitest 单元测试
   browser     构建后在无头 Chromium 中对三条 three.js 页面做启动与零图片请求冒烟
-  links       校验 README/docs/plan 的本地相对链接
+  links       校验 README/docs/plan/video 的本地相对链接
   check       typecheck + test + links（提交前必跑）
   clean       清理 dist/ 与缓存
 EOF

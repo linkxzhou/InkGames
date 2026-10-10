@@ -12,7 +12,7 @@ import { SceneDirector } from '../src/core/scene-director';
 import { resolveStrokeCue, samplePolyline } from '../src/core/stroke-cues';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const data = resolve(root, 'plan/11-history-game-data');
+const data = resolve(root, 'video/data');
 
 function readJson(path: string): unknown {
   return JSON.parse(readFileSync(path, 'utf8')) as unknown;
@@ -28,7 +28,7 @@ function memory(): SaveStorage {
 
 describe('history content', () => {
   const index = parseChapterIndex(readJson(resolve(data, 'chapters/index.json')));
-  const example = parseScenePackage(readJson(resolve(data, 'scene-zhanguo-jingke.example.json')));
+  const example = parseScenePackage(readJson(resolve(data, 'examples/05-09-zhanguo-jingke.json')));
 
   it('loads the chapter index and every bundle', () => {
     expect(index.chapters.length).toBe(21);
@@ -63,7 +63,7 @@ describe('history content', () => {
 });
 
 describe('story host', () => {
-  const example = parseScenePackage(readJson(resolve(data, 'scene-zhanguo-jingke.example.json')));
+  const example = parseScenePackage(readJson(resolve(data, 'examples/05-09-zhanguo-jingke.json')));
 
   it('plays the opening clock into a canon or legend choice and can save', () => {
     const store = memory();
