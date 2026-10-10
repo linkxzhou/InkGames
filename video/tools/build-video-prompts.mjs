@@ -11,7 +11,7 @@
 //
 // 用法：在仓库根目录运行 `node video/tools/build-video-prompts.mjs`
 // 幂等：重复运行整体替换 videoPrompt，不影响其它字段。无第三方依赖。
-import { STYLE_ZH, STYLE_EN, FIGURE_ZH, FIGURE_EN, NEG_STYLE_ZH, NEG_STYLE_EN, HIT_FX_ZH, HIT_FX_EN } from './art-style.mjs';
+import { STYLE_ZH, STYLE_EN, FIGURE_ZH, FIGURE_EN, NEG_STYLE_ZH, NEG_STYLE_EN, HIT_FX_ZH, HIT_FX_EN, MOTION_ZH, MOTION_EN, NEG_MOTION_ZH, NEG_MOTION_EN } from './art-style.mjs';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -344,11 +344,11 @@ function build(bundle, entry, chapterTitle) {
     en: `Music: ${bgm[1]}, building gradually and cutting to silence before the climax; ambience: ${ambAll.map(a => snd(a, 1)).join(', ')}; SFX: ${sfxAll.map(a => snd(a, 1)).join(', ')}; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).`,
   };
   const onScreenText = {
-    zh: `片头：右上竖排书法片名「${title}」，副题「${subtitle}」，朱印「${seal}」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；${quote ? `引文：「${quote}」——${qsrc}，竖排楷书；` : ''}所有文字必须准确，不得出现错字、乱码或英文。`,
-    en: `Title: vertical brush calligraphy 「${title}」, subtitle 「${subtitle}」, vermilion seal 「${seal}」 at upper right; subtitles: Simplified Chinese, bottom centre${quote ? `; quotation 「${quote}」 — ${qsrc}, vertical kaishu` : ''}; all Chinese text must be exact, no garbled or Latin text.`,
+    zh: `生成画面里不出现任何文字（含印章字，实测会出乱码），以下全部后期叠加：片头右上竖排书法片名「${title}」、副题「${subtitle}」、朱印「${seal}」；旁白字幕为简体中文，底部居中，楷体或宋体${quote ? `；引文「${quote}」——${qsrc}，竖排楷书` : ''}；叠加文字必须与原文一字不差`,
+    en: `No text of any kind inside the generated frames (seal characters come out garbled in tests); add everything in post: vertical brush-calligraphy title 「${title}」, subtitle 「${subtitle}」 and vermilion seal 「${seal}」 at upper right; Simplified Chinese subtitles, bottom centre${quote ? `; quotation 「${quote}」 — ${qsrc}, vertical kaishu` : ''}; overlaid text must match the source exactly`,
   };
   const [pnz, pne] = periodNeg(order);
-  const negative = { zh: NEG_ZH + '，' + NEG_STYLE_ZH + (pnz.length ? '，时代错置：' + pnz.join('、') : ''), en: NEG_EN + ', ' + NEG_STYLE_EN + (pne.length ? ', anachronisms: ' + pne.join(', ') : '') };
+  const negative = { zh: NEG_ZH + '，' + NEG_STYLE_ZH + '，' + NEG_MOTION_ZH + (pnz.length ? '，时代错置：' + pnz.join('、') : ''), en: NEG_EN + ', ' + NEG_STYLE_EN + ', ' + NEG_MOTION_EN + (pne.length ? ', anachronisms: ' + pne.join(', ') : '') };
 
   const shotLineZh = s => `镜头 ${s.n}（${s.startSec}–${s.startSec + s.durationSec} 秒，${s.durationSec} 秒）｜运镜：${s.camera.zh}｜构图：${s.composition.zh}｜动作：${s.action.zh}｜水墨效果：${s.ink.zh}｜声音：${s.sound.zh}${s.text.zh ? '｜屏幕文字：' + s.text.zh : ''}${s.vo ? '｜旁白：「' + s.vo + '」' : ''}`;
   const shotLineEn = s => `Shot ${s.n} (${s.startSec}–${s.startSec + s.durationSec} s, ${s.durationSec} s) | Camera: ${s.camera.en} | Composition: ${s.composition.en} | Action: ${s.action.en} | Ink FX: ${s.ink.en} | Sound: ${s.sound.en}${s.text.en ? ' | On-screen text: ' + s.text.en : ''}${s.vo ? ' | VO (Mandarin): 「' + s.vo + '」' : ''}`;
@@ -359,6 +359,7 @@ function build(bundle, entry, chapterTitle) {
     `【水墨视频生成提示词】${chapterTitle} · ${title}（${subtitle}）`,
     `画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），${FPS_OUT}fps，总长约 ${t0} 秒，共 ${shots.length} 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。`,
     `风格：${style.zh}`,
+    MOTION_ZH + '。',
     `时代与场景：${setting.zh}`,
     '人物：\n' + characters.map(c => '- ' + c.zh).join('\n'),
     '分镜：\n' + shots.map(s => s.zh).join('\n'),
@@ -370,6 +371,7 @@ function build(bundle, entry, chapterTitle) {
     `[Ink-wash video prompt] ${era[0]} · ${EN[scene.id]?.title || subtitle} (「${title}」)`,
     `Format: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), ${FPS_OUT} fps, about ${t0} s total, ${shots.length} shots; generate shot by shot and edit together if a shot exceeds the generator's limit.`,
     `Style: ${style.en}`,
+    MOTION_EN + '.',
     `Setting: ${setting.en}`,
     'Characters:\n' + characters.map(c => '- ' + c.en).join('\n'),
     'Storyboard:\n' + shots.map(s => s.en).join('\n'),
