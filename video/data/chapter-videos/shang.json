@@ -1,0 +1,206 @@
+{
+ "version": 1,
+ "chapter": "shang",
+ "title": {
+  "zh": "商",
+  "en": "Shang"
+ },
+ "pipeline": "story tree -> opening shots -> videoPrompt; see video/docs/chapter-videos.md",
+ "format": {
+  "aspectRatio": "16:9",
+  "resolution": [
+   1280,
+   720
+  ],
+  "fps": 24
+ },
+ "titleCard": {
+  "zh": "商",
+  "seal": "开卷",
+  "durationSec": 3
+ },
+ "closingHoldSec": 3,
+ "totalSec": 64,
+ "style": "high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame",
+ "negative": "other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+ "motionRule": "richer but controlled motion (wind, mist, ink spread, flowing water, banners, slow camera); keep silhouettes consistent, no morphing, no new figures, no text, no fighting contact; only black, grey, paper white and vermilion",
+ "lengthRule": "shots = clamp(4 + ceil(scenes/2), 6, 16) = clamp(4 + ceil(7/2), 6, 16) = 8; 8 s each",
+ "rawDir": "/workspace/chapter-video/shang/v2",
+ "clipsVersion": 2,
+ "grade": "palette lock (video/tools/chapter_grade.py): every pixel goes to the ink #141414 -> paper #eceae4 grey ramp by luminance, except hues near vermilion #b3241c (re-tinted to vermilion); saturated orange is pulled to vermilion, pale orange, yellow, blue and every other hue go to grey",
+ "audio": {
+  "narration": {
+   "engine": "edge-tts",
+   "voice": "zh-CN-YunjianNeural",
+   "rate": "-8%",
+   "pitch": "-2Hz",
+   "offsetSec": 0.6
+  },
+  "music": "original procedural bed (numpy): low D drone, sparse plucked D-major-pentatonic notes (guqin-like), deep drum on the title card",
+  "loudness": "-16 LUFS integrated, -1.5 dBTP; AAC 160k stereo; music and ambience duck about 8 dB under narration"
+ },
+ "shots": [
+  {
+   "n": 1,
+   "sceneId": "shang.tangdao",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "网开三面",
+   "narration": "汤见野人四面张网，命去其三面：欲左者左，欲右者右。",
+   "ambience": [
+    "wind",
+    "birds"
+   ],
+   "imagePrompt": "A robed figure in a wide field gestures at a hunter's net strung between poles, three sides falling slack, small birds lifting into the empty sky; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "small birds rise and scatter across the paper sky, the net sways and drops, grass bends in the wind; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "shang-01.jpg",
+   "clip": "shang-01.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 2,
+   "sceneId": "shang.tonggong",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "伊尹放太甲",
+   "narration": "太甲不遵汤法，伊尹把他放到桐宫，三年悔过，迎回复位。",
+   "ambience": [
+    "wind",
+    "birds"
+   ],
+   "imagePrompt": "A lone young king silhouette sits in a bare palace courtyard near a tomb mound and old pines, an elder minister standing at the gate; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "pine branches sway, fallen leaves drift past, the light shifts slowly from pale to grey as seasons pass, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "shang-02.jpg",
+   "clip": "shang-02.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 3,
+   "sceneId": "shang.pangeng",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "盘庚迁殷",
+   "narration": "盘庚要渡河迁都，众人怨而不从，他三番作诰劝说。",
+   "ambience": [
+    "water",
+    "wind",
+    "crowd"
+   ],
+   "imagePrompt": "A crowd of small silhouettes with bundles on their backs gathers at a wide grey river bank, a leader on a rock addressing them; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "wind pushes their robes, the river flows slowly, the crowd sways, mist drifts across the far shore; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "shang-03.jpg",
+   "clip": "shang-03.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 4,
+   "sceneId": "shang.pangeng",
+   "sourceShots": [
+    6,
+    7
+   ],
+   "durationSec": 8,
+   "zh": "殷人渡河",
+   "narration": "舟楫载着宗庙重器过河，商在殷地一住就是两百多年。",
+   "ambience": [
+    "water",
+    "oars"
+   ],
+   "imagePrompt": "Long flat boats carrying bronze vessels and people cross a misty river toward a far shore, oars dipping; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the boats glide slowly across, oars dip in rhythm, mist drifts, ripples spread; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "shang-04.jpg",
+   "clip": "shang-04.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 5,
+   "sceneId": "shang.fuhao",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "妇好出征",
+   "narration": "卜辞里写着：妇好领兵一万三千，出征羌方。",
+   "ambience": [
+    "wind",
+    "war-drums"
+   ],
+   "imagePrompt": "A woman general silhouette holding a large bronze axe stands before ranks of soldiers, one vermilion banner, a wide pale sky; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "wind lifts her cloak and the banner, the ranks advance a single step, dust drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "shang-05.jpg",
+   "clip": "shang-05.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 6,
+   "sceneId": "shang.youli",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "西伯羑里演易",
+   "narration": "西伯被纣囚在羑里，相传就在狱中推演了《周易》。",
+   "ambience": [
+    "drip",
+    "wind"
+   ],
+   "imagePrompt": "A seated old man silhouette in a bare stone cell lays out yarrow stalks in long and broken lines, a small high window of light; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "dust floats in the shaft of light, he moves the stalks slowly, shadows of the bars creep across the floor; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "shang-06.jpg",
+   "clip": "shang-06.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 7,
+   "sceneId": "shang.muye",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "牧野誓师",
+   "narration": "甲子日清晨，武王在牧野誓师，左杖黄钺，右秉白旄。",
+   "ambience": [
+    "fog-wind",
+    "war-drums",
+    "horn"
+   ],
+   "imagePrompt": "At dawn, a king silhouette holding a long axe and a pale yak-tail standard faces a vast army in the mist; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the standard streams in the wind, mist rolls across the ranks, chariot banners ripple, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "shang-07.jpg",
+   "clip": "shang-07.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 8,
+   "sceneId": "shang.muye",
+   "sourceShots": [
+    6,
+    7
+   ],
+   "durationSec": 8,
+   "zh": "前徒倒戈，殷亡",
+   "narration": "纣兵前徒倒戈，纣王登鹿台，蒙衣其珠玉，自焚而死。",
+   "ambience": [
+    "fire",
+    "wind"
+   ],
+   "imagePrompt": "A tall terrace tower in silhouette burning with flat vermilion flame against a grey sky, black smoke rising, lowered spears in the foreground; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "flames waver, black ink smoke billows upward and spreads, embers drift, the camera pulls back slowly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "shang-08.jpg",
+   "clip": "shang-08.mp4",
+   "status": "pending"
+  }
+ ]
+}

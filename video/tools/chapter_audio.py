@@ -152,11 +152,89 @@ def a_rushing(sec, rng):
     x = band(rng.standard_normal(int(sec * SR)), 120, 2500)
     return norm(0.7 * norm(x) + 0.5 * a_water(sec, rng, 120)) * slow_noise_env(sec, rng, .8, .7, 1)
 
+def a_fire(sec, rng):
+    """Crackling fire: low roar + random sharp crackles."""
+    n = int(sec * SR); roar = norm(band(rng.standard_normal(n), 60, 700)) * slow_noise_env(sec, rng, 1.5, .5, 1)
+    cr = np.zeros(n); tt = 0.0
+    while tt < sec:
+        k = int(rng.uniform(.002, .012) * SR); place(cr, rng.standard_normal(k) * np.exp(-np.arange(k) / (k / 4)), tt, rng.uniform(.2, 1)); tt += rng.exponential(1 / 14)
+    return norm(0.7 * roar + 0.6 * norm(band(cr, 1200, 9000)))
+
+def a_rain(sec, rng):
+    n = int(sec * SR); hiss = norm(band(rng.standard_normal(n), 1500, 9000))
+    drops = np.zeros(n); tt = 0.0
+    while tt < sec:
+        k = int(.006 * SR); place(drops, np.sin(2 * np.pi * rng.uniform(2000, 5000) * np.arange(k) / SR) * np.hanning(k), tt, rng.uniform(.1, .6)); tt += rng.exponential(1 / 80)
+    return norm(hiss * slow_noise_env(sec, rng, .4, .7, 1) + 0.4 * drops)
+
+def a_thunder(sec, rng):
+    y = np.zeros(int(sec * SR))
+    for t0 in sorted(rng.uniform(.3, max(.4, sec - 3), 2)):
+        k = int(3 * SR); x = np.cumsum(rng.standard_normal(k)); x = band(x - x.mean(), 25, 400)
+        e = np.exp(-np.arange(k) / SR / .9) * (1 - np.exp(-np.arange(k) / SR / .05)) * (0.6 + 0.4 * band(np.abs(rng.standard_normal(k)), None, 8))
+        place(y, norm(x * e), t0, rng.uniform(.6, 1))
+    return norm(reverb(y, 3, .4, rng))
+
+def a_hooves(sec, rng):
+    """Distant galloping hooves: groups of four soft thuds."""
+    y = np.zeros(int(sec * SR)); tt = .2; per = rng.uniform(.42, .55)
+    hit = lambda: band(rng.standard_normal(int(.05 * SR)), 80, 900) * np.exp(-np.arange(int(.05 * SR)) / (.012 * SR))
+    while tt < sec - .2:
+        for o in (0, .08, .17, .24): place(y, hit(), tt + o + rng.uniform(-.01, .01), rng.uniform(.5, 1))
+        tt += per
+    return norm(reverb(y, 1.2, .3, rng)) * slow_noise_env(sec, rng, .5, .6, 1)
+
+def a_bell(sec, rng):
+    """Sparse temple bell / bronze bianzhong strikes."""
+    y = np.zeros(int(sec * SR)); f0 = rng.choice([220.0, 246.9, 293.7])
+    for t0 in (0.4, sec * 0.55):
+        t = t_axis(4.0); b = sum(a * np.sin(2 * np.pi * f0 * r * t) * np.exp(-t / d) for r, a, d in ((1, 1, 2.2), (2.76, .5, 1.2), (5.4, .3, .6), (8.9, .15, .3)))
+        place(y, b, t0, rng.uniform(.7, 1))
+    return norm(reverb(y, 3, .35, rng))
+
+def a_oars(sec, rng):
+    """Oar strokes: swish + splash in a slow rhythm, with a soft wooden creak."""
+    y = np.zeros(int(sec * SR)); tt = .3
+    while tt < sec - .6:
+        k = int(.45 * SR); sw = band(rng.standard_normal(k), 300, 3000) * np.hanning(k)
+        place(y, sw, tt, .8)
+        c = int(.18 * SR); tc = np.arange(c) / SR; place(y, np.sin(2 * np.pi * (180 + 60 * tc / .18) * tc) * np.hanning(c) * .3, tt + .4)
+        tt += rng.uniform(1.6, 2.1)
+    return norm(y)
+
+def a_birds(sec, rng):
+    """Small birdsong chirps: short frequency-swept sine blips."""
+    y = np.zeros(int(sec * SR)); tt = rng.uniform(.2, .8)
+    while tt < sec - .4:
+        for j in range(int(rng.integers(2, 5))):
+            k = int(rng.uniform(.04, .1) * SR); tc = np.arange(k) / SR; f = rng.uniform(2500, 4500)
+            place(y, np.sin(2 * np.pi * (f + rng.uniform(-1500, 1500) * tc / tc[-1]) * tc) * np.hanning(k), tt + j * .11, rng.uniform(.4, 1))
+        tt += rng.uniform(.9, 2.2)
+    return norm(reverb(y, 1.5, .3, rng))
+
+def a_crowd(sec, rng):
+    """Distant crowd murmur: many band-limited noise 'voices' with syllable-rate modulation."""
+    n = int(sec * SR); y = np.zeros(n)
+    for _ in range(10):
+        f = rng.uniform(250, 900); v = band(rng.standard_normal(n), f * .7, f * 1.6)
+        y += v * band(np.abs(rng.standard_normal(n)), None, rng.uniform(3, 6))
+    return norm(band(y, 150, 2500))
+
+def a_drip(sec, rng):
+    y = np.zeros(int(sec * SR)); tt = rng.uniform(.2, .6)
+    while tt < sec:
+        k = int(.08 * SR); tc = np.arange(k) / SR; f = rng.uniform(900, 1700)
+        place(y, np.sin(2 * np.pi * f * (1 + 2 * tc) * tc) * np.exp(-tc / .02), tt, rng.uniform(.5, 1)); tt += rng.uniform(.6, 1.6)
+    return norm(reverb(y, 1.8, .45, rng))
+
 AMB = {  # name -> (generator, level)
+    'fire': (a_fire, .22), 'rain': (a_rain, .22), 'thunder': (a_thunder, .40), 'hooves': (a_hooves, .40),
+    'bell': (a_bell, .22), 'oars': (a_oars, .32), 'birds': (a_birds, .10), 'crowd': (a_crowd, .16),
+    'snow-wind': (lambda s, r: a_wind(s, r, 400, 2500), .26), 'drip': (a_drip, .16),
     'wind': (a_wind, .30), 'rumble': (a_rumble, .40), 'stone': (a_stone, .30), 'shimmer': (a_shimmer, .10),
     'marsh-wind': (lambda s, r: a_wind(s, r, 150, 900), .28), 'insects': (a_insects, .10),
     'grass': (a_grass, .22), 'water': (lambda s, r: a_water(s, r, 30), .14),
-    'fog-wind': (lambda s, r: a_wind(s, r, 200, 1100), .26), 'war-drums': (a_drums, .18), 'horn': (a_horn, .22),
+    'fog-wind': (lambda s, r: a_wind(s, r, 200, 1100), .26), 'war-drums': (a_drums, .14), 'horn': (a_horn, .22),
     'waves': (a_waves, .26), 'ox': (a_ox, .30), 'rushing-water': (a_rushing, .25),
 }
 

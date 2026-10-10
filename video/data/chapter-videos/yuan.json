@@ -1,0 +1,248 @@
+{
+ "version": 1,
+ "chapter": "yuan",
+ "title": {
+  "zh": "元",
+  "en": "Yuan"
+ },
+ "pipeline": "story tree -> opening shots -> videoPrompt; see video/docs/chapter-videos.md",
+ "format": {
+  "aspectRatio": "16:9",
+  "resolution": [
+   1280,
+   720
+  ],
+  "fps": 24
+ },
+ "titleCard": {
+  "zh": "元",
+  "seal": "开卷",
+  "durationSec": 3
+ },
+ "closingHoldSec": 3,
+ "totalSec": 79,
+ "style": "high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame",
+ "negative": "other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+ "motionRule": "richer but controlled motion (wind, mist, ink spread, flowing water, banners, slow camera); keep silhouettes consistent, no morphing, no new figures, no text, no fighting contact; only black, grey, paper white and vermilion",
+ "lengthRule": "shots = clamp(4 + ceil(scenes/2), 6, 16) = clamp(4 + ceil(11/2), 6, 16) = 10; 8 s each",
+ "rawDir": "/workspace/chapter-video/yuan/v2",
+ "clipsVersion": 2,
+ "grade": "palette lock (video/tools/chapter_grade.py): every pixel goes to the ink #141414 -> paper #eceae4 grey ramp by luminance, except hues near vermilion #b3241c (re-tinted to vermilion); saturated orange is pulled to vermilion, pale orange, yellow, blue and every other hue go to grey",
+ "audio": {
+  "narration": {
+   "engine": "edge-tts",
+   "voice": "zh-CN-YunjianNeural",
+   "rate": "-8%",
+   "pitch": "-2Hz",
+   "offsetSec": 0.6
+  },
+  "music": "original procedural bed (numpy): low D drone, sparse plucked D-major-pentatonic notes (guqin-like), deep drum on the title card",
+  "loudness": "-16 LUFS integrated, -1.5 dBTP; AAC 160k stereo; music and ambience duck about 8 dB under narration"
+ },
+ "shots": [
+  {
+   "n": 1,
+   "sceneId": "yuan.chengjisi",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "成吉思汗",
+   "narration": "斡难河源，铁木真被推为大汗，号成吉思汗。",
+   "ambience": [
+    "hooves",
+    "wind",
+    "horn"
+   ],
+   "imagePrompt": "A great assembly of horsemen on a riverside steppe around a tall standard with nine pale tails, a leader silhouette at the centre; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the standard's tails stream, the horses shift, grass waves, clouds race; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "yuan-01.jpg",
+   "clip": "yuan-01.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 2,
+   "sceneId": "yuan.xizheng",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "西征与长春真人",
+   "narration": "成吉思汗西征花剌子模，又召长春真人丘处机万里来见。",
+   "ambience": [
+    "snow-wind",
+    "bell"
+   ],
+   "imagePrompt": "A Taoist elder silhouette in a small carriage crossing a high snowy mountain pass toward a vast camp of tents; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "snow blows over the pass, the carriage moves slowly, banners in the camp ripple; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "yuan-02.jpg",
+   "clip": "yuan-02.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 3,
+   "sceneId": "yuan.yelvchucai",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "耶律楚材",
+   "narration": "耶律楚材劝窝阔台：天下虽得之马上，不可以马上治。",
+   "ambience": [
+    "wind",
+    "fire"
+   ],
+   "imagePrompt": "A tall bearded minister silhouette standing before a seated khan in a large felt tent, scrolls in hand; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the tent cloth stirs, lamp flames flicker, incense drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "yuan-03.jpg",
+   "clip": "yuan-03.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 4,
+   "sceneId": "yuan.zhiyuan",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "忽必烈建元",
+   "narration": "忽必烈取《易经》大哉乾元之义，建国号为大元。",
+   "ambience": [
+    "bell",
+    "wind"
+   ],
+   "imagePrompt": "A grand new capital's palace terrace, a khan silhouette standing beneath a vermilion canopy, ministers in rows; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the banners and canopy ripple, incense smoke rises; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "yuan-04.jpg",
+   "clip": "yuan-04.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 5,
+   "sceneId": "yuan.makebolo",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "马可·波罗",
+   "narration": "威尼斯人马可·波罗来到元朝，在中国游历十七年。",
+   "ambience": [
+    "bell",
+    "crowd",
+    "wind"
+   ],
+   "imagePrompt": "A foreign traveller silhouette in a long cloak with a camel caravan arriving at a great city gate; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the camels walk, dust drifts, banners on the gate ripple; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "yuan-05.jpg",
+   "clip": "yuan-05.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 6,
+   "sceneId": "yuan.shoushi",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "授时历",
+   "narration": "郭守敬造简仪，四海测影，编成授时历。",
+   "ambience": [
+    "wind",
+    "insects"
+   ],
+   "imagePrompt": "An astronomer silhouette beside a large bronze armillary instrument on an observatory platform at night, stars; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the stars wheel slowly, his sleeves stir, the instrument's rings turn slightly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "yuan-06.jpg",
+   "clip": "yuan-06.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 7,
+   "sceneId": "yuan.shenfeng",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "元征日本",
+   "narration": "元军渡海东征，遇大风，舟船大多沉没。",
+   "ambience": [
+    "waves",
+    "thunder",
+    "wind"
+   ],
+   "imagePrompt": "A huge fleet tossed by a typhoon on a dark sea, masts bending, lightning in black clouds; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "waves heave, masts sway, rain sweeps, lightning flashes; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "yuan-07.jpg",
+   "clip": "yuan-07.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 8,
+   "sceneId": "yuan.guanhanqing",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "关汉卿，窦娥冤",
+   "narration": "关汉卿写《窦娥冤》：六月飞雪，血溅白练，大旱三年。",
+   "ambience": [
+    "snow-wind",
+    "bell"
+   ],
+   "imagePrompt": "A theatre stage in silhouette, a woman figure kneeling at the centre as snow falls in summer, a long pale cloth hanging with one vermilion mark; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "snow falls slowly, the pale cloth sways, the audience silhouettes sit still; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep her silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "yuan-08.jpg",
+   "clip": "yuan-08.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 9,
+   "sceneId": "yuan.huangdaopo",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "黄道婆",
+   "narration": "黄道婆从崖州回到乌泥泾，教乡人纺纱织布之法。",
+   "ambience": [
+    "water",
+    "wind"
+   ],
+   "imagePrompt": "An old woman silhouette at a spinning wheel teaching village women, cotton bolls, a river village; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the wheel turns, threads draw out, the women lean in, reeds sway; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "yuan-09.jpg",
+   "clip": "yuan-09.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 10,
+   "sceneId": "yuan.hongjin",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "红巾军起",
+   "narration": "石人一只眼，挑动黄河天下反；红巾军一起，元朝走向终局。",
+   "ambience": [
+    "crowd",
+    "water",
+    "war-drums"
+   ],
+   "imagePrompt": "A one-eyed stone statue unearthed on a riverbank, labourers' silhouettes with vermilion headbands gathering around it; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "dust drifts, the crowd swells, the headbands flutter, clouds churn; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "yuan-10.jpg",
+   "clip": "yuan-10.mp4",
+   "status": "pending"
+  }
+ ]
+}

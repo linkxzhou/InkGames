@@ -1,0 +1,250 @@
+{
+ "version": 1,
+ "chapter": "liaojin",
+ "title": {
+  "zh": "辽 · 西夏 · 金",
+  "en": "Liao, Western Xia and Jin"
+ },
+ "pipeline": "story tree -> opening shots -> videoPrompt; see video/docs/chapter-videos.md",
+ "format": {
+  "aspectRatio": "16:9",
+  "resolution": [
+   1280,
+   720
+  ],
+  "fps": 24
+ },
+ "titleCard": {
+  "zh": "辽 · 西夏 · 金",
+  "seal": "开卷",
+  "durationSec": 3
+ },
+ "closingHoldSec": 3,
+ "totalSec": 79,
+ "style": "high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame",
+ "negative": "other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+ "motionRule": "richer but controlled motion (wind, mist, ink spread, flowing water, banners, slow camera); keep silhouettes consistent, no morphing, no new figures, no text, no fighting contact; only black, grey, paper white and vermilion",
+ "lengthRule": "shots = clamp(4 + ceil(scenes/2), 6, 16) = clamp(4 + ceil(11/2), 6, 16) = 10; 8 s each",
+ "rawDir": "/workspace/chapter-video/liaojin/v2",
+ "clipsVersion": 2,
+ "grade": "palette lock (video/tools/chapter_grade.py): every pixel goes to the ink #141414 -> paper #eceae4 grey ramp by luminance, except hues near vermilion #b3241c (re-tinted to vermilion); saturated orange is pulled to vermilion, pale orange, yellow, blue and every other hue go to grey",
+ "audio": {
+  "narration": {
+   "engine": "edge-tts",
+   "voice": "zh-CN-YunjianNeural",
+   "rate": "-8%",
+   "pitch": "-2Hz",
+   "offsetSec": 0.6
+  },
+  "music": "original procedural bed (numpy): low D drone, sparse plucked D-major-pentatonic notes (guqin-like), deep drum on the title card",
+  "loudness": "-16 LUFS integrated, -1.5 dBTP; AAC 160k stereo; music and ambience duck about 8 dB under narration"
+ },
+ "shots": [
+  {
+   "n": 1,
+   "sceneId": "liaojin.abaoji",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "阿保机建国",
+   "narration": "耶律阿保机统一契丹八部，神册元年称帝建国。",
+   "ambience": [
+    "hooves",
+    "wind",
+    "grass"
+   ],
+   "imagePrompt": "A chieftain silhouette on horseback on a grassland hill, riders of many tribes gathering below around felt tents, a tall banner; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the riders gather slowly, the banner streams, grass waves; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liaojin-01.jpg",
+   "clip": "liaojin-01.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 2,
+   "sceneId": "liaojin.xiaotaihou",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "承天太后萧绰",
+   "narration": "萧太后摄政，亲自披甲临阵，辽国在她手中最盛。",
+   "ambience": [
+    "snow-wind",
+    "hooves"
+   ],
+   "imagePrompt": "A woman ruler silhouette in armour on horseback before ranks of cavalry on a snowy plain; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "snow blows, her cloak streams, banners ripple; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liaojin-02.jpg",
+   "clip": "liaojin-02.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 3,
+   "sceneId": "liaojin.yuanhao",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "元昊称帝",
+   "narration": "李元昊命人创制蕃书，称帝立国，与宋辽鼎立。",
+   "ambience": [
+    "wind",
+    "bell"
+   ],
+   "imagePrompt": "A ruler silhouette with a shaved head and braids stands before a desert palace with tall earthen towers, sand blowing; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "sand blows across, banners ripple, clouds drift; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liaojin-03.jpg",
+   "clip": "liaojin-03.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 4,
+   "sceneId": "liaojin.xiaoguanyin",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "萧观音",
+   "narration": "辽道宗的皇后萧观音善诗乐，被诬以《十香词》，赐死。",
+   "ambience": [
+    "wind",
+    "insects"
+   ],
+   "imagePrompt": "A woman silhouette playing a pipa alone in a dim palace room, a blank sheet of paper on the floor, wind through a window; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the curtains stir, the lamp flickers, her sleeves move slowly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep her silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liaojin-04.jpg",
+   "clip": "liaojin-04.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 5,
+   "sceneId": "liaojin.hubudagang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "阿骨打起兵",
+   "narration": "完颜阿骨打起兵反辽，护步答冈以两万破辽七十万。",
+   "ambience": [
+    "snow-wind",
+    "hooves",
+    "war-drums"
+   ],
+   "imagePrompt": "A small cavalry force on a snowy ridge facing a vast camp on the plain below, a leader silhouette raising a spear; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "snow blows, banners stream, the horses' breath steams; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liaojin-05.jpg",
+   "clip": "liaojin-05.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 6,
+   "sceneId": "liaojin.dashi",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "耶律大石西行",
+   "narration": "耶律大石率众西走万里，在虎思斡耳朵建立西辽。",
+   "ambience": [
+    "wind",
+    "hooves",
+    "bell"
+   ],
+   "imagePrompt": "A long caravan of horsemen and carts crossing desert and mountains westward under a vast sky; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the caravan moves, dust trails, clouds drift over the peaks; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liaojin-06.jpg",
+   "clip": "liaojin-06.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 7,
+   "sceneId": "liaojin.wushan",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "立马吴山",
+   "narration": "金海陵王南侵，扬言立马吴山第一峰，却在采石受挫后被弑。",
+   "ambience": [
+    "water",
+    "wind",
+    "hooves"
+   ],
+   "imagePrompt": "A ruler silhouette on horseback on a riverbank looking south across a wide river toward a misty mountain peak; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the river flows, his cloak streams, mist drifts over the peak; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liaojin-07.jpg",
+   "clip": "liaojin-07.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 8,
+   "sceneId": "liaojin.xixiawang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "西夏亡",
+   "narration": "蒙古大军围中兴府，成吉思汗死于军中，西夏随之灭亡。",
+   "ambience": [
+    "wind",
+    "hooves",
+    "horn"
+   ],
+   "imagePrompt": "A desert city with earthen walls surrounded by endless tents and horsemen beside a bend of a great river, dusk; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "dust blows, smoke rises from the camps, the river flows; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liaojin-08.jpg",
+   "clip": "liaojin-08.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 9,
+   "sceneId": "liaojin.sanfeng",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "三峰山",
+   "narration": "三峰山大雪，金军饥寒交迫，被蒙古军围歼，精锐尽失。",
+   "ambience": [
+    "snow-wind",
+    "hooves"
+   ],
+   "imagePrompt": "An army's silhouettes huddled in deep snow at the foot of three peaks, banners frozen, horsemen circling in the blizzard; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "snow falls heavily, wind drives it sideways, the frozen banners stir; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liaojin-09.jpg",
+   "clip": "liaojin-09.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 10,
+   "sceneId": "liaojin.caizhou",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "蔡州金亡",
+   "narration": "宋蒙联军攻破蔡州，金哀宗传位后自缢，金朝灭亡。",
+   "ambience": [
+    "fire",
+    "wind",
+    "horn"
+   ],
+   "imagePrompt": "A burning city at dawn, smoke rising over a palace, banners of two armies outside the walls; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "smoke billows, flames waver, banners ripple; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liaojin-10.jpg",
+   "clip": "liaojin-10.mp4",
+   "status": "pending"
+  }
+ ]
+}

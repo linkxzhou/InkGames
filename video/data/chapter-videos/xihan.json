@@ -1,0 +1,329 @@
+{
+ "version": 1,
+ "chapter": "xihan",
+ "title": {
+  "zh": "楚汉 · 西汉",
+  "en": "Western Han"
+ },
+ "pipeline": "story tree -> opening shots -> videoPrompt; see video/docs/chapter-videos.md",
+ "format": {
+  "aspectRatio": "16:9",
+  "resolution": [
+   1280,
+   720
+  ],
+  "fps": 24
+ },
+ "titleCard": {
+  "zh": "楚汉 · 西汉",
+  "seal": "开卷",
+  "durationSec": 3
+ },
+ "closingHoldSec": 3,
+ "totalSec": 108,
+ "style": "high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame",
+ "negative": "other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+ "motionRule": "richer but controlled motion (wind, mist, ink spread, flowing water, banners, slow camera); keep silhouettes consistent, no morphing, no new figures, no text, no fighting contact; only black, grey, paper white and vermilion",
+ "lengthRule": "shots = clamp(4 + ceil(scenes/2), 6, 16) = clamp(4 + ceil(20/2), 6, 16) = 14; 8 s each",
+ "rawDir": "/workspace/chapter-video/xihan/v2",
+ "clipsVersion": 2,
+ "grade": "palette lock (video/tools/chapter_grade.py): every pixel goes to the ink #141414 -> paper #eceae4 grey ramp by luminance, except hues near vermilion #b3241c (re-tinted to vermilion); saturated orange is pulled to vermilion, pale orange, yellow, blue and every other hue go to grey",
+ "audio": {
+  "narration": {
+   "engine": "edge-tts",
+   "voice": "zh-CN-YunjianNeural",
+   "rate": "-8%",
+   "pitch": "-2Hz",
+   "offsetSec": 0.6
+  },
+  "music": "original procedural bed (numpy): low D drone, sparse plucked D-major-pentatonic notes (guqin-like), deep drum on the title card",
+  "loudness": "-16 LUFS integrated, -1.5 dBTP; AAC 160k stereo; music and ambience duck about 8 dB under narration"
+ },
+ "shots": [
+  {
+   "n": 1,
+   "sceneId": "xihan.hongmen",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "鸿门宴",
+   "narration": "鸿门宴上，范增三举玉玦，项庄舞剑，意在沛公。",
+   "ambience": [
+    "fire",
+    "wind"
+   ],
+   "imagePrompt": "A tent banquet in silhouette, guests seated on mats, one swordsman dancing in the centre, an old adviser raising a jade ring; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "candle flames waver, the dancer's sleeves sweep slowly, smoke drifts, the tension holds, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xihan-01.jpg",
+   "clip": "xihan-01.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 2,
+   "sceneId": "xihan.hanxin",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "萧何月下追韩信",
+   "narration": "韩信不得重用，夜里逃去；萧何闻讯，连夜追回。",
+   "ambience": [
+    "hooves",
+    "water",
+    "wind"
+   ],
+   "imagePrompt": "Under a full moon a rider silhouette gallops along a mountain stream path chasing a distant lone rider; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the horses gallop, moonlit mist drifts, the stream flows, cloaks stream; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xihan-02.jpg",
+   "clip": "xihan-02.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 3,
+   "sceneId": "xihan.beishui",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "背水一战",
+   "narration": "韩信背水列阵，置之死地而后生，一战破赵于井陉。",
+   "ambience": [
+    "water",
+    "war-drums",
+    "wind"
+   ],
+   "imagePrompt": "An army formed with its back to a wide river, vermilion flags planted on a far ridge above an enemy fort; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the river flows behind the ranks, the vermilion flags on the ridge ripple, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xihan-03.jpg",
+   "clip": "xihan-03.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 4,
+   "sceneId": "xihan.gaixia",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "四面楚歌",
+   "narration": "垓下被围，夜闻四面楚歌，项羽悲歌：力拔山兮气盖世。",
+   "ambience": [
+    "wind",
+    "fire",
+    "horn"
+   ],
+   "imagePrompt": "At night in a camp tent a warrior silhouette sits drinking beside a woman figure and a tethered black horse, campfires all around on the hills; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the campfire dots flicker across the hills, wind moves the tent cloth, the horse lowers its head; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep her silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xihan-04.jpg",
+   "clip": "xihan-04.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 5,
+   "sceneId": "xihan.gaixia",
+   "sourceShots": [
+    6,
+    7
+   ],
+   "durationSec": 8,
+   "zh": "乌江",
+   "narration": "项羽溃围至乌江，不肯过江，自刎而死，年三十一。",
+   "ambience": [
+    "water",
+    "wind"
+   ],
+   "imagePrompt": "A lone warrior silhouette stands at the edge of a wide grey river at dusk, a small boat waiting, a blood-red sky; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the river flows, the boat rocks gently, wind tears at his cloak, the red sky dims, the frame holds still; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xihan-05.jpg",
+   "clip": "xihan-05.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 6,
+   "sceneId": "xihan.baideng",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "白登之围",
+   "narration": "刘邦北击匈奴，被围白登七日，用陈平之计才得脱身。",
+   "ambience": [
+    "snow-wind",
+    "hooves"
+   ],
+   "imagePrompt": "A small hilltop camp surrounded in the snowy distance by rings of horsemen silhouettes, a grey winter sky; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "snow falls, the horses shift, banners ripple, mist drifts over the rings; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xihan-06.jpg",
+   "clip": "xihan-06.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 7,
+   "sceneId": "xihan.tiying",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "缇萦救父",
+   "narration": "少女缇萦上书，愿没入为官婢赎父刑；文帝因此废肉刑。",
+   "ambience": [
+    "wind",
+    "birds"
+   ],
+   "imagePrompt": "A young girl silhouette kneels at a palace gate holding up a bamboo letter, the long road behind her; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "wind moves her sleeves and hair, leaves drift past, the gate looms still, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep her silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xihan-07.jpg",
+   "clip": "xihan-07.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 8,
+   "sceneId": "xihan.qiguo",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "七国之乱",
+   "narration": "吴楚七国以诛晁错为名起兵，周亚夫坚壁不战，断其粮道。",
+   "ambience": [
+    "wind",
+    "war-drums"
+   ],
+   "imagePrompt": "A fortified camp with high walls, a general silhouette on the rampart watching distant armies across a plain; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "banners on the rampart ripple, smoke from distant camps drifts, clouds roll; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xihan-08.jpg",
+   "clip": "xihan-08.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 9,
+   "sceneId": "xihan.zhangqian",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "张骞凿空",
+   "narration": "张骞出使西域，被匈奴扣留十余年，终于凿空西域。",
+   "ambience": [
+    "wind",
+    "bell"
+   ],
+   "imagePrompt": "A small caravan silhouette with a tall envoy's staff crosses vast desert dunes toward distant snow mountains; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "camels plod forward, sand blows off the dune crests, the staff's tassels stream; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xihan-09.jpg",
+   "clip": "xihan-09.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 10,
+   "sceneId": "xihan.mobei",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "封狼居胥",
+   "narration": "霍去病出塞两千余里，封狼居胥山，禅于姑衍。",
+   "ambience": [
+    "wind",
+    "hooves",
+    "horn"
+   ],
+   "imagePrompt": "A young general silhouette on horseback on a mountain summit beside a stone altar, cavalry below on the endless steppe; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "banners stream, the horse's mane flies, clouds race over the steppe; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xihan-10.jpg",
+   "clip": "xihan-10.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 11,
+   "sceneId": "xihan.suwu",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "苏武牧羊",
+   "narration": "苏武持汉节在北海牧羊十九年，节旄尽落。",
+   "ambience": [
+    "snow-wind"
+   ],
+   "imagePrompt": "A lone old man silhouette holding a bare envoy's staff stands among sheep on a frozen lakeshore, snow and wind; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "snow blows, the sheep shift, the staff's last tassel strands stir; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xihan-11.jpg",
+   "clip": "xihan-11.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 12,
+   "sceneId": "xihan.simaqian",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "发愤著书",
+   "narration": "司马迁受宫刑，隐忍苟活，写成《史记》一百三十篇。",
+   "ambience": [
+    "wind",
+    "insects"
+   ],
+   "imagePrompt": "A man silhouette writes on bamboo slips at a low desk by lamplight, stacks of bound scrolls around him; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the lamp flame flickers, his brush moves slowly, night passes as the window greys; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xihan-12.jpg",
+   "clip": "xihan-12.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 13,
+   "sceneId": "xihan.chentang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "陈汤",
+   "narration": "陈汤矫诏发兵，斩郅支单于，上疏：明犯强汉者，虽远必诛。",
+   "ambience": [
+    "wind",
+    "war-drums",
+    "horn"
+   ],
+   "imagePrompt": "A distant walled steppe fortress under smoke, an army's banners planted on a hill in front, dusk; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "smoke drifts from the fortress, banners ripple, the sky darkens; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xihan-13.jpg",
+   "clip": "xihan-13.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 14,
+   "sceneId": "xihan.zhaojun",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "昭君出塞",
+   "narration": "王昭君自请出塞，嫁呼韩邪单于，汉匈之间数十年无战事。",
+   "ambience": [
+    "wind",
+    "grass",
+    "birds"
+   ],
+   "imagePrompt": "A woman silhouette on horseback holding a pipa looks back toward a distant pass, a caravan moving into the grassland, wild geese overhead; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the geese fly slowly across, her cloak streams, grass waves; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xihan-14.jpg",
+   "clip": "xihan-14.mp4",
+   "status": "pending"
+  }
+ ]
+}

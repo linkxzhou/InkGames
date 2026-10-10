@@ -94,15 +94,68 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 - 运镜指令不一定被遵守，只作参考。
 - 生成器据此：高潮镜改为“缓推到近景后定格成关键帧静帧”，不做急推与震屏；朱红血雾只给刺杀、交战类高潮镜（约 26 场），其余高潮只泼墨定格；落款镜只留空纸，引文与朱印后期叠加。
 - 这些约束是 `art-style.mjs` 的 `MOTION_ZH/EN` 与 `NEG_MOTION_ZH/EN`，生成器写进每个 `videoPrompt`，校验器逐场检查。
-- 章节开场短片（每朝一支 16:9，约 40–60 秒）：剧本 `video/data/chapter-videos/<chapter>.json` → 静帧 → 图生视频 → `video/tools/build-chapter-video.py` 合成 → 查看器清单 `video/viewer/assets/chapter-videos/index.{json,js}`。合成前逐帧调色锁回黑白红色板（`chapter_grade.py`），声音全部原创合成（edge-tts 旁白 + numpy 五声配乐与环境声，−16 LUFS，`chapter_audio.py`）。流程与状态见 [chapter-videos.md](./video/docs/chapter-videos.md)；原始片段不进仓库，不出 webm。2026-10-10 上古一章完成（有声，65 秒）。
+- 章节开场短片的流程与规则见 §7。
 
-## 7. 三件套矩阵与推广路线（2026-10-10 定）
+## 7. 章节片头视频制作规范（2026-10-10 定）
+
+每朝一支 16:9 片头，放在查看器朝代长卷之下、场景卡之上。细节、状态表与逐镜旁白见 [chapter-videos.md](./video/docs/chapter-videos.md)，这里只记规则。
+
+**流程**
+
+1. 剧情树 → 开场分镜 → 场景 `videoPrompt` → 章节剧本 `video/data/chapter-videos/<ch>.json`（镜头按时间线排，每镜带 `sceneId`、`sourceShots`、`zh` 字幕、`narration` 旁白、`ambience`、`imagePrompt`、`motionPrompt`、`durationSec: 8`、`status`）。剧本源在 box 的 `/workspace/gen/chapter-videos/shots.txt`，`build_scripts.py --write` 生成 JSON 与扁平批量文件 `/workspace/chapter-video/batch.jsonl`（每行 `{ch,n,id,imagePrompt,motionPrompt}`）。
+2. 每镜一张本风格 16:9 静帧（`GenerateImage`，只有父代理能调用）。
+3. 图生视频 720p、8 s（`GenerateVideo`，同上）：动势丰富但受控——神话或历史氛围、墨晕、风、雾、流水、旗帜、缓慢运镜；**不拍兵刃与肢体接触**，交战与刺杀只拍之前或之后的氛围（旗、雾、血红落日、定住的一团泼墨）。
+4. 逐帧调色锁回色板：`video/tools/chapter_grade.py`（灰阶 + 朱砂红，其余色相去色；可按镜 `grade.redScale` / `redMaskBelow`）。
+5. 声音：edge-tts `zh-CN-YunjianNeural` 旁白；原创程序合成的五声音阶配乐与按镜环境声（`video/tools/chapter_audio.py`，环境声名必须在其 `AMB` 表里）；旁白时配乐闪避，整轨 −16 LUFS、−1.5 dBTP，AAC 160k 立体声。
+6. 合成：`python3 video/tools/build-chapter-video.py <ch>` —— 3 s 片名卡（朱印）、0.7 s 交叉溶解、字幕烧在下三分之一、末镜停 3 s，H.264 + AAC，**只出 mp4，不出 webm**；旁白超出时该镜末帧最多延 2 s。
+7. 写清单 `video/viewer/assets/chapter-videos/index.{json,js}`，查看器居中播放块（`file://` 可用）。
+
+**规则**
+
+- 色板与负面词同 §5；画面里不出现任何文字（字幕、片名、印章都是后期叠加）。
+- `motionPrompt` 统一以 `keep his/her/their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.` 结尾。
+- 旁白 15–30 字，原创措辞，忠于场景数据与其史源；古籍只引短句。不用任何有版权的音乐或音效。
+- 原始静帧与片段不进仓库，放 `/workspace/chapter-video/<ch>/`（新一轮片段放 `v2/`）；合成前看接触表，**严重变形的镜头重生成**（每镜最多重试 2 次）。
+
+**长度**：镜数 = clamp(4 + ceil(场景数 / 2), 6, 16)，每镜 8 s；场景越多片子越长。上古按 8 镜旧例保留。按 2026-10-10 的实际场景数（共 241 镜，其余 20 章 233 镜）：
+
+| 章 | 场景 | 镜数 | 估计时长 |
+|---|---|---|---|
+| 上古（`shanggu`） | 7 | 8（旧例） | 1:05 |
+| 夏（`xia`） | 5 | 7 | 0:58 |
+| 商（`shang`） | 7 | 8 | 1:05 |
+| 西周（`xizhou`） | 9 | 9 | 1:12 |
+| 春秋（`chunqiu`） | 18 | 13 | 1:42 |
+| 战国（`zhanguo`） | 22 | 15 | 1:56 |
+| 秦（`qin`） | 10 | 9 | 1:12 |
+| 楚汉 · 西汉（`xihan`） | 20 | 14 | 1:49 |
+| 新 · 东汉（`donghan`） | 14 | 11 | 1:27 |
+| 三国（`sanguo`） | 26 | 16 | 2:04 |
+| 两晋（`liangjin`） | 12 | 10 | 1:20 |
+| 南北朝（`nanbeichao`） | 14 | 11 | 1:27 |
+| 隋（`sui`） | 10 | 9 | 1:12 |
+| 唐（`tang`） | 26 | 16 | 2:04 |
+| 五代十国（`wudai`） | 10 | 9 | 1:12 |
+| 北宋（`beisong`） | 18 | 13 | 1:42 |
+| 辽 · 西夏 · 金（`liaojin`） | 11 | 10 | 1:20 |
+| 南宋（`nansong`） | 14 | 11 | 1:27 |
+| 元（`yuan`） | 11 | 10 | 1:20 |
+| 明（`ming`） | 26 | 16 | 2:04 |
+| 清（`qing`） | 26 | 16 | 2:04 |
+
+估计时长 = 3.7 + 8 × 镜数 + 3 − 0.7 × 镜数（片名卡、交叉溶解、末镜停留），未计旁白延长；16 镜约 2 分 04 秒，旁白长时到约 2 分 13 秒。
+
+**体积**：720p、crf 28–30，约 0.2 MB/s；每章 mp4 上限 30 MB（校验器拦截）。
+
+**校验器检查**：每份剧本的镜数符合公式、`sceneId` 属于本章且按时间线排序、`sourceShots` 在范围内、旁白 15–30 字、8 s（延长不超过 2 s）、`imagePrompt` 带风格块与负面词、`motionPrompt` 固定结尾、环境声已实现、`clip` 命名为 `<ch>-NN.mp4`；已合成的章节再查清单、文件与 30 MB 上限。
+
+## 8. 三件套矩阵与推广路线（2026-10-10 定）
 
 - 三件套：① 历史内容站「烽火」——`video/viewer/index.html` 改成水墨风格的公开内容站（不再是开发工具；开卷图 `video/viewer/assets/fenghuo-hero.{webp,jpg}`）；② 每个场景用站内的分镜与 `videoPrompt` 做一支水墨短片；③ 用同一份内容做 InkGames 水墨游戏引擎，再用引擎做游戏。
 - 推广路线：内容站 → 社交媒体短视频 → 游戏玩家。
 - 三者共用 `video/data/` 与 [art-style.md](./video/docs/art-style.md)；站点的视觉同样只用黑白红色板，朱砂红只给印章、当前章节与少量强调。
 
-## 8. 意图史（按 git log 核对）
+## 9. 意图史（按 git log 核对）
 
 | 日期 | 事件 | 提交 / PR |
 |---|---|---|
@@ -118,9 +171,10 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 | 2026-10-10 | 历史内容从 `plan/11-*`、`plan/12-*` 迁到 `video/`，文件名改为小写 kebab-case；加 `videoPrompt` 面板与导出；史源摘要放 `video/sources/` | `a646f64`、`0e29639`、`56912f0`、`fffbd69` |
 | 2026-10-10 | 审计并按朝代体量重排为每章 5–30 场，审计记录 [audit-2026-10-10.md](./video/docs/audit-2026-10-10.md) | 审计批次 |
 | 2026-10-10 | 美术方向改为类《影之刃》的简化黑白红剪影；校验器强制风格；随后继续扩写各章 | `9cb7672`、`75a2e61` 及之后 |
-| 2026-10-10 | 定下“内容站 → 视频 → 游戏”三件套（§7）；查看器改版为黑白红水墨内容站（开卷、二十一朝长卷、场景卡），页面不再显示“首发”标记（数据里的 `v1` 字段保留） | 本次改版提交 |
+| 2026-10-10 | 定下“内容站 → 视频 → 游戏”三件套（§8）；查看器改版为黑白红水墨内容站（开卷、二十一朝长卷、场景卡），页面不再显示“首发”标记（数据里的 `v1` 字段保留） | 本次改版提交 |
+| 2026-10-10 | 上古片头（有声，65 s）上线；定下章节片头制作规范（§7）：镜数随场景数增长、8 s 一镜、每章 ≤ 30 MB；其余 20 章剧本写好（233 镜，待出片） | `ee43529` 及之后 |
 
-## 9. 关键记忆与规则
+## 10. 关键记忆与规则
 
 **必须：**
 
@@ -142,13 +196,13 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 6. 手改 `video/data/chapters/*.json` 或 `video/viewer/data/*.js` 而不改生成源。
 7. 把无头 SwiftShader 结果写成“已验证”。
 
-## 10. 常见任务速查
+## 11. 常见任务速查
 
 | 任务 | 做法 |
 |---|---|
 | 新增或修改历史场景 | 改 `/workspace/gen/new/NN.yaml`（及英文分镜 `en/*.txt`），跑 `/workspace/gen/run.sh`；它会同步大纲、文档场景数、提示词、史源摘要、查看器数据并运行校验器 |
 | 改美术风格 | 只改 `video/tools/art-style.mjs` 与 [art-style.md](./video/docs/art-style.md)，重跑提示词生成器；校验器会拦住没带新风格的提示词 |
 | 新增引擎公共 API | 从 `src/index.ts` 导出，同步 `docs/NN-*.md` 与 `plan/10` 的状态（见 [docs/AGENTS.md §3](./docs/AGENTS.md#3-文档约定)） |
-| 新增章节开场短片 | 写剧本 JSON，静帧与片段放 `/workspace/chapter-video/<chapter>/`，跑 `python3 video/tools/build-chapter-video.py <chapter>`（见 [chapter-videos.md](./video/docs/chapter-videos.md)） |
+| 新增章节开场短片 | 按 §7：改 `/workspace/gen/chapter-videos/shots.txt` → `build_scripts.py --write`，静帧与片段放 `/workspace/chapter-video/<chapter>/v2/`，跑 `python3 video/tools/build-chapter-video.py <chapter>`（见 [chapter-videos.md](./video/docs/chapter-videos.md)） |
 | 查看器截图 | 用无头 Chromium 打开 `file://…/video/viewer/index.html#<chapter>`，截场景页与“水墨视频提示词”面板 |
 | 新增依赖 | 只允许 MIT / BSD / Apache / LGPL，登记到 [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md) |
