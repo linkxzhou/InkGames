@@ -128,6 +128,15 @@ table.cmp th{background:rgba(255,255,255,.4);font-weight:normal;color:var(--mute
 .sub{font-size:12px;color:var(--muted);margin:6px 0 2px}
 pre.prompt{white-space:pre-wrap;word-break:break-word;font-family:ui-monospace,Menlo,Consolas,"Songti SC",monospace;font-size:12px;line-height:1.65;
   background:var(--paper);border:1px dashed var(--edge);border-radius:4px;padding:6px 8px;max-height:240px;overflow:auto;margin:0}
+#videoTabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+#videoTabs button{font:inherit;font-size:12px;color:var(--ink);background:rgba(255,255,255,.5);border:1px solid var(--edge);border-radius:4px;padding:3px 10px;cursor:pointer}
+#videoTabs button:hover{border-color:var(--accent)}
+#videoTabs button.active{background:var(--accent2);color:var(--paper);border-color:var(--accent2)}
+.vshots{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px;margin-bottom:8px}
+.vshot{border:1px solid var(--edge);border-left:3px solid var(--accent);border-radius:6px;background:rgba(255,255,255,.45);padding:6px 9px;font-size:12px;line-height:1.6}
+.vshot .seg-h{margin-bottom:4px}
+.vshot .vo{color:var(--accent);margin-top:3px}
+.vchars{font-size:12px;line-height:1.6;margin:4px 0 8px;padding-left:18px}
 #artTabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
 #artTabs button{font:inherit;font-size:12px;color:var(--ink);background:rgba(255,255,255,.5);border:1px solid var(--edge);border-radius:4px;padding:3px 10px;cursor:pointer}
 #artTabs button:hover{border-color:var(--accent)}
@@ -156,6 +165,7 @@ pre.prompt{white-space:pre-wrap;word-break:break-word;font-family:ui-monospace,M
   <section class="card" id="cardGraph"><h2>人物关系 <small id="gcount"></small></h2><div id="graph"><svg id="gsvg"></svg><div id="gnodes"></div></div><div id="legend"></div></section>
   <section class="card wide" id="cardTree"><h2>剧情树 <small>正史主干 · 野史/演义/异说支线 · 推演（未开放）</small></h2><div id="tree"></div></section>
   <section class="card wide" id="cardShots"><h2>开场动画分镜 <small id="shotMeta"></small></h2><div id="shots"></div></section>
+  <section class="card wide" id="cardVideo"><h2>水墨视频提示词 <small id="videoMeta"></small></h2><div id="videoTabs"></div><div id="video"></div></section>
   <section class="card wide" id="cardAudio"><h2>音频提示 <small id="audioMeta"></small></h2><div id="audio"></div></section>
   <section class="card wide" id="cardArt"><h2>水墨素材提示词 <small id="artMeta"></small></h2><div id="artTabs"></div><div id="art"></div></section>
 </main>
@@ -291,7 +301,7 @@ function selectScene(id){
   cur.entry = cur.bundle.scenes.find(e => e.scene.id === id) || cur.bundle.scenes[0];
   $("#sceneSel").value = cur.entry.scene.id;
   try { history.replaceState(null, "", "#ch=" + cur.ch.id + "&sc=" + cur.entry.scene.id); } catch (e) {}
-  renderTimeline(); renderInfo(); renderGraph(); renderTree(); renderShots(); renderAudio(); renderArt();
+  renderTimeline(); renderInfo(); renderGraph(); renderTree(); renderShots(); renderVideo(); renderAudio(); renderArt();
 }
 
 /* ---------- 时间轴 ---------- */
@@ -554,6 +564,82 @@ function renderAudio(){
     });
     box.appendChild(lane);
   });
+}
+
+
+/* ---------- 水墨视频提示词（videoPrompt） ---------- */
+let videoLang = "zh";
+function download(name, text, type){
+  const blob = new Blob([text], {type: type || "text/plain;charset=utf-8"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+function allVideoScenes(chapterId){
+  const idx = window.HISTORY_GAME_INDEX, out = [];
+  for (const c of idx.chapters){
+    if (chapterId && c.id !== chapterId) continue;
+    const b = (window.HISTORY_GAME_CHAPTERS || {})[c.id]; if (!b) continue;
+    const ct = (b.strings && b.strings.strings && b.strings.strings[b.chapter.title]) || c.id;
+    for (const e of b.scenes) if (e.videoPrompt){
+      const s = e.strings && e.strings.strings || {};
+      out.push({chapter: c.id, chapterTitle: ct, outlineId: e.outlineId, id: e.scene.id, title: s[e.scene.title] || e.scene.title, subtitle: s[e.scene.subtitle] || "", videoPrompt: e.videoPrompt});
+    }
+  }
+  return out;
+}
+function videoMarkdown(list){
+  return "# 墨史 · 水墨视频生成提示词\n\n共 " + list.length + " 个场景。每个场景先中文后英文；生成器单镜时长不够时，可按“分镜”逐镜生成再剪辑。\n\n" +
+    list.map(x => "## " + x.outlineId + " " + x.chapterTitle + " · " + x.title + (x.subtitle ? "（" + x.subtitle + "）" : "") + "\n\n`" + x.id + "` · " + x.videoPrompt.aspectRatio + " · 约 " + x.videoPrompt.durationSec + " 秒 · " + x.videoPrompt.shots.length + " 镜\n\n### 中文\n\n```text\n" + x.videoPrompt.prompt.zh + "\n```\n\n### English\n\n```text\n" + x.videoPrompt.prompt.en + "\n```\n").join("\n");
+}
+function renderVideo(){
+  const e = cur.entry, box = $("#video"), tabs = $("#videoTabs");
+  box.textContent = ""; tabs.textContent = "";
+  const v = e.videoPrompt;
+  if (!v){
+    box.innerHTML = '<div class="empty">此场景还没有水墨视频提示词：在仓库根目录运行 <b>node video/tools/build-video-prompts.mjs</b>，再运行 <b>node video/tools/build-viewer-data.mjs</b>。</div>';
+    $("#videoMeta").textContent = ""; return;
+  }
+  $("#videoMeta").textContent = v.aspectRatio + " · " + v.resolution.join("×") + " · " + v.fps + "fps · 约 " + v.durationSec + " 秒 · " + v.shots.length + " 镜 · 由分镜、人物与音频自动生成（" + v.generator + "）";
+  const L = () => videoLang;
+  const mk = (label, fn, cls) => { const b = document.createElement("button"); b.textContent = label; if (cls) b.className = cls; b.addEventListener("click", () => fn(b)); tabs.appendChild(b); return b; };
+  const zhB = mk("中文", () => { videoLang = "zh"; renderVideo(); }, L() === "zh" ? "active" : "");
+  const enB = mk("English", () => { videoLang = "en"; renderVideo(); }, L() === "en" ? "active" : "");
+  const cp = mk(L() === "zh" ? "复制整段提示词" : "Copy full prompt", b => copyText(v.prompt[L()], b)); cp.style.marginLeft = "auto";
+  mk(L() === "zh" ? "复制负面提示词" : "Copy negative", b => copyText(v.negative[L()], b));
+  const chap = e.scene.id.split(".")[0];
+  mk("导出本章 Markdown", () => download("video-prompts-" + chap + ".md", videoMarkdown(allVideoScenes(chap)), "text/markdown;charset=utf-8"));
+  mk("导出全部 Markdown", () => download("video-prompts-all.md", videoMarkdown(allVideoScenes()), "text/markdown;charset=utf-8"));
+  mk("导出全部 JSON", () => download("video-prompts-all.json", JSON.stringify(allVideoScenes(), null, 1), "application/json"));
+  const add = (label, text) => {
+    const h = document.createElement("div"); h.className = "sub"; h.textContent = label; box.appendChild(h);
+    const p = document.createElement("div"); p.style.fontSize = "12px"; p.style.lineHeight = "1.65"; p.textContent = text; box.appendChild(p);
+  };
+  add(L() === "zh" ? "风格" : "Style", v.style[L()]);
+  add(L() === "zh" ? "时代与场景" : "Setting", v.setting[L()]);
+  const h = document.createElement("div"); h.className = "sub"; h.textContent = L() === "zh" ? "人物（★ 出镜）" : "Characters (★ on screen)"; box.appendChild(h);
+  const ul = document.createElement("ul"); ul.className = "vchars";
+  v.characters.forEach(c => { const li = document.createElement("li"); li.textContent = (c.onScreen ? "★ " : "") + c[L()]; ul.appendChild(li); });
+  box.appendChild(ul);
+  const h2 = document.createElement("div"); h2.className = "sub"; h2.textContent = L() === "zh" ? "分镜（每镜可单独复制）" : "Storyboard (copy each shot)"; box.appendChild(h2);
+  const grid = document.createElement("div"); grid.className = "vshots";
+  v.shots.forEach(s => {
+    const d = document.createElement("div"); d.className = "vshot";
+    const head = document.createElement("div"); head.className = "seg-h";
+    head.innerHTML = "<b>" + (L() === "zh" ? "镜头 " : "Shot ") + s.n + "</b><span>" + s.startSec + "–" + (s.startSec + s.durationSec) + "s · " + s.durationSec + "s</span>";
+    const b = document.createElement("button"); b.textContent = L() === "zh" ? "复制本镜" : "Copy shot";
+    b.addEventListener("click", () => copyText(s[L()] + "\n\n" + (L() === "zh" ? "风格：" : "Style: ") + v.style[L()] + "\n" + (L() === "zh" ? "负面提示词：" : "Negative prompt: ") + v.negative[L()], b));
+    head.appendChild(b); d.appendChild(head);
+    const body = document.createElement("div");
+    body.textContent = s[L()].replace(/^(镜头|Shot) \d+ \([^)]*\) \| |^镜头 \d+（[^）]*）｜/, "");
+    d.appendChild(body);
+    grid.appendChild(d);
+  });
+  box.appendChild(grid);
+  add(L() === "zh" ? "声音" : "Sound", v.sound[L()]);
+  add(L() === "zh" ? "字幕与屏幕文字" : "On-screen text", v.onScreenText[L()]);
+  add(L() === "zh" ? "负面提示词" : "Negative prompt", v.negative[L()]);
+  const h3 = document.createElement("div"); h3.className = "sub"; h3.textContent = L() === "zh" ? "完整提示词（可直接粘贴）" : "Full prompt (paste as is)"; box.appendChild(h3);
+  const pre = document.createElement("pre"); pre.className = "prompt"; pre.textContent = v.prompt[L()]; pre.style.maxHeight = "260px"; pre.style.overflow = "auto"; box.appendChild(pre);
 }
 
 /* ---------- 水墨素材提示词 ---------- */
