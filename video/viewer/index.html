@@ -12,7 +12,8 @@
      的配色变量、主题、人物/关系类型颜色与卡片样式。
    - 数据来自 data/*.js（由 tools/build-viewer-data.mjs 从 chapters/*.json
      生成，设置 window.HISTORY_GAME_INDEX / HISTORY_GAME_CHAPTERS）。
-     双击即可用 file:// 打开，不发起任何网络请求，不依赖外部库。
+     只静态加载 data/index.js；章节脚本在切到该章时用动态 <script> 按需加载，
+     并预取相邻两章。双击即可用 file:// 打开，不用 fetch，不依赖外部库。
    ===================================================================== */
 :root{
   --bg:#efe6d3; --paper:#f7f1e3; --ink:#3a3329; --muted:#8a7f6d;
@@ -173,27 +174,6 @@ pre.prompt{white-space:pre-wrap;word-break:break-word;font-family:ui-monospace,M
 <div id="hint">选择章节与场景 · 点击时间轴上的场景 · 实心点为完整场景（detail: full），空心为大纲级；★ 为首版发布批次（v1）</div>
 
 <script src="data/index.js"></script>
-<script src="data/00-shanggu.js"></script>
-<script src="data/01-xia.js"></script>
-<script src="data/02-shang.js"></script>
-<script src="data/03-xizhou.js"></script>
-<script src="data/04-chunqiu.js"></script>
-<script src="data/05-zhanguo.js"></script>
-<script src="data/06-qin.js"></script>
-<script src="data/07-xihan.js"></script>
-<script src="data/08-donghan.js"></script>
-<script src="data/09-sanguo.js"></script>
-<script src="data/10-liangjin.js"></script>
-<script src="data/11-nanbeichao.js"></script>
-<script src="data/12-sui.js"></script>
-<script src="data/13-tang.js"></script>
-<script src="data/14-wudai.js"></script>
-<script src="data/15-beisong.js"></script>
-<script src="data/16-liaojin.js"></script>
-<script src="data/17-nansong.js"></script>
-<script src="data/18-yuan.js"></script>
-<script src="data/19-ming.js"></script>
-<script src="data/20-qing.js"></script>
 <script>
 "use strict";
 const NS = "http://www.w3.org/2000/svg";
@@ -228,7 +208,7 @@ const KIND = { cutscene:"过场", choice:"抉择", gameplay:"玩法", ending:"�
 const ART_KIND = { figure:"人物", prop:"器物", scenery:"环境", fx:"特效" };
 
 const INDEX = window.HISTORY_GAME_INDEX;
-const CH = window.HISTORY_GAME_CHAPTERS || {};
+const CH = (window.HISTORY_GAME_CHAPTERS = window.HISTORY_GAME_CHAPTERS || {});
 let cur = { ch:null, bundle:null, entry:null, theme:null, userTheme:false };
 
 function T(key){
@@ -272,15 +252,54 @@ function init(){
   const h = new URLSearchParams(location.hash.slice(1));
   selectChapter(h.get("ch") || INDEX.chapters[0].id, h.get("sc"));
   window.addEventListener("resize", () => { if (cur.entry) { renderGraph(); renderTimeline(); } });
+  window.addEventListener("hashchange", () => {
+    const q = new URLSearchParams(location.hash.slice(1)), ch = q.get("ch"), sc = q.get("sc");
+    if (ch && (!cur.ch || ch !== cur.ch.id)) selectChapter(ch, sc);
+    else if (sc && cur.entry && sc !== cur.entry.scene.id) selectScene(sc);
+  });
 }
+/* 章节脚本按需加载：file:// 下用动态 <script>（不用 fetch），只加载正在看的章与相邻两章 */
+const LOADING = {};
+function chapterScript(meta){ return "data/" + meta.file.replace(/^chapters\//, "").replace(/\.json$/, ".js"); }
+function loadChapter(meta){
+  if (CH[meta.id]) return Promise.resolve(CH[meta.id]);
+  if (LOADING[meta.id]) return LOADING[meta.id];
+  return LOADING[meta.id] = new Promise((res, rej) => {
+    const s = document.createElement("script"); s.src = chapterScript(meta);
+    s.onload = () => CH[meta.id] ? res(CH[meta.id]) : rej(new Error(s.src + " 没有注册章节 " + meta.id));
+    s.onerror = () => { delete LOADING[meta.id]; s.remove(); rej(new Error("无法加载 " + s.src)); };
+    document.head.appendChild(s);
+  });
+}
+function loadAllChapters(btn){
+  const label = btn && btn.textContent; let n = 0;
+  return Promise.all(INDEX.chapters.map(c => loadChapter(c).then(b => { n++; if (btn) btn.textContent = "载入中 " + n + "/" + INDEX.chapters.length; return b; })))
+    .finally(() => { if (btn) btn.textContent = label; });
+}
+function prefetchNear(meta){
+  const i = INDEX.chapters.indexOf(meta);
+  const go = () => [INDEX.chapters[i + 1], INDEX.chapters[i - 1]].filter(Boolean).forEach(c => loadChapter(c).catch(() => {}));
+  (window.requestIdleCallback || ((f) => setTimeout(f, 800)))(go);
+}
+let chapSeq = 0;
 function selectChapter(id, sceneId){
   const meta = INDEX.chapters.find(c => c.id === id) || INDEX.chapters[0];
+  $("#chapSel").value = meta.id;
+  document.querySelectorAll("#chapTabs button").forEach(b => b.classList.toggle("active", b.dataset.id === meta.id));
+  if (!CH[meta.id]){
+    const seq = ++chapSeq;
+    $("#quote").innerHTML = "第 " + esc(meta.no) + " 章 · <b>" + esc(meta.name) + "</b> · 载入 " + esc(chapterScript(meta)) + " ……";
+    loadChapter(meta).then(() => { if (seq === chapSeq) selectChapter(meta.id, sceneId); })
+      .catch(err => { if (seq === chapSeq) $("#quote").innerHTML = '<span style="color:#b33">章节脚本加载失败：' + esc(err.message) + '（请先运行 node video/tools/build-viewer-data.mjs）</span>'; });
+    return;
+  }
+  chapSeq++;
   const bundle = CH[meta.id];
+  prefetchNear(meta);
   cur.ch = meta; cur.bundle = bundle; $("#main").scrollTop = 0;
   $("#chapSel").value = meta.id;
   document.querySelectorAll("#chapTabs button").forEach(b => b.classList.toggle("active", b.dataset.id === meta.id));
   const at = document.querySelector('#chapTabs button[data-id="' + meta.id + '"]'); if (at && at.scrollIntoView) at.scrollIntoView({block:"nearest", inline:"nearest"});
-  if (!bundle){ $("#main").innerHTML = '<div class="empty">章节脚本 data/' + esc(meta.file) + ' 未加载</div>'; return; }
   if (!cur.userTheme) applyTheme(themeFor(bundle.chapter.order));
   const ss = $("#sceneSel"); ss.textContent = "";
   bundle.scenes.forEach(e => {
@@ -608,8 +627,8 @@ function renderVideo(){
   mk(L() === "zh" ? "复制负面提示词" : "Copy negative", b => copyText(v.negative[L()], b));
   const chap = e.scene.id.split(".")[0];
   mk("导出本章 Markdown", () => download("video-prompts-" + chap + ".md", videoMarkdown(allVideoScenes(chap)), "text/markdown;charset=utf-8"));
-  mk("导出全部 Markdown", () => download("video-prompts-all.md", videoMarkdown(allVideoScenes()), "text/markdown;charset=utf-8"));
-  mk("导出全部 JSON", () => download("video-prompts-all.json", JSON.stringify(allVideoScenes(), null, 1), "application/json"));
+  mk("导出全部 Markdown", b => loadAllChapters(b).then(() => download("video-prompts-all.md", videoMarkdown(allVideoScenes()), "text/markdown;charset=utf-8")));
+  mk("导出全部 JSON", b => loadAllChapters(b).then(() => download("video-prompts-all.json", JSON.stringify(allVideoScenes(), null, 1), "application/json")));
   const add = (label, text) => {
     const h = document.createElement("div"); h.className = "sub"; h.textContent = label; box.appendChild(h);
     const p = document.createElement("div"); p.style.fontSize = "12px"; p.style.lineHeight = "1.65"; p.textContent = text; box.appendChild(p);
