@@ -1968,6 +1968,17 @@
   ],
   "title": "Whoever Offends Mighty Han: Chen Tang"
  },
+ "xihan.dongfangshuo": {
+  "end": "Emperor Wu bursts out laughing — asked to blame himself, he has praised himself — and gives him a dan of wine and a hundred jin of meat to take home to his wife.",
+  "shots": [
+   "In the petition office two men carry in a huge bundle of writing tablets that fills half the room",
+   "On the midsummer feast day meat is to be handed out, but the steward is late and the gentlemen stand waiting",
+   "One man draws his sword, cuts off a piece of meat, tucks it in his robe and strolls away",
+   "Next day the emperor, stony-faced, orders him to confess his fault",
+   "He bows twice: taking the gift without waiting — how rude! cutting the meat with a sword — how bold!"
+  ],
+  "title": "Meat for His Wife: Dongfang Shuo"
+ },
  "xihan.gaixia": {
   "end": "Xiang Yu gives his horse to the ferryman, fights on foot, and cuts his own throat.",
   "shots": [
@@ -1978,6 +1989,17 @@
    "The Wu River"
   ],
   "title": "Chu Songs on All Sides: Gaixia"
+ },
+ "xihan.gujian": {
+  "end": "Empress Xu dies; after Huo Guang's death the plot comes out, the Huo clan is wiped out, and her son eventually reigns as Emperor Yuan.",
+  "shots": [
+   "In Chang'an's Shangguan ward a young couple live in a poor lane, an old sword hanging on the wall",
+   "In Weiyang Palace the ministers propose making the regent's youngest daughter empress",
+   "The emperor issues a strange edict: find the old sword I used in my humble days",
+   "After the empress gives birth, a woman physician brings her a bowl of pills",
+   "The empress asks: my head is spinning — is there poison in this medicine?"
+  ],
+  "title": "The Old Sword: Xu Pingjun"
  },
  "xihan.hanxin": {
   "end": "Yong is defeated at Chencang and two kings surrender; the king of Han turns east and the Chu–Han war begins.",
@@ -2001,6 +2023,39 @@
   ],
   "title": "The Feast at Hongmen: Xiang Zhuang's Sword Dance"
  },
+ "xihan.huoguang": {
+  "end": "Liu He is sent home and his officials executed; Huo Guang enthrones Liu Bingyi as Emperor Xuan, and Liu He later dies as Marquis of Haihun in Yuzhang.",
+  "shots": [
+   "In the Chengming hall of Weiyang Palace the officials sit in rows while one minister stands with his hand on his sword",
+   "The empress dowager sits in a pearl-sewn robe inside a military tent, guards with halberds on either side",
+   "The Master of Writing kneels and reads the memorial, item after item, for a long time",
+   "The young emperor lies prostrate on the floor as his seals and ribbons are removed",
+   "The palace gate shuts and more than two hundred of his old Changyi officials are led to the execution ground"
+  ],
+  "title": "Twenty-Seven Days: Huo Guang Deposes the Prince of Changyi"
+ },
+ "xihan.jiayi": {
+  "end": "The emperor admits he had thought himself Jia Yi's superior and was wrong; Jia Yi becomes tutor to the Prince of Liang, and when the prince dies in a riding fall he grieves himself to death at thirty-three.",
+  "shots": [
+   "In the Chang'an court a scholar barely twenty answers every question while the old ministers exchange glances",
+   "On the Xiang river, in a small boat, the exile casts a rhapsody into the water",
+   "In his bedroom at Changsha an owl flies in and settles by his seat",
+   "In the Xuanshi hall of Weiyang Palace, late at night with the candles low, the emperor shifts his mat forward",
+   "What the emperor asks about is not the common people but ghosts and spirits"
+  ],
+  "title": "Night Audience in the Xuanshi Hall: Jia Yi"
+ },
+ "xihan.liguang": {
+  "end": "Refusing to face the clerks' interrogation at past sixty, Li Guang cuts his own throat; the whole army weeps, and Sima Qian writes that the peach and plum say nothing yet a path forms beneath them.",
+  "shots": [
+   "In the dusk of Youbeiping a dark shape lies in the grass; the general draws his bow to full",
+   "Next morning the shaft is buried deep in a rock, its head no longer visible",
+   "An old general asks a diviner: why have I never been made a marquis?",
+   "North of the desert the cavalry of the eastern route circle in the wasteland, their guide long gone",
+   "In his tent he tells his officers: since I bound up my hair I have fought the Xiongnu more than seventy times"
+  ],
+  "title": "Li Guang, Never Ennobled: An Arrow in the Stone"
+ },
  "xihan.mobei": {
   "end": "Huo Qubing sacrifices at Mount Langjuxu and reaches the northern sea; the Xiongnu flee and no royal court remains south of the desert.",
   "shots": [
@@ -2023,6 +2078,28 @@
   ],
   "title": "The Rebellion of the Seven States: Zhou Yafu"
  },
+ "xihan.simaqian": {
+  "end": "Sima Qian completes his 130 chapters, 526,500 characters, the book later known as the Shiji, explaining he endured disgrace so his writing would not be lost to later ages.",
+  "shots": [
+   "In Luoyang the dying Grand Historian grips his son's hand, tears streaming down his face",
+   "In the front hall of Weiyang Palace all the officials echo the emperor; only one man speaks up for Li Ling",
+   "In the dark \"silkworm chamber\" he huddles in a corner",
+   "Bamboo scrolls pile up roll after roll, from the Yellow Emperor down to the present reign",
+   "A long letter ends: store it in the famous mountains and pass it to the right people"
+  ],
+  "title": "Writing in Wrath: Sima Qian"
+ },
+ "xihan.simaxiangru": {
+  "end": "The emperor learns the author is alive and summons Sima Xiangru, who writes the Shanglin rhapsody, becomes a court gentleman and later opens the southwest to Han.",
+  "shots": [
+   "At the Zhuo family feast in Linqiong hundreds of guests sit, the county magistrate himself among them",
+   "An elegant guest plays the qin while someone listens from behind a screen",
+   "Late at night a woman pushes open the back gate and runs out into the moonlight",
+   "In a small Linqiong wine shop the mistress tends the counter while the master, in an apron, washes the cups",
+   "In the Chang'an palace the emperor reads a rhapsody and asks why he cannot live in the same age as its author"
+  ],
+  "title": "Selling Wine at the Counter: Sima Xiangru and Zhuo Wenjun"
+ },
  "xihan.suwu": {
   "end": "When Han asks for him the Xiongnu claim he is dead; told of a letter tied to a goose, the chanyu relents and Su Wu returns home.",
   "shots": [
@@ -2033,6 +2110,17 @@
    "Li Ling pours wine and weeps"
   ],
   "title": "Herding Sheep by the Northern Sea: Su Wu"
+ },
+ "xihan.tiying": {
+  "end": "Emperor Wen abolishes tattooing, nose-cutting and foot-cutting, replacing them with flogging and labour; Chunyu Yi is pardoned and returns to Qi to practise medicine.",
+  "shots": [
+   "Outside Linzi the prison cart sets off, and a man turns to curse his five weeping daughters",
+   "The youngest dries her tears and follows the cart onto the westward road",
+   "Beneath the palace gates of Chang'an a girl kneels and offers up a bundle of bamboo slips",
+   "In the hall the emperor reads the slips and stays silent for a long time",
+   "The edict goes out: mutilating punishments are abolished"
+  ],
+  "title": "Tiying's Petition: Ending Mutilating Punishments"
  },
  "xihan.wugu": {
   "end": "The prince hangs himself and Empress Wei dies; later Emperor Wu realises the injustice, wipes out Jiang Chong's clan and builds a terrace of longing.",

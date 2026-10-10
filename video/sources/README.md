@@ -35,7 +35,7 @@
 | [04-chunqiu](./04-chunqiu/README.md) | 春秋 | 18 |
 | [05-zhanguo](./05-zhanguo/README.md) | 战国 | 22 |
 | [06-qin](./06-qin/README.md) | 秦 | 10 |
-| [07-xihan](./07-xihan/README.md) | 楚汉 · 西汉 | 12 |
+| [07-xihan](./07-xihan/README.md) | 楚汉 · 西汉 | 20 |
 | [08-donghan](./08-donghan/README.md) | 新 · 东汉 | 10 |
 | [09-sanguo](./09-sanguo/README.md) | 三国 | 12 |
 | [10-liangjin](./10-liangjin/README.md) | 两晋 | 10 |
