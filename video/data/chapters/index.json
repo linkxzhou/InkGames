@@ -107,9 +107,9 @@
    "name": "三国",
    "file": "chapters/09-sanguo.json",
    "span": "184—280 年",
-   "scenes": 19,
+   "scenes": 26,
    "v1": 4,
-   "full": 19,
+   "full": 26,
    "outline": 0
   },
   {
@@ -235,9 +235,9 @@
   }
  ],
  "totals": {
-  "scenes": 252,
+  "scenes": 259,
   "v1": 66,
-  "full": 252,
+  "full": 259,
   "outline": 0
  }
 }
