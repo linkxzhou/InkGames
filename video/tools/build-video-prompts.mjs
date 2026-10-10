@@ -83,17 +83,17 @@ const CAMERA = {
   still: ['固定机位远景长镜，画面静止，墨色缓缓显现', 'locked-off wide shot, stillness as the ink slowly appears'],
   pan: ['缓慢横移（摇镜），沿画卷方向展开', 'slow lateral pan, unrolling like a handscroll'],
   push: ['缓慢推近，景深变浅，主体渐清', 'slow push-in, shallow depth of field, subject sharpening'],
-  shake: ['手持式轻微震动，节奏急促', 'subtle handheld shake, urgent rhythm'],
-  climax: ['急推特写后定格，轻微震屏', 'fast push to close-up, slight shake, then freeze-frame'],
+  shake: ['固定机位，紧张感靠剪辑节奏，不做生成的手持震动', 'locked-off; tension comes from editing rhythm, not generated handheld shake'],
+  climax: ['缓推到近景后定格成关键帧静帧，冲击靠剪辑', 'slow push to a close shot that holds as a keyframe still; impact comes from the edit'],
 };
 const EFFECT = {
   fade: ['宣纸留白淡入', 'fade in from blank xuan paper'],
   flow: ['水墨流动晕染', 'flowing ink wash bleeding across the paper'],
-  distort: ['热浪与烟气扭曲', 'heat-haze and smoke distortion'],
+  distort: ['淡墨烟气缓缓横移（不扭曲画面）', 'pale ink smoke drifting slowly sideways (no warping of the frame)'],
   mask: ['四角暗角收拢', 'vignette closing in from the corners'],
   freeze: ['画面定格成一幅水墨画', 'freeze into a still ink painting'],
   inkDisperse: ['墨点四散（如马蹄踏墨）', 'ink dispersing outward like hoofprints in wet ink'],
-  metallic: ['兵刃金属寒光一闪', 'a cold metallic glint on the blade'],
+  metallic: ['刃口一笔留白如寒光', 'a single paper-white stroke along the blade edge'],
   bambooBreak: ['竹简断裂、墨迹飞溅', 'bamboo slips snapping with ink spatter'],
 };
 const ELEM_INK = {
@@ -159,7 +159,7 @@ const SND = { // amb / sfx
 const ELEM_ZH = { banner: '旌旗', spear: '长枪', bow: '弓箭', sword: '长剑', blade: '大刀', shield: '盾牌', 'war-horse': '战马', water: '水', landscape: '山水', 'ink-bomb': '泼墨', 'water-brush': '毛笔' };
 const yearEn = y => (y < 0 ? -y + ' BCE' : y + ' CE');
 const whenEn = w => (w ? (w.end != null && w.end !== w.start ? yearEn(w.start) + '–' + yearEn(w.end) : (w.precision === 'circa' || w.precision === 'legend' ? 'c. ' : '') + yearEn(w.start)) : '');
-const FEMALE = /皇后|王后|太后|后妃|^后$|妃|公主|夫人|女子|侍女|之女|宫女|女官|女将|女史|女诗人|女词人|才女|寡妇|女伶|女演员|女冠|姬|娘|母|妻|嫔|婆|姑|嫂|妾|^女|女$/;
+const FEMALE = /皇后|王后|太后|后妃|^后$|妃|公主|夫人|女子|侍女|之女|宫女|女官|女将|女史|女诗人|女词人|才女|寡妇|女伶|女演员|妓|伎|歌女|舞女|比丘尼|女尼|女冠|姬|娘|母|妻|嫔|婆|姑|嫂|妾|^女|女$/;
 const snd = (id, i) => (SND[id] || [id, id.replace(/-/g, ' ')])[i];
 const assetId = a => (a || '').split('/').pop().replace(/\.ogg$/, '');
 
@@ -249,19 +249,23 @@ function build(bundle, entry, chapterTitle) {
       groups.far.length && '远景：' + groups.far.join('、'),
       groups.mid.length && '中景：' + groups.mid.join('、'),
       (figs.length || groups.subj.length) && '主体：' + [...figs.map(f => f.name), ...groups.subj].join('、'),
-      groups.over.length && '飞白题字「' + groups.over.join('」「') + '」',
+      groups.over.length && '题字「' + groups.over.join('」「') + '」后期叠加，画面只留飞白笔势',
     ].filter(Boolean).join('；') || '大面积留白，只有淡墨远山';
     const compEn = [
       groupsEn.far.length && 'background: ' + groupsEn.far.join(', '),
       groupsEn.mid.length && 'midground: ' + groupsEn.mid.join(', '),
       (figs.length || groupsEn.subj.length) && 'subject: ' + [...figs.map(f => nameEn(f.name)), ...groupsEn.subj].join(', '),
-      groupsEn.over.length && 'dry-brush calligraphy 「' + groupsEn.over.join('」「') + '」',
+      groupsEn.over.length && 'calligraphy 「' + groupsEn.over.join('」「') + '」 added in post; the frame keeps only the dry-brush gesture',
     ].filter(Boolean).join('; ') || 'mostly empty paper with faint distant hills';
     const tr0 = TRANS[i === 0 ? 'still' : cam[0]] || TRANS.pan;
     const elemInk = [...new Set(strokes.map(x => (x.label || '').replace(/（.*$/, '')).filter(l => ELEM_INK[l]))].slice(0, 2);
     const inkZh = [tr0[0], ...elemInk.map(l => ELEM_INK[l][0]), ...fx.filter(k => k !== 'fade').map(k => EFFECT[k][0])];
     const inkEn = [tr0[1], ...elemInk.map(l => ELEM_INK[l][1]), ...fx.filter(k => k !== 'fade').map(k => EFFECT[k][1])];
-    if (cam.includes('climax')) { inkZh.push(HIT_FX_ZH); inkEn.push(HIT_FX_EN); }
+    // 实测激烈动作会变形：只有刺杀、斩杀、交战之类的高潮镜才用泼墨血雾，其余高潮镜只泼墨定格
+    if (cam.includes('climax')) {
+      const violent = /刺|斩|杀|砍|射|战|斗|攻|血|戮|劫|伏兵|擒/.test((s.note || '') + (s.vo || ''));
+      inkZh.push(violent ? HIT_FX_ZH : '大块泼墨缓缓铺开后定格'); inkEn.push(violent ? HIT_FX_EN : 'a big ink wash spreads slowly, then holds as a freeze-frame');
+    }
     const auds = (tr.audio || []).filter(inS).filter(a => a.asset && (a.bus === 'amb' || a.bus === 'sfx'));
     const ambs = [...new Set(auds.filter(a => a.bus === 'amb').map(a => assetId(a.asset)))];
     const sfxs = [...new Set(auds.filter(a => a.bus === 'sfx').map(a => assetId(a.asset)))];
@@ -307,11 +311,11 @@ function build(bundle, entry, chapterTitle) {
   shots.push({
     n: shots.length + 1, startSec: t0, durationSec: SEAL_SEC, figures: [],
     camera: { zh: '固定机位，空镜', en: 'locked-off empty frame' },
-    composition: { zh: `空白宣纸上，左侧竖排楷书引文${quote ? '「' + quote + '」' : ''}${qsrc ? '，下署' + qsrc : ''}；右下角朱印「${seal}」`, en: `blank xuan paper; a vertical kaishu quotation${quote ? ' 「' + quote + '」' : ''}${qsrc ? ' signed ' + qsrc : ''}; vermilion seal 「${seal}」 at lower right` },
-    action: { zh: '引文逐字写出，最后朱印落下', en: 'the quotation writes itself stroke by stroke; the vermilion seal stamps last' },
-    ink: { zh: '毛笔逐笔书写，朱砂印泥微微渗开', en: 'brush writes stroke by stroke, vermilion seal paste slightly bleeding' },
+    composition: { zh: '空白宣纸，左侧留出竖排引文的位置，右下角留出朱印的位置（文字与印章后期叠加）', en: 'blank xuan paper with space on the left for a vertical quotation and at lower right for the seal (both added in post)' },
+    action: { zh: '纸面静止，只有淡墨水痕缓缓洇开；后期叠加引文逐字显现、朱印落下', en: 'the paper stays still with only a pale ink bleed spreading; in post the quotation appears character by character and the seal stamps last' },
+    ink: { zh: '淡墨水痕洇开，纸纹若隐若现', en: 'pale ink bleed spreading, faint paper grain' },
     sound: { zh: '印章落纸一声，琴声收尾', en: 'a soft seal stamp, the music ends' },
-    text: { zh: '引文与出处', en: 'quotation and its source' },
+    text: { zh: `引文${quote ? '「' + quote + '」' : ''}${qsrc ? '——' + qsrc : ''}，竖排楷书；朱印「${seal}」`, en: `quotation${quote ? ' 「' + quote + '」' : ''}${qsrc ? ' — ' + qsrc : ''}, vertical kaishu; vermilion seal 「${seal}」` },
     vo: quote ? quote : '',
   });
   t0 += SEAL_SEC;
@@ -350,8 +354,8 @@ function build(bundle, entry, chapterTitle) {
   const [pnz, pne] = periodNeg(order);
   const negative = { zh: NEG_ZH + '，' + NEG_STYLE_ZH + '，' + NEG_MOTION_ZH + (pnz.length ? '，时代错置：' + pnz.join('、') : ''), en: NEG_EN + ', ' + NEG_STYLE_EN + ', ' + NEG_MOTION_EN + (pne.length ? ', anachronisms: ' + pne.join(', ') : '') };
 
-  const shotLineZh = s => `镜头 ${s.n}（${s.startSec}–${s.startSec + s.durationSec} 秒，${s.durationSec} 秒）｜运镜：${s.camera.zh}｜构图：${s.composition.zh}｜动作：${s.action.zh}｜水墨效果：${s.ink.zh}｜声音：${s.sound.zh}${s.text.zh ? '｜屏幕文字：' + s.text.zh : ''}${s.vo ? '｜旁白：「' + s.vo + '」' : ''}`;
-  const shotLineEn = s => `Shot ${s.n} (${s.startSec}–${s.startSec + s.durationSec} s, ${s.durationSec} s) | Camera: ${s.camera.en} | Composition: ${s.composition.en} | Action: ${s.action.en} | Ink FX: ${s.ink.en} | Sound: ${s.sound.en}${s.text.en ? ' | On-screen text: ' + s.text.en : ''}${s.vo ? ' | VO (Mandarin): 「' + s.vo + '」' : ''}`;
+  const shotLineZh = s => `镜头 ${s.n}（${s.startSec}–${s.startSec + s.durationSec} 秒，${s.durationSec} 秒）｜运镜：${s.camera.zh}｜构图：${s.composition.zh}｜动作：${s.action.zh}｜水墨效果：${s.ink.zh}｜声音：${s.sound.zh}${s.text.zh ? '｜后期叠加文字：' + s.text.zh : ''}${s.vo ? '｜旁白：「' + s.vo + '」' : ''}`;
+  const shotLineEn = s => `Shot ${s.n} (${s.startSec}–${s.startSec + s.durationSec} s, ${s.durationSec} s) | Camera: ${s.camera.en} | Composition: ${s.composition.en} | Action: ${s.action.en} | Ink FX: ${s.ink.en} | Sound: ${s.sound.en}${s.text.en ? ' | Text added in post: ' + s.text.en : ''}${s.vo ? ' | VO (Mandarin): 「' + s.vo + '」' : ''}`;
   for (const s of shots) { s.zh = shotLineZh(s); s.en = shotLineEn(s); }
   const shotsOut = shots.map(s => ({ n: s.n, startSec: s.startSec, durationSec: s.durationSec, figures: s.figures, vo: s.vo, zh: s.zh, en: s.en }));
 
