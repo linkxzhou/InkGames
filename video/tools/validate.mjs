@@ -507,7 +507,7 @@ let chapterVideos = 0;
       chapterVideos++;
       if (!index.chapters.some(c => c.id === id)) err('chapter-videos ' + id, '清单里的章节不存在');
       if (!existsSync(join(DATA, 'chapter-videos', id + '.json'))) err('chapter-videos ' + id, '缺少剧本 video/data/chapter-videos/' + id + '.json');
-      for (const k of ['mp4', 'webm', 'poster', 'posterWebp']) if (e[k] && !existsSync(join(VIEW, e[k]))) err('chapter-videos ' + id, `${k} 文件不存在：${e[k]}`);
+      for (const k of ['mp4', 'poster', 'posterWebp']) if (e[k] && !existsSync(join(VIEW, e[k]))) err('chapter-videos ' + id, `${k} 文件不存在：${e[k]}`);
       if (!e.mp4 || !e.poster) err('chapter-videos ' + id, '缺少 mp4 或 poster');
       else if (existsSync(join(VIEW, e.mp4)) && statSync(join(VIEW, e.mp4)).size >= 15 * 1024 * 1024) err('chapter-videos ' + id, 'mp4 超过 15 MB');
     }

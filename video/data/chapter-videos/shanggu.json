@@ -148,7 +148,6 @@
  "totalSec": 54,
  "output": {
   "mp4": "video/viewer/assets/chapter-videos/shanggu.mp4",
-  "webm": "video/viewer/assets/chapter-videos/shanggu.webm",
   "poster": "video/viewer/assets/chapter-videos/shanggu-poster.jpg",
   "durationSec": 49.46,
   "crossfadeSec": 0.7,

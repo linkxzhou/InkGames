@@ -4,7 +4,7 @@
 Usage: python3 video/tools/build-chapter-video.py <chapter> [--raw /workspace/chapter-video/<chapter>]
 Needs Python 3 + Pillow + ffmpeg. Local tool only; not part of ./build.sh.
 Reads video/data/chapter-videos/<chapter>.json, expects <raw>/<chapter>-NN.mp4 clips,
-writes video/viewer/assets/chapter-videos/<chapter>.{mp4,webm} + poster .{jpg,webp}.
+writes video/viewer/assets/chapter-videos/<chapter>.mp4 + poster .{jpg,webp}.
 """
 import json, os, subprocess, sys, glob, argparse
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
@@ -97,7 +97,6 @@ def main():
     mp4 = os.path.join(out, ch + '.mp4')
     run(['ffmpeg', '-y', '-loglevel', 'error', *inputs, '-filter_complex', ';'.join(fc), '-map', prev, '-an',
          '-c:v', 'libx264', '-preset', 'slow', '-crf', a.crf, '-pix_fmt', 'yuv420p', '-movflags', '+faststart', mp4])
-    run(['ffmpeg', '-y', '-loglevel', 'error', '-i', mp4, '-an', '-c:v', 'libvpx-vp9', '-b:v', '0', '-crf', '46', '-row-mt', '1', '-deadline', 'good', '-cpu-used', '4', os.path.join(out, ch + '.webm')])
     # poster: middle of shot 1 region after title
     # poster: first shot before its caption fades in, so player controls never sit on burned text
     run(['ffmpeg', '-y', '-loglevel', 'error', '-ss', '0.3', '-i', f'{tmp}/shot-01.mp4', '-frames:v', '1', f'{tmp}/poster.png'])
@@ -107,7 +106,7 @@ def main():
     dur = float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', mp4]).decode().strip())
     # mark shots done, record output
     for sh in spec['shots']: sh['status'] = 'done'
-    spec['output'] = {'mp4': f'video/viewer/assets/chapter-videos/{ch}.mp4', 'webm': f'video/viewer/assets/chapter-videos/{ch}.webm',
+    spec['output'] = {'mp4': f'video/viewer/assets/chapter-videos/{ch}.mp4',
                       'poster': f'video/viewer/assets/chapter-videos/{ch}-poster.jpg', 'durationSec': round(dur, 2),
                       'crossfadeSec': XF, 'status': 'done'}
     jp = os.path.join(ROOT, 'video/data/chapter-videos', ch + '.json')
@@ -123,7 +122,6 @@ def write_manifest(out):
         if o.get('status') != 'done': continue
         c = sp['chapter']; ent = {'title': sp['title'], 'mp4': f'assets/chapter-videos/{c}.mp4', 'poster': f'assets/chapter-videos/{c}-poster.jpg',
              'posterWebp': f'assets/chapter-videos/{c}-poster.webp', 'durationSec': o['durationSec'], 'shots': len(sp['shots'])}
-        if os.path.exists(os.path.join(out, c + '.webm')): ent['webm'] = f'assets/chapter-videos/{c}.webm'
         man[c] = ent
     body = json.dumps({'version': 1, 'chapters': man}, ensure_ascii=False, indent=1)
     open(os.path.join(out, 'index.json'), 'w').write(body + '\n')
