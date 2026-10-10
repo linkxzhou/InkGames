@@ -94,6 +94,7 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 - 运镜指令不一定被遵守，只作参考。
 - 生成器据此：高潮镜改为“缓推到近景后定格成关键帧静帧”，不做急推与震屏；朱红血雾只给刺杀、交战类高潮镜（约 26 场），其余高潮只泼墨定格；落款镜只留空纸，引文与朱印后期叠加。
 - 这些约束是 `art-style.mjs` 的 `MOTION_ZH/EN` 与 `NEG_MOTION_ZH/EN`，生成器写进每个 `videoPrompt`，校验器逐场检查。
+- 章节开场短片（每朝一支 16:9，约 40–60 秒）：剧本 `video/data/chapter-videos/<chapter>.json` → 静帧 → 图生视频 → `video/tools/build-chapter-video.py` 合成 → 查看器清单 `video/viewer/assets/chapter-videos/index.{json,js}`。流程与状态见 [chapter-videos.md](./video/docs/chapter-videos.md)；原始片段不进仓库。2026-10-10 上古一章完成。
 
 ## 7. 三件套矩阵与推广路线（2026-10-10 定）
 
@@ -148,5 +149,6 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 | 新增或修改历史场景 | 改 `/workspace/gen/new/NN.yaml`（及英文分镜 `en/*.txt`），跑 `/workspace/gen/run.sh`；它会同步大纲、文档场景数、提示词、史源摘要、查看器数据并运行校验器 |
 | 改美术风格 | 只改 `video/tools/art-style.mjs` 与 [art-style.md](./video/docs/art-style.md)，重跑提示词生成器；校验器会拦住没带新风格的提示词 |
 | 新增引擎公共 API | 从 `src/index.ts` 导出，同步 `docs/NN-*.md` 与 `plan/10` 的状态（见 [docs/AGENTS.md §3](./docs/AGENTS.md#3-文档约定)） |
+| 新增章节开场短片 | 写剧本 JSON，静帧与片段放 `/workspace/chapter-video/<chapter>/`，跑 `python3 video/tools/build-chapter-video.py <chapter>`（见 [chapter-videos.md](./video/docs/chapter-videos.md)） |
 | 查看器截图 | 用无头 Chromium 打开 `file://…/video/viewer/index.html#<chapter>`，截场景页与“水墨视频提示词”面板 |
 | 新增依赖 | 只允许 MIT / BSD / Apache / LGPL，登记到 [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md) |

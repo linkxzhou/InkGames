@@ -1,0 +1,157 @@
+{
+ "version": 1,
+ "chapter": "shanggu",
+ "title": {
+  "zh": "上古",
+  "en": "High Antiquity"
+ },
+ "pipeline": "story tree -> opening shots -> videoPrompt; see video/docs/chapter-videos.md",
+ "format": {
+  "aspectRatio": "16:9",
+  "resolution": [
+   1280,
+   720
+  ],
+  "fps": 24
+ },
+ "titleCard": {
+  "zh": "上古",
+  "seal": "开卷",
+  "durationSec": 3
+ },
+ "closingHoldSec": 3,
+ "style": "high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame",
+ "negative": "other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark",
+ "motionRule": "keep the composition stable, no morphing, no new objects, no text",
+ "shots": [
+  {
+   "n": 1,
+   "sceneId": "shanggu.hundun",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 6,
+   "zh": "混沌初开，盘古撑开天地",
+   "imagePrompt": "From a pool of spreading ink on blank paper, one huge faceless black silhouette of a giant rises with both arms pushing apart a pale upper band (sky) and a dark lower band (earth); everything else empty paper; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark",
+   "motionPrompt": "ink spreads very slowly outward from the figure, pale mist drifts between sky and earth, a very slow camera push in; keep the composition stable, no morphing, no new objects, no text",
+   "still": "shanggu-01.jpg",
+   "clip": "shanggu-01.mp4",
+   "status": "done"
+  },
+  {
+   "n": 2,
+   "sceneId": "shanggu.hundun",
+   "sourceShots": [
+    4,
+    5
+   ],
+   "durationSec": 6,
+   "zh": "天缺一角，女娲炼石补天",
+   "imagePrompt": "A slender faceless woman silhouette in flowing robes on a low ridge raises one glowing stone toward a torn dark corner of the sky; the stone and a thin crack edge are the only vermilion; layered grey hills, wide empty paper; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark",
+   "motionPrompt": "her sleeves flutter gently, the vermilion glow pulses softly, the torn edge of the sky slowly closes as ink bleeds inward, slow push in; keep the composition stable, no morphing, no new objects, no text",
+   "still": "shanggu-02.jpg",
+   "clip": "shanggu-02.mp4",
+   "status": "done"
+  },
+  {
+   "n": 3,
+   "sceneId": "shanggu.fuxi",
+   "sourceShots": [
+    2,
+    5
+   ],
+   "durationSec": 6,
+   "zh": "伏羲仰观俯察，始作八卦",
+   "imagePrompt": "A lone faceless man silhouette stands on a high rock above a misty marsh, one arm pointing up at a few small white star-dots; on the ground before him two thick brush lines, one unbroken and one broken; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark",
+   "motionPrompt": "low clouds drift slowly across the marsh, his robe hem flutters, the two brush lines on the ground darken slightly as ink settles, very slow push; keep the composition stable, no morphing, no new objects, no text",
+   "still": "shanggu-03.jpg",
+   "clip": "shanggu-03.mp4",
+   "status": "done"
+  },
+  {
+   "n": 4,
+   "sceneId": "shanggu.shennong",
+   "sourceShots": [
+    1,
+    5
+   ],
+   "durationSec": 6,
+   "zh": "神农尝百草",
+   "imagePrompt": "Waist-high wild grass in flat grey strokes along a river bank; a faceless man silhouette with a bundle of herbs holds a single leaf to his mouth; distant pale hills, wide empty paper; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark",
+   "motionPrompt": "grass sways gently in wind, mist drifts along the river, the figure stays still, very slow camera push; keep the composition stable, no morphing, no new objects, no text",
+   "still": "shanggu-04.jpg",
+   "clip": "shanggu-04.mp4",
+   "status": "done"
+  },
+  {
+   "n": 5,
+   "sceneId": "shanggu.zhuolu",
+   "sourceShots": [
+    4,
+    5
+   ],
+   "durationSec": 6,
+   "zh": "涿鹿大雾，黄帝战蚩尤",
+   "imagePrompt": "Thick pale fog fills an open plain; a row of dark spear-bearing silhouettes and one tall banner stand at the edge of the fog; one small vermilion banner tip; mostly grey mist and empty paper; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark",
+   "motionPrompt": "the fog drifts slowly and begins to thin, the banner cloth ripples gently, nothing charges, no fighting, very slow push; keep the composition stable, no morphing, no new objects, no text",
+   "still": "shanggu-05.jpg",
+   "clip": "shanggu-05.mp4",
+   "status": "done"
+  },
+  {
+   "n": 6,
+   "sceneId": "shanggu.xihe",
+   "sourceShots": [
+    1,
+    2
+   ],
+   "durationSec": 6,
+   "zh": "羲和测影，历象日月",
+   "imagePrompt": "On an eastern shore a small vermilion sun rises from flat grey water; a faceless man silhouette beside a tall wooden gnomon pole on the beach watches it; long thin shadow on the sand; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark",
+   "motionPrompt": "the sun rises a few pixels, soft ripples on the water, the gnomon shadow shortens slightly, mist drifts, locked-off camera; keep the composition stable, no morphing, no new objects, no text",
+   "still": "shanggu-06.jpg",
+   "clip": "shanggu-06.mp4",
+   "status": "done"
+  },
+  {
+   "n": 7,
+   "sceneId": "shanggu.shanrang",
+   "sourceShots": [
+    3,
+    4
+   ],
+   "durationSec": 6,
+   "zh": "尧舜禅让，舜耕历山",
+   "imagePrompt": "On a terraced hillside a faceless farmer silhouette guides a simple plough behind an ox in flat ink shapes; a few grey hills and a single old pine, wide empty paper sky; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark",
+   "motionPrompt": "clouds drift slowly, the ox and farmer step forward only slightly, dust of dry-brush trails behind the plough, slow sideways pan; keep the composition stable, no morphing, no new objects, no text",
+   "still": "shanggu-07.jpg",
+   "clip": "shanggu-07.mp4",
+   "status": "done"
+  },
+  {
+   "n": 8,
+   "sceneId": "shanggu.dayu",
+   "sourceShots": [
+    3,
+    5
+   ],
+   "durationSec": 6,
+   "zh": "大禹疏九河，水归于海",
+   "imagePrompt": "A faceless man silhouette holding a long digging tool stands on a ridge overlooking wide wet-ink rivers that flow between grey mountains toward a pale horizon sea; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark",
+   "motionPrompt": "the rivers flow slowly toward the sea as ink spreads along their beds, mist drifts over the mountains, very slow pull back; keep the composition stable, no morphing, no new objects, no text",
+   "still": "shanggu-08.jpg",
+   "clip": "shanggu-08.mp4",
+   "status": "done"
+  }
+ ],
+ "totalSec": 54,
+ "output": {
+  "mp4": "video/viewer/assets/chapter-videos/shanggu.mp4",
+  "webm": "video/viewer/assets/chapter-videos/shanggu.webm",
+  "poster": "video/viewer/assets/chapter-videos/shanggu-poster.jpg",
+  "durationSec": 49.46,
+  "crossfadeSec": 0.7,
+  "status": "done"
+ }
+}
