@@ -38,6 +38,18 @@ window.CHAPTER_VIDEOS = {
    "shots": 9,
    "audio": true
   },
+  "sanguo": {
+   "title": {
+    "zh": "三国",
+    "en": "Three Kingdoms"
+   },
+   "mp4": "assets/chapter-videos/sanguo.mp4",
+   "poster": "assets/chapter-videos/sanguo-poster.jpg",
+   "posterWebp": "assets/chapter-videos/sanguo-poster.webp",
+   "durationSec": 123.5,
+   "shots": 16,
+   "audio": true
+  },
   "shang": {
    "title": {
     "zh": "商",
