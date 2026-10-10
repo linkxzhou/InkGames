@@ -1,6 +1,6 @@
 # video · 历史水墨视频与游戏内容
 
-这里放 InkGames 历史线的全部**内容**：上古至清 21 章、302 个场景的剧情数据，史源摘要，开场动画分镜与音频提示，水墨素材提示词，每个场景的水墨视频生成提示词，以及浏览这些数据的单页查看器。引擎代码不在这里，在 `src/`、`apps/`（引擎计划见 [plan/10](../plan/10-three-matter-side-scroller-plan.md)）。
+这里放 InkGames 历史线的全部**内容**：上古至清 21 章、308 个场景的剧情数据，史源摘要，开场动画分镜与音频提示，水墨素材提示词，每个场景的水墨视频生成提示词，以及浏览这些数据的单页查看器。引擎代码不在这里，在 `src/`、`apps/`（引擎计划见 [plan/10](../plan/10-three-matter-side-scroller-plan.md)）。
 
 2026-10-10 从 `plan/11-history-game-data/`、`plan/11-history-game-*.md`、`plan/12-history-game-*.md` 迁来，文件名按下面的规则统一。
 

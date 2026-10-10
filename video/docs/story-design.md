@@ -1,6 +1,6 @@
 # 水墨中华史：故事结构与玩法设计（草案）
 
-> 状态：**规划草案；内容数据已写完、游戏未实现**。21 章 302 个场景全部写成完整场景（首版发布批次 66 个，见 [内容数据格式 §2.9](./content-schema.md#29-章节数据包索引与大纲级场景)）；运行时的叙事宿主模块已在 main 上（见 [§1](./engine-gaps.md#1-现有代码里能带走什么)），尚未接入这批数据。这份文档讲游戏怎么组织、剧情怎么分叉、内容怎么写。引擎要补什么见 [引擎缺口与路线](./engine-gaps.md)，逐朝代的章节表见 [章节大纲](./chapter-outline.md)，数据格式与完整样例见 [内容数据格式](./content-schema.md)。
+> 状态：**规划草案；内容数据已写完、游戏未实现**。21 章 308 个场景全部写成完整场景（首版发布批次 66 个，见 [内容数据格式 §2.9](./content-schema.md#29-章节数据包索引与大纲级场景)）；运行时的叙事宿主模块已在 main 上（见 [§1](./engine-gaps.md#1-现有代码里能带走什么)），尚未接入这批数据。这份文档讲游戏怎么组织、剧情怎么分叉、内容怎么写。引擎要补什么见 [引擎缺口与路线](./engine-gaps.md)，逐朝代的章节表见 [章节大纲](./chapter-outline.md)，数据格式与完整样例见 [内容数据格式](./content-schema.md)。
 > 引擎目标：**three.js + Matter.js**（横版动作：Matter 在 X/Y 平面做 2D 物理，驱动 three.js 模型的 `position.x/y`，Z 固定）。**迁移已完成（2026-10-09）**：PixiJS / p5 / 原生 WebGL2 已从 `src/`、`apps/` 和依赖中删除，见 [plan/10 §7](../../plan/10-three-matter-side-scroller-plan.md#7-从-pixijs-迁走2026-10-09-已完成)。下文提到的 `PROP_BRUSHES`、`InkSurface` 等按现行代码理解；`InkWash` / `InkStage` 已不存在。
 > 本系列文件：[故事与玩法（本文）](./story-design.md)、[章节大纲](./chapter-outline.md)、[内容数据格式](./content-schema.md)、[引擎缺口与路线](./engine-gaps.md)、[video 目录说明](../README.md)。
 > 日期：2026-10-09。凡标“待核验”的史实，在进入正式脚本之前必须回查原典。

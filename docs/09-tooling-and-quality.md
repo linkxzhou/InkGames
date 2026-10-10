@@ -33,7 +33,7 @@
 | `ink-camera.test.ts` | 层深缩放与虫蚀采样的确定性 |
 | `ink-animation.test.ts` | 图片显影镜头的边界、seek 求值与非法镜头（对照实验用） |
 
-测试不创建 WebGL，也不比较截图像素。领域数据另有一条独立校验：`node video/tools/validate.mjs` 检查 21 章 / 302 场景 / 分镜连续性与字符串引用（当前 0 错误）。
+测试不创建 WebGL，也不比较截图像素。领域数据另有一条独立校验：`node video/tools/validate.mjs` 检查 21 章 / 308 场景 / 分镜连续性与字符串引用（当前 0 错误）。
 
 ## 浏览器冒烟
 
