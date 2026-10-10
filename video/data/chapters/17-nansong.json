@@ -1936,7 +1936,161 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "南宋 · 宋建炎元年至二年（1127—1128 年）。临安西湖、江上水军、山城、书斋。",
+     "en": "Southern Song (1127–1279), 1127 CE–1128 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios."
+    },
+    "characters": [
+     {
+      "id": "zongze",
+      "name": "宗泽",
+      "nameEn": "Zong Ze",
+      "onScreen": true,
+      "zh": "宗泽（南宋·东京留守）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1127—1128 年）；招抚群盗，修复京城防务，二十余次上疏请高宗还京",
+      "en": "Zong Ze (宗泽) — general, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1127 CE–1128 CE"
+     },
+     {
+      "id": "yuefei",
+      "name": "岳飞",
+      "nameEn": "Yue Fei",
+      "onScreen": true,
+      "zh": "岳飞（南宋·宗泽部下）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1127—1128 年）；犯法当斩，宗泽奇其才而释之",
+      "en": "Yue Fei (岳飞) — general, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1127 CE–1128 CE"
+     },
+     {
+      "id": "wangshan",
+      "name": "王善",
+      "nameEn": "Wang Shan",
+      "onScreen": true,
+      "zh": "王善（南宋·河东义军首领）：展脚幞头，公服，褙子，宋式铠甲；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为1127—1128 年）；拥众数十万，被宗泽单骑招降",
+      "en": "Wang Shan (王善) — commoner, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1127 CE–1128 CE"
+     },
+     {
+      "id": "gaozong",
+      "name": "赵构",
+      "nameEn": "Zhao Gou",
+      "onScreen": false,
+      "zh": "赵构（南宋·宋高宗）：展脚幞头，公服，褙子，宋式铠甲；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为1127—1128 年）；南迁扬州，不肯还京",
+      "en": "Zhao Gou (赵构) — ruler, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in 1127 CE–1128 CE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：城墙雉堞、烟；主体：盾墙｜动作：靖康之后的东京，城墙残破，街巷空寂｜水墨效果：宣纸留白淡入｜声音：环境：战后余风；音效：风声｜屏幕文字：片名「过河」竖排书法与朱印「过河」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: crenellated city wall, smoke; subject: shield wall | Action: (scene action, Chinese) 靖康之后的东京，城墙残破，街巷空寂 | Ink FX: fade in from blank xuan paper | Sound: ambience: lingering wind after battle; SFX: wind | On-screen text: vertical brush-calligraphy title 「过河」 with vermilion seal 「过河」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [
+       "zongze",
+       "wangshan"
+      ],
+      "vo": "靖康之变后，宋高宗在南京应天府即位。六十九岁的宗泽受命为东京留守，回到残破的汴京。他修复城防，招抚四方的义军。河东王善拥众数十万，宗泽单骑到他营中，流着泪劝他为国效力，王善感泣而降。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：营帐；主体：宗泽、王善、骑兵｜动作：一个白发老人单骑来到义军大营｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；墨点四散（如马蹄踏墨）｜声音：环境：人群低语；音效：马蹄声｜屏幕文字：底部旁白字幕｜旁白：「靖康之变后，宋高宗在南京应天府即位。六十九岁的宗泽受命为东京留守，回到残破的汴京。他修复城防，招抚四方的义军。河东王善拥众数十万，宗泽单骑到他营中，流着泪劝他为国效力，王善感泣而降。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: army tents; subject: Zong Ze, Wang Shan, cavalry | Action: (scene action, Chinese) 一个白发老人单骑来到义军大营 | Ink FX: ink-bleed transition from the previous shot; ink dispersing outward like hoofprints in wet ink | Sound: ambience: crowd murmur; SFX: hoofbeats | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「靖康之变后，宋高宗在南京应天府即位。六十九岁的宗泽受命为东京留守，回到残破的汴京。他修复城防，招抚四方的义军。河东王善拥众数十万，宗泽单骑到他营中，流着泪劝他为国效力，王善感泣而降。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [
+       "yuefei",
+       "zongze"
+      ],
+      "vo": "一个叫岳飞的年轻军官犯法当斩，宗泽一见，惊奇他的才能，把他放了，还授给他阵图。岳飞说：先布阵再交战，是兵法的常规；运用之妙，存乎一心。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：主体：岳飞、宗泽、长剑｜动作：刑场上，一个年轻军官即将被斩｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；兵刃金属寒光一闪｜声音：环境：寂静室内；音效：拔剑｜屏幕文字：引文「运用之妙，存乎一心。」竖排楷书；底部旁白字幕｜旁白：「一个叫岳飞的年轻军官犯法当斩，宗泽一见，惊奇他的才能，把他放了，还授给他阵图。岳飞说：先布阵再交战，是兵法的常规；运用之妙，存乎一心。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: subject: Yue Fei, Zong Ze, sword | Action: (scene action, Chinese) 刑场上，一个年轻军官即将被斩 | Ink FX: ink-bleed transition from the previous shot; a cold metallic glint on the blade | Sound: ambience: quiet room tone; SFX: sword drawn | On-screen text: vertical kaishu quotation 「运用之妙，存乎一心。」; Chinese subtitles at bottom | VO (Mandarin): 「一个叫岳飞的年轻军官犯法当斩，宗泽一见，惊奇他的才能，把他放了，还授给他阵图。岳飞说：先布阵再交战，是兵法的常规；运用之妙，存乎一心。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [
+       "zongze"
+      ],
+      "vo": "宗泽前后二十多次上疏，请高宗回到东京，号召北伐。高宗却一路南下到了扬州。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：还京、卷轴；主体：宗泽｜动作：老人伏案写下第二十多封请还京的奏章｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：寂静室内；音效：竹简翻动｜屏幕文字：底部旁白字幕｜旁白：「宗泽前后二十多次上疏，请高宗回到东京，号召北伐。高宗却一路南下到了扬州。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: 还京, scroll; subject: Zong Ze | Action: (scene action, Chinese) 老人伏案写下第二十多封请还京的奏章 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: quiet room tone; SFX: bamboo slips rustling | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「宗泽前后二十多次上疏，请高宗回到东京，号召北伐。高宗却一路南下到了扬州。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [
+       "zongze"
+      ],
+      "vo": "建炎二年七月，宗泽背上生了毒疮。临终前他没有一句话说到家事——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：河水；主体：宗泽；飞白题字「过河」｜动作：病榻之上，他三次大呼：过河｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；水墨流动晕染；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：寂静室内；音效：战鼓｜屏幕文字：底部旁白字幕｜旁白：「建炎二年七月，宗泽背上生了毒疮。临终前他没有一句话说到家事——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: river; subject: Zong Ze; dry-brush calligraphy 「过河」 | Action: (scene action, Chinese) 病榻之上，他三次大呼：过河 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; flowing ink wash bleeding across the paper; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: quiet room tone; SFX: war drums | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「建炎二年七月，宗泽背上生了毒疮。临终前他没有一句话说到家事——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [
+       "zongze"
+      ],
+      "vo": "宗泽临终，吟诵杜甫“出师未捷身先死，长使英雄泪满襟”，连呼“过河”三声而卒。东京军民号恸。继任的杜充尽废其所为，义军星散，汴京不久沦陷。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：宗泽｜动作：正史结局：宗泽临终，吟诵杜甫“出师未捷身先死，长使英雄泪满襟”，连呼“过河”三声而卒。东京军民号恸。继任的杜充尽废其所为，义军星散，汴京不久沦陷。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「宗泽临终，吟诵杜甫“出师未捷身先死，长使英雄泪满襟”，连呼“过河”三声而卒。东京军民号恸。继任的杜充尽废其所为，义军星散，汴京不久沦陷。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Zong Ze | Action: (canonical outcome, Chinese) 宗泽临终，吟诵杜甫“出师未捷身先死，长使英雄泪满襟”，连呼“过河”三声而卒。东京军民号恸。继任的杜充尽废其所为，义军星散，汴京不久沦陷。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「宗泽临终，吟诵杜甫“出师未捷身先死，长使英雄泪满襟”，连呼“过河”三声而卒。东京军民号恸。继任的杜充尽废其所为，义军星散，汴京不久沦陷。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "运用之妙，存乎一心。",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「运用之妙，存乎一心。」，下署《宋史·岳飞传》；右下角朱印「过河」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「运用之妙，存乎一心。」",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「运用之妙，存乎一心。」 signed 《宋史·岳飞传》; vermilion seal 「过河」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「运用之妙，存乎一心。」"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：陶埙，低回苍凉，随剧情由缓入急、高潮前骤停留白；环境声：战后余风、人群低语、寂静室内；音效：风声、马蹄声、拔剑、竹简翻动、战鼓；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: xun clay ocarina, low and mournful, building gradually and cutting to silence before the climax; ambience: lingering wind after battle, crowd murmur, quiet room tone; SFX: wind, hoofbeats, sword drawn, bamboo slips rustling, war drums; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「过河」，副题「宗泽」，朱印「过河」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「运用之妙，存乎一心。」——《宋史·岳飞传》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「过河」, subtitle 「宗泽」, vermilion seal 「过河」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「运用之妙，存乎一心。」 — 《宋史·岳飞传》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    },
+    "narration": [
+     "靖康之变后，宋高宗在南京应天府即位。六十九岁的宗泽受命为东京留守，回到残破的汴京。他修复城防，招抚四方的义军。河东王善拥众数十万，宗泽单骑到他营中，流着泪劝他为国效力，王善感泣而降。",
+     "一个叫岳飞的年轻军官犯法当斩，宗泽一见，惊奇他的才能，把他放了，还授给他阵图。岳飞说：先布阵再交战，是兵法的常规；运用之妙，存乎一心。",
+     "宗泽前后二十多次上疏，请高宗回到东京，号召北伐。高宗却一路南下到了扬州。",
+     "建炎二年七月，宗泽背上生了毒疮。临终前他没有一句话说到家事——",
+     "宗泽临终，吟诵杜甫“出师未捷身先死，长使英雄泪满襟”，连呼“过河”三声而卒。东京军民号恸。继任的杜充尽废其所为，义军星散，汴京不久沦陷。",
+     "运用之妙，存乎一心。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】南宋 · 过河（宗泽）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：南宋 · 宋建炎元年至二年（1127—1128 年）。临安西湖、江上水军、山城、书斋。\n\n人物：\n- 宗泽（南宋·东京留守）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1127—1128 年）；招抚群盗，修复京城防务，二十余次上疏请高宗还京\n- 岳飞（南宋·宗泽部下）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1127—1128 年）；犯法当斩，宗泽奇其才而释之\n- 王善（南宋·河东义军首领）：展脚幞头，公服，褙子，宋式铠甲；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为1127—1128 年）；拥众数十万，被宗泽单骑招降\n- 赵构（南宋·宋高宗）：展脚幞头，公服，褙子，宋式铠甲；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为1127—1128 年）；南迁扬州，不肯还京\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：城墙雉堞、烟；主体：盾墙｜动作：靖康之后的东京，城墙残破，街巷空寂｜水墨效果：宣纸留白淡入｜声音：环境：战后余风；音效：风声｜屏幕文字：片名「过河」竖排书法与朱印「过河」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：营帐；主体：宗泽、王善、骑兵｜动作：一个白发老人单骑来到义军大营｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；墨点四散（如马蹄踏墨）｜声音：环境：人群低语；音效：马蹄声｜屏幕文字：底部旁白字幕｜旁白：「靖康之变后，宋高宗在南京应天府即位。六十九岁的宗泽受命为东京留守，回到残破的汴京。他修复城防，招抚四方的义军。河东王善拥众数十万，宗泽单骑到他营中，流着泪劝他为国效力，王善感泣而降。」\n镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：主体：岳飞、宗泽、长剑｜动作：刑场上，一个年轻军官即将被斩｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；兵刃金属寒光一闪｜声音：环境：寂静室内；音效：拔剑｜屏幕文字：引文「运用之妙，存乎一心。」竖排楷书；底部旁白字幕｜旁白：「一个叫岳飞的年轻军官犯法当斩，宗泽一见，惊奇他的才能，把他放了，还授给他阵图。岳飞说：先布阵再交战，是兵法的常规；运用之妙，存乎一心。」\n镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：还京、卷轴；主体：宗泽｜动作：老人伏案写下第二十多封请还京的奏章｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：寂静室内；音效：竹简翻动｜屏幕文字：底部旁白字幕｜旁白：「宗泽前后二十多次上疏，请高宗回到东京，号召北伐。高宗却一路南下到了扬州。」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：河水；主体：宗泽；飞白题字「过河」｜动作：病榻之上，他三次大呼：过河｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；水墨流动晕染；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：寂静室内；音效：战鼓｜屏幕文字：底部旁白字幕｜旁白：「建炎二年七月，宗泽背上生了毒疮。临终前他没有一句话说到家事——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：宗泽｜动作：正史结局：宗泽临终，吟诵杜甫“出师未捷身先死，长使英雄泪满襟”，连呼“过河”三声而卒。东京军民号恸。继任的杜充尽废其所为，义军星散，汴京不久沦陷。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「宗泽临终，吟诵杜甫“出师未捷身先死，长使英雄泪满襟”，连呼“过河”三声而卒。东京军民号恸。继任的杜充尽废其所为，义军星散，汴京不久沦陷。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「运用之妙，存乎一心。」，下署《宋史·岳飞传》；右下角朱印「过河」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「运用之妙，存乎一心。」\n\n声音：背景乐：陶埙，低回苍凉，随剧情由缓入急、高潮前骤停留白；环境声：战后余风、人群低语、寂静室内；音效：风声、马蹄声、拔剑、竹简翻动、战鼓；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「过河」，副题「宗泽」，朱印「过河」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「运用之妙，存乎一心。」——《宋史·岳飞传》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "[Ink-wash video prompt] Southern Song (1127–1279) · \"过河\" (宗泽)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Southern Song (1127–1279), 1127 CE–1128 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios.\n\nCharacters:\n- Zong Ze (宗泽) — general, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1127 CE–1128 CE\n- Yue Fei (岳飞) — general, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1127 CE–1128 CE\n- Wang Shan (王善) — commoner, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1127 CE–1128 CE\n- Zhao Gou (赵构) — ruler, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in 1127 CE–1128 CE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: crenellated city wall, smoke; subject: shield wall | Action: (scene action, Chinese) 靖康之后的东京，城墙残破，街巷空寂 | Ink FX: fade in from blank xuan paper | Sound: ambience: lingering wind after battle; SFX: wind | On-screen text: vertical brush-calligraphy title 「过河」 with vermilion seal 「过河」\nShot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: army tents; subject: Zong Ze, Wang Shan, cavalry | Action: (scene action, Chinese) 一个白发老人单骑来到义军大营 | Ink FX: ink-bleed transition from the previous shot; ink dispersing outward like hoofprints in wet ink | Sound: ambience: crowd murmur; SFX: hoofbeats | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「靖康之变后，宋高宗在南京应天府即位。六十九岁的宗泽受命为东京留守，回到残破的汴京。他修复城防，招抚四方的义军。河东王善拥众数十万，宗泽单骑到他营中，流着泪劝他为国效力，王善感泣而降。」\nShot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: subject: Yue Fei, Zong Ze, sword | Action: (scene action, Chinese) 刑场上，一个年轻军官即将被斩 | Ink FX: ink-bleed transition from the previous shot; a cold metallic glint on the blade | Sound: ambience: quiet room tone; SFX: sword drawn | On-screen text: vertical kaishu quotation 「运用之妙，存乎一心。」; Chinese subtitles at bottom | VO (Mandarin): 「一个叫岳飞的年轻军官犯法当斩，宗泽一见，惊奇他的才能，把他放了，还授给他阵图。岳飞说：先布阵再交战，是兵法的常规；运用之妙，存乎一心。」\nShot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: 还京, scroll; subject: Zong Ze | Action: (scene action, Chinese) 老人伏案写下第二十多封请还京的奏章 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: quiet room tone; SFX: bamboo slips rustling | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「宗泽前后二十多次上疏，请高宗回到东京，号召北伐。高宗却一路南下到了扬州。」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: river; subject: Zong Ze; dry-brush calligraphy 「过河」 | Action: (scene action, Chinese) 病榻之上，他三次大呼：过河 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; flowing ink wash bleeding across the paper; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: quiet room tone; SFX: war drums | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「建炎二年七月，宗泽背上生了毒疮。临终前他没有一句话说到家事——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Zong Ze | Action: (canonical outcome, Chinese) 宗泽临终，吟诵杜甫“出师未捷身先死，长使英雄泪满襟”，连呼“过河”三声而卒。东京军民号恸。继任的杜充尽废其所为，义军星散，汴京不久沦陷。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「宗泽临终，吟诵杜甫“出师未捷身先死，长使英雄泪满襟”，连呼“过河”三声而卒。东京军民号恸。继任的杜充尽废其所为，义军星散，汴京不久沦陷。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「运用之妙，存乎一心。」 signed 《宋史·岳飞传》; vermilion seal 「过河」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「运用之妙，存乎一心。」\n\nSound: Music: xun clay ocarina, low and mournful, building gradually and cutting to silence before the climax; ambience: lingering wind after battle, crowd murmur, quiet room tone; SFX: wind, hoofbeats, sword drawn, bamboo slips rustling, war drums; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「过河」, subtitle 「宗泽」, vermilion seal 「过河」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「运用之妙，存乎一心。」 — 《宋史·岳飞传》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    }
+   }
   },
   {
    "outlineId": "17-09",
@@ -3789,7 +3943,152 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "南宋 · 宋建炎元年至绍兴二年（1127—1132 年）。临安西湖、江上水军、山城、书斋。",
+     "en": "Southern Song (1127–1279), 1127 CE–1132 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios."
+    },
+    "characters": [
+     {
+      "id": "liqingzhao",
+      "name": "李清照",
+      "nameEn": "Li Qingzhao",
+      "onScreen": true,
+      "zh": "李清照（南宋·易安居士）：展脚幞头，公服，褙子，宋式铠甲；文士衣冠，素色长衫，书卷气；年龄依史实（此时为1127—1132 年）；与赵明诚收集金石书画，南渡后颠沛流离，作《金石录后序》",
+      "en": "Li Qingzhao (李清照) — scholar, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; scholar's plain long robe, bookish bearing; age as historically attested in 1127 CE–1132 CE"
+     },
+     {
+      "id": "zhaomingcheng",
+      "name": "赵明诚",
+      "nameEn": "Zhao Mingcheng",
+      "onScreen": true,
+      "zh": "赵明诚（南宋·李清照之夫，湖州知州）：展脚幞头，公服，褙子，宋式铠甲；文士衣冠，素色长衫，书卷气；年龄依史实（此时为1127—1132 年）；撰《金石录》，建炎三年病逝于建康",
+      "en": "Zhao Mingcheng (赵明诚) — scholar, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; scholar's plain long robe, bookish bearing; age as historically attested in 1127 CE–1132 CE"
+     },
+     {
+      "id": "zhangruzhou",
+      "name": "张汝舟",
+      "nameEn": "Zhang Ruzhou",
+      "onScreen": false,
+      "zh": "张汝舟（南宋·右承奉郎）：展脚幞头，公服，褙子，宋式铠甲；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为1127—1132 年）；据宋人记载，与李清照再嫁后不久即被她告发",
+      "en": "Zhang Ruzhou (张汝舟) — commoner, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1127 CE–1132 CE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [
+       "liqingzhao",
+       "zhaomingcheng"
+      ],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：殿柱、卷轴、屋檐；主体：李清照、赵明诚｜动作：青州归来堂，满屋书卷，二人对坐烹茶｜水墨效果：宣纸留白淡入｜声音：环境：寂静室内；音效：琴声｜屏幕文字：片名「金石录」竖排书法与朱印「易安」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: palace pillars, scroll, palace eaves; subject: Li Qingzhao, Zhao Mingcheng | Action: (scene action, Chinese) 青州归来堂，满屋书卷，二人对坐烹茶 | Ink FX: fade in from blank xuan paper | Sound: ambience: quiet room tone; SFX: guqin | On-screen text: vertical brush-calligraphy title 「金石录」 with vermilion seal 「易安」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [],
+      "vo": "李清照与丈夫赵明诚，在青州的归来堂里收集了满屋的金石书画。饭后烹茶，指着书堆说某事在某书某卷第几页第几行，猜中的先喝茶。靖康之变，金兵南下。他们选了书画中最好的，装了十五车南渡。留在青州的十几间屋子的书，被一把火烧了。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：远景：远山；中景：卷轴；主体：众人｜动作：十五辆车装满书册，向南驶去｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：车轮｜屏幕文字：底部旁白字幕｜旁白：「李清照与丈夫赵明诚，在青州的归来堂里收集了满屋的金石书画。饭后烹茶，指着书堆说某事在某书某卷第几页第几行，猜中的先喝茶。靖康之变，金兵南下。他们选了书画中最好的，装了十五车南渡。留在青州的十几间屋子的书，被一把火烧了。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: background: distant mountains; midground: scroll; subject: crowd | Action: (scene action, Chinese) 十五辆车装满书册，向南驶去 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: wheels | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「李清照与丈夫赵明诚，在青州的归来堂里收集了满屋的金石书画。饭后烹茶，指着书堆说某事在某书某卷第几页第几行，猜中的先喝茶。靖康之变，金兵南下。他们选了书画中最好的，装了十五车南渡。留在青州的十几间屋子的书，被一把火烧了。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [
+       "zhaomingcheng"
+      ],
+      "vo": "建炎三年，赵明诚赴召湖州，在池阳江边与她分别。她问：如果城中有急事，怎么办？他回头说——",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：河水、舟；主体：赵明诚｜动作：池阳江边，丈夫骑马远去，回头叮嘱｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；水墨流动晕染｜声音：环境：平缓河水；音效：马蹄声｜屏幕文字：引文「独所谓宗器者，可自负抱，与身俱存亡，勿忘也。」竖排楷书；底部旁白字幕｜旁白：「建炎三年，赵明诚赴召湖州，在池阳江边与她分别。她问：如果城中有急事，怎么办？他回头说——」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: river, boat; subject: Zhao Mingcheng | Action: (scene action, Chinese) 池阳江边，丈夫骑马远去，回头叮嘱 | Ink FX: ink-bleed transition from the previous shot; flowing ink wash bleeding across the paper | Sound: ambience: calm river; SFX: hoofbeats | On-screen text: vertical kaishu quotation 「独所谓宗器者，可自负抱，与身俱存亡，勿忘也。」; Chinese subtitles at bottom | VO (Mandarin): 「建炎三年，赵明诚赴召湖州，在池阳江边与她分别。她问：如果城中有急事，怎么办？他回头说——」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [
+       "liqingzhao"
+      ],
+      "vo": "那年八月，赵明诚病死于建康。此后她带着剩下的书画辗转于越州、明州、温州之间，书画一路散失、被盗。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：江海、浪头、舟；主体：李清照｜动作：她一个人护着几箱书，在越州、明州、温州之间漂泊｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；水墨流动晕染｜声音：环境：海浪；音效：摇橹｜屏幕文字：底部旁白字幕｜旁白：「那年八月，赵明诚病死于建康。此后她带着剩下的书画辗转于越州、明州、温州之间，书画一路散失、被盗。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: sea, breaking waves, boat; subject: Li Qingzhao | Action: (scene action, Chinese) 她一个人护着几箱书，在越州、明州、温州之间漂泊 | Ink FX: ink-bleed transition from the previous shot; flowing ink wash bleeding across the paper | Sound: ambience: sea waves; SFX: oars | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「那年八月，赵明诚病死于建康。此后她带着剩下的书画辗转于越州、明州、温州之间，书画一路散失、被盗。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [
+       "liqingzhao"
+      ],
+      "vo": "几年之后，她坐在灯下，翻开丈夫留下的《金石录》——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：金石录；主体：李清照；飞白题字「易安」｜动作：灯下，她翻开丈夫留下的书稿，写下后序｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：寂静室内；音效：琴声｜屏幕文字：底部旁白字幕｜旁白：「几年之后，她坐在灯下，翻开丈夫留下的《金石录》——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: 金石录; subject: Li Qingzhao; dry-brush calligraphy 「易安」 | Action: (scene action, Chinese) 灯下，她翻开丈夫留下的书稿，写下后序 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: quiet room tone; SFX: guqin | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「几年之后，她坐在灯下，翻开丈夫留下的《金石录》——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [
+       "liqingzhao"
+      ],
+      "vo": "李清照在后序中写道：三十四年之间，忧患得失，何其多也！然有有必有无，有聚必有散，乃理之常。《金石录》三十卷由她整理表上于朝，流传至今。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：李清照｜动作：正史结局：李清照在后序中写道：三十四年之间，忧患得失，何其多也！然有有必有无，有聚必有散，乃理之常。《金石录》三十卷由她整理表上于朝，流传至今。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「李清照在后序中写道：三十四年之间，忧患得失，何其多也！然有有必有无，有聚必有散，乃理之常。《金石录》三十卷由她整理表上于朝，流传至今。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Li Qingzhao | Action: (canonical outcome, Chinese) 李清照在后序中写道：三十四年之间，忧患得失，何其多也！然有有必有无，有聚必有散，乃理之常。《金石录》三十卷由她整理表上于朝，流传至今。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「李清照在后序中写道：三十四年之间，忧患得失，何其多也！然有有必有无，有聚必有散，乃理之常。《金石录》三十卷由她整理表上于朝，流传至今。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "独所谓宗器者，可自负抱，与身俱存亡，勿忘也。",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「独所谓宗器者，可自负抱，与身俱存亡，勿忘也。」，下署《金石录后序·宋李清照撰》；右下角朱印「易安」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「独所谓宗器者，可自负抱，与身俱存亡，勿忘也。」",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「独所谓宗器者，可自负抱，与身俱存亡，勿忘也。」 signed 《金石录后序·宋李清照撰》; vermilion seal 「易安」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「独所谓宗器者，可自负抱，与身俱存亡，勿忘也。」"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：寂静室内、旷野风声、平缓河水、海浪；音效：琴声、车轮、马蹄声、摇橹；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: quiet room tone, wind over open plains, calm river, sea waves; SFX: guqin, wheels, hoofbeats, oars; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「金石录」，副题「李清照」，朱印「易安」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「独所谓宗器者，可自负抱，与身俱存亡，勿忘也。」——《金石录后序·宋李清照撰》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「金石录」, subtitle 「李清照」, vermilion seal 「易安」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「独所谓宗器者，可自负抱，与身俱存亡，勿忘也。」 — 《金石录后序·宋李清照撰》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    },
+    "narration": [
+     "李清照与丈夫赵明诚，在青州的归来堂里收集了满屋的金石书画。饭后烹茶，指着书堆说某事在某书某卷第几页第几行，猜中的先喝茶。靖康之变，金兵南下。他们选了书画中最好的，装了十五车南渡。留在青州的十几间屋子的书，被一把火烧了。",
+     "建炎三年，赵明诚赴召湖州，在池阳江边与她分别。她问：如果城中有急事，怎么办？他回头说——",
+     "那年八月，赵明诚病死于建康。此后她带着剩下的书画辗转于越州、明州、温州之间，书画一路散失、被盗。",
+     "几年之后，她坐在灯下，翻开丈夫留下的《金石录》——",
+     "李清照在后序中写道：三十四年之间，忧患得失，何其多也！然有有必有无，有聚必有散，乃理之常。《金石录》三十卷由她整理表上于朝，流传至今。",
+     "独所谓宗器者，可自负抱，与身俱存亡，勿忘也。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】南宋 · 金石录（李清照）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：南宋 · 宋建炎元年至绍兴二年（1127—1132 年）。临安西湖、江上水军、山城、书斋。\n\n人物：\n- 李清照（南宋·易安居士）：展脚幞头，公服，褙子，宋式铠甲；文士衣冠，素色长衫，书卷气；年龄依史实（此时为1127—1132 年）；与赵明诚收集金石书画，南渡后颠沛流离，作《金石录后序》\n- 赵明诚（南宋·李清照之夫，湖州知州）：展脚幞头，公服，褙子，宋式铠甲；文士衣冠，素色长衫，书卷气；年龄依史实（此时为1127—1132 年）；撰《金石录》，建炎三年病逝于建康\n- 张汝舟（南宋·右承奉郎）：展脚幞头，公服，褙子，宋式铠甲；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为1127—1132 年）；据宋人记载，与李清照再嫁后不久即被她告发\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：殿柱、卷轴、屋檐；主体：李清照、赵明诚｜动作：青州归来堂，满屋书卷，二人对坐烹茶｜水墨效果：宣纸留白淡入｜声音：环境：寂静室内；音效：琴声｜屏幕文字：片名「金石录」竖排书法与朱印「易安」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：远景：远山；中景：卷轴；主体：众人｜动作：十五辆车装满书册，向南驶去｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：车轮｜屏幕文字：底部旁白字幕｜旁白：「李清照与丈夫赵明诚，在青州的归来堂里收集了满屋的金石书画。饭后烹茶，指着书堆说某事在某书某卷第几页第几行，猜中的先喝茶。靖康之变，金兵南下。他们选了书画中最好的，装了十五车南渡。留在青州的十几间屋子的书，被一把火烧了。」\n镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：河水、舟；主体：赵明诚｜动作：池阳江边，丈夫骑马远去，回头叮嘱｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；水墨流动晕染｜声音：环境：平缓河水；音效：马蹄声｜屏幕文字：引文「独所谓宗器者，可自负抱，与身俱存亡，勿忘也。」竖排楷书；底部旁白字幕｜旁白：「建炎三年，赵明诚赴召湖州，在池阳江边与她分别。她问：如果城中有急事，怎么办？他回头说——」\n镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：江海、浪头、舟；主体：李清照｜动作：她一个人护着几箱书，在越州、明州、温州之间漂泊｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；水墨流动晕染｜声音：环境：海浪；音效：摇橹｜屏幕文字：底部旁白字幕｜旁白：「那年八月，赵明诚病死于建康。此后她带着剩下的书画辗转于越州、明州、温州之间，书画一路散失、被盗。」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：金石录；主体：李清照；飞白题字「易安」｜动作：灯下，她翻开丈夫留下的书稿，写下后序｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：寂静室内；音效：琴声｜屏幕文字：底部旁白字幕｜旁白：「几年之后，她坐在灯下，翻开丈夫留下的《金石录》——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：李清照｜动作：正史结局：李清照在后序中写道：三十四年之间，忧患得失，何其多也！然有有必有无，有聚必有散，乃理之常。《金石录》三十卷由她整理表上于朝，流传至今。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「李清照在后序中写道：三十四年之间，忧患得失，何其多也！然有有必有无，有聚必有散，乃理之常。《金石录》三十卷由她整理表上于朝，流传至今。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「独所谓宗器者，可自负抱，与身俱存亡，勿忘也。」，下署《金石录后序·宋李清照撰》；右下角朱印「易安」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「独所谓宗器者，可自负抱，与身俱存亡，勿忘也。」\n\n声音：背景乐：古琴，清远沉静，随剧情由缓入急、高潮前骤停留白；环境声：寂静室内、旷野风声、平缓河水、海浪；音效：琴声、车轮、马蹄声、摇橹；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「金石录」，副题「李清照」，朱印「易安」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「独所谓宗器者，可自负抱，与身俱存亡，勿忘也。」——《金石录后序·宋李清照撰》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "[Ink-wash video prompt] Southern Song (1127–1279) · \"金石录\" (李清照)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Southern Song (1127–1279), 1127 CE–1132 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios.\n\nCharacters:\n- Li Qingzhao (李清照) — scholar, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; scholar's plain long robe, bookish bearing; age as historically attested in 1127 CE–1132 CE\n- Zhao Mingcheng (赵明诚) — scholar, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; scholar's plain long robe, bookish bearing; age as historically attested in 1127 CE–1132 CE\n- Zhang Ruzhou (张汝舟) — commoner, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1127 CE–1132 CE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: palace pillars, scroll, palace eaves; subject: Li Qingzhao, Zhao Mingcheng | Action: (scene action, Chinese) 青州归来堂，满屋书卷，二人对坐烹茶 | Ink FX: fade in from blank xuan paper | Sound: ambience: quiet room tone; SFX: guqin | On-screen text: vertical brush-calligraphy title 「金石录」 with vermilion seal 「易安」\nShot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: background: distant mountains; midground: scroll; subject: crowd | Action: (scene action, Chinese) 十五辆车装满书册，向南驶去 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: wheels | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「李清照与丈夫赵明诚，在青州的归来堂里收集了满屋的金石书画。饭后烹茶，指着书堆说某事在某书某卷第几页第几行，猜中的先喝茶。靖康之变，金兵南下。他们选了书画中最好的，装了十五车南渡。留在青州的十几间屋子的书，被一把火烧了。」\nShot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: river, boat; subject: Zhao Mingcheng | Action: (scene action, Chinese) 池阳江边，丈夫骑马远去，回头叮嘱 | Ink FX: ink-bleed transition from the previous shot; flowing ink wash bleeding across the paper | Sound: ambience: calm river; SFX: hoofbeats | On-screen text: vertical kaishu quotation 「独所谓宗器者，可自负抱，与身俱存亡，勿忘也。」; Chinese subtitles at bottom | VO (Mandarin): 「建炎三年，赵明诚赴召湖州，在池阳江边与她分别。她问：如果城中有急事，怎么办？他回头说——」\nShot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: sea, breaking waves, boat; subject: Li Qingzhao | Action: (scene action, Chinese) 她一个人护着几箱书，在越州、明州、温州之间漂泊 | Ink FX: ink-bleed transition from the previous shot; flowing ink wash bleeding across the paper | Sound: ambience: sea waves; SFX: oars | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「那年八月，赵明诚病死于建康。此后她带着剩下的书画辗转于越州、明州、温州之间，书画一路散失、被盗。」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: 金石录; subject: Li Qingzhao; dry-brush calligraphy 「易安」 | Action: (scene action, Chinese) 灯下，她翻开丈夫留下的书稿，写下后序 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: quiet room tone; SFX: guqin | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「几年之后，她坐在灯下，翻开丈夫留下的《金石录》——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Li Qingzhao | Action: (canonical outcome, Chinese) 李清照在后序中写道：三十四年之间，忧患得失，何其多也！然有有必有无，有聚必有散，乃理之常。《金石录》三十卷由她整理表上于朝，流传至今。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「李清照在后序中写道：三十四年之间，忧患得失，何其多也！然有有必有无，有聚必有散，乃理之常。《金石录》三十卷由她整理表上于朝，流传至今。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「独所谓宗器者，可自负抱，与身俱存亡，勿忘也。」 signed 《金石录后序·宋李清照撰》; vermilion seal 「易安」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「独所谓宗器者，可自负抱，与身俱存亡，勿忘也。」\n\nSound: Music: guqin zither, serene and distant, building gradually and cutting to silence before the climax; ambience: quiet room tone, wind over open plains, calm river, sea waves; SFX: guqin, wheels, hoofbeats, oars; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「金石录」, subtitle 「李清照」, vermilion seal 「易安」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「独所谓宗器者，可自负抱，与身俱存亡，勿忘也。」 — 《金石录后序·宋李清照撰》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    }
+   }
   },
   {
    "outlineId": "17-01",
@@ -5567,7 +5866,152 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "南宋 · 宋建炎四年三月至四月（1130 年三—四月）。临安西湖、江上水军、山城、书斋。",
+     "en": "Southern Song (1127–1279), 1130 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios."
+    },
+    "characters": [
+     {
+      "id": "hanshizhong",
+      "name": "韩世忠",
+      "nameEn": "Han Shizhong",
+      "onScreen": true,
+      "zh": "韩世忠（宋·浙西制置使）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1130 年三—四月）；以八千人扼守江面，与金军相持四十八日",
+      "en": "Han Shizhong (韩世忠) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1130 CE"
+     },
+     {
+      "id": "liangshi",
+      "name": "梁夫人",
+      "nameEn": "Lady Liang",
+      "onScreen": true,
+      "zh": "梁夫人（宋·韩世忠之妻）：展脚幞头，公服，褙子，宋式铠甲；宫廷华服，发髻首饰精致；年龄依史实（此时为1130 年三—四月）；亲执桴鼓督战；“红玉”之名出自后世",
+      "en": "Lady Liang (梁夫人) — royal / consort, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; rich court dress, elaborate hair ornaments; age as historically attested in 1130 CE"
+     },
+     {
+      "id": "wushu",
+      "name": "完颜宗弼",
+      "nameEn": "Wanyan Zongbi",
+      "onScreen": false,
+      "zh": "完颜宗弼（金·兀术，金军统帅）：女真装束：辫发、左衽窄袖袍、貂帽；年龄依史实（此时为1130 年三—四月）；渡江追高宗不及，北归时被阻于江上",
+      "en": "Wanyan Zongbi (完颜宗弼) — general, 金 camp; Jurchen dress: braids, left-lapel narrow-sleeved robe, sable hat; age as historically attested in 1130 CE"
+     },
+     {
+      "id": "wangshi",
+      "name": "献策者",
+      "nameEn": "Xian Cezhe",
+      "onScreen": false,
+      "zh": "献策者（金·福建人王某）：女真装束：辫发、左衽窄袖袍、貂帽；年龄依史实（此时为1130 年三—四月）；为金军献无风时以火箭射海船之策",
+      "en": "Xian Cezhe (献策者) — commoner, 金 camp; Jurchen dress: braids, left-lapel narrow-sleeved robe, sable hat; age as historically attested in 1130 CE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：河水、近山与地面、舟｜动作：镇江江面，金山与焦山之间｜水墨效果：宣纸留白淡入；水墨流动晕染｜声音：环境：平缓河水；音效：摇橹｜屏幕文字：片名「黄天荡」竖排书法与朱印「黄天荡」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: river, near hills and ground, boat | Action: (scene action, Chinese) 镇江江面，金山与焦山之间 | Ink FX: fade in from blank xuan paper; flowing ink wash bleeding across the paper | Sound: ambience: calm river; SFX: oars | On-screen text: vertical brush-calligraphy title 「黄天荡」 with vermilion seal 「黄天荡」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [
+       "hanshizhong"
+      ],
+      "vo": "建炎三年冬，金军渡江南下，一路追赶高宗，高宗只得泛海避敌。第二年春，兀术满载掳掠北归，到了镇江，却发现韩世忠的海船已经横截在江面上。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：舟；主体：韩世忠、旌旗｜动作：韩世忠海船高大，横截江路｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：海浪；音效：号角｜屏幕文字：底部旁白字幕｜旁白：「建炎三年冬，金军渡江南下，一路追赶高宗，高宗只得泛海避敌。第二年春，兀术满载掳掠北归，到了镇江，却发现韩世忠的海船已经横截在江面上。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: boat; subject: Han Shizhong, banners | Action: (scene action, Chinese) 韩世忠海船高大，横截江路 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: sea waves; SFX: horn | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「建炎三年冬，金军渡江南下，一路追赶高宗，高宗只得泛海避敌。第二年春，兀术满载掳掠北归，到了镇江，却发现韩世忠的海船已经横截在江面上。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [
+       "liangshi"
+      ],
+      "vo": "韩世忠只有八千人，金军号称十万。两军在江上大战，韩世忠的夫人梁氏亲自擂鼓。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：舟；主体：梁夫人、旌旗｜动作：梁夫人亲执桴鼓｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；泼墨飞溅，朱砂一点｜声音：环境：远处厮杀声；音效：急鼓｜屏幕文字：底部旁白字幕｜旁白：「韩世忠只有八千人，金军号称十万。两军在江上大战，韩世忠的夫人梁氏亲自擂鼓。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: boat; subject: Lady Liang, banners | Action: (scene action, Chinese) 梁夫人亲执桴鼓 | Ink FX: ink-bleed transition from the previous shot; ink splash with a single vermilion accent | Sound: ambience: distant battle; SFX: drum burst | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「韩世忠只有八千人，金军号称十万。两军在江上大战，韩世忠的夫人梁氏亲自擂鼓。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [],
+      "vo": "金军被逼进黄天荡，四十八天出不去。兀术连夜派人掘开老鹳河故道，通往秦淮河。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：远景：月；中景：河水；主体：众人｜动作：金军连夜凿渠三十里，通往秦淮｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；水墨流动晕染｜声音：环境：夜风；音效：脚步声｜屏幕文字：底部旁白字幕｜旁白：「金军被逼进黄天荡，四十八天出不去。兀术连夜派人掘开老鹳河故道，通往秦淮河。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: background: moon; midground: river; subject: crowd | Action: (scene action, Chinese) 金军连夜凿渠三十里，通往秦淮 | Ink FX: ink-bleed transition from the previous shot; flowing ink wash bleeding across the paper | Sound: ambience: night wind; SFX: footsteps | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「金军被逼进黄天荡，四十八天出不去。兀术连夜派人掘开老鹳河故道，通往秦淮河。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [],
+      "vo": "又有人给他献了一计：等到无风的日子——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：舟、烟；主体：火；飞白题字「黄天荡」｜动作：无风之日，火箭射向海船帆篷｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；热浪与烟气扭曲；画面定格成一幅水墨画｜声音：环境：远处厮杀声；音效：烈火｜屏幕文字：底部旁白字幕｜旁白：「又有人给他献了一计：等到无风的日子——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: boat, smoke; subject: fire (splashed ink); dry-brush calligraphy 「黄天荡」 | Action: (scene action, Chinese) 无风之日，火箭射向海船帆篷 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; heat-haze and smoke distortion; freeze into a still ink painting | Sound: ambience: distant battle; SFX: roaring fire | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「又有人给他献了一计：等到无风的日子——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "金军用火箭射海船帆篷，宋军大败，兀术得以北渡。此战虽未全功，却令金军从此不敢再轻易渡江。韩世忠因功拜检校少保。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：金军用火箭射海船帆篷，宋军大败，兀术得以北渡。此战虽未全功，却令金军从此不敢再轻易渡江。韩世忠因功拜检校少保。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「金军用火箭射海船帆篷，宋军大败，兀术得以北渡。此战虽未全功，却令金军从此不敢再轻易渡江。韩世忠因功拜检校少保。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 金军用火箭射海船帆篷，宋军大败，兀术得以北渡。此战虽未全功，却令金军从此不敢再轻易渡江。韩世忠因功拜检校少保。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「金军用火箭射海船帆篷，宋军大败，兀术得以北渡。此战虽未全功，却令金军从此不敢再轻易渡江。韩世忠因功拜检校少保。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文；右下角朱印「黄天荡」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation; vermilion seal 「黄天荡」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：铜鼓，庄重原始，随剧情由缓入急、高潮前骤停留白；环境声：平缓河水、海浪、远处厮杀声、夜风；音效：摇橹、号角、急鼓、脚步声、烈火；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: bronze drums, solemn and primal, building gradually and cutting to silence before the climax; ambience: calm river, sea waves, distant battle, night wind; SFX: oars, horn, drum burst, footsteps, roaring fire; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「黄天荡」，副题「韩世忠与梁夫人」，朱印「黄天荡」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「黄天荡」, subtitle 「韩世忠与梁夫人」, vermilion seal 「黄天荡」 at upper right; subtitles: Simplified Chinese, bottom centre; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    },
+    "narration": [
+     "建炎三年冬，金军渡江南下，一路追赶高宗，高宗只得泛海避敌。第二年春，兀术满载掳掠北归，到了镇江，却发现韩世忠的海船已经横截在江面上。",
+     "韩世忠只有八千人，金军号称十万。两军在江上大战，韩世忠的夫人梁氏亲自擂鼓。",
+     "金军被逼进黄天荡，四十八天出不去。兀术连夜派人掘开老鹳河故道，通往秦淮河。",
+     "又有人给他献了一计：等到无风的日子——",
+     "金军用火箭射海船帆篷，宋军大败，兀术得以北渡。此战虽未全功，却令金军从此不敢再轻易渡江。韩世忠因功拜检校少保。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】南宋 · 黄天荡（韩世忠与梁夫人）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：南宋 · 宋建炎四年三月至四月（1130 年三—四月）。临安西湖、江上水军、山城、书斋。\n\n人物：\n- 韩世忠（宋·浙西制置使）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1130 年三—四月）；以八千人扼守江面，与金军相持四十八日\n- 梁夫人（宋·韩世忠之妻）：展脚幞头，公服，褙子，宋式铠甲；宫廷华服，发髻首饰精致；年龄依史实（此时为1130 年三—四月）；亲执桴鼓督战；“红玉”之名出自后世\n- 完颜宗弼（金·兀术，金军统帅）：女真装束：辫发、左衽窄袖袍、貂帽；年龄依史实（此时为1130 年三—四月）；渡江追高宗不及，北归时被阻于江上\n- 献策者（金·福建人王某）：女真装束：辫发、左衽窄袖袍、貂帽；年龄依史实（此时为1130 年三—四月）；为金军献无风时以火箭射海船之策\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：河水、近山与地面、舟｜动作：镇江江面，金山与焦山之间｜水墨效果：宣纸留白淡入；水墨流动晕染｜声音：环境：平缓河水；音效：摇橹｜屏幕文字：片名「黄天荡」竖排书法与朱印「黄天荡」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：舟；主体：韩世忠、旌旗｜动作：韩世忠海船高大，横截江路｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：海浪；音效：号角｜屏幕文字：底部旁白字幕｜旁白：「建炎三年冬，金军渡江南下，一路追赶高宗，高宗只得泛海避敌。第二年春，兀术满载掳掠北归，到了镇江，却发现韩世忠的海船已经横截在江面上。」\n镜头 3（26–50 秒，24 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：舟；主体：梁夫人、旌旗｜动作：梁夫人亲执桴鼓｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；泼墨飞溅，朱砂一点｜声音：环境：远处厮杀声；音效：急鼓｜屏幕文字：底部旁白字幕｜旁白：「韩世忠只有八千人，金军号称十万。两军在江上大战，韩世忠的夫人梁氏亲自擂鼓。」\n镜头 4（50–78 秒，28 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：远景：月；中景：河水；主体：众人｜动作：金军连夜凿渠三十里，通往秦淮｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；水墨流动晕染｜声音：环境：夜风；音效：脚步声｜屏幕文字：底部旁白字幕｜旁白：「金军被逼进黄天荡，四十八天出不去。兀术连夜派人掘开老鹳河故道，通往秦淮河。」\n镜头 5（78–90 秒，12 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：舟、烟；主体：火；飞白题字「黄天荡」｜动作：无风之日，火箭射向海船帆篷｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；热浪与烟气扭曲；画面定格成一幅水墨画｜声音：环境：远处厮杀声；音效：烈火｜屏幕文字：底部旁白字幕｜旁白：「又有人给他献了一计：等到无风的日子——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：金军用火箭射海船帆篷，宋军大败，兀术得以北渡。此战虽未全功，却令金军从此不敢再轻易渡江。韩世忠因功拜检校少保。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「金军用火箭射海船帆篷，宋军大败，兀术得以北渡。此战虽未全功，却令金军从此不敢再轻易渡江。韩世忠因功拜检校少保。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文；右下角朱印「黄天荡」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处\n\n声音：背景乐：铜鼓，庄重原始，随剧情由缓入急、高潮前骤停留白；环境声：平缓河水、海浪、远处厮杀声、夜风；音效：摇橹、号角、急鼓、脚步声、烈火；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「黄天荡」，副题「韩世忠与梁夫人」，朱印「黄天荡」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "[Ink-wash video prompt] Southern Song (1127–1279) · \"黄天荡\" (韩世忠与梁夫人)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Southern Song (1127–1279), 1130 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios.\n\nCharacters:\n- Han Shizhong (韩世忠) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1130 CE\n- Lady Liang (梁夫人) — royal / consort, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; rich court dress, elaborate hair ornaments; age as historically attested in 1130 CE\n- Wanyan Zongbi (完颜宗弼) — general, 金 camp; Jurchen dress: braids, left-lapel narrow-sleeved robe, sable hat; age as historically attested in 1130 CE\n- Xian Cezhe (献策者) — commoner, 金 camp; Jurchen dress: braids, left-lapel narrow-sleeved robe, sable hat; age as historically attested in 1130 CE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: river, near hills and ground, boat | Action: (scene action, Chinese) 镇江江面，金山与焦山之间 | Ink FX: fade in from blank xuan paper; flowing ink wash bleeding across the paper | Sound: ambience: calm river; SFX: oars | On-screen text: vertical brush-calligraphy title 「黄天荡」 with vermilion seal 「黄天荡」\nShot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: boat; subject: Han Shizhong, banners | Action: (scene action, Chinese) 韩世忠海船高大，横截江路 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: sea waves; SFX: horn | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「建炎三年冬，金军渡江南下，一路追赶高宗，高宗只得泛海避敌。第二年春，兀术满载掳掠北归，到了镇江，却发现韩世忠的海船已经横截在江面上。」\nShot 3 (26–50 s, 24 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: boat; subject: Lady Liang, banners | Action: (scene action, Chinese) 梁夫人亲执桴鼓 | Ink FX: ink-bleed transition from the previous shot; ink splash with a single vermilion accent | Sound: ambience: distant battle; SFX: drum burst | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「韩世忠只有八千人，金军号称十万。两军在江上大战，韩世忠的夫人梁氏亲自擂鼓。」\nShot 4 (50–78 s, 28 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: background: moon; midground: river; subject: crowd | Action: (scene action, Chinese) 金军连夜凿渠三十里，通往秦淮 | Ink FX: ink-bleed transition from the previous shot; flowing ink wash bleeding across the paper | Sound: ambience: night wind; SFX: footsteps | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「金军被逼进黄天荡，四十八天出不去。兀术连夜派人掘开老鹳河故道，通往秦淮河。」\nShot 5 (78–90 s, 12 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: boat, smoke; subject: fire (splashed ink); dry-brush calligraphy 「黄天荡」 | Action: (scene action, Chinese) 无风之日，火箭射向海船帆篷 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; heat-haze and smoke distortion; freeze into a still ink painting | Sound: ambience: distant battle; SFX: roaring fire | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「又有人给他献了一计：等到无风的日子——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 金军用火箭射海船帆篷，宋军大败，兀术得以北渡。此战虽未全功，却令金军从此不敢再轻易渡江。韩世忠因功拜检校少保。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「金军用火箭射海船帆篷，宋军大败，兀术得以北渡。此战虽未全功，却令金军从此不敢再轻易渡江。韩世忠因功拜检校少保。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation; vermilion seal 「黄天荡」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source\n\nSound: Music: bronze drums, solemn and primal, building gradually and cutting to silence before the climax; ambience: calm river, sea waves, distant battle, night wind; SFX: oars, horn, drum burst, footsteps, roaring fire; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「黄天荡」, subtitle 「韩世忠与梁夫人」, vermilion seal 「黄天荡」 at upper right; subtitles: Simplified Chinese, bottom centre; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    }
+   }
   },
   {
    "outlineId": "17-02",
@@ -7426,7 +7870,178 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "南宋 · 宋绍兴十年至十一年（1140—1142 年）。临安西湖、江上水军、山城、书斋。",
+     "en": "Southern Song (1127–1279), 1140 CE–1142 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios."
+    },
+    "characters": [
+     {
+      "id": "yuefei",
+      "name": "岳飞",
+      "nameEn": "Yue Fei",
+      "onScreen": true,
+      "zh": "岳飞（宋·少保，河南北诸路招讨使）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1140—1142 年）；郾城、颍昌大捷，奉诏班师，下狱遇害",
+      "en": "Yue Fei (岳飞) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1140 CE–1142 CE"
+     },
+     {
+      "id": "gaozong",
+      "name": "宋高宗",
+      "nameEn": "Song Gaozong",
+      "onScreen": true,
+      "zh": "宋高宗（宋·赵构）：展脚幞头，公服，褙子，宋式铠甲；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为1140—1142 年）；召岳飞班师",
+      "en": "Song Gaozong (宋高宗) — ruler, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in 1140 CE–1142 CE"
+     },
+     {
+      "id": "wuzhu",
+      "name": "完颜宗弼",
+      "nameEn": "Wanyan Zongbi",
+      "onScreen": true,
+      "zh": "完颜宗弼（金·兀术，金都元帅）：女真装束：辫发、左衽窄袖袍、貂帽；年龄依史实（此时为1140—1142 年）；郾城、颍昌之战金军统帅",
+      "en": "Wanyan Zongbi (完颜宗弼) — general, 金 camp; Jurchen dress: braids, left-lapel narrow-sleeved robe, sable hat; age as historically attested in 1140 CE–1142 CE"
+     },
+     {
+      "id": "yueyun",
+      "name": "岳云",
+      "nameEn": "Yue Yun",
+      "onScreen": false,
+      "zh": "岳云（宋·岳飞之子）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1140—1142 年）；颍昌之战力战，与父同死",
+      "en": "Yue Yun (岳云) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1140 CE–1142 CE"
+     },
+     {
+      "id": "qinhui",
+      "name": "秦桧",
+      "nameEn": "Qin Gui",
+      "onScreen": false,
+      "zh": "秦桧（宋·宰相）：展脚幞头，公服，褙子，宋式铠甲；文臣朝服与官帽，持笏或文书；年龄依史实（此时为1140—1142 年）；主和，构陷岳飞",
+      "en": "Qin Gui (秦桧) — minister, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; civil official's court robe and cap, holding a tablet or documents; age as historically attested in 1140 CE–1142 CE"
+     },
+     {
+      "id": "hanshizhong",
+      "name": "韩世忠",
+      "nameEn": "Han Shizhong",
+      "onScreen": false,
+      "zh": "韩世忠（宋·枢密使）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1140—1142 年）；质问秦桧“莫须有”",
+      "en": "Han Shizhong (韩世忠) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1140 CE–1142 CE"
+     },
+     {
+      "id": "zhangxian",
+      "name": "张宪",
+      "nameEn": "Zhang Xian",
+      "onScreen": false,
+      "zh": "张宪（宋·岳家军将领）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1140—1142 年）；与岳飞同死",
+      "en": "Zhang Xian (张宪) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1140 CE–1142 CE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山；中景：河水、草｜动作：中原故土，黄河南岸｜水墨效果：宣纸留白淡入；水墨流动晕染｜声音：环境：旷野风声｜屏幕文字：片名「精忠」竖排书法与朱印「精忠」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains; midground: river, grass | Action: (scene action, Chinese) 中原故土，黄河南岸 | Ink FX: fade in from blank xuan paper; flowing ink wash bleeding across the paper | Sound: ambience: wind over open plains | On-screen text: vertical brush-calligraphy title 「精忠」 with vermilion seal 「精忠」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [
+       "wuzhu"
+      ],
+      "vo": "绍兴十年，金人撕毁和议，兀术率军南下。岳飞奉命北伐，连复颍昌、蔡州诸地，进驻郾城。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：主体：完颜宗弼、骑兵、旌旗｜动作：金人毁约南下｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；墨点四散（如马蹄踏墨）｜声音：环境：草原风；音效：马蹄声｜屏幕文字：底部旁白字幕｜旁白：「绍兴十年，金人撕毁和议，兀术率军南下。岳飞奉命北伐，连复颍昌、蔡州诸地，进驻郾城。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: subject: Wanyan Zongbi, cavalry, banners | Action: (scene action, Chinese) 金人毁约南下 | Ink FX: ink-bleed transition from the previous shot; ink dispersing outward like hoofprints in wet ink | Sound: ambience: steppe wind; SFX: hoofbeats | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「绍兴十年，金人撕毁和议，兀术率军南下。岳飞奉命北伐，连复颍昌、蔡州诸地，进驻郾城。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [
+       "yuefei"
+      ],
+      "vo": "兀术以精锐骑兵来攻。岳飞令步卒持麻扎刀入阵，不许仰视，只砍马足。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：手持式轻微震动，节奏急促｜构图：主体：岳飞、骑兵、长枪｜动作：郾城：拐子马｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；墨点四散（如马蹄踏墨）；兵刃金属寒光一闪｜声音：环境：远处厮杀声；音效：兵刃相击、号角｜屏幕文字：底部旁白字幕｜旁白：「兀术以精锐骑兵来攻。岳飞令步卒持麻扎刀入阵，不许仰视，只砍马足。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: subtle handheld shake, urgent rhythm | Composition: subject: Yue Fei, cavalry, spear | Action: (scene action, Chinese) 郾城：拐子马 | Ink FX: ink-bleed transition from the previous shot; ink dispersing outward like hoofprints in wet ink; a cold metallic glint on the blade | Sound: ambience: distant battle; SFX: clashing weapons, horn | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「兀术以精锐骑兵来攻。岳飞令步卒持麻扎刀入阵，不许仰视，只砍马足。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [
+       "gaozong"
+      ],
+      "vo": "郾城、颍昌两战大捷。正当此时，朝廷一日之内连发金字牌，命他班师。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：卷轴；主体：宋高宗、战马｜动作：一日之中，十二道金字牌｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：马蹄声｜屏幕文字：底部旁白字幕｜旁白：「郾城、颍昌两战大捷。正当此时，朝廷一日之内连发金字牌，命他班师。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: scroll; subject: Song Gaozong, war horse | Action: (scene action, Chinese) 一日之中，十二道金字牌 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: hoofbeats | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「郾城、颍昌两战大捷。正当此时，朝廷一日之内连发金字牌，命他班师。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [],
+      "vo": "岳飞面向东方，再拜——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：主体：岳；飞白题字「班师」｜动作：班师｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：战后余风；音效：号角｜屏幕文字：底部旁白字幕｜旁白：「岳飞面向东方，再拜——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: subject: 岳; dry-brush calligraphy 「班师」 | Action: (scene action, Chinese) 班师 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: lingering wind after battle; SFX: horn | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「岳飞面向东方，再拜——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "岳飞班师，所复之地复失。次年被诬下狱，与岳云、张宪同遇害。韩世忠质问秦桧，秦桧答：其事体莫须有。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：岳飞班师，所复之地复失。次年被诬下狱，与岳云、张宪同遇害。韩世忠质问秦桧，秦桧答：其事体莫须有。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「岳飞班师，所复之地复失。次年被诬下狱，与岳云、张宪同遇害。韩世忠质问秦桧，秦桧答：其事体莫须有。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 岳飞班师，所复之地复失。次年被诬下狱，与岳云、张宪同遇害。韩世忠质问秦桧，秦桧答：其事体莫须有。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「岳飞班师，所复之地复失。次年被诬下狱，与岳云、张宪同遇害。韩世忠质问秦桧，秦桧答：其事体莫须有。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文；右下角朱印「精忠」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation; vermilion seal 「精忠」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：笛子，清丽，随剧情由缓入急、高潮前骤停留白；环境声：旷野风声、草原风、远处厮杀声、战后余风；音效：马蹄声、兵刃相击、号角；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: dizi flute, clear and lyrical, building gradually and cutting to silence before the climax; ambience: wind over open plains, steppe wind, distant battle, lingering wind after battle; SFX: hoofbeats, clashing weapons, horn; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「精忠」，副题「岳飞」，朱印「精忠」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「精忠」, subtitle 「岳飞」, vermilion seal 「精忠」 at upper right; subtitles: Simplified Chinese, bottom centre; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    },
+    "narration": [
+     "绍兴十年，金人撕毁和议，兀术率军南下。岳飞奉命北伐，连复颍昌、蔡州诸地，进驻郾城。",
+     "兀术以精锐骑兵来攻。岳飞令步卒持麻扎刀入阵，不许仰视，只砍马足。",
+     "郾城、颍昌两战大捷。正当此时，朝廷一日之内连发金字牌，命他班师。",
+     "岳飞面向东方，再拜——",
+     "岳飞班师，所复之地复失。次年被诬下狱，与岳云、张宪同遇害。韩世忠质问秦桧，秦桧答：其事体莫须有。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】南宋 · 精忠（岳飞）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：南宋 · 宋绍兴十年至十一年（1140—1142 年）。临安西湖、江上水军、山城、书斋。\n\n人物：\n- 岳飞（宋·少保，河南北诸路招讨使）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1140—1142 年）；郾城、颍昌大捷，奉诏班师，下狱遇害\n- 宋高宗（宋·赵构）：展脚幞头，公服，褙子，宋式铠甲；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为1140—1142 年）；召岳飞班师\n- 完颜宗弼（金·兀术，金都元帅）：女真装束：辫发、左衽窄袖袍、貂帽；年龄依史实（此时为1140—1142 年）；郾城、颍昌之战金军统帅\n- 岳云（宋·岳飞之子）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1140—1142 年）；颍昌之战力战，与父同死\n- 秦桧（宋·宰相）：展脚幞头，公服，褙子，宋式铠甲；文臣朝服与官帽，持笏或文书；年龄依史实（此时为1140—1142 年）；主和，构陷岳飞\n- 韩世忠（宋·枢密使）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1140—1142 年）；质问秦桧“莫须有”\n- 张宪（宋·岳家军将领）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1140—1142 年）；与岳飞同死\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山；中景：河水、草｜动作：中原故土，黄河南岸｜水墨效果：宣纸留白淡入；水墨流动晕染｜声音：环境：旷野风声｜屏幕文字：片名「精忠」竖排书法与朱印「精忠」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：主体：完颜宗弼、骑兵、旌旗｜动作：金人毁约南下｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；墨点四散（如马蹄踏墨）｜声音：环境：草原风；音效：马蹄声｜屏幕文字：底部旁白字幕｜旁白：「绍兴十年，金人撕毁和议，兀术率军南下。岳飞奉命北伐，连复颍昌、蔡州诸地，进驻郾城。」\n镜头 3（26–50 秒，24 秒）｜运镜：手持式轻微震动，节奏急促｜构图：主体：岳飞、骑兵、长枪｜动作：郾城：拐子马｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；墨点四散（如马蹄踏墨）；兵刃金属寒光一闪｜声音：环境：远处厮杀声；音效：兵刃相击、号角｜屏幕文字：底部旁白字幕｜旁白：「兀术以精锐骑兵来攻。岳飞令步卒持麻扎刀入阵，不许仰视，只砍马足。」\n镜头 4（50–78 秒，28 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：卷轴；主体：宋高宗、战马｜动作：一日之中，十二道金字牌｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：马蹄声｜屏幕文字：底部旁白字幕｜旁白：「郾城、颍昌两战大捷。正当此时，朝廷一日之内连发金字牌，命他班师。」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：主体：岳；飞白题字「班师」｜动作：班师｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：战后余风；音效：号角｜屏幕文字：底部旁白字幕｜旁白：「岳飞面向东方，再拜——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：岳飞班师，所复之地复失。次年被诬下狱，与岳云、张宪同遇害。韩世忠质问秦桧，秦桧答：其事体莫须有。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「岳飞班师，所复之地复失。次年被诬下狱，与岳云、张宪同遇害。韩世忠质问秦桧，秦桧答：其事体莫须有。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文；右下角朱印「精忠」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处\n\n声音：背景乐：笛子，清丽，随剧情由缓入急、高潮前骤停留白；环境声：旷野风声、草原风、远处厮杀声、战后余风；音效：马蹄声、兵刃相击、号角；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「精忠」，副题「岳飞」，朱印「精忠」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "[Ink-wash video prompt] Southern Song (1127–1279) · \"精忠\" (岳飞)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Southern Song (1127–1279), 1140 CE–1142 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios.\n\nCharacters:\n- Yue Fei (岳飞) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1140 CE–1142 CE\n- Song Gaozong (宋高宗) — ruler, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in 1140 CE–1142 CE\n- Wanyan Zongbi (完颜宗弼) — general, 金 camp; Jurchen dress: braids, left-lapel narrow-sleeved robe, sable hat; age as historically attested in 1140 CE–1142 CE\n- Yue Yun (岳云) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1140 CE–1142 CE\n- Qin Gui (秦桧) — minister, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; civil official's court robe and cap, holding a tablet or documents; age as historically attested in 1140 CE–1142 CE\n- Han Shizhong (韩世忠) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1140 CE–1142 CE\n- Zhang Xian (张宪) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1140 CE–1142 CE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains; midground: river, grass | Action: (scene action, Chinese) 中原故土，黄河南岸 | Ink FX: fade in from blank xuan paper; flowing ink wash bleeding across the paper | Sound: ambience: wind over open plains | On-screen text: vertical brush-calligraphy title 「精忠」 with vermilion seal 「精忠」\nShot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: subject: Wanyan Zongbi, cavalry, banners | Action: (scene action, Chinese) 金人毁约南下 | Ink FX: ink-bleed transition from the previous shot; ink dispersing outward like hoofprints in wet ink | Sound: ambience: steppe wind; SFX: hoofbeats | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「绍兴十年，金人撕毁和议，兀术率军南下。岳飞奉命北伐，连复颍昌、蔡州诸地，进驻郾城。」\nShot 3 (26–50 s, 24 s) | Camera: subtle handheld shake, urgent rhythm | Composition: subject: Yue Fei, cavalry, spear | Action: (scene action, Chinese) 郾城：拐子马 | Ink FX: ink-bleed transition from the previous shot; ink dispersing outward like hoofprints in wet ink; a cold metallic glint on the blade | Sound: ambience: distant battle; SFX: clashing weapons, horn | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「兀术以精锐骑兵来攻。岳飞令步卒持麻扎刀入阵，不许仰视，只砍马足。」\nShot 4 (50–78 s, 28 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: scroll; subject: Song Gaozong, war horse | Action: (scene action, Chinese) 一日之中，十二道金字牌 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: hoofbeats | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「郾城、颍昌两战大捷。正当此时，朝廷一日之内连发金字牌，命他班师。」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: subject: 岳; dry-brush calligraphy 「班师」 | Action: (scene action, Chinese) 班师 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: lingering wind after battle; SFX: horn | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「岳飞面向东方，再拜——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 岳飞班师，所复之地复失。次年被诬下狱，与岳云、张宪同遇害。韩世忠质问秦桧，秦桧答：其事体莫须有。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「岳飞班师，所复之地复失。次年被诬下狱，与岳云、张宪同遇害。韩世忠质问秦桧，秦桧答：其事体莫须有。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation; vermilion seal 「精忠」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source\n\nSound: Music: dizi flute, clear and lyrical, building gradually and cutting to silence before the climax; ambience: wind over open plains, steppe wind, distant battle, lingering wind after battle; SFX: hoofbeats, clashing weapons, horn; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「精忠」, subtitle 「岳飞」, vermilion seal 「精忠」 at upper right; subtitles: Simplified Chinese, bottom centre; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    }
+   }
   },
   {
    "outlineId": "17-03",
@@ -9329,7 +9944,156 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "南宋 · 宋绍兴三十一年十一月（1161 年十一月）。临安西湖、江上水军、山城、书斋。",
+     "en": "Southern Song (1127–1279), 1161 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios."
+    },
+    "characters": [
+     {
+      "id": "yuyunwen",
+      "name": "虞允文",
+      "nameEn": "Yu Yunwen",
+      "onScreen": true,
+      "zh": "虞允文（宋·中书舍人、督视府参谋军事）：展脚幞头，公服，褙子，宋式铠甲；文臣朝服与官帽，持笏或文书；年龄依史实（此时为1161 年十一月）；奉命犒师，临时督战",
+      "en": "Yu Yunwen (虞允文) — minister, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; civil official's court robe and cap, holding a tablet or documents; age as historically attested in 1161 CE"
+     },
+     {
+      "id": "shijun",
+      "name": "时俊",
+      "nameEn": "Shi Jun",
+      "onScreen": true,
+      "zh": "时俊（宋·统制）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1161 年十一月）；奋勇迎击渡江金军",
+      "en": "Shi Jun (时俊) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1161 CE"
+     },
+     {
+      "id": "wanyanliang",
+      "name": "完颜亮",
+      "nameEn": "Wanyan Liang",
+      "onScreen": false,
+      "zh": "完颜亮（金·金主）：女真装束：辫发、左衽窄袖袍、貂帽；年龄依史实（此时为1161 年十一月）；在江北筑台督军渡江",
+      "en": "Wanyan Liang (完颜亮) — ruler, 金 camp; Jurchen dress: braids, left-lapel narrow-sleeved robe, sable hat; age as historically attested in 1161 CE"
+     },
+     {
+      "id": "wangquan",
+      "name": "王权",
+      "nameEn": "Wang Quan",
+      "onScreen": false,
+      "zh": "王权（宋·建康都统制）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1161 年十一月）；自庐州弃军退走，已被罢免",
+      "en": "Wang Quan (王权) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1161 CE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：皴法山石；中景：河水、近山与地面｜动作：采石矶，长江最窄处之一｜水墨效果：宣纸留白淡入；水墨流动晕染｜声音：环境：平缓河水；音效：浪击｜屏幕文字：片名「采石矶」竖排书法与朱印「采石」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: textured rocks; midground: river, near hills and ground | Action: (scene action, Chinese) 采石矶，长江最窄处之一 | Ink FX: fade in from blank xuan paper; flowing ink wash bleeding across the paper | Sound: ambience: calm river; SFX: crashing waves | On-screen text: vertical brush-calligraphy title 「采石矶」 with vermilion seal 「采石」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [
+       "yuyunwen"
+      ],
+      "vo": "金主亮的大军已到江北。守江的王权弃军先逃，被罢了官，接替的李显忠还没赶到。中书舍人虞允文奉命到采石犒师。他看见宋军三五成群，解下马鞍坐在路边，没有人统领。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：营帐；主体：虞允文、众人｜动作：散兵三五成群，解鞍坐在路旁｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：低语｜屏幕文字：底部旁白字幕｜旁白：「金主亮的大军已到江北。守江的王权弃军先逃，被罢了官，接替的李显忠还没赶到。中书舍人虞允文奉命到采石犒师。他看见宋军三五成群，解下马鞍坐在路边，没有人统领。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: army tents; subject: Yu Yunwen, crowd | Action: (scene action, Chinese) 散兵三五成群，解鞍坐在路旁 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: murmuring | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「金主亮的大军已到江北。守江的王权弃军先逃，被罢了官，接替的李显忠还没赶到。中书舍人虞允文奉命到采石犒师。他看见宋军三五成群，解下马鞍坐在路边，没有人统领。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [
+       "yuyunwen",
+       "shijun"
+      ],
+      "vo": "有人劝他：你是来犒师的，不是来督战的，何必担这个责任？",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：营帐；主体：虞允文、时俊、旌旗｜动作：虞允文召集诸将，激以忠义｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：军营鼓声；音效：号角｜屏幕文字：引文「危及社稷，吾将安避」竖排楷书；底部旁白字幕｜旁白：「有人劝他：你是来犒师的，不是来督战的，何必担这个责任？」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: army tents; subject: Yu Yunwen, Shi Jun, banners | Action: (scene action, Chinese) 虞允文召集诸将，激以忠义 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: camp drums; SFX: horn | On-screen text: vertical kaishu quotation 「危及社稷，吾将安避」; Chinese subtitles at bottom | VO (Mandarin): 「有人劝他：你是来犒师的，不是来督战的，何必担这个责任？」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [
+       "shijun"
+      ],
+      "vo": "虞允文说：危及社稷，我将何处逃避？他召集诸将，宣示朝廷恩赏，约定一同死战。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：河水、舟；主体：时俊｜动作：海鳅船冲向金军小舟｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；水墨流动晕染｜声音：环境：海浪；音效：摇橹｜屏幕文字：底部旁白字幕｜旁白：「虞允文说：危及社稷，我将何处逃避？他召集诸将，宣示朝廷恩赏，约定一同死战。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: river, boat; subject: Shi Jun | Action: (scene action, Chinese) 海鳅船冲向金军小舟 | Ink FX: ink-bleed transition from the previous shot; flowing ink wash bleeding across the paper | Sound: ambience: sea waves; SFX: oars | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「虞允文说：危及社稷，我将何处逃避？他召集诸将，宣示朝廷恩赏，约定一同死战。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [],
+      "vo": "江北的高台上，金主亮挥动了小红旗——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：河水、烟；主体：火；飞白题字「采石」｜动作：霹雳炮在江面炸开｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；水墨流动晕染；热浪与烟气扭曲；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：远处厮杀声；音效：炮声｜屏幕文字：底部旁白字幕｜旁白：「江北的高台上，金主亮挥动了小红旗——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: river, smoke; subject: fire (splashed ink); dry-brush calligraphy 「采石」 | Action: (scene action, Chinese) 霹雳炮在江面炸开 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; flowing ink wash bleeding across the paper; heat-haze and smoke distortion; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: distant battle; SFX: cannon fire | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「江北的高台上，金主亮挥动了小红旗——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "金军渡江受挫，死伤甚众。次日宋军又在上游焚其舟船。金主亮转往扬州，欲从瓜洲渡江，不久在营中被部将所杀。南宋转危为安。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：金军渡江受挫，死伤甚众。次日宋军又在上游焚其舟船。金主亮转往扬州，欲从瓜洲渡江，不久在营中被部将所杀。南宋转危为安。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「金军渡江受挫，死伤甚众。次日宋军又在上游焚其舟船。金主亮转往扬州，欲从瓜洲渡江，不久在营中被部将所杀。南宋转危为安。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 金军渡江受挫，死伤甚众。次日宋军又在上游焚其舟船。金主亮转往扬州，欲从瓜洲渡江，不久在营中被部将所杀。南宋转危为安。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「金军渡江受挫，死伤甚众。次日宋军又在上游焚其舟船。金主亮转往扬州，欲从瓜洲渡江，不久在营中被部将所杀。南宋转危为安。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "危及社稷，吾将安避",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「危及社稷，吾将安避」，下署《宋史·虞允文传》；右下角朱印「采石」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「危及社稷，吾将安避」",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「危及社稷，吾将安避」 signed 《宋史·虞允文传》; vermilion seal 「采石」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「危及社稷，吾将安避」"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：铜鼓，庄重原始，随剧情由缓入急、高潮前骤停留白；环境声：平缓河水、旷野风声、军营鼓声、海浪、远处厮杀声；音效：浪击、低语、号角、摇橹、炮声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: bronze drums, solemn and primal, building gradually and cutting to silence before the climax; ambience: calm river, wind over open plains, camp drums, sea waves, distant battle; SFX: crashing waves, murmuring, horn, oars, cannon fire; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「采石矶」，副题「虞允文」，朱印「采石」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「危及社稷，吾将安避」——《宋史·虞允文传》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「采石矶」, subtitle 「虞允文」, vermilion seal 「采石」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「危及社稷，吾将安避」 — 《宋史·虞允文传》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    },
+    "narration": [
+     "金主亮的大军已到江北。守江的王权弃军先逃，被罢了官，接替的李显忠还没赶到。中书舍人虞允文奉命到采石犒师。他看见宋军三五成群，解下马鞍坐在路边，没有人统领。",
+     "有人劝他：你是来犒师的，不是来督战的，何必担这个责任？",
+     "虞允文说：危及社稷，我将何处逃避？他召集诸将，宣示朝廷恩赏，约定一同死战。",
+     "江北的高台上，金主亮挥动了小红旗——",
+     "金军渡江受挫，死伤甚众。次日宋军又在上游焚其舟船。金主亮转往扬州，欲从瓜洲渡江，不久在营中被部将所杀。南宋转危为安。",
+     "危及社稷，吾将安避"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】南宋 · 采石矶（虞允文）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：南宋 · 宋绍兴三十一年十一月（1161 年十一月）。临安西湖、江上水军、山城、书斋。\n\n人物：\n- 虞允文（宋·中书舍人、督视府参谋军事）：展脚幞头，公服，褙子，宋式铠甲；文臣朝服与官帽，持笏或文书；年龄依史实（此时为1161 年十一月）；奉命犒师，临时督战\n- 时俊（宋·统制）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1161 年十一月）；奋勇迎击渡江金军\n- 完颜亮（金·金主）：女真装束：辫发、左衽窄袖袍、貂帽；年龄依史实（此时为1161 年十一月）；在江北筑台督军渡江\n- 王权（宋·建康都统制）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1161 年十一月）；自庐州弃军退走，已被罢免\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：皴法山石；中景：河水、近山与地面｜动作：采石矶，长江最窄处之一｜水墨效果：宣纸留白淡入；水墨流动晕染｜声音：环境：平缓河水；音效：浪击｜屏幕文字：片名「采石矶」竖排书法与朱印「采石」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：营帐；主体：虞允文、众人｜动作：散兵三五成群，解鞍坐在路旁｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：低语｜屏幕文字：底部旁白字幕｜旁白：「金主亮的大军已到江北。守江的王权弃军先逃，被罢了官，接替的李显忠还没赶到。中书舍人虞允文奉命到采石犒师。他看见宋军三五成群，解下马鞍坐在路边，没有人统领。」\n镜头 3（26–50 秒，24 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：营帐；主体：虞允文、时俊、旌旗｜动作：虞允文召集诸将，激以忠义｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：军营鼓声；音效：号角｜屏幕文字：引文「危及社稷，吾将安避」竖排楷书；底部旁白字幕｜旁白：「有人劝他：你是来犒师的，不是来督战的，何必担这个责任？」\n镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：河水、舟；主体：时俊｜动作：海鳅船冲向金军小舟｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；水墨流动晕染｜声音：环境：海浪；音效：摇橹｜屏幕文字：底部旁白字幕｜旁白：「虞允文说：危及社稷，我将何处逃避？他召集诸将，宣示朝廷恩赏，约定一同死战。」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：河水、烟；主体：火；飞白题字「采石」｜动作：霹雳炮在江面炸开｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；水墨流动晕染；热浪与烟气扭曲；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：远处厮杀声；音效：炮声｜屏幕文字：底部旁白字幕｜旁白：「江北的高台上，金主亮挥动了小红旗——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：金军渡江受挫，死伤甚众。次日宋军又在上游焚其舟船。金主亮转往扬州，欲从瓜洲渡江，不久在营中被部将所杀。南宋转危为安。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「金军渡江受挫，死伤甚众。次日宋军又在上游焚其舟船。金主亮转往扬州，欲从瓜洲渡江，不久在营中被部将所杀。南宋转危为安。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「危及社稷，吾将安避」，下署《宋史·虞允文传》；右下角朱印「采石」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「危及社稷，吾将安避」\n\n声音：背景乐：铜鼓，庄重原始，随剧情由缓入急、高潮前骤停留白；环境声：平缓河水、旷野风声、军营鼓声、海浪、远处厮杀声；音效：浪击、低语、号角、摇橹、炮声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「采石矶」，副题「虞允文」，朱印「采石」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「危及社稷，吾将安避」——《宋史·虞允文传》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "[Ink-wash video prompt] Southern Song (1127–1279) · \"采石矶\" (虞允文)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Southern Song (1127–1279), 1161 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios.\n\nCharacters:\n- Yu Yunwen (虞允文) — minister, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; civil official's court robe and cap, holding a tablet or documents; age as historically attested in 1161 CE\n- Shi Jun (时俊) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1161 CE\n- Wanyan Liang (完颜亮) — ruler, 金 camp; Jurchen dress: braids, left-lapel narrow-sleeved robe, sable hat; age as historically attested in 1161 CE\n- Wang Quan (王权) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1161 CE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: textured rocks; midground: river, near hills and ground | Action: (scene action, Chinese) 采石矶，长江最窄处之一 | Ink FX: fade in from blank xuan paper; flowing ink wash bleeding across the paper | Sound: ambience: calm river; SFX: crashing waves | On-screen text: vertical brush-calligraphy title 「采石矶」 with vermilion seal 「采石」\nShot 2 (10–26 s, 16 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: army tents; subject: Yu Yunwen, crowd | Action: (scene action, Chinese) 散兵三五成群，解鞍坐在路旁 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: murmuring | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「金主亮的大军已到江北。守江的王权弃军先逃，被罢了官，接替的李显忠还没赶到。中书舍人虞允文奉命到采石犒师。他看见宋军三五成群，解下马鞍坐在路边，没有人统领。」\nShot 3 (26–50 s, 24 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: army tents; subject: Yu Yunwen, Shi Jun, banners | Action: (scene action, Chinese) 虞允文召集诸将，激以忠义 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: camp drums; SFX: horn | On-screen text: vertical kaishu quotation 「危及社稷，吾将安避」; Chinese subtitles at bottom | VO (Mandarin): 「有人劝他：你是来犒师的，不是来督战的，何必担这个责任？」\nShot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: river, boat; subject: Shi Jun | Action: (scene action, Chinese) 海鳅船冲向金军小舟 | Ink FX: ink-bleed transition from the previous shot; flowing ink wash bleeding across the paper | Sound: ambience: sea waves; SFX: oars | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「虞允文说：危及社稷，我将何处逃避？他召集诸将，宣示朝廷恩赏，约定一同死战。」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: river, smoke; subject: fire (splashed ink); dry-brush calligraphy 「采石」 | Action: (scene action, Chinese) 霹雳炮在江面炸开 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; flowing ink wash bleeding across the paper; heat-haze and smoke distortion; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: distant battle; SFX: cannon fire | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「江北的高台上，金主亮挥动了小红旗——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 金军渡江受挫，死伤甚众。次日宋军又在上游焚其舟船。金主亮转往扬州，欲从瓜洲渡江，不久在营中被部将所杀。南宋转危为安。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「金军渡江受挫，死伤甚众。次日宋军又在上游焚其舟船。金主亮转往扬州，欲从瓜洲渡江，不久在营中被部将所杀。南宋转危为安。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「危及社稷，吾将安避」 signed 《宋史·虞允文传》; vermilion seal 「采石」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「危及社稷，吾将安避」\n\nSound: Music: bronze drums, solemn and primal, building gradually and cutting to silence before the climax; ambience: calm river, wind over open plains, camp drums, sea waves, distant battle; SFX: crashing waves, murmuring, horn, oars, cannon fire; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「采石矶」, subtitle 「虞允文」, vermilion seal 「采石」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「危及社稷，吾将安避」 — 《宋史·虞允文传》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    }
+   }
   },
   {
    "outlineId": "17-04",
@@ -11256,7 +12020,168 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "南宋 · 宋绍兴三十二年（1162 年）。临安西湖、江上水军、山城、书斋。",
+     "en": "Southern Song (1127–1279), 1162 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios."
+    },
+    "characters": [
+     {
+      "id": "xinqiji",
+      "name": "辛弃疾",
+      "nameEn": "Xin Qiji",
+      "onScreen": true,
+      "zh": "辛弃疾（宋·耿京掌书记）：展脚幞头，公服，褙子，宋式铠甲；文士衣冠，素色长衫，书卷气；年龄依史实（此时为1162 年）；济南历城人，二十余岁率五十骑擒叛将",
+      "en": "Xin Qiji (辛弃疾) — scholar, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; scholar's plain long robe, bookish bearing; age as historically attested in 1162 CE"
+     },
+     {
+      "id": "zhanganguo",
+      "name": "张安国",
+      "nameEn": "Zhang Anguo",
+      "onScreen": true,
+      "zh": "张安国（义军·叛将）：展脚幞头，公服，褙子，宋式铠甲；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为1162 年）；杀耿京降金",
+      "en": "Zhang Anguo (张安国) — commoner, 义军 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1162 CE"
+     },
+     {
+      "id": "yiduan",
+      "name": "义端",
+      "nameEn": "Yi Duan",
+      "onScreen": true,
+      "zh": "义端（义军·僧人）：展脚幞头，公服，褙子，宋式铠甲；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为1162 年）；窃取耿京大印出逃",
+      "en": "Yi Duan (义端) — commoner, 义军 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1162 CE"
+     },
+     {
+      "id": "wangshilong",
+      "name": "王世隆",
+      "nameEn": "Wang Shilong",
+      "onScreen": true,
+      "zh": "王世隆（宋·统制）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1162 年）；与辛弃疾同入金营",
+      "en": "Wang Shilong (王世隆) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1162 CE"
+     },
+     {
+      "id": "gengjing",
+      "name": "耿京",
+      "nameEn": "Geng Jing",
+      "onScreen": false,
+      "zh": "耿京（义军·天平军节度使）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1162 年）；山东抗金义军首领，被张安国所杀",
+      "en": "Geng Jing (耿京) — general, 义军 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1162 CE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：营帐、近山与地面；主体：旌旗｜动作：山东，耿京义军营地｜水墨效果：宣纸留白淡入｜声音：环境：旷野风声｜屏幕文字：片名「五十骑」竖排书法与朱印「稼轩」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: army tents, near hills and ground; subject: banners | Action: (scene action, Chinese) 山东，耿京义军营地 | Ink FX: fade in from blank xuan paper | Sound: ambience: wind over open plains | On-screen text: vertical brush-calligraphy title 「五十骑」 with vermilion seal 「稼轩」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [
+       "xinqiji",
+       "yiduan"
+      ],
+      "vo": "金主亮南侵前后，山东义军蜂起。济南人辛弃疾聚众两千，投奔耿京，做了掌书记。有个和尚义端偷了耿京的大印逃走。辛弃疾追了上去，把他斩了，带着印回来。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：远景：月；主体：辛弃疾、义端、战马｜动作：义端盗印夜逃，辛弃疾单骑追之｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：夜风；音效：马蹄声｜屏幕文字：底部旁白字幕｜旁白：「金主亮南侵前后，山东义军蜂起。济南人辛弃疾聚众两千，投奔耿京，做了掌书记。有个和尚义端偷了耿京的大印逃走。辛弃疾追了上去，把他斩了，带着印回来。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: background: moon; subject: Xin Qiji, Yi Duan, war horse | Action: (scene action, Chinese) 义端盗印夜逃，辛弃疾单骑追之 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: night wind; SFX: hoofbeats | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「金主亮南侵前后，山东义军蜂起。济南人辛弃疾聚众两千，投奔耿京，做了掌书记。有个和尚义端偷了耿京的大印逃走。辛弃疾追了上去，把他斩了，带着印回来。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [
+       "xinqiji"
+      ],
+      "vo": "绍兴三十二年，辛弃疾奉耿京之命南下建康，向朝廷奉表归附。高宗召见了他。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：殿柱、屋檐、卷轴；主体：辛弃疾｜动作：建康，高宗召见奉表的辛弃疾｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：竹简翻动｜屏幕文字：底部旁白字幕｜旁白：「绍兴三十二年，辛弃疾奉耿京之命南下建康，向朝廷奉表归附。高宗召见了他。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: palace pillars, palace eaves, scroll; subject: Xin Qiji | Action: (scene action, Chinese) 建康，高宗召见奉表的辛弃疾 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: bamboo slips rustling | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「绍兴三十二年，辛弃疾奉耿京之命南下建康，向朝廷奉表归附。高宗召见了他。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [
+       "wangshilong",
+       "xinqiji"
+      ],
+      "vo": "他北返到海州，才得知张安国、邵进已经杀了耿京，投降金人。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：营帐；主体：王世隆、辛弃疾｜动作：海州传来噩耗：耿京已死｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：军营鼓声；音效：低语｜屏幕文字：底部旁白字幕｜旁白：「他北返到海州，才得知张安国、邵进已经杀了耿京，投降金人。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: army tents; subject: Wang Shilong, Xin Qiji | Action: (scene action, Chinese) 海州传来噩耗：耿京已死 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: camp drums; SFX: murmuring | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「他北返到海州，才得知张安国、邵进已经杀了耿京，投降金人。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [
+       "zhanganguo"
+      ],
+      "vo": "他对众人说：我奉主帅之命归朝，没想到出了这样的变故，回去怎么复命？",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：营帐；主体：张安国、火、众人；飞白题字「五十骑」｜动作：金营之中，张安国正在饮酒｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；热浪与烟气扭曲；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：夜风；音效：马蹄声｜屏幕文字：底部旁白字幕｜旁白：「他对众人说：我奉主帅之命归朝，没想到出了这样的变故，回去怎么复命？」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: army tents; subject: Zhang Anguo, fire (splashed ink), crowd; dry-brush calligraphy 「五十骑」 | Action: (scene action, Chinese) 金营之中，张安国正在饮酒 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; heat-haze and smoke distortion; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: night wind; SFX: hoofbeats | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「他对众人说：我奉主帅之命归朝，没想到出了这样的变故，回去怎么复命？」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [
+       "zhanganguo"
+      ],
+      "vo": "张安国正与金将饮酒，被辛弃疾等当众缚走，金将追之不及。辛弃疾把他押到建康，斩于市。洪迈后来为辛弃疾作记，说他赤手领五十骑，缚取于五万众中。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：张安国｜动作：正史结局：张安国正与金将饮酒，被辛弃疾等当众缚走，金将追之不及。辛弃疾把他押到建康，斩于市。洪迈后来为辛弃疾作记，说他赤手领五十骑，缚取于五万众中。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「张安国正与金将饮酒，被辛弃疾等当众缚走，金将追之不及。辛弃疾把他押到建康，斩于市。洪迈后来为辛弃疾作记，说他赤手领五十骑，缚取于五万众中。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Zhang Anguo | Action: (canonical outcome, Chinese) 张安国正与金将饮酒，被辛弃疾等当众缚走，金将追之不及。辛弃疾把他押到建康，斩于市。洪迈后来为辛弃疾作记，说他赤手领五十骑，缚取于五万众中。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「张安国正与金将饮酒，被辛弃疾等当众缚走，金将追之不及。辛弃疾把他押到建康，斩于市。洪迈后来为辛弃疾作记，说他赤手领五十骑，缚取于五万众中。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文；右下角朱印「稼轩」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation; vermilion seal 「稼轩」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：笛子，清丽，随剧情由缓入急、高潮前骤停留白；环境声：旷野风声、夜风、宫殿回响、军营鼓声；音效：马蹄声、竹简翻动、低语；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: dizi flute, clear and lyrical, building gradually and cutting to silence before the climax; ambience: wind over open plains, night wind, palace hall reverb, camp drums; SFX: hoofbeats, bamboo slips rustling, murmuring; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「五十骑」，副题「辛弃疾」，朱印「稼轩」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「五十骑」, subtitle 「辛弃疾」, vermilion seal 「稼轩」 at upper right; subtitles: Simplified Chinese, bottom centre; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    },
+    "narration": [
+     "金主亮南侵前后，山东义军蜂起。济南人辛弃疾聚众两千，投奔耿京，做了掌书记。有个和尚义端偷了耿京的大印逃走。辛弃疾追了上去，把他斩了，带着印回来。",
+     "绍兴三十二年，辛弃疾奉耿京之命南下建康，向朝廷奉表归附。高宗召见了他。",
+     "他北返到海州，才得知张安国、邵进已经杀了耿京，投降金人。",
+     "他对众人说：我奉主帅之命归朝，没想到出了这样的变故，回去怎么复命？",
+     "张安国正与金将饮酒，被辛弃疾等当众缚走，金将追之不及。辛弃疾把他押到建康，斩于市。洪迈后来为辛弃疾作记，说他赤手领五十骑，缚取于五万众中。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】南宋 · 五十骑（辛弃疾）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：南宋 · 宋绍兴三十二年（1162 年）。临安西湖、江上水军、山城、书斋。\n\n人物：\n- 辛弃疾（宋·耿京掌书记）：展脚幞头，公服，褙子，宋式铠甲；文士衣冠，素色长衫，书卷气；年龄依史实（此时为1162 年）；济南历城人，二十余岁率五十骑擒叛将\n- 张安国（义军·叛将）：展脚幞头，公服，褙子，宋式铠甲；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为1162 年）；杀耿京降金\n- 义端（义军·僧人）：展脚幞头，公服，褙子，宋式铠甲；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为1162 年）；窃取耿京大印出逃\n- 王世隆（宋·统制）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1162 年）；与辛弃疾同入金营\n- 耿京（义军·天平军节度使）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1162 年）；山东抗金义军首领，被张安国所杀\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：营帐、近山与地面；主体：旌旗｜动作：山东，耿京义军营地｜水墨效果：宣纸留白淡入｜声音：环境：旷野风声｜屏幕文字：片名「五十骑」竖排书法与朱印「稼轩」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：远景：月；主体：辛弃疾、义端、战马｜动作：义端盗印夜逃，辛弃疾单骑追之｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：夜风；音效：马蹄声｜屏幕文字：底部旁白字幕｜旁白：「金主亮南侵前后，山东义军蜂起。济南人辛弃疾聚众两千，投奔耿京，做了掌书记。有个和尚义端偷了耿京的大印逃走。辛弃疾追了上去，把他斩了，带着印回来。」\n镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：殿柱、屋檐、卷轴；主体：辛弃疾｜动作：建康，高宗召见奉表的辛弃疾｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：宫殿回响；音效：竹简翻动｜屏幕文字：底部旁白字幕｜旁白：「绍兴三十二年，辛弃疾奉耿京之命南下建康，向朝廷奉表归附。高宗召见了他。」\n镜头 4（50–78 秒，28 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：营帐；主体：王世隆、辛弃疾｜动作：海州传来噩耗：耿京已死｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：军营鼓声；音效：低语｜屏幕文字：底部旁白字幕｜旁白：「他北返到海州，才得知张安国、邵进已经杀了耿京，投降金人。」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：营帐；主体：张安国、火、众人；飞白题字「五十骑」｜动作：金营之中，张安国正在饮酒｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；热浪与烟气扭曲；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：夜风；音效：马蹄声｜屏幕文字：底部旁白字幕｜旁白：「他对众人说：我奉主帅之命归朝，没想到出了这样的变故，回去怎么复命？」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：张安国｜动作：正史结局：张安国正与金将饮酒，被辛弃疾等当众缚走，金将追之不及。辛弃疾把他押到建康，斩于市。洪迈后来为辛弃疾作记，说他赤手领五十骑，缚取于五万众中。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「张安国正与金将饮酒，被辛弃疾等当众缚走，金将追之不及。辛弃疾把他押到建康，斩于市。洪迈后来为辛弃疾作记，说他赤手领五十骑，缚取于五万众中。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文；右下角朱印「稼轩」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处\n\n声音：背景乐：笛子，清丽，随剧情由缓入急、高潮前骤停留白；环境声：旷野风声、夜风、宫殿回响、军营鼓声；音效：马蹄声、竹简翻动、低语；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「五十骑」，副题「辛弃疾」，朱印「稼轩」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "[Ink-wash video prompt] Southern Song (1127–1279) · \"五十骑\" (辛弃疾)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Southern Song (1127–1279), 1162 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios.\n\nCharacters:\n- Xin Qiji (辛弃疾) — scholar, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; scholar's plain long robe, bookish bearing; age as historically attested in 1162 CE\n- Zhang Anguo (张安国) — commoner, 义军 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1162 CE\n- Yi Duan (义端) — commoner, 义军 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1162 CE\n- Wang Shilong (王世隆) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1162 CE\n- Geng Jing (耿京) — general, 义军 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1162 CE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: army tents, near hills and ground; subject: banners | Action: (scene action, Chinese) 山东，耿京义军营地 | Ink FX: fade in from blank xuan paper | Sound: ambience: wind over open plains | On-screen text: vertical brush-calligraphy title 「五十骑」 with vermilion seal 「稼轩」\nShot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: background: moon; subject: Xin Qiji, Yi Duan, war horse | Action: (scene action, Chinese) 义端盗印夜逃，辛弃疾单骑追之 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: night wind; SFX: hoofbeats | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「金主亮南侵前后，山东义军蜂起。济南人辛弃疾聚众两千，投奔耿京，做了掌书记。有个和尚义端偷了耿京的大印逃走。辛弃疾追了上去，把他斩了，带着印回来。」\nShot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: palace pillars, palace eaves, scroll; subject: Xin Qiji | Action: (scene action, Chinese) 建康，高宗召见奉表的辛弃疾 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: palace hall reverb; SFX: bamboo slips rustling | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「绍兴三十二年，辛弃疾奉耿京之命南下建康，向朝廷奉表归附。高宗召见了他。」\nShot 4 (50–78 s, 28 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: army tents; subject: Wang Shilong, Xin Qiji | Action: (scene action, Chinese) 海州传来噩耗：耿京已死 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: camp drums; SFX: murmuring | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「他北返到海州，才得知张安国、邵进已经杀了耿京，投降金人。」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: army tents; subject: Zhang Anguo, fire (splashed ink), crowd; dry-brush calligraphy 「五十骑」 | Action: (scene action, Chinese) 金营之中，张安国正在饮酒 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; heat-haze and smoke distortion; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: night wind; SFX: hoofbeats | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「他对众人说：我奉主帅之命归朝，没想到出了这样的变故，回去怎么复命？」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Zhang Anguo | Action: (canonical outcome, Chinese) 张安国正与金将饮酒，被辛弃疾等当众缚走，金将追之不及。辛弃疾把他押到建康，斩于市。洪迈后来为辛弃疾作记，说他赤手领五十骑，缚取于五万众中。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「张安国正与金将饮酒，被辛弃疾等当众缚走，金将追之不及。辛弃疾把他押到建康，斩于市。洪迈后来为辛弃疾作记，说他赤手领五十骑，缚取于五万众中。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation; vermilion seal 「稼轩」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source\n\nSound: Music: dizi flute, clear and lyrical, building gradually and cutting to silence before the climax; ambience: wind over open plains, night wind, palace hall reverb, camp drums; SFX: hoofbeats, bamboo slips rustling, murmuring; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「五十骑」, subtitle 「辛弃疾」, vermilion seal 「稼轩」 at upper right; subtitles: Simplified Chinese, bottom centre; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    }
+   }
   },
   {
    "outlineId": "17-05",
@@ -12974,7 +13899,163 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "南宋 · 宋淳祐三年至祥兴二年（1243—1279 年）。临安西湖、江上水军、山城、书斋。",
+     "en": "Southern Song (1127–1279), 1243 CE–1279 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios."
+    },
+    "characters": [
+     {
+      "id": "yujie",
+      "name": "余玠",
+      "nameEn": "Yu Jie",
+      "onScreen": true,
+      "zh": "余玠（宋·四川制置使）：展脚幞头，公服，褙子，宋式铠甲；文臣朝服与官帽，持笏或文书；年龄依史实（此时为1243—1279 年）；采冉氏兄弟之策，筑钓鱼城等山城",
+      "en": "Yu Jie (余玠) — minister, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; civil official's court robe and cap, holding a tablet or documents; age as historically attested in 1243 CE–1279 CE"
+     },
+     {
+      "id": "ranjin",
+      "name": "冉琎",
+      "nameEn": "Ran Jin",
+      "onScreen": true,
+      "zh": "冉琎（宋·播州士人）：展脚幞头，公服，褙子，宋式铠甲；文士衣冠，素色长衫，书卷气；年龄依史实（此时为1243—1279 年）；与弟冉璞献筑城之策",
+      "en": "Ran Jin (冉琎) — scholar, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; scholar's plain long robe, bookish bearing; age as historically attested in 1243 CE–1279 CE"
+     },
+     {
+      "id": "wangjian",
+      "name": "王坚",
+      "nameEn": "Wang Jian",
+      "onScreen": true,
+      "zh": "王坚（宋·钓鱼城守将）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1243—1279 年）；抵御蒙哥大军",
+      "en": "Wang Jian (王坚) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1243 CE–1279 CE"
+     },
+     {
+      "id": "mengge",
+      "name": "蒙哥",
+      "nameEn": "Möngke",
+      "onScreen": true,
+      "zh": "蒙哥（蒙古·蒙古大汗）：蒙古装束：辫发、质孙袍、钹笠帽、皮靴；年龄依史实（此时为1243—1279 年）；亲征四川，死于钓鱼城下",
+      "en": "Möngke (蒙哥) — ruler, 蒙古 camp; Mongol dress: braids, jisun robe, bowl-shaped hat, leather boots; age as historically attested in 1243 CE–1279 CE"
+     },
+     {
+      "id": "wangli",
+      "name": "王立",
+      "nameEn": "Wang Li",
+      "onScreen": false,
+      "zh": "王立（宋·钓鱼城末任守将）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1243—1279 年）；宋亡后降元",
+      "en": "Wang Li (王立) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1243 CE–1279 CE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山、皴法山石；中景：河水｜动作：合州，嘉陵江、渠江、涪江三江交汇｜水墨效果：宣纸留白淡入；水墨流动晕染｜声音：环境：平缓河水｜屏幕文字：片名「钓鱼城」竖排书法与朱印「钓鱼城」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains, textured rocks; midground: river | Action: (scene action, Chinese) 合州，嘉陵江、渠江、涪江三江交汇 | Ink FX: fade in from blank xuan paper; flowing ink wash bleeding across the paper | Sound: ambience: calm river | On-screen text: vertical brush-calligraphy title 「钓鱼城」 with vermilion seal 「钓鱼城」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [
+       "ranjin",
+       "yujie"
+      ],
+      "vo": "蒙古南下四川，平原诸城难以坚守。四川制置使余玠采播州冉氏兄弟之策，依山筑城。合州钓鱼山三面临江，城建在山上，易守难攻。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：地图卷；主体：冉琎、余玠｜动作：冉氏兄弟献策，山城连营｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：竹简翻动｜屏幕文字：底部旁白字幕｜旁白：「蒙古南下四川，平原诸城难以坚守。四川制置使余玠采播州冉氏兄弟之策，依山筑城。合州钓鱼山三面临江，城建在山上，易守难攻。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: map scroll; subject: Ran Jin, Yu Jie | Action: (scene action, Chinese) 冉氏兄弟献策，山城连营 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: bamboo slips rustling | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「蒙古南下四川，平原诸城难以坚守。四川制置使余玠采播州冉氏兄弟之策，依山筑城。合州钓鱼山三面临江，城建在山上，易守难攻。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [
+       "mengge"
+      ],
+      "vo": "开庆元年，蒙古大汗蒙哥亲率大军围攻钓鱼城，守将王坚坚守不降。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：主体：蒙哥、军阵、长兵如林、骑兵｜动作：蒙哥亲征，大军围城｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；墨点四散（如马蹄踏墨）｜声音：环境：远处厮杀声；音效：远处鼓声｜屏幕文字：底部旁白字幕｜旁白：「开庆元年，蒙古大汗蒙哥亲率大军围攻钓鱼城，守将王坚坚守不降。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: subject: Möngke, army ranks, forest of spears, cavalry | Action: (scene action, Chinese) 蒙哥亲征，大军围城 | Ink FX: ink-bleed transition from the previous shot; ink dispersing outward like hoofprints in wet ink | Sound: ambience: distant battle; SFX: distant drums | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「开庆元年，蒙古大汗蒙哥亲率大军围攻钓鱼城，守将王坚坚守不降。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [
+       "wangjian"
+      ],
+      "vo": "从春至夏，蒙军屡攻不下，军中疫病流行。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：手持式轻微震动，节奏急促｜构图：主体：王坚、泼墨、弓箭｜动作：夏夜，城头炮石｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：夜风；音效：炮声、箭雨｜屏幕文字：底部旁白字幕｜旁白：「从春至夏，蒙军屡攻不下，军中疫病流行。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: subtle handheld shake, urgent rhythm | Composition: subject: Wang Jian, ink burst, bow | Action: (scene action, Chinese) 夏夜，城头炮石 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: night wind; SFX: cannon fire, rain of arrows | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「从春至夏，蒙军屡攻不下，军中疫病流行。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [],
+      "vo": "七月——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：主体：火；飞白题字「折鞭」｜动作：大汗之死｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；热浪与烟气扭曲；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：战后余风；音效：炮声｜屏幕文字：底部旁白字幕｜旁白：「七月——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: subject: fire (splashed ink); dry-brush calligraphy 「折鞭」 | Action: (scene action, Chinese) 大汗之死 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; heat-haze and smoke distortion; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: lingering wind after battle; SFX: cannon fire | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「七月——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "蒙哥死于钓鱼城下，蒙军北撤。钓鱼城此后坚守二十年，直到宋亡之后才开城降元。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：蒙哥死于钓鱼城下，蒙军北撤。钓鱼城此后坚守二十年，直到宋亡之后才开城降元。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「蒙哥死于钓鱼城下，蒙军北撤。钓鱼城此后坚守二十年，直到宋亡之后才开城降元。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 蒙哥死于钓鱼城下，蒙军北撤。钓鱼城此后坚守二十年，直到宋亡之后才开城降元。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「蒙哥死于钓鱼城下，蒙军北撤。钓鱼城此后坚守二十年，直到宋亡之后才开城降元。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文；右下角朱印「钓鱼城」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation; vermilion seal 「钓鱼城」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：笛子，清丽，随剧情由缓入急、高潮前骤停留白；环境声：平缓河水、旷野风声、远处厮杀声、夜风、战后余风；音效：竹简翻动、远处鼓声、炮声、箭雨；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: dizi flute, clear and lyrical, building gradually and cutting to silence before the climax; ambience: calm river, wind over open plains, distant battle, night wind, lingering wind after battle; SFX: bamboo slips rustling, distant drums, cannon fire, rain of arrows; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「钓鱼城」，副题「上帝折鞭」，朱印「钓鱼城」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「钓鱼城」, subtitle 「上帝折鞭」, vermilion seal 「钓鱼城」 at upper right; subtitles: Simplified Chinese, bottom centre; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    },
+    "narration": [
+     "蒙古南下四川，平原诸城难以坚守。四川制置使余玠采播州冉氏兄弟之策，依山筑城。合州钓鱼山三面临江，城建在山上，易守难攻。",
+     "开庆元年，蒙古大汗蒙哥亲率大军围攻钓鱼城，守将王坚坚守不降。",
+     "从春至夏，蒙军屡攻不下，军中疫病流行。",
+     "七月——",
+     "蒙哥死于钓鱼城下，蒙军北撤。钓鱼城此后坚守二十年，直到宋亡之后才开城降元。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】南宋 · 钓鱼城（上帝折鞭）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：南宋 · 宋淳祐三年至祥兴二年（1243—1279 年）。临安西湖、江上水军、山城、书斋。\n\n人物：\n- 余玠（宋·四川制置使）：展脚幞头，公服，褙子，宋式铠甲；文臣朝服与官帽，持笏或文书；年龄依史实（此时为1243—1279 年）；采冉氏兄弟之策，筑钓鱼城等山城\n- 冉琎（宋·播州士人）：展脚幞头，公服，褙子，宋式铠甲；文士衣冠，素色长衫，书卷气；年龄依史实（此时为1243—1279 年）；与弟冉璞献筑城之策\n- 王坚（宋·钓鱼城守将）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1243—1279 年）；抵御蒙哥大军\n- 蒙哥（蒙古·蒙古大汗）：蒙古装束：辫发、质孙袍、钹笠帽、皮靴；年龄依史实（此时为1243—1279 年）；亲征四川，死于钓鱼城下\n- 王立（宋·钓鱼城末任守将）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1243—1279 年）；宋亡后降元\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山、皴法山石；中景：河水｜动作：合州，嘉陵江、渠江、涪江三江交汇｜水墨效果：宣纸留白淡入；水墨流动晕染｜声音：环境：平缓河水｜屏幕文字：片名「钓鱼城」竖排书法与朱印「钓鱼城」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：地图卷；主体：冉琎、余玠｜动作：冉氏兄弟献策，山城连营｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：旷野风声；音效：竹简翻动｜屏幕文字：底部旁白字幕｜旁白：「蒙古南下四川，平原诸城难以坚守。四川制置使余玠采播州冉氏兄弟之策，依山筑城。合州钓鱼山三面临江，城建在山上，易守难攻。」\n镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：主体：蒙哥、军阵、长兵如林、骑兵｜动作：蒙哥亲征，大军围城｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；墨点四散（如马蹄踏墨）｜声音：环境：远处厮杀声；音效：远处鼓声｜屏幕文字：底部旁白字幕｜旁白：「开庆元年，蒙古大汗蒙哥亲率大军围攻钓鱼城，守将王坚坚守不降。」\n镜头 4（50–78 秒，28 秒）｜运镜：手持式轻微震动，节奏急促｜构图：主体：王坚、泼墨、弓箭｜动作：夏夜，城头炮石｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：夜风；音效：炮声、箭雨｜屏幕文字：底部旁白字幕｜旁白：「从春至夏，蒙军屡攻不下，军中疫病流行。」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：主体：火；飞白题字「折鞭」｜动作：大汗之死｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；热浪与烟气扭曲；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：战后余风；音效：炮声｜屏幕文字：底部旁白字幕｜旁白：「七月——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：蒙哥死于钓鱼城下，蒙军北撤。钓鱼城此后坚守二十年，直到宋亡之后才开城降元。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「蒙哥死于钓鱼城下，蒙军北撤。钓鱼城此后坚守二十年，直到宋亡之后才开城降元。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文；右下角朱印「钓鱼城」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处\n\n声音：背景乐：笛子，清丽，随剧情由缓入急、高潮前骤停留白；环境声：平缓河水、旷野风声、远处厮杀声、夜风、战后余风；音效：竹简翻动、远处鼓声、炮声、箭雨；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「钓鱼城」，副题「上帝折鞭」，朱印「钓鱼城」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "[Ink-wash video prompt] Southern Song (1127–1279) · \"钓鱼城\" (上帝折鞭)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Southern Song (1127–1279), 1243 CE–1279 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios.\n\nCharacters:\n- Yu Jie (余玠) — minister, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; civil official's court robe and cap, holding a tablet or documents; age as historically attested in 1243 CE–1279 CE\n- Ran Jin (冉琎) — scholar, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; scholar's plain long robe, bookish bearing; age as historically attested in 1243 CE–1279 CE\n- Wang Jian (王坚) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1243 CE–1279 CE\n- Möngke (蒙哥) — ruler, 蒙古 camp; Mongol dress: braids, jisun robe, bowl-shaped hat, leather boots; age as historically attested in 1243 CE–1279 CE\n- Wang Li (王立) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1243 CE–1279 CE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains, textured rocks; midground: river | Action: (scene action, Chinese) 合州，嘉陵江、渠江、涪江三江交汇 | Ink FX: fade in from blank xuan paper; flowing ink wash bleeding across the paper | Sound: ambience: calm river | On-screen text: vertical brush-calligraphy title 「钓鱼城」 with vermilion seal 「钓鱼城」\nShot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: map scroll; subject: Ran Jin, Yu Jie | Action: (scene action, Chinese) 冉氏兄弟献策，山城连营 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: wind over open plains; SFX: bamboo slips rustling | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「蒙古南下四川，平原诸城难以坚守。四川制置使余玠采播州冉氏兄弟之策，依山筑城。合州钓鱼山三面临江，城建在山上，易守难攻。」\nShot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: subject: Möngke, army ranks, forest of spears, cavalry | Action: (scene action, Chinese) 蒙哥亲征，大军围城 | Ink FX: ink-bleed transition from the previous shot; ink dispersing outward like hoofprints in wet ink | Sound: ambience: distant battle; SFX: distant drums | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「开庆元年，蒙古大汗蒙哥亲率大军围攻钓鱼城，守将王坚坚守不降。」\nShot 4 (50–78 s, 28 s) | Camera: subtle handheld shake, urgent rhythm | Composition: subject: Wang Jian, ink burst, bow | Action: (scene action, Chinese) 夏夜，城头炮石 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: night wind; SFX: cannon fire, rain of arrows | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「从春至夏，蒙军屡攻不下，军中疫病流行。」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: subject: fire (splashed ink); dry-brush calligraphy 「折鞭」 | Action: (scene action, Chinese) 大汗之死 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; heat-haze and smoke distortion; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: lingering wind after battle; SFX: cannon fire | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「七月——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 蒙哥死于钓鱼城下，蒙军北撤。钓鱼城此后坚守二十年，直到宋亡之后才开城降元。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「蒙哥死于钓鱼城下，蒙军北撤。钓鱼城此后坚守二十年，直到宋亡之后才开城降元。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation; vermilion seal 「钓鱼城」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source\n\nSound: Music: dizi flute, clear and lyrical, building gradually and cutting to silence before the climax; ambience: calm river, wind over open plains, distant battle, night wind, lingering wind after battle; SFX: bamboo slips rustling, distant drums, cannon fire, rain of arrows; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「钓鱼城」, subtitle 「上帝折鞭」, vermilion seal 「钓鱼城」 at upper right; subtitles: Simplified Chinese, bottom centre; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    }
+   }
   },
   {
    "outlineId": "17-10",
@@ -15022,7 +16103,151 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "南宋 · 宋开庆元年至德祐元年（1259—1275 年）。临安西湖、江上水军、山城、书斋。",
+     "en": "Southern Song (1127–1279), 1259 CE–1275 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios."
+    },
+    "characters": [
+     {
+      "id": "jiasidao",
+      "name": "贾似道",
+      "nameEn": "Jia Shidao",
+      "onScreen": true,
+      "zh": "贾似道（南宋·右丞相、平章军国重事）：展脚幞头，公服，褙子，宋式铠甲；文臣朝服与官帽，持笏或文书；老年；鄂州私和，隐匿军情，晚年于葛岭半闲堂斗蟋蟀",
+      "en": "Jia Shidao (贾似道) — minister, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; civil official's court robe and cap, holding a tablet or documents; elderly"
+     },
+     {
+      "id": "hubilie",
+      "name": "忽必烈",
+      "nameEn": "Kublai",
+      "onScreen": false,
+      "zh": "忽必烈（蒙古·蒙古宗王，后为元世祖）：蒙古装束：辫发、质孙袍、钹笠帽、皮靴；年龄依史实（此时为1259—1275 年）；围鄂州，闻蒙哥死讯北还",
+      "en": "Kublai (忽必烈) — ruler, 蒙古 camp; Mongol dress: braids, jisun robe, bowl-shaped hat, leather boots; age as historically attested in 1259 CE–1275 CE"
+     },
+     {
+      "id": "duzong",
+      "name": "赵禥",
+      "nameEn": "Zhao Qi",
+      "onScreen": false,
+      "zh": "赵禥（南宋·宋度宗）：展脚幞头，公服，褙子，宋式铠甲；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为1259—1275 年）；倚重贾似道",
+      "en": "Zhao Qi (赵禥) — ruler, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in 1259 CE–1275 CE"
+     },
+     {
+      "id": "zhenghuchen",
+      "name": "郑虎臣",
+      "nameEn": "Zheng Huchen",
+      "onScreen": false,
+      "zh": "郑虎臣（南宋·监押官）：展脚幞头，公服，褙子，宋式铠甲；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为1259—1275 年）；押送贾似道至漳州木绵庵，杀之",
+      "en": "Zheng Huchen (郑虎臣) — commoner, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1259 CE–1275 CE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：城墙雉堞、河水、舟；主体：军阵、长兵如林｜动作：鄂州城下，蒙古大军围城，江上舟楫往来｜水墨效果：宣纸留白淡入；水墨流动晕染｜声音：环境：远处厮杀声；音效：战鼓｜屏幕文字：片名「半闲堂」竖排书法与朱印「半闲」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: crenellated city wall, river, boat; subject: army ranks, forest of spears | Action: (scene action, Chinese) 鄂州城下，蒙古大军围城，江上舟楫往来 | Ink FX: fade in from blank xuan paper; flowing ink wash bleeding across the paper | Sound: ambience: distant battle; SFX: war drums | On-screen text: vertical brush-calligraphy title 「半闲堂」 with vermilion seal 「半闲」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [],
+      "vo": "开庆元年，忽必烈围鄂州。贾似道私下派使者宋京到蒙古营中请和，答应称臣纳岁币。恰好蒙哥汗死于钓鱼城下，忽必烈急于北归。贾似道回朝后，隐瞒讲和之事，只说诸路大捷。理宗以为他有再造之功。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：远景：月；中景：河水、舟｜动作：一个使者乘小舟，悄悄驶向北岸的敌营｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；水墨流动晕染｜声音：环境：夜风；音效：摇橹｜屏幕文字：底部旁白字幕｜旁白：「开庆元年，忽必烈围鄂州。贾似道私下派使者宋京到蒙古营中请和，答应称臣纳岁币。恰好蒙哥汗死于钓鱼城下，忽必烈急于北归。贾似道回朝后，隐瞒讲和之事，只说诸路大捷。理宗以为他有再造之功。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: background: moon; midground: river, boat | Action: (scene action, Chinese) 一个使者乘小舟，悄悄驶向北岸的敌营 | Ink FX: ink-bleed transition from the previous shot; flowing ink wash bleeding across the paper | Sound: ambience: night wind; SFX: oars | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「开庆元年，忽必烈围鄂州。贾似道私下派使者宋京到蒙古营中请和，答应称臣纳岁币。恰好蒙哥汗死于钓鱼城下，忽必烈急于北归。贾似道回朝后，隐瞒讲和之事，只说诸路大捷。理宗以为他有再造之功。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [
+       "jiasidao"
+      ],
+      "vo": "度宗即位，尊他为师臣，许他十日一朝。他住在西湖葛岭的赐第，筑半闲堂，常和姬妾趴在地上斗蟋蟀。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：殿柱、屋檐；主体：贾似道、众人｜动作：西湖葛岭，半闲堂里，一群人趴在地上斗蟋蟀｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：鸟鸣；音效：蟋蟀｜屏幕文字：引文「此军国重事邪？」竖排楷书；底部旁白字幕｜旁白：「度宗即位，尊他为师臣，许他十日一朝。他住在西湖葛岭的赐第，筑半闲堂，常和姬妾趴在地上斗蟋蟀。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: palace pillars, palace eaves; subject: Jia Shidao, crowd | Action: (scene action, Chinese) 西湖葛岭，半闲堂里，一群人趴在地上斗蟋蟀 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: birdsong; SFX: crickets | On-screen text: vertical kaishu quotation 「此军国重事邪？」; Chinese subtitles at bottom | VO (Mandarin): 「度宗即位，尊他为师臣，许他十日一朝。他住在西湖葛岭的赐第，筑半闲堂，常和姬妾趴在地上斗蟋蟀。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [],
+      "vo": "襄阳被围五年，他把告急文书压下不报。有一天度宗问：听说襄阳围了三年了？他说：蒙古兵早已退了，陛下从哪里听来的？",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：告急、卷轴；主体：盾墙｜动作：襄阳城被围五年，告急文书堆在案头无人拆封｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：寂静室内；音效：竹简翻动｜屏幕文字：底部旁白字幕｜旁白：「襄阳被围五年，他把告急文书压下不报。有一天度宗问：听说襄阳围了三年了？他说：蒙古兵早已退了，陛下从哪里听来的？」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: 告急, scroll; subject: shield wall | Action: (scene action, Chinese) 襄阳城被围五年，告急文书堆在案头无人拆封 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: quiet room tone; SFX: bamboo slips rustling | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「襄阳被围五年，他把告急文书压下不报。有一天度宗问：听说襄阳围了三年了？他说：蒙古兵早已退了，陛下从哪里听来的？」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [],
+      "vo": "德祐元年二月，他不得已亲自出征，在丁家洲——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：河水、舟；主体：军阵、长兵如林；飞白题字「半闲」｜动作：丁家洲江面，十三万宋军不战而溃｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；水墨流动晕染；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：远处厮杀声；音效：城门闭合｜屏幕文字：底部旁白字幕｜旁白：「德祐元年二月，他不得已亲自出征，在丁家洲——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: river, boat; subject: army ranks, forest of spears; dry-brush calligraphy 「半闲」 | Action: (scene action, Chinese) 丁家洲江面，十三万宋军不战而溃 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; flowing ink wash bleeding across the paper; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: distant battle; SFX: gate slamming shut | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「德祐元年二月，他不得已亲自出征，在丁家洲——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "丁家洲一战，宋军十三万溃散。贾似道被贬循州，途中在漳州木绵庵为监押官郑虎臣所杀。一年后，元军入临安。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：丁家洲一战，宋军十三万溃散。贾似道被贬循州，途中在漳州木绵庵为监押官郑虎臣所杀。一年后，元军入临安。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「丁家洲一战，宋军十三万溃散。贾似道被贬循州，途中在漳州木绵庵为监押官郑虎臣所杀。一年后，元军入临安。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 丁家洲一战，宋军十三万溃散。贾似道被贬循州，途中在漳州木绵庵为监押官郑虎臣所杀。一年后，元军入临安。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「丁家洲一战，宋军十三万溃散。贾似道被贬循州，途中在漳州木绵庵为监押官郑虎臣所杀。一年后，元军入临安。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "此军国重事邪？",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「此军国重事邪？」，下署《宋史·奸臣传·贾似道》；右下角朱印「半闲」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「此军国重事邪？」",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「此军国重事邪？」 signed 《宋史·奸臣传·贾似道》; vermilion seal 「半闲」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「此军国重事邪？」"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：琵琶，铿锵急切或婉转低回，随剧情由缓入急、高潮前骤停留白；环境声：远处厮杀声、夜风、鸟鸣、寂静室内；音效：战鼓、摇橹、蟋蟀、竹简翻动、城门闭合；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: pipa lute, tense tremolo or wistful phrases, building gradually and cutting to silence before the climax; ambience: distant battle, night wind, birdsong, quiet room tone; SFX: war drums, oars, crickets, bamboo slips rustling, gate slamming shut; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「半闲堂」，副题「贾似道」，朱印「半闲」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「此军国重事邪？」——《宋史·奸臣传·贾似道》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「半闲堂」, subtitle 「贾似道」, vermilion seal 「半闲」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「此军国重事邪？」 — 《宋史·奸臣传·贾似道》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    },
+    "narration": [
+     "开庆元年，忽必烈围鄂州。贾似道私下派使者宋京到蒙古营中请和，答应称臣纳岁币。恰好蒙哥汗死于钓鱼城下，忽必烈急于北归。贾似道回朝后，隐瞒讲和之事，只说诸路大捷。理宗以为他有再造之功。",
+     "度宗即位，尊他为师臣，许他十日一朝。他住在西湖葛岭的赐第，筑半闲堂，常和姬妾趴在地上斗蟋蟀。",
+     "襄阳被围五年，他把告急文书压下不报。有一天度宗问：听说襄阳围了三年了？他说：蒙古兵早已退了，陛下从哪里听来的？",
+     "德祐元年二月，他不得已亲自出征，在丁家洲——",
+     "丁家洲一战，宋军十三万溃散。贾似道被贬循州，途中在漳州木绵庵为监押官郑虎臣所杀。一年后，元军入临安。",
+     "此军国重事邪？"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】南宋 · 半闲堂（贾似道）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：南宋 · 宋开庆元年至德祐元年（1259—1275 年）。临安西湖、江上水军、山城、书斋。\n\n人物：\n- 贾似道（南宋·右丞相、平章军国重事）：展脚幞头，公服，褙子，宋式铠甲；文臣朝服与官帽，持笏或文书；老年；鄂州私和，隐匿军情，晚年于葛岭半闲堂斗蟋蟀\n- 忽必烈（蒙古·蒙古宗王，后为元世祖）：蒙古装束：辫发、质孙袍、钹笠帽、皮靴；年龄依史实（此时为1259—1275 年）；围鄂州，闻蒙哥死讯北还\n- 赵禥（南宋·宋度宗）：展脚幞头，公服，褙子，宋式铠甲；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为1259—1275 年）；倚重贾似道\n- 郑虎臣（南宋·监押官）：展脚幞头，公服，褙子，宋式铠甲；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为1259—1275 年）；押送贾似道至漳州木绵庵，杀之\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：城墙雉堞、河水、舟；主体：军阵、长兵如林｜动作：鄂州城下，蒙古大军围城，江上舟楫往来｜水墨效果：宣纸留白淡入；水墨流动晕染｜声音：环境：远处厮杀声；音效：战鼓｜屏幕文字：片名「半闲堂」竖排书法与朱印「半闲」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：远景：月；中景：河水、舟｜动作：一个使者乘小舟，悄悄驶向北岸的敌营｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；水墨流动晕染｜声音：环境：夜风；音效：摇橹｜屏幕文字：底部旁白字幕｜旁白：「开庆元年，忽必烈围鄂州。贾似道私下派使者宋京到蒙古营中请和，答应称臣纳岁币。恰好蒙哥汗死于钓鱼城下，忽必烈急于北归。贾似道回朝后，隐瞒讲和之事，只说诸路大捷。理宗以为他有再造之功。」\n镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：殿柱、屋檐；主体：贾似道、众人｜动作：西湖葛岭，半闲堂里，一群人趴在地上斗蟋蟀｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：鸟鸣；音效：蟋蟀｜屏幕文字：引文「此军国重事邪？」竖排楷书；底部旁白字幕｜旁白：「度宗即位，尊他为师臣，许他十日一朝。他住在西湖葛岭的赐第，筑半闲堂，常和姬妾趴在地上斗蟋蟀。」\n镜头 4（50–78 秒，28 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：告急、卷轴；主体：盾墙｜动作：襄阳城被围五年，告急文书堆在案头无人拆封｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：寂静室内；音效：竹简翻动｜屏幕文字：底部旁白字幕｜旁白：「襄阳被围五年，他把告急文书压下不报。有一天度宗问：听说襄阳围了三年了？他说：蒙古兵早已退了，陛下从哪里听来的？」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：河水、舟；主体：军阵、长兵如林；飞白题字「半闲」｜动作：丁家洲江面，十三万宋军不战而溃｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；水墨流动晕染；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：远处厮杀声；音效：城门闭合｜屏幕文字：底部旁白字幕｜旁白：「德祐元年二月，他不得已亲自出征，在丁家洲——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：丁家洲一战，宋军十三万溃散。贾似道被贬循州，途中在漳州木绵庵为监押官郑虎臣所杀。一年后，元军入临安。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「丁家洲一战，宋军十三万溃散。贾似道被贬循州，途中在漳州木绵庵为监押官郑虎臣所杀。一年后，元军入临安。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「此军国重事邪？」，下署《宋史·奸臣传·贾似道》；右下角朱印「半闲」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「此军国重事邪？」\n\n声音：背景乐：琵琶，铿锵急切或婉转低回，随剧情由缓入急、高潮前骤停留白；环境声：远处厮杀声、夜风、鸟鸣、寂静室内；音效：战鼓、摇橹、蟋蟀、竹简翻动、城门闭合；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「半闲堂」，副题「贾似道」，朱印「半闲」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「此军国重事邪？」——《宋史·奸臣传·贾似道》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "[Ink-wash video prompt] Southern Song (1127–1279) · \"半闲堂\" (贾似道)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Southern Song (1127–1279), 1259 CE–1275 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios.\n\nCharacters:\n- Jia Shidao (贾似道) — minister, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; civil official's court robe and cap, holding a tablet or documents; elderly\n- Kublai (忽必烈) — ruler, 蒙古 camp; Mongol dress: braids, jisun robe, bowl-shaped hat, leather boots; age as historically attested in 1259 CE–1275 CE\n- Zhao Qi (赵禥) — ruler, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in 1259 CE–1275 CE\n- Zheng Huchen (郑虎臣) — commoner, 南宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1259 CE–1275 CE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: crenellated city wall, river, boat; subject: army ranks, forest of spears | Action: (scene action, Chinese) 鄂州城下，蒙古大军围城，江上舟楫往来 | Ink FX: fade in from blank xuan paper; flowing ink wash bleeding across the paper | Sound: ambience: distant battle; SFX: war drums | On-screen text: vertical brush-calligraphy title 「半闲堂」 with vermilion seal 「半闲」\nShot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: background: moon; midground: river, boat | Action: (scene action, Chinese) 一个使者乘小舟，悄悄驶向北岸的敌营 | Ink FX: ink-bleed transition from the previous shot; flowing ink wash bleeding across the paper | Sound: ambience: night wind; SFX: oars | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「开庆元年，忽必烈围鄂州。贾似道私下派使者宋京到蒙古营中请和，答应称臣纳岁币。恰好蒙哥汗死于钓鱼城下，忽必烈急于北归。贾似道回朝后，隐瞒讲和之事，只说诸路大捷。理宗以为他有再造之功。」\nShot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: palace pillars, palace eaves; subject: Jia Shidao, crowd | Action: (scene action, Chinese) 西湖葛岭，半闲堂里，一群人趴在地上斗蟋蟀 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: birdsong; SFX: crickets | On-screen text: vertical kaishu quotation 「此军国重事邪？」; Chinese subtitles at bottom | VO (Mandarin): 「度宗即位，尊他为师臣，许他十日一朝。他住在西湖葛岭的赐第，筑半闲堂，常和姬妾趴在地上斗蟋蟀。」\nShot 4 (50–78 s, 28 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: 告急, scroll; subject: shield wall | Action: (scene action, Chinese) 襄阳城被围五年，告急文书堆在案头无人拆封 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: quiet room tone; SFX: bamboo slips rustling | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「襄阳被围五年，他把告急文书压下不报。有一天度宗问：听说襄阳围了三年了？他说：蒙古兵早已退了，陛下从哪里听来的？」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: river, boat; subject: army ranks, forest of spears; dry-brush calligraphy 「半闲」 | Action: (scene action, Chinese) 丁家洲江面，十三万宋军不战而溃 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; flowing ink wash bleeding across the paper; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: distant battle; SFX: gate slamming shut | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「德祐元年二月，他不得已亲自出征，在丁家洲——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 丁家洲一战，宋军十三万溃散。贾似道被贬循州，途中在漳州木绵庵为监押官郑虎臣所杀。一年后，元军入临安。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「丁家洲一战，宋军十三万溃散。贾似道被贬循州，途中在漳州木绵庵为监押官郑虎臣所杀。一年后，元军入临安。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「此军国重事邪？」 signed 《宋史·奸臣传·贾似道》; vermilion seal 「半闲」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「此军国重事邪？」\n\nSound: Music: pipa lute, tense tremolo or wistful phrases, building gradually and cutting to silence before the climax; ambience: distant battle, night wind, birdsong, quiet room tone; SFX: war drums, oars, crickets, bamboo slips rustling, gate slamming shut; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「半闲堂」, subtitle 「贾似道」, vermilion seal 「半闲」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「此军国重事邪？」 — 《宋史·奸臣传·贾似道》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    }
+   }
   },
   {
    "outlineId": "17-06",
@@ -17005,7 +18230,172 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "南宋 · 宋咸淳九年正月（1273 年正月）。临安西湖、江上水军、山城、书斋。",
+     "en": "Southern Song (1127–1279), 1273 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios."
+    },
+    "characters": [
+     {
+      "id": "lvwenhuan",
+      "name": "吕文焕",
+      "nameEn": "Lü Wenhuan",
+      "onScreen": true,
+      "zh": "吕文焕（宋·知襄阳府）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1273 年正月）；守襄阳近六年，城孤援绝而降",
+      "en": "Lü Wenhuan (吕文焕) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1273 CE"
+     },
+     {
+      "id": "zhangshun",
+      "name": "张顺",
+      "nameEn": "Zhang Shun",
+      "onScreen": true,
+      "zh": "张顺（宋·民兵部辖）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1273 年正月）；率船队突入襄阳，战死",
+      "en": "Zhang Shun (张顺) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1273 CE"
+     },
+     {
+      "id": "yisimayin",
+      "name": "亦思马因",
+      "nameEn": "Ismail",
+      "onScreen": true,
+      "zh": "亦思马因（元·回回炮匠）：展脚幞头，公服，褙子，宋式铠甲；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为1273 年正月）；造回回炮，攻破樊城与襄阳",
+      "en": "Ismail (亦思马因) — commoner, 元 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1273 CE"
+     },
+     {
+      "id": "azhu",
+      "name": "阿术",
+      "nameEn": "A Shu",
+      "onScreen": false,
+      "zh": "阿术（元·元军统帅）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1273 年正月）；筑城围困襄樊",
+      "en": "A Shu (阿术) — general, 元 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1273 CE"
+     },
+     {
+      "id": "liuzheng",
+      "name": "刘整",
+      "nameEn": "Liu Zheng",
+      "onScreen": false,
+      "zh": "刘整（元·元水军将领）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1273 年正月）；宋降将，献策先取襄阳，训练水军",
+      "en": "Liu Zheng (刘整) — general, 元 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1273 CE"
+     },
+     {
+      "id": "zhanggui",
+      "name": "张贵",
+      "nameEn": "Zhang Gui",
+      "onScreen": false,
+      "zh": "张贵（宋·民兵都统）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1273 年正月）；与张顺同援襄阳，后战死",
+      "en": "Zhang Gui (张贵) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1273 CE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：河水、城墙雉堞；主体：盾墙｜动作：汉水两岸，襄阳与樊城隔江相望｜水墨效果：宣纸留白淡入；水墨流动晕染｜声音：环境：平缓河水；音效：浪击｜屏幕文字：片名「襄樊之战」竖排书法与朱印「襄阳」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: river, crenellated city wall; subject: shield wall | Action: (scene action, Chinese) 汉水两岸，襄阳与樊城隔江相望 | Ink FX: fade in from blank xuan paper; flowing ink wash bleeding across the paper | Sound: ambience: calm river; SFX: crashing waves | On-screen text: vertical brush-calligraphy title 「襄樊之战」 with vermilion seal 「襄阳」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [],
+      "vo": "宋将刘整降蒙后献策：攻宋先攻襄阳。咸淳四年，阿术与刘整率军围住了襄阳、樊城。元军在汉水两岸筑城立栅，又造战船、练水军，把两城与外界的联系一点点切断。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：营帐；主体：盾墙、军阵、长兵如林｜动作：元军沿汉水筑城立栅，层层合围｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：军营鼓声；音效：脚步声｜屏幕文字：底部旁白字幕｜旁白：「宋将刘整降蒙后献策：攻宋先攻襄阳。咸淳四年，阿术与刘整率军围住了襄阳、樊城。元军在汉水两岸筑城立栅，又造战船、练水军，把两城与外界的联系一点点切断。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: army tents; subject: shield wall, army ranks, forest of spears | Action: (scene action, Chinese) 元军沿汉水筑城立栅，层层合围 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: camp drums; SFX: footsteps | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「宋将刘整降蒙后献策：攻宋先攻襄阳。咸淳四年，阿术与刘整率军围住了襄阳、樊城。元军在汉水两岸筑城立栅，又造战船、练水军，把两城与外界的联系一点点切断。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [
+       "zhangshun"
+      ],
+      "vo": "咸淳八年，张顺、张贵率民兵乘船突入重围，把盐和布送进襄阳。张顺战死，张贵再出城求援，也战死了。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：河水、舟；主体：张顺、火｜动作：张顺、张贵船队夜冲重围｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；水墨流动晕染；热浪与烟气扭曲｜声音：环境：夜风；音效：摇橹｜屏幕文字：底部旁白字幕｜旁白：「咸淳八年，张顺、张贵率民兵乘船突入重围，把盐和布送进襄阳。张顺战死，张贵再出城求援，也战死了。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: river, boat; subject: Zhang Shun, fire (splashed ink) | Action: (scene action, Chinese) 张顺、张贵船队夜冲重围 | Ink FX: ink-bleed transition from the previous shot; flowing ink wash bleeding across the paper; heat-haze and smoke distortion | Sound: ambience: night wind; SFX: oars | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「咸淳八年，张顺、张贵率民兵乘船突入重围，把盐和布送进襄阳。张顺战死，张贵再出城求援，也战死了。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [
+       "yisimayin"
+      ],
+      "vo": "第二年正月，亦思马因造的回回炮攻破了樊城。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：烟；主体：亦思马因、盾墙｜动作：回回炮石落入樊城｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；泼墨飞溅，朱砂一点｜声音：环境：远处厮杀声；音效：炮声｜屏幕文字：底部旁白字幕｜旁白：「第二年正月，亦思马因造的回回炮攻破了樊城。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: smoke; subject: Ismail, shield wall | Action: (scene action, Chinese) 回回炮石落入樊城 | Ink FX: ink-bleed transition from the previous shot; ink splash with a single vermilion accent | Sound: ambience: distant battle; SFX: cannon fire | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「第二年正月，亦思马因造的回回炮攻破了樊城。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [
+       "lvwenhuan"
+      ],
+      "vo": "襄阳城中，吕文焕望着南方，援兵始终没有来——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：主体：吕文焕、盾墙；飞白题字「襄阳」｜动作：吕文焕登城南望｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画｜声音：环境：战后余风；音效：炮声、青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「襄阳城中，吕文焕望着南方，援兵始终没有来——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: subject: Lü Wenhuan, shield wall; dry-brush calligraphy 「襄阳」 | Action: (scene action, Chinese) 吕文焕登城南望 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting | Sound: ambience: lingering wind after battle; SFX: cannon fire, bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「襄阳城中，吕文焕望着南方，援兵始终没有来——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [
+       "lvwenhuan"
+      ],
+      "vo": "樊城陷落后，吕文焕孤城无援，于咸淳九年二月以襄阳降元。襄樊既失，长江门户洞开，三年后元军进入临安。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：吕文焕｜动作：正史结局：樊城陷落后，吕文焕孤城无援，于咸淳九年二月以襄阳降元。襄樊既失，长江门户洞开，三年后元军进入临安。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「樊城陷落后，吕文焕孤城无援，于咸淳九年二月以襄阳降元。襄樊既失，长江门户洞开，三年后元军进入临安。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Lü Wenhuan | Action: (canonical outcome, Chinese) 樊城陷落后，吕文焕孤城无援，于咸淳九年二月以襄阳降元。襄樊既失，长江门户洞开，三年后元军进入临安。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「樊城陷落后，吕文焕孤城无援，于咸淳九年二月以襄阳降元。襄樊既失，长江门户洞开，三年后元军进入临安。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文；右下角朱印「襄阳」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation; vermilion seal 「襄阳」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：铜鼓，庄重原始，随剧情由缓入急、高潮前骤停留白；环境声：平缓河水、军营鼓声、夜风、远处厮杀声、战后余风；音效：浪击、脚步声、摇橹、炮声、青铜钟声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: bronze drums, solemn and primal, building gradually and cutting to silence before the climax; ambience: calm river, camp drums, night wind, distant battle, lingering wind after battle; SFX: crashing waves, footsteps, oars, cannon fire, bronze bell; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「襄樊之战」，副题「吕文焕」，朱印「襄阳」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「襄樊之战」, subtitle 「吕文焕」, vermilion seal 「襄阳」 at upper right; subtitles: Simplified Chinese, bottom centre; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    },
+    "narration": [
+     "宋将刘整降蒙后献策：攻宋先攻襄阳。咸淳四年，阿术与刘整率军围住了襄阳、樊城。元军在汉水两岸筑城立栅，又造战船、练水军，把两城与外界的联系一点点切断。",
+     "咸淳八年，张顺、张贵率民兵乘船突入重围，把盐和布送进襄阳。张顺战死，张贵再出城求援，也战死了。",
+     "第二年正月，亦思马因造的回回炮攻破了樊城。",
+     "襄阳城中，吕文焕望着南方，援兵始终没有来——",
+     "樊城陷落后，吕文焕孤城无援，于咸淳九年二月以襄阳降元。襄樊既失，长江门户洞开，三年后元军进入临安。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】南宋 · 襄樊之战（吕文焕）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：南宋 · 宋咸淳九年正月（1273 年正月）。临安西湖、江上水军、山城、书斋。\n\n人物：\n- 吕文焕（宋·知襄阳府）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1273 年正月）；守襄阳近六年，城孤援绝而降\n- 张顺（宋·民兵部辖）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1273 年正月）；率船队突入襄阳，战死\n- 亦思马因（元·回回炮匠）：展脚幞头，公服，褙子，宋式铠甲；依身份的平民、工匠、侍从或兵卒衣着；年龄依史实（此时为1273 年正月）；造回回炮，攻破樊城与襄阳\n- 阿术（元·元军统帅）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1273 年正月）；筑城围困襄樊\n- 刘整（元·元水军将领）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1273 年正月）；宋降将，献策先取襄阳，训练水军\n- 张贵（宋·民兵都统）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1273 年正月）；与张顺同援襄阳，后战死\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：中景：河水、城墙雉堞；主体：盾墙｜动作：汉水两岸，襄阳与樊城隔江相望｜水墨效果：宣纸留白淡入；水墨流动晕染｜声音：环境：平缓河水；音效：浪击｜屏幕文字：片名「襄樊之战」竖排书法与朱印「襄阳」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：营帐；主体：盾墙、军阵、长兵如林｜动作：元军沿汉水筑城立栅，层层合围｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：军营鼓声；音效：脚步声｜屏幕文字：底部旁白字幕｜旁白：「宋将刘整降蒙后献策：攻宋先攻襄阳。咸淳四年，阿术与刘整率军围住了襄阳、樊城。元军在汉水两岸筑城立栅，又造战船、练水军，把两城与外界的联系一点点切断。」\n镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：河水、舟；主体：张顺、火｜动作：张顺、张贵船队夜冲重围｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；水墨流动晕染；热浪与烟气扭曲｜声音：环境：夜风；音效：摇橹｜屏幕文字：底部旁白字幕｜旁白：「咸淳八年，张顺、张贵率民兵乘船突入重围，把盐和布送进襄阳。张顺战死，张贵再出城求援，也战死了。」\n镜头 4（50–78 秒，28 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：烟；主体：亦思马因、盾墙｜动作：回回炮石落入樊城｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；泼墨飞溅，朱砂一点｜声音：环境：远处厮杀声；音效：炮声｜屏幕文字：底部旁白字幕｜旁白：「第二年正月，亦思马因造的回回炮攻破了樊城。」\n镜头 5（78–90 秒，12 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：主体：吕文焕、盾墙；飞白题字「襄阳」｜动作：吕文焕登城南望｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；画面定格成一幅水墨画｜声音：环境：战后余风；音效：炮声、青铜钟声｜屏幕文字：底部旁白字幕｜旁白：「襄阳城中，吕文焕望着南方，援兵始终没有来——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；人物：吕文焕｜动作：正史结局：樊城陷落后，吕文焕孤城无援，于咸淳九年二月以襄阳降元。襄樊既失，长江门户洞开，三年后元军进入临安。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「樊城陷落后，吕文焕孤城无援，于咸淳九年二月以襄阳降元。襄樊既失，长江门户洞开，三年后元军进入临安。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文；右下角朱印「襄阳」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处\n\n声音：背景乐：铜鼓，庄重原始，随剧情由缓入急、高潮前骤停留白；环境声：平缓河水、军营鼓声、夜风、远处厮杀声、战后余风；音效：浪击、脚步声、摇橹、炮声、青铜钟声；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「襄樊之战」，副题「吕文焕」，朱印「襄阳」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "[Ink-wash video prompt] Southern Song (1127–1279) · \"襄樊之战\" (吕文焕)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Southern Song (1127–1279), 1273 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios.\n\nCharacters:\n- Lü Wenhuan (吕文焕) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1273 CE\n- Zhang Shun (张顺) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1273 CE\n- Ismail (亦思马因) — commoner, 元 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; commoner, artisan, attendant or soldier clothing as appropriate; age as historically attested in 1273 CE\n- A Shu (阿术) — general, 元 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1273 CE\n- Liu Zheng (刘整) — general, 元 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1273 CE\n- Zhang Gui (张贵) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1273 CE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: midground: river, crenellated city wall; subject: shield wall | Action: (scene action, Chinese) 汉水两岸，襄阳与樊城隔江相望 | Ink FX: fade in from blank xuan paper; flowing ink wash bleeding across the paper | Sound: ambience: calm river; SFX: crashing waves | On-screen text: vertical brush-calligraphy title 「襄樊之战」 with vermilion seal 「襄阳」\nShot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: army tents; subject: shield wall, army ranks, forest of spears | Action: (scene action, Chinese) 元军沿汉水筑城立栅，层层合围 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: camp drums; SFX: footsteps | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「宋将刘整降蒙后献策：攻宋先攻襄阳。咸淳四年，阿术与刘整率军围住了襄阳、樊城。元军在汉水两岸筑城立栅，又造战船、练水军，把两城与外界的联系一点点切断。」\nShot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: river, boat; subject: Zhang Shun, fire (splashed ink) | Action: (scene action, Chinese) 张顺、张贵船队夜冲重围 | Ink FX: ink-bleed transition from the previous shot; flowing ink wash bleeding across the paper; heat-haze and smoke distortion | Sound: ambience: night wind; SFX: oars | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「咸淳八年，张顺、张贵率民兵乘船突入重围，把盐和布送进襄阳。张顺战死，张贵再出城求援，也战死了。」\nShot 4 (50–78 s, 28 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: smoke; subject: Ismail, shield wall | Action: (scene action, Chinese) 回回炮石落入樊城 | Ink FX: ink-bleed transition from the previous shot; ink splash with a single vermilion accent | Sound: ambience: distant battle; SFX: cannon fire | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「第二年正月，亦思马因造的回回炮攻破了樊城。」\nShot 5 (78–90 s, 12 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: subject: Lü Wenhuan, shield wall; dry-brush calligraphy 「襄阳」 | Action: (scene action, Chinese) 吕文焕登城南望 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; freeze into a still ink painting | Sound: ambience: lingering wind after battle; SFX: cannon fire, bronze bell | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「襄阳城中，吕文焕望着南方，援兵始终没有来——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; figures: Lü Wenhuan | Action: (canonical outcome, Chinese) 樊城陷落后，吕文焕孤城无援，于咸淳九年二月以襄阳降元。襄樊既失，长江门户洞开，三年后元军进入临安。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「樊城陷落后，吕文焕孤城无援，于咸淳九年二月以襄阳降元。襄樊既失，长江门户洞开，三年后元军进入临安。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation; vermilion seal 「襄阳」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source\n\nSound: Music: bronze drums, solemn and primal, building gradually and cutting to silence before the climax; ambience: calm river, camp drums, night wind, distant battle, lingering wind after battle; SFX: crashing waves, footsteps, oars, cannon fire, bronze bell; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「襄樊之战」, subtitle 「吕文焕」, vermilion seal 「襄阳」 at upper right; subtitles: Simplified Chinese, bottom centre; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    }
+   }
   },
   {
    "outlineId": "17-07",
@@ -18765,7 +20155,163 @@
       "cutout": true
      }
     }
-   ]
+   ],
+   "videoPrompt": {
+    "version": 1,
+    "generator": "video/tools/build-video-prompts.mjs",
+    "aspectRatio": "16:9",
+    "resolution": [
+     1920,
+     1080
+    ],
+    "fps": 24,
+    "durationSec": 106,
+    "style": {
+     "zh": "中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。",
+     "en": "Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic."
+    },
+    "setting": {
+     "zh": "南宋 · 宋祥兴二年至元至元十九年（1279—1283 年）。临安西湖、江上水军、山城、书斋。",
+     "en": "Southern Song (1127–1279), 1279 CE–1283 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios."
+    },
+    "characters": [
+     {
+      "id": "wentianxiang",
+      "name": "文天祥",
+      "nameEn": "Wen Tianxiang",
+      "onScreen": true,
+      "zh": "文天祥（宋·右丞相）：展脚幞头，公服，褙子，宋式铠甲；文臣朝服与官帽，持笏或文书；年龄依史实（此时为1279—1283 年）；被俘不屈，在大都就义",
+      "en": "Wen Tianxiang (文天祥) — minister, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; civil official's court robe and cap, holding a tablet or documents; age as historically attested in 1279 CE–1283 CE"
+     },
+     {
+      "id": "zhangshijie",
+      "name": "张世杰",
+      "nameEn": "Zhang Shijie",
+      "onScreen": true,
+      "zh": "张世杰（宋·枢密副使）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1279—1283 年）；以千余艘船结阵于崖山",
+      "en": "Zhang Shijie (张世杰) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1279 CE–1283 CE"
+     },
+     {
+      "id": "zhanghongfan",
+      "name": "张弘范",
+      "nameEn": "Zhang Hongfan",
+      "onScreen": true,
+      "zh": "张弘范（元·元军统帅）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1279—1283 年）；围攻崖山",
+      "en": "Zhang Hongfan (张弘范) — general, 元 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1279 CE–1283 CE"
+     },
+     {
+      "id": "luxiufu",
+      "name": "陆秀夫",
+      "nameEn": "Lu Xiufu",
+      "onScreen": false,
+      "zh": "陆秀夫（宋·左丞相）：展脚幞头，公服，褙子，宋式铠甲；文臣朝服与官帽，持笏或文书；年龄依史实（此时为1279—1283 年）；崖山兵败，负帝昺蹈海",
+      "en": "Lu Xiufu (陆秀夫) — minister, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; civil official's court robe and cap, holding a tablet or documents; age as historically attested in 1279 CE–1283 CE"
+     },
+     {
+      "id": "zhaobing",
+      "name": "赵昺",
+      "nameEn": "Zhao Bing",
+      "onScreen": false,
+      "zh": "赵昺（宋·宋帝昺）：展脚幞头，公服，褙子，宋式铠甲；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为1279—1283 年）；随陆秀夫蹈海",
+      "en": "Zhao Bing (赵昺) — ruler, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in 1279 CE–1283 CE"
+     }
+    ],
+    "shots": [
+     {
+      "n": 1,
+      "startSec": 0,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "",
+      "zh": "镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山、皴法山石；中景：江海、浪头｜动作：南海，崖门两山对峙｜水墨效果：宣纸留白淡入；水墨流动晕染｜声音：环境：海浪｜屏幕文字：片名「崖山」竖排书法与朱印「崖山」",
+      "en": "Shot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains, textured rocks; midground: sea, breaking waves | Action: (scene action, Chinese) 南海，崖门两山对峙 | Ink FX: fade in from blank xuan paper; flowing ink wash bleeding across the paper | Sound: ambience: sea waves | On-screen text: vertical brush-calligraphy title 「崖山」 with vermilion seal 「崖山」"
+     },
+     {
+      "n": 2,
+      "startSec": 10,
+      "durationSec": 16,
+      "figures": [
+       "zhangshijie"
+      ],
+      "vo": "临安陷落之后，宋臣拥立幼帝南走，最后退至新会崖山。张世杰以千余艘船结成一字阵，以绳索相连，中间安置帝舟。",
+      "zh": "镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：舟；主体：张世杰、旌旗｜动作：千余艘船连成一线｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：海浪；音效：摇橹｜屏幕文字：底部旁白字幕｜旁白：「临安陷落之后，宋臣拥立幼帝南走，最后退至新会崖山。张世杰以千余艘船结成一字阵，以绳索相连，中间安置帝舟。」",
+      "en": "Shot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: boat; subject: Zhang Shijie, banners | Action: (scene action, Chinese) 千余艘船连成一线 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: sea waves; SFX: oars | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「临安陷落之后，宋臣拥立幼帝南走，最后退至新会崖山。张世杰以千余艘船结成一字阵，以绳索相连，中间安置帝舟。」"
+     },
+     {
+      "n": 3,
+      "startSec": 26,
+      "durationSec": 24,
+      "figures": [
+       "zhanghongfan"
+      ],
+      "vo": "元将张弘范断其汲水之道，宋军饮海水，多有呕泄。",
+      "zh": "镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：舟、潮；主体：张弘范｜动作：元军断其汲道，船上人饮海水｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：海浪；音效：浪击｜屏幕文字：引文「人生自古谁无死，留取丹心照汗青。」竖排楷书；底部旁白字幕｜旁白：「元将张弘范断其汲水之道，宋军饮海水，多有呕泄。」",
+      "en": "Shot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: boat, tide; subject: Zhang Hongfan | Action: (scene action, Chinese) 元军断其汲道，船上人饮海水 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: sea waves; SFX: crashing waves | On-screen text: vertical kaishu quotation 「人生自古谁无死，留取丹心照汗青。」; Chinese subtitles at bottom | VO (Mandarin): 「元将张弘范断其汲水之道，宋军饮海水，多有呕泄。」"
+     },
+     {
+      "n": 4,
+      "startSec": 50,
+      "durationSec": 28,
+      "figures": [
+       "wentianxiang"
+      ],
+      "vo": "被俘的文天祥被押在元军船上。张弘范要他写信招降张世杰，他写下了过零丁洋的诗句。",
+      "zh": "镜头 4（50–78 秒，28 秒）｜运镜：手持式轻微震动，节奏急促｜构图：中景：舟；主体：文天祥；飞白题字「雨」｜动作：元舰之上，文天祥被押观战｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：大雨；音效：浪击｜屏幕文字：底部旁白字幕｜旁白：「被俘的文天祥被押在元军船上。张弘范要他写信招降张世杰，他写下了过零丁洋的诗句。」",
+      "en": "Shot 4 (50–78 s, 28 s) | Camera: subtle handheld shake, urgent rhythm | Composition: midground: boat; subject: Wen Tianxiang; dry-brush calligraphy 「雨」 | Action: (scene action, Chinese) 元舰之上，文天祥被押观战 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: heavy rain; SFX: crashing waves | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「被俘的文天祥被押在元军船上。张弘范要他写信招降张世杰，他写下了过零丁洋的诗句。」"
+     },
+     {
+      "n": 5,
+      "startSec": 78,
+      "durationSec": 12,
+      "figures": [],
+      "vo": "二月，元军总攻——",
+      "zh": "镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：江海、浪头；飞白题字「崖山」｜动作：负帝蹈海｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；水墨流动晕染；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：海浪；音效：浪击｜屏幕文字：底部旁白字幕｜旁白：「二月，元军总攻——」",
+      "en": "Shot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: sea, breaking waves; dry-brush calligraphy 「崖山」 | Action: (scene action, Chinese) 负帝蹈海 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; flowing ink wash bleeding across the paper; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: sea waves; SFX: crashing waves | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「二月，元军总攻——」"
+     },
+     {
+      "n": 6,
+      "startSec": 90,
+      "durationSec": 10,
+      "figures": [],
+      "vo": "陆秀夫负帝昺蹈海，宋亡。四年后，文天祥在大都柴市就义。",
+      "zh": "镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：陆秀夫负帝昺蹈海，宋亡。四年后，文天祥在大都柴市就义。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「陆秀夫负帝昺蹈海，宋亡。四年后，文天祥在大都柴市就义。」",
+      "en": "Shot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 陆秀夫负帝昺蹈海，宋亡。四年后，文天祥在大都柴市就义。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「陆秀夫负帝昺蹈海，宋亡。四年后，文天祥在大都柴市就义。」"
+     },
+     {
+      "n": 7,
+      "startSec": 100,
+      "durationSec": 6,
+      "figures": [],
+      "vo": "人生自古谁无死，留取丹心照汗青。",
+      "zh": "镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「人生自古谁无死，留取丹心照汗青。」，下署《文天祥·过零丁洋》；右下角朱印「崖山」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「人生自古谁无死，留取丹心照汗青。」",
+      "en": "Shot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「人生自古谁无死，留取丹心照汗青。」 signed 《文天祥·过零丁洋》; vermilion seal 「崖山」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「人生自古谁无死，留取丹心照汗青。」"
+     }
+    ],
+    "sound": {
+     "zh": "背景乐：笛子，清丽，随剧情由缓入急、高潮前骤停留白；环境声：海浪、大雨；音效：摇橹、浪击；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。",
+     "en": "Music: dizi flute, clear and lyrical, building gradually and cutting to silence before the climax; ambience: sea waves, heavy rain; SFX: oars, crashing waves; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese)."
+    },
+    "onScreenText": {
+     "zh": "片头：右上竖排书法片名「崖山」，副题「文天祥」，朱印「崖山」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「人生自古谁无死，留取丹心照汗青。」——《文天祥·过零丁洋》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。",
+     "en": "Title: vertical brush calligraphy 「崖山」, subtitle 「文天祥」, vermilion seal 「崖山」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「人生自古谁无死，留取丹心照汗青。」 — 《文天祥·过零丁洋》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text."
+    },
+    "negative": {
+     "zh": "写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    },
+    "narration": [
+     "临安陷落之后，宋臣拥立幼帝南走，最后退至新会崖山。张世杰以千余艘船结成一字阵，以绳索相连，中间安置帝舟。",
+     "元将张弘范断其汲水之道，宋军饮海水，多有呕泄。",
+     "被俘的文天祥被押在元军船上。张弘范要他写信招降张世杰，他写下了过零丁洋的诗句。",
+     "二月，元军总攻——",
+     "陆秀夫负帝昺蹈海，宋亡。四年后，文天祥在大都柴市就义。",
+     "人生自古谁无死，留取丹心照汗青。"
+    ],
+    "prompt": {
+     "zh": "【水墨视频生成提示词】南宋 · 崖山（文天祥）\n\n画幅与时长：16:9 横屏（1920×1080，竖屏可改 9:16 并保持主体居中），24fps，总长约 106 秒，共 7 个镜头；单镜时长超出生成器上限时可逐镜生成后剪辑。\n\n风格：中国传统水墨动画：宣纸纹理，焦、浓、重、淡、清五色墨层次，干湿浓淡变化，枯笔飞白与泼墨，大面积留白；笔触随镜头逐笔生成，墨色在纸上自然晕开；水墨黑白灰为主，点缀色克制：深蓝、米色，朱砂红只用于印章、旗帜、血或火光的一点；人物以写意线描为主，面部简笔，不做写实刻画。\n\n时代与场景：南宋 · 宋祥兴二年至元至元十九年（1279—1283 年）。临安西湖、江上水军、山城、书斋。\n\n人物：\n- 文天祥（宋·右丞相）：展脚幞头，公服，褙子，宋式铠甲；文臣朝服与官帽，持笏或文书；年龄依史实（此时为1279—1283 年）；被俘不屈，在大都就义\n- 张世杰（宋·枢密副使）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1279—1283 年）；以千余艘船结阵于崖山\n- 张弘范（元·元军统帅）：展脚幞头，公服，褙子，宋式铠甲；武将甲胄披挂，佩剑或执兵器；年龄依史实（此时为1279—1283 年）；围攻崖山\n- 陆秀夫（宋·左丞相）：展脚幞头，公服，褙子，宋式铠甲；文臣朝服与官帽，持笏或文书；年龄依史实（此时为1279—1283 年）；崖山兵败，负帝昺蹈海\n- 赵昺（宋·宋帝昺）：展脚幞头，公服，褙子，宋式铠甲；君主装束，冠冕或礼服，神情威严；年龄依史实（此时为1279—1283 年）；随陆秀夫蹈海\n\n分镜：\n镜头 1（0–10 秒，10 秒）｜运镜：固定机位远景长镜，画面静止，墨色缓缓显现｜构图：远景：远山、皴法山石；中景：江海、浪头｜动作：南海，崖门两山对峙｜水墨效果：宣纸留白淡入；水墨流动晕染｜声音：环境：海浪｜屏幕文字：片名「崖山」竖排书法与朱印「崖山」\n镜头 2（10–26 秒，16 秒）｜运镜：缓慢横移（摇镜），沿画卷方向展开｜构图：中景：舟；主体：张世杰、旌旗｜动作：千余艘船连成一线｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：海浪；音效：摇橹｜屏幕文字：底部旁白字幕｜旁白：「临安陷落之后，宋臣拥立幼帝南走，最后退至新会崖山。张世杰以千余艘船结成一字阵，以绳索相连，中间安置帝舟。」\n镜头 3（26–50 秒，24 秒）｜运镜：缓慢推近，景深变浅，主体渐清｜构图：中景：舟、潮；主体：张弘范｜动作：元军断其汲道，船上人饮海水｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：海浪；音效：浪击｜屏幕文字：引文「人生自古谁无死，留取丹心照汗青。」竖排楷书；底部旁白字幕｜旁白：「元将张弘范断其汲水之道，宋军饮海水，多有呕泄。」\n镜头 4（50–78 秒，28 秒）｜运镜：手持式轻微震动，节奏急促｜构图：中景：舟；主体：文天祥；飞白题字「雨」｜动作：元舰之上，文天祥被押观战｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）｜声音：环境：大雨；音效：浪击｜屏幕文字：底部旁白字幕｜旁白：「被俘的文天祥被押在元军船上。张弘范要他写信招降张世杰，他写下了过零丁洋的诗句。」\n镜头 5（78–90 秒，12 秒）｜运镜：急推特写后定格，轻微震屏｜构图：中景：江海、浪头；飞白题字「崖山」｜动作：负帝蹈海｜水墨效果：墨晕转场（上一镜墨色晕开化入本镜）；四角暗角收拢；水墨流动晕染；画面定格成一幅水墨画；泼墨飞溅，朱砂一点｜声音：环境：海浪；音效：浪击｜屏幕文字：底部旁白字幕｜旁白：「二月，元军总攻——」\n镜头 6（90–100 秒，10 秒）｜运镜：缓慢拉远成全景，画面如长卷收束｜构图：主体退为远景中的小小身影，四周大片留白；山河远景｜动作：正史结局：陆秀夫负帝昺蹈海，宋亡。四年后，文天祥在大都柴市就义。｜水墨效果：墨色由浓转淡，水痕慢慢洇开，余墨流向画外｜声音：背景乐回落，余音与环境声｜屏幕文字：底部旁白字幕｜旁白：「陆秀夫负帝昺蹈海，宋亡。四年后，文天祥在大都柴市就义。」\n镜头 7（100–106 秒，6 秒）｜运镜：固定机位，空镜｜构图：空白宣纸上，左侧竖排楷书引文「人生自古谁无死，留取丹心照汗青。」，下署《文天祥·过零丁洋》；右下角朱印「崖山」｜动作：引文逐字写出，最后朱印落下｜水墨效果：毛笔逐笔书写，朱砂印泥微微渗开｜声音：印章落纸一声，琴声收尾｜屏幕文字：引文与出处｜旁白：「人生自古谁无死，留取丹心照汗青。」\n\n声音：背景乐：笛子，清丽，随剧情由缓入急、高潮前骤停留白；环境声：海浪、大雨；音效：摇橹、浪击；旁白：普通话，沉稳舒缓的纪录片语气，逐镜如下。\n\n字幕与屏幕文字：片头：右上竖排书法片名「崖山」，副题「文天祥」，朱印「崖山」；旁白字幕：简体中文，底部居中，楷体或宋体，白底留边；引文：「人生自古谁无死，留取丹心照汗青。」——《文天祥·过零丁洋》，竖排楷书；所有文字必须准确，不得出现错字、乱码或英文。\n\n负面提示词：写实照片，3D 渲染，CG 质感，油画厚涂，赛博朋克，日式动漫脸，美颜网红脸，高饱和霓虹色，现代建筑，现代服饰，汽车电线，塑料质感，英文字母，乱码文字，错别字，水印，签名，logo，多余肢体，手指畸形，五官崩坏，人物变形闪烁，画面抖动撕裂，时代错置：清代辫发与马褂",
+     "en": "[Ink-wash video prompt] Southern Song (1127–1279) · \"崖山\" (文天祥)\n\nFormat: 16:9 landscape (1920×1080; for 9:16 keep the subject centred), 24 fps, about 106 s total, 7 shots; generate shot by shot and edit together if a shot exceeds the generator's limit.\n\nStyle: Traditional Chinese ink-wash animation on xuan paper: layered ink tones from scorched black to pale wash, wet-and-dry brushwork, dry-brush flying-white strokes and splashed ink, generous negative space (liubai); strokes draw themselves on camera and bleed naturally into the paper; monochrome black-grey with restrained deep blue and beige accents and a touch of vermilion for seals, banners, blood or fire; figures in expressive xieyi line, simplified faces, not photorealistic.\n\nSetting: Southern Song (1127–1279), 1279 CE–1283 CE — Lin'an and West Lake, river navies, mountain citadels, scholar studios.\n\nCharacters:\n- Wen Tianxiang (文天祥) — minister, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; civil official's court robe and cap, holding a tablet or documents; age as historically attested in 1279 CE–1283 CE\n- Zhang Shijie (张世杰) — general, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1279 CE–1283 CE\n- Zhang Hongfan (张弘范) — general, 元 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; general in full armour, sword or weapon in hand; age as historically attested in 1279 CE–1283 CE\n- Lu Xiufu (陆秀夫) — minister, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; civil official's court robe and cap, holding a tablet or documents; age as historically attested in 1279 CE–1283 CE\n- Zhao Bing (赵昺) — ruler, 宋 camp; long-winged futou caps, official robes, beizi jackets, Song-style armour; sovereign's regalia, crown or ceremonial robe, commanding presence; age as historically attested in 1279 CE–1283 CE\n\nStoryboard:\nShot 1 (0–10 s, 10 s) | Camera: locked-off wide shot, stillness as the ink slowly appears | Composition: background: distant mountains, textured rocks; midground: sea, breaking waves | Action: (scene action, Chinese) 南海，崖门两山对峙 | Ink FX: fade in from blank xuan paper; flowing ink wash bleeding across the paper | Sound: ambience: sea waves | On-screen text: vertical brush-calligraphy title 「崖山」 with vermilion seal 「崖山」\nShot 2 (10–26 s, 16 s) | Camera: slow lateral pan, unrolling like a handscroll | Composition: midground: boat; subject: Zhang Shijie, banners | Action: (scene action, Chinese) 千余艘船连成一线 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: sea waves; SFX: oars | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「临安陷落之后，宋臣拥立幼帝南走，最后退至新会崖山。张世杰以千余艘船结成一字阵，以绳索相连，中间安置帝舟。」\nShot 3 (26–50 s, 24 s) | Camera: slow push-in, shallow depth of field, subject sharpening | Composition: midground: boat, tide; subject: Zhang Hongfan | Action: (scene action, Chinese) 元军断其汲道，船上人饮海水 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: sea waves; SFX: crashing waves | On-screen text: vertical kaishu quotation 「人生自古谁无死，留取丹心照汗青。」; Chinese subtitles at bottom | VO (Mandarin): 「元将张弘范断其汲水之道，宋军饮海水，多有呕泄。」\nShot 4 (50–78 s, 28 s) | Camera: subtle handheld shake, urgent rhythm | Composition: midground: boat; subject: Wen Tianxiang; dry-brush calligraphy 「雨」 | Action: (scene action, Chinese) 元舰之上，文天祥被押观战 | Ink FX: ink-bleed transition from the previous shot | Sound: ambience: heavy rain; SFX: crashing waves | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「被俘的文天祥被押在元军船上。张弘范要他写信招降张世杰，他写下了过零丁洋的诗句。」\nShot 5 (78–90 s, 12 s) | Camera: fast push to close-up, slight shake, then freeze-frame | Composition: midground: sea, breaking waves; dry-brush calligraphy 「崖山」 | Action: (scene action, Chinese) 负帝蹈海 | Ink FX: ink-bleed transition from the previous shot; vignette closing in from the corners; flowing ink wash bleeding across the paper; freeze into a still ink painting; ink splash with a single vermilion accent | Sound: ambience: sea waves; SFX: crashing waves | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「二月，元军总攻——」\nShot 6 (90–100 s, 10 s) | Camera: slow pull-back to a wide shot, closing like a handscroll | Composition: the subject recedes into a tiny figure amid vast empty paper; distant landscape | Action: (canonical outcome, Chinese) 陆秀夫负帝昺蹈海，宋亡。四年后，文天祥在大都柴市就义。 | Ink FX: ink fades from dense to pale, water marks spreading, residual ink drifting off-frame | Sound: music settles, lingering tail and ambience | On-screen text: Chinese subtitles at bottom | VO (Mandarin): 「陆秀夫负帝昺蹈海，宋亡。四年后，文天祥在大都柴市就义。」\nShot 7 (100–106 s, 6 s) | Camera: locked-off empty frame | Composition: blank xuan paper; a vertical kaishu quotation 「人生自古谁无死，留取丹心照汗青。」 signed 《文天祥·过零丁洋》; vermilion seal 「崖山」 at lower right | Action: the quotation writes itself stroke by stroke; the vermilion seal stamps last | Ink FX: brush writes stroke by stroke, vermilion seal paste slightly bleeding | Sound: a soft seal stamp, the music ends | On-screen text: quotation and its source | VO (Mandarin): 「人生自古谁无死，留取丹心照汗青。」\n\nSound: Music: dizi flute, clear and lyrical, building gradually and cutting to silence before the climax; ambience: sea waves, heavy rain; SFX: oars, crashing waves; narration: calm Mandarin documentary voice-over (lines given per shot, keep them in Chinese).\n\nOn-screen text: Title: vertical brush calligraphy 「崖山」, subtitle 「文天祥」, vermilion seal 「崖山」 at upper right; subtitles: Simplified Chinese, bottom centre; quotation 「人生自古谁无死，留取丹心照汗青。」 — 《文天祥·过零丁洋》, vertical kaishu; all Chinese text must be exact, no garbled or Latin text.\n\nNegative prompt: photorealistic, 3D render, CGI look, thick oil paint, cyberpunk, anime faces, beauty-filter faces, neon oversaturated colours, modern buildings, modern clothing, cars, power lines, plastic texture, Latin letters, garbled text, misspelled characters, watermark, signature, logo, extra limbs, malformed hands, distorted faces, flickering characters, jitter and tearing, anachronisms: Qing queues and magua jackets"
+    }
+   }
   }
  ]
 }

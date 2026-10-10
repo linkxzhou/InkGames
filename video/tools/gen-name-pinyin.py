@@ -38,6 +38,10 @@ def one(name):
         return FOREIGN[name]
     if name in FIX:
         return FIX[name]
+    for suf, en in (('公主', 'Princess'), ('太后', 'Empress Dowager'), ('皇后', 'Empress'), ('夫人', 'Lady')):
+        if name.endswith(suf) and len(name) > len(suf):
+            rest = ''.join(py(name[:-len(suf)])).capitalize()
+            return f'{en} {rest}'
     for suf, en in (('单于', 'Chanyu'), ('可汗', 'Qaghan')):
         if name.endswith(suf) and len(name) > len(suf):
             return one(name[:-len(suf)]) + ' ' + en
