@@ -1330,6 +1330,28 @@
   ],
   "title": "Zhennan Pass: Feng Zicai"
  },
+ "sanguo.baima": {
+  "end": "Cao Cao forbids pursuit — each serves his own lord — and Guan Yu returns to Liu Bei, keeping the title Marquis of Hanshou ever after.",
+  "shots": [
+   "Outside Baima the Yuan camps stretch on, a general's canopy raised in their midst",
+   "A lone rider bursts from Cao's lines, a long blade trailing low",
+   "Amid ten thousand soldiers a blade flashes and the canopy falls",
+   "In Cao's camp the gifts are sealed one by one beside a letter of farewell",
+   "On the long road a single rider heads north while Cao Cao watches from afar and sends no pursuit"
+  ],
+  "title": "Beheading Yan Liang amid Ten Thousand: Guan Yu Leaves Cao"
+ },
+ "sanguo.caochong": {
+  "end": "Cao Cao is delighted and does it at once; the kind and gifted boy dies at thirteen in 208, and Cao Cao tells Cao Pi: my misfortune is your good fortune.",
+  "shots": [
+   "The great elephant sent from the east stands in the courtyard, taller than the eaves",
+   "The ministers argue around it; none can think how to weigh it",
+   "A child of five or six tugs his father's sleeve: I know a way",
+   "The elephant is led onto a boat, the hull sinks, and the boy cuts a mark at the waterline",
+   "The elephant is led off, baskets of stone are loaded until the boat sinks to the same mark"
+  ],
+  "title": "Cao Chong Weighs the Elephant: A Precocious Child"
+ },
  "sanguo.changban": {
   "end": "Liu Bei joins Guan Yu's fleet and Liu Qi at Xiakou; having met Lu Su at Dangyang, the Sun–Liu alliance begins.",
   "shots": [
@@ -1396,6 +1418,28 @@
   ],
   "title": "The Battle of Guandu: Night Raid on Wuchao"
  },
+ "sanguo.hefei": {
+  "end": "Sun Quan's horse clears the bridge; Ling Tong fights on north of it until his men all fall, then swims back wounded, and Cao Cao names Zhang Liao General Who Conquers the East.",
+  "shots": [
+   "On the walls of Hefei a wooden box is opened: Cao Cao's order says if Sun Quan comes, Zhang and Li go out to fight",
+   "At night oxen are slaughtered in the city and eight hundred men eat their fill",
+   "At dawn Zhang Liao in armour charges the Wu lines with his halberd, shouting his own name",
+   "Sun Quan retreats onto a high mound, guarding himself with a long halberd, watching eight hundred men cut through a hundred thousand",
+   "The bridge at Xiaoyao Ford is broken for more than ten feet; a fine horse leaps the gap"
+  ],
+  "title": "Terror at Xiaoyao Ford: Eight Hundred Against a Hundred Thousand"
+ },
+ "sanguo.huatuo": {
+  "end": "Cao Cao's headaches persist; when his beloved son Cao Chong lies dying he laments, I regret killing Hua Tuo, and the physician's book is lost, with only his disciples passing on fragments.",
+  "shots": [
+   "The chancellor clutches his head in a migraine as the physician slips a needle into his back",
+   "The physician shows his disciple the moves of tiger, deer, bear, ape and bird",
+   "The physician on leave at home stays away; a messenger presses at the gate",
+   "In the Xu prison he holds out a scroll to the jailer, who draws back his hand",
+   "He asks for fire and drops the book into the flames"
+  ],
+  "title": "The Death of Hua Tuo: The Lost Book of Medicine"
+ },
  "sanguo.jieting": {
   "end": "With no foothold, Zhuge Liang withdraws to Hanzhong, executes Ma Su and demotes himself three ranks.",
   "shots": [
@@ -1406,6 +1450,17 @@
    "Ma Su is executed to answer to the army"
   ],
   "title": "Jieting and the Empty City: Ma Su"
+ },
+ "sanguo.kongrong": {
+  "end": "Kong Rong and his family are executed at fifty-six; his friend weeps over the body unpunished, and Cao Pi later collects his writings, ranking him first of the Seven Masters of Jian'an.",
+  "shots": [
+   "Kong Rong's hall is full of guests; he raises his cup: the seats always full, the cups never empty, what have I to worry about",
+   "In the chancellor's office a scroll of charges lies open on the desk",
+   "Constables burst into the Kong house while two children are still playing chess in the courtyard",
+   "Kong Rong turns: let the guilt end with me; can the two children be spared",
+   "The child rises calmly: have you ever seen whole eggs beneath an overturned nest"
+  ],
+  "title": "Beneath an Overturned Nest: The Death of Kong Rong"
  },
  "sanguo.longzhong": {
   "end": "Zhuge Liang leaves to serve Liu Bei, and the three-way division becomes Shu Han's grand strategy.",
@@ -1440,6 +1495,17 @@
   ],
   "title": "Flooding the Seven Armies, Retreat to Maicheng"
  },
+ "sanguo.sunce": {
+  "end": "Sun Quan succeeds with Zhang Zhao leading the officials and Zhou Yu hurrying back for the funeral; Sun Quan will hold the east for more than fifty years and found the state of Wu.",
+  "shots": [
+   "In the western hills of Dantu a swift horse leaves the escort far behind",
+   "Three figures rise in the woods holding bows",
+   "An arrow strikes the young general in the cheek",
+   "At his sickbed he hands the seal and ribbon to his nineteen-year-old brother",
+   "The seal passes into Sun Quan's hands and behind the screen a lamp goes out"
+  ],
+  "title": "Death of the Little Conqueror: Sun Ce Ambushed"
+ },
  "sanguo.wuzhangyuan": {
   "end": "Sima Yi retreats; people say a dead Zhuge put a living Zhongda to flight, and Sima Yi calls him the genius of the age.",
   "shots": [
@@ -1461,6 +1527,17 @@
    "Each man carries a bundle of reeds; fire attack"
   ],
   "title": "Burning the Linked Camps: the Battle of Yiling"
+ },
+ "sanguo.zhujiu": {
+  "end": "Thunder happens to roll and Liu Bei blames his start on it; soon he leaves Xu to intercept Yuan Shu, kills Che Zhou in Xu Province, and the girdle-edict plotters are executed.",
+  "shots": [
+   "In a back garden in Xu a man bends over a vegetable bed, watering",
+   "In a pavilion green plums and a pot of wine are set out, and the Minister of Works invites him to sit",
+   "Cao Cao counts them off one by one: Yuan Shu, Yuan Shao, Liu Biao, Sun Ce — none of them count",
+   "He looks at Liu Bei: the only heroes in the realm today are you and I",
+   "The chopsticks fall and a thunderclap splits the sky"
+  ],
+  "title": "Talking of Heroes over Wine: The Heroes of the Age"
  },
  "shang.bigan": {
   "end": "King Zhou cuts out Bigan's heart; Jizi feigns madness and is jailed; the court musicians flee to Zhou, and soon King Wu attacks.",
