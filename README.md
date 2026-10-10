@@ -28,7 +28,7 @@
 node scripts/gpu-check.mjs   # 本机打开切片、叙事、历史、画廊与道具。加 --shots 做无头截图
 ```
 
-统一入口是 `build.sh`，约定见 [AGENTS.md](./AGENTS.md)。
+统一入口是 `build.sh`。Agent 入口与关键记忆见 [AGENTS.md](./AGENTS.md)，工程规范见 [docs/AGENTS.md](./docs/AGENTS.md)。
 
 ## 阅读顺序
 
