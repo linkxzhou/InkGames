@@ -307,6 +307,17 @@
   ],
   "title": "Casting the Penal Code: Zichan of Zheng"
  },
+ "donghan.baimasi": {
+  "end": "The temple is named White Horse Temple; there the two monks translate the Sutra in Forty-Two Sections, usually seen as the arrival of Buddhism in the Central Plains, though a Yuezhi envoy had already recited Buddhist texts to a Han scholar decades earlier.",
+  "shots": [
+   "Deep in the Southern Palace the emperor dreams of a golden man with a halo, flying before the hall",
+   "At court a minister says: in the west there is a god called the Buddha",
+   "The envoys' camels and horses cross the snowy Pamirs, heading ever west",
+   "On the road back a white horse carries the scriptures, two foreign monks walking alongside",
+   "Outside the west gate of Luoyang the bell of the first Buddhist temple rings"
+  ],
+  "title": "The White Horse Carries the Sutras: Seeking the Dharma"
+ },
  "donghan.banchao": {
   "end": "Shanshan submits and sends a hostage; Ban Chao spends thirty years in the Western Regions and becomes Protector General.",
   "shots": [
@@ -317,6 +328,17 @@
    "Fire set downwind"
   ],
   "title": "Throwing Down the Brush: Ban Chao in the Western Regions"
+ },
+ "donghan.banzhao": {
+  "end": "Ban Zhao completes the eight tables, Ma Xu finishes the treatise on astronomy, and when she dies in her seventies the empress dowager mourns her in plain white.",
+  "shots": [
+   "In a Luoyang prison an unfinished manuscript lies scattered on the floor",
+   "In the Dongguan library a middle-aged woman takes up her brush among stacks of bamboo slips",
+   "The young empress and consorts sit around her listening to her lectures",
+   "Below the gallery kneels a young scholar copying every line she reads aloud",
+   "The last cell of the eight tables is filled and she lays down her brush"
+  ],
+  "title": "Finishing the Book of Han: Ban Zhao"
  },
  "donghan.danggu": {
   "end": "Li Ying, Fan Pang and over a hundred die in prison; the ban lasts until the Yellow Turbans rise.",
@@ -362,6 +384,17 @@
   ],
   "title": "The Battle of Kunyang: Thunderstorm Breaks the Xin Army"
  },
+ "donghan.liangji": {
+  "end": "Liang Ji and his wife kill themselves, their fortune of three billion cash halves the empire's taxes, and the five eunuchs who brought him down usher in the age of eunuch power.",
+  "shots": [
+   "At court in the Southern Palace an eight-year-old sits on the throne, staring at the generalissimo below",
+   "The child says: this is a domineering general",
+   "That afternoon a bowl of boiled cakes is set before the little emperor",
+   "Thirteen years later, deep in the night, an emperor bites a eunuch's arm to seal a blood oath",
+   "A thousand guards surround the Liang mansion and its great gate slams shut"
+  ],
+  "title": "The Domineering General: Liang Ji"
+ },
  "donghan.mayuan": {
   "end": "Ma Yuan dies of disease on campaign; slandered over a cartload of seeds, he is stripped of honours until his name is later cleared.",
   "shots": [
@@ -395,6 +428,17 @@
   ],
   "title": "A Guest Star Crosses the Throne: Yan Ziling"
  },
+ "donghan.yangzhen": {
+  "end": "Wang Mi leaves ashamed; Yang Zhen later rises to Grand Commandant, is dismissed after impeaching the eunuchs and takes poison west of Luoyang.",
+  "shots": [
+   "At a posthouse in Changyi, late at night, a county magistrate knocks softly at the door with a bundle",
+   "The bundle opens and ten jin of gold gleams in the lamplight",
+   "The magistrate whispers: it is night, no one will know",
+   "The old governor points at the sky, then at the ground",
+   "He pushes the bundle back: Heaven knows, the spirits know, I know, you know"
+  ],
+  "title": "Heaven Knows, Earth Knows: Yang Zhen's Four Knowings"
+ },
  "donghan.yanran": {
   "end": "The stone is carved and the army returns; Dou Xian later falls for treason and Ban Gu dies in prison.",
   "shots": [
@@ -427,6 +471,17 @@
    "At Dangyin arrows rain down; an official spreads his arms to shield the emperor"
   ],
   "title": "The War of the Eight Princes"
+ },
+ "liangjin.daoyun": {
+  "end": "Sun En, moved, spares the child; widowed, Xie Daoyun lives on at Kuaiji, and the governor who visits leaves in admiration of her conversation.",
+  "shots": [
+   "In the Xie courtyard, heavy snow falling, children gather round their uncle to discuss literature",
+   "The uncle asks what the falling snow is like; a boy says: salt tossed into the air",
+   "A girl answers: better to say willow catkins rising on the wind",
+   "Forty years later Kuaiji falls; amid the flames she draws a knife and charges out with her maids",
+   "Facing the rebel leader she stands holding her grandson: this concerns the Wang house, not other clans"
+  ],
+  "title": "Willow Catkins on the Wind: Xie Daoyun"
  },
  "liangjin.doufu": {
   "end": "Twenty years later Sun Xiu demands Lüzhu; she leaps from the tower and Shi Chong is executed at the Eastern Market.",
@@ -493,6 +548,17 @@
    "The paths are overgrown, yet pine and chrysanthemum remain"
   ],
   "title": "Home Again: Tao Yuanming"
+ },
+ "liangjin.xinting": {
+  "end": "Wang Dao declines — if the sun shared its light with all things, what would the people look up to? — and people say \"the Wang and the Sima share the realm\".",
+  "shots": [
+   "South of Jiankang, at the Xinting pavilion above the river, émigré gentlemen sit drinking on the ground",
+   "One famous scholar gazes at the river and sighs: the scenery is no different, only the rivers and mountains have changed",
+   "They look at one another and weep; some cover their faces and sob",
+   "The chancellor strikes the table and rises, his face hardening",
+   "A year later at the enthronement, the emperor tugs the chancellor's sleeve, asking him to share the imperial couch"
+  ],
+  "title": "Weeping at Xinting: Wang and Sima Share the Realm"
  },
  "liangjin.yongjia": {
   "end": "Emperor Huai is later killed; Sima Rui takes the throne at Jiankang and Eastern Jin begins.",
@@ -603,6 +669,17 @@
    "A rain of arrows at the temple by Guazhou ferry"
   ],
   "title": "A Horse on Mount Wu: Prince Hailing's Southern Campaign"
+ },
+ "liaojin.xiaoguanyin": {
+  "end": "The empress is ordered to die and the musician's clan executed; two years later Yelü Yixin frames the crown prince too, and only under Tianzuo is the empress posthumously restored.",
+  "shots": [
+   "Outside the great autumn hunting tent the emperor rides off in pursuit of game while the empress stands before the tent",
+   "In a lonely palace courtyard she holds her pipa and writes ten songs, \"Return to the Heart Court\"",
+   "A palace maid hands a page of erotic verse to the privy councillor",
+   "The emperor stares at the page: it is in the empress's own hand",
+   "A white silk cord hangs down and a pipa string snaps"
+  ],
+  "title": "The Ten Fragrances: Empress Xiao Guanyin"
  },
  "liaojin.xiaotaihou": {
   "end": "After Chanyuan Song and Liao keep the peace; she hands power to Shengzong in 1009 and dies that year, credited with Liao's golden age.",
@@ -2275,6 +2352,17 @@
    "Grain barges sail into Jishuitan, masts like a forest"
   ],
   "title": "Dadu: Liu Bingzhong"
+ },
+ "yuan.guanhanqing": {
+  "end": "In the play all three vows come true and Dou E is cleared when her father becomes an inspector; the drama becomes the classic Chinese tragedy, while Guan Hanqing's life survives in only a few lines.",
+  "shots": [
+   "In the theatres of Dadu, clappers and drums strike up and the stands are packed",
+   "Backstage a middle-aged writer revises lyrics while rehearsing with an actress",
+   "On stage a young woman is led to the execution ground, a death placard on her back",
+   "She lifts her face and cries out three vows, and the sky goes dark",
+   "Snow falls from a June sky and blood spatters a twelve-foot length of white silk"
+  ],
+  "title": "The Injustice to Dou E: Guan Hanqing"
  },
  "yuan.hongjin": {
   "end": "The Red Turbans sweep the north; Zhu Yuanzhang, risen from their ranks, founds the Ming and Xu Da takes Dadu as the Yuan emperor flees north.",

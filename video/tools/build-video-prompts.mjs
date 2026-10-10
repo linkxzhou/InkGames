@@ -164,7 +164,7 @@ const COLOR = { black: ['墨黑', 'ink black'], white: ['白', 'white'], dark_gr
 const ELEM_ZH = { banner: '旌旗', spear: '长枪', bow: '弓箭', sword: '长剑', blade: '大刀', shield: '盾牌', 'war-horse': '战马', water: '水', landscape: '山水', 'ink-bomb': '泼墨', 'water-brush': '毛笔' };
 const yearEn = y => (y < 0 ? -y + ' BCE' : y + ' CE');
 const whenEn = w => (w ? (w.end != null && w.end !== w.start ? yearEn(w.start) + '–' + yearEn(w.end) : (w.precision === 'circa' || w.precision === 'legend' ? 'c. ' : '') + yearEn(w.start)) : '');
-const FEMALE = /皇后|王后|太后|后妃|^后$|妃|公主|夫人|女子|侍女|之女|宫女|女官|女将|女史|女诗人|女词人|才女|姬|娘|母|妻|嫔|婆|姑|嫂|妾|^女|女$/;
+const FEMALE = /皇后|王后|太后|后妃|^后$|妃|公主|夫人|女子|侍女|之女|宫女|女官|女将|女史|女诗人|女词人|才女|寡妇|女伶|女演员|女冠|姬|娘|母|妻|嫔|婆|姑|嫂|妾|^女|女$/;
 const snd = (id, i) => (SND[id] || [id, id.replace(/-/g, ' ')])[i];
 const assetId = a => (a || '').split('/').pop().replace(/\.ogg$/, '');
 

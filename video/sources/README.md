@@ -36,16 +36,16 @@
 | [05-zhanguo](./05-zhanguo/README.md) | 战国 | 22 |
 | [06-qin](./06-qin/README.md) | 秦 | 10 |
 | [07-xihan](./07-xihan/README.md) | 楚汉 · 西汉 | 20 |
-| [08-donghan](./08-donghan/README.md) | 新 · 东汉 | 10 |
+| [08-donghan](./08-donghan/README.md) | 新 · 东汉 | 14 |
 | [09-sanguo](./09-sanguo/README.md) | 三国 | 12 |
-| [10-liangjin](./10-liangjin/README.md) | 两晋 | 10 |
+| [10-liangjin](./10-liangjin/README.md) | 两晋 | 12 |
 | [11-nanbeichao](./11-nanbeichao/README.md) | 南北朝 | 10 |
 | [12-sui](./12-sui/README.md) | 隋 | 10 |
 | [13-tang](./13-tang/README.md) | 唐 | 11 |
 | [14-wudai](./14-wudai/README.md) | 五代十国 | 10 |
 | [15-beisong](./15-beisong/README.md) | 北宋 | 10 |
-| [16-liaojin](./16-liaojin/README.md) | 辽 · 西夏 · 金 | 10 |
+| [16-liaojin](./16-liaojin/README.md) | 辽 · 西夏 · 金 | 11 |
 | [17-nansong](./17-nansong/README.md) | 南宋 | 10 |
-| [18-yuan](./18-yuan/README.md) | 元 | 10 |
+| [18-yuan](./18-yuan/README.md) | 元 | 11 |
 | [19-ming](./19-ming/README.md) | 明 | 12 |
 | [20-qing](./20-qing/README.md) | 清 | 14 |
