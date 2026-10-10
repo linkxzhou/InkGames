@@ -1,0 +1,184 @@
+{
+ "version": 1,
+ "chapter": "xia",
+ "title": {
+  "zh": "夏",
+  "en": "Xia"
+ },
+ "pipeline": "story tree -> opening shots -> videoPrompt; see video/docs/chapter-videos.md",
+ "format": {
+  "aspectRatio": "16:9",
+  "resolution": [
+   1280,
+   720
+  ],
+  "fps": 24
+ },
+ "titleCard": {
+  "zh": "夏",
+  "seal": "开卷",
+  "durationSec": 3
+ },
+ "closingHoldSec": 3,
+ "totalSec": 57,
+ "style": "high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame",
+ "negative": "other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+ "motionRule": "richer but controlled motion (wind, mist, ink spread, flowing water, banners, slow camera); keep silhouettes consistent, no morphing, no new figures, no text, no fighting contact; only black, grey, paper white and vermilion",
+ "lengthRule": "shots = clamp(4 + ceil(scenes/2), 6, 16) = clamp(4 + ceil(5/2), 6, 16) = 7; 8 s each",
+ "rawDir": "/workspace/chapter-video/xia/v2",
+ "clipsVersion": 2,
+ "grade": "palette lock (video/tools/chapter_grade.py): every pixel goes to the ink #141414 -> paper #eceae4 grey ramp by luminance, except hues near vermilion #b3241c (re-tinted to vermilion); saturated orange is pulled to vermilion, pale orange, yellow, blue and every other hue go to grey",
+ "audio": {
+  "narration": {
+   "engine": "edge-tts",
+   "voice": "zh-CN-YunjianNeural",
+   "rate": "-8%",
+   "pitch": "-2Hz",
+   "offsetSec": 0.6
+  },
+  "music": "original procedural bed (numpy): low D drone, sparse plucked D-major-pentatonic notes (guqin-like), deep drum on the title card",
+  "loudness": "-16 LUFS integrated, -1.5 dBTP; AAC 160k stereo; music and ambience duck about 8 dB under narration"
+ },
+ "shots": [
+  {
+   "n": 1,
+   "sceneId": "xia.qi",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "启继禹位，家天下始",
+   "narration": "禹死之后，诸侯不朝益而朝启，天下自此传子。",
+   "ambience": [
+    "wind",
+    "bell"
+   ],
+   "imagePrompt": "A robed ruler silhouette ascends long stone steps toward a bronze cauldron on a high terrace, rows of small kneeling lords below, a single vermilion banner; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the vermilion banner ripples, incense smoke curls up from the cauldron, the kneeling rows bow slowly in a wave, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xia-01.jpg",
+   "clip": "xia-01.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 2,
+   "sceneId": "xia.shaokang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "少康出奔有虞",
+   "narration": "浇杀夏后相，遗腹子少康长大，逃到有虞做了庖正。",
+   "ambience": [
+    "wind",
+    "water"
+   ],
+   "imagePrompt": "A young man silhouette with a staff walks alone along a misty riverside path at dawn, distant hills, a small thatched village ahead; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "mist drifts along the river, his cloak and the reeds sway, he walks forward a few steps, a slow lateral pan; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xia-02.jpg",
+   "clip": "xia-02.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 3,
+   "sceneId": "xia.shaokang",
+   "sourceShots": [
+    6,
+    7
+   ],
+   "durationSec": 8,
+   "zh": "少康中兴",
+   "narration": "他凭一成之田、一旅之众，收拾夏众，复了禹的旧业。",
+   "ambience": [
+    "wind",
+    "war-drums"
+   ],
+   "imagePrompt": "A small band of spearmen silhouettes gathers on a ridge behind a young leader raising a vermilion pennant, a wide grey plain below at dusk; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the pennant flutters, more figures emerge slowly from the mist to join the line, clouds stream overhead; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xia-03.jpg",
+   "clip": "xia-03.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 4,
+   "sceneId": "xia.kongjia",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "孔甲御龙",
+   "narration": "孔甲好方鬼神，天降二龙，刘累学扰龙来侍奉。",
+   "ambience": [
+    "water",
+    "shimmer"
+   ],
+   "imagePrompt": "Two long dark ink dragons coil in a misty pool beside a palace terrace, a small robed keeper silhouette kneels at the edge holding a bowl; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the dragons' coils turn slowly in the water, ink ripples spread, mist rises, a very slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xia-04.jpg",
+   "clip": "xia-04.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 5,
+   "sceneId": "xia.meixi",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "夏桀与妹喜",
+   "narration": "桀伐有施，得妹喜，与她日夜饮酒，不理朝政。",
+   "ambience": [
+    "insects",
+    "wind"
+   ],
+   "imagePrompt": "A long palace hall in silhouette at night, a seated king and a slender woman figure beside a wide dark pool, lanterns as small vermilion dots, empty paper above; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the lantern dots flicker, the pool surface ripples, silk sleeves drift, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep her silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xia-05.jpg",
+   "clip": "xia-05.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 6,
+   "sceneId": "xia.mingtiao",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "商汤誓师伐夏",
+   "narration": "汤誓师伐桀，引夏民之言：时日曷丧，予及汝皆亡。",
+   "ambience": [
+    "wind",
+    "war-drums"
+   ],
+   "imagePrompt": "Rows of spear silhouettes stand before a tall man on a mound raising his arm, a pale sun low in a grey sky, banners; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "banners ripple in strong wind, dust drifts across the ranks, the pale sun dims slightly, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xia-06.jpg",
+   "clip": "xia-06.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 7,
+   "sceneId": "xia.mingtiao",
+   "sourceShots": [
+    6,
+    7
+   ],
+   "durationSec": 8,
+   "zh": "鸣条之战，夏亡",
+   "narration": "战于鸣条之野，桀败走南巢，夏朝四百余年而终。",
+   "ambience": [
+    "wind",
+    "horn"
+   ],
+   "imagePrompt": "After the battle, a fallen black banner lies across an empty field under a blood-red setting sun, broken spear shafts, one lone figure walking away into the distance; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the torn banner stirs in the wind, dust drifts, the red sun sinks slowly, the camera pulls back; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xia-07.jpg",
+   "clip": "xia-07.mp4",
+   "status": "pending"
+  }
+ ]
+}

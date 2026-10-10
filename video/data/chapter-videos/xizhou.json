@@ -1,0 +1,227 @@
+{
+ "version": 1,
+ "chapter": "xizhou",
+ "title": {
+  "zh": "西周",
+  "en": "Western Zhou"
+ },
+ "pipeline": "story tree -> opening shots -> videoPrompt; see video/docs/chapter-videos.md",
+ "format": {
+  "aspectRatio": "16:9",
+  "resolution": [
+   1280,
+   720
+  ],
+  "fps": 24
+ },
+ "titleCard": {
+  "zh": "西周",
+  "seal": "开卷",
+  "durationSec": 3
+ },
+ "closingHoldSec": 3,
+ "totalSec": 72,
+ "style": "high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame",
+ "negative": "other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+ "motionRule": "richer but controlled motion (wind, mist, ink spread, flowing water, banners, slow camera); keep silhouettes consistent, no morphing, no new figures, no text, no fighting contact; only black, grey, paper white and vermilion",
+ "lengthRule": "shots = clamp(4 + ceil(scenes/2), 6, 16) = clamp(4 + ceil(9/2), 6, 16) = 9; 8 s each",
+ "rawDir": "/workspace/chapter-video/xizhou/v2",
+ "clipsVersion": 2,
+ "grade": "palette lock (video/tools/chapter_grade.py): every pixel goes to the ink #141414 -> paper #eceae4 grey ramp by luminance, except hues near vermilion #b3241c (re-tinted to vermilion); saturated orange is pulled to vermilion, pale orange, yellow, blue and every other hue go to grey",
+ "audio": {
+  "narration": {
+   "engine": "edge-tts",
+   "voice": "zh-CN-YunjianNeural",
+   "rate": "-8%",
+   "pitch": "-2Hz",
+   "offsetSec": 0.6
+  },
+  "music": "original procedural bed (numpy): low D drone, sparse plucked D-major-pentatonic notes (guqin-like), deep drum on the title card",
+  "loudness": "-16 LUFS integrated, -1.5 dBTP; AAC 160k stereo; music and ambience duck about 8 dB under narration"
+ },
+ "shots": [
+  {
+   "n": 1,
+   "sceneId": "xizhou.zhougong",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "周公东征",
+   "narration": "武王死，成王幼，周公摄政，东征三年平定三监。",
+   "ambience": [
+    "wind",
+    "war-drums"
+   ],
+   "imagePrompt": "A robed regent silhouette on a hill beside a small child-king figure watches columns of soldiers march east under banners; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "banners ripple, the columns march slowly into the mist, clouds drift; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xizhou-01.jpg",
+   "clip": "xizhou-01.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 2,
+   "sceneId": "xizhou.hezun",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "宅兹中国",
+   "narration": "何尊铭文写着：余其宅兹中国，自之乂民。",
+   "ambience": [
+    "wind",
+    "water"
+   ],
+   "imagePrompt": "Builders' silhouettes raise rammed-earth walls of a new city on a plain between two rivers, a large bronze vessel shape in the foreground with a plain surface; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "rammers rise and fall slowly, dust drifts, the rivers flow, a slow lateral pan; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xizhou-02.jpg",
+   "clip": "xizhou-02.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 3,
+   "sceneId": "xizhou.gantang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "甘棠",
+   "narration": "召公巡行乡邑，在甘棠树下听讼，百姓不忍伐其树。",
+   "ambience": [
+    "wind",
+    "birds"
+   ],
+   "imagePrompt": "An official silhouette sits under a large flowering pear tree listening to kneeling villagers, wide fields beyond; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "leaves and petals drift down, branches sway, grass ripples; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xizhou-03.jpg",
+   "clip": "xizhou-03.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 4,
+   "sceneId": "xizhou.zhaowang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "昭王南征不复",
+   "narration": "昭王南征荆楚，渡汉水时舟船解体，一去不返。",
+   "ambience": [
+    "water",
+    "wind"
+   ],
+   "imagePrompt": "A royal boat silhouette in the middle of a wide river at dusk, its planks beginning to drift apart, a low vermilion sun; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the river flows, the boat tilts slowly and settles lower in the water, ripples spread, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xizhou-04.jpg",
+   "clip": "xizhou-04.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 5,
+   "sceneId": "xizhou.muwang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "穆王八骏",
+   "narration": "穆王驾八骏西巡，传说与西王母宴于瑶池。",
+   "ambience": [
+    "hooves",
+    "wind"
+   ],
+   "imagePrompt": "Eight horse silhouettes pulling a chariot gallop across a vast plain toward distant snow mountains; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "manes and tails stream, dust trails behind, clouds race over the mountains, a slow lateral pan; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xizhou-05.jpg",
+   "clip": "xizhou-05.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 6,
+   "sceneId": "xizhou.feizi",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "非子养马",
+   "narration": "非子在汧渭之间为周孝王养马，马大蕃息，封于秦邑。",
+   "ambience": [
+    "grass",
+    "water",
+    "hooves"
+   ],
+   "imagePrompt": "A herder silhouette on a riverside meadow among many grazing horses, two rivers meeting in the distance; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the horses graze and shift, tails swish, grass waves, mist drifts over the rivers; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xizhou-06.jpg",
+   "clip": "xizhou-06.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 7,
+   "sceneId": "xizhou.gonghe",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "国人暴动",
+   "narration": "厉王止谤，道路以目；三年后国人暴动，王奔于彘。",
+   "ambience": [
+    "crowd",
+    "wind",
+    "fire"
+   ],
+   "imagePrompt": "A dark city street with crowds of silent figures exchanging glances, a palace gate in the distance with torches as vermilion dots; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the crowd edges slowly toward the gate, torch dots flicker, smoke drifts, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xizhou-07.jpg",
+   "clip": "xizhou-07.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 8,
+   "sceneId": "xizhou.xuanwang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "宣王中兴",
+   "narration": "宣王命尹吉甫薄伐玁狁，至于太原，周室复振。",
+   "ambience": [
+    "hooves",
+    "wind"
+   ],
+   "imagePrompt": "Chariot silhouettes ride north across a wind-swept plateau under tall banners; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "banners stream, dust rolls behind the wheels, clouds race, a slow lateral pan; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xizhou-08.jpg",
+   "clip": "xizhou-08.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 9,
+   "sceneId": "xizhou.haojing",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "烽火与镐京",
+   "narration": "传说幽王为博褒姒一笑举烽火；犬戎攻破镐京，西周亡。",
+   "ambience": [
+    "fire",
+    "wind",
+    "horn"
+   ],
+   "imagePrompt": "A beacon tower on a ridge with a vermilion fire and a column of black ink smoke, the dark capital below, empty roads; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the vermilion fire flickers, black smoke billows and drifts sideways, embers float, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "xizhou-09.jpg",
+   "clip": "xizhou-09.mp4",
+   "status": "pending"
+  }
+ ]
+}

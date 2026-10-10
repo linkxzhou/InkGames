@@ -1,0 +1,267 @@
+{
+ "version": 1,
+ "chapter": "donghan",
+ "title": {
+  "zh": "新 · 东汉",
+  "en": "Eastern Han"
+ },
+ "pipeline": "story tree -> opening shots -> videoPrompt; see video/docs/chapter-videos.md",
+ "format": {
+  "aspectRatio": "16:9",
+  "resolution": [
+   1280,
+   720
+  ],
+  "fps": 24
+ },
+ "titleCard": {
+  "zh": "新 · 东汉",
+  "seal": "开卷",
+  "durationSec": 3
+ },
+ "closingHoldSec": 3,
+ "totalSec": 86,
+ "style": "high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame",
+ "negative": "other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+ "motionRule": "richer but controlled motion (wind, mist, ink spread, flowing water, banners, slow camera); keep silhouettes consistent, no morphing, no new figures, no text, no fighting contact; only black, grey, paper white and vermilion",
+ "lengthRule": "shots = clamp(4 + ceil(scenes/2), 6, 16) = clamp(4 + ceil(14/2), 6, 16) = 11; 8 s each",
+ "rawDir": "/workspace/chapter-video/donghan/v2",
+ "clipsVersion": 2,
+ "grade": "palette lock (video/tools/chapter_grade.py): every pixel goes to the ink #141414 -> paper #eceae4 grey ramp by luminance, except hues near vermilion #b3241c (re-tinted to vermilion); saturated orange is pulled to vermilion, pale orange, yellow, blue and every other hue go to grey",
+ "audio": {
+  "narration": {
+   "engine": "edge-tts",
+   "voice": "zh-CN-YunjianNeural",
+   "rate": "-8%",
+   "pitch": "-2Hz",
+   "offsetSec": 0.6
+  },
+  "music": "original procedural bed (numpy): low D drone, sparse plucked D-major-pentatonic notes (guqin-like), deep drum on the title card",
+  "loudness": "-16 LUFS integrated, -1.5 dBTP; AAC 160k stereo; music and ambience duck about 8 dB under narration"
+ },
+ "shots": [
+  {
+   "n": 1,
+   "sceneId": "donghan.wangmang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "王莽改制",
+   "narration": "王莽代汉建新，改币制、复井田，天下愈乱。",
+   "ambience": [
+    "bell",
+    "wind"
+   ],
+   "imagePrompt": "A robed ruler silhouette in a vast hall surrounded by heaps of ancient knife-shaped coins and blank land charts, officials kneeling; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "incense drifts, the coins glint, the officials sway, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "donghan-01.jpg",
+   "clip": "donghan-01.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 2,
+   "sceneId": "donghan.kunyang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "昆阳之战",
+   "narration": "昆阳城下，刘秀率三千敢死者冲阵，雷雨大作，新军溃散。",
+   "ambience": [
+    "thunder",
+    "rain",
+    "war-drums"
+   ],
+   "imagePrompt": "A storm over a plain, lightning in black clouds, a small cavalry band riding toward a vast camp through sheets of rain; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "rain sheets sweep across, lightning flashes, banners tear in the wind, the frame holds still; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "donghan-02.jpg",
+   "clip": "donghan-02.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 3,
+   "sceneId": "donghan.yanguang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "严子陵",
+   "narration": "严光与光武同卧，以足加帝腹；太史奏客星犯御座。",
+   "ambience": [
+    "water",
+    "birds"
+   ],
+   "imagePrompt": "A fisherman silhouette in a straw cape sits fishing on a rock in a quiet river under mountains, a bright star above; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the river flows, the line sways, mist drifts, the star twinkles; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "donghan-03.jpg",
+   "clip": "donghan-03.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 4,
+   "sceneId": "donghan.mayuan",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "马革裹尸",
+   "narration": "马援说：男儿当死于边野，以马革裹尸还葬耳。",
+   "ambience": [
+    "wind",
+    "birds",
+    "insects"
+   ],
+   "imagePrompt": "An old general silhouette on horseback in jungle-covered southern mountains, mist and heat haze, a column behind; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "mist steams up from the jungle, leaves sway, the horse walks slowly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "donghan-04.jpg",
+   "clip": "donghan-04.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 5,
+   "sceneId": "donghan.baimasi",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "白马驮经",
+   "narration": "明帝遣使求法，白马驮经东来，洛阳建起白马寺。",
+   "ambience": [
+    "bell",
+    "wind"
+   ],
+   "imagePrompt": "A pale horse outlined in ink carrying bundles of sutras walks toward a city gate, two monk silhouettes walking beside it; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the horse walks steadily, their robes stir, dust drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "donghan-05.jpg",
+   "clip": "donghan-05.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 6,
+   "sceneId": "donghan.banchao",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "投笔从戎",
+   "narration": "班超投笔从戎，夜率三十六人火攻匈奴使者，西域震服。",
+   "ambience": [
+    "wind",
+    "fire"
+   ],
+   "imagePrompt": "At night in the desert a small band of silhouettes approaches a camp of tents from upwind, one holding a torch, a strong wind; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "wind drives sand across, the torch flame streams sideways, the tents billow; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "donghan-06.jpg",
+   "clip": "donghan-06.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 7,
+   "sceneId": "donghan.yanran",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "燕然勒石",
+   "narration": "窦宪大破北匈奴，登燕然山，班固作铭刻石而还。",
+   "ambience": [
+    "wind",
+    "horn"
+   ],
+   "imagePrompt": "A large blank stone stele on a barren mountain top, a general and a scholar silhouette beside it, cavalry below; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "wind sweeps dust across the summit, banners stream, clouds move fast; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "donghan-07.jpg",
+   "clip": "donghan-07.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 8,
+   "sceneId": "donghan.zaozhi",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "造纸与地动仪",
+   "narration": "蔡伦造纸，张衡造地动仪，东汉的匠心留传至今。",
+   "ambience": [
+    "water",
+    "drip"
+   ],
+   "imagePrompt": "A paper-maker silhouette lifts a mould from a vat of pulp, a large bronze urn-shaped seismograph with dragon heads in the background; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "water drips from the mould, steam rises, a small ball on the urn trembles; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "donghan-08.jpg",
+   "clip": "donghan-08.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 9,
+   "sceneId": "donghan.yangzhen",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "天知地知",
+   "narration": "有人夜里送金，杨震说：天知，神知，我知，子知。",
+   "ambience": [
+    "wind",
+    "insects"
+   ],
+   "imagePrompt": "A night room, an official silhouette pushes back a small box offered by a kneeling visitor, a single lamp; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the lamp flickers, curtains sway, the visitor bows lower; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "donghan-09.jpg",
+   "clip": "donghan-09.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 10,
+   "sceneId": "donghan.danggu",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "党锢之祸",
+   "narration": "宦官兴党锢之狱，李膺、范滂等名士相继下狱而死。",
+   "ambience": [
+    "rain",
+    "crowd"
+   ],
+   "imagePrompt": "A line of scholar silhouettes in chains walks through a city gate in the rain, crowds watching silently; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "rain falls, the line moves slowly forward, wet cloaks drip; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "donghan-10.jpg",
+   "clip": "donghan-10.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 11,
+   "sceneId": "donghan.huangjin",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "黄巾起义",
+   "narration": "苍天已死，黄天当立；张角一呼，三十六方同日而起。",
+   "ambience": [
+    "crowd",
+    "war-drums",
+    "wind"
+   ],
+   "imagePrompt": "Masses of figures with headbands rendered in vermilion rise from the fields under a dark sky, a leader on a mound; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the headbands flutter, the crowd surges in waves, clouds churn; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "donghan-11.jpg",
+   "clip": "donghan-11.mp4",
+   "status": "pending"
+  }
+ ]
+}

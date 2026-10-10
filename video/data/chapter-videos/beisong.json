@@ -1,0 +1,309 @@
+{
+ "version": 1,
+ "chapter": "beisong",
+ "title": {
+  "zh": "北宋",
+  "en": "Northern Song"
+ },
+ "pipeline": "story tree -> opening shots -> videoPrompt; see video/docs/chapter-videos.md",
+ "format": {
+  "aspectRatio": "16:9",
+  "resolution": [
+   1280,
+   720
+  ],
+  "fps": 24
+ },
+ "titleCard": {
+  "zh": "北宋",
+  "seal": "开卷",
+  "durationSec": 3
+ },
+ "closingHoldSec": 3,
+ "totalSec": 101,
+ "style": "high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame",
+ "negative": "other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+ "motionRule": "richer but controlled motion (wind, mist, ink spread, flowing water, banners, slow camera); keep silhouettes consistent, no morphing, no new figures, no text, no fighting contact; only black, grey, paper white and vermilion",
+ "lengthRule": "shots = clamp(4 + ceil(scenes/2), 6, 16) = clamp(4 + ceil(18/2), 6, 16) = 13; 8 s each",
+ "rawDir": "/workspace/chapter-video/beisong/v2",
+ "clipsVersion": 2,
+ "grade": "palette lock (video/tools/chapter_grade.py): every pixel goes to the ink #141414 -> paper #eceae4 grey ramp by luminance, except hues near vermilion #b3241c (re-tinted to vermilion); saturated orange is pulled to vermilion, pale orange, yellow, blue and every other hue go to grey",
+ "audio": {
+  "narration": {
+   "engine": "edge-tts",
+   "voice": "zh-CN-YunjianNeural",
+   "rate": "-8%",
+   "pitch": "-2Hz",
+   "offsetSec": 0.6
+  },
+  "music": "original procedural bed (numpy): low D drone, sparse plucked D-major-pentatonic notes (guqin-like), deep drum on the title card",
+  "loudness": "-16 LUFS integrated, -1.5 dBTP; AAC 160k stereo; music and ambience duck about 8 dB under narration"
+ },
+ "shots": [
+  {
+   "n": 1,
+   "sceneId": "beisong.beijiu",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "杯酒释兵权",
+   "narration": "宋太祖设宴，一杯酒劝石守信等交出兵权。",
+   "ambience": [
+    "crowd",
+    "wind"
+   ],
+   "imagePrompt": "A banquet hall at night, an emperor silhouette raising a cup toward seated generals, lamps; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "lamp flames flicker, the generals bow slowly, steam rises from the wine; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "beisong-01.jpg",
+   "clip": "beisong-01.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 2,
+   "sceneId": "beisong.yangye",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "杨业陈家谷",
+   "narration": "杨业力战至陈家谷口，援军不至，被俘绝食而死。",
+   "ambience": [
+    "wind",
+    "horn"
+   ],
+   "imagePrompt": "An old general silhouette on a weary horse at the mouth of an empty valley at dusk, torn banners, no one coming; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "wind moves the torn banners, dust blows, the horse lowers its head, the sky darkens; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "beisong-02.jpg",
+   "clip": "beisong-02.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 3,
+   "sceneId": "beisong.chanyuan",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "澶渊之盟",
+   "narration": "寇准力劝真宗亲征澶州，宋辽议和，此后百余年无大战。",
+   "ambience": [
+    "snow-wind",
+    "war-drums"
+   ],
+   "imagePrompt": "An emperor's vermilion canopy on a city wall above a frozen river, armies on both banks in winter; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "banners ripple, snow blows, the troops on the wall bow; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "beisong-03.jpg",
+   "clip": "beisong-03.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 4,
+   "sceneId": "beisong.haoshuichuan",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "好水川",
+   "narration": "宋军追击至好水川，打开路边银泥盒，百鸽冲天，伏兵四起。",
+   "ambience": [
+    "birds",
+    "wind",
+    "war-drums"
+   ],
+   "imagePrompt": "A narrow valley road with opened boxes on the ground and a flock of doves bursting up into the grey sky, soldier silhouettes looking up; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the doves fly upward and scatter, dust drifts, banners rise on the ridges; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "beisong-04.jpg",
+   "clip": "beisong-04.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 5,
+   "sceneId": "beisong.bisheng",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "毕昇活字",
+   "narration": "毕昇以胶泥刻字，一字一印，火烧令坚，排版印书。",
+   "ambience": [
+    "fire",
+    "wind"
+   ],
+   "imagePrompt": "A craftsman silhouette arranges small blank clay type blocks on an iron plate beside a glowing kiln; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the kiln fire flickers, smoke curls, his hands move slowly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "beisong-05.jpg",
+   "clip": "beisong-05.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 6,
+   "sceneId": "beisong.fanzhongyan",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "先忧后乐",
+   "narration": "范仲淹推行庆历新政；他写下：先天下之忧而忧，后天下之乐而乐。",
+   "ambience": [
+    "waves",
+    "wind",
+    "birds"
+   ],
+   "imagePrompt": "A tall lakeside tower above a vast lake at dusk, an official silhouette on the balcony looking out; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the lake waves roll gently, clouds drift, birds pass; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "beisong-06.jpg",
+   "clip": "beisong-06.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 7,
+   "sceneId": "beisong.diqing",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "夜夺昆仑关",
+   "narration": "狄青趁上元夜大宴，冒雨夜夺昆仑关，平定侬智高。",
+   "ambience": [
+    "rain",
+    "hooves",
+    "wind"
+   ],
+   "imagePrompt": "A masked general silhouette leads a column through a mountain pass in heavy night rain, the lanterns of a feast far behind; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "rain falls, the column moves forward, the lanterns flicker far behind; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "beisong-07.jpg",
+   "clip": "beisong-07.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 8,
+   "sceneId": "beisong.baogong",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "包拯知开封",
+   "narration": "包拯知开封府，大开正门，百姓可直诣堂前诉冤。",
+   "ambience": [
+    "crowd",
+    "wind"
+   ],
+   "imagePrompt": "A government hall's main gate opened wide, commoners' silhouettes walking in toward a stern official seated in the hall; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the crowd moves forward slowly, banners and lanterns stir; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "beisong-08.jpg",
+   "clip": "beisong-08.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 9,
+   "sceneId": "beisong.xining",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "熙宁变法",
+   "narration": "王安石说：天变不足畏，祖宗不足法，人言不足恤，推行新法。",
+   "ambience": [
+    "crowd",
+    "wind"
+   ],
+   "imagePrompt": "A thin official silhouette standing firm in a court hall before rows of opposing officials, documents in hand; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the opposing rows sway, the curtains stir, he stands still; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "beisong-09.jpg",
+   "clip": "beisong-09.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 10,
+   "sceneId": "beisong.wutai",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "乌台诗案",
+   "narration": "苏轼以诗获罪，系狱一百三十天，出狱后贬往黄州。",
+   "ambience": [
+    "water",
+    "wind"
+   ],
+   "imagePrompt": "A man silhouette in a small boat on the river beneath tall cliffs at night, moonlight; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the boat drifts, ripples spread, moonlit mist moves over the cliffs; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "beisong-10.jpg",
+   "clip": "beisong-10.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 11,
+   "sceneId": "beisong.simaguang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "资治通鉴",
+   "narration": "司马光编《资治通鉴》，历十九年，上起战国，下迄五代。",
+   "ambience": [
+    "wind",
+    "insects"
+   ],
+   "imagePrompt": "An old scholar silhouette in a study piled high with bound volumes, writing by lamplight late at night; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the lamp flame flickers, pages stir, ink spreads; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "beisong-11.jpg",
+   "clip": "beisong-11.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 12,
+   "sceneId": "beisong.huizong",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "花石纲",
+   "narration": "宋徽宗营造艮岳，花石纲从江南运石，沿途民怨沸腾。",
+   "ambience": [
+    "water",
+    "crowd",
+    "stone"
+   ],
+   "imagePrompt": "Huge strangely shaped rocks hauled on barges along a canal by teams of labourers, an elaborate garden on the horizon; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the barge moves slowly, ropes strain, the labourers lean forward, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "beisong-12.jpg",
+   "clip": "beisong-12.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 13,
+   "sceneId": "beisong.jingkang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "靖康之变",
+   "narration": "金兵攻破汴京，徽钦二帝与宗室数千人被掳北去。",
+   "ambience": [
+    "snow-wind",
+    "hooves",
+    "fire"
+   ],
+   "imagePrompt": "A long line of captive silhouettes trudging north through snow away from a burning capital, horsemen escorting; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "snow falls, the line moves slowly, smoke rises behind, wind; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "beisong-13.jpg",
+   "clip": "beisong-13.mp4",
+   "status": "pending"
+  }
+ ]
+}

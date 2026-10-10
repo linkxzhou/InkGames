@@ -494,7 +494,51 @@ if (index.totals.v1 !== v1 || index.totals.outline !== outline || (index.totals.
   if (styleChecked.art !== artSheets) err('style', `素材提示词风格检查数 ${styleChecked.art} ≠ 素材图数 ${artSheets}`);
 }
 
-// 章节开场视频清单：index.json 与 index.js 一致，所列文件存在，mp4 < 15 MB，章节与剧本存在
+// 章节片头剧本 video/data/chapter-videos/<ch>.json：镜数 = clamp(4 + ceil(场景数/2), 6, 16)（上古为 8 镜旧例），
+// 镜头按章节时间线排序、来源场景存在、旁白 15–30 字、8 秒、提示词带风格块与负面词、运动提示词固定结尾、环境声已实现
+const NARR_PUNCT = /[，。；、：！？「」『』《》〈〉·—\s]/g;
+const MOTION_END = /keep (his|her|their) silhouette consistent, no morphing, no new figures, no text\. Only black, grey, paper white and vermilion\.$/;
+let chapterScripts = 0, chapterScriptShots = 0;
+{
+  const dir = join(DATA, 'chapter-videos');
+  const ambSrc = readFileSync(join(DATA, '..', 'tools', 'chapter_audio.py'), 'utf8');
+  const AMB = new Set([...ambSrc.matchAll(/'([a-z-]+)': \((?:a_|lambda)/g)].map(m => m[1]));
+  if (existsSync(dir)) for (const f of readdirSync(dir).filter(f => f.endsWith('.json')).sort()) {
+    const id = f.replace(/\.json$/, ''), where = 'chapter-video ' + id;
+    const ent = index.chapters.find(c => c.id === id);
+    if (!ent) { err(where, '剧本对应的章节不存在'); continue; }
+    const sp = JSON.parse(readFileSync(join(dir, f), 'utf8'));
+    const ch = JSON.parse(readFileSync(join(DATA, ent.file), 'utf8'));
+    const order = ch.scenes.map(s => s.scene.id), shotsIn = Object.fromEntries(ch.scenes.map(s => [s.scene.id, (s.videoPrompt && s.videoPrompt.shots || []).length]));
+    const want = id === 'shanggu' ? 8 : Math.max(6, Math.min(16, 4 + Math.ceil(order.length / 2)));
+    chapterScripts++; chapterScriptShots += sp.shots.length;
+    if (sp.chapter !== id) err(where, `chapter 字段 ${sp.chapter} ≠ 文件名`);
+    if (sp.shots.length !== want) err(where, `镜数 ${sp.shots.length}，按 clamp(4 + ceil(${order.length}/2), 6, 16) 应为 ${want}`);
+    let last = -1;
+    sp.shots.forEach((sh, i) => {
+      const w = where + ' 镜 ' + (i + 1);
+      if (sh.n !== i + 1) err(w, `n=${sh.n} 不连续`);
+      const o = order.indexOf(sh.sceneId);
+      if (o < 0) { err(w, '来源场景不在本章：' + sh.sceneId); return; }
+      if (o < last) err(w, '镜头未按时间线排序：' + sh.sceneId);
+      last = o;
+      for (const k of sh.sourceShots || []) if (k < 1 || k > shotsIn[sh.sceneId]) err(w, `sourceShots ${k} 超出场景分镜数 ${shotsIn[sh.sceneId]}`);
+      if (!sh.zh || !String(sh.zh).trim()) err(w, '缺少 zh 字幕');
+      const n = String(sh.narration || '').replace(NARR_PUNCT, '').length;
+      if (n < 15 || n > 30) err(w, `旁白应为 15–30 字，实际 ${n}`);
+      if (Math.abs(Number(sh.durationSec) - 8) > 2.01) err(w, `时长 ${sh.durationSec}s，应为 8 s（旁白过长时最多 +2 s）`);
+      if (!/^[\x20-\x7e\u2013\u2014\u2019]+$/.test(sh.imagePrompt || '')) err(w, 'imagePrompt 应为英文');
+      if (!/wuxia ink silhouette/.test(sh.imagePrompt || '') || !/#b3241c/.test(sh.imagePrompt || '') || !/Negative: other colours, gold/.test(sh.imagePrompt || '')) err(w, 'imagePrompt 缺少风格块或负面词');
+      if (id !== 'shanggu' && !MOTION_END.test(sh.motionPrompt || '')) err(w, 'motionPrompt 缺少固定结尾（keep … silhouette consistent … vermilion.）');
+      if (!Array.isArray(sh.ambience) || !sh.ambience.length) err(w, '缺少 ambience');
+      else for (const a of sh.ambience) if (!AMB.has(a)) err(w, '环境声未在 chapter_audio.py 实现：' + a);
+      if (!['pending', 'done'].includes(sh.status)) err(w, 'status 应为 pending 或 done');
+      if (sh.clip !== `${id}-${String(i + 1).padStart(2, '0')}.mp4`) err(w, 'clip 文件名应为 ' + `${id}-${String(i + 1).padStart(2, '0')}.mp4`);
+    });
+  }
+}
+
+// 章节开场视频清单：index.json 与 index.js 一致，所列文件存在，mp4 < 30 MB，章节与剧本存在
 let chapterVideos = 0;
 {
   const CV = join(DATA, '..', 'viewer', 'assets', 'chapter-videos'), VIEW = join(DATA, '..', 'viewer');
@@ -510,14 +554,14 @@ let chapterVideos = 0;
       else {
         const sp = JSON.parse(readFileSync(join(DATA, 'chapter-videos', id + '.json'), 'utf8'));
         if (sp.output && sp.output.narration) for (const sh of sp.shots) {
-          const n = String(sh.narration || '').replace(/[，。；、：！？「」—]/g, '').length;
+          const n = String(sh.narration || '').replace(NARR_PUNCT, '').length;
           if (n < 15 || n > 30) err('chapter-videos ' + id + ' 镜 ' + sh.n, `旁白应为 15–30 字，实际 ${n}`);
         }
         if (!!(sp.output && sp.output.audio) !== !!e.audio) err('chapter-videos ' + id, '清单 audio 与剧本 output.audio 不一致');
       }
       for (const k of ['mp4', 'poster', 'posterWebp']) if (e[k] && !existsSync(join(VIEW, e[k]))) err('chapter-videos ' + id, `${k} 文件不存在：${e[k]}`);
       if (!e.mp4 || !e.poster) err('chapter-videos ' + id, '缺少 mp4 或 poster');
-      else if (existsSync(join(VIEW, e.mp4)) && statSync(join(VIEW, e.mp4)).size >= 15 * 1024 * 1024) err('chapter-videos ' + id, 'mp4 超过 15 MB');
+      else if (existsSync(join(VIEW, e.mp4)) && statSync(join(VIEW, e.mp4)).size >= 30 * 1024 * 1024) err('chapter-videos ' + id, 'mp4 超过 30 MB（每章上限，见 AGENTS.md 章节片头视频制作规范）');
     }
   }
 }
@@ -529,5 +573,5 @@ console.log(`章节 ${bundles.length}，场景 ${allScenes.size}（完整 ${full
 if (showPending) for (const p of pending) console.log('  待核验 ' + p);
 if (errors.length) { console.error(`错误 ${errors.length} 个：\n` + errors.map(e => '  ' + e).join('\n')); process.exit(1); }
 console.log(`美术风格检查：videoPrompt ${styleChecked.video} 场、素材提示词 ${styleChecked.art} 张均为黑白红武侠水墨剪影风格`);
-console.log(`章节开场视频：${chapterVideos} 章`);
+console.log(`章节开场视频：已合成 ${chapterVideos} 章；剧本 ${chapterScripts} 章 / ${chapterScriptShots} 镜`);
 console.log('校验通过：0 个错误');

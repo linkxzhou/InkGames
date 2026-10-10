@@ -1,0 +1,346 @@
+{
+ "version": 1,
+ "chapter": "zhanguo",
+ "title": {
+  "zh": "战国",
+  "en": "Warring States"
+ },
+ "pipeline": "story tree -> opening shots -> videoPrompt; see video/docs/chapter-videos.md",
+ "format": {
+  "aspectRatio": "16:9",
+  "resolution": [
+   1280,
+   720
+  ],
+  "fps": 24
+ },
+ "titleCard": {
+  "zh": "战国",
+  "seal": "开卷",
+  "durationSec": 3
+ },
+ "closingHoldSec": 3,
+ "totalSec": 116,
+ "style": "high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame",
+ "negative": "other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+ "motionRule": "richer but controlled motion (wind, mist, ink spread, flowing water, banners, slow camera); keep silhouettes consistent, no morphing, no new figures, no text, no fighting contact; only black, grey, paper white and vermilion",
+ "lengthRule": "shots = clamp(4 + ceil(scenes/2), 6, 16) = clamp(4 + ceil(22/2), 6, 16) = 15; 8 s each",
+ "rawDir": "/workspace/chapter-video/zhanguo/v2",
+ "clipsVersion": 2,
+ "grade": "palette lock (video/tools/chapter_grade.py): every pixel goes to the ink #141414 -> paper #eceae4 grey ramp by luminance, except hues near vermilion #b3241c (re-tinted to vermilion); saturated orange is pulled to vermilion, pale orange, yellow, blue and every other hue go to grey",
+ "audio": {
+  "narration": {
+   "engine": "edge-tts",
+   "voice": "zh-CN-YunjianNeural",
+   "rate": "-8%",
+   "pitch": "-2Hz",
+   "offsetSec": 0.6
+  },
+  "music": "original procedural bed (numpy): low D drone, sparse plucked D-major-pentatonic notes (guqin-like), deep drum on the title card",
+  "loudness": "-16 LUFS integrated, -1.5 dBTP; AAC 160k stereo; music and ambience duck about 8 dB under narration"
+ },
+ "shots": [
+  {
+   "n": 1,
+   "sceneId": "zhanguo.sanjia",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "三家分晋",
+   "narration": "智伯引水灌晋阳，城不浸者三版，韩魏赵三家反而共灭智氏。",
+   "ambience": [
+    "rushing-water",
+    "rain"
+   ],
+   "imagePrompt": "A walled city half-submerged in grey floodwater, only the upper walls above water, a dam silhouette upstream; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "floodwater swirls slowly around the walls, rain mist drifts, clouds roll; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "zhanguo-01.jpg",
+   "clip": "zhanguo-01.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 2,
+   "sceneId": "zhanguo.ximenbao",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "西门豹治邺",
+   "narration": "西门豹把巫婆投进漳河，河伯娶妇之俗从此断绝。",
+   "ambience": [
+    "water",
+    "crowd"
+   ],
+   "imagePrompt": "A riverbank crowd watches an official silhouette standing at the water's edge, ripples spreading where something has sunk; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the ripples widen and fade, the crowd stands still, reeds sway, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "zhanguo-02.jpg",
+   "clip": "zhanguo-02.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 3,
+   "sceneId": "zhanguo.shangyang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "徙木立信",
+   "narration": "商鞅在南门立木，徙者予五十金，以示令出必行。",
+   "ambience": [
+    "crowd",
+    "wind"
+   ],
+   "imagePrompt": "A tall wooden pole at a city's south gate, a crowd at a distance, one man silhouette lifting the pole onto his shoulder; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "dust drifts, the crowd leans forward, the man carries the pole a few steps, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "zhanguo-03.jpg",
+   "clip": "zhanguo-03.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 4,
+   "sceneId": "zhanguo.maling",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "马陵道",
+   "narration": "孙膑减灶诱敌，庞涓夜追至马陵，见树上白字，万弩俱发。",
+   "ambience": [
+    "wind",
+    "fog-wind"
+   ],
+   "imagePrompt": "A narrow night valley road between dark cliffs, one large tree with a pale peeled patch of bark at the centre, a torch as a vermilion dot approaching, crossbowmen's silhouettes hidden along the ridges; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the torch dot comes closer, wind moves the branches, mist creeps along the road, the frame holds still; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "zhanguo-04.jpg",
+   "clip": "zhanguo-04.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 5,
+   "sceneId": "zhanguo.zhuangzi",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "庄周曳尾涂中",
+   "narration": "楚王请庄子为相，他说：宁做曳尾于泥中的龟。",
+   "ambience": [
+    "water",
+    "birds"
+   ],
+   "imagePrompt": "A thin man silhouette fishing from a rock on a misty river, two envoy figures standing behind him, a turtle in the mud nearby; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the river flows, his fishing line sways, mist drifts, the turtle crawls slowly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "zhanguo-05.jpg",
+   "clip": "zhanguo-05.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 6,
+   "sceneId": "zhanguo.sujin",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "苏秦合纵",
+   "narration": "苏秦游说六国合纵抗秦，一身佩六国相印。",
+   "ambience": [
+    "hooves",
+    "wind"
+   ],
+   "imagePrompt": "A traveller in a wide robe rides a horse-drawn carriage between six city gates spread across a vast plain; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the carriage rolls along the road, dust trails, banners on the gates ripple, a slow lateral pan; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "zhanguo-06.jpg",
+   "clip": "zhanguo-06.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 7,
+   "sceneId": "zhanguo.hufu",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "胡服骑射",
+   "narration": "赵武灵王改穿胡服，教百姓骑马射箭。",
+   "ambience": [
+    "hooves",
+    "wind",
+    "grass"
+   ],
+   "imagePrompt": "Horse-archers in short tunics gallop across a grassland, a king silhouette on horseback leading, bows raised; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "horses gallop in a line, manes and grass stream in the wind, dust trails; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "zhanguo-07.jpg",
+   "clip": "zhanguo-07.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 8,
+   "sceneId": "zhanguo.huoniu",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "火牛阵",
+   "narration": "田单夜放千余头牛，角缚兵刃，尾束苇火，冲向燕营。",
+   "ambience": [
+    "fire",
+    "hooves",
+    "war-drums"
+   ],
+   "imagePrompt": "At night a herd of ox silhouettes with vermilion fire at their tails rushes out of a breach in a city wall; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the flames at their tails stream behind, smoke trails, the herd surges forward, embers drift; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "zhanguo-08.jpg",
+   "clip": "zhanguo-08.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 9,
+   "sceneId": "zhanguo.wanbi",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "完璧归赵",
+   "narration": "蔺相如持璧睨柱，秦王不敢强夺，璧终完好归赵。",
+   "ambience": [
+    "bell",
+    "wind"
+   ],
+   "imagePrompt": "In a vast palace hall an envoy silhouette stands beside a tall pillar holding a jade disc high, a king seated far away; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "his sleeves tremble, the jade disc glints, incense smoke drifts across the hall, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "zhanguo-09.jpg",
+   "clip": "zhanguo-09.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 10,
+   "sceneId": "zhanguo.quyuan",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "屈原怀沙",
+   "narration": "屈原被放逐，行吟泽畔，终怀石自沉于汨罗。",
+   "ambience": [
+    "water",
+    "marsh-wind"
+   ],
+   "imagePrompt": "A gaunt man silhouette in long robes walks along a reedy riverbank, his hair and sleeves loose in the wind, a vast grey river; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "reeds bend, the river flows, his sleeves and hair stream, mist rises from the water; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "zhanguo-10.jpg",
+   "clip": "zhanguo-10.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 11,
+   "sceneId": "zhanguo.changping",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "长平之战",
+   "narration": "赵括代廉颇，纸上谈兵；长平一役，赵卒四十余万降而被坑。",
+   "ambience": [
+    "wind",
+    "horn"
+   ],
+   "imagePrompt": "A vast empty valley at dusk, broken banners and spears planted in the ground, a blood-red setting sun, crows over the hills; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "crows wheel slowly, torn banners stir, dust drifts, the red sun sinks, the camera pulls back; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "zhanguo-11.jpg",
+   "clip": "zhanguo-11.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 12,
+   "sceneId": "zhanguo.qiefu",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "窃符救赵",
+   "narration": "如姬为信陵君窃得虎符，朱亥椎杀晋鄙，魏兵遂救邯郸。",
+   "ambience": [
+    "wind",
+    "insects"
+   ],
+   "imagePrompt": "A woman silhouette in a dim palace chamber holds out a small tiger-shaped tally to a kneeling nobleman, a single lamp; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the lamp flame flickers, curtains sway, their shadows stretch, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep her silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "zhanguo-12.jpg",
+   "clip": "zhanguo-12.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 13,
+   "sceneId": "zhanguo.libing",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "李冰都江堰",
+   "narration": "李冰凿离堆、作鱼嘴，分岷江之水，灌溉成都平原。",
+   "ambience": [
+    "rushing-water",
+    "wind"
+   ],
+   "imagePrompt": "A great river splitting around a long stone levee at the foot of mountains, workers' silhouettes on the bank; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the river flows and divides, foam drifts, mist rises from the rapids; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "zhanguo-13.jpg",
+   "clip": "zhanguo-13.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 14,
+   "sceneId": "zhanguo.hanfei",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "韩非之死",
+   "narration": "秦王读韩非之书，恨不得见；韩非入秦，却死于狱中。",
+   "ambience": [
+    "drip",
+    "wind"
+   ],
+   "imagePrompt": "A man silhouette sits in a prison cell holding a bamboo scroll, a cup on the floor, a sliver of light through the bars; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "dust floats in the light, the scroll's cords sway, the light slowly dims; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "zhanguo-14.jpg",
+   "clip": "zhanguo-14.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 15,
+   "sceneId": "zhanguo.jingke",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "易水送别",
+   "narration": "易水畔，高渐离击筑，荆轲歌罢，登车不顾。",
+   "ambience": [
+    "water",
+    "wind"
+   ],
+   "imagePrompt": "Mourners in pale robes stand on a misty riverbank, one man silhouette stepping onto a chariot, another playing a zither-like instrument; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "wind moves the pale robes, the river flows, mist drifts, the chariot begins to roll away; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "zhanguo-15.jpg",
+   "clip": "zhanguo-15.mp4",
+   "status": "pending"
+  }
+ ]
+}

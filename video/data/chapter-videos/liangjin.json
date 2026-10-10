@@ -1,0 +1,250 @@
+{
+ "version": 1,
+ "chapter": "liangjin",
+ "title": {
+  "zh": "两晋",
+  "en": "Western and Eastern Jin"
+ },
+ "pipeline": "story tree -> opening shots -> videoPrompt; see video/docs/chapter-videos.md",
+ "format": {
+  "aspectRatio": "16:9",
+  "resolution": [
+   1280,
+   720
+  ],
+  "fps": 24
+ },
+ "titleCard": {
+  "zh": "两晋",
+  "seal": "开卷",
+  "durationSec": 3
+ },
+ "closingHoldSec": 3,
+ "totalSec": 79,
+ "style": "high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame",
+ "negative": "other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+ "motionRule": "richer but controlled motion (wind, mist, ink spread, flowing water, banners, slow camera); keep silhouettes consistent, no morphing, no new figures, no text, no fighting contact; only black, grey, paper white and vermilion",
+ "lengthRule": "shots = clamp(4 + ceil(scenes/2), 6, 16) = clamp(4 + ceil(12/2), 6, 16) = 10; 8 s each",
+ "rawDir": "/workspace/chapter-video/liangjin/v2",
+ "clipsVersion": 2,
+ "grade": "palette lock (video/tools/chapter_grade.py): every pixel goes to the ink #141414 -> paper #eceae4 grey ramp by luminance, except hues near vermilion #b3241c (re-tinted to vermilion); saturated orange is pulled to vermilion, pale orange, yellow, blue and every other hue go to grey",
+ "audio": {
+  "narration": {
+   "engine": "edge-tts",
+   "voice": "zh-CN-YunjianNeural",
+   "rate": "-8%",
+   "pitch": "-2Hz",
+   "offsetSec": 0.6
+  },
+  "music": "original procedural bed (numpy): low D drone, sparse plucked D-major-pentatonic notes (guqin-like), deep drum on the title card",
+  "loudness": "-16 LUFS integrated, -1.5 dBTP; AAC 160k stereo; music and ambience duck about 8 dB under narration"
+ },
+ "shots": [
+  {
+   "n": 1,
+   "sceneId": "liangjin.zhouchu",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "周处除三害",
+   "narration": "周处射虎斩蛟，三日三夜不归；回来方知自己也是一害。",
+   "ambience": [
+    "water",
+    "birds"
+   ],
+   "imagePrompt": "A young man silhouette standing on a riverbank in morning mist after a long struggle, the river calm, a tiger silhouette lying still on the far hill; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "mist drifts, the river flows, his robe drips and stirs, birds fly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liangjin-01.jpg",
+   "clip": "liangjin-01.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 2,
+   "sceneId": "liangjin.doufu",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "石崇斗富",
+   "narration": "王恺以二尺珊瑚树示人，石崇以铁如意击碎，取出更高的六七株。",
+   "ambience": [
+    "bell",
+    "wind"
+   ],
+   "imagePrompt": "A lavish hall in silhouette, a branching vermilion coral tree on a stand, broken branches on the floor, two nobles facing each other; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "lamp flames flicker, silk curtains drift, the coral fragments glint; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liangjin-02.jpg",
+   "clip": "liangjin-02.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 3,
+   "sceneId": "liangjin.bawang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "八王之乱",
+   "narration": "宗室诸王相攻十六年，骨肉相残，中原元气大伤。",
+   "ambience": [
+    "wind",
+    "horn"
+   ],
+   "imagePrompt": "A ruined palace courtyard, banners of rival armies on the surrounding walls, smoke rising in the distance; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "smoke rises slowly, banners ripple, crows circle; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liangjin-03.jpg",
+   "clip": "liangjin-03.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 4,
+   "sceneId": "liangjin.yongjia",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "永嘉之乱",
+   "narration": "永嘉五年，匈奴攻陷洛阳，晋怀帝被俘，衣冠南渡。",
+   "ambience": [
+    "fire",
+    "wind",
+    "crowd"
+   ],
+   "imagePrompt": "A burning city in the distance at dusk, long lines of refugees with carts walking south toward a river; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "smoke rises from the city, the refugees move slowly, dust and wind; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liangjin-04.jpg",
+   "clip": "liangjin-04.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 5,
+   "sceneId": "liangjin.zuti",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "中流击楫",
+   "narration": "祖逖渡江北伐，中流击楫而誓：不能清中原而复济者，有如大江！",
+   "ambience": [
+    "water",
+    "oars",
+    "wind"
+   ],
+   "imagePrompt": "A boat in the middle of a wide river, a man silhouette standing at the bow striking an oar against the gunwale, banners; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the river flows, the boat rocks, wind fills the banner, spray drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liangjin-05.jpg",
+   "clip": "liangjin-05.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 6,
+   "sceneId": "liangjin.lanting",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "兰亭修禊",
+   "narration": "永和九年暮春，王羲之与名士修禊兰亭，曲水流觞。",
+   "ambience": [
+    "water",
+    "birds",
+    "wind"
+   ],
+   "imagePrompt": "Scholars' silhouettes seated along a winding stream in a bamboo grove, a wine cup floating on the water; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the cup drifts slowly along the stream, bamboo sways, sleeves stir; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liangjin-06.jpg",
+   "clip": "liangjin-06.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 7,
+   "sceneId": "liangjin.huanwen",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "木犹如此",
+   "narration": "桓温北伐经金城，见旧日手植柳已十围，叹：木犹如此，人何以堪！",
+   "ambience": [
+    "wind",
+    "birds"
+   ],
+   "imagePrompt": "An armoured general silhouette stands beneath a huge old willow by a road, holding a branch, troops waiting behind; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "willow branches sway, leaves drift, his cloak stirs; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liangjin-07.jpg",
+   "clip": "liangjin-07.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 8,
+   "sceneId": "liangjin.feishui",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "淝水之战",
+   "narration": "苻坚投鞭断流，谢玄八千渡淝水，秦军溃退，风声鹤唳。",
+   "ambience": [
+    "wind",
+    "birds",
+    "marsh-wind"
+   ],
+   "imagePrompt": "A vast army in retreat on a windy plain at dusk, banners fallen, cranes flying over the reeds, a river behind; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the cranes fly, reeds and grass bend in the wind, the fallen banners stir; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liangjin-08.jpg",
+   "clip": "liangjin-08.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 9,
+   "sceneId": "liangjin.taoqian",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "归去来兮",
+   "narration": "陶渊明不为五斗米折腰，辞官归田，采菊东篱下。",
+   "ambience": [
+    "birds",
+    "wind",
+    "grass"
+   ],
+   "imagePrompt": "A man silhouette walks along a field path toward a cottage with a fence of chrysanthemums, southern mountains beyond; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "grass waves, clouds drift over the mountains, birds return home; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liangjin-09.jpg",
+   "clip": "liangjin-09.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 10,
+   "sceneId": "liangjin.liuyu",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "气吞万里",
+   "narration": "刘裕两度北伐，灭南燕、后秦，收复长安，气吞万里如虎。",
+   "ambience": [
+    "oars",
+    "water",
+    "war-drums"
+   ],
+   "imagePrompt": "A fleet of war boats sails up a river between steep cliffs toward an ancient city, a general silhouette at the bow; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "sails swell, oars dip, mist drifts along the cliffs; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "liangjin-10.jpg",
+   "clip": "liangjin-10.mp4",
+   "status": "pending"
+  }
+ ]
+}

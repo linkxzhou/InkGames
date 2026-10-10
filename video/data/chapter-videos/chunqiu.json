@@ -1,0 +1,306 @@
+{
+ "version": 1,
+ "chapter": "chunqiu",
+ "title": {
+  "zh": "春秋",
+  "en": "Spring and Autumn"
+ },
+ "pipeline": "story tree -> opening shots -> videoPrompt; see video/docs/chapter-videos.md",
+ "format": {
+  "aspectRatio": "16:9",
+  "resolution": [
+   1280,
+   720
+  ],
+  "fps": 24
+ },
+ "titleCard": {
+  "zh": "春秋",
+  "seal": "开卷",
+  "durationSec": 3
+ },
+ "closingHoldSec": 3,
+ "totalSec": 101,
+ "style": "high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame",
+ "negative": "other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+ "motionRule": "richer but controlled motion (wind, mist, ink spread, flowing water, banners, slow camera); keep silhouettes consistent, no morphing, no new figures, no text, no fighting contact; only black, grey, paper white and vermilion",
+ "lengthRule": "shots = clamp(4 + ceil(scenes/2), 6, 16) = clamp(4 + ceil(18/2), 6, 16) = 13; 8 s each",
+ "rawDir": "/workspace/chapter-video/chunqiu/v2",
+ "clipsVersion": 2,
+ "grade": "palette lock (video/tools/chapter_grade.py): every pixel goes to the ink #141414 -> paper #eceae4 grey ramp by luminance, except hues near vermilion #b3241c (re-tinted to vermilion); saturated orange is pulled to vermilion, pale orange, yellow, blue and every other hue go to grey",
+ "audio": {
+  "narration": {
+   "engine": "edge-tts",
+   "voice": "zh-CN-YunjianNeural",
+   "rate": "-8%",
+   "pitch": "-2Hz",
+   "offsetSec": 0.6
+  },
+  "music": "original procedural bed (numpy): low D drone, sparse plucked D-major-pentatonic notes (guqin-like), deep drum on the title card",
+  "loudness": "-16 LUFS integrated, -1.5 dBTP; AAC 160k stereo; music and ambience duck about 8 dB under narration"
+ },
+ "shots": [
+  {
+   "n": 1,
+   "sceneId": "chunqiu.zhengbo",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "掘地见母",
+   "narration": "庄公誓不见母，又悔，掘地及泉，隧而相见。",
+   "ambience": [
+    "drip",
+    "wind"
+   ],
+   "imagePrompt": "A man and an older woman silhouette meet in a dim underground tunnel lit from an opening above, water seeping down the walls; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "light drifts down through dust, water drips, their robes stir, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep her silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "chunqiu-01.jpg",
+   "clip": "chunqiu-01.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 2,
+   "sceneId": "chunqiu.huangong",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "齐桓公九合诸侯",
+   "narration": "管仲相齐，桓公九合诸侯，一匡天下，尊王攘夷。",
+   "ambience": [
+    "wind",
+    "bell"
+   ],
+   "imagePrompt": "Many lords' silhouettes in rows on an altar mound beneath tall banners, one central figure raising a cup; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "banners ripple in the wind, incense smoke drifts across, the rows bow slowly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "chunqiu-02.jpg",
+   "clip": "chunqiu-02.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 3,
+   "sceneId": "chunqiu.changshao",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "一鼓作气",
+   "narration": "曹刿说：一鼓作气，再而衰，三而竭。鲁军以此胜齐。",
+   "ambience": [
+    "war-drums",
+    "wind"
+   ],
+   "imagePrompt": "A large war drum on a frame in the foreground, beyond it two armies facing each other across an empty field, a figure on a chariot rail watching; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the drum skin trembles after a beat, dust drifts between the armies, banners stir, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "chunqiu-03.jpg",
+   "clip": "chunqiu-03.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 4,
+   "sceneId": "chunqiu.hongshui",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "泓水之战",
+   "narration": "楚军半渡，宋襄公说不鼓不成列，等敌列阵才战，大败。",
+   "ambience": [
+    "water",
+    "wind"
+   ],
+   "imagePrompt": "An army wades across a grey river while on the near bank a ruler silhouette raises a hand to hold back his waiting ranks; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "river water churns around the wading ranks, banners on the near bank stir, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "chunqiu-04.jpg",
+   "clip": "chunqiu-04.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 5,
+   "sceneId": "chunqiu.jiezitui",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "绵上之火",
+   "narration": "介子推不言禄，与母隐于绵山，后世以寒食纪念他。",
+   "ambience": [
+    "fire",
+    "wind",
+    "birds"
+   ],
+   "imagePrompt": "A pine-covered mountain with a thin column of smoke rising from the forest, an old woman and a man silhouette walking up a path; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "smoke drifts up and spreads into the sky, pine branches sway, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "chunqiu-05.jpg",
+   "clip": "chunqiu-05.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 6,
+   "sceneId": "chunqiu.chengpu",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "退避三舍",
+   "narration": "晋文公践当年之诺，退避三舍，然后在城濮大败楚军。",
+   "ambience": [
+    "hooves",
+    "wind",
+    "war-drums"
+   ],
+   "imagePrompt": "A long column of chariots and soldiers marching away from the viewer down a road, banners, another army waiting far off in the mist; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the column recedes slowly, dust rises behind the wheels, banners ripple; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "chunqiu-06.jpg",
+   "clip": "chunqiu-06.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 7,
+   "sceneId": "chunqiu.wending",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "楚庄王问鼎",
+   "narration": "楚庄王观兵周郊，问鼎之大小轻重；王孙满答：在德不在鼎。",
+   "ambience": [
+    "wind",
+    "bell"
+   ],
+   "imagePrompt": "A massive bronze cauldron silhouette in an empty courtyard, two figures facing each other on either side, one armoured, one in court robes; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "smoke from braziers drifts across, their sleeves stir, a slow push in toward the cauldron; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "chunqiu-07.jpg",
+   "clip": "chunqiu-07.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 8,
+   "sceneId": "chunqiu.zhaoshi",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "赵氏孤儿",
+   "narration": "下宫之难，赵氏几乎灭门，孤儿赵武被藏匿得活。",
+   "ambience": [
+    "rain",
+    "wind"
+   ],
+   "imagePrompt": "A man silhouette carrying a swaddled infant hurries out of a dark mansion gate at night, lanterns as vermilion dots behind; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the lantern dots flicker, his robe streams, rain mist drifts, he steps forward; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "chunqiu-08.jpg",
+   "clip": "chunqiu-08.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 9,
+   "sceneId": "chunqiu.zhaoguan",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "伍子胥过昭关",
+   "narration": "伍子胥出奔，过昭关，后来引吴兵入郢，报了父兄之仇。",
+   "ambience": [
+    "wind",
+    "fog-wind"
+   ],
+   "imagePrompt": "A lone traveller silhouette with a sword on his back stands before a narrow mountain pass gate at dawn, mist in the gorge; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "mist flows through the pass, his cloak and hair stream in the wind, he steps forward; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "chunqiu-09.jpg",
+   "clip": "chunqiu-09.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 10,
+   "sceneId": "chunqiu.zhuanzhu",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "鱼腹藏剑",
+   "narration": "公子光设宴，专诸把短剑藏在鱼腹中献上。",
+   "ambience": [
+    "fire",
+    "crowd"
+   ],
+   "imagePrompt": "A servant silhouette carries a large platter with a whole fish down a long candlelit hall toward a seated king, guards lining the walls; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "candle flames waver, steam rises from the fish, the guards stand still, a slow push in that ends on a single ink splash held still; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "chunqiu-10.jpg",
+   "clip": "chunqiu-10.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 11,
+   "sceneId": "chunqiu.laozi",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "老子出关",
+   "narration": "老子西出函谷，关令尹喜请他著书，于是留下五千言。",
+   "ambience": [
+    "wind",
+    "ox"
+   ],
+   "imagePrompt": "An old man silhouette riding an ox approaches a pass gate in the mountains, long mist streaming in from the east; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "mist streams through the pass, the ox walks slowly, the old man's sleeves stir; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "chunqiu-11.jpg",
+   "clip": "chunqiu-11.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 12,
+   "sceneId": "chunqiu.wuyue",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "卧薪尝胆",
+   "narration": "越王勾践败于会稽，卧薪尝胆，十年生聚，十年教训。",
+   "ambience": [
+    "rain",
+    "wind"
+   ],
+   "imagePrompt": "A king silhouette sits alone in a bare hut, a gall bladder hanging from the beam, firewood stacked as a bed, rain outside; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the hanging gall sways slightly, rain streaks past the doorway, the candle flame flickers; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "chunqiu-12.jpg",
+   "clip": "chunqiu-12.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 13,
+   "sceneId": "chunqiu.chencai",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "陈蔡绝粮",
+   "narration": "孔子困于陈蔡之间，绝粮七日，仍讲诵弦歌不衰。",
+   "ambience": [
+    "wind",
+    "grass"
+   ],
+   "imagePrompt": "An old teacher silhouette seated playing a qin in an open wild field, thin disciples sitting around him, a grey sky; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "wind moves the grass and their sleeves, the teacher's hands move slowly over the strings, clouds drift; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "chunqiu-13.jpg",
+   "clip": "chunqiu-13.mp4",
+   "status": "pending"
+  }
+ ]
+}

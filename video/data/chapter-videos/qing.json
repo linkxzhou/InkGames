@@ -1,0 +1,372 @@
+{
+ "version": 1,
+ "chapter": "qing",
+ "title": {
+  "zh": "清",
+  "en": "Qing"
+ },
+ "pipeline": "story tree -> opening shots -> videoPrompt; see video/docs/chapter-videos.md",
+ "format": {
+  "aspectRatio": "16:9",
+  "resolution": [
+   1280,
+   720
+  ],
+  "fps": 24
+ },
+ "titleCard": {
+  "zh": "清",
+  "seal": "开卷",
+  "durationSec": 3
+ },
+ "closingHoldSec": 3,
+ "totalSec": 123,
+ "style": "high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame",
+ "negative": "other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+ "motionRule": "richer but controlled motion (wind, mist, ink spread, flowing water, banners, slow camera); keep silhouettes consistent, no morphing, no new figures, no text, no fighting contact; only black, grey, paper white and vermilion",
+ "lengthRule": "shots = clamp(4 + ceil(scenes/2), 6, 16) = clamp(4 + ceil(26/2), 6, 16) = 16; 8 s each",
+ "rawDir": "/workspace/chapter-video/qing/v2",
+ "clipsVersion": 2,
+ "grade": "palette lock (video/tools/chapter_grade.py): every pixel goes to the ink #141414 -> paper #eceae4 grey ramp by luminance, except hues near vermilion #b3241c (re-tinted to vermilion); saturated orange is pulled to vermilion, pale orange, yellow, blue and every other hue go to grey",
+ "audio": {
+  "narration": {
+   "engine": "edge-tts",
+   "voice": "zh-CN-YunjianNeural",
+   "rate": "-8%",
+   "pitch": "-2Hz",
+   "offsetSec": 0.6
+  },
+  "music": "original procedural bed (numpy): low D drone, sparse plucked D-major-pentatonic notes (guqin-like), deep drum on the title card",
+  "loudness": "-16 LUFS integrated, -1.5 dBTP; AAC 160k stereo; music and ambience duck about 8 dB under narration"
+ },
+ "shots": [
+  {
+   "n": 1,
+   "sceneId": "qing.shanhaiguan",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "山海关",
+   "narration": "吴三桂开山海关，与清军合击李自成于一片石。",
+   "ambience": [
+    "wind",
+    "hooves",
+    "waves"
+   ],
+   "imagePrompt": "The great pass fortress where the wall meets the sea, its gates opening, cavalry pouring through, a dust storm; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the dust storm sweeps, banners ripple, the cavalry moves through the gate; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "qing-01.jpg",
+   "clip": "qing-01.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 2,
+   "sceneId": "qing.yangzhou",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "扬州",
+   "narration": "史可法死守扬州，城破殉国，扬州遭屠十日。",
+   "ambience": [
+    "rain",
+    "wind"
+   ],
+   "imagePrompt": "A ruined city wall in rain at dusk, a lone fallen banner on the rampart, smoke and ash drifting; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "rain falls, ash drifts, the torn banner stirs, the sky darkens; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "qing-02.jpg",
+   "clip": "qing-02.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 3,
+   "sceneId": "qing.zhengchenggong",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "郑成功收复台湾",
+   "narration": "郑成功率舰队乘潮驶入鹿耳门，收复台湾。",
+   "ambience": [
+    "waves",
+    "war-drums",
+    "oars"
+   ],
+   "imagePrompt": "A fleet sailing through a narrow channel on a rising tide toward a coastal fort, a commander silhouette at the bow; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the waves rise, sails swell, the ships glide forward, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "qing-03.jpg",
+   "clip": "qing-03.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 4,
+   "sceneId": "qing.aobai",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "少年康熙擒鳌拜",
+   "narration": "少年康熙以布库少年为伴，一举擒下权臣鳌拜。",
+   "ambience": [
+    "wind",
+    "bell"
+   ],
+   "imagePrompt": "A palace hall, a teenage emperor silhouette seated, a group of young wrestlers standing, a large powerful minister entering through the door; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "light spills in through the door, curtains sway, the youths shift their stance, the frame holds; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "qing-04.jpg",
+   "clip": "qing-04.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 5,
+   "sceneId": "qing.sanfan",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "康熙平三藩",
+   "narration": "康熙平定三藩，收复台湾，又在雅克萨击退沙俄。",
+   "ambience": [
+    "snow-wind",
+    "war-drums"
+   ],
+   "imagePrompt": "A wooden frontier fort on a frozen river in snow, cannon smoke, troops' silhouettes around it; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "snow falls, smoke drifts, banners ripple; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "qing-05.jpg",
+   "clip": "qing-05.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 6,
+   "sceneId": "qing.qianlong",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "乾隆南巡",
+   "narration": "乾隆六下江南，盛世繁华之下，和珅贪墨成山。",
+   "ambience": [
+    "water",
+    "crowd",
+    "oars"
+   ],
+   "imagePrompt": "A vast imperial barge procession on a canal through a southern water town, crowds on the bridges; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the barges glide, the crowds sway, willows sway, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "qing-06.jpg",
+   "clip": "qing-06.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 7,
+   "sceneId": "qing.hongloumeng",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "曹雪芹，红楼梦",
+   "narration": "曹雪芹在西山著书，满纸荒唐言，一把辛酸泪。",
+   "ambience": [
+    "wind",
+    "insects"
+   ],
+   "imagePrompt": "A poor writer silhouette in a hut in the western hills writing by a small window, a crumbling garden pavilion in the mist outside; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "mist drifts outside, the brush moves, the lamp flickers, leaves fall; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "qing-07.jpg",
+   "clip": "qing-07.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 8,
+   "sceneId": "qing.malgaerni",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "马戛尔尼使团",
+   "narration": "英国马戛尔尼使团来华，乾隆答以天朝物产丰盈，无所不有。",
+   "ambience": [
+    "wind",
+    "bell"
+   ],
+   "imagePrompt": "A foreign envoy silhouette in a tricorn hat and long coat stands with gifts, a large globe and a telescope, before a distant seated emperor in a great tent; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "wind moves the tent, the globe turns slightly, officials bow; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "qing-08.jpg",
+   "clip": "qing-08.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 9,
+   "sceneId": "qing.humen",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "虎门销烟",
+   "narration": "林则徐在虎门海滩挖池，用石灰销毁鸦片两万余箱。",
+   "ambience": [
+    "waves",
+    "crowd",
+    "fire"
+   ],
+   "imagePrompt": "Large pits on a beach with white smoke and steam rising, workers' silhouettes tipping chests, an official watching, the sea beyond; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "steam and smoke billow up, waves roll in, the crowd watches; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "qing-09.jpg",
+   "clip": "qing-09.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 10,
+   "sceneId": "qing.taiping",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "天京陷落",
+   "narration": "太平天国定都天京，十余年后天京陷落，死者无数。",
+   "ambience": [
+    "fire",
+    "water",
+    "horn"
+   ],
+   "imagePrompt": "A great walled city on a wide river at dusk under black smoke, its gates breached, the river below; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "smoke billows, the river flows, banners fall slowly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "qing-10.jpg",
+   "clip": "qing-10.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 11,
+   "sceneId": "qing.yuanmingyuan",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "火烧圆明园",
+   "narration": "英法联军火烧圆明园，万园之园化为焦土。",
+   "ambience": [
+    "fire",
+    "wind",
+    "water"
+   ],
+   "imagePrompt": "Ornate garden palaces and a European-style stone hall burning across a lake at night, black smoke; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "flames rise, smoke billows over the lake, ash drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "qing-11.jpg",
+   "clip": "qing-11.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 12,
+   "sceneId": "qing.zuozongtang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "左宗棠抬棺出关",
+   "narration": "左宗棠年近七十，抬着棺材出关，收复新疆。",
+   "ambience": [
+    "wind",
+    "hooves"
+   ],
+   "imagePrompt": "An old general silhouette on horseback leading a column through a desert pass, a coffin carried behind him, willows along the road; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "sand blows, the column moves forward, willow branches sway; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "qing-12.jpg",
+   "clip": "qing-12.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 13,
+   "sceneId": "qing.jiawu",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "黄海海战",
+   "narration": "黄海海战，致远舰弹尽，邓世昌下令撞向敌舰，舰沉殉国。",
+   "ambience": [
+    "waves",
+    "fire",
+    "horn"
+   ],
+   "imagePrompt": "An ironclad warship silhouette with two funnels pushing forward through heavy smoke on a grey sea, listing, vermilion fire on deck; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the ship cuts forward, smoke streams, waves break, the frame holds still; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "qing-13.jpg",
+   "clip": "qing-13.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 14,
+   "sceneId": "qing.wuxu",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "戊戌变法",
+   "narration": "百日维新失败，谭嗣同不肯出走：各国变法，无不从流血而成。",
+   "ambience": [
+    "wind",
+    "birds"
+   ],
+   "imagePrompt": "A scholar silhouette standing calmly in a prison courtyard at dawn, crows on the wall; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the crows lift off, wind moves his robe, the light grows; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "qing-14.jpg",
+   "clip": "qing-14.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 15,
+   "sceneId": "qing.qiujin",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "秋瑾",
+   "narration": "秋瑾在绍兴就义，留下：秋风秋雨愁煞人。",
+   "ambience": [
+    "rain",
+    "wind"
+   ],
+   "imagePrompt": "A woman silhouette in a long coat holding a sword stands on a misty lakeshore in autumn rain, willows; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "rain falls, willow branches sway, her coat stirs; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep her silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "qing-15.jpg",
+   "clip": "qing-15.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 16,
+   "sceneId": "qing.wuchang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "武昌起义",
+   "narration": "武昌城头一声枪响，各省响应，清帝退位，帝制终结。",
+   "ambience": [
+    "wind",
+    "crowd",
+    "war-drums"
+   ],
+   "imagePrompt": "A river city at night, rebel silhouettes with rifles on the walls, a large vermilion flag rising, dawn breaking; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the flag unfurls in the wind, smoke drifts, the sky slowly brightens; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "qing-16.jpg",
+   "clip": "qing-16.mp4",
+   "status": "pending"
+  }
+ ]
+}

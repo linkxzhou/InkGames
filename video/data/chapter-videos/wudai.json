@@ -1,0 +1,229 @@
+{
+ "version": 1,
+ "chapter": "wudai",
+ "title": {
+  "zh": "五代十国",
+  "en": "Five Dynasties"
+ },
+ "pipeline": "story tree -> opening shots -> videoPrompt; see video/docs/chapter-videos.md",
+ "format": {
+  "aspectRatio": "16:9",
+  "resolution": [
+   1280,
+   720
+  ],
+  "fps": 24
+ },
+ "titleCard": {
+  "zh": "五代十国",
+  "seal": "开卷",
+  "durationSec": 3
+ },
+ "closingHoldSec": 3,
+ "totalSec": 72,
+ "style": "high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame",
+ "negative": "other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+ "motionRule": "richer but controlled motion (wind, mist, ink spread, flowing water, banners, slow camera); keep silhouettes consistent, no morphing, no new figures, no text, no fighting contact; only black, grey, paper white and vermilion",
+ "lengthRule": "shots = clamp(4 + ceil(scenes/2), 6, 16) = clamp(4 + ceil(10/2), 6, 16) = 9; 8 s each",
+ "rawDir": "/workspace/chapter-video/wudai/v2",
+ "clipsVersion": 2,
+ "grade": "palette lock (video/tools/chapter_grade.py): every pixel goes to the ink #141414 -> paper #eceae4 grey ramp by luminance, except hues near vermilion #b3241c (re-tinted to vermilion); saturated orange is pulled to vermilion, pale orange, yellow, blue and every other hue go to grey",
+ "audio": {
+  "narration": {
+   "engine": "edge-tts",
+   "voice": "zh-CN-YunjianNeural",
+   "rate": "-8%",
+   "pitch": "-2Hz",
+   "offsetSec": 0.6
+  },
+  "music": "original procedural bed (numpy): low D drone, sparse plucked D-major-pentatonic notes (guqin-like), deep drum on the title card",
+  "loudness": "-16 LUFS integrated, -1.5 dBTP; AAC 160k stereo; music and ambience duck about 8 dB under narration"
+ },
+ "shots": [
+  {
+   "n": 1,
+   "sceneId": "wudai.zhuwen",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "白马驿之祸",
+   "narration": "朱温在白马驿杀朝臣三十余人，投尸黄河；两年后篡唐。",
+   "ambience": [
+    "water",
+    "wind",
+    "birds"
+   ],
+   "imagePrompt": "A wide grey river at dusk with a lone post-station building on the bank, scattered court tablets lying in the reeds; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the river flows heavily, wind moves the reeds, crows circle; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "wudai-01.jpg",
+   "clip": "wudai-01.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 2,
+   "sceneId": "wudai.sanshi",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "三矢之誓",
+   "narration": "李克用临终授子三支箭，李存勖收藏宗庙，后来一一报仇。",
+   "ambience": [
+    "wind",
+    "bell"
+   ],
+   "imagePrompt": "A young prince silhouette kneels before a shrine holding three arrows, lamp flames, banners outside; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "lamp flames flicker, incense smoke curls, the arrows' feathers stir; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "wudai-02.jpg",
+   "clip": "wudai-02.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 3,
+   "sceneId": "wudai.qianliu",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "钱镠捍海塘",
+   "narration": "钱镠筑捍海塘，相传他命万弩射潮，护住了杭州。",
+   "ambience": [
+    "waves",
+    "rushing-water"
+   ],
+   "imagePrompt": "A great tidal bore rolling up a river mouth toward a long embankment lined with archer silhouettes; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the tidal wave rolls forward, spray rises, the archers stand firm; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "wudai-03.jpg",
+   "clip": "wudai-03.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 4,
+   "sceneId": "wudai.yanyun",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "割让燕云",
+   "narration": "石敬瑭称契丹为父，割燕云十六州，北方门户从此洞开。",
+   "ambience": [
+    "hooves",
+    "wind",
+    "horn"
+   ],
+   "imagePrompt": "A chain of mountain passes and walls under a grey sky, nomad horsemen riding through an open gate, a kneeling figure at the roadside; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the horsemen ride through slowly, dust trails, banners ripple, clouds race; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "wudai-04.jpg",
+   "clip": "wudai-04.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 5,
+   "sceneId": "wudai.dacaogu",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "打草谷",
+   "narration": "契丹入汴，纵兵四出打草谷，中原百姓流离。",
+   "ambience": [
+    "wind",
+    "fire",
+    "crowd"
+   ],
+   "imagePrompt": "Refugee silhouettes fleeing across a burned plain, distant riders with torches, black smoke; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "smoke drifts, the refugees move slowly, torches flicker far away; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "wudai-05.jpg",
+   "clip": "wudai-05.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 6,
+   "sceneId": "wudai.gaoping",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "高平之战",
+   "narration": "周世宗亲临高平，右军溃退，他冒矢石督战，反败为胜。",
+   "ambience": [
+    "war-drums",
+    "hooves",
+    "wind"
+   ],
+   "imagePrompt": "A ruler silhouette on horseback on a hill holding a banner while arrows pass overhead as thin grey lines, the army rallying below; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the banner ripples, arrows streak past slowly, dust rolls; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "wudai-06.jpg",
+   "clip": "wudai-06.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 7,
+   "sceneId": "wudai.chenqiao",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "陈桥兵变",
+   "narration": "陈桥驿夜里，将士把黄袍披在赵匡胤身上。",
+   "ambience": [
+    "crowd",
+    "wind",
+    "war-drums"
+   ],
+   "imagePrompt": "At dawn in a camp, soldiers crowd around a man silhouette as a long imperial robe rendered in vermilion is draped on his shoulders; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the robe billows, the crowd kneels in a wave, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "wudai-07.jpg",
+   "clip": "wudai-07.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 8,
+   "sceneId": "wudai.liyu",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "李煜，春花秋月",
+   "narration": "南唐后主李煜，国亡被俘，写下：问君能有几多愁。",
+   "ambience": [
+    "water",
+    "wind"
+   ],
+   "imagePrompt": "A man silhouette leans on a balcony rail at night gazing at the moon over a river flowing east, a small courtyard; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the river flows east, moonlit mist drifts, his sleeves stir; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "wudai-08.jpg",
+   "clip": "wudai-08.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 9,
+   "sceneId": "wudai.hanxizai",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "韩熙载夜宴",
+   "narration": "韩熙载夜宴宾客，纵情声色；相传后主派画师潜入，绘下夜宴图。",
+   "ambience": [
+    "crowd",
+    "wind"
+   ],
+   "imagePrompt": "A night banquet behind screens, a host silhouette seated, musicians and dancers, a painter half hidden behind a screen; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "lamplight flickers, the dancers' sleeves swirl slowly, the painter's brush moves; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "wudai-09.jpg",
+   "clip": "wudai-09.mp4",
+   "status": "pending"
+  }
+ ]
+}

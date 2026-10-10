@@ -1,0 +1,270 @@
+{
+ "version": 1,
+ "chapter": "nanbeichao",
+ "title": {
+  "zh": "南北朝",
+  "en": "Northern and Southern Dynasties"
+ },
+ "pipeline": "story tree -> opening shots -> videoPrompt; see video/docs/chapter-videos.md",
+ "format": {
+  "aspectRatio": "16:9",
+  "resolution": [
+   1280,
+   720
+  ],
+  "fps": 24
+ },
+ "titleCard": {
+  "zh": "南北朝",
+  "seal": "开卷",
+  "durationSec": 3
+ },
+ "closingHoldSec": 3,
+ "totalSec": 86,
+ "style": "high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame",
+ "negative": "other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+ "motionRule": "richer but controlled motion (wind, mist, ink spread, flowing water, banners, slow camera); keep silhouettes consistent, no morphing, no new figures, no text, no fighting contact; only black, grey, paper white and vermilion",
+ "lengthRule": "shots = clamp(4 + ceil(scenes/2), 6, 16) = clamp(4 + ceil(14/2), 6, 16) = 11; 8 s each",
+ "rawDir": "/workspace/chapter-video/nanbeichao/v2",
+ "clipsVersion": 2,
+ "grade": "palette lock (video/tools/chapter_grade.py): every pixel goes to the ink #141414 -> paper #eceae4 grey ramp by luminance, except hues near vermilion #b3241c (re-tinted to vermilion); saturated orange is pulled to vermilion, pale orange, yellow, blue and every other hue go to grey",
+ "audio": {
+  "narration": {
+   "engine": "edge-tts",
+   "voice": "zh-CN-YunjianNeural",
+   "rate": "-8%",
+   "pitch": "-2Hz",
+   "offsetSec": 0.6
+  },
+  "music": "original procedural bed (numpy): low D drone, sparse plucked D-major-pentatonic notes (guqin-like), deep drum on the title card",
+  "loudness": "-16 LUFS integrated, -1.5 dBTP; AAC 160k stereo; music and ambience duck about 8 dB under narration"
+ },
+ "shots": [
+  {
+   "n": 1,
+   "sceneId": "nanbeichao.changchou",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "唱筹量沙",
+   "narration": "檀道济军中缺粮，夜里唱筹量沙，以米覆沙，魏军不敢追。",
+   "ambience": [
+    "fire",
+    "wind",
+    "crowd"
+   ],
+   "imagePrompt": "A night camp, soldiers' silhouettes measuring heaps of sand with baskets by torchlight, enemy scouts watching from a hill; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "torch flames flicker, sand pours from the baskets, wind moves the tents; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nanbeichao-01.jpg",
+   "clip": "nanbeichao-01.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 2,
+   "sceneId": "nanbeichao.yuanjia",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "元嘉草草",
+   "narration": "元嘉北伐草草失败，拓跋焘饮马长江，江北一片残破。",
+   "ambience": [
+    "water",
+    "hooves",
+    "wind"
+   ],
+   "imagePrompt": "Cavalry silhouettes water their horses at the north bank of a vast river, smoke rising from burned villages behind them; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the horses drink, the water ripples, smoke drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nanbeichao-02.jpg",
+   "clip": "nanbeichao-02.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 3,
+   "sceneId": "nanbeichao.mulan",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "木兰从军",
+   "narration": "木兰停下织机，买了骏马鞍鞯，替父从军万里。",
+   "ambience": [
+    "hooves",
+    "wind",
+    "birds"
+   ],
+   "imagePrompt": "A young woman silhouette in a short tunic leads a horse out of a village gate at dawn, a loom visible through a window behind; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the horse's mane stirs, her tunic and hair move in the wind, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep her silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nanbeichao-03.jpg",
+   "clip": "nanbeichao-03.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 4,
+   "sceneId": "nanbeichao.cuihao",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "国史之狱",
+   "narration": "崔浩修国史，直书拓跋先世，刻石立于通衢，终遭灭族。",
+   "ambience": [
+    "wind",
+    "birds"
+   ],
+   "imagePrompt": "A field of tall blank stone steles beside a road, an old scholar silhouette in chains led past them; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "dust blows along the road, the line moves slowly, crows take flight; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nanbeichao-04.jpg",
+   "clip": "nanbeichao-04.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 5,
+   "sceneId": "nanbeichao.zuchongzhi",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "祖冲之",
+   "narration": "祖冲之造大明历，又把圆周率推算到小数点后七位。",
+   "ambience": [
+    "insects",
+    "wind"
+   ],
+   "imagePrompt": "A scholar silhouette at night with counting rods spread on a mat beside a large armillary sphere, stars above; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the stars wheel slowly, the armillary rings turn slightly, the lamp flickers; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nanbeichao-05.jpg",
+   "clip": "nanbeichao-05.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 6,
+   "sceneId": "nanbeichao.xiaowen",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "孝文帝迁都",
+   "narration": "孝文帝以南伐为名迁都洛阳，改汉姓，易汉服，说汉话。",
+   "ambience": [
+    "rain",
+    "hooves"
+   ],
+   "imagePrompt": "A long column of horsemen and carriages travelling south through autumn rain toward a distant city, a young emperor silhouette leading; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "rain falls, the column moves forward, banners droop and stir; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nanbeichao-06.jpg",
+   "clip": "nanbeichao-06.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 7,
+   "sceneId": "nanbeichao.damo",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "梁武帝与达摩",
+   "narration": "梁武帝四次舍身同泰寺；达摩相传与他一语不契，渡江北去。",
+   "ambience": [
+    "water",
+    "bell",
+    "wind"
+   ],
+   "imagePrompt": "A monk silhouette standing on a single reed crossing a wide river in mist, a temple pagoda on the far shore; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "mist drifts, the river flows, his robe stirs, the reed glides slowly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nanbeichao-07.jpg",
+   "clip": "nanbeichao-07.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 8,
+   "sceneId": "nanbeichao.chenqingzhi",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "陈庆之白袍",
+   "narration": "陈庆之率七千白袍军北上，所向披靡：千兵万马避白袍。",
+   "ambience": [
+    "hooves",
+    "wind"
+   ],
+   "imagePrompt": "A column of riders in pale robes outlined in ink rides across a dark grey plain; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the robes stream, dust trails, banners ripple; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nanbeichao-08.jpg",
+   "clip": "nanbeichao-08.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 9,
+   "sceneId": "nanbeichao.yubi",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "玉壁之战",
+   "narration": "高欢围攻玉壁五十日，韦孝宽死守不下，高欢忧愤成疾。",
+   "ambience": [
+    "wind",
+    "war-drums"
+   ],
+   "imagePrompt": "A fortress on a high loess cliff, siege towers and earth mounds below, smoke; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "smoke drifts, the siege towers stand still, dust blows; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nanbeichao-09.jpg",
+   "clip": "nanbeichao-09.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 10,
+   "sceneId": "nanbeichao.houjing",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "侯景之乱",
+   "narration": "侯景围台城，梁武帝饿死宫中，江南繁华化为焦土。",
+   "ambience": [
+    "wind",
+    "fire",
+    "bell"
+   ],
+   "imagePrompt": "A palace city under a dark smoky sky, ruined pagodas, an old emperor silhouette alone in an empty hall; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "smoke drifts through the hall, dust floats, the light fades; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nanbeichao-10.jpg",
+   "clip": "nanbeichao-10.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 11,
+   "sceneId": "nanbeichao.lanling",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "兰陵王入阵",
+   "narration": "兰陵王戴面具入阵，邙山解洛阳之围，齐人作《兰陵王入阵曲》。",
+   "ambience": [
+    "hooves",
+    "war-drums",
+    "horn"
+   ],
+   "imagePrompt": "A warrior silhouette in a fearsome mask on horseback at the head of cavalry beneath city walls, banners; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "his cloak and the horse's mane stream, dust swirls, the frame holds; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nanbeichao-11.jpg",
+   "clip": "nanbeichao-11.mp4",
+   "status": "pending"
+  }
+ ]
+}

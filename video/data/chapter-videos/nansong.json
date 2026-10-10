@@ -1,0 +1,271 @@
+{
+ "version": 1,
+ "chapter": "nansong",
+ "title": {
+  "zh": "南宋",
+  "en": "Southern Song"
+ },
+ "pipeline": "story tree -> opening shots -> videoPrompt; see video/docs/chapter-videos.md",
+ "format": {
+  "aspectRatio": "16:9",
+  "resolution": [
+   1280,
+   720
+  ],
+  "fps": 24
+ },
+ "titleCard": {
+  "zh": "南宋",
+  "seal": "开卷",
+  "durationSec": 3
+ },
+ "closingHoldSec": 3,
+ "totalSec": 86,
+ "style": "high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame",
+ "negative": "other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+ "motionRule": "richer but controlled motion (wind, mist, ink spread, flowing water, banners, slow camera); keep silhouettes consistent, no morphing, no new figures, no text, no fighting contact; only black, grey, paper white and vermilion",
+ "lengthRule": "shots = clamp(4 + ceil(scenes/2), 6, 16) = clamp(4 + ceil(14/2), 6, 16) = 11; 8 s each",
+ "rawDir": "/workspace/chapter-video/nansong/v2",
+ "clipsVersion": 2,
+ "grade": "palette lock (video/tools/chapter_grade.py): every pixel goes to the ink #141414 -> paper #eceae4 grey ramp by luminance, except hues near vermilion #b3241c (re-tinted to vermilion); saturated orange is pulled to vermilion, pale orange, yellow, blue and every other hue go to grey",
+ "audio": {
+  "narration": {
+   "engine": "edge-tts",
+   "voice": "zh-CN-YunjianNeural",
+   "rate": "-8%",
+   "pitch": "-2Hz",
+   "offsetSec": 0.6
+  },
+  "music": "original procedural bed (numpy): low D drone, sparse plucked D-major-pentatonic notes (guqin-like), deep drum on the title card",
+  "loudness": "-16 LUFS integrated, -1.5 dBTP; AAC 160k stereo; music and ambience duck about 8 dB under narration"
+ },
+ "shots": [
+  {
+   "n": 1,
+   "sceneId": "nansong.zongze",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "宗泽三呼过河",
+   "narration": "宗泽守汴京，连上奏请还都北伐，临终三呼：过河！",
+   "ambience": [
+    "wind",
+    "water"
+   ],
+   "imagePrompt": "An old general silhouette on a sickbed facing an open window, beyond it a great river under a grey sky; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "wind blows the curtains, the river flows in the distance, the lamp flickers; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nansong-01.jpg",
+   "clip": "nansong-01.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 2,
+   "sceneId": "nansong.liqingzhao",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "李清照南渡",
+   "narration": "李清照携金石书画南渡，十余车文物一路散失。",
+   "ambience": [
+    "rain",
+    "water"
+   ],
+   "imagePrompt": "A woman silhouette in a boat on a wide river with bundles of scrolls and bronze vessels, rain, a distant burning city; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "rain falls on the water, the boat drifts, mist hangs; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep her silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nansong-02.jpg",
+   "clip": "nansong-02.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 3,
+   "sceneId": "nansong.huangtiandang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "黄天荡",
+   "narration": "韩世忠以八千水军截击金兵于黄天荡，梁夫人亲执桴鼓。",
+   "ambience": [
+    "war-drums",
+    "waves",
+    "wind"
+   ],
+   "imagePrompt": "A woman silhouette beating a large war drum on the deck of a warship, a fleet blocking a wide river, mist; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the drumsticks rise and fall slowly, banners ripple, waves rock the ships; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nansong-03.jpg",
+   "clip": "nansong-03.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 4,
+   "sceneId": "nansong.yuefei",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "精忠岳飞",
+   "narration": "岳飞北伐至朱仙镇，十二道金牌召回，以莫须有之罪被害。",
+   "ambience": [
+    "hooves",
+    "wind",
+    "horn"
+   ],
+   "imagePrompt": "A general silhouette on horseback halts on an autumn plain as a messenger rider arrives with a token, his army behind under banners; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "banners stream, the messenger's horse stamps, dust settles, the general bows his head; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nansong-04.jpg",
+   "clip": "nansong-04.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 5,
+   "sceneId": "nansong.caishi",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "采石矶",
+   "narration": "书生虞允文临危督战，在采石矶大败金海陵王。",
+   "ambience": [
+    "waves",
+    "war-drums",
+    "oars"
+   ],
+   "imagePrompt": "A scholar silhouette in robes on a cliff above a river directing small paddle boats against a great fleet in the mist; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the boats move across, waves rise, banners ripple; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nansong-05.jpg",
+   "clip": "nansong-05.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 6,
+   "sceneId": "nansong.xinqiji",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "辛弃疾五十骑",
+   "narration": "辛弃疾率五十骑突入五万人的金营，擒叛徒张安国南归。",
+   "ambience": [
+    "hooves",
+    "wind"
+   ],
+   "imagePrompt": "A small band of riders galloping out of a vast enemy camp at night, a captive tied on one horse, torches behind; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "the horses gallop, cloaks stream, torches flicker far behind, dust trails; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nansong-06.jpg",
+   "clip": "nansong-06.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 7,
+   "sceneId": "nansong.ehu",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "鹅湖之会",
+   "narration": "朱熹与陆九渊兄弟相会于鹅湖寺，争论为学之方，各持己见。",
+   "ambience": [
+    "birds",
+    "bell",
+    "water"
+   ],
+   "imagePrompt": "Scholar silhouettes seated facing each other in a mountain temple hall, a lake with geese outside; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "geese drift on the lake, incense smoke curls, their sleeves move; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nansong-07.jpg",
+   "clip": "nansong-07.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 8,
+   "sceneId": "nansong.luyou",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "家祭无忘告乃翁",
+   "narration": "陆游临终示儿：王师北定中原日，家祭无忘告乃翁。",
+   "ambience": [
+    "snow-wind",
+    "wind"
+   ],
+   "imagePrompt": "An old man silhouette lying in bed by a window, a young man kneeling beside him, snowy mountains to the north outside; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "snow drifts past the window, the lamp flickers, curtains sway; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nansong-08.jpg",
+   "clip": "nansong-08.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 9,
+   "sceneId": "nansong.diaoyucheng",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "钓鱼城",
+   "narration": "钓鱼城坚守三十六年，蒙哥汗死于城下，上帝折鞭。",
+   "ambience": [
+    "water",
+    "wind",
+    "war-drums"
+   ],
+   "imagePrompt": "A fortress on a steep hill above the confluence of rivers, mist, enemy camps on the far shore; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "mist flows around the cliffs, the rivers flow, banners on the walls ripple; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nansong-09.jpg",
+   "clip": "nansong-09.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 10,
+   "sceneId": "nansong.xiangyang",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "襄樊之战",
+   "narration": "襄阳被围五年多，吕文焕力竭开城，南宋门户洞开。",
+   "ambience": [
+    "wind",
+    "stone",
+    "war-drums"
+   ],
+   "imagePrompt": "A great walled city on a river seen from afar, huge counterweight trebuchets silhouetted on the far bank, smoke; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "smoke drifts, a trebuchet arm slowly rises, the river flows; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nansong-10.jpg",
+   "clip": "nansong-10.mp4",
+   "status": "pending"
+  },
+  {
+   "n": 11,
+   "sceneId": "nansong.yashan",
+   "sourceShots": [
+    2,
+    3
+   ],
+   "durationSec": 8,
+   "zh": "崖山",
+   "narration": "崖山海战，陆秀夫负幼帝投海；文天祥写下：留取丹心照汗青。",
+   "ambience": [
+    "waves",
+    "wind",
+    "horn"
+   ],
+   "imagePrompt": "A sea at dusk filled with abandoned warships, a vermilion setting sun, a lone figure standing on a high stern; high-contrast black-white-red wuxia ink silhouette art (Shadow-Blade-like, simplified), xuan paper #eceae4 ground, flat grey layers #d2d1cc #a8a8a4 #6e6e6c, ink black #141414 and charcoal #3a3a3a silhouettes with angular brush edges and dry-brush flying-white, faceless figures, large empty paper, side view, 16:9; vermilion #b3241c as the only accent, under 10% of the frame. Negative: other colours, gold, Japanese katana, dense fine cun texture strokes, CG gradients, photorealism, 3D render, anime faces, any text, calligraphy, seals, watermark, weapons touching bodies, fighting contact, gore",
+   "motionPrompt": "waves roll, the ships rock, the red sun sinks into the sea, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
+   "still": "nansong-11.jpg",
+   "clip": "nansong-11.mp4",
+   "status": "pending"
+  }
+ ]
+}
