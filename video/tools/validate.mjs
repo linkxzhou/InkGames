@@ -377,7 +377,7 @@ for (const b of bundles) {
     const w = `${where}/${e.outlineId} ${e.scene.id}`;
     const strings = checkStrings(w, e.strings);
     if (!/^\d\d-\d\d$/.test(e.outlineId) || e.outlineId.slice(0, 2) !== String(ch.order).padStart(2, '0')) err(w, '大纲编号与章不符');
-    if (e.scene.when?.start < last - 200) err(w, '场景时间明显早于前一场景，检查排序');
+    if (e.scene.when?.start < last) err(w, '场景须按年代排序：时间早于前一场景');
     last = e.scene.when?.start ?? last;
     checkArtPrompts(w, e.artPrompts, e.scene, e.cast);
     if (e.opening) checkVideoPrompt(w, e.videoPrompt, e.cast);
@@ -410,6 +410,50 @@ for (const b of bundles) {
   if (meta && (meta.v1 !== b.scenes.filter(e => e.v1).length || meta.scenes !== b.scenes.length)) err(where, 'index.json 计数与章节文件不一致');
   if (meta && meta.full !== undefined && meta.full !== b.scenes.filter(fullOf).length) err(where, 'index.json 的 full 计数与章节文件不一致');
   if (meta && meta.outline !== b.scenes.filter(e => !fullOf(e)).length) err(where, 'index.json 的 outline 计数与章节文件不一致');
+}
+
+/* ---------- 审计检查（video/docs/audit-2026-10-10.md）：章节规模、重复与模板化文字 ---------- */
+const SCENES_MIN = 5, SCENES_MAX = 30;
+for (const b of bundles) if (b.scenes.length < SCENES_MIN || b.scenes.length > SCENES_MAX) err(`chapters/${b.chapter.id}`, `每章场景数应在 ${SCENES_MIN}–${SCENES_MAX}：${b.scenes.length}`);
+const seen = new Map();
+const uniq = (kind, text, sid) => {
+  if (!text) return;
+  const k = kind + '\u0000' + text;
+  if (seen.has(k) && seen.get(k) !== sid) err(sid, `${kind}与 ${seen.get(k)} 完全相同：${text.slice(0, 40)}`);
+  else seen.set(k, sid);
+};
+const TAIL = /(汇流|歧出|分岔|与正史汇流|汇回正史)[。！]?$/;
+const META = /玩法|玩家|首版|引擎|关卡/;
+for (const [sid, e] of allScenes) {
+  const S = e.strings?.strings || {};
+  const pre = `scene.${sid}.`;
+  uniq('标题', S[e.scene.title], sid);
+  uniq('标题+副题', `${S[e.scene.title]}|${S[e.scene.subtitle]}`, sid);
+  if (!S[e.scene.title] || !S[e.scene.subtitle]) err(sid, '标题或副题为空');
+  if (e.detail !== 'full') continue;
+  uniq('分叉提示', S[pre + 'fork.prompt'], sid);
+  uniq('正史导语', S[pre + 'canon.intro'], sid);
+  for (const [k, v] of Object.entries(S)) {
+    if (/\.end\.[a-z0-9-]+$/.test(k) && !/whatif$/.test(k)) {
+      uniq('结局文字', v, sid);
+      if (TAIL.test(v)) err(sid, `结局文字以流程标记收尾（汇流/歧出应由 mergeTo/kind 表达）：${k}`);
+    }
+    if ((/^vo\.\d+$/.test(k) || /\.end\.(canon|legend2?)(-alt)?$/.test(k)) && META.test(v)) err(sid, `旁白/结局里混入了制作说明：${k}`);
+    if (/\.pick\.canon$/.test(k) && /《([^》]+)》、?《\1》/.test(v)) err(sid, `出处标签书名重复：${v}`);
+  }
+  for (const s of e.opening?.shots || []) uniq('开场镜头', s.note, sid);
+  for (const n of e.scene.plot?.nodes || []) if (n.gameplay) uniq('玩法目标', n.gameplay.params?.goal, sid);
+}
+// 近似重复：两个场景共用 3 个以上人物且占较小一方的 60% 以上
+const NEAR_OK = new Set(['qin.changcheng|qin.shaqiu', 'qin.fenshu|qin.shaqiu', 'xizhou.hezun|xizhou.zhougong', 'sanguo.chibi|sanguo.dandao', 'wudai.chenqiao|beisong.beijiu', 'shang.tangdao|xia.mingtiao']);  // 秦筑城与沙丘、焚书与沙丘、周公东征与营成周、赤壁与单刀会、陈桥与杯酒、鸣条灭夏与汤祷桑林：同一批人物，不同事件
+const list = [...allScenes.values()];
+for (let i = 0; i < list.length; i++) for (let j = i + 1; j < list.length; j++) {
+  const a = new Set((list[i].cast || []).map(c => c.name)), bn = (list[j].cast || []).map(c => c.name);
+  const shared = bn.filter(n => a.has(n));
+  const small = Math.min(a.size, bn.length);
+  const key = [list[i].scene.id, list[j].scene.id].sort().join('|');
+  if (shared.length >= 3 && shared.length / small >= 0.6 && !NEAR_OK.has(key) && !NEAR_OK.has(list[i].scene.id + '|' + list[j].scene.id))
+    err(key, `疑似近似重复场景，共用人物：${shared.join('、')}（确属不同事件请加入 NEAR_OK 并说明）`);
 }
 if (index.totals.v1 !== v1 || index.totals.outline !== outline || (index.totals.full !== undefined && index.totals.full !== full)) err('index', 'totals 与实际不一致');
 

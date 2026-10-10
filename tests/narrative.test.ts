@@ -32,14 +32,16 @@ describe('history content', () => {
 
   it('loads the chapter index and every bundle', () => {
     expect(index.chapters.length).toBe(21);
-    expect(index.totals.scenes).toBeGreaterThanOrEqual(210);
+    expect(index.totals.scenes).toBeGreaterThanOrEqual(105); // 21 章 × 至少 5 场
     const files = readdirSync(resolve(data, 'chapters')).filter(name => name.endsWith('.json') && name !== 'index.json');
     expect(files.length).toBe(index.chapters.length);
     let total = 0;
     for (const file of files) {
       const bundle = parseChapterBundle(readJson(resolve(data, 'chapters', file)));
       expect(bundle.chapter.id.length).toBeGreaterThan(0);
-      expect(bundle.scenes.length).toBeGreaterThanOrEqual(10);
+      // 每章 5–30 场，按朝代长短与故事多少定（video/docs/chapter-outline.md §21）
+      expect(bundle.scenes.length).toBeGreaterThanOrEqual(5);
+      expect(bundle.scenes.length).toBeLessThanOrEqual(30);
       total += bundle.scenes.length;
     }
     expect(total).toBe(index.totals.scenes);
