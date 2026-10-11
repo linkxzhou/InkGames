@@ -80,7 +80,13 @@
    "still": "liangjin-02.jpg",
    "clip": "liangjin-02.mp4",
    "status": "done",
-   "clipSlowdown": 1.186
+   "clipSlowdown": 1.186,
+   "regenerated": {
+    "date": "2026-10-11",
+    "reason": "anachronism review (/workspace/review/liangjin/sheets/): spiked crown, realistic face",
+    "oldClip": "liangjin-02-v2-old.mp4",
+    "oldStill": "liangjin-02-v2-old.jpg"
+   }
   },
   {
    "n": 3,
@@ -100,7 +106,13 @@
    "motionPrompt": "smoke rises slowly, banners ripple, crows circle; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "liangjin-03.jpg",
    "clip": "liangjin-03.mp4",
-   "status": "done"
+   "status": "done",
+   "regenerated": {
+    "date": "2026-10-11",
+    "reason": "anachronism review (/workspace/review/liangjin/sheets/): European arched windows and battlements",
+    "oldClip": "liangjin-03-v2-old.mp4",
+    "oldStill": "liangjin-03-v2-old.jpg"
+   }
   },
   {
    "n": 4,
@@ -185,7 +197,13 @@
    "still": "liangjin-07.jpg",
    "clip": "liangjin-07.mp4",
    "status": "done",
-   "clipSlowdown": 1.261
+   "clipSlowdown": 1.261,
+   "regenerated": {
+    "date": "2026-10-11",
+    "reason": "anachronism review (/workspace/review/liangjin/sheets/): circular banner emblems, plumed western helmets, bossed shields",
+    "oldClip": "liangjin-07-v2-old.mp4",
+    "oldStill": "liangjin-07-v2-old.jpg"
+   }
   },
   {
    "n": 8,
@@ -263,7 +281,7 @@
   "narration": true,
   "status": "done",
   "crf": 29,
-  "sizeBytes": 29671337,
+  "sizeBytes": 27426042,
   "flowBlendSec": 0.5,
   "flowInBlendSec": 0.0,
   "narrationRate": "-29%",
@@ -289,7 +307,8 @@
     "first": "liangjin-first-02.jpg"
    },
    "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
-   "durationSec": 3.042
+   "durationSec": 3.042,
+   "note": "regenerated 2026-10-11 for the new shots 02/03/07 (old clip kept as liangjin-tr-01-02-stale.mp4)"
   },
   {
    "from": 2,
@@ -300,7 +319,8 @@
     "first": "liangjin-first-03.jpg"
    },
    "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
-   "durationSec": 3.042
+   "durationSec": 3.042,
+   "note": "regenerated 2026-10-11 for the new shots 02/03/07 (old clip kept as liangjin-tr-02-03-stale.mp4)"
   },
   {
    "from": 3,
@@ -311,7 +331,8 @@
     "first": "liangjin-first-04.jpg"
    },
    "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
-   "durationSec": 3.042
+   "durationSec": 3.042,
+   "note": "regenerated 2026-10-11 for the new shots 02/03/07 (old clip kept as liangjin-tr-03-04-stale.mp4)"
   },
   {
    "from": 4,
@@ -322,7 +343,8 @@
     "first": "liangjin-first-05.jpg"
    },
    "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
-   "durationSec": 3.042
+   "durationSec": 3.042,
+   "note": "regenerated 2026-10-11 for the new shots 02/03/07 (old clip kept as liangjin-tr-04-05-stale.mp4)"
   },
   {
    "from": 5,
@@ -344,7 +366,8 @@
     "first": "liangjin-first-07.jpg"
    },
    "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
-   "durationSec": 3.042
+   "durationSec": 3.042,
+   "note": "regenerated 2026-10-11 for the new shots 02/03/07 (old clip kept as liangjin-tr-06-07-stale.mp4)"
   },
   {
    "from": 7,
@@ -355,7 +378,8 @@
     "first": "liangjin-first-08.jpg"
    },
    "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
-   "durationSec": 3.042
+   "durationSec": 3.042,
+   "note": "regenerated 2026-10-11 for the new shots 02/03/07 (old clip kept as liangjin-tr-07-08-stale.mp4)"
   },
   {
    "from": 8,
