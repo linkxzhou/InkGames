@@ -34,7 +34,7 @@ window.CHAPTER_VIDEOS = {
    "mp4": "assets/chapter-videos/qin.mp4",
    "poster": "assets/chapter-videos/qin-poster.jpg",
    "posterWebp": "assets/chapter-videos/qin-poster.webp",
-   "durationSec": 72.42,
+   "durationSec": 100.33,
    "shots": 9,
    "audio": true
   },
