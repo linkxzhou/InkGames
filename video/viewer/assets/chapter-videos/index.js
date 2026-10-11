@@ -170,6 +170,18 @@ window.CHAPTER_VIDEOS = {
    "shots": 9,
    "audio": true
   },
+  "tang": {
+   "title": {
+    "zh": "唐",
+    "en": "Tang"
+   },
+   "mp4": "assets/chapter-videos/tang.mp4",
+   "poster": "assets/chapter-videos/tang-poster.jpg",
+   "posterWebp": "assets/chapter-videos/tang-poster.webp",
+   "durationSec": 180.83,
+   "shots": 16,
+   "audio": true
+  },
   "wudai": {
    "title": {
     "zh": "五代十国",
