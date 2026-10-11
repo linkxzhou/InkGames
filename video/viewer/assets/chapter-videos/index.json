@@ -61,6 +61,18 @@
    "shots": 11,
    "audio": true
   },
+  "nansong": {
+   "title": {
+    "zh": "南宋",
+    "en": "Southern Song"
+   },
+   "mp4": "assets/chapter-videos/nansong.mp4",
+   "poster": "assets/chapter-videos/nansong-poster.jpg",
+   "posterWebp": "assets/chapter-videos/nansong-poster.webp",
+   "durationSec": 123.67,
+   "shots": 11,
+   "audio": true
+  },
   "qin": {
    "title": {
     "zh": "秦",
