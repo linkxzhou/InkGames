@@ -32,7 +32,7 @@
   "narration": {
    "engine": "edge-tts",
    "voice": "zh-CN-YunjianNeural",
-   "rate": "-8%",
+   "rate": "-29%",
    "pitch": "-2Hz",
    "offsetSec": 0.6
   },
@@ -47,7 +47,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "鸿门宴",
    "narration": "鸿门宴上，范增三举玉玦，项庄舞剑，意在沛公。",
    "ambience": [
@@ -67,7 +67,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "萧何月下追韩信",
    "narration": "韩信不得重用，夜里逃去；萧何闻讯，连夜追回。",
    "ambience": [
@@ -88,7 +88,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.12,
    "zh": "背水一战",
    "narration": "韩信背水列阵，置之死地而后生，一战破赵于井陉。",
    "ambience": [
@@ -100,7 +100,8 @@
    "motionPrompt": "the river flows behind the ranks, the vermilion flags on the ridge ripple, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, pagoda, stupa, buddhist tower, multi-tiered tower, paper lanterns, round red lanterns, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-03.jpg",
    "clip": "xihan-03.mp4",
-   "status": "done"
+   "status": "done",
+   "clipSlowdown": 1.006
   },
   {
    "n": 4,
@@ -109,7 +110,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "四面楚歌",
    "narration": "垓下被围，夜闻四面楚歌，项羽悲歌：力拔山兮气盖世。",
    "ambience": [
@@ -130,7 +131,7 @@
     6,
     7
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "乌江",
    "narration": "项羽溃围至乌江，不肯过江，自刎而死，年三十一。",
    "ambience": [
@@ -150,7 +151,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "白登之围",
    "narration": "刘邦北击匈奴，被围白登七日，用陈平之计才得脱身。",
    "ambience": [
@@ -176,7 +177,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.17,
    "zh": "缇萦救父",
    "narration": "少女缇萦上书，愿没入为官婢赎父刑；文帝因此废肉刑。",
    "ambience": [
@@ -190,10 +191,11 @@
    "status": "done",
    "regenerated": {
     "date": "2026-10-11",
-    "reason": "anachronism review (/workspace/review/anachronism/report.md)",
-    "stillAsset": "69d9613e093f09470e7f91b2a14ca06d8546a56a95f1a99d623e8c4fc3d8d734.jpg",
+    "reason": "anachronism review; v3 bamboo-slip roll held like a rifle",
+    "stillAsset": "(v4, regenerated again: v3 slip roll read as a rifle)",
     "prompt": "compact form of regen.jsonl: same scene text + extra negatives"
-   }
+   },
+   "clipSlowdown": 1.015
   },
   {
    "n": 8,
@@ -202,7 +204,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.67,
    "zh": "七国之乱",
    "narration": "吴楚七国以诛晁错为名起兵，周亚夫坚壁不战，断其粮道。",
    "ambience": [
@@ -213,7 +215,8 @@
    "motionPrompt": "banners on the rampart ripple, smoke from distant camps drifts, clouds roll; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, pagoda, stupa, buddhist tower, multi-tiered tower, paper lanterns, round red lanterns, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-08.jpg",
    "clip": "xihan-08.mp4",
-   "status": "done"
+   "status": "done",
+   "clipSlowdown": 1.074
   },
   {
    "n": 9,
@@ -222,7 +225,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "张骞凿空",
    "narration": "张骞出使西域，被匈奴扣留十余年，终于凿空西域。",
    "ambience": [
@@ -242,7 +245,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "封狼居胥",
    "narration": "霍去病出塞两千余里，封狼居胥山，禅于姑衍。",
    "ambience": [
@@ -257,7 +260,7 @@
    "status": "done",
    "regenerated": {
     "date": "2026-10-11",
-    "reason": "anachronism review (/workspace/review/anachronism/report.md)",
+    "reason": "anachronism review; v3 clip had riders flying in the sky and emblem banners (v4 clip, same still)",
     "stillAsset": "24a9b7c3ce543ca5be0c68ca669f7fea7bb1eb4db0a9c3ea9a14017f4a8cebb6.jpg",
     "prompt": "compact form of regen.jsonl: same scene text + extra negatives"
    }
@@ -269,7 +272,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "苏武牧羊",
    "narration": "苏武持汉节在北海牧羊十九年，节旄尽落。",
    "ambience": [
@@ -288,7 +291,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "发愤著书",
    "narration": "司马迁受宫刑，隐忍苟活，写成《史记》一百三十篇。",
    "ambience": [
@@ -314,7 +317,7 @@
     2,
     3
    ],
-   "durationSec": 8.14,
+   "durationSec": 9.5,
    "zh": "陈汤",
    "narration": "陈汤矫诏发兵，斩郅支单于，上疏：明犯强汉者，虽远必诛。",
    "ambience": [
@@ -326,7 +329,8 @@
    "motionPrompt": "smoke drifts from the fortress, banners ripple, the sky darkens; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, pagoda, stupa, buddhist tower, multi-tiered tower, paper lanterns, round red lanterns, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-13.jpg",
    "clip": "xihan-13.mp4",
-   "status": "done"
+   "status": "done",
+   "clipSlowdown": 1.177
   },
   {
    "n": 14,
@@ -335,7 +339,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.69,
    "zh": "昭君出塞",
    "narration": "王昭君自请出塞，嫁呼韩邪单于，汉匈之间数十年无战事。",
    "ambience": [
@@ -347,17 +351,179 @@
    "motionPrompt": "the geese fly slowly across, her cloak streams, grass waves; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, pagoda, stupa, buddhist tower, multi-tiered tower, paper lanterns, round red lanterns, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xihan-14.jpg",
    "clip": "xihan-14.mp4",
-   "status": "done"
+   "status": "done",
+   "clipSlowdown": 1.081
   }
  ],
  "output": {
   "mp4": "video/viewer/assets/chapter-videos/xihan.mp4",
   "poster": "video/viewer/assets/chapter-videos/xihan-poster.jpg",
-  "durationSec": 109.04,
-  "crossfadeSec": 0.7,
+  "durationSec": 155.38,
+  "transition": "flow",
+  "transitionSec": 1.2,
   "audio": true,
   "narration": true,
   "status": "done",
-  "loudnessLUFS": -16.0
- }
+  "crf": 31,
+  "sizeBytes": 28510941,
+  "flowBlendSec": 0.5,
+  "flowInBlendSec": 0.0,
+  "narrationRate": "-29%",
+  "narrationSec": 96.1,
+  "loudnessLUFS": -16.1
+ },
+ "transitionPrompt": {
+  "template": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+  "image_path": "previous shot last frame (<IMAGE_0>)",
+  "reference": "next shot first frame (<IMAGE_1>)",
+  "durationSec": 3,
+  "resolution": "720p",
+  "fps": 24
+ },
+ "transitionsDir": "/workspace/chapter-video/xihan/transitions",
+ "transitions": [
+  {
+   "from": 1,
+   "to": 2,
+   "file": "xihan-tr-01-02.mp4",
+   "sourceFrames": {
+    "last": "last-01.jpg",
+    "first": "first-02.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 2,
+   "to": 3,
+   "file": "xihan-tr-02-03.mp4",
+   "sourceFrames": {
+    "last": "last-02.jpg",
+    "first": "first-03.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 3,
+   "to": 4,
+   "file": "xihan-tr-03-04.mp4",
+   "sourceFrames": {
+    "last": "last-03.jpg",
+    "first": "first-04.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 4,
+   "to": 5,
+   "file": "xihan-tr-04-05.mp4",
+   "sourceFrames": {
+    "last": "last-04.jpg",
+    "first": "first-05.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 5,
+   "to": 6,
+   "file": "xihan-tr-05-06.mp4",
+   "sourceFrames": {
+    "last": "last-05.jpg",
+    "first": "first-06.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 6,
+   "to": 7,
+   "file": "xihan-tr-06-07.mp4",
+   "sourceFrames": {
+    "last": "last-06.jpg",
+    "first": "first-07.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 7,
+   "to": 8,
+   "file": "xihan-tr-07-08.mp4",
+   "sourceFrames": {
+    "last": "last-07.jpg",
+    "first": "first-08.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 8,
+   "to": 9,
+   "file": "xihan-tr-08-09.mp4",
+   "sourceFrames": {
+    "last": "last-08.jpg",
+    "first": "first-09.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 9,
+   "to": 10,
+   "file": "xihan-tr-09-10.mp4",
+   "sourceFrames": {
+    "last": "last-09.jpg",
+    "first": "first-10.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 10,
+   "to": 11,
+   "file": "xihan-tr-10-11.mp4",
+   "sourceFrames": {
+    "last": "last-10.jpg",
+    "first": "first-11.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 11,
+   "to": 12,
+   "file": "xihan-tr-11-12.mp4",
+   "sourceFrames": {
+    "last": "last-11.jpg",
+    "first": "first-12.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 12,
+   "to": 13,
+   "file": "xihan-tr-12-13.mp4",
+   "sourceFrames": {
+    "last": "last-12.jpg",
+    "first": "first-13.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 13,
+   "to": 14,
+   "file": "xihan-tr-13-14.mp4",
+   "sourceFrames": {
+    "last": "last-13.jpg",
+    "first": "first-14.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  }
+ ]
 }

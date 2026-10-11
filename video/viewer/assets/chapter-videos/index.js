@@ -94,7 +94,7 @@ window.CHAPTER_VIDEOS = {
    "mp4": "assets/chapter-videos/xihan.mp4",
    "poster": "assets/chapter-videos/xihan-poster.jpg",
    "posterWebp": "assets/chapter-videos/xihan-poster.webp",
-   "durationSec": 109.04,
+   "durationSec": 155.38,
    "shots": 14,
    "audio": true
   },
