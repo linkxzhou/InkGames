@@ -65,7 +65,7 @@
 | 隋 | `chapter-videos/sui.json`（10 场 → 9 镜） | 9/9 完成 | v2 9/9 完成（镜 9 江都之变门内朱红火光较多，单帧约 8%，未超一成；镜 8、9 橙色火光调色后为朱砂） | 完成（2026-10-11 流墨版）：`sui.mp4` 100.7 秒 · 1280×720 · 约 27.6 MB（crf 28）· 有声（旁白 rate −29%，共 58.6 秒；−16.0 LUFS）；镜间 8 段 3 秒流墨转场（`/workspace/chapter-video/sui/transitions/`）；接缝偏粗：8→9（转场结尾人物位置与镜 9 错开，溶入时出现重影），2→3 溶入时略变亮；海报 jpg/webp |
 | 唐 | `chapter-videos/tang.json`（26 场 → 16 镜，约 2:04） | 0/16 | 0/16 | 待出片 |
 | 五代十国 | `chapter-videos/wudai.json`（10 场 → 9 镜） | 9/9 完成 | v2 9/9 完成（镜 7 陈桥兵变已重生成，旧件 `wudai-07-v1-old.mp4`，转场 6→7、7→8 随之重生成；镜 7 黄袍按色板画成朱红袍，单帧约 5%） | 完成（2026-10-11 流墨版）：`wudai.mp4` 101.8 秒 · 1280×720 · 约 25.8 MB（crf 29）· 有声（旁白 rate −29%，共 62.0 秒；−16.0 LUFS）；镜间 8 段 3 秒流墨转场（`/workspace/chapter-video/wudai/transitions/`）；接缝偏粗：1→2（转场结尾人物位置与镜 2 错开，溶入时重影），4→5 略有跳变；海报 jpg/webp |
-| 北宋 | `chapter-videos/beisong.json`（18 场 → 13 镜，约 1:42） | 0/13 | 0/13 | 待出片 |
+| 北宋 | `chapter-videos/beisong.json`（18 场 → 13 镜） | 13/13 完成 | v2 13/13 完成（镜 1 已重生成，旧件 `beisong-01-v1-old.mp4`；镜 2 原片天空偏橙、镜 12 一树粉色花，调色后天空为灰、花为朱砂，单帧约 1%） | 完成（2026-10-11 流墨版）：`beisong.mp4` 145.5 秒 · 1280×720 · 约 28.4 MB（crf 30）· 有声（旁白 rate −29%，共 89.3 秒；−16.0 LUFS）；镜间 12 段 3 秒流墨转场（`/workspace/chapter-video/beisong/transitions/`）；接缝偏粗：12→13（转场结尾骑队与镜 13 错开，溶入时重影），8→9（人物位置错开，重影），4→5（人物错位），1→2 略有跳变；海报 jpg/webp |
 | 辽 · 西夏 · 金 | `chapter-videos/liaojin.json`（11 场 → 10 镜，约 1:20） | 0/10 | 0/10 | 待出片 |
 | 南宋 | `chapter-videos/nansong.json`（14 场 → 11 镜，约 1:27） | 0/11 | 0/11 | 待出片 |
 | 元 | `chapter-videos/yuan.json`（11 场 → 10 镜，约 1:20） | 0/10 | 0/10 | 待出片 |

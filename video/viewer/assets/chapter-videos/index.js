@@ -2,6 +2,18 @@
 window.CHAPTER_VIDEOS = {
  "version": 1,
  "chapters": {
+  "beisong": {
+   "title": {
+    "zh": "北宋",
+    "en": "Northern Song"
+   },
+   "mp4": "assets/chapter-videos/beisong.mp4",
+   "poster": "assets/chapter-videos/beisong-poster.jpg",
+   "posterWebp": "assets/chapter-videos/beisong-poster.webp",
+   "durationSec": 145.46,
+   "shots": 13,
+   "audio": true
+  },
   "chunqiu": {
    "title": {
     "zh": "春秋",
