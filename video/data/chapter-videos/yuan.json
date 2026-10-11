@@ -181,7 +181,11 @@
    "motionPrompt": "waves heave, masts sway, rain sweeps, lightning flashes; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "yuan-07.jpg",
    "clip": "yuan-07.mp4",
-   "status": "done"
+   "status": "done",
+   "grade": {
+    "redScale": 0.4,
+    "note": "lightning-lit cloud: redScale 0.4 keeps red incl. pale haze under 10% of the frame (peak ~9.5%, saturated ~1.5%)"
+   }
   },
   {
    "n": 8,
@@ -257,7 +261,7 @@
   "narration": true,
   "status": "done",
   "crf": 29,
-  "sizeBytes": 29241521,
+  "sizeBytes": 28546888,
   "flowBlendSec": 0.5,
   "flowInBlendSec": 0.0,
   "narrationRate": "-29%",
@@ -294,7 +298,8 @@
     "first": "yuan-first-03.jpg"
    },
    "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
-   "durationSec": 3.042
+   "durationSec": 3.042,
+   "note": "regenerated 2026-10-11 (old one yuan-tr-02-03-stale.mp4 ended much darker than shot 3)"
   },
   {
    "from": 3,
@@ -338,7 +343,11 @@
     "first": "yuan-first-07.jpg"
    },
    "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
-   "durationSec": 3.042
+   "durationSec": 3.042,
+   "grade": {
+    "redScale": 0.4,
+    "note": "matches shot 07 redScale so the red cloud does not jump at the junction"
+   }
   },
   {
    "from": 7,
@@ -349,7 +358,11 @@
     "first": "yuan-first-08.jpg"
    },
    "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
-   "durationSec": 3.042
+   "durationSec": 3.042,
+   "grade": {
+    "redScale": 0.4,
+    "note": "matches shot 07 redScale so the red cloud does not jump at the junction"
+   }
   },
   {
    "from": 8,
