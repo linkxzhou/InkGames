@@ -82,7 +82,7 @@ window.CHAPTER_VIDEOS = {
    "mp4": "assets/chapter-videos/xia.mp4",
    "poster": "assets/chapter-videos/xia-poster.jpg",
    "posterWebp": "assets/chapter-videos/xia-poster.webp",
-   "durationSec": 57.83,
+   "durationSec": 78.5,
    "shots": 7,
    "audio": true
   },
