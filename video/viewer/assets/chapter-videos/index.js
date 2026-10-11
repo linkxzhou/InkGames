@@ -26,6 +26,18 @@ window.CHAPTER_VIDEOS = {
    "shots": 11,
    "audio": true
   },
+  "liangjin": {
+   "title": {
+    "zh": "两晋",
+    "en": "Western and Eastern Jin"
+   },
+   "mp4": "assets/chapter-videos/liangjin.mp4",
+   "poster": "assets/chapter-videos/liangjin-poster.jpg",
+   "posterWebp": "assets/chapter-videos/liangjin-poster.webp",
+   "durationSec": 116.58,
+   "shots": 10,
+   "audio": true
+  },
   "qin": {
    "title": {
     "zh": "秦",

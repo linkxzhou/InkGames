@@ -32,7 +32,7 @@
   "narration": {
    "engine": "edge-tts",
    "voice": "zh-CN-YunjianNeural",
-   "rate": "-8%",
+   "rate": "-29%",
    "pitch": "-2Hz",
    "offsetSec": 0.6
   },
@@ -47,7 +47,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.17,
    "zh": "周处除三害",
    "narration": "周处射虎斩蛟，三日三夜不归；回来方知自己也是一害。",
    "ambience": [
@@ -58,7 +58,8 @@
    "motionPrompt": "mist drifts, the river flows, his robe drips and stirs, birds fly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "liangjin-01.jpg",
    "clip": "liangjin-01.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.011
   },
   {
    "n": 2,
@@ -67,7 +68,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 9.54,
    "zh": "石崇斗富",
    "narration": "王恺以二尺珊瑚树示人，石崇以铁如意击碎，取出更高的六七株。",
    "ambience": [
@@ -78,7 +79,8 @@
    "motionPrompt": "lamp flames flicker, silk curtains drift, the coral fragments glint; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "liangjin-02.jpg",
    "clip": "liangjin-02.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.186
   },
   {
    "n": 3,
@@ -87,7 +89,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "八王之乱",
    "narration": "宗室诸王相攻十六年，骨肉相残，中原元气大伤。",
    "ambience": [
@@ -98,7 +100,7 @@
    "motionPrompt": "smoke rises slowly, banners ripple, crows circle; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "liangjin-03.jpg",
    "clip": "liangjin-03.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 4,
@@ -107,7 +109,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "永嘉之乱",
    "narration": "永嘉五年，匈奴攻陷洛阳，晋怀帝被俘，衣冠南渡。",
    "ambience": [
@@ -119,7 +121,7 @@
    "motionPrompt": "smoke rises from the city, the refugees move slowly, dust and wind; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "liangjin-04.jpg",
    "clip": "liangjin-04.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 5,
@@ -128,7 +130,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 9.42,
    "zh": "中流击楫",
    "narration": "祖逖渡江北伐，中流击楫而誓：不能清中原而复济者，有如大江！",
    "ambience": [
@@ -140,7 +142,8 @@
    "motionPrompt": "the river flows, the boat rocks, wind fills the banner, spray drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "liangjin-05.jpg",
    "clip": "liangjin-05.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.167
   },
   {
    "n": 6,
@@ -149,7 +152,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "兰亭修禊",
    "narration": "永和九年暮春，王羲之与名士修禊兰亭，曲水流觞。",
    "ambience": [
@@ -161,7 +164,7 @@
    "motionPrompt": "the cup drifts slowly along the stream, bamboo sways, sleeves stir; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "liangjin-06.jpg",
    "clip": "liangjin-06.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 7,
@@ -170,7 +173,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 10.17,
    "zh": "木犹如此",
    "narration": "桓温北伐经金城，见旧日手植柳已十围，叹：木犹如此，人何以堪！",
    "ambience": [
@@ -181,7 +184,8 @@
    "motionPrompt": "willow branches sway, leaves drift, his cloak stirs; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "liangjin-07.jpg",
    "clip": "liangjin-07.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.261
   },
   {
    "n": 8,
@@ -190,7 +194,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.5,
    "zh": "淝水之战",
    "narration": "苻坚投鞭断流，谢玄八千渡淝水，秦军溃退，风声鹤唳。",
    "ambience": [
@@ -202,7 +206,8 @@
    "motionPrompt": "the cranes fly, reeds and grass bend in the wind, the fallen banners stir; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "liangjin-08.jpg",
    "clip": "liangjin-08.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.054
   },
   {
    "n": 9,
@@ -211,7 +216,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "归去来兮",
    "narration": "陶渊明不为五斗米折腰，辞官归田，采菊东篱下。",
    "ambience": [
@@ -223,7 +228,7 @@
    "motionPrompt": "grass waves, clouds drift over the mountains, birds return home; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "liangjin-09.jpg",
    "clip": "liangjin-09.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 10,
@@ -232,7 +237,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.97,
    "zh": "气吞万里",
    "narration": "刘裕两度北伐，灭南燕、后秦，收复长安，气吞万里如虎。",
    "ambience": [
@@ -244,7 +249,135 @@
    "motionPrompt": "sails swell, oars dip, mist drifts along the cliffs; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "liangjin-10.jpg",
    "clip": "liangjin-10.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.116
+  }
+ ],
+ "output": {
+  "mp4": "video/viewer/assets/chapter-videos/liangjin.mp4",
+  "poster": "video/viewer/assets/chapter-videos/liangjin-poster.jpg",
+  "durationSec": 116.58,
+  "transition": "flow",
+  "transitionSec": 1.2,
+  "audio": true,
+  "narration": true,
+  "status": "done",
+  "crf": 29,
+  "sizeBytes": 29671337,
+  "flowBlendSec": 0.5,
+  "flowInBlendSec": 0.0,
+  "narrationRate": "-29%",
+  "narrationSec": 74.7,
+  "loudnessLUFS": -16.0
+ },
+ "transitionPrompt": {
+  "template": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+  "image_path": "previous shot last frame (<IMAGE_0>)",
+  "reference": "next shot first frame (<IMAGE_1>)",
+  "durationSec": 3,
+  "resolution": "720p",
+  "fps": 24
+ },
+ "transitionsDir": "/workspace/chapter-video/liangjin/transitions",
+ "transitions": [
+  {
+   "from": 1,
+   "to": 2,
+   "file": "liangjin-tr-01-02.mp4",
+   "sourceFrames": {
+    "last": "liangjin-last-01.jpg",
+    "first": "liangjin-first-02.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 2,
+   "to": 3,
+   "file": "liangjin-tr-02-03.mp4",
+   "sourceFrames": {
+    "last": "liangjin-last-02.jpg",
+    "first": "liangjin-first-03.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 3,
+   "to": 4,
+   "file": "liangjin-tr-03-04.mp4",
+   "sourceFrames": {
+    "last": "liangjin-last-03.jpg",
+    "first": "liangjin-first-04.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 4,
+   "to": 5,
+   "file": "liangjin-tr-04-05.mp4",
+   "sourceFrames": {
+    "last": "liangjin-last-04.jpg",
+    "first": "liangjin-first-05.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 5,
+   "to": 6,
+   "file": "liangjin-tr-05-06.mp4",
+   "sourceFrames": {
+    "last": "liangjin-last-05.jpg",
+    "first": "liangjin-first-06.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 6,
+   "to": 7,
+   "file": "liangjin-tr-06-07.mp4",
+   "sourceFrames": {
+    "last": "liangjin-last-06.jpg",
+    "first": "liangjin-first-07.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 7,
+   "to": 8,
+   "file": "liangjin-tr-07-08.mp4",
+   "sourceFrames": {
+    "last": "liangjin-last-07.jpg",
+    "first": "liangjin-first-08.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 8,
+   "to": 9,
+   "file": "liangjin-tr-08-09.mp4",
+   "sourceFrames": {
+    "last": "liangjin-last-08.jpg",
+    "first": "liangjin-first-09.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 9,
+   "to": 10,
+   "file": "liangjin-tr-09-10.mp4",
+   "sourceFrames": {
+    "last": "liangjin-last-09.jpg",
+    "first": "liangjin-first-10.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
   }
  ]
 }
