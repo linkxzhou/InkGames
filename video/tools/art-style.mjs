@@ -50,3 +50,28 @@ export const NEG_MOTION_EN = 'melting or morphing figures, ink or blood flowing 
 /** 现代元素禁令（2026-10-11 定）：所有提示词的负面词都必须带这一句，validate.mjs 逐条检查。 */
 export const NEG_MODERN_ZH = '不出现任何现代元素：现代建筑、电线、电线杆、公路、车辆、玻璃、塑料、现代服饰、眼镜、手表、枪械、电灯、招牌或文字标识';
 export const NEG_MODERN_EN = 'no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering';
+
+/**
+ * 时代错置禁令（2026-10-11，据 /workspace/review/anachronism/report.md 审片：模型反复给君王画西式尖顶王冠，
+ * 并画出佛塔、鸟居、帆船、篷车、台灯、徒步杖等）。NEG_ANACHRONISM_* 每章都带；NEG_ERA 按章节 order 追加，
+ * 只用于该物件尚未出现的朝代（如佛塔到东汉为止，南北朝起佛塔是真实的）。用 negAnachronism(order, lang) 取整句。
+ */
+export const NEG_ANACHRONISM_ZH = ['西式王冠', '尖刺王冠', '欧式王冠', '礼帽', '羽毛头饰', '印第安羽冠', '尖顶兜帽长袍', '三K党兜帽', '日本鸟居', '日式建筑', '武士刀',
+  '高速公路', '柏油路', '车道线', '登山杖', '双肩背包', '徒步者', '喷气式飞机', '飞机', '导弹', '台灯', '灯罩', '灯泡', '玻璃灯罩', '玻璃窗', '玻璃马车', '欧式驿马车',
+  '美式篷车', '招牌', '带字匾额', '旗上徽记', '圆形徽章', '标志', '藏青色天空', '蓝色调', '青色', '黄色', '橙色'];
+export const NEG_ANACHRONISM_EN = ['western crown', 'spiked crown', 'european crown', 'top hat', 'feather headdress', 'native american headdress', 'hooded robes', 'pointed hood',
+  'klan hood', 'torii', 'japanese architecture', 'katana', 'highway', 'asphalt road', 'lane markings', 'trekking poles', 'backpack', 'hikers', 'jet', 'aircraft',
+  'missile', 'table lamp', 'lampshade', 'light bulb', 'glass lamp chimney', 'glass windows', 'glazed carriage', 'stagecoach', 'conestoga covered wagon', 'signboard',
+  'plaque with characters', 'emblem on flag', 'circular emblem', 'logo', 'navy blue sky', 'blue tint', 'cyan', 'yellow', 'orange'];
+/** 按朝代追加：until = 最后一个仍需禁止的章节 order（0 上古 … 20 清）。 */
+export const NEG_ERA = [
+  { until: 8, zh: ['佛塔', '窣堵坡', '多层楼阁塔'], en: ['pagoda', 'stupa', 'buddhist tower', 'multi-tiered tower'] },
+  { until: 8, zh: ['纸灯笼', '红灯笼'], en: ['paper lanterns', 'round red lanterns'] },
+  { until: 14, zh: ['线装书', '书本'], en: ['bound books', 'paper books'] },
+  { until: 19, zh: ['西洋大帆船', '方帆船', '蒸汽船', '格子桅杆', '烟囱', '铁甲舰'], en: ['galleon', 'square-sailed ship', 'steamship', 'lattice mast', 'funnel', 'ironclad'] },
+];
+export function negAnachronism(order, lang = 'en') {
+  const k = lang === 'zh' ? 'zh' : 'en';
+  const list = (k === 'zh' ? NEG_ANACHRONISM_ZH : NEG_ANACHRONISM_EN).concat(...NEG_ERA.filter(e => order <= e.until).map(e => e[k]));
+  return k === 'zh' ? '不出现时代错置之物：' + list.join('、') : 'no anachronisms: ' + list.join(', ');
+}

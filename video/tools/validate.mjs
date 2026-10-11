@@ -5,7 +5,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readdirSync, statSync } from 'node:fs';
-import { STYLE_ZH, STYLE_EN, STYLE_REF_ZH, STYLE_REF_EN, PALETTE, NEG_STYLE_ZH, NEG_STYLE_EN, ASSET_STYLE_ZH, MOTION_ZH, MOTION_EN, NEG_MOTION_ZH, NEG_MOTION_EN, NEG_MODERN_ZH, NEG_MODERN_EN } from './art-style.mjs';
+import { STYLE_ZH, STYLE_EN, STYLE_REF_ZH, STYLE_REF_EN, PALETTE, NEG_STYLE_ZH, NEG_STYLE_EN, ASSET_STYLE_ZH, MOTION_ZH, MOTION_EN, NEG_MOTION_ZH, NEG_MOTION_EN, NEG_MODERN_ZH, NEG_MODERN_EN, negAnachronism } from './art-style.mjs';
 
 const DATA = resolve(dirname(fileURLToPath(import.meta.url)), '..', 'data');
 const showPending = process.argv.includes('--pending');
@@ -115,7 +115,7 @@ function checkCast(where, cast, rels, characters) {
 }
 
 let videoScenes = 0, videoShots = 0;
-function checkVideoPrompt(where, v, cast) {
+function checkVideoPrompt(where, v, cast, order) {
   if (!v || typeof v !== 'object') return err(where, '缺少 videoPrompt（水墨视频生成提示词）：运行 node video/tools/build-video-prompts.mjs');
   videoScenes++;
   if (!v.prompt?.zh || !v.prompt?.en) err(where, 'videoPrompt.prompt 需要 zh 与 en');
@@ -141,12 +141,13 @@ function checkVideoPrompt(where, v, cast) {
   if (!v.prompt?.zh?.includes(MOTION_ZH) || !v.prompt?.en?.includes(MOTION_EN)) err(where, 'videoPrompt.prompt 缺少首帧图生视频与动势克制说明（art-style.mjs MOTION_ZH/EN）');
   if (!v.negative?.zh?.includes(NEG_MOTION_ZH) || !v.negative?.en?.includes(NEG_MOTION_EN)) err(where, 'videoPrompt.negative 缺少运动失败模式负面词');
   if (!v.negative?.zh?.includes(NEG_MODERN_ZH) || !v.negative?.en?.includes(NEG_MODERN_EN)) err(where, 'videoPrompt.negative 缺少现代元素禁令（art-style.mjs NEG_MODERN_ZH/EN）');
+  if (!v.negative?.zh?.includes(negAnachronism(order, 'zh')) || !v.negative?.en?.includes(negAnachronism(order, 'en'))) err(where, 'videoPrompt.negative 缺少时代错置禁令（art-style.mjs negAnachronism）：重跑 build-video-prompts.mjs');
   if (OLD_STYLE_DATA.test(JSON.stringify(v))) err(where, `videoPrompt 含旧彩色水墨措辞：${JSON.stringify(v).match(OLD_STYLE_DATA)[0]}`);
   styleChecked.video++;
   for (const c of v.characters || []) if (!ids.has(c.id)) err(where, `videoPrompt 人物不在 cast：${c.id}`);
 }
 
-function checkArtPrompts(where, list, scene, cast) {
+function checkArtPrompts(where, list, scene, cast, order) {
   if (!Array.isArray(list) || !list.length) return err(where, '缺少 artPrompts（水墨素材提示词）');
   const segIds = new Set(); const assetIds = new Set();
   const perCat = {};
@@ -158,6 +159,7 @@ function checkArtPrompts(where, list, scene, cast) {
     for (const h of HEXES) if (!seg.prompt?.includes(h)) { err(where, `素材段 ${seg.id} 缺少色板 ${h}`); break; }
     for (const n of NEG_ART) if (!seg.negative?.includes(n)) { err(where, `素材段 ${seg.id} 的 negative 缺少风格负面词：${n}`); break; }
     if (!seg.negative?.includes(NEG_MODERN_ZH)) err(where, `素材段 ${seg.id} 的 negative 缺少现代元素禁令（art-style.mjs NEG_MODERN_ZH）`);
+    if (!seg.negative?.includes(negAnachronism(order, 'zh'))) err(where, `素材段 ${seg.id} 的 negative 缺少时代错置禁令（art-style.mjs negAnachronism）`);
     if (OLD_STYLE_DATA.test((seg.prompt || '') + (seg.negative || ''))) err(where, `素材段 ${seg.id} 含旧彩色水墨措辞`);
     styleChecked.art++;
     if (!seg.id || segIds.has(seg.id)) err(where, `素材段 id 缺失或重复：${seg.id}`);
@@ -404,8 +406,8 @@ for (const b of bundles) {
     if (!/^\d\d-\d\d$/.test(e.outlineId) || e.outlineId.slice(0, 2) !== String(ch.order).padStart(2, '0')) err(w, '大纲编号与章不符');
     if (e.scene.when?.start < last) err(w, '场景须按年代排序：时间早于前一场景');
     last = e.scene.when?.start ?? last;
-    checkArtPrompts(w, e.artPrompts, e.scene, e.cast);
-    if (e.opening) checkVideoPrompt(w, e.videoPrompt, e.cast);
+    checkArtPrompts(w, e.artPrompts, e.scene, e.cast, ch.order);
+    if (e.opening) checkVideoPrompt(w, e.videoPrompt, e.cast, ch.order);
     if (Array.isArray(e.artPrompts)) {
       artSheets += e.artPrompts.length;
       artAssets += e.artPrompts.reduce((n, s) => n + (s.assets?.length || 0), 0);
@@ -518,6 +520,8 @@ let chapterScripts = 0, chapterScriptShots = 0;
     chapterScripts++; chapterScriptShots += sp.shots.length;
     if (sp.chapter !== id) err(where, `chapter 字段 ${sp.chapter} ≠ 文件名`);
     if (!String(sp.negative || '').includes(NEG_MODERN_EN)) err(where, 'negative 缺少现代元素禁令（art-style.mjs NEG_MODERN_EN）');
+    const NEG_ANA = negAnachronism(ch.chapter.order, 'en');
+    if (!String(sp.negative || '').includes(NEG_ANA)) err(where, 'negative 缺少时代错置禁令（art-style.mjs negAnachronism）');
     if (sp.shots.length !== want) err(where, `镜数 ${sp.shots.length}，按 clamp(4 + ceil(${order.length}/2), 6, 16) 应为 ${want}`);
     // 流墨转场（--transition flow）：每对相邻镜头之间一段 2–3 s 生成片段，共 镜数 − 1 段
     if (sp.output && sp.output.transition === 'flow') {
@@ -552,6 +556,7 @@ let chapterScripts = 0, chapterScriptShots = 0;
       if (!/wuxia ink silhouette/.test(sh.imagePrompt || '') || !/#b3241c/.test(sh.imagePrompt || '') || !/Negative: other colours, gold/.test(sh.imagePrompt || '')) err(w, 'imagePrompt 缺少风格块或负面词');
       if (id !== 'shanggu' && !MOTION_END.test(sh.motionPrompt || '')) err(w, 'motionPrompt 缺少固定结尾（keep … silhouette consistent … vermilion.）');
       if (!(sh.imagePrompt || '').includes(NEG_MODERN_EN) || !(sh.motionPrompt || '').includes(NEG_MODERN_EN)) err(w, 'imagePrompt / motionPrompt 缺少现代元素禁令（art-style.mjs NEG_MODERN_EN）');
+      if (!(sh.imagePrompt || '').includes(NEG_ANA) || !(sh.motionPrompt || '').includes(NEG_ANA)) err(w, 'imagePrompt / motionPrompt 缺少时代错置禁令（art-style.mjs negAnachronism）');
       if (!Array.isArray(sh.ambience) || !sh.ambience.length) err(w, '缺少 ambience');
       else for (const a of sh.ambience) if (!AMB.has(a)) err(w, '环境声未在 chapter_audio.py 实现：' + a);
       if (!['pending', 'done'].includes(sh.status)) err(w, 'status 应为 pending 或 done');

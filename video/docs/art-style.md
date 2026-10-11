@@ -85,6 +85,17 @@
 
 `build-video-prompts.mjs`（`videoPrompt.negative` zh/en）、`build-art-prompts.mjs`（`artPrompts[].negative`）、章节片头剧本（`video/data/chapter-videos/*.json` 的 `negative`、每镜 `imagePrompt` 的 Negative 段与 `motionPrompt`）和批量文件 `/workspace/chapter-video/batch.jsonl` 都带这一句，`validate.mjs` 逐条检查。审片时发现电线杆样的直杆、路面、车辆、玻璃反光、招牌文字等，按变形镜头处理（重生成）。
 
+### 2.8 不出现时代错置之物（2026-10-11 定）
+
+审片（`/workspace/review/anachronism/report.md`，112 段片段，22 段有问题）发现模型反复画出：君王戴**西式尖顶王冠**（夏、商、春秋、战国、秦、东汉共 8 处）、多层**佛塔**（商、西汉）、日本**鸟居**样宫门、欧式大帆船与**蒸汽船**、美式**篷车**与欧式玻璃马车、**台灯 / 灯罩**、线装书、旗上**徽记**、像三 K 党的**尖顶兜帽**、像徒步者的**登山杖与背包**、像**喷气机**的飞鸟、高速公路样的直路，以及藏青天空与橙黄灯火。因此每个提示词在现代元素禁令后再带一句时代错置禁令，由 `art-style.mjs` 的 `negAnachronism(order, 'zh' | 'en')` 生成：
+
+- 通用（每章都带，`NEG_ANACHRONISM_ZH/EN`）：western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange。
+- 按朝代（`NEG_ERA`，只在该物件尚未出现的章里禁止）：佛塔 / stupa / 多层楼阁塔到东汉为止（南北朝起佛塔是真实的）；纸灯笼、红灯笼到东汉为止；线装书到五代为止；西洋大帆船、方帆船、蒸汽船、格子桅杆、烟囱、铁甲舰到明为止（清的甲午海战要画铁甲舰）。
+- 正面写法比负面词更管用：君王写“简单高冠”“冕旒（mian crown with bead tassels）”或“束发”，灯写“青铜油灯、一点朱红小火”，船写“平底木船、篾席硬帆”或“楼船”，车写“两轮伞盖车”，书写“竹简捆扎成卷”，旗写“素面无纹”。
+- 单镜另加的负面词写在 `/workspace/gen/chapter-videos/shots.txt` 该行第 7 列，`build_scripts.py --update-prompts` 把它追加到该镜 `imagePrompt` 的 Negative 段末尾和 `motionPrompt` 的 `also avoid:` 里，只刷新提示词，不动已出片章节的 `output`、`transitions`、`grade`。
+
+`validate.mjs` 检查每个 `videoPrompt.negative`（zh/en）、每张素材提示词的 `negative`（zh）和每个章节片头剧本的 `negative`、`imagePrompt`、`motionPrompt` 都带本章的 `negAnachronism` 整句。
+
 ## 3. AI 视频生成（2026-10-10 实测）
 
 - 流程：每镜先出一张本风格静帧作首帧，再图生视频。

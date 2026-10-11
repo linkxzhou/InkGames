@@ -115,6 +115,7 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 
 - 色板与负面词同 §5；画面里不出现任何文字（字幕、片名、印章都是后期叠加）。
 - **不出现现代元素**：所有提示词（静帧、动势、场景 `videoPrompt`、素材 `artPrompts`、`batch.jsonl`）的负面词都带 `no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering`（中文版见 `art-style.mjs` `NEG_MODERN_ZH`），校验器逐条检查；审片发现现代或时代错置的东西按变形镜头重生成。
+- **不出现时代错置之物**（2026-10-11，据 22 段问题片段的审片）：负面词再带 `art-style.mjs` `negAnachronism(order)` 生成的一句——通用部分禁西式 / 尖顶王冠、礼帽、羽冠、尖顶兜帽、鸟居、日式建筑、武士刀、公路、登山杖、背包、飞机导弹、台灯灯罩灯泡、玻璃窗、玻璃马车、篷车、招牌匾额、旗上徽记、藏青天空与蓝 / 青 / 黄 / 橙色调；按朝代再禁佛塔与纸灯笼（到东汉）、线装书（到五代）、西洋帆船与蒸汽船（到明）。君王写简单高冠或冕旒，灯写青铜油灯一点朱红小火，船写平底木船篾席帆或楼船，车写两轮伞盖车，书写竹简。单镜额外负面词写在 `shots.txt` 第 7 列，用 `build_scripts.py --update-prompts` 刷新提示词（不动已出片章节的输出记录）；校验器检查每个提示词都带本章那一句。详见 [art-style.md §2.8](./video/docs/art-style.md)。
 - `motionPrompt` 统一以 `keep his/her/their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.` 结尾。
 - 旁白 15–30 字，原创措辞，忠于场景数据与其史源；古籍只引短句。不用任何有版权的音乐或音效。
 - **合成前的分段素材都留在 box、不提交**：静帧、镜头片段、转场片段、取出的首末帧、音频分轨等都放 `/workspace/chapter-video/<ch>/`（镜头在 `v2/`，转场在 `transitions/`，中间产物在 `v2/build/`），这样可以只重做某一段再重新拼接；仓库里只提交成片 mp4、海报、剧本和工具。合成前看接触表，**严重变形的镜头或转场重生成**（每段最多重试 2 次）；替换下来的旧件改名 `*-v2-old.*` 保留。
@@ -177,8 +178,9 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 | 2026-10-10 | 上古片头（有声，65 s）上线；定下章节片头制作规范（§7）：镜数随场景数增长、8 s 一镜、每章 ≤ 30 MB；其余 20 章剧本写好（233 镜，待出片） | `ee43529` 及之后 |
 | 2026-10-11 | 上古片头改版（67.3 s）：旁白放慢到 rate −29%（约 1.3 倍长），镜长随旁白伸长（片段 minterpolate 放慢 ≤ 1.35 倍）；1.2 s 水墨洇染转场取代交叉溶解（`ink_transition.py`，`--transition fade` 可退回）；所有提示词加“不出现现代元素”负面词并由校验器检查；其余章节待按新规则重建 | 本地提交，待审 |
 | 2026-10-11 | 上古镜 4、镜 6 按现代元素审片重生成（镜 4 去掉远处细杆；镜 6 改为石堆短木表 + 石板 + 结绳），重建上古（67.3 s，14.5 MB） | 本地提交，待审 |
-| 2026-10-11 | 西周按新规则重建（流墨转场 8 段、旁白 −29%，99.6 s，26.0 MB，crf 28）；`build-chapter-video.py` 加 CRF 自适应（保证每章 < 30 MB） | 本地提交，待审 |
 | 2026-10-11 | 上古改用流墨转场（89.1 s，21.3 MB）：镜间插入 3 s 生成的流墨片段（上一镜末帧 → 下一镜首帧），硬切入、0.5–0.6 s 溶出；`--transition flow` 成为默认，`ink`/`fade` 保留；剧本记 `transitions`，校验器要求 镜数 − 1 段；分段素材留 box 不提交 | 本地提交，待审 |
+| 2026-10-11 | 西周按新规则重建（流墨转场 8 段、旁白 −29%，99.6 s，26.0 MB，crf 28）；`build-chapter-video.py` 加 CRF 自适应（保证每章 < 30 MB） | 本地提交，待审 |
+| 2026-10-11 | 时代错置审片（22 段问题 + 6 段边缘）：`negAnachronism` 时代错置禁令进所有提示词（场景 `videoPrompt`、素材、21 份片头剧本、`batch.jsonl`）并由校验器检查；28 镜改写提示词，待重生成（`/workspace/chapter-video/regen.jsonl`） | 本地提交，待审 |
 
 ## 10. 关键记忆与规则
 
