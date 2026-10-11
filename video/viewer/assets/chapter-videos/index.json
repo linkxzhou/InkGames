@@ -61,6 +61,18 @@
    "shots": 10,
    "audio": true
   },
+  "ming": {
+   "title": {
+    "zh": "明",
+    "en": "Ming"
+   },
+   "mp4": "assets/chapter-videos/ming.mp4",
+   "poster": "assets/chapter-videos/ming-poster.jpg",
+   "posterWebp": "assets/chapter-videos/ming-poster.webp",
+   "durationSec": 175.67,
+   "shots": 16,
+   "audio": true
+  },
   "nanbeichao": {
    "title": {
     "zh": "南北朝",

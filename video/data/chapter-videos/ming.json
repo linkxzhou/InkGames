@@ -32,7 +32,7 @@
   "narration": {
    "engine": "edge-tts",
    "voice": "zh-CN-YunjianNeural",
-   "rate": "-8%",
+   "rate": "-29%",
    "pitch": "-2Hz",
    "offsetSec": 0.6
   },
@@ -47,7 +47,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "朱元璋投军",
    "narration": "朱元璋放牛出身，出家皇觉寺，后来投奔郭子兴的红巾军。",
    "ambience": [
@@ -58,7 +58,7 @@
    "motionPrompt": "wind blows dry leaves, smoke rises far away, his robe stirs; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "ming-01.jpg",
    "clip": "ming-01.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 2,
@@ -67,7 +67,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 9.04,
    "zh": "鄱阳湖之战",
    "narration": "鄱阳湖上，朱元璋以火船焚陈友谅巨舰，陈友谅中流矢而死。",
    "ambience": [
@@ -79,7 +79,8 @@
    "motionPrompt": "flames spread, smoke billows across the lake, waves rock the ships; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "ming-02.jpg",
    "clip": "ming-02.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.12
   },
   {
    "n": 3,
@@ -88,7 +89,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "靖难之役",
    "narration": "燕王朱棣起兵靖难，金川门开，建文帝下落成谜。",
    "ambience": [
@@ -100,7 +101,7 @@
    "motionPrompt": "the gate swings open slowly, banners stream in, smoke rises; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "ming-03.jpg",
    "clip": "ming-03.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 4,
@@ -109,7 +110,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "郑和下西洋",
    "narration": "郑和率宝船七下西洋，最远到达非洲东岸。",
    "ambience": [
@@ -121,7 +122,7 @@
    "motionPrompt": "sails swell, the ships glide forward, waves roll, seabirds fly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "ming-04.jpg",
    "clip": "ming-04.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 5,
@@ -130,7 +131,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "北京保卫战",
    "narration": "英宗土木堡被俘，于谦拥立新君，死守北京。",
    "ambience": [
@@ -142,7 +143,7 @@
    "motionPrompt": "banners ripple, smoke from the distant camps drifts, cold wind; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "ming-05.jpg",
    "clip": "ming-05.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 6,
@@ -151,7 +152,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.79,
    "zh": "王阳明平宁王",
    "narration": "宁王起兵反叛，王守仁仓促集兵，四十余日便擒获宁王。",
    "ambience": [
@@ -163,7 +164,8 @@
    "motionPrompt": "smoke drifts across the lake, flames waver, the boat rocks gently; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "ming-06.jpg",
    "clip": "ming-06.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.092
   },
   {
    "n": 7,
@@ -172,7 +174,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "戚家军",
    "narration": "戚继光练义乌矿工为戚家军，鸳鸯阵连破倭寇。",
    "ambience": [
@@ -184,7 +186,7 @@
    "motionPrompt": "banners ripple, the bamboo branches sway, sea waves roll in the distance; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "ming-07.jpg",
    "clip": "ming-07.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 8,
@@ -193,7 +195,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "海瑞上疏",
    "narration": "海瑞买好棺材，上《治安疏》直谏嘉靖帝。",
    "ambience": [
@@ -204,7 +206,7 @@
    "motionPrompt": "wind moves his sleeves, leaves drift past, the gate looms still; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "ming-08.jpg",
    "clip": "ming-08.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 9,
@@ -213,7 +215,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "万历新政",
    "narration": "张居正推行一条鞭法与考成法，国库渐渐充实。",
    "ambience": [
@@ -224,7 +226,7 @@
    "motionPrompt": "the lamp flickers, carts move slowly outside, pages stir; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "ming-09.jpg",
    "clip": "ming-09.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 10,
@@ -233,7 +235,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "本草纲目",
    "narration": "李时珍遍访山野，历时近三十年写成《本草纲目》。",
    "ambience": [
@@ -245,7 +247,7 @@
    "motionPrompt": "mist drifts, grass sways, he climbs a few steps; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "ming-10.jpg",
    "clip": "ming-10.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 11,
@@ -254,7 +256,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "几何原本",
    "narration": "徐光启与利玛窦合译《几何原本》前六卷。",
    "ambience": [
@@ -265,7 +267,7 @@
    "motionPrompt": "the lamp flickers, the brush moves along a line, a globe turns slightly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "ming-11.jpg",
    "clip": "ming-11.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 12,
@@ -274,7 +276,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.38,
    "zh": "萨尔浒之战",
    "narration": "萨尔浒一战，努尔哈赤集中兵力，五日内连破明军三路。",
    "ambience": [
@@ -286,7 +288,8 @@
    "motionPrompt": "snow falls, banners stream, the cavalry shifts forward; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "ming-12.jpg",
    "clip": "ming-12.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.04
   },
   {
    "n": 13,
@@ -295,7 +298,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "九千岁",
    "narration": "魏忠贤专权，天下遍建生祠，东林党人惨遭迫害。",
    "ambience": [
@@ -306,7 +309,7 @@
    "motionPrompt": "incense smoke curls, lamps flicker, the officials bow; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "ming-13.jpg",
    "clip": "ming-13.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 14,
@@ -315,7 +318,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "宁远之战",
    "narration": "袁崇焕凭西洋大炮守住宁远，努尔哈赤兵败。",
    "ambience": [
@@ -327,7 +330,7 @@
    "motionPrompt": "cannon smoke drifts, snow blows, the cavalry wavers; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "ming-14.jpg",
    "clip": "ming-14.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 15,
@@ -336,7 +339,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "徐霞客",
    "narration": "徐霞客三十余年徒步考察，写下《徐霞客游记》。",
    "ambience": [
@@ -348,7 +351,7 @@
    "motionPrompt": "mist flows between the peaks, his robe stirs, birds glide; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "ming-15.jpg",
    "clip": "ming-15.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 16,
@@ -357,7 +360,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "煤山",
    "narration": "李自成攻入北京，崇祯帝自缢于煤山，明朝灭亡。",
    "ambience": [
@@ -369,7 +372,200 @@
    "motionPrompt": "wind moves the branch, smoke drifts over the palace roofs, crows circle; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "ming-16.jpg",
    "clip": "ming-16.mp4",
-   "status": "pending"
+   "status": "done"
+  }
+ ],
+ "output": {
+  "mp4": "video/viewer/assets/chapter-videos/ming.mp4",
+  "poster": "video/viewer/assets/chapter-videos/ming-poster.jpg",
+  "durationSec": 175.67,
+  "transition": "flow",
+  "transitionSec": 1.2,
+  "audio": true,
+  "narration": true,
+  "status": "done",
+  "crf": 32,
+  "sizeBytes": 26870971,
+  "flowBlendSec": 0.5,
+  "flowInBlendSec": 0.0,
+  "narrationRate": "-29%",
+  "narrationSec": 99.5,
+  "loudnessLUFS": -16.0
+ },
+ "transitionPrompt": {
+  "template": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+  "image_path": "previous shot last frame (<IMAGE_0>)",
+  "reference": "next shot first frame (<IMAGE_1>)",
+  "durationSec": 3,
+  "resolution": "720p",
+  "fps": 24
+ },
+ "transitionsDir": "/workspace/chapter-video/ming/transitions",
+ "transitions": [
+  {
+   "from": 1,
+   "to": 2,
+   "file": "ming-tr-01-02.mp4",
+   "sourceFrames": {
+    "last": "ming-last-01.jpg",
+    "first": "ming-first-02.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 2,
+   "to": 3,
+   "file": "ming-tr-02-03.mp4",
+   "sourceFrames": {
+    "last": "ming-last-02.jpg",
+    "first": "ming-first-03.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 3,
+   "to": 4,
+   "file": "ming-tr-03-04.mp4",
+   "sourceFrames": {
+    "last": "ming-last-03.jpg",
+    "first": "ming-first-04.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 4,
+   "to": 5,
+   "file": "ming-tr-04-05.mp4",
+   "sourceFrames": {
+    "last": "ming-last-04.jpg",
+    "first": "ming-first-05.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 5,
+   "to": 6,
+   "file": "ming-tr-05-06.mp4",
+   "sourceFrames": {
+    "last": "ming-last-05.jpg",
+    "first": "ming-first-06.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 6,
+   "to": 7,
+   "file": "ming-tr-06-07.mp4",
+   "sourceFrames": {
+    "last": "ming-last-06.jpg",
+    "first": "ming-first-07.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 7,
+   "to": 8,
+   "file": "ming-tr-07-08.mp4",
+   "sourceFrames": {
+    "last": "ming-last-07.jpg",
+    "first": "ming-first-08.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 8,
+   "to": 9,
+   "file": "ming-tr-08-09.mp4",
+   "sourceFrames": {
+    "last": "ming-last-08.jpg",
+    "first": "ming-first-09.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 9,
+   "to": 10,
+   "file": "ming-tr-09-10.mp4",
+   "sourceFrames": {
+    "last": "ming-last-09.jpg",
+    "first": "ming-first-10.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 10,
+   "to": 11,
+   "file": "ming-tr-10-11.mp4",
+   "sourceFrames": {
+    "last": "ming-last-10.jpg",
+    "first": "ming-first-11.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 11,
+   "to": 12,
+   "file": "ming-tr-11-12.mp4",
+   "sourceFrames": {
+    "last": "ming-last-11.jpg",
+    "first": "ming-first-12.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 12,
+   "to": 13,
+   "file": "ming-tr-12-13.mp4",
+   "sourceFrames": {
+    "last": "ming-last-12.jpg",
+    "first": "ming-first-13.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 13,
+   "to": 14,
+   "file": "ming-tr-13-14.mp4",
+   "sourceFrames": {
+    "last": "ming-last-13.jpg",
+    "first": "ming-first-14.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 14,
+   "to": 15,
+   "file": "ming-tr-14-15.mp4",
+   "sourceFrames": {
+    "last": "ming-last-14.jpg",
+    "first": "ming-first-15.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 15,
+   "to": 16,
+   "file": "ming-tr-15-16.mp4",
+   "sourceFrames": {
+    "last": "ming-last-15.jpg",
+    "first": "ming-first-16.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
   }
  ]
 }
