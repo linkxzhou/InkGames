@@ -49,6 +49,18 @@
    "shots": 10,
    "audio": true
   },
+  "liaojin": {
+   "title": {
+    "zh": "辽 · 西夏 · 金",
+    "en": "Liao, Western Xia and Jin"
+   },
+   "mp4": "assets/chapter-videos/liaojin.mp4",
+   "poster": "assets/chapter-videos/liaojin-poster.jpg",
+   "posterWebp": "assets/chapter-videos/liaojin-poster.webp",
+   "durationSec": 111.38,
+   "shots": 10,
+   "audio": true
+  },
   "nanbeichao": {
    "title": {
     "zh": "南北朝",
