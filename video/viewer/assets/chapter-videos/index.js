@@ -22,7 +22,7 @@ window.CHAPTER_VIDEOS = {
    "mp4": "assets/chapter-videos/donghan.mp4",
    "poster": "assets/chapter-videos/donghan-poster.jpg",
    "posterWebp": "assets/chapter-videos/donghan-poster.webp",
-   "durationSec": 87.0,
+   "durationSec": 122.58,
    "shots": 11,
    "audio": true
   },
