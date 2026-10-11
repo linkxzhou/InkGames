@@ -261,17 +261,29 @@ def main():
         for t in trs: joins += [('cut' if a.flow_in_blend <= 0 else 'dissolve', min(0.25, a.flow_in_blend)), ('dissolve', t.get('blendSec', a.flow_blend))]
         joins.append(('ink', T))
     else: joins = [(a.transition, T)] * (len(parts) - 1)
-    # adaptive CRF: start at --crf and raise it until video + audio fits under the 30 MB cap (each +1 CRF ~ -12% size)
+    # adaptive CRF: start at --crf and raise it until video + audio fits under the 30 MB cap (each +1 CRF ~ -14% size), then step back to the lowest CRF that fits
     import math
     crf = a.crf; dst = silent if not a.no_audio else mp4
+    fail = None  # highest CRF known to be over budget
     while True:
         pstarts, total = assemble(parts, joins, dst, crf)
         budget = a.max_mb * 2**20 * CAP_MARGIN - (0 if a.no_audio else total * AUDIO_KBPS * 1000 / 8 * 1.03)
         size = os.path.getsize(dst)
         if size <= budget or crf >= 40: break
-        step = max(1, math.ceil(math.log(size / budget) / math.log(1 / 0.88)))
+        fail = crf
+        step = max(1, math.ceil(math.log(size / budget) / math.log(1 / 0.86)))
         print(f'  {size / 2**20:.1f} MB video at crf {crf} is over budget {budget / 2**20:.1f} MB -> crf {crf + step}')
         crf += step
+    # the jump may overshoot (real size falls ~14%/CRF on these clips): step back while the next lower CRF still fits
+    while fail is not None and crf - 1 > fail:
+        keep = dst + '.keep.mp4'; os.replace(dst, keep)
+        pst, tot = assemble(parts, joins, dst, crf - 1)
+        if os.path.getsize(dst) <= budget:
+            print(f'  crf {crf - 1} also fits ({os.path.getsize(dst) / 2**20:.1f} MB)')
+            os.remove(keep); crf -= 1; size = os.path.getsize(dst); pstarts, total = pst, tot
+        else:
+            print(f'  crf {crf - 1} is over budget ({os.path.getsize(dst) / 2**20:.1f} MB); keeping crf {crf}')
+            os.replace(keep, dst); fail = crf - 1
     print(f'  video crf {crf}, {size / 2**20:.1f} MB')
     shot_idx = [0] + [1 + 2 * k for k in range(nshot)] if flow else list(range(nshot + 1))
     starts = [pstarts[shot_idx[k + 1]] for k in range(nshot)]
