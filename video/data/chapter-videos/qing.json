@@ -32,7 +32,7 @@
   "narration": {
    "engine": "edge-tts",
    "voice": "zh-CN-YunjianNeural",
-   "rate": "-8%",
+   "rate": "-29%",
    "pitch": "-2Hz",
    "offsetSec": 0.6
   },
@@ -47,7 +47,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "山海关",
    "narration": "吴三桂开山海关，与清军合击李自成于一片石。",
    "ambience": [
@@ -59,7 +59,11 @@
    "motionPrompt": "the dust storm sweeps, banners ripple, the cavalry moves through the gate; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qing-01.jpg",
    "clip": "qing-01.mp4",
-   "status": "pending"
+   "status": "done",
+   "promptsUsed": {
+    "still": "imagePrompt above (batch.jsonl, unchanged); still hash in /workspace/chapter-video/qing/stills-map.txt",
+    "motion": "motionPrompt above plus explicit extra negatives (e.g. no emblems on flags) added at generation time; exact appended wording not recorded on the box"
+   }
   },
   {
    "n": 2,
@@ -68,7 +72,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "扬州",
    "narration": "史可法死守扬州，城破殉国，扬州遭屠十日。",
    "ambience": [
@@ -79,7 +83,12 @@
    "motionPrompt": "rain falls, ash drifts, the torn banner stirs, the sky darkens; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qing-02.jpg",
    "clip": "qing-02.mp4",
-   "status": "pending"
+   "status": "done",
+   "promptsUsed": {
+    "still": "imagePrompt above (batch.jsonl, unchanged); still hash in /workspace/chapter-video/qing/stills-map.txt",
+    "motion": "motionPrompt above plus explicit extra negatives (e.g. no emblems on flags) added at generation time; exact appended wording not recorded on the box"
+   },
+   "note": "clip darkens strongly toward its end; tr-02-03 was prompted to brighten back to shot 3"
   },
   {
    "n": 3,
@@ -88,7 +97,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "郑成功收复台湾",
    "narration": "郑成功率舰队乘潮驶入鹿耳门，收复台湾。",
    "ambience": [
@@ -100,7 +109,15 @@
    "motionPrompt": "the waves rise, sails swell, the ships glide forward, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qing-03.jpg",
    "clip": "qing-03.mp4",
-   "status": "pending"
+   "status": "done",
+   "periodItems": {
+    "items": "Fort Zeelandia (Dutch fort at Tainan, 1661-62)",
+    "note": "intentional and period-correct; the anachronism rule bans only post-period / modern items"
+   },
+   "promptsUsed": {
+    "still": "imagePrompt above (batch.jsonl, unchanged); still hash in /workspace/chapter-video/qing/stills-map.txt",
+    "motion": "motionPrompt above plus explicit extra negatives (e.g. no emblems on flags) added at generation time; exact appended wording not recorded on the box"
+   }
   },
   {
    "n": 4,
@@ -109,7 +126,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "少年康熙擒鳌拜",
    "narration": "少年康熙以布库少年为伴，一举擒下权臣鳌拜。",
    "ambience": [
@@ -120,7 +137,11 @@
    "motionPrompt": "light spills in through the door, curtains sway, the youths shift their stance, the frame holds; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qing-04.jpg",
    "clip": "qing-04.mp4",
-   "status": "pending"
+   "status": "done",
+   "promptsUsed": {
+    "still": "imagePrompt above (batch.jsonl, unchanged); still hash in /workspace/chapter-video/qing/stills-map.txt",
+    "motion": "motionPrompt above plus explicit extra negatives (e.g. no emblems on flags) added at generation time; exact appended wording not recorded on the box"
+   }
   },
   {
    "n": 5,
@@ -129,7 +150,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "康熙平三藩",
    "narration": "康熙平定三藩，收复台湾，又在雅克萨击退沙俄。",
    "ambience": [
@@ -140,7 +161,11 @@
    "motionPrompt": "snow falls, smoke drifts, banners ripple; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qing-05.jpg",
    "clip": "qing-05.mp4",
-   "status": "pending"
+   "status": "done",
+   "promptsUsed": {
+    "still": "imagePrompt above (batch.jsonl, unchanged); still hash in /workspace/chapter-video/qing/stills-map.txt",
+    "motion": "motionPrompt above plus explicit extra negatives (e.g. no emblems on flags) added at generation time; exact appended wording not recorded on the box"
+   }
   },
   {
    "n": 6,
@@ -149,7 +174,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "乾隆南巡",
    "narration": "乾隆六下江南，盛世繁华之下，和珅贪墨成山。",
    "ambience": [
@@ -161,7 +186,11 @@
    "motionPrompt": "the barges glide, the crowds sway, willows sway, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qing-06.jpg",
    "clip": "qing-06.mp4",
-   "status": "pending"
+   "status": "done",
+   "promptsUsed": {
+    "still": "imagePrompt above (batch.jsonl, unchanged); still hash in /workspace/chapter-video/qing/stills-map.txt",
+    "motion": "motionPrompt above plus explicit extra negatives (e.g. no emblems on flags) added at generation time; exact appended wording not recorded on the box"
+   }
   },
   {
    "n": 7,
@@ -170,7 +199,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "曹雪芹，红楼梦",
    "narration": "曹雪芹在西山著书，满纸荒唐言，一把辛酸泪。",
    "ambience": [
@@ -181,7 +210,11 @@
    "motionPrompt": "mist drifts outside, the brush moves, the lamp flickers, leaves fall; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qing-07.jpg",
    "clip": "qing-07.mp4",
-   "status": "pending"
+   "status": "done",
+   "promptsUsed": {
+    "still": "imagePrompt above (batch.jsonl, unchanged); still hash in /workspace/chapter-video/qing/stills-map.txt",
+    "motion": "motionPrompt above plus explicit extra negatives (e.g. no emblems on flags) added at generation time; exact appended wording not recorded on the box"
+   }
   },
   {
    "n": 8,
@@ -190,7 +223,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.33,
    "zh": "马戛尔尼使团",
    "narration": "英国马戛尔尼使团来华，乾隆答以天朝物产丰盈，无所不有。",
    "ambience": [
@@ -201,7 +234,16 @@
    "motionPrompt": "wind moves the tent, the globe turns slightly, officials bow; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qing-08.jpg",
    "clip": "qing-08.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.035,
+   "periodItems": {
+    "items": "1793 Macartney embassy: telescope, globe and tricorn hat of the British envoy",
+    "note": "intentional and period-correct; the anachronism rule bans only post-period / modern items"
+   },
+   "promptsUsed": {
+    "still": "imagePrompt above (batch.jsonl, unchanged); still hash in /workspace/chapter-video/qing/stills-map.txt",
+    "motion": "motionPrompt above plus explicit extra negatives (e.g. no emblems on flags) added at generation time; exact appended wording not recorded on the box"
+   }
   },
   {
    "n": 9,
@@ -210,7 +252,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "虎门销烟",
    "narration": "林则徐在虎门海滩挖池，用石灰销毁鸦片两万余箱。",
    "ambience": [
@@ -222,7 +264,11 @@
    "motionPrompt": "steam and smoke billow up, waves roll in, the crowd watches; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qing-09.jpg",
    "clip": "qing-09.mp4",
-   "status": "pending"
+   "status": "done",
+   "promptsUsed": {
+    "still": "imagePrompt above (batch.jsonl, unchanged); still hash in /workspace/chapter-video/qing/stills-map.txt",
+    "motion": "motionPrompt above plus explicit extra negatives (e.g. no emblems on flags) added at generation time; exact appended wording not recorded on the box"
+   }
   },
   {
    "n": 10,
@@ -231,7 +277,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "天京陷落",
    "narration": "太平天国定都天京，十余年后天京陷落，死者无数。",
    "ambience": [
@@ -243,7 +289,11 @@
    "motionPrompt": "smoke billows, the river flows, banners fall slowly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qing-10.jpg",
    "clip": "qing-10.mp4",
-   "status": "pending"
+   "status": "done",
+   "promptsUsed": {
+    "still": "imagePrompt above (batch.jsonl, unchanged); still hash in /workspace/chapter-video/qing/stills-map.txt",
+    "motion": "motionPrompt above plus explicit extra negatives (e.g. no emblems on flags) added at generation time; exact appended wording not recorded on the box"
+   }
   },
   {
    "n": 11,
@@ -252,7 +302,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "火烧圆明园",
    "narration": "英法联军火烧圆明园，万园之园化为焦土。",
    "ambience": [
@@ -264,7 +314,11 @@
    "motionPrompt": "flames rise, smoke billows over the lake, ash drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qing-11.jpg",
    "clip": "qing-11.mp4",
-   "status": "pending"
+   "status": "done",
+   "promptsUsed": {
+    "still": "imagePrompt above (batch.jsonl, unchanged); still hash in /workspace/chapter-video/qing/stills-map.txt",
+    "motion": "motionPrompt above plus explicit extra negatives (e.g. no emblems on flags) added at generation time; exact appended wording not recorded on the box"
+   }
   },
   {
    "n": 12,
@@ -273,7 +327,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "左宗棠抬棺出关",
    "narration": "左宗棠年近七十，抬着棺材出关，收复新疆。",
    "ambience": [
@@ -284,7 +338,11 @@
    "motionPrompt": "sand blows, the column moves forward, willow branches sway; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qing-12.jpg",
    "clip": "qing-12.mp4",
-   "status": "pending"
+   "status": "done",
+   "promptsUsed": {
+    "still": "imagePrompt above (batch.jsonl, unchanged); still hash in /workspace/chapter-video/qing/stills-map.txt",
+    "motion": "motionPrompt above plus explicit extra negatives (e.g. no emblems on flags) added at generation time; exact appended wording not recorded on the box"
+   }
   },
   {
    "n": 13,
@@ -293,7 +351,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 9.38,
    "zh": "黄海海战",
    "narration": "黄海海战，致远舰弹尽，邓世昌下令撞向敌舰，舰沉殉国。",
    "ambience": [
@@ -305,7 +363,16 @@
    "motionPrompt": "the ship cuts forward, smoke streams, waves break, the frame holds still; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qing-13.jpg",
    "clip": "qing-13.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.166,
+   "periodItems": {
+    "items": "1894 Battle of the Yalu: steam-powered cruiser with funnels",
+    "note": "intentional and period-correct; the anachronism rule bans only post-period / modern items"
+   },
+   "promptsUsed": {
+    "still": "imagePrompt above (batch.jsonl, unchanged); still hash in /workspace/chapter-video/qing/stills-map.txt",
+    "motion": "motionPrompt above plus explicit extra negatives (e.g. no emblems on flags) added at generation time; exact appended wording not recorded on the box"
+   }
   },
   {
    "n": 14,
@@ -314,7 +381,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 9.25,
    "zh": "戊戌变法",
    "narration": "百日维新失败，谭嗣同不肯出走：各国变法，无不从流血而成。",
    "ambience": [
@@ -325,7 +392,12 @@
    "motionPrompt": "the crows lift off, wind moves his robe, the light grows; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qing-14.jpg",
    "clip": "qing-14.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.149,
+   "promptsUsed": {
+    "still": "imagePrompt above (batch.jsonl, unchanged); still hash in /workspace/chapter-video/qing/stills-map.txt",
+    "motion": "motionPrompt above plus explicit extra negatives (e.g. no emblems on flags) added at generation time; exact appended wording not recorded on the box"
+   }
   },
   {
    "n": 15,
@@ -334,7 +406,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "秋瑾",
    "narration": "秋瑾在绍兴就义，留下：秋风秋雨愁煞人。",
    "ambience": [
@@ -345,7 +417,11 @@
    "motionPrompt": "rain falls, willow branches sway, her coat stirs; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange; keep her silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qing-15.jpg",
    "clip": "qing-15.mp4",
-   "status": "pending"
+   "status": "done",
+   "promptsUsed": {
+    "still": "imagePrompt above (batch.jsonl, unchanged); still hash in /workspace/chapter-video/qing/stills-map.txt",
+    "motion": "motionPrompt above plus explicit extra negatives (e.g. no emblems on flags) added at generation time; exact appended wording not recorded on the box"
+   }
   },
   {
    "n": 16,
@@ -354,7 +430,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "武昌起义",
    "narration": "武昌城头一声枪响，各省响应，清帝退位，帝制终结。",
    "ambience": [
@@ -366,7 +442,215 @@
    "motionPrompt": "the flag unfurls in the wind, smoke drifts, the sky slowly brightens; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qing-16.jpg",
    "clip": "qing-16.mp4",
-   "status": "pending"
+   "status": "done",
+   "periodItems": {
+    "items": "1911 Wuchang uprising: bolt-action rifles",
+    "note": "intentional and period-correct; the anachronism rule bans only post-period / modern items"
+   },
+   "promptsUsed": {
+    "still": "imagePrompt above (batch.jsonl, unchanged); still hash in /workspace/chapter-video/qing/stills-map.txt",
+    "motion": "motionPrompt above plus explicit extra negatives (e.g. no emblems on flags) added at generation time; exact appended wording not recorded on the box"
+   },
+   "grade": {
+    "redMaskBelow": [
+     0.36,
+     0.46
+    ],
+    "note": "dawn glow turned pink haze on clouds, wall and figures (red incl. haze ~15% of the frame); red fades out below the flag, flag kept vermilion; red incl. haze now ~5%"
+   }
+  }
+ ],
+ "output": {
+  "mp4": "video/viewer/assets/chapter-videos/qing.mp4",
+  "poster": "video/viewer/assets/chapter-videos/qing-poster.jpg",
+  "durationSec": 176.42,
+  "transition": "flow",
+  "transitionSec": 1.2,
+  "audio": true,
+  "narration": true,
+  "status": "done",
+  "crf": 32,
+  "sizeBytes": 29868963,
+  "flowBlendSec": 0.5,
+  "flowInBlendSec": 0.0,
+  "narrationRate": "-29%",
+  "narrationSec": 103.1,
+  "loudnessLUFS": -16.1
+ },
+ "transitionPrompt": {
+  "template": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+  "image_path": "previous shot last frame (<IMAGE_0>)",
+  "reference": "next shot first frame (<IMAGE_1>)",
+  "durationSec": 3,
+  "resolution": "720p",
+  "fps": 24
+ },
+ "transitionsDir": "/workspace/chapter-video/qing/transitions",
+ "transitions": [
+  {
+   "from": 1,
+   "to": 2,
+   "file": "qing-tr-01-02.mp4",
+   "sourceFrames": {
+    "last": "qing-last-01.jpg",
+    "first": "qing-first-02.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 2,
+   "to": 3,
+   "file": "qing-tr-02-03.mp4",
+   "sourceFrames": {
+    "last": "qing-last-02.jpg",
+    "first": "qing-first-03.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 3,
+   "to": 4,
+   "file": "qing-tr-03-04.mp4",
+   "sourceFrames": {
+    "last": "qing-last-03.jpg",
+    "first": "qing-first-04.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 4,
+   "to": 5,
+   "file": "qing-tr-04-05.mp4",
+   "sourceFrames": {
+    "last": "qing-last-04.jpg",
+    "first": "qing-first-05.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 5,
+   "to": 6,
+   "file": "qing-tr-05-06.mp4",
+   "sourceFrames": {
+    "last": "qing-last-05.jpg",
+    "first": "qing-first-06.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 6,
+   "to": 7,
+   "file": "qing-tr-06-07.mp4",
+   "sourceFrames": {
+    "last": "qing-last-06.jpg",
+    "first": "qing-first-07.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 7,
+   "to": 8,
+   "file": "qing-tr-07-08.mp4",
+   "sourceFrames": {
+    "last": "qing-last-07.jpg",
+    "first": "qing-first-08.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 8,
+   "to": 9,
+   "file": "qing-tr-08-09.mp4",
+   "sourceFrames": {
+    "last": "qing-last-08.jpg",
+    "first": "qing-first-09.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 9,
+   "to": 10,
+   "file": "qing-tr-09-10.mp4",
+   "sourceFrames": {
+    "last": "qing-last-09.jpg",
+    "first": "qing-first-10.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 10,
+   "to": 11,
+   "file": "qing-tr-10-11.mp4",
+   "sourceFrames": {
+    "last": "qing-last-10.jpg",
+    "first": "qing-first-11.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 11,
+   "to": 12,
+   "file": "qing-tr-11-12.mp4",
+   "sourceFrames": {
+    "last": "qing-last-11.jpg",
+    "first": "qing-first-12.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 12,
+   "to": 13,
+   "file": "qing-tr-12-13.mp4",
+   "sourceFrames": {
+    "last": "qing-last-12.jpg",
+    "first": "qing-first-13.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 13,
+   "to": 14,
+   "file": "qing-tr-13-14.mp4",
+   "sourceFrames": {
+    "last": "qing-last-13.jpg",
+    "first": "qing-first-14.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 14,
+   "to": 15,
+   "file": "qing-tr-14-15.mp4",
+   "sourceFrames": {
+    "last": "qing-last-14.jpg",
+    "first": "qing-first-15.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 15,
+   "to": 16,
+   "file": "qing-tr-15-16.mp4",
+   "sourceFrames": {
+    "last": "qing-last-15.jpg",
+    "first": "qing-first-16.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
   }
  ]
 }

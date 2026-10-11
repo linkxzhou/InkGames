@@ -110,6 +110,18 @@ window.CHAPTER_VIDEOS = {
    "shots": 9,
    "audio": true
   },
+  "qing": {
+   "title": {
+    "zh": "清",
+    "en": "Qing"
+   },
+   "mp4": "assets/chapter-videos/qing.mp4",
+   "poster": "assets/chapter-videos/qing-poster.jpg",
+   "posterWebp": "assets/chapter-videos/qing-poster.webp",
+   "durationSec": 176.42,
+   "shots": 16,
+   "audio": true
+  },
   "sanguo": {
    "title": {
     "zh": "三国",
