@@ -180,7 +180,13 @@
    "motionPrompt": "the crowd edges slowly toward the gate, torch dots flicker, smoke drifts, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, pagoda, stupa, buddhist tower, multi-tiered tower, paper lanterns, round red lanterns, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "xizhou-07.jpg",
    "clip": "xizhou-07.mp4",
-   "status": "done"
+   "status": "done",
+   "regenerated": {
+    "date": "2026-10-11",
+    "reason": "Ming-looking gate in v2 clip (flow review of 017cb31)",
+    "stillAsset": "2eb3f9f616f64aa432538c31d7c35e482f4696ec91c55c1f64819a67f3f431cd.jpg",
+    "prompt": "compact form of regen.jsonl: same scene text + extra negatives"
+   }
   },
   {
    "n": 8,
@@ -235,7 +241,7 @@
   "narration": true,
   "status": "done",
   "crf": 28,
-  "sizeBytes": 27295363,
+  "sizeBytes": 26899919,
   "flowBlendSec": 0.5,
   "flowInBlendSec": 0.0,
   "narrationRate": "-29%",
