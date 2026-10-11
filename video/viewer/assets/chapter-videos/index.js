@@ -46,7 +46,7 @@ window.CHAPTER_VIDEOS = {
    "mp4": "assets/chapter-videos/sanguo.mp4",
    "poster": "assets/chapter-videos/sanguo-poster.jpg",
    "posterWebp": "assets/chapter-videos/sanguo-poster.webp",
-   "durationSec": 123.5,
+   "durationSec": 176.42,
    "shots": 16,
    "audio": true
   },
