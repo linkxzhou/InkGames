@@ -10,7 +10,7 @@ window.CHAPTER_VIDEOS = {
    "mp4": "assets/chapter-videos/chunqiu.mp4",
    "poster": "assets/chapter-videos/chunqiu-poster.jpg",
    "posterWebp": "assets/chapter-videos/chunqiu-poster.webp",
-   "durationSec": 101.62,
+   "durationSec": 143.92,
    "shots": 13,
    "audio": true
   },

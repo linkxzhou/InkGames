@@ -32,7 +32,7 @@
   "narration": {
    "engine": "edge-tts",
    "voice": "zh-CN-YunjianNeural",
-   "rate": "-8%",
+   "rate": "-29%",
    "pitch": "-2Hz",
    "offsetSec": 0.6
   },
@@ -47,7 +47,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "掘地见母",
    "narration": "庄公誓不见母，又悔，掘地及泉，隧而相见。",
    "ambience": [
@@ -67,7 +67,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "齐桓公九合诸侯",
    "narration": "管仲相齐，桓公九合诸侯，一匡天下，尊王攘夷。",
    "ambience": [
@@ -87,7 +87,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.67,
    "zh": "一鼓作气",
    "narration": "曹刿说：一鼓作气，再而衰，三而竭。鲁军以此胜齐。",
    "ambience": [
@@ -98,7 +98,8 @@
    "motionPrompt": "the drum skin trembles after a beat, dust drifts between the armies, banners stir, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, pagoda, stupa, buddhist tower, multi-tiered tower, paper lanterns, round red lanterns, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "chunqiu-03.jpg",
    "clip": "chunqiu-03.mp4",
-   "status": "done"
+   "status": "done",
+   "clipSlowdown": 1.078
   },
   {
    "n": 4,
@@ -107,7 +108,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.42,
    "zh": "泓水之战",
    "narration": "楚军半渡，宋襄公说不鼓不成列，等敌列阵才战，大败。",
    "ambience": [
@@ -124,7 +125,8 @@
     "reason": "anachronism review (/workspace/review/anachronism/report.md)",
     "stillAsset": "74dc4e2d78830e4b32297111a458e6a9cf464d530eb08daf9ad2737a17e64297.jpg",
     "prompt": "compact form of regen.jsonl: same scene text + extra negatives"
-   }
+   },
+   "clipSlowdown": 1.045
   },
   {
    "n": 5,
@@ -133,7 +135,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "绵上之火",
    "narration": "介子推不言禄，与母隐于绵山，后世以寒食纪念他。",
    "ambience": [
@@ -154,7 +156,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "退避三舍",
    "narration": "晋文公践当年之诺，退避三舍，然后在城濮大败楚军。",
    "ambience": [
@@ -175,7 +177,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.96,
    "zh": "楚庄王问鼎",
    "narration": "楚庄王观兵周郊，问鼎之大小轻重；王孙满答：在德不在鼎。",
    "ambience": [
@@ -186,7 +188,8 @@
    "motionPrompt": "smoke from braziers drifts across, their sleeves stir, a slow push in toward the cauldron; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, pagoda, stupa, buddhist tower, multi-tiered tower, paper lanterns, round red lanterns, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "chunqiu-07.jpg",
    "clip": "chunqiu-07.mp4",
-   "status": "done"
+   "status": "done",
+   "clipSlowdown": 1.113
   },
   {
    "n": 8,
@@ -195,7 +198,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "赵氏孤儿",
    "narration": "下宫之难，赵氏几乎灭门，孤儿赵武被藏匿得活。",
    "ambience": [
@@ -221,7 +224,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "伍子胥过昭关",
    "narration": "伍子胥出奔，过昭关，后来引吴兵入郢，报了父兄之仇。",
    "ambience": [
@@ -241,7 +244,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "鱼腹藏剑",
    "narration": "公子光设宴，专诸把短剑藏在鱼腹中献上。",
    "ambience": [
@@ -267,7 +270,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "老子出关",
    "narration": "老子西出函谷，关令尹喜请他著书，于是留下五千言。",
    "ambience": [
@@ -287,7 +290,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.21,
    "zh": "卧薪尝胆",
    "narration": "越王勾践败于会稽，卧薪尝胆，十年生聚，十年教训。",
    "ambience": [
@@ -304,7 +307,8 @@
     "reason": "anachronism review (/workspace/review/anachronism/report.md)",
     "stillAsset": "fdc2b7fefec42871a59fe30e994428470c57cd97c5d0ec9752bd6d1d768f6eab.jpg",
     "prompt": "compact form of regen.jsonl: same scene text + extra negatives"
-   }
+   },
+   "clipSlowdown": 1.016
   },
   {
    "n": 13,
@@ -313,7 +317,7 @@
     2,
     3
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "陈蔡绝粮",
    "narration": "孔子困于陈蔡之间，绝粮七日，仍讲诵弦歌不衰。",
    "ambience": [
@@ -330,11 +334,161 @@
  "output": {
   "mp4": "video/viewer/assets/chapter-videos/chunqiu.mp4",
   "poster": "video/viewer/assets/chapter-videos/chunqiu-poster.jpg",
-  "durationSec": 101.62,
-  "crossfadeSec": 0.7,
+  "durationSec": 143.92,
+  "transition": "flow",
+  "transitionSec": 1.2,
   "audio": true,
   "narration": true,
   "status": "done",
-  "loudnessLUFS": -16.1
- }
+  "crf": 31,
+  "sizeBytes": 27185393,
+  "flowBlendSec": 0.5,
+  "flowInBlendSec": 0.0,
+  "narrationRate": "-29%",
+  "narrationSec": 87.4,
+  "loudnessLUFS": -16.0
+ },
+ "transitionPrompt": {
+  "template": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+  "image_path": "previous shot last frame (<IMAGE_0>)",
+  "reference": "next shot first frame (<IMAGE_1>)",
+  "durationSec": 3,
+  "resolution": "720p",
+  "fps": 24
+ },
+ "transitionsDir": "/workspace/chapter-video/chunqiu/transitions",
+ "transitions": [
+  {
+   "from": 1,
+   "to": 2,
+   "file": "chunqiu-tr-01-02.mp4",
+   "sourceFrames": {
+    "last": "last-01.jpg",
+    "first": "first-02.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 2,
+   "to": 3,
+   "file": "chunqiu-tr-02-03.mp4",
+   "sourceFrames": {
+    "last": "last-02.jpg",
+    "first": "first-03.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 3,
+   "to": 4,
+   "file": "chunqiu-tr-03-04.mp4",
+   "sourceFrames": {
+    "last": "last-03.jpg",
+    "first": "first-04.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 4,
+   "to": 5,
+   "file": "chunqiu-tr-04-05.mp4",
+   "sourceFrames": {
+    "last": "last-04.jpg",
+    "first": "first-05.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 5,
+   "to": 6,
+   "file": "chunqiu-tr-05-06.mp4",
+   "sourceFrames": {
+    "last": "last-05.jpg",
+    "first": "first-06.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 6,
+   "to": 7,
+   "file": "chunqiu-tr-06-07.mp4",
+   "sourceFrames": {
+    "last": "last-06.jpg",
+    "first": "first-07.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 7,
+   "to": 8,
+   "file": "chunqiu-tr-07-08.mp4",
+   "sourceFrames": {
+    "last": "last-07.jpg",
+    "first": "first-08.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 8,
+   "to": 9,
+   "file": "chunqiu-tr-08-09.mp4",
+   "sourceFrames": {
+    "last": "last-08.jpg",
+    "first": "first-09.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 9,
+   "to": 10,
+   "file": "chunqiu-tr-09-10.mp4",
+   "sourceFrames": {
+    "last": "last-09.jpg",
+    "first": "first-10.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 10,
+   "to": 11,
+   "file": "chunqiu-tr-10-11.mp4",
+   "sourceFrames": {
+    "last": "last-10.jpg",
+    "first": "first-11.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 11,
+   "to": 12,
+   "file": "chunqiu-tr-11-12.mp4",
+   "sourceFrames": {
+    "last": "last-11.jpg",
+    "first": "first-12.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 12,
+   "to": 13,
+   "file": "chunqiu-tr-12-13.mp4",
+   "sourceFrames": {
+    "last": "last-12.jpg",
+    "first": "first-13.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  }
+ ]
 }
