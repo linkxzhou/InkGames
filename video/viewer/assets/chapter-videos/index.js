@@ -86,6 +86,18 @@ window.CHAPTER_VIDEOS = {
    "shots": 8,
    "audio": true
   },
+  "sui": {
+   "title": {
+    "zh": "隋",
+    "en": "Sui"
+   },
+   "mp4": "assets/chapter-videos/sui.mp4",
+   "poster": "assets/chapter-videos/sui-poster.jpg",
+   "posterWebp": "assets/chapter-videos/sui-poster.webp",
+   "durationSec": 100.67,
+   "shots": 9,
+   "audio": true
+  },
   "xia": {
    "title": {
     "zh": "夏",
