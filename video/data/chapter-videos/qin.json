@@ -58,7 +58,13 @@
    "motionPrompt": "wind moves the tall banners and the bead tassels, small two-wheeled carriages move slowly along the earth tracks, clouds drift; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, pagoda, stupa, buddhist tower, multi-tiered tower, paper lanterns, round red lanterns, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; also avoid: spiked crown, western crown, highway, asphalt, paved road, lane markings; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qin-01.jpg",
    "clip": "qin-01.mp4",
-   "status": "done"
+   "status": "done",
+   "regenerated": {
+    "date": "2026-10-11",
+    "reason": "anachronism review (/workspace/review/anachronism/report.md)",
+    "stillAsset": "e515d15913602cc25b61bfb9897a591ac1fe6a451a9c295de23d8183ba14bfcd.jpg",
+    "prompt": "compact form of regen.jsonl: same scene text + extra negatives"
+   }
   },
   {
    "n": 2,
@@ -78,7 +84,13 @@
    "motionPrompt": "the boats glide slowly away, the mat sails swell, waves roll, mist shifts around the islands; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, pagoda, stupa, buddhist tower, multi-tiered tower, paper lanterns, round red lanterns, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; also avoid: galleon, square sails, european ship, caravel, frigate; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qin-02.jpg",
    "clip": "qin-02.mp4",
-   "status": "done"
+   "status": "done",
+   "regenerated": {
+    "date": "2026-10-11",
+    "reason": "anachronism review (/workspace/review/anachronism/report.md)",
+    "stillAsset": "9e8e0733bee946322b51f9499fcb94e29c8511962890729612eb20decfffa6f7.jpg",
+    "prompt": "compact form of regen.jsonl: same scene text + extra negatives"
+   }
   },
   {
    "n": 3,
@@ -98,7 +110,13 @@
    "motionPrompt": "the dust cloud spreads slowly, banners hang, wind moves the sand, the frame holds still; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, pagoda, stupa, buddhist tower, multi-tiered tower, paper lanterns, round red lanterns, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; also avoid: covered wagon, conestoga, stagecoach, four-wheeled wagon; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qin-03.jpg",
    "clip": "qin-03.mp4",
-   "status": "done"
+   "status": "done",
+   "regenerated": {
+    "date": "2026-10-11",
+    "reason": "anachronism review (/workspace/review/anachronism/report.md)",
+    "stillAsset": "c6c82a7f93010e2e1ad10c3e30a7ab0f934452df6d5de7b162bad89e2b06e7b0.jpg",
+    "prompt": "compact form of regen.jsonl: same scene text + extra negatives"
+   }
   },
   {
    "n": 4,
@@ -118,7 +136,13 @@
    "motionPrompt": "clouds drift over the ridges, the labourers climb slowly with their yoked baskets, dust drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, pagoda, stupa, buddhist tower, multi-tiered tower, paper lanterns, round red lanterns, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; also avoid: hiking poles, trekking poles, backpack, hikers, brick watchtower, ming great wall, cyan, blue tint; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qin-04.jpg",
    "clip": "qin-04.mp4",
-   "status": "done"
+   "status": "done",
+   "regenerated": {
+    "date": "2026-10-11",
+    "reason": "anachronism review (/workspace/review/anachronism/report.md)",
+    "stillAsset": "61d808699d85b11a2a7ac06175e986cf6fac0614f6bc2b0863bcbf70bb4836ef.jpg",
+    "prompt": "compact form of regen.jsonl: same scene text + extra negatives"
+   }
   },
   {
    "n": 5,
@@ -199,7 +223,13 @@
    "motionPrompt": "mist drifts across the marsh, reeds sway, his cloak stirs, the night stays grey, the frame holds; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, pagoda, stupa, buddhist tower, multi-tiered tower, paper lanterns, round red lanterns, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; also avoid: katana, curved sword, navy blue, blue sky, blue tint; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "qin-08.jpg",
    "clip": "qin-08.mp4",
-   "status": "done"
+   "status": "done",
+   "regenerated": {
+    "date": "2026-10-11",
+    "reason": "anachronism review (/workspace/review/anachronism/report.md)",
+    "stillAsset": "f562b0ba235cf280fb3e5596b650e6619922942a63f128cfd11345f000cd6468.jpg",
+    "prompt": "compact form of regen.jsonl: same scene text + extra negatives"
+   }
   },
   {
    "n": 9,

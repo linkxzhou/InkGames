@@ -58,7 +58,13 @@
    "motionPrompt": "incense drifts, the coins glint, the officials sway, a slow push in; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, pagoda, stupa, buddhist tower, multi-tiered tower, paper lanterns, round red lanterns, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; also avoid: torii, spiked crown, western crown; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "donghan-01.jpg",
    "clip": "donghan-01.mp4",
-   "status": "done"
+   "status": "done",
+   "regenerated": {
+    "date": "2026-10-11",
+    "reason": "anachronism review (/workspace/review/anachronism/report.md)",
+    "stillAsset": "27dfabb79f17716d3f9a8b93807d1ccdb5361867abb1440f9b22fc089cc50477.jpg",
+    "prompt": "compact form of regen.jsonl: same scene text + extra negatives"
+   }
   },
   {
    "n": 2,
@@ -220,7 +226,13 @@
    "motionPrompt": "the tiny lamp flame flickers, curtains sway, the visitor bows lower; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, pagoda, stupa, buddhist tower, multi-tiered tower, paper lanterns, round red lanterns, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; also avoid: table lamp, lampshade, electric lamp, light bulb, glow halo; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "donghan-09.jpg",
    "clip": "donghan-09.mp4",
-   "status": "done"
+   "status": "done",
+   "regenerated": {
+    "date": "2026-10-11",
+    "reason": "anachronism review (/workspace/review/anachronism/report.md)",
+    "stillAsset": "e7da167d3b9348394e2dc4a74b00eaae7d653767873f147f4524c48153869bb8.jpg",
+    "prompt": "compact form of regen.jsonl: same scene text + extra negatives"
+   }
   },
   {
    "n": 10,
