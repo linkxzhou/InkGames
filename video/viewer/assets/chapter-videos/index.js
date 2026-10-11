@@ -110,6 +110,18 @@ window.CHAPTER_VIDEOS = {
    "shots": 9,
    "audio": true
   },
+  "wudai": {
+   "title": {
+    "zh": "五代十国",
+    "en": "Five Dynasties"
+   },
+   "mp4": "assets/chapter-videos/wudai.mp4",
+   "poster": "assets/chapter-videos/wudai-poster.jpg",
+   "posterWebp": "assets/chapter-videos/wudai-poster.webp",
+   "durationSec": 101.79,
+   "shots": 9,
+   "audio": true
+  },
   "xia": {
    "title": {
     "zh": "夏",
