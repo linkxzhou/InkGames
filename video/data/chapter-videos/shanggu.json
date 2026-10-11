@@ -31,7 +31,7 @@
     2,
     3
    ],
-   "durationSec": 9.62,
+   "durationSec": 8.42,
    "zh": "混沌初开，盘古撑开天地",
    "narration": "天地混沌如鸡子，盘古生在其中，一日九变，撑开天地。",
    "ambience": [
@@ -43,7 +43,7 @@
    "still": "shanggu-01.jpg",
    "clip": "shanggu-01.mp4",
    "status": "done",
-   "clipSlowdown": 1.202
+   "clipSlowdown": 1.047
   },
   {
    "n": 2,
@@ -52,7 +52,7 @@
     4,
     5
    ],
-   "durationSec": 8.8,
+   "durationSec": 8.04,
    "zh": "天缺一角，女娲炼石补天",
    "narration": "天塌一角，大水不息；女娲炼五色石，补上苍天。",
    "ambience": [
@@ -63,8 +63,7 @@
    "motionPrompt": "the stone in her raised hand glows brighter vermilion, a thin vermilion crack branches across the torn dark corner of the sky, her robe and hair stream in the wind, the camera pushes in to a medium shot; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; keep the composition stable, no morphing, no new objects, no text",
    "still": "shanggu-02.jpg",
    "clip": "shanggu-02.mp4",
-   "status": "done",
-   "clipSlowdown": 1.101
+   "status": "done"
   },
   {
    "n": 3,
@@ -73,7 +72,7 @@
     2,
     5
    ],
-   "durationSec": 9.12,
+   "durationSec": 8.04,
    "zh": "伏羲仰观俯察，始作八卦",
    "narration": "伏羲仰观天象，俯察地理，画下一长一断，始作八卦。",
    "ambience": [
@@ -87,8 +86,7 @@
    "status": "done",
    "grade": {
     "note": "the blue-grey night sky becomes neutral grey by the global grade"
-   },
-   "clipSlowdown": 1.14
+   }
   },
   {
    "n": 4,
@@ -97,7 +95,7 @@
     1,
     5
    ],
-   "durationSec": 8.2,
+   "durationSec": 8.04,
    "zh": "神农尝百草",
    "narration": "神农走遍荒野，亲尝百草，一日而遇七十毒。",
    "ambience": [
@@ -108,8 +106,7 @@
    "motionPrompt": "tall grass sways around him, he turns his head and lifts a small leaf toward his mouth, the camera pushes in toward his profile; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; keep the composition stable, no morphing, no new objects, no text",
    "still": "shanggu-04.jpg",
    "clip": "shanggu-04.mp4",
-   "status": "done",
-   "clipSlowdown": 1.025
+   "status": "done"
   },
   {
    "n": 5,
@@ -118,7 +115,7 @@
     4,
     5
    ],
-   "durationSec": 8.83,
+   "durationSec": 8.04,
    "zh": "涿鹿大雾，黄帝战蚩尤",
    "narration": "涿鹿之野，大雾四起；黄帝会合诸侯，擒杀蚩尤。",
    "ambience": [
@@ -130,8 +127,7 @@
    "motionPrompt": "thick fog rolls slowly across the plain, the column of spearmen advances a few steps, the banner ripples, the fog thins and thickens again; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; keep the composition stable, no morphing, no new objects, no text",
    "still": "shanggu-05.jpg",
    "clip": "shanggu-05.mp4",
-   "status": "done",
-   "clipSlowdown": 1.104
+   "status": "done"
   },
   {
    "n": 6,
@@ -140,7 +136,7 @@
     1,
     2
    ],
-   "durationSec": 8.18,
+   "durationSec": 8.04,
    "zh": "羲和测影，历象日月",
    "narration": "尧命羲仲居于旸谷，迎日测影，历象日月星辰。",
    "ambience": [
@@ -153,8 +149,7 @@
    "status": "done",
    "grade": {
     "note": "new still (2026-10-11): the only red is the sun, right of centre at 0.26-0.59 of the frame height, so no redMaskBelow (the old [0.56, 0.64] mask would cut the bottom of the sun in the first seconds)"
-   },
-   "clipSlowdown": 1.022
+   }
   },
   {
    "n": 7,
@@ -163,7 +158,7 @@
     3,
     4
    ],
-   "durationSec": 8.23,
+   "durationSec": 8.04,
    "zh": "尧舜禅让，舜耕历山",
    "narration": "舜耕于历山，德行远播；尧终把天下禅让给他。",
    "ambience": [
@@ -178,8 +173,7 @@
    "grade": {
     "redScale": 0.85,
     "note": "the orange-yellow sunrise glow goes to grey by the global grade; the red hills are softened slightly"
-   },
-   "clipSlowdown": 1.029
+   }
   },
   {
    "n": 8,
@@ -188,7 +182,7 @@
     3,
     5
    ],
-   "durationSec": 8.0,
+   "durationSec": 8.04,
    "zh": "大禹疏九河，水归于海",
    "narration": "大禹改堵为疏，疏通九河，引众水东归大海。",
    "ambience": [
@@ -205,12 +199,14 @@
  "output": {
   "mp4": "video/viewer/assets/chapter-videos/shanggu.mp4",
   "poster": "video/viewer/assets/chapter-videos/shanggu-poster.jpg",
-  "durationSec": 67.33,
-  "transition": "ink",
+  "durationSec": 89.12,
+  "transition": "flow",
   "transitionSec": 1.2,
   "audio": true,
   "narration": true,
   "status": "done",
+  "flowBlendSec": 0.5,
+  "flowInBlendSec": 0.0,
   "narrationRate": "-29%",
   "narrationSec": 51.2,
   "loudnessLUFS": -16.0
@@ -228,5 +224,98 @@
  },
  "rawDir": "/workspace/chapter-video/shanggu/v2",
  "clipsVersion": 2,
- "grade": "palette lock (video/tools/chapter_grade.py): every pixel goes to the ink #141414 -> paper #eceae4 grey ramp by luminance, except hues near vermilion #b3241c (re-tinted to vermilion); saturated orange is pulled to vermilion, pale orange, yellow, blue and every other hue go to grey"
+ "grade": "palette lock (video/tools/chapter_grade.py): every pixel goes to the ink #141414 -> paper #eceae4 grey ramp by luminance, except hues near vermilion #b3241c (re-tinted to vermilion); saturated orange is pulled to vermilion, pale orange, yellow, blue and every other hue go to grey",
+ "transitionPrompt": {
+  "template": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+  "image_path": "previous shot last frame (<IMAGE_0>)",
+  "reference": "next shot first frame (<IMAGE_1>)",
+  "durationSec": 3,
+  "resolution": "720p",
+  "fps": 24
+ },
+ "transitionsDir": "/workspace/chapter-video/shanggu/transitions",
+ "transitions": [
+  {
+   "from": 1,
+   "to": 2,
+   "file": "shanggu-tr-01-02.mp4",
+   "sourceFrames": {
+    "last": "sg-last-01.jpg",
+    "first": "sg-first-02.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "blendSec": 0.6,
+   "note": "end composition/brightness further from the next shot's first frame, so a slightly longer dissolve",
+   "durationSec": 3.042
+  },
+  {
+   "from": 2,
+   "to": 3,
+   "file": "shanggu-tr-02-03.mp4",
+   "sourceFrames": {
+    "last": "sg-last-02.jpg",
+    "first": "sg-first-03.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 3,
+   "to": 4,
+   "file": "shanggu-tr-03-04.mp4",
+   "sourceFrames": {
+    "last": "sg-last-03.jpg",
+    "first": "sg-first-04.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "blendSec": 0.6,
+   "note": "end composition/brightness further from the next shot's first frame, so a slightly longer dissolve",
+   "durationSec": 3.042
+  },
+  {
+   "from": 4,
+   "to": 5,
+   "file": "shanggu-tr-04-05.mp4",
+   "sourceFrames": {
+    "last": "sg-last-04.jpg",
+    "first": "sg-first-05.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 5,
+   "to": 6,
+   "file": "shanggu-tr-05-06.mp4",
+   "sourceFrames": {
+    "last": "sg-last-05.jpg",
+    "first": "sg-first-06.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 6,
+   "to": 7,
+   "file": "shanggu-tr-06-07.mp4",
+   "sourceFrames": {
+    "last": "sg-last-06.jpg",
+    "first": "sg-first-07.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 7,
+   "to": 8,
+   "file": "shanggu-tr-07-08.mp4",
+   "sourceFrames": {
+    "last": "sg-last-07.jpg",
+    "first": "sg-first-08.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "note": "raw clip has a warm orange sun; the palette-lock grade turns it vermilion/grey like the shots",
+   "durationSec": 3.042
+  }
+ ]
 }

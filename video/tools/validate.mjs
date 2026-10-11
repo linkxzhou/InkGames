@@ -497,7 +497,8 @@ if (index.totals.v1 !== v1 || index.totals.outline !== outline || (index.totals.
 }
 
 // 章节片头剧本 video/data/chapter-videos/<ch>.json：镜数 = clamp(4 + ceil(场景数/2), 6, 16)（上古为 8 镜旧例），
-// 镜头按章节时间线排序、来源场景存在、旁白 15–30 字、镜长 8–12.5 秒、提示词带风格块、负面词与现代元素禁令、运动提示词固定结尾、环境声已实现
+// 镜头按章节时间线排序、来源场景存在、旁白 15–30 字、镜长 8–12.5 秒、提示词带风格块、负面词与现代元素禁令、运动提示词固定结尾、环境声已实现；
+// 用流墨转场出片的章（output.transition = flow）要有 镜数 − 1 段转场片段
 const NARR_PUNCT = /[，。；、：！？「」『』《》〈〉·—\s]/g;
 const SHOT_MAX = 12.5;  // 秒：8 s 片段 × 最多 1.35 倍放慢 + 末帧停留，旁白 30 字也放得下
 const MOTION_END = /keep (his|her|their) silhouette consistent, no morphing, no new figures, no text\. Only black, grey, paper white and vermilion\.$/;
@@ -518,6 +519,20 @@ let chapterScripts = 0, chapterScriptShots = 0;
     if (sp.chapter !== id) err(where, `chapter 字段 ${sp.chapter} ≠ 文件名`);
     if (!String(sp.negative || '').includes(NEG_MODERN_EN)) err(where, 'negative 缺少现代元素禁令（art-style.mjs NEG_MODERN_EN）');
     if (sp.shots.length !== want) err(where, `镜数 ${sp.shots.length}，按 clamp(4 + ceil(${order.length}/2), 6, 16) 应为 ${want}`);
+    // 流墨转场（--transition flow）：每对相邻镜头之间一段 2–3 s 生成片段，共 镜数 − 1 段
+    if (sp.output && sp.output.transition === 'flow') {
+      const tr = Array.isArray(sp.transitions) ? sp.transitions : [];
+      if (tr.length !== sp.shots.length - 1) err(where, `--transition flow 需要 ${sp.shots.length - 1} 段转场片段（transitions），实际 ${tr.length}`);
+      tr.forEach((t, i) => {
+        const w = where + ` 转场 ${i + 1}→${i + 2}`, nn = k => String(k).padStart(2, '0');
+        if (t.from !== i + 1 || t.to !== i + 2) err(w, `from/to 应为 ${i + 1}/${i + 2}`);
+        if (t.file !== `${id}-tr-${nn(i + 1)}-${nn(i + 2)}.mp4`) err(w, `file 应为 ${id}-tr-${nn(i + 1)}-${nn(i + 2)}.mp4`);
+        if (!t.sourceFrames || !t.sourceFrames.last || !t.sourceFrames.first) err(w, '缺少 sourceFrames.last / first（上一镜末帧、下一镜首帧）');
+        if (!/ink/i.test(t.prompt || '') || !/no modern elements/.test(t.prompt || '') || !/no text/.test(t.prompt || '')) err(w, 'prompt 应为流墨转场模板（含 no text, no modern elements）');
+        if (!(t.durationSec >= 2 && t.durationSec <= 3.1)) err(w, `转场时长 ${t.durationSec}s，应为 2–3 s`);
+        if (t.blendSec != null && !(t.blendSec > 0 && t.blendSec <= 1)) err(w, `blendSec ${t.blendSec} 应在 0–1 s`);
+      });
+    }
     let last = -1;
     sp.shots.forEach((sh, i) => {
       const w = where + ' 镜 ' + (i + 1);

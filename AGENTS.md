@@ -105,9 +105,10 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 1. 剧情树 → 开场分镜 → 场景 `videoPrompt` → 章节剧本 `video/data/chapter-videos/<ch>.json`（镜头按时间线排，每镜带 `sceneId`、`sourceShots`、`zh` 字幕、`narration` 旁白、`ambience`、`imagePrompt`、`motionPrompt`、`durationSec: 8`、`status`）。剧本源在 box 的 `/workspace/gen/chapter-videos/shots.txt`，`build_scripts.py --write` 生成 JSON 与扁平批量文件 `/workspace/chapter-video/batch.jsonl`（每行 `{ch,n,id,imagePrompt,motionPrompt}`）。
 2. 每镜一张本风格 16:9 静帧（`GenerateImage`，只有父代理能调用）。
 3. 图生视频 720p、8 s（`GenerateVideo`，同上）：动势丰富但受控——神话或历史氛围、墨晕、风、雾、流水、旗帜、缓慢运镜；**不拍兵刃与肢体接触**，交战与刺杀只拍之前或之后的氛围（旗、雾、血红落日、定住的一团泼墨）。
+3a. **流墨转场片段**（2026-10-11 起默认）：每对相邻镜头之间生成一段 3 s、720p、24 fps 的图生视频，`image_path` = 上一镜原始片段的末帧（`<ch>-last-NN.jpg`），参考图 = 下一镜原始片段的首帧，提示词模板：`Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.`。文件 `/workspace/chapter-video/<ch>/transitions/<ch>-tr-NN-MM.mp4`，记在剧本 `transitions`（`from`、`to`、`file`、`sourceFrames`、`prompt`，可选 `blendSec`、`trimStart`/`trimEnd`、`grade`）。
 4. 逐帧调色锁回色板：`video/tools/chapter_grade.py`（灰阶 + 朱砂红，其余色相去色；可按镜 `grade.redScale` / `redMaskBelow`）。
 5. 声音：edge-tts `zh-CN-YunjianNeural` 旁白，语速 rate −29%（2026-10-11 起，比原来的 −8% 慢约 1.3 倍，在合成时放慢，不做变速拉伸；`build-chapter-video.py --narration-rate` 可改）；原创程序合成的五声音阶配乐与按镜环境声（`video/tools/chapter_audio.py`，环境声名必须在其 `AMB` 表里）；旁白时配乐闪避，整轨 −16 LUFS、−1.5 dBTP，AAC 160k 立体声。
-6. 合成：`python3 video/tools/build-chapter-video.py <ch>` —— 3 s 片名卡（朱印）、**1.2 s 水墨洇染转场**（`video/tools/ink_transition.py`：片名卡 → 首镜、镜与镜之间、末镜 → 空白纸面；`--transition fade` 退回旧的 0.7 s 交叉溶解）、字幕烧在下三分之一、末镜停 3 s，H.264 + AAC，**只出 mp4，不出 webm**；镜长按旁白伸长（见下“长度”），不截断旁白。
+6. 合成：`python3 video/tools/build-chapter-video.py <ch>` —— 3 s 片名卡（朱印）→ 1.2 s 程序水墨洇染（`ink_transition.py`）→ 镜 1 → 流墨转场片段 → 镜 2 → … → 末镜 → 洇回空白纸面。**流墨转场**（默认 `--transition flow`）：转场片段与镜头一样先调色；镜 N 播完整个片段（放慢时也停在原末帧上），硬切进转场（转场首帧就是镜 N 末帧，`--flow-in-blend` 可加 ≤ 0.25 s 混合），转场最后 0.5 s（可按段 `blendSec`）柔和溶进镜 N+1 的开头；`--transition ink` 镜间也用程序洇染，`--transition fade` 退回旧的 0.7 s 交叉溶解。字幕烧在下三分之一，转场前淡出、转场后淡入；旁白只在本镜内，不进转场；配乐全程连续，环境声在转场里交叉淡化。末镜停 3 s，H.264 + AAC，**只出 mp4，不出 webm**；镜长按旁白伸长（见下“长度”），不截断旁白。
 7. 写清单 `video/viewer/assets/chapter-videos/index.{json,js}`，查看器居中播放块（`file://` 可用）。
 
 **规则**
@@ -116,9 +117,9 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 - **不出现现代元素**：所有提示词（静帧、动势、场景 `videoPrompt`、素材 `artPrompts`、`batch.jsonl`）的负面词都带 `no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering`（中文版见 `art-style.mjs` `NEG_MODERN_ZH`），校验器逐条检查；审片发现现代或时代错置的东西按变形镜头重生成。
 - `motionPrompt` 统一以 `keep his/her/their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.` 结尾。
 - 旁白 15–30 字，原创措辞，忠于场景数据与其史源；古籍只引短句。不用任何有版权的音乐或音效。
-- 原始静帧与片段不进仓库，放 `/workspace/chapter-video/<ch>/`（新一轮片段放 `v2/`）；合成前看接触表，**严重变形的镜头重生成**（每镜最多重试 2 次）。
+- **合成前的分段素材都留在 box、不提交**：静帧、镜头片段、转场片段、取出的首末帧、音频分轨等都放 `/workspace/chapter-video/<ch>/`（镜头在 `v2/`，转场在 `transitions/`，中间产物在 `v2/build/`），这样可以只重做某一段再重新拼接；仓库里只提交成片 mp4、海报、剧本和工具。合成前看接触表，**严重变形的镜头或转场重生成**（每段最多重试 2 次）；替换下来的旧件改名 `*-v2-old.*` 保留。
 
-**长度**：镜数 = clamp(4 + ceil(场景数 / 2), 6, 16)；每镜 8 s 片段，镜长 = max(8, 0.6 + 旁白时长 + 0.4 换气 + 1.2 转场) s，超出 8 s 的部分先把片段放慢（minterpolate 补帧，最多 1.35 倍），仍不够再停留末帧；校验器要求每镜 8–12.5 s。场景越多片子越长。上古按 8 镜旧例保留。按 2026-10-10 的实际场景数（共 241 镜，其余 20 章 233 镜）：
+**长度**：镜数 = clamp(4 + ceil(场景数 / 2), 6, 16)；每镜 8 s 片段，镜长 = max(片段长, 0.6 + 旁白时长 + 0.4 换气) s（流墨转场接在镜后、不与镜重叠，所以不再加转场余量；`ink`/`fade` 模式仍加 1.2 s / 0.7 s），超出 8 s 的部分先把片段放慢（minterpolate 补帧，最多 1.35 倍），仍不够再停留末帧；校验器要求每镜 8–12.5 s。场景越多片子越长。上古按 8 镜旧例保留。按 2026-10-10 的实际场景数（共 241 镜，其余 20 章 233 镜）：
 
 | 章 | 场景 | 镜数 | 估计时长 |
 |---|---|---|---|
@@ -144,9 +145,9 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 | 明（`ming`） | 26 | 16 | 2:04 |
 | 清（`qing`） | 26 | 16 | 2:04 |
 
-表中估计时长按旧规则（8 s 一镜、0.7 s 交叉溶解）：3.7 + 8 × 镜数 + 3 − 0.7 × 镜数。新规则（−29% 旁白、1.2 s 水墨转场、末尾洇回纸面 0.8 s）：时长 = 4.2 + Σ镜长 + 3 + 2.0 − 1.2 × (镜数 + 1)，镜长平均约 8.7 s 时 ≈ 8 + 7.5 × 镜数；上古 8 镜实测 67.3 s（旧 65.1 s），16 镜约 2 分 08 秒。
+表中估计时长按旧规则（8 s 一镜、0.7 s 交叉溶解）：3.7 + 8 × 镜数 + 3 − 0.7 × 镜数。新规则（−29% 旁白、1.2 s 水墨转场、末尾洇回纸面 0.8 s）：时长 = 4.2 + Σ镜长 + 3 + 2.0 − 1.2 × (镜数 + 1)，镜长平均约 8.7 s 时 ≈ 8 + 7.5 × 镜数；上古 8 镜实测 67.3 s（旧 65.1 s），16 镜约 2 分 08 秒。**流墨转场**（默认）：时长 = 3 片名 + 3 末镜停留 + 0.8 纸面 + Σ镜长 + Σ(转场长 − 溶入长) ≈ 6.8 + Σ镜长 + 2.5 × (镜数 − 1)（3 s 转场、0.5 s 溶入）；上古 8 镜实测 89.1 s，16 镜约 2 分 55 秒。
 
-**体积**：720p、crf 28–30，约 0.2 MB/s；每章 mp4 上限 30 MB（校验器拦截）；16 镜的章若超限就把该章 crf 提到 30，不删镜。
+**体积**：720p、crf 28–30，约 0.2 MB/s（流墨转场画面变化多，约 0.24 MB/s：上古 89 s 21.3 MB）；每章 mp4 上限 30 MB（校验器拦截）；超限就提高该章 crf，不删镜（流墨 16 镜约 175 s，crf 28 会到约 42 MB，估计要 crf 31–32）。
 
 **校验器检查**：每份剧本的镜数符合公式、`sceneId` 属于本章且按时间线排序、`sourceShots` 在范围内、旁白 15–30 字、镜长 8–12.5 s（`clipSlowdown` ≤ 1.35）、`negative` / `imagePrompt` / `motionPrompt` 带现代元素禁令、`imagePrompt` 带风格块与负面词、`motionPrompt` 固定结尾、环境声已实现、`clip` 命名为 `<ch>-NN.mp4`；已合成的章节再查清单、文件与 30 MB 上限。
 
@@ -176,6 +177,7 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 | 2026-10-10 | 上古片头（有声，65 s）上线；定下章节片头制作规范（§7）：镜数随场景数增长、8 s 一镜、每章 ≤ 30 MB；其余 20 章剧本写好（233 镜，待出片） | `ee43529` 及之后 |
 | 2026-10-11 | 上古片头改版（67.3 s）：旁白放慢到 rate −29%（约 1.3 倍长），镜长随旁白伸长（片段 minterpolate 放慢 ≤ 1.35 倍）；1.2 s 水墨洇染转场取代交叉溶解（`ink_transition.py`，`--transition fade` 可退回）；所有提示词加“不出现现代元素”负面词并由校验器检查；其余章节待按新规则重建 | 本地提交，待审 |
 | 2026-10-11 | 上古镜 4、镜 6 按现代元素审片重生成（镜 4 去掉远处细杆；镜 6 改为石堆短木表 + 石板 + 结绳），重建上古（67.3 s，14.5 MB） | 本地提交，待审 |
+| 2026-10-11 | 上古改用流墨转场（89.1 s，21.3 MB）：镜间插入 3 s 生成的流墨片段（上一镜末帧 → 下一镜首帧），硬切入、0.5–0.6 s 溶出；`--transition flow` 成为默认，`ink`/`fade` 保留；剧本记 `transitions`，校验器要求 镜数 − 1 段；分段素材留 box 不提交 | 本地提交，待审 |
 
 ## 10. 关键记忆与规则
 

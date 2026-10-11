@@ -8,8 +8,12 @@ Audio (chapter_audio.py): edge-tts narration of each shot's `narration`, origina
 per-shot ambience (`ambience`), narration ducking, -16 LUFS, AAC 160k stereo. Narration is synthesised slower
 (--narration-rate, default chapter_audio.NARRATION_RATE = -29%), and each shot is lengthened to
 offset + line + breath + transition by slowing its clip (minterpolate, at most --max-slow) and then holding the last frame.
-Transitions (ink_transition.py): ink bleed by default (title -> shot 1, between shots, last shot -> blank paper);
---transition fade gives the old linear crossfade.
+Transitions (default --transition flow, 2026-10-11): between shots a generated 2-3 s 'ink-flow' clip
+(<transitions>/<chapter>-tr-NN-MM.mp4, image-to-video from shot N's last frame flowing into shot N+1's first frame,
+listed in the script's `transitions`) is graded like the shots, joined to shot N with a hard cut (its first frame is
+shot N's last frame; --flow-in-blend adds a short blend) and dissolved over its last --flow-blend seconds into shot N+1.
+Title -> shot 1 and last shot -> blank paper keep the procedural ink bleed (ink_transition.py).
+--transition ink uses the procedural ink bleed everywhere; --transition fade the old linear crossfade.
 Reads video/data/chapter-videos/<chapter>.json, expects <raw>/<chapter>-NN.mp4 clips,
 writes video/viewer/assets/chapter-videos/<chapter>.mp4 + poster .{jpg,webp}.
 """
@@ -21,6 +25,8 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 W, H, FPS = 1280, 720, 24
 PAPER = (0xec, 0xea, 0xe4); INK = (0x14, 0x14, 0x14)
 XF = 0.7  # old linear crossfade seconds (--transition fade)
+FLOW_BLEND = 0.5  # flow: soft dissolve from the transition clip's last frames into the next shot
+FLOW_IN_BLEND = 0.0  # flow: blend shot N's end into the transition start (0 = hard cut; the frames match)
 INK_SEC = 1.2  # ink-bleed transition seconds (default)
 BREATH = 0.4  # pause after a narration line before the next transition
 MAX_SLOW = 1.35  # longest clip slowdown used to fit a line; beyond it the last frame is held
@@ -73,12 +79,14 @@ def run(cmd):
     print('+', ' '.join(cmd[:6]), '…'); subprocess.run(cmd, check=True)
 
 def slow_clip(src, dst, factor, mode='mci'):
-    """Stretch a clip by `factor` (>1 = slower) at synthesis time; mci = motion-compensated interpolation."""
-    key = f'{src}|{os.path.getmtime(src)}|{factor:.4f}|{mode}'  # mtime: a re-graded or replaced clip invalidates the cache
+    """Stretch a clip by `factor` (>1 = slower) at synthesis time; mci = motion-compensated interpolation.
+    The source's last frame is cloned twice first so the slowed clip still ends exactly on it (minterpolate stops one step
+    short otherwise), which a flow transition clip, generated from that frame, needs."""
+    key = f'{src}|{os.path.getmtime(src)}|{factor:.4f}|{mode}|endframe'  # mtime: a re-graded or replaced clip invalidates the cache
     if os.path.exists(dst) and os.path.exists(dst + '.key') and open(dst + '.key').read() == key: return dst
     interp = {'mci': f',minterpolate=fps={FPS}:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1',
               'blend': f',minterpolate=fps={FPS}:mi_mode=blend'}.get(mode, f',fps={FPS}')
-    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', src, '-vf', f'setpts={factor:.4f}*PTS{interp}', '-an',
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', src, '-vf', f'tpad=stop_mode=clone:stop=2,setpts={factor:.4f}*PTS{interp}', '-an',
                     '-c:v', 'libx264', '-crf', '14', '-pix_fmt', 'yuv420p', dst], check=True)
     open(dst + '.key', 'w').write(key)
     return dst
@@ -95,29 +103,35 @@ def read_frames(path, n):
         yield last
     p.stdout.close(); p.wait()
 
-def assemble(parts, T, kind, dst, crf, seed=11):
-    """Concatenate parts [(path, seconds)] with T-second transitions (ink bleed or linear fade) in one encode.
-    Returns the start time (s) of every part and the total length."""
+def assemble(parts, joins, dst, crf, seed=11):
+    """Concatenate parts [(path, seconds)] in one encode. joins[i] = (kind, seconds) joins part i to part i+1:
+    'ink' (ink_transition bleed), 'fade' (linear crossfade), 'dissolve' (smoothstep crossfade) or 'cut' (0 s).
+    The overlap frames of a join are shared by both parts. Returns the start time (s) of every part and the total."""
     import ink_transition as IT
-    nT = max(1, round(T * FPS)); ns = [round(L * FPS) for _, L in parts]
+    import numpy as np
+    ns = [round(L * FPS) for _, L in parts]; nj = [0 if k == 'cut' else max(1, round(sec * FPS)) for k, sec in joins]
     enc = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                             '-c:v', 'libx264', '-preset', 'slow', '-crf', str(crf), '-pix_fmt', 'yuv420p', '-movflags', '+faststart', dst], stdin=subprocess.PIPE)
-    tail = None; starts = []; pos = 0
+    tail = []; starts = []; pos = 0
     for i, ((path, _), n) in enumerate(zip(parts, ns)):
-        last = i == len(parts) - 1; g = read_frames(path, n); starts.append(pos / FPS); used = 0
-        if i > 0:
-            tr = IT.make(i - 1, W, H, seed) if kind == 'ink' else None
-            for k in range(nT):
-                B = next(g); t = (k + 1) / (nT + 1)
-                enc.stdin.write((tr.frame(tail[k], B, t) if tr else IT.fade_frame(tail[k], B, t)).tobytes())
-            used = nT
-        body = n - used - (0 if last else nT)
-        for _ in range(body): enc.stdin.write(next(g).tobytes())
-        if not last: tail = [next(g).copy() for _ in range(nT)]
-        pos += n - nT
+        nin = nj[i - 1] if i else 0; nout = nj[i] if i < len(joins) else 0
+        if nin + nout > n: raise SystemExit(f'part {path} ({n} frames) shorter than its joins ({nin}+{nout})')
+        g = read_frames(path, n); starts.append(pos / FPS)
+        if nin:
+            kind = joins[i - 1][0]; tr = IT.make(i - 1, W, H, seed) if kind == 'ink' else None
+            for k in range(nin):
+                B = next(g); t = (k + 1) / (nin + 1)
+                if kind == 'ink': f = tr.frame(tail[k], B, t)
+                elif kind == 'dissolve':
+                    e = t * t * (3 - 2 * t); f = (tail[k].astype(np.float32) * (1 - e) + B.astype(np.float32) * e + 0.5).astype(np.uint8)
+                else: f = IT.fade_frame(tail[k], B, t)
+                enc.stdin.write(f.tobytes())
+        for _ in range(n - nin - nout): enc.stdin.write(next(g).tobytes())
+        tail = [next(g).copy() for _ in range(nout)]
+        pos += n - nout
     enc.stdin.close(); enc.wait()
     if enc.returncode: raise SystemExit('encode failed')
-    return starts, (sum(ns) - nT * (len(ns) - 1)) / FPS
+    return starts, (sum(ns) - sum(nj)) / FPS
 
 def main():
     ap = argparse.ArgumentParser()
@@ -126,14 +140,18 @@ def main():
     ap.add_argument('--out', help='write the video + poster here instead of video/viewer/assets/chapter-videos (test render; JSON and manifest untouched)')
     ap.add_argument('--max-shot', type=float, default=8.0, help='longest source clip used per shot, seconds')
     ap.add_argument('--no-grade', action='store_true', help='skip the palette-lock colour grade (chapter_grade.py)')
-    ap.add_argument('--transition', choices=['ink', 'fade'], default='ink', help='ink-bleed transition (default) or the old linear crossfade')
-    ap.add_argument('--transition-sec', type=float, help=f'transition length (default ink {INK_SEC} s, fade {XF} s)')
+    ap.add_argument('--transition', choices=['flow', 'ink', 'fade'], default='flow',
+                    help='flow: generated ink-flow clips between shots (default; procedural ink bleed for title and end); ink: procedural ink bleed everywhere; fade: old linear crossfade')
+    ap.add_argument('--transition-sec', type=float, help=f'procedural transition length (default ink/flow {INK_SEC} s, fade {XF} s)')
+    ap.add_argument('--flow-dir', help='folder with <chapter>-tr-NN-MM.mp4 (default: the script transitionsDir, else <raw>/../transitions)')
+    ap.add_argument('--flow-blend', type=float, default=FLOW_BLEND, help='flow: dissolve from the transition clip into the next shot, seconds (a transition may set blendSec)')
+    ap.add_argument('--flow-in-blend', type=float, default=FLOW_IN_BLEND, help='flow: blend from shot N into the transition start, seconds (0 = hard cut, max 0.25)')
     ap.add_argument('--narration-rate', help='edge-tts rate, e.g. -29%% (default chapter_audio.NARRATION_RATE)')
     ap.add_argument('--breath', type=float, default=BREATH, help='pause after each narration line before the next transition, seconds')
     ap.add_argument('--max-slow', type=float, default=MAX_SLOW, help='largest clip slowdown used to fit narration; beyond it the last frame is held')
     ap.add_argument('--slow-mode', choices=['mci', 'blend', 'hold'], default='mci', help='how slowed clips get their in-between frames (minterpolate mci / blend, or plain hold)')
     a = ap.parse_args(); ch = a.chapter
-    T = a.transition_sec or (INK_SEC if a.transition == 'ink' else XF)
+    T = a.transition_sec or (XF if a.transition == 'fade' else INK_SEC); flow = a.transition == 'flow'
     spec = json.load(open(os.path.join(ROOT, 'video/data/chapter-videos', ch + '.json')))
     raw = a.raw or spec.get('rawDir') or f'/workspace/chapter-video/{ch}'
     assets = os.path.join(ROOT, 'video/viewer/assets'); official = os.path.join(assets, 'chapter-videos')
@@ -157,19 +175,33 @@ def main():
     parts.append((tpng, tdur + T))
     # palette-lock grade (ink -> paper grey ramp + vermilion only), clips in parallel
     src = {sh['n']: os.path.join(raw, sh['clip']) for sh in shots}
+    trs = []
+    if flow:
+        tdir = a.flow_dir or spec.get('transitionsDir') or os.path.join(os.path.dirname(os.path.abspath(raw.rstrip('/'))), 'transitions')
+        byk = {(t['from'], t['to']): t for t in spec.get('transitions', [])}
+        for k in range(nshot - 1):
+            n0, n1 = shots[k]['n'], shots[k + 1]['n']
+            t = byk.get((n0, n1)) or {'from': n0, 'to': n1, 'file': f'{ch}-tr-{n0:02d}-{n1:02d}.mp4'}
+            if not os.path.exists(os.path.join(tdir, t['file'])): raise SystemExit(f"--transition flow needs {os.path.join(tdir, t['file'])} (or use --transition ink)")
+            trs.append(t)
+        for t in trs: src[('tr', t['from'])] = os.path.join(tdir, t['file'])
     from concurrent.futures import ProcessPoolExecutor
     if not a.no_grade:
         import chapter_grade as CG
         with ProcessPoolExecutor(max_workers=min(4, os.cpu_count() or 2)) as ex:
             futs = {sh['n']: ex.submit(CG.grade_clip, src[sh['n']], f"{tmp}/graded-{sh['n']:02d}.mp4", sh.get('grade', {})) for sh in shots}
+            futs.update({('tr', t['from']): ex.submit(CG.grade_clip, src[('tr', t['from'])], f"{tmp}/graded-tr-{t['from']:02d}-{t['to']:02d}.mp4", t.get('grade', {})) for t in trs})
             src = {n: f.result() for n, f in futs.items()}
-        print('  graded', len(src), 'clips')
+        print('  graded', len(shots), 'clips' + (f' + {len(trs)} transitions' if trs else ''))
     probe = lambda f, e: subprocess.check_output(['ffprobe', '-v', 'error'] + (['-select_streams', 'v:0'] if e.startswith('stream') else []) + ['-show_entries', e, '-of', 'csv=p=0', f]).decode().strip()
     # shot lengths: max(clip, offset + narration + breath + transition); fill by slowing the clip (<= max-slow), then hold
     plan = {}
     for k, sh in enumerate(shots):
-        n = sh['n']; cd = min(a.max_shot, float(probe(src[n], 'format=duration'))); last = k == nshot - 1
-        need = (voff + vlen[k] + a.breath + (0 if last else T)) if vlen else cd
+        n = sh['n']; last = k == nshot - 1
+        # flow: play the whole clip, so the shot ends on the very frame its transition clip starts from
+        cd = float(probe(src[n], 'format=duration')) if flow else min(a.max_shot, float(probe(src[n], 'format=duration')))
+        # nothing overlaps a shot's end in flow mode (the transition follows it), so no transition allowance there
+        need = (voff + vlen[k] + a.breath + (0 if last or flow else T)) if vlen else cd
         dur = max(cd, need); slow = 1.0 if a.slow_mode == 'hold' else min(a.max_slow, dur / cd)
         plan[n] = (cd, dur, slow)
         if dur > cd: print(f'  shot {n}: narration {vlen[k]:.2f}s -> shot {dur:.2f}s (clip x{slow:.2f} slower' + (f', hold {dur - cd * slow:.2f}s)' if dur - cd * slow > 0.01 else ')'))
@@ -180,11 +212,14 @@ def main():
     shot_durs = []
     for k, sh in enumerate(shots):
         n = sh['n']; cd, dur, slow = plan[n]; clip = slowed.get(n, src[n]); cap = f'{tmp}/cap-{n:02d}.png'; caption(cap, sh['zh'])
-        last = k == nshot - 1; cs = cd * slow
+        last = k == nshot - 1; cs = float(probe(clip, 'format=duration')) if flow else cd * slow
+        if flow and not last:  # never trim the clip's final frame: the transition clip starts from it
+            import math; dur = max(dur, math.ceil(cs * FPS - 0.01) / FPS)
         pad = max(0.0, dur - cs) + (hold if last else 0)
         sharp = ',unsharp=5:5:0.6:5:5:0.0' if int(probe(clip, 'stream=height')) < H else ''  # sharpen only when upscaling
-        cin = 0.8 * T  # caption appears once the incoming transition has mostly cleared
-        cout = (dur - 0.6) if last else (dur - T - 0.55)  # and is gone before the outgoing one starts
+        bl_in = (trs[k - 1].get('blendSec', a.flow_blend) if flow and k else T)
+        cin = (bl_in + 0.15) if flow and k else 0.8 * T  # caption appears once the incoming transition has mostly cleared
+        cout = (dur - 0.6) if (last or flow) else (dur - T - 0.55)  # and is gone before the outgoing one starts
         vf = (f'[0:v]trim=0:{cs:.3f},setpts=PTS-STARTPTS,fps={FPS},scale=-2:{H}:flags=lanczos,crop={W}:{H}{sharp},setsar=1'
               + (f',tpad=stop_mode=clone:stop_duration={pad:.3f}' if pad > 0 else '') + '[v];'
               f'[1:v]format=rgba,fade=in:st={cin:.2f}:d=0.6:alpha=1,fade=out:st={cout:.2f}:d=0.5:alpha=1[c];'
@@ -193,6 +228,14 @@ def main():
         run(['ffmpeg', '-y', '-loglevel', 'error', '-i', clip, '-loop', '1', '-t', f'{L:.3f}', '-i', cap,
              '-filter_complex', vf, '-map', '[o]', '-an', '-t', f'{L:.3f}', '-c:v', 'libx264', '-crf', '16', o])
         parts.append((o, L)); shot_durs.append(dur); sh['durationSec'] = round(dur, 2)
+        if flow and not last:
+            t = trs[k]; tc = src[('tr', t['from'])]; td = float(probe(tc, 'format=duration'))
+            t0, t1 = t.get('trimStart', 0), min(td, t.get('trimEnd', td)); tl = t1 - t0
+            if not 2.0 <= tl <= 3.1: raise SystemExit(f"transition {t['file']} is {tl:.2f} s after trimming; keep it 2-3 s")
+            to = f"{tmp}/tr-{t['from']:02d}-{t['to']:02d}.mp4"
+            run(['ffmpeg', '-y', '-loglevel', 'error', '-ss', f'{t0:.3f}', '-i', tc, '-t', f'{tl:.3f}', '-vf', f'fps={FPS},scale={W}:{H}:flags=lanczos,setsar=1,format=yuv420p',
+                 '-an', '-c:v', 'libx264', '-crf', '16', to])
+            parts.append((to, round(tl * FPS) / FPS)); t['durationSec'] = round(round(tl * FPS) / FPS, 3)
         if slow > 1.001: sh['clipSlowdown'] = round(slow, 3)
         else: sh.pop('clipSlowdown', None)
     # closing: ink back into blank paper
@@ -201,14 +244,26 @@ def main():
     parts.append((endc, ENDC))
     mp4 = os.path.join(out, ch + '.mp4'); silent = f'{tmp}/{ch}-silent.mp4'
     print(f'+ assemble {len(parts)} parts, {a.transition} transitions {T:.2f}s …')
-    pstarts, total = assemble(parts, T, a.transition, silent if not a.no_audio else mp4, a.crf)
-    starts = pstarts[1:1 + nshot]
+    if flow:
+        joins = [('ink', T)]
+        for t in trs: joins += [('cut' if a.flow_in_blend <= 0 else 'dissolve', min(0.25, a.flow_in_blend)), ('dissolve', t.get('blendSec', a.flow_blend))]
+        joins.append(('ink', T))
+    else: joins = [(a.transition, T)] * (len(parts) - 1)
+    pstarts, total = assemble(parts, joins, silent if not a.no_audio else mp4, a.crf)
+    shot_idx = [0] + [1 + 2 * k for k in range(nshot)] if flow else list(range(nshot + 1))
+    starts = [pstarts[shot_idx[k + 1]] for k in range(nshot)]
     loud = None
     if not a.no_audio:
         import chapter_audio as CA
         # the last shot also covers the closing hold
         sd = shot_durs[:-1] + [shot_durs[-1] + hold]
-        mixwav = CA.mix(total, tdur, starts, sd, spec, tmp, T, vo)
+        amb = None
+        if flow:  # ambience: each shot's bed runs from the middle of the transition before it to the middle of the one after, crossfading across the transition
+            gap = [(pstarts[2 + 2 * k], starts[k + 1]) for k in range(nshot - 1)]  # (transition clip start, next shot start)
+            mids = [(g0 + g1) / 2 for g0, g1 in gap]; xfs = [g1 - g0 for g0, g1 in gap]
+            amb = [((mids[k - 1] if k else starts[0]), ((mids[k] if k < nshot - 1 else total) - (mids[k - 1] if k else starts[0])),
+                    (xfs[k - 1] if k else T), (xfs[k] if k < nshot - 1 else T)) for k in range(nshot)]
+        mixwav = CA.mix(total, tdur, starts, sd, spec, tmp, T, vo, amb_segs=amb)
         normwav = f'{tmp}/mix-norm.wav'; CA.loudnorm(mixwav, normwav, -16.0)
         run(['ffmpeg', '-y', '-loglevel', 'error', '-i', silent, '-i', normwav, '-map', '0:v', '-map', '1:a', '-c:v', 'copy',
              '-c:a', 'aac', '-b:a', '160k', '-ac', '2', '-ar', '48000', '-t', f'{total:.3f}', '-movflags', '+faststart', mp4])
@@ -222,7 +277,8 @@ def main():
     pim.save(os.path.join(out, ch + '-poster.webp'), quality=78, method=6)
     dur = float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', mp4]).decode().strip())
     print('total', round(dur, 2), 's', os.path.getsize(mp4), 'bytes ->', mp4)
-    json.dump({'starts': [round(x, 3) for x in pstarts], 'transitionSec': T, 'transition': a.transition, 'total': total,
+    json.dump({'starts': [round(x, 3) for x in pstarts], 'parts': [os.path.basename(p) for p, _ in parts], 'joins': joins, 'shotStarts': [round(x, 3) for x in starts],
+               'transitionSec': T, 'transition': a.transition, 'total': total,
                'narrationSec': [round(x, 2) for x in vlen] if vlen else None}, open(f'{tmp}/timeline.json', 'w'), indent=1)
     if not is_official: return
     for sh in shots: sh['status'] = 'done'
@@ -231,6 +287,12 @@ def main():
                       'poster': f'video/viewer/assets/chapter-videos/{ch}-poster.jpg', 'durationSec': round(dur, 2),
                       'transition': a.transition, 'transitionSec': T, 'audio': bool(loud), 'narration': bool(vo), 'status': 'done'}
     if a.transition == 'fade': spec['output']['crossfadeSec'] = T
+    if flow:
+        spec['output']['flowBlendSec'] = a.flow_blend; spec['output']['flowInBlendSec'] = max(0.0, min(0.25, a.flow_in_blend))
+        spec['output']['transitionSec'] = T  # the procedural ink bleed used for title -> shot 1 and the end
+        spec['transitionsDir'] = os.path.abspath(tdir)
+        old = {(t['from'], t['to']): t for t in spec.get('transitions', [])}
+        spec['transitions'] = [dict(old.get((t['from'], t['to']), {}), **t) for t in trs]
     if vo: spec['output']['narrationRate'] = cfg['rate']; spec['output']['narrationSec'] = round(sum(vlen), 1)
     if loud: spec['output']['loudnessLUFS'] = round(loud[0], 1)
     jp = os.path.join(ROOT, 'video/data/chapter-videos', ch + '.json')
