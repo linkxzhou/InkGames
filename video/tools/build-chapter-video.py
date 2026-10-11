@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Assemble a chapter opening video from generated clips (see video/docs/chapter-videos.md).
 
-Usage: python3 video/tools/build-chapter-video.py <chapter> [--raw /workspace/chapter-video/<chapter>]
+Usage: python3 video/tools/build-chapter-video.py <chapter> [--raw /workspace/chapter-video/<chapter>] [--crf 28] [--max-mb 30]
+The CRF is adaptive: starting at --crf it is raised until video + audio fit under --max-mb (the 30 MB cap).
 Needs Python 3 + Pillow + numpy + ffmpeg (+ edge-tts for narration, network). Local tool only; not part of ./build.sh.
 On the box: /workspace/.venv-audio/bin/python video/tools/build-chapter-video.py <chapter> [--raw DIR] [--out DIR] [--no-audio]
 Audio (chapter_audio.py): edge-tts narration of each shot's `narration`, original procedural music bed and
@@ -29,6 +30,12 @@ FLOW_BLEND = 0.5  # flow: soft dissolve from the transition clip's last frames i
 FLOW_IN_BLEND = 0.0  # flow: blend shot N's end into the transition start (0 = hard cut; the frames match)
 INK_SEC = 1.2  # ink-bleed transition seconds (default)
 BREATH = 0.4  # pause after a narration line before the next transition
+CAP_BYTES = 30 * 1024 * 1024  # per-chapter mp4 cap (validate.mjs)
+CAP_MARGIN = 0.97  # aim a little under the cap
+AUDIO_KBPS = 160
+FLOW_PROMPT = ('Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, '
+               'swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, '
+               'ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.')
 MAX_SLOW = 1.35  # longest clip slowdown used to fit a line; beyond it the last frame is held
 
 def font(sz, bold=True):
@@ -136,7 +143,8 @@ def assemble(parts, joins, dst, crf, seed=11):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('chapter'); ap.add_argument('--raw', help='folder with <chapter>-NN.mp4 clips (default /workspace/chapter-video/<chapter>)')
-    ap.add_argument('--crf', default='28'); ap.add_argument('--no-audio', action='store_true', help='silent video (no narration / music)')
+    ap.add_argument('--crf', type=int, default=28, help='starting x264 CRF; raised automatically until the mp4 fits under --max-mb');
+    ap.add_argument('--max-mb', type=float, default=CAP_BYTES / 2**20, help='size cap for the mp4, MiB (default 30, the validator cap)'); ap.add_argument('--no-audio', action='store_true', help='silent video (no narration / music)')
     ap.add_argument('--out', help='write the video + poster here instead of video/viewer/assets/chapter-videos (test render; JSON and manifest untouched)')
     ap.add_argument('--max-shot', type=float, default=8.0, help='longest source clip used per shot, seconds')
     ap.add_argument('--no-grade', action='store_true', help='skip the palette-lock colour grade (chapter_grade.py)')
@@ -181,7 +189,11 @@ def main():
         byk = {(t['from'], t['to']): t for t in spec.get('transitions', [])}
         for k in range(nshot - 1):
             n0, n1 = shots[k]['n'], shots[k + 1]['n']
-            t = byk.get((n0, n1)) or {'from': n0, 'to': n1, 'file': f'{ch}-tr-{n0:02d}-{n1:02d}.mp4'}
+            t = dict(byk.get((n0, n1)) or {'from': n0, 'to': n1, 'file': f'{ch}-tr-{n0:02d}-{n1:02d}.mp4'})
+            if 'sourceFrames' not in t:  # the stills the transition was generated from: shot N's last frame, shot N+1's first frame
+                pick = lambda kind, n: next((f for f in (f'{kind}-{n:02d}.jpg', f'{ch}-{kind}-{n:02d}.jpg', f'sg-{kind}-{n:02d}.jpg') if os.path.exists(os.path.join(tdir, f))), None)
+                if pick('last', n0) and pick('first', n1): t['sourceFrames'] = {'last': pick('last', n0), 'first': pick('first', n1)}
+            t.setdefault('prompt', (spec.get('transitionPrompt') or {}).get('template', FLOW_PROMPT))
             if not os.path.exists(os.path.join(tdir, t['file'])): raise SystemExit(f"--transition flow needs {os.path.join(tdir, t['file'])} (or use --transition ink)")
             trs.append(t)
         for t in trs: src[('tr', t['from'])] = os.path.join(tdir, t['file'])
@@ -249,7 +261,18 @@ def main():
         for t in trs: joins += [('cut' if a.flow_in_blend <= 0 else 'dissolve', min(0.25, a.flow_in_blend)), ('dissolve', t.get('blendSec', a.flow_blend))]
         joins.append(('ink', T))
     else: joins = [(a.transition, T)] * (len(parts) - 1)
-    pstarts, total = assemble(parts, joins, silent if not a.no_audio else mp4, a.crf)
+    # adaptive CRF: start at --crf and raise it until video + audio fits under the 30 MB cap (each +1 CRF ~ -12% size)
+    import math
+    crf = a.crf; dst = silent if not a.no_audio else mp4
+    while True:
+        pstarts, total = assemble(parts, joins, dst, crf)
+        budget = a.max_mb * 2**20 * CAP_MARGIN - (0 if a.no_audio else total * AUDIO_KBPS * 1000 / 8 * 1.03)
+        size = os.path.getsize(dst)
+        if size <= budget or crf >= 40: break
+        step = max(1, math.ceil(math.log(size / budget) / math.log(1 / 0.88)))
+        print(f'  {size / 2**20:.1f} MB video at crf {crf} is over budget {budget / 2**20:.1f} MB -> crf {crf + step}')
+        crf += step
+    print(f'  video crf {crf}, {size / 2**20:.1f} MB')
     shot_idx = [0] + [1 + 2 * k for k in range(nshot)] if flow else list(range(nshot + 1))
     starts = [pstarts[shot_idx[k + 1]] for k in range(nshot)]
     loud = None
@@ -285,7 +308,8 @@ def main():
     if vo: spec.setdefault('audio', {}).setdefault('narration', {})['rate'] = cfg['rate']
     spec['output'] = {'mp4': f'video/viewer/assets/chapter-videos/{ch}.mp4',
                       'poster': f'video/viewer/assets/chapter-videos/{ch}-poster.jpg', 'durationSec': round(dur, 2),
-                      'transition': a.transition, 'transitionSec': T, 'audio': bool(loud), 'narration': bool(vo), 'status': 'done'}
+                      'transition': a.transition, 'transitionSec': T, 'audio': bool(loud), 'narration': bool(vo), 'status': 'done',
+                      'crf': crf, 'sizeBytes': os.path.getsize(mp4)}
     if a.transition == 'fade': spec['output']['crossfadeSec'] = T
     if flow:
         spec['output']['flowBlendSec'] = a.flow_blend; spec['output']['flowInBlendSec'] = max(0.0, min(0.25, a.flow_in_blend))
