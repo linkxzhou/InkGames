@@ -194,6 +194,18 @@ window.CHAPTER_VIDEOS = {
    "shots": 9,
    "audio": true
   },
+  "yuan": {
+   "title": {
+    "zh": "元",
+    "en": "Yuan"
+   },
+   "mp4": "assets/chapter-videos/yuan.mp4",
+   "poster": "assets/chapter-videos/yuan-poster.jpg",
+   "posterWebp": "assets/chapter-videos/yuan-poster.webp",
+   "durationSec": 111.38,
+   "shots": 10,
+   "audio": true
+  },
   "zhanguo": {
    "title": {
     "zh": "战国",
