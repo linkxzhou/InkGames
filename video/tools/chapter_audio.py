@@ -239,13 +239,15 @@ AMB = {  # name -> (generator, level)
 }
 
 def ambience_track(total, segs, rng, xf):
+    """segs: (t0, dur, names) crossfading xf s around each boundary, or (t0, dur, names, xf_in, xf_out) per segment."""
     y = np.zeros(int(total * SR))
-    for t0, dur, names in segs:
-        seg = np.zeros(int((dur + xf) * SR))
+    for sg in segs:
+        t0, dur, names = sg[:3]; xi, xo = (sg[3], sg[4]) if len(sg) > 3 else (xf, xf)
+        L = dur + xi / 2 + xo / 2; seg = np.zeros(int(L * SR))
         for nm in names:
-            g, lv = AMB[nm]; seg += lv * g(dur + xf, rng)
-        k = int(xf * SR); e = np.ones(len(seg)); e[:k] = np.linspace(0, 1, k); e[-k:] = np.linspace(1, 0, k)
-        place(y, seg * e, t0 - xf / 2)
+            g, lv = AMB[nm]; seg += lv * g(L, rng)[:len(seg)]
+        ki, ko = int(xi * SR), int(xo * SR); e = np.ones(len(seg)); e[:ki] = np.linspace(0, 1, ki); e[len(seg) - ko:] = np.linspace(1, 0, ko)
+        place(y, seg * e, t0 - xi / 2)
     return y
 
 # ---------------- narration ----------------
@@ -282,10 +284,13 @@ def tts_durations(lines, cfg, tmp):
     return (vo, [len(v) / SR for v in vo]) if vo else (None, None)
 
 # ---------------- mix ----------------
-def mix(total, title_sec, shot_starts, shot_durs, spec, tmp, xf, vo=None, seed=1):
+def mix(total, title_sec, shot_starts, shot_durs, spec, tmp, xf, vo=None, seed=1, amb_segs=None):
+    """amb_segs (flow transitions): per shot (t0, dur, xf_in, xf_out) for its ambience, else shot start/length with xf."""
     rng = np.random.default_rng(seed)
     music = music_bed(total, title_sec, rng)
-    amb = ambience_track(total, [(s, d, sh.get('ambience', [])) for s, d, sh in zip(shot_starts, shot_durs, spec['shots'])], rng, xf)
+    segs = ([(t0, d, sh.get('ambience', []), xi, xo) for (t0, d, xi, xo), sh in zip(amb_segs, spec['shots'])] if amb_segs
+            else [(s, d, sh.get('ambience', [])) for s, d, sh in zip(shot_starts, shot_durs, spec['shots'])])
+    amb = ambience_track(total, segs, rng, xf)
     bed = music + amb
     voice = np.zeros(int(total * SR)); off = spec.get('audio', {}).get('narration', {}).get('offsetSec', 0.6)
     if vo:
