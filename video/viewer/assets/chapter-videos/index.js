@@ -58,7 +58,7 @@ window.CHAPTER_VIDEOS = {
    "mp4": "assets/chapter-videos/shang.mp4",
    "poster": "assets/chapter-videos/shang-poster.jpg",
    "posterWebp": "assets/chapter-videos/shang-poster.webp",
-   "durationSec": 65.12,
+   "durationSec": 90.21,
    "shots": 8,
    "audio": true
   },
