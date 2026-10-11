@@ -37,6 +37,18 @@
    "shots": 10,
    "audio": true
   },
+  "nanbeichao": {
+   "title": {
+    "zh": "南北朝",
+    "en": "Northern and Southern Dynasties"
+   },
+   "mp4": "assets/chapter-videos/nanbeichao.mp4",
+   "poster": "assets/chapter-videos/nanbeichao-poster.jpg",
+   "posterWebp": "assets/chapter-videos/nanbeichao-poster.webp",
+   "durationSec": 124.21,
+   "shots": 11,
+   "audio": true
+  },
   "qin": {
    "title": {
     "zh": "秦",

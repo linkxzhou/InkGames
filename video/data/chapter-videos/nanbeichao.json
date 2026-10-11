@@ -32,7 +32,7 @@
   "narration": {
    "engine": "edge-tts",
    "voice": "zh-CN-YunjianNeural",
-   "rate": "-8%",
+   "rate": "-29%",
    "pitch": "-2Hz",
    "offsetSec": 0.6
   },
@@ -47,7 +47,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.71,
    "zh": "唱筹量沙",
    "narration": "檀道济军中缺粮，夜里唱筹量沙，以米覆沙，魏军不敢追。",
    "ambience": [
@@ -59,7 +59,8 @@
    "motionPrompt": "torch flames flicker, sand pours from the baskets, wind moves the tents; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "nanbeichao-01.jpg",
    "clip": "nanbeichao-01.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.081
   },
   {
    "n": 2,
@@ -68,7 +69,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.12,
    "zh": "元嘉草草",
    "narration": "元嘉北伐草草失败，拓跋焘饮马长江，江北一片残破。",
    "ambience": [
@@ -80,7 +81,8 @@
    "motionPrompt": "the horses drink, the water ripples, smoke drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "nanbeichao-02.jpg",
    "clip": "nanbeichao-02.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.007
   },
   {
    "n": 3,
@@ -89,7 +91,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "木兰从军",
    "narration": "木兰停下织机，买了骏马鞍鞯，替父从军万里。",
    "ambience": [
@@ -101,7 +103,7 @@
    "motionPrompt": "the horse's mane stirs, her tunic and hair move in the wind, mist drifts; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep her silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "nanbeichao-03.jpg",
    "clip": "nanbeichao-03.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 4,
@@ -110,7 +112,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.29,
    "zh": "国史之狱",
    "narration": "崔浩修国史，直书拓跋先世，刻石立于通衢，终遭灭族。",
    "ambience": [
@@ -121,7 +123,8 @@
    "motionPrompt": "dust blows along the road, the line moves slowly, crows take flight; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "nanbeichao-04.jpg",
    "clip": "nanbeichao-04.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.027
   },
   {
    "n": 5,
@@ -130,7 +133,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "祖冲之",
    "narration": "祖冲之造大明历，又把圆周率推算到小数点后七位。",
    "ambience": [
@@ -141,7 +144,7 @@
    "motionPrompt": "the stars wheel slowly, the armillary rings turn slightly, the lamp flickers; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "nanbeichao-05.jpg",
    "clip": "nanbeichao-05.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 6,
@@ -150,7 +153,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.38,
    "zh": "孝文帝迁都",
    "narration": "孝文帝以南伐为名迁都洛阳，改汉姓，易汉服，说汉话。",
    "ambience": [
@@ -161,7 +164,8 @@
    "motionPrompt": "rain falls, the column moves forward, banners droop and stir; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "nanbeichao-06.jpg",
    "clip": "nanbeichao-06.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.036
   },
   {
    "n": 7,
@@ -170,7 +174,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.71,
    "zh": "梁武帝与达摩",
    "narration": "梁武帝四次舍身同泰寺；达摩相传与他一语不契，渡江北去。",
    "ambience": [
@@ -182,7 +186,8 @@
    "motionPrompt": "mist drifts, the river flows, his robe stirs, the reed glides slowly; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "nanbeichao-07.jpg",
    "clip": "nanbeichao-07.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.082
   },
   {
    "n": 8,
@@ -191,7 +196,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.54,
    "zh": "陈庆之白袍",
    "narration": "陈庆之率七千白袍军北上，所向披靡：千兵万马避白袍。",
    "ambience": [
@@ -202,7 +207,8 @@
    "motionPrompt": "the robes stream, dust trails, banners ripple; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "nanbeichao-08.jpg",
    "clip": "nanbeichao-08.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.057
   },
   {
    "n": 9,
@@ -211,7 +217,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.12,
    "zh": "玉壁之战",
    "narration": "高欢围攻玉壁五十日，韦孝宽死守不下，高欢忧愤成疾。",
    "ambience": [
@@ -222,7 +228,8 @@
    "motionPrompt": "smoke drifts, the siege towers stand still, dust blows; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "nanbeichao-09.jpg",
    "clip": "nanbeichao-09.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.008
   },
   {
    "n": 10,
@@ -231,7 +238,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 8.04,
    "zh": "侯景之乱",
    "narration": "侯景围台城，梁武帝饿死宫中，江南繁华化为焦土。",
    "ambience": [
@@ -243,7 +250,7 @@
    "motionPrompt": "smoke drifts through the hall, dust floats, the light fades; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep his silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "nanbeichao-10.jpg",
    "clip": "nanbeichao-10.mp4",
-   "status": "pending"
+   "status": "done"
   },
   {
    "n": 11,
@@ -252,7 +259,7 @@
     2,
     3
    ],
-   "durationSec": 8,
+   "durationSec": 9.0,
    "zh": "兰陵王入阵",
    "narration": "兰陵王戴面具入阵，邙山解洛阳之围，齐人作《兰陵王入阵曲》。",
    "ambience": [
@@ -264,7 +271,146 @@
    "motionPrompt": "his cloak and the horse's mane stream, dust swirls, the frame holds; slow continuous movement across the whole 8 seconds, the ink edges breathing softly, a steady slow camera, calm historical mood; no modern elements: no modern buildings, power lines, poles, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, electric lights, signs or lettering; no anachronisms: western crown, spiked crown, european crown, top hat, feather headdress, native american headdress, hooded robes, pointed hood, klan hood, torii, japanese architecture, katana, highway, asphalt road, lane markings, trekking poles, backpack, hikers, jet, aircraft, missile, table lamp, lampshade, light bulb, glass lamp chimney, glass windows, glazed carriage, stagecoach, conestoga covered wagon, signboard, plaque with characters, emblem on flag, circular emblem, logo, navy blue sky, blue tint, cyan, yellow, orange, bound books, paper books, galleon, square-sailed ship, steamship, lattice mast, funnel, ironclad; keep their silhouette consistent, no morphing, no new figures, no text. Only black, grey, paper white and vermilion.",
    "still": "nanbeichao-11.jpg",
    "clip": "nanbeichao-11.mp4",
-   "status": "pending"
+   "status": "done",
+   "clipSlowdown": 1.119
+  }
+ ],
+ "output": {
+  "mp4": "video/viewer/assets/chapter-videos/nanbeichao.mp4",
+  "poster": "video/viewer/assets/chapter-videos/nanbeichao-poster.jpg",
+  "durationSec": 124.21,
+  "transition": "flow",
+  "transitionSec": 1.2,
+  "audio": true,
+  "narration": true,
+  "status": "done",
+  "crf": 30,
+  "sizeBytes": 28110785,
+  "flowBlendSec": 0.5,
+  "flowInBlendSec": 0.0,
+  "narrationRate": "-29%",
+  "narrationSec": 78.3,
+  "loudnessLUFS": -16.0
+ },
+ "transitionPrompt": {
+  "template": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+  "image_path": "previous shot last frame (<IMAGE_0>)",
+  "reference": "next shot first frame (<IMAGE_1>)",
+  "durationSec": 3,
+  "resolution": "720p",
+  "fps": 24
+ },
+ "transitionsDir": "/workspace/chapter-video/nanbeichao/transitions",
+ "transitions": [
+  {
+   "from": 1,
+   "to": 2,
+   "file": "nanbeichao-tr-01-02.mp4",
+   "sourceFrames": {
+    "last": "nanbeichao-last-01.jpg",
+    "first": "nanbeichao-first-02.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 2,
+   "to": 3,
+   "file": "nanbeichao-tr-02-03.mp4",
+   "sourceFrames": {
+    "last": "nanbeichao-last-02.jpg",
+    "first": "nanbeichao-first-03.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 3,
+   "to": 4,
+   "file": "nanbeichao-tr-03-04.mp4",
+   "sourceFrames": {
+    "last": "nanbeichao-last-03.jpg",
+    "first": "nanbeichao-first-04.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 4,
+   "to": 5,
+   "file": "nanbeichao-tr-04-05.mp4",
+   "sourceFrames": {
+    "last": "nanbeichao-last-04.jpg",
+    "first": "nanbeichao-first-05.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 5,
+   "to": 6,
+   "file": "nanbeichao-tr-05-06.mp4",
+   "sourceFrames": {
+    "last": "nanbeichao-last-05.jpg",
+    "first": "nanbeichao-first-06.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 6,
+   "to": 7,
+   "file": "nanbeichao-tr-06-07.mp4",
+   "sourceFrames": {
+    "last": "nanbeichao-last-06.jpg",
+    "first": "nanbeichao-first-07.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 7,
+   "to": 8,
+   "file": "nanbeichao-tr-07-08.mp4",
+   "sourceFrames": {
+    "last": "nanbeichao-last-07.jpg",
+    "first": "nanbeichao-first-08.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 8,
+   "to": 9,
+   "file": "nanbeichao-tr-08-09.mp4",
+   "sourceFrames": {
+    "last": "nanbeichao-last-08.jpg",
+    "first": "nanbeichao-first-09.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 9,
+   "to": 10,
+   "file": "nanbeichao-tr-09-10.mp4",
+   "sourceFrames": {
+    "last": "nanbeichao-last-09.jpg",
+    "first": "nanbeichao-first-10.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
+  },
+  {
+   "from": 10,
+   "to": 11,
+   "file": "nanbeichao-tr-10-11.mp4",
+   "sourceFrames": {
+    "last": "nanbeichao-last-10.jpg",
+    "first": "nanbeichao-first-11.jpg"
+   },
+   "prompt": "Chinese ink-wash transition. Starting from <IMAGE_0>, the black ink of the scene melts and flows like ink dropped in water, swirling and spreading across the xuan paper, then the flowing ink gathers and settles into the exact composition of <IMAGE_1>, ending on <IMAGE_1>. One continuous fluid morph, no cut, no camera shake. Only black, grey, paper white and vermilion; no text, no modern elements.",
+   "durationSec": 3.042
   }
  ]
 }
