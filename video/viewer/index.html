@@ -13,7 +13,7 @@
    - 视觉按 video/docs/art-style.md：简化版黑白红武侠水墨剪影。只用色板七色，
      朱砂红只作印章、当前章节与少量强调。页面底是 three.js 淡墨（assets/ink-backdrop.js，
      复用引擎 InkSurface），无 WebGL 时留宣纸色。开卷图是本地
-     assets/hero-fenghuo-wide 与 hero-fenghuo-m（相对路径），不加载外部图片、字体或库，双击即可用 file:// 打开。
+     assets/hero-fenghuo-wide（相对路径），不加载外部图片、字体或库，双击即可用 file:// 打开。
    - 数据来自 data/*.js（由 tools/build-viewer-data.mjs 从 chapters/*.json
      生成，设置 window.HISTORY_GAME_INDEX / HISTORY_GAME_CHAPTERS）。
      只静态加载 data/index.js；章节脚本在切到该章时用动态 <script> 按需加载，
@@ -33,8 +33,6 @@
   --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .08 0 0 0 0 .08 0 0 0 0 .08 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23f)'/%3E%3C/svg%3E"),
           url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .05' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .1 0 0 0 0 .1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='600' height='600' filter='url(%23g)'/%3E%3C/svg%3E");
   /* 本地纹理 assets/：webp 优先，jpg 兜底；file:// 可用 */
-  --tex-paper:image-set(url("assets/paper-ink-stains.webp") type("image/webp"),url("assets/paper-ink-stains.jpg") type("image/jpeg"));
-  --tex-blot:image-set(url("assets/ink-blot-corner.webp") type("image/webp"),url("assets/ink-blot-corner.jpg") type("image/jpeg"));
   --tex-ink:image-set(url("assets/ink-black-panel.webp") type("image/webp"),url("assets/ink-black-panel.jpg") type("image/jpeg"));
   --tex-seal:image-set(url("assets/vermilion-seal-fill.webp") type("image/webp"),url("assets/vermilion-seal-fill.jpg") type("image/jpeg"));
   --tex-bar:image-set(url("assets/vermilion-brush-bar.webp") type("image/webp"),url("assets/vermilion-brush-bar.jpg") type("image/jpeg"));
@@ -76,11 +74,33 @@ button,select{font:inherit;color:inherit}
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 0 L5 5 L9 0' fill='none' stroke='%23141414' stroke-width='1.4'/%3E%3C/svg%3E");background-position:right 2px center;background-size:10px 6px;background-repeat:no-repeat;text-overflow:ellipsis}
 .tools label{font-size:12px;color:var(--mid);letter-spacing:.1em}
 
-/* ---------- 开卷（hero） ---------- */
-#hero{position:relative;border-bottom:1px solid var(--rule)}
-#hero .wrap{position:relative;z-index:2;padding-top:0;padding-bottom:0}
-.hero-stage{position:relative}
-.hero-txt{position:relative;z-index:2;max-width:40em}
+/* ---------- 开卷 / 篇横幅共用 .sheet ---------- */
+.sheet{position:relative;width:100%;background:var(--paper)}
+.sheet-stage{position:relative;width:100%;background:var(--paper)}
+.ink-fade,.hero-art img,.empty-state img,.pb-art img,.pc-img img{
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent),linear-gradient(to bottom,transparent,#000 10%,#000 90%,transparent);
+  -webkit-mask-composite:source-in;
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-size:100% 100%;
+  mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent),linear-gradient(to bottom,transparent,#000 10%,#000 90%,transparent);
+  mask-composite:intersect;
+  mask-repeat:no-repeat;
+  mask-size:100% 100%;
+}
+.ink-fade-8,.dmap img,.map-thumb img,#chVideo video{
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent),linear-gradient(to bottom,transparent,#000 8%,#000 92%,transparent);
+  -webkit-mask-composite:source-in;
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-size:100% 100%;
+  mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent),linear-gradient(to bottom,transparent,#000 8%,#000 92%,transparent);
+  mask-composite:intersect;
+  mask-repeat:no-repeat;
+  mask-size:100% 100%;
+}
+#hero{border-bottom:1px solid var(--rule);background:var(--paper)}
+#pianHome{background:var(--paper)}
+.hero-stage{position:relative;width:100%;background:var(--paper)}
+.hero-txt{position:relative;z-index:2;max-width:40em;padding:20px clamp(16px,4vw,40px) 28px}
 .kicker{font-size:13px;letter-spacing:.42em;color:var(--mid)}
 .hero-title{display:flex;align-items:flex-start;gap:18px;margin:10px 0 6px}
 .hero-title h1{font-family:var(--kai);font-weight:900;font-size:clamp(76px,10vw,148px);line-height:.95;letter-spacing:.06em;color:var(--ink)}
@@ -96,9 +116,10 @@ button,select{font:inherit;color:inherit}
 .stroke{display:block;height:16px;width:min(360px,80%);margin:4px 0 18px;
   background:url("assets/divider-brush.png") center/100% 100% no-repeat;
   background-image:image-set(url("assets/divider-brush.webp") type("image/webp"), url("assets/divider-brush.png") type("image/png"))}
-.ridge{height:72px;margin:0;pointer-events:none;
-  background:url("assets/divider-mountain.png") center/100% 100% no-repeat;
-  background-image:image-set(url("assets/divider-mountain.webp") type("image/webp"), url("assets/divider-mountain.png") type("image/png"))}
+.ridge{height:72px;margin:0;pointer-events:none;background-color:var(--paper);
+  background-image:url("assets/divider-mountain.png");
+  background-image:image-set(url("assets/divider-mountain.webp") type("image/webp"), url("assets/divider-mountain.png") type("image/png"));
+  background-position:center;background-size:100% 100%;background-repeat:no-repeat}
 .hero-p{max-width:30em;color:var(--char);font-size:15.5px}
 .stats{display:flex;gap:clamp(18px,3vw,40px);margin:22px 0 26px}
 .stats div{display:flex;flex-direction:column}
@@ -112,11 +133,11 @@ button,select{font:inherit;color:inherit}
   background:url("assets/btn-ink.png") center/100% 100% no-repeat;
   background-image:image-set(url("assets/btn-ink.webp") type("image/webp"), url("assets/btn-ink.png") type("image/png"))}
 .btn.primary:hover{outline:1px solid var(--red);outline-offset:3px}
-.hero-art{position:relative;z-index:1;width:100%;min-height:0;height:auto;pointer-events:none}
+.hero-art{position:relative;z-index:1;width:100%;min-height:0;height:auto;pointer-events:none;background:var(--paper)}
 .hero-art picture,.hero-art img{display:block;width:100%;height:auto}
 .hero-art img{max-width:100%;height:auto;object-fit:contain;object-position:center center;background:var(--paper)}
 @media (min-width:981px){
-  .hero-txt{position:absolute;left:0;top:0;bottom:0;width:42%;max-width:42%;display:flex;flex-direction:column;justify-content:center;padding:24px 16px 24px 0}
+  .hero-txt{position:absolute;left:0;top:0;bottom:0;width:42%;max-width:42%;display:flex;flex-direction:column;justify-content:center;padding:24px clamp(16px,4vw,40px)}
   .hero-txt .hero-p,.hero-txt .stats,.hero-txt .cta{max-width:100%}
   .hero-txt .stats{flex-wrap:wrap;margin:16px 0 18px}
 }
@@ -158,14 +179,14 @@ button,select{font:inherit;color:inherit}
 }
 
 /* ---------- 本章 ---------- */
-#chapter{scroll-margin-top:60px;padding-top:36px}
+#chapter{scroll-margin-top:60px;padding-top:36px;background:var(--paper)}
 /* 章节开场视频：长卷之下、场景卡之上 */
 #chVideoWrap{margin:var(--s4) auto var(--s2);max-width:880px}
 #chVideoWrap[hidden]{display:none}
 #chVideoWrap summary{cursor:pointer;font-family:var(--kai);font-size:16px;letter-spacing:.12em;line-height:1;display:inline-flex;align-items:center;gap:8px;list-style:none}
 #chVideoWrap summary::-webkit-details-marker{display:none}
 #chVideo{margin:12px auto 4px;max-width:880px;text-align:center}
-#chVideo .cv-frame{position:relative;aspect-ratio:16/9;max-width:880px;margin:0 auto;background:var(--paper);border:1px solid var(--mist);overflow:hidden}
+#chVideo .cv-frame{position:relative;aspect-ratio:16/9;max-width:880px;margin:0 auto;background:var(--paper);border:0;overflow:hidden}
 #chVideo video{display:block;width:100%;height:100%;object-fit:contain;background:var(--paper)}
 #chVideo video:focus-visible{outline:3px solid var(--red);outline-offset:-3px}
 #chVideo figcaption{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:10px;font-size:13px;color:var(--mid);letter-spacing:.04em}
@@ -201,7 +222,7 @@ button,select{font:inherit;color:inherit}
 .back:hover{color:var(--red)}
 .more{display:inline-flex;align-items:center;justify-content:center;min-height:40px;margin:8px 0 16px;padding:6px 16px;border:1px solid var(--ink);background:transparent;cursor:pointer;font-family:var(--kai);font-size:15px;letter-spacing:.08em;line-height:1}
 .more:hover{background:var(--ink);color:var(--paper)}
-.empty-state{display:flex;flex-direction:column;align-items:center;gap:8px;padding:24px 0 32px;color:var(--mid);text-align:center}
+.empty-state{display:flex;flex-direction:column;align-items:center;gap:8px;padding:24px 0 32px;color:var(--mid);text-align:center;background:var(--paper)}
 .empty-state img{width:min(280px,70%);height:auto}
 .loading{display:inline-flex;align-items:center;gap:8px}
 .loading img{width:28px;height:28px}
@@ -319,10 +340,15 @@ pre.prompt{white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;fon
 .vchars{font-size:13px;line-height:1.75;margin:4px 0 8px;padding-left:18px;color:var(--char)}
 .vchars li::marker{color:var(--mid)}
 #hint{display:none}
-footer{border-top:0;margin-top:var(--s6);padding:96px 0 28px;color:var(--mid);font-size:13px;
+footer{position:relative;border-top:0;margin-top:var(--s6);padding:96px 0 28px;color:var(--mid);font-size:13px;background:var(--paper);overflow:hidden}
+footer::before{content:"";position:absolute;left:0;right:0;bottom:0;height:140px;pointer-events:none;z-index:0;
   background:url("assets/footer-mountains.png") center bottom/100% 140px no-repeat;
-  background-image:image-set(url("assets/footer-mountains.webp") type("image/webp"), url("assets/footer-mountains.png") type("image/png"))}
-footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+  background-image:image-set(url("assets/footer-mountains.webp") type("image/webp"), url("assets/footer-mountains.png") type("image/png"));
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent),linear-gradient(to top,#000 70%,transparent);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent),linear-gradient(to top,#000 70%,transparent);
+  mask-composite:intersect}
+footer .wrap{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 
 @media (min-width:721px){
   #bar .wrap{height:56px;overflow:hidden}
@@ -355,7 +381,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   #pianTools{grid-column:2;grid-row:2;justify-self:end}
 }
 @media (max-width:980px){
-  .hero-txt{position:relative;inset:auto;width:auto;max-width:40em;display:block;padding:20px 0 28px}
+  .hero-txt{position:relative;inset:auto;width:auto;max-width:none;display:block;padding:20px clamp(16px,4vw,40px) 28px}
   .hero-art{width:100%;height:auto;aspect-ratio:auto}
   .hero-art picture,.hero-art img{width:100%;height:auto}
   #main{grid-template-columns:1fr}
@@ -388,7 +414,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 }
 
 @supports not (background-image:image-set(url("x.jpg") type("image/jpeg"))){
-  :root{--tex-paper:url("assets/paper-ink-stains.jpg");--tex-blot:url("assets/ink-blot-corner.jpg");--tex-ink:url("assets/ink-black-panel.jpg");--tex-seal:url("assets/vermilion-seal-fill.jpg");--tex-bar:url("assets/vermilion-brush-bar.jpg")}
+  :root{--tex-ink:url("assets/ink-black-panel.jpg");--tex-seal:url("assets/vermilion-seal-fill.jpg");--tex-bar:url("assets/vermilion-brush-bar.jpg")}
 }
 </style>
 </head>
@@ -407,13 +433,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   </div>
 </header>
 
-<section id="hero" aria-labelledby="htitle">
+<section id="hero" class="sheet" aria-labelledby="htitle">
   <span id="top"></span>
-  <div class="wrap">
-    <div class="hero-stage">
+  <div class="hero-stage">
     <div class="hero-art"><picture>
-      <source media="(max-width:980px)" srcset="assets/hero-fenghuo-m.webp" type="image/webp">
-      <source media="(max-width:980px)" srcset="assets/hero-fenghuo-m.jpg" type="image/jpeg">
       <source srcset="assets/hero-fenghuo-wide.webp" type="image/webp">
       <img src="assets/hero-fenghuo-wide.jpg" width="2400" height="1000" alt="宣纸水墨：右侧悬崖上的烽火台有一点朱红火焰，持矛武士剪影，左侧大片留白" fetchpriority="high" decoding="async">
     </picture></div>
@@ -428,7 +451,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
         <a class="btn primary" href="#pianHome">择一篇</a>
         <button class="btn" id="randBtn" type="button">随机一场</button>
       </div>
-    </div>
     </div>
   </div>
 </section>
@@ -643,11 +665,11 @@ function renderBanner(){
   const p = pianById(view.pian), box = $("#pianBanner");
   if (!p){ box.hidden = true; box.textContent = ""; return; }
   box.hidden = false;
-  box.className = "pb";
+  box.className = "pb sheet";
   const n = catalogOf(p.id).length;
-  box.innerHTML = '<div class="wrap"><div class="pb-stage"><div class="pb-art">' + assetPic("banner-" + p.id, 2400, 600, p.fullName) + '</div>' +
+  box.innerHTML = '<div class="pb-stage"><div class="pb-art">' + assetPic("banner-" + p.id, 2400, 600, p.fullName) + '</div>' +
     '<div class="pb-txt"><p class="pk">烽火</p><h2 id="pianBannerTitle">' + esc(p.fullName) + '</h2>' +
-    '<p class="plead">' + esc(p.scope) + '</p><p class="pmeta">' + esc(p.genre) + " · " + n + ' 场</p></div></div></div>';
+    '<p class="plead">' + esc(p.scope) + '</p><p class="pmeta">' + esc(p.genre) + " · " + n + ' 场</p></div></div>';
 }
 function refreshDynastyTabs(){
   const items = view.pian ? catalogOf(view.pian).filter(c => !view.primaryOnly || c.primary === view.pian) : [];
