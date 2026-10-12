@@ -13,7 +13,7 @@
    - 视觉按 video/docs/art-style.md：简化版黑白红武侠水墨剪影。只用色板七色，
      朱砂红只作印章、当前章节与少量强调。页面底是 three.js 淡墨（assets/ink-backdrop.js，
      复用引擎 InkSurface），无 WebGL 时留宣纸色。开卷图是本地
-     assets/hero-fenghuo-wide 与 hero-fenghuo-m（相对路径），不加载外部图片、字体或库，双击即可用 file:// 打开。
+     assets/hero-fenghuo-wide（相对路径），不加载外部图片、字体或库，双击即可用 file:// 打开。
    - 数据来自 data/*.js（由 tools/build-viewer-data.mjs 从 chapters/*.json
      生成，设置 window.HISTORY_GAME_INDEX / HISTORY_GAME_CHAPTERS）。
      只静态加载 data/index.js；章节脚本在切到该章时用动态 <script> 按需加载，
@@ -412,8 +412,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   <div class="wrap">
     <div class="hero-stage">
     <div class="hero-art"><picture>
-      <source media="(max-width:980px)" srcset="assets/hero-fenghuo-m.webp" type="image/webp">
-      <source media="(max-width:980px)" srcset="assets/hero-fenghuo-m.jpg" type="image/jpeg">
       <source srcset="assets/hero-fenghuo-wide.webp" type="image/webp">
       <img src="assets/hero-fenghuo-wide.jpg" width="2400" height="1000" alt="宣纸水墨：右侧悬崖上的烽火台有一点朱红火焰，持矛武士剪影，左侧大片留白" fetchpriority="high" decoding="async">
     </picture></div>
