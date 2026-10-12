@@ -1,0 +1,1322 @@
+{
+ "format": "inkgames.places",
+ "version": 1,
+ "comment": "坐标是约数，verify 均为 review，待人工抽检。来源只写 manual 或 wikidata。",
+ "places": {
+  "zhuolu": {
+   "name": "涿鹿",
+   "aliases": [],
+   "kind": "battlefield",
+   "lon": 115.22,
+   "lat": 40.37,
+   "precision": "legend",
+   "modern": "传说涿鹿之野，今河北涿鹿一带。坐标约数，待核验。",
+   "src": {
+    "type": "manual",
+    "note": "传说涿鹿之野，今河北涿鹿一带。坐标约数，待核验。"
+   },
+   "verify": "review"
+  },
+  "yangcheng": {
+   "name": "阳城",
+   "aliases": [
+    "登封"
+   ],
+   "kind": "capital",
+   "lon": 113.03,
+   "lat": 34.45,
+   "precision": "legend",
+   "modern": "夏都阳城旧说在今登封一带，地点有争议。待核验。",
+   "src": {
+    "type": "manual",
+    "note": "夏都阳城旧说在今登封一带，地点有争议。待核验。"
+   },
+   "verify": "review"
+  },
+  "yin": {
+   "name": "殷",
+   "aliases": [
+    "殷墟",
+    "安阳"
+   ],
+   "kind": "capital",
+   "lon": 114.35,
+   "lat": 36.12,
+   "precision": "site",
+   "modern": "殷墟在今安阳小屯。",
+   "src": {
+    "type": "manual",
+    "note": "殷墟在今安阳小屯。"
+   },
+   "verify": "review"
+  },
+  "bo": {
+   "name": "亳",
+   "aliases": [
+    "商丘"
+   ],
+   "kind": "capital",
+   "lon": 115.65,
+   "lat": 34.44,
+   "precision": "region",
+   "modern": "三亳说法不一，这里暂取商丘一带，待核验。",
+   "src": {
+    "type": "manual",
+    "note": "三亳说法不一，这里暂取商丘一带，待核验。"
+   },
+   "verify": "review"
+  },
+  "hao": {
+   "name": "镐京",
+   "aliases": [
+    "镐",
+    "丰镐"
+   ],
+   "kind": "capital",
+   "lon": 108.73,
+   "lat": 34.22,
+   "precision": "site",
+   "modern": "西周镐京，今西安西南。",
+   "src": {
+    "type": "manual",
+    "note": "西周镐京，今西安西南。"
+   },
+   "verify": "review"
+  },
+  "muye": {
+   "name": "牧野",
+   "aliases": [],
+   "kind": "battlefield",
+   "lon": 113.85,
+   "lat": 35.3,
+   "precision": "region",
+   "modern": "牧野旧说在今淇县一带。待核验。",
+   "src": {
+    "type": "manual",
+    "note": "牧野旧说在今淇县一带。待核验。"
+   },
+   "verify": "review"
+  },
+  "luoyi": {
+   "name": "洛邑",
+   "aliases": [
+    "洛阳",
+    "雒阳",
+    "洛京"
+   ],
+   "kind": "capital",
+   "lon": 112.47,
+   "lat": 34.68,
+   "precision": "city",
+   "modern": "周汉洛阳，今洛阳市区一带。",
+   "src": {
+    "type": "manual",
+    "note": "周汉洛阳，今洛阳市区一带。"
+   },
+   "verify": "review"
+  },
+  "linzi": {
+   "name": "临淄",
+   "aliases": [],
+   "kind": "city",
+   "lon": 118.36,
+   "lat": 36.83,
+   "precision": "city",
+   "modern": "齐临淄。",
+   "src": {
+    "type": "manual",
+    "note": "齐临淄。"
+   },
+   "verify": "review"
+  },
+  "handan": {
+   "name": "邯郸",
+   "aliases": [],
+   "kind": "city",
+   "lon": 114.49,
+   "lat": 36.61,
+   "precision": "city",
+   "modern": "赵邯郸。",
+   "src": {
+    "type": "manual",
+    "note": "赵邯郸。"
+   },
+   "verify": "review"
+  },
+  "ji": {
+   "name": "蓟",
+   "aliases": [],
+   "kind": "city",
+   "lon": 116.4,
+   "lat": 39.92,
+   "precision": "city",
+   "modern": "战国燕都蓟，今北京西南。与后来的大都、北京分列，以免混成一次迁都。",
+   "src": {
+    "type": "manual",
+    "note": "战国燕都蓟，今北京西南。与后来的大都、北京分列，以免混成一次迁都。"
+   },
+   "verify": "review"
+  },
+  "xianyang": {
+   "name": "咸阳",
+   "aliases": [
+    "渭城"
+   ],
+   "kind": "capital",
+   "lon": 108.72,
+   "lat": 34.38,
+   "precision": "site",
+   "modern": "秦咸阳城遗址在今咸阳东北。",
+   "src": {
+    "type": "manual",
+    "note": "秦咸阳城遗址在今咸阳东北。"
+   },
+   "verify": "review"
+  },
+  "langya": {
+   "name": "琅邪",
+   "aliases": [
+    "琅琊"
+   ],
+   "kind": "city",
+   "lon": 119.77,
+   "lat": 35.58,
+   "precision": "site",
+   "modern": "琅邪台在今青岛黄岛一带。",
+   "src": {
+    "type": "manual",
+    "note": "琅邪台在今青岛黄岛一带。"
+   },
+   "verify": "review"
+  },
+  "shaqiu": {
+   "name": "沙丘",
+   "aliases": [],
+   "kind": "region",
+   "lon": 115.18,
+   "lat": 37.28,
+   "precision": "region",
+   "modern": "沙丘平台旧说在今广宗一带。待核验。",
+   "src": {
+    "type": "manual",
+    "note": "沙丘平台旧说在今广宗一带。待核验。"
+   },
+   "verify": "review"
+  },
+  "julu": {
+   "name": "巨鹿",
+   "aliases": [],
+   "kind": "battlefield",
+   "lon": 115.04,
+   "lat": 37.27,
+   "precision": "city",
+   "modern": "巨鹿之战在今平乡、巨鹿一带。",
+   "src": {
+    "type": "manual",
+    "note": "巨鹿之战在今平乡、巨鹿一带。"
+   },
+   "verify": "review"
+  },
+  "changan": {
+   "name": "长安",
+   "aliases": [
+    "大兴"
+   ],
+   "kind": "capital",
+   "lon": 108.9,
+   "lat": 34.3,
+   "precision": "site",
+   "modern": "汉长安城在今西安西北。隋大兴、唐长安同区，本库用同一点。",
+   "src": {
+    "type": "manual",
+    "note": "汉长安城在今西安西北。隋大兴、唐长安同区，本库用同一点。"
+   },
+   "verify": "review"
+  },
+  "hongmen": {
+   "name": "鸿门",
+   "aliases": [],
+   "kind": "battlefield",
+   "lon": 109.3,
+   "lat": 34.4,
+   "precision": "site",
+   "modern": "鸿门在今临潼东。",
+   "src": {
+    "type": "manual",
+    "note": "鸿门在今临潼东。"
+   },
+   "verify": "review"
+  },
+  "gaixia": {
+   "name": "垓下",
+   "aliases": [],
+   "kind": "battlefield",
+   "lon": 117.55,
+   "lat": 33.35,
+   "precision": "region",
+   "modern": "垓下旧说在今灵璧一带。待核验。",
+   "src": {
+    "type": "manual",
+    "note": "垓下旧说在今灵璧一带。待核验。"
+   },
+   "verify": "review"
+  },
+  "baideng": {
+   "name": "白登",
+   "aliases": [],
+   "kind": "battlefield",
+   "lon": 113.3,
+   "lat": 40.1,
+   "precision": "region",
+   "modern": "白登在今大同东北。待核验。",
+   "src": {
+    "type": "manual",
+    "note": "白登在今大同东北。待核验。"
+   },
+   "verify": "review"
+  },
+  "chengdu": {
+   "name": "成都",
+   "aliases": [],
+   "kind": "city",
+   "lon": 104.07,
+   "lat": 30.67,
+   "precision": "city",
+   "modern": "成都。",
+   "src": {
+    "type": "manual",
+    "note": "成都。"
+   },
+   "verify": "review"
+  },
+  "hanzhong": {
+   "name": "汉中",
+   "aliases": [],
+   "kind": "city",
+   "lon": 107.03,
+   "lat": 33.07,
+   "precision": "city",
+   "modern": "汉中。",
+   "src": {
+    "type": "manual",
+    "note": "汉中。"
+   },
+   "verify": "review"
+  },
+  "guandu": {
+   "name": "官渡",
+   "aliases": [],
+   "kind": "battlefield",
+   "lon": 114.05,
+   "lat": 34.85,
+   "precision": "region",
+   "modern": "官渡在今中牟一带。待核验。",
+   "src": {
+    "type": "manual",
+    "note": "官渡在今中牟一带。待核验。"
+   },
+   "verify": "review"
+  },
+  "chibi": {
+   "name": "赤壁",
+   "aliases": [],
+   "kind": "battlefield",
+   "lon": 113.9,
+   "lat": 29.73,
+   "precision": "region",
+   "modern": "赤壁地点有蒲圻、黄州等说。待核验，不选边。",
+   "src": {
+    "type": "manual",
+    "note": "赤壁地点有蒲圻、黄州等说。待核验，不选边。"
+   },
+   "verify": "review"
+  },
+  "yiling": {
+   "name": "夷陵",
+   "aliases": [
+    "猇亭"
+   ],
+   "kind": "battlefield",
+   "lon": 111.33,
+   "lat": 30.77,
+   "precision": "city",
+   "modern": "夷陵在今宜昌一带。",
+   "src": {
+    "type": "manual",
+    "note": "夷陵在今宜昌一带。"
+   },
+   "verify": "review"
+  },
+  "jianye": {
+   "name": "建业",
+   "aliases": [
+    "建康",
+    "金陵",
+    "南京",
+    "应天"
+   ],
+   "kind": "capital",
+   "lon": 118.79,
+   "lat": 32.06,
+   "precision": "city",
+   "modern": "六朝建康与明南京，今南京。",
+   "src": {
+    "type": "manual",
+    "note": "六朝建康与明南京，今南京。"
+   },
+   "verify": "review"
+  },
+  "ye": {
+   "name": "邺",
+   "aliases": [],
+   "kind": "city",
+   "lon": 114.35,
+   "lat": 36.28,
+   "precision": "site",
+   "modern": "邺城在今临漳。",
+   "src": {
+    "type": "manual",
+    "note": "邺城在今临漳。"
+   },
+   "verify": "review"
+  },
+  "xuchang": {
+   "name": "许昌",
+   "aliases": [
+    "许县"
+   ],
+   "kind": "city",
+   "lon": 113.85,
+   "lat": 34.04,
+   "precision": "city",
+   "modern": "汉魏许县。",
+   "src": {
+    "type": "manual",
+    "note": "汉魏许县。"
+   },
+   "verify": "review"
+  },
+  "luoyang": {
+   "name": "洛阳",
+   "aliases": [],
+   "kind": "capital",
+   "lon": 112.45,
+   "lat": 34.62,
+   "precision": "city",
+   "modern": "与洛邑同一城址区，汉魏以后的常用名。匹配时标题里的「洛阳」落这里。",
+   "src": {
+    "type": "manual",
+    "note": "与洛邑同一城址区，汉魏以后的常用名。匹配时标题里的「洛阳」落这里。"
+   },
+   "verify": "review"
+  },
+  "pingcheng": {
+   "name": "平城",
+   "aliases": [
+    "大同"
+   ],
+   "kind": "capital",
+   "lon": 113.3,
+   "lat": 40.08,
+   "precision": "city",
+   "modern": "北魏平城，今大同。",
+   "src": {
+    "type": "manual",
+    "note": "北魏平城，今大同。"
+   },
+   "verify": "review"
+  },
+  "jiangling": {
+   "name": "江陵",
+   "aliases": [
+    "荆州"
+   ],
+   "kind": "city",
+   "lon": 112.18,
+   "lat": 30.35,
+   "precision": "city",
+   "modern": "江陵。",
+   "src": {
+    "type": "manual",
+    "note": "江陵。"
+   },
+   "verify": "review"
+  },
+  "xiangyang": {
+   "name": "襄阳",
+   "aliases": [],
+   "kind": "city",
+   "lon": 112.14,
+   "lat": 32.04,
+   "precision": "city",
+   "modern": "襄阳。",
+   "src": {
+    "type": "manual",
+    "note": "襄阳。"
+   },
+   "verify": "review"
+  },
+  "shouchun": {
+   "name": "寿春",
+   "aliases": [],
+   "kind": "city",
+   "lon": 116.78,
+   "lat": 32.57,
+   "precision": "city",
+   "modern": "寿春，今寿县。",
+   "src": {
+    "type": "manual",
+    "note": "寿春，今寿县。"
+   },
+   "verify": "review"
+  },
+  "feishui": {
+   "name": "淝水",
+   "aliases": [],
+   "kind": "battlefield",
+   "lon": 116.75,
+   "lat": 32.62,
+   "precision": "region",
+   "modern": "淝水之战在寿春一带。",
+   "src": {
+    "type": "manual",
+    "note": "淝水之战在寿春一带。"
+   },
+   "verify": "review"
+  },
+  "taiyuan": {
+   "name": "太原",
+   "aliases": [
+    "晋阳"
+   ],
+   "kind": "city",
+   "lon": 112.55,
+   "lat": 37.87,
+   "precision": "city",
+   "modern": "晋阳、太原。",
+   "src": {
+    "type": "manual",
+    "note": "晋阳、太原。"
+   },
+   "verify": "review"
+  },
+  "kaifeng": {
+   "name": "开封",
+   "aliases": [
+    "汴梁",
+    "汴京",
+    "东京",
+    "大梁"
+   ],
+   "kind": "capital",
+   "lon": 114.35,
+   "lat": 34.8,
+   "precision": "city",
+   "modern": "五代、北宋东京。",
+   "src": {
+    "type": "manual",
+    "note": "五代、北宋东京。"
+   },
+   "verify": "review"
+  },
+  "linan": {
+   "name": "临安",
+   "aliases": [
+    "杭州"
+   ],
+   "kind": "capital",
+   "lon": 120.16,
+   "lat": 30.25,
+   "precision": "city",
+   "modern": "南宋临安。",
+   "src": {
+    "type": "manual",
+    "note": "南宋临安。"
+   },
+   "verify": "review"
+  },
+  "yangzhou": {
+   "name": "扬州",
+   "aliases": [],
+   "kind": "city",
+   "lon": 119.42,
+   "lat": 32.39,
+   "precision": "city",
+   "modern": "扬州。",
+   "src": {
+    "type": "manual",
+    "note": "扬州。"
+   },
+   "verify": "review"
+  },
+  "suzhou": {
+   "name": "苏州",
+   "aliases": [],
+   "kind": "city",
+   "lon": 120.62,
+   "lat": 31.32,
+   "precision": "city",
+   "modern": "苏州。",
+   "src": {
+    "type": "manual",
+    "note": "苏州。"
+   },
+   "verify": "review"
+  },
+  "quanzhou": {
+   "name": "泉州",
+   "aliases": [],
+   "kind": "city",
+   "lon": 118.68,
+   "lat": 24.87,
+   "precision": "city",
+   "modern": "泉州。",
+   "src": {
+    "type": "manual",
+    "note": "泉州。"
+   },
+   "verify": "review"
+  },
+  "guangzhou": {
+   "name": "广州",
+   "aliases": [
+    "番禺"
+   ],
+   "kind": "city",
+   "lon": 113.26,
+   "lat": 23.13,
+   "precision": "city",
+   "modern": "番禺、广州。",
+   "src": {
+    "type": "manual",
+    "note": "番禺、广州。"
+   },
+   "verify": "review"
+  },
+  "guilin": {
+   "name": "桂林",
+   "aliases": [],
+   "kind": "city",
+   "lon": 110.29,
+   "lat": 25.27,
+   "precision": "city",
+   "modern": "桂林。",
+   "src": {
+    "type": "manual",
+    "note": "桂林。"
+   },
+   "verify": "review"
+  },
+  "changsha": {
+   "name": "长沙",
+   "aliases": [],
+   "kind": "city",
+   "lon": 112.94,
+   "lat": 28.23,
+   "precision": "city",
+   "modern": "长沙。",
+   "src": {
+    "type": "manual",
+    "note": "长沙。"
+   },
+   "verify": "review"
+  },
+  "nanchang": {
+   "name": "南昌",
+   "aliases": [],
+   "kind": "city",
+   "lon": 115.86,
+   "lat": 28.68,
+   "precision": "city",
+   "modern": "南昌。",
+   "src": {
+    "type": "manual",
+    "note": "南昌。"
+   },
+   "verify": "review"
+  },
+  "wuchang": {
+   "name": "武昌",
+   "aliases": [],
+   "kind": "city",
+   "lon": 114.31,
+   "lat": 30.55,
+   "precision": "city",
+   "modern": "武昌。",
+   "src": {
+    "type": "manual",
+    "note": "武昌。"
+   },
+   "verify": "review"
+  },
+  "dunhuang": {
+   "name": "敦煌",
+   "aliases": [],
+   "kind": "city",
+   "lon": 94.66,
+   "lat": 40.14,
+   "precision": "city",
+   "modern": "敦煌。",
+   "src": {
+    "type": "manual",
+    "note": "敦煌。"
+   },
+   "verify": "review"
+  },
+  "jiuquan": {
+   "name": "酒泉",
+   "aliases": [],
+   "kind": "city",
+   "lon": 98.49,
+   "lat": 39.73,
+   "precision": "city",
+   "modern": "酒泉。",
+   "src": {
+    "type": "manual",
+    "note": "酒泉。"
+   },
+   "verify": "review"
+  },
+  "wuwei": {
+   "name": "武威",
+   "aliases": [
+    "凉州"
+   ],
+   "kind": "city",
+   "lon": 102.64,
+   "lat": 37.93,
+   "precision": "city",
+   "modern": "武威、凉州。",
+   "src": {
+    "type": "manual",
+    "note": "武威、凉州。"
+   },
+   "verify": "review"
+  },
+  "zhangye": {
+   "name": "张掖",
+   "aliases": [],
+   "kind": "city",
+   "lon": 100.45,
+   "lat": 38.93,
+   "precision": "city",
+   "modern": "张掖。",
+   "src": {
+    "type": "manual",
+    "note": "张掖。"
+   },
+   "verify": "review"
+  },
+  "jincheng": {
+   "name": "金城",
+   "aliases": [
+    "兰州"
+   ],
+   "kind": "city",
+   "lon": 103.83,
+   "lat": 36.06,
+   "precision": "city",
+   "modern": "金城，今兰州。",
+   "src": {
+    "type": "manual",
+    "note": "金城，今兰州。"
+   },
+   "verify": "review"
+  },
+  "yinchuan": {
+   "name": "银川",
+   "aliases": [
+    "兴庆"
+   ],
+   "kind": "capital",
+   "lon": 106.23,
+   "lat": 38.49,
+   "precision": "city",
+   "modern": "西夏兴庆。",
+   "src": {
+    "type": "manual",
+    "note": "西夏兴庆。"
+   },
+   "verify": "review"
+  },
+  "dadu": {
+   "name": "大都",
+   "aliases": [],
+   "kind": "capital",
+   "lon": 116.39,
+   "lat": 39.91,
+   "precision": "city",
+   "modern": "元大都。",
+   "src": {
+    "type": "manual",
+    "note": "元大都。"
+   },
+   "verify": "review"
+  },
+  "beijing": {
+   "name": "北京",
+   "aliases": [
+    "北平",
+    "燕京"
+   ],
+   "kind": "capital",
+   "lon": 116.4,
+   "lat": 39.9,
+   "precision": "city",
+   "modern": "明清北京。",
+   "src": {
+    "type": "manual",
+    "note": "明清北京。"
+   },
+   "verify": "review"
+  },
+  "shangdu": {
+   "name": "上都",
+   "aliases": [],
+   "kind": "capital",
+   "lon": 116.18,
+   "lat": 42.25,
+   "precision": "site",
+   "modern": "元上都，今正蓝旗一带。",
+   "src": {
+    "type": "manual",
+    "note": "元上都，今正蓝旗一带。"
+   },
+   "verify": "review"
+  },
+  "helins": {
+   "name": "和林",
+   "aliases": [
+    "哈拉和林"
+   ],
+   "kind": "capital",
+   "lon": 102.83,
+   "lat": 47.2,
+   "precision": "site",
+   "modern": "哈拉和林。坐标约数，待核验。",
+   "src": {
+    "type": "manual",
+    "note": "哈拉和林。坐标约数，待核验。"
+   },
+   "verify": "review"
+  },
+  "caishi": {
+   "name": "采石",
+   "aliases": [],
+   "kind": "battlefield",
+   "lon": 118.45,
+   "lat": 31.7,
+   "precision": "city",
+   "modern": "采石矶。",
+   "src": {
+    "type": "manual",
+    "note": "采石矶。"
+   },
+   "verify": "review"
+  },
+  "yashan": {
+   "name": "崖山",
+   "aliases": [
+    "崖门"
+   ],
+   "kind": "battlefield",
+   "lon": 113.08,
+   "lat": 22.2,
+   "precision": "site",
+   "modern": "崖门海战，今新会南。",
+   "src": {
+    "type": "manual",
+    "note": "崖门海战，今新会南。"
+   },
+   "verify": "review"
+  },
+  "diaoyu": {
+   "name": "钓鱼城",
+   "aliases": [],
+   "kind": "battlefield",
+   "lon": 106.32,
+   "lat": 30.2,
+   "precision": "site",
+   "modern": "合川钓鱼城。",
+   "src": {
+    "type": "manual",
+    "note": "合川钓鱼城。"
+   },
+   "verify": "review"
+  },
+  "changping": {
+   "name": "长平",
+   "aliases": [],
+   "kind": "battlefield",
+   "lon": 112.92,
+   "lat": 35.8,
+   "precision": "region",
+   "modern": "长平在今高平。",
+   "src": {
+    "type": "manual",
+    "note": "长平在今高平。"
+   },
+   "verify": "review"
+  },
+  "maling": {
+   "name": "马陵",
+   "aliases": [],
+   "kind": "battlefield",
+   "lon": 115.9,
+   "lat": 34.7,
+   "precision": "region",
+   "modern": "马陵地点有争议。待核验。",
+   "src": {
+    "type": "manual",
+    "note": "马陵地点有争议。待核验。"
+   },
+   "verify": "review"
+  },
+  "chengpu": {
+   "name": "城濮",
+   "aliases": [],
+   "kind": "battlefield",
+   "lon": 115.45,
+   "lat": 35.1,
+   "precision": "region",
+   "modern": "城濮旧说在今鄄城、濮城一带。待核验。",
+   "src": {
+    "type": "manual",
+    "note": "城濮旧说在今鄄城、濮城一带。待核验。"
+   },
+   "verify": "review"
+  },
+  "pengcheng": {
+   "name": "彭城",
+   "aliases": [
+    "徐州"
+   ],
+   "kind": "city",
+   "lon": 117.19,
+   "lat": 34.26,
+   "precision": "city",
+   "modern": "彭城，今徐州。",
+   "src": {
+    "type": "manual",
+    "note": "彭城，今徐州。"
+   },
+   "verify": "review"
+  },
+  "hangu": {
+   "name": "函谷关",
+   "aliases": [
+    "函谷"
+   ],
+   "kind": "pass",
+   "lon": 110.9,
+   "lat": 34.63,
+   "precision": "site",
+   "modern": "函谷关。",
+   "src": {
+    "type": "manual",
+    "note": "函谷关。"
+   },
+   "verify": "review"
+  },
+  "tongguan": {
+   "name": "潼关",
+   "aliases": [],
+   "kind": "pass",
+   "lon": 110.25,
+   "lat": 34.5,
+   "precision": "site",
+   "modern": "潼关。",
+   "src": {
+    "type": "manual",
+    "note": "潼关。"
+   },
+   "verify": "review"
+  },
+  "yanmen": {
+   "name": "雁门关",
+   "aliases": [
+    "雁门"
+   ],
+   "kind": "pass",
+   "lon": 112.88,
+   "lat": 39.18,
+   "precision": "site",
+   "modern": "雁门关。",
+   "src": {
+    "type": "manual",
+    "note": "雁门关。"
+   },
+   "verify": "review"
+  },
+  "jiayuguan": {
+   "name": "嘉峪关",
+   "aliases": [],
+   "kind": "pass",
+   "lon": 98.22,
+   "lat": 39.8,
+   "precision": "site",
+   "modern": "嘉峪关。",
+   "src": {
+    "type": "manual",
+    "note": "嘉峪关。"
+   },
+   "verify": "review"
+  },
+  "shanhaiguan": {
+   "name": "山海关",
+   "aliases": [
+    "山海"
+   ],
+   "kind": "pass",
+   "lon": 119.75,
+   "lat": 40,
+   "precision": "site",
+   "modern": "山海关。",
+   "src": {
+    "type": "manual",
+    "note": "山海关。"
+   },
+   "verify": "review"
+  },
+  "juyong": {
+   "name": "居庸关",
+   "aliases": [
+    "居庸"
+   ],
+   "kind": "pass",
+   "lon": 116.07,
+   "lat": 40.29,
+   "precision": "site",
+   "modern": "居庸关。",
+   "src": {
+    "type": "manual",
+    "note": "居庸关。"
+   },
+   "verify": "review"
+  },
+  "jianmen": {
+   "name": "剑门",
+   "aliases": [
+    "剑门关"
+   ],
+   "kind": "pass",
+   "lon": 105.56,
+   "lat": 32.21,
+   "precision": "site",
+   "modern": "剑门关。",
+   "src": {
+    "type": "manual",
+    "note": "剑门关。"
+   },
+   "verify": "review"
+  },
+  "taishan": {
+   "name": "泰山",
+   "aliases": [],
+   "kind": "mountain",
+   "lon": 117.1,
+   "lat": 36.25,
+   "precision": "site",
+   "modern": "泰山。",
+   "src": {
+    "type": "manual",
+    "note": "泰山。"
+   },
+   "verify": "review"
+  },
+  "huashan": {
+   "name": "华山",
+   "aliases": [],
+   "kind": "mountain",
+   "lon": 110.09,
+   "lat": 34.48,
+   "precision": "site",
+   "modern": "华山。",
+   "src": {
+    "type": "manual",
+    "note": "华山。"
+   },
+   "verify": "review"
+  },
+  "songshan": {
+   "name": "嵩山",
+   "aliases": [],
+   "kind": "mountain",
+   "lon": 113.03,
+   "lat": 34.48,
+   "precision": "site",
+   "modern": "嵩山。",
+   "src": {
+    "type": "manual",
+    "note": "嵩山。"
+   },
+   "verify": "review"
+  },
+  "hengshan": {
+   "name": "衡山",
+   "aliases": [],
+   "kind": "mountain",
+   "lon": 112.7,
+   "lat": 27.25,
+   "precision": "site",
+   "modern": "南岳衡山。",
+   "src": {
+    "type": "manual",
+    "note": "南岳衡山。"
+   },
+   "verify": "review"
+  },
+  "kunlun": {
+   "name": "昆仑",
+   "aliases": [],
+   "kind": "mountain",
+   "lon": 81,
+   "lat": 36,
+   "precision": "legend",
+   "modern": "早期文献里的昆仑，无定所。坐标只为图上有个传说点，待核验。",
+   "src": {
+    "type": "manual",
+    "note": "早期文献里的昆仑，无定所。坐标只为图上有个传说点，待核验。"
+   },
+   "verify": "review"
+  },
+  "tianshan": {
+   "name": "天山",
+   "aliases": [],
+   "kind": "mountain",
+   "lon": 86,
+   "lat": 43,
+   "precision": "region",
+   "modern": "天山，区域。",
+   "src": {
+    "type": "manual",
+    "note": "天山，区域。"
+   },
+   "verify": "review"
+  },
+  "huanghe": {
+   "name": "黄河",
+   "aliases": [
+    "河"
+   ],
+   "kind": "river",
+   "lon": 110.4,
+   "lat": 35.6,
+   "precision": "region",
+   "modern": "黄河中游标注点。单字「河」只在新场景 places 数组里使用。",
+   "src": {
+    "type": "manual",
+    "note": "黄河中游标注点。单字「河」只在新场景 places 数组里使用。"
+   },
+   "verify": "review"
+  },
+  "changjiang": {
+   "name": "长江",
+   "aliases": [
+    "江"
+   ],
+   "kind": "river",
+   "lon": 112.5,
+   "lat": 30.4,
+   "precision": "region",
+   "modern": "长江中游标注点。单字「江」只在新场景 places 数组里使用。",
+   "src": {
+    "type": "manual",
+    "note": "长江中游标注点。单字「江」只在新场景 places 数组里使用。"
+   },
+   "verify": "review"
+  },
+  "huaihe": {
+   "name": "淮河",
+   "aliases": [],
+   "kind": "river",
+   "lon": 117.2,
+   "lat": 32.9,
+   "precision": "region",
+   "modern": "淮河流路在 50m 数据里没有单列，标注点为示意。",
+   "src": {
+    "type": "manual",
+    "note": "淮河流路在 50m 数据里没有单列，标注点为示意。"
+   },
+   "verify": "review"
+  },
+  "weishui": {
+   "name": "渭水",
+   "aliases": [
+    "渭河"
+   ],
+   "kind": "river",
+   "lon": 108.8,
+   "lat": 34.35,
+   "precision": "region",
+   "modern": "渭水示意点。",
+   "src": {
+    "type": "manual",
+    "note": "渭水示意点。"
+   },
+   "verify": "review"
+  },
+  "hanshui": {
+   "name": "汉水",
+   "aliases": [
+    "汉江"
+   ],
+   "kind": "river",
+   "lon": 112.1,
+   "lat": 32,
+   "precision": "region",
+   "modern": "汉水示意点。",
+   "src": {
+    "type": "manual",
+    "note": "汉水示意点。"
+   },
+   "verify": "review"
+  },
+  "fenhe": {
+   "name": "汾水",
+   "aliases": [
+    "汾河"
+   ],
+   "kind": "river",
+   "lon": 111.6,
+   "lat": 37,
+   "precision": "region",
+   "modern": "汾水示意点。",
+   "src": {
+    "type": "manual",
+    "note": "汾水示意点。"
+   },
+   "verify": "review"
+  },
+  "zhujiang": {
+   "name": "珠江",
+   "aliases": [],
+   "kind": "river",
+   "lon": 113.2,
+   "lat": 23.1,
+   "precision": "region",
+   "modern": "珠江示意点。",
+   "src": {
+    "type": "manual",
+    "note": "珠江示意点。"
+   },
+   "verify": "review"
+  },
+  "liaohe": {
+   "name": "辽河",
+   "aliases": [],
+   "kind": "river",
+   "lon": 123.2,
+   "lat": 42.3,
+   "precision": "region",
+   "modern": "辽河。",
+   "src": {
+    "type": "manual",
+    "note": "辽河。"
+   },
+   "verify": "review"
+  },
+  "tarim": {
+   "name": "塔里木河",
+   "aliases": [],
+   "kind": "river",
+   "lon": 82.5,
+   "lat": 40.5,
+   "precision": "region",
+   "modern": "塔里木河示意点。",
+   "src": {
+    "type": "manual",
+    "note": "塔里木河示意点。"
+   },
+   "verify": "review"
+  },
+  "dongting": {
+   "name": "洞庭",
+   "aliases": [
+    "洞庭湖"
+   ],
+   "kind": "marsh",
+   "lon": 112.9,
+   "lat": 29.3,
+   "precision": "region",
+   "modern": "洞庭。",
+   "src": {
+    "type": "manual",
+    "note": "洞庭。"
+   },
+   "verify": "review"
+  },
+  "poyang": {
+   "name": "鄱阳",
+   "aliases": [
+    "鄱阳湖"
+   ],
+   "kind": "marsh",
+   "lon": 116.3,
+   "lat": 29.1,
+   "precision": "region",
+   "modern": "鄱阳。",
+   "src": {
+    "type": "manual",
+    "note": "鄱阳。"
+   },
+   "verify": "review"
+  },
+  "taihu": {
+   "name": "太湖",
+   "aliases": [],
+   "kind": "marsh",
+   "lon": 120.2,
+   "lat": 31.2,
+   "precision": "region",
+   "modern": "太湖。",
+   "src": {
+    "type": "manual",
+    "note": "太湖。"
+   },
+   "verify": "review"
+  },
+  "yunmeng": {
+   "name": "云梦",
+   "aliases": [],
+   "kind": "marsh",
+   "lon": 113,
+   "lat": 30.4,
+   "precision": "legend",
+   "modern": "云梦泽为古代泽薮，范围示意。",
+   "src": {
+    "type": "manual",
+    "note": "云梦泽为古代泽薮，范围示意。"
+   },
+   "verify": "review"
+  },
+  "bohai": {
+   "name": "渤海",
+   "aliases": [],
+   "kind": "sea",
+   "lon": 120,
+   "lat": 38.8,
+   "precision": "region",
+   "modern": "渤海标注点。",
+   "src": {
+    "type": "manual",
+    "note": "渤海标注点。"
+   },
+   "verify": "review"
+  },
+  "donghai": {
+   "name": "东海",
+   "aliases": [],
+   "kind": "sea",
+   "lon": 123,
+   "lat": 30,
+   "precision": "region",
+   "modern": "东海标注点。",
+   "src": {
+    "type": "manual",
+    "note": "东海标注点。"
+   },
+   "verify": "review"
+  }
+ }
+}

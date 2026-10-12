@@ -74,11 +74,13 @@ node video/tools/validate.mjs              # 必须 0 个错误
 
 美术风格：高反差黑白红武侠水墨剪影（类《影之刃》，简化版），见 [docs/art-style.md](docs/art-style.md)；所有提示词的风格行、色板与负面词由 `tools/art-style.mjs` 统一给出。
 
-每章可有一支开场短片（16:9，无声），显示在查看器章节头之下、场景卡之上，流程见 [chapter-videos.md](docs/chapter-videos.md)；目前完成上古一章。
+每章可有一支开场短片（16:9），在查看器里选中该朝后收在「播放开场短片」下，流程见 [chapter-videos.md](docs/chapter-videos.md)。
 
 查看器每个场景都有“水墨视频提示词”面板：中/英切换、复制整段、复制负面提示词、逐镜复制，以及导出本章或全部场景（Markdown / JSON）。字段说明见 [content-schema.md §2.11](docs/content-schema.md#211-水墨视频生成提示词videoprompt)。
 
 站点首页按四篇进入（战场、治国、人物、地理），朝代长卷是篇内筛选。篇的范围、提示词、新场景和章节短片的关系见 [docs/pian.md](docs/pian.md)。章节 JSON 仍是上面的 316 场；四篇场景写在 `data/pian/src/`，由 `node video/tools/build-pian.mjs` 生成查看器脚本。
+
+选中朝代后，查看器按当前篇在示意地图上标场景。地名、落点和帧写在 `data/maps/`，由 `node video/tools/build-maps.mjs` 生成 `viewer/data/maps.js`。成图由 `python3 video/tools/render-maps.py` 写成 `viewer/assets/maps/<朝代>.webp`（另有手机图和缩略图）。海岸和大河几何来自 Natural Earth（公有领域）；疆域是手写椭圆，图例标明示意。目录 493 场里，标题或新场景地点能对上地名库、且落在本朝帧内的记为高置信，其余 `placeless` 且 `reason` 为待核验，只保留候选、不猜坐标。当前统计以校验器输出为准。
 
 ## 内容规则
 
