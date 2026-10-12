@@ -43,8 +43,12 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} *,*::before,*::after{transition:none!important;animation:none!important} }
-body{background-color:var(--paper);background-image:var(--grain);color:var(--ink);font-family:var(--serif);font-size:15px;line-height:1.75;min-height:100vh;position:relative}
-/* 纸纹只留 body 上极淡的纤维。整页墨渍与角落墨斑已停用（D1）。 */
+html{background-color:var(--paper)}
+html::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.45;
+  background:url("assets/paper-fiber.jpg") 0 0/512px 512px repeat;
+  background-image:image-set(url("assets/paper-fiber.webp") type("image/webp"), url("assets/paper-fiber.jpg") type("image/jpeg"))}
+body{background:transparent;color:var(--ink);font-family:var(--serif);font-size:15px;line-height:1.75;min-height:100vh;position:relative}
+/* 纸纹只留一层极淡的纤维。整页墨渍与角落墨斑已停用（D1）。 */
 #bar,#hero,#pianHome,#pianBanner,#dynasties,#chapter,#scene,footer{position:relative;z-index:1}
 a{color:inherit}
 button,select{font:inherit;color:inherit}
@@ -60,8 +64,12 @@ button,select{font:inherit;color:inherit}
 #bar .wrap{display:flex;align-items:center;gap:14px;min-height:56px;flex-wrap:nowrap}
 #bar .wrap,#bar .brand,#bar .tools,#pianNav a{line-height:1}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:0 0 auto}
-.seal{display:inline-grid;place-items:center;background:var(--fill-seal);color:var(--paper);font-family:var(--kai);font-weight:700;line-height:1;
-  clip-path:polygon(3% 6%,96% 1%,99% 94%,6% 99%);flex:0 0 auto}
+.seal{display:inline-grid;place-items:center;color:var(--paper);font-family:var(--kai);font-weight:700;line-height:1;flex:0 0 auto;
+  background:url("assets/seal-frame-square.png") center/100% 100% no-repeat;
+  background-image:image-set(url("assets/seal-frame-square.webp") type("image/webp"), url("assets/seal-frame-square.png") type("image/png"))}
+.seal-tall{background:url("assets/seal-frame-tall.png") center/100% 100% no-repeat;
+  background-image:image-set(url("assets/seal-frame-tall.webp") type("image/webp"), url("assets/seal-frame-tall.png") type("image/png"))}
+.pian-menu{display:none;align-items:center;justify-content:center;min-height:36px;padding:0 12px;border:1px solid var(--ink);background:transparent;cursor:pointer;font-family:var(--kai);font-size:15px;letter-spacing:.12em;line-height:1}
 .seal-s{width:30px;height:30px;font-size:17px}
 #btitle{font-family:var(--kai);font-size:22px;font-weight:700;letter-spacing:.18em}
 .tools{display:flex;gap:8px;align-items:center;margin-left:auto;min-width:0;flex:0 1 auto}
@@ -85,7 +93,12 @@ button,select{font:inherit;color:inherit}
 .seal-1{display:grid;place-items:center}
 .seal-4 i,.seal-3 i,.seal-2 i,.seal-1 i{font-style:normal;direction:ltr;display:flex;align-items:center;justify-content:center;width:100%;height:100%;line-height:1}
 .hero-sub{font-family:var(--kai);font-size:clamp(19px,2vw,26px);letter-spacing:.12em;margin-bottom:14px}
-.stroke{display:block;height:14px;width:min(360px,80%);background:var(--brush) no-repeat center/100% 100%;margin:4px 0 18px}
+.stroke{display:block;height:16px;width:min(360px,80%);margin:4px 0 18px;
+  background:url("assets/divider-brush.png") center/100% 100% no-repeat;
+  background-image:image-set(url("assets/divider-brush.webp") type("image/webp"), url("assets/divider-brush.png") type("image/png"))}
+.ridge{height:72px;margin:0;pointer-events:none;
+  background:url("assets/divider-mountain.png") center/100% 100% no-repeat;
+  background-image:image-set(url("assets/divider-mountain.webp") type("image/webp"), url("assets/divider-mountain.png") type("image/png"))}
 .hero-p{max-width:30em;color:var(--char);font-size:15.5px}
 .stats{display:flex;gap:clamp(18px,3vw,40px);margin:22px 0 26px}
 .stats div{display:flex;flex-direction:column}
@@ -95,36 +108,42 @@ button,select{font:inherit;color:inherit}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:7px 18px 6px;border:1.5px solid var(--ink);background:transparent;cursor:pointer;font-family:var(--kai);font-size:16px;line-height:1;letter-spacing:.12em;text-decoration:none;
   clip-path:polygon(0 4%,100% 0,99% 96%,1% 100%);transition:background .25s,color .25s}
 .btn:hover{background:var(--fill-ink);color:var(--paper)}
-.btn.primary{background:var(--fill-ink);color:var(--paper)}
-.btn.primary:hover{filter:brightness(1.18)}
+.btn.primary{color:var(--paper);border-color:transparent;clip-path:none;
+  background:url("assets/btn-ink.png") center/100% 100% no-repeat;
+  background-image:image-set(url("assets/btn-ink.webp") type("image/webp"), url("assets/btn-ink.png") type("image/png"))}
+.btn.primary:hover{filter:brightness(1.15)}
 .hero-art{position:relative;z-index:1;width:100%;min-height:320px;height:100%;pointer-events:none;align-self:stretch}
 .hero-art picture,.hero-art img{display:block;width:100%;height:100%}
-.hero-art img{object-fit:cover;object-position:62% 46%;
-  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 34%),linear-gradient(to bottom,transparent 0,#000 10%,#000 84%,transparent 100%);-webkit-mask-composite:source-in;
-  mask-image:linear-gradient(to right,transparent 0,#000 34%),linear-gradient(to bottom,transparent 0,#000 10%,#000 84%,transparent 100%);mask-composite:intersect}
+.hero-art img{object-fit:cover;object-position:78% center}
 
 /* ---------- 二十一朝 · 长卷 ---------- */
-.band{padding:46px 0 10px}
+.band{padding:var(--s8) 0 var(--s3)}
 .sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:6px}
 .sec-h h2{font-family:var(--kai);font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:.14em;line-height:1.2}
 .sec-h p{color:var(--mid);font-size:13px;letter-spacing:.06em}
 .sec-h + .stroke{margin-top:6px}
 #chapTabs{position:relative;display:grid;grid-template-columns:56px repeat(21,minmax(0,1fr));grid-template-rows:auto 16px auto auto;overflow:visible;padding:8px 0 12px}
-#chapTabs::before{content:"";grid-row:2;grid-column:1 / -1;align-self:center;position:static;width:auto;height:10px;background:var(--brush) no-repeat center/100% 100%;opacity:.92;pointer-events:none}
+#chapTabs::before{content:"";grid-row:2;grid-column:1 / -1;align-self:center;position:static;width:auto;height:8px;pointer-events:none;
+  background:url("assets/timeline-rod.png") center/100% 100% no-repeat;
+  background-image:image-set(url("assets/timeline-rod.webp") type("image/webp"), url("assets/timeline-rod.png") type("image/png"))}
 #chapTabs button{grid-row:1 / span 4;position:relative;display:grid;grid-template-rows:subgrid;justify-items:center;align-items:center;min-width:0;background:none;border:0;cursor:pointer;padding:0;color:var(--ink)}
 /* 显式列号，让按钮与横杆（::before 占满第 2 行）重叠而不是被自动布局挤到下一列 */
 #chapTabs button:nth-child(1){grid-column:1} #chapTabs button:nth-child(2){grid-column:2} #chapTabs button:nth-child(3){grid-column:3} #chapTabs button:nth-child(4){grid-column:4} #chapTabs button:nth-child(5){grid-column:5} #chapTabs button:nth-child(6){grid-column:6} #chapTabs button:nth-child(7){grid-column:7} #chapTabs button:nth-child(8){grid-column:8} #chapTabs button:nth-child(9){grid-column:9} #chapTabs button:nth-child(10){grid-column:10} #chapTabs button:nth-child(11){grid-column:11} #chapTabs button:nth-child(12){grid-column:12} #chapTabs button:nth-child(13){grid-column:13} #chapTabs button:nth-child(14){grid-column:14} #chapTabs button:nth-child(15){grid-column:15} #chapTabs button:nth-child(16){grid-column:16} #chapTabs button:nth-child(17){grid-column:17} #chapTabs button:nth-child(18){grid-column:18} #chapTabs button:nth-child(19){grid-column:19} #chapTabs button:nth-child(20){grid-column:20} #chapTabs button:nth-child(21){grid-column:21} #chapTabs button:nth-child(22){grid-column:22}
 #chapTabs .nm{--ls:.08em;writing-mode:horizontal-tb;font-family:var(--kai);font-size:18px;font-weight:700;height:auto;display:flex;align-items:flex-end;justify-content:center;margin-bottom:8px;align-self:end;line-height:1;white-space:nowrap}
 #chapTabs .nm > span{writing-mode:vertical-rl;display:inline-flex;align-items:center;justify-content:center;line-height:1;letter-spacing:var(--ls);padding-inline-start:var(--ls)}
-#chapTabs .dot{width:12px;height:12px;margin:0;background:var(--paper);border:2px solid var(--ink);transform:rotate(45deg);position:relative;z-index:1;justify-self:center;align-self:center;transition:transform .2s}
+#chapTabs .dot{width:16px;height:16px;margin:0;border:0;transform:none;position:relative;z-index:1;justify-self:center;align-self:center;
+  background:url("assets/timeline-node.png") 0 50%/300% 100% no-repeat;
+  background-image:image-set(url("assets/timeline-node.webp") type("image/webp"), url("assets/timeline-node.png") type("image/png"))}
 #chapTabs .yr{font-size:12px;color:var(--mid);white-space:nowrap;letter-spacing:0;line-height:1.2}
 #chapTabs .ct{font-size:12px;color:var(--mid);white-space:nowrap;line-height:1.2;visibility:hidden}
 #chapTabs button:is(:hover,:focus-visible,.active) .ct{visibility:visible}
 #chapTabs button:hover .nm{color:var(--char)}
-#chapTabs button:hover .dot{transform:rotate(45deg) scale(1.3)}
+#chapTabs button:hover .dot,#chapTabs button:focus-visible .dot{background-position:50% 50%}
 #chapTabs button.active .nm{color:var(--paper);background:none;padding:0}
-#chapTabs button.active .nm > span{background:var(--fill-seal);color:var(--paper);padding:4px 3px;clip-path:polygon(8% 4%,94% 0,100% 96%,2% 100%)}
-#chapTabs button.active .dot{background:var(--fill-seal);border-color:var(--red)}
+#chapTabs button.active .nm > span{color:var(--paper);padding:6px 4px;clip-path:none;
+  background:url("assets/seal-frame-tall.png") center/100% 100% no-repeat;
+  background-image:image-set(url("assets/seal-frame-tall.webp") type("image/webp"), url("assets/seal-frame-tall.png") type("image/png"))}
+#chapTabs button.active .dot{background-color:transparent;background-position:100% 50%;border:0}
 #chapTabs button.active .yr{color:var(--ink)}
 #chapTabs button:disabled{opacity:.38;cursor:default}
 #chapTabs button:disabled .nm{color:var(--pale)}
@@ -136,14 +155,17 @@ button,select{font:inherit;color:inherit}
 /* ---------- 本章 ---------- */
 #chapter{scroll-margin-top:60px;padding-top:36px}
 /* 章节开场视频：长卷之下、场景卡之上 */
-#chVideo{margin:22px auto 4px;max-width:880px;text-align:center}
-#chVideo[hidden]{display:none}
+#chVideoWrap{margin:var(--s4) auto var(--s2);max-width:880px}
+#chVideoWrap[hidden]{display:none}
+#chVideoWrap summary{cursor:pointer;font-family:var(--kai);font-size:16px;letter-spacing:.12em;line-height:1;display:inline-flex;align-items:center;gap:8px;list-style:none}
+#chVideoWrap summary::-webkit-details-marker{display:none}
+#chVideo{margin:12px auto 4px;max-width:880px;text-align:center}
 #chVideo .cv-frame{position:relative;aspect-ratio:16/9;max-width:880px;margin:0 auto;background:var(--paper);clip-path:polygon(0 1.2%,99.4% 0,100% 98.6%,.5% 100%);box-shadow:inset 0 0 0 1px var(--mist)}
 #chVideo .cv-frame::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 26px 6px rgba(236,234,228,.85)}
 #chVideo video{display:block;width:100%;height:100%;object-fit:cover;background:var(--paper)}
 #chVideo video:focus-visible{outline:3px solid var(--red);outline-offset:-3px}
 #chVideo figcaption{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:10px;font-size:13px;color:var(--mid);letter-spacing:.04em}
-#chVideo .cv-seal{display:inline-grid;place-items:center;width:22px;height:44px;font-family:var(--kai);font-size:12px;line-height:1;letter-spacing:0;color:var(--paper);background:var(--fill-seal);clip-path:polygon(6% 2%,96% 0,100% 97%,0 100%)}
+#chVideo .cv-seal{width:28px;height:56px;font-size:13px;color:var(--paper)}
 #chVideo figcaption b{font-family:var(--kai);font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.1em}
 .ch-bar{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;align-items:center;gap:8px 24px;margin:8px 0 12px}
 .ch-name{font-family:var(--kai);font-size:clamp(28px,3vw,40px);font-weight:900;letter-spacing:.12em;line-height:1;margin:0}
@@ -170,6 +192,16 @@ button,select{font:inherit;color:inherit}
 
 /* ---------- 场景 ---------- */
 #scene{scroll-margin-top:calc(var(--bar-h) + 8px);padding-top:40px}
+#scene[hidden]{display:none}
+.backline{margin:0 0 8px}
+.back{font-family:var(--kai);font-size:16px;letter-spacing:.12em;text-decoration:none;color:var(--char)}
+.back:hover{color:var(--red)}
+.more{display:inline-flex;align-items:center;justify-content:center;min-height:40px;margin:8px 0 16px;padding:6px 16px;border:1px solid var(--ink);background:transparent;cursor:pointer;font-family:var(--kai);font-size:15px;letter-spacing:.08em;line-height:1}
+.more:hover{background:var(--ink);color:var(--paper)}
+.empty-state{display:flex;flex-direction:column;align-items:center;gap:8px;padding:24px 0 32px;color:var(--mid);text-align:center}
+.empty-state img{width:min(280px,70%);height:auto}
+.loading{display:inline-flex;align-items:center;gap:8px}
+.loading img{width:28px;height:28px}
 .scene-head{position:relative;padding:26px 0 18px;border-top:1px solid var(--rule)}
 .scene-head .eyebrow{font-size:12px;letter-spacing:.3em;color:var(--mid)}
 .scene-head h2{font-family:var(--kai);font-size:clamp(40px,5.2vw,72px);font-weight:900;letter-spacing:.12em;line-height:1.1;margin:6px 0 2px}
@@ -267,7 +299,9 @@ pre.prompt{white-space:pre-wrap;word-break:break-word;font-family:var(--mono);fo
 .vchars{font-size:13px;line-height:1.75;margin:4px 0 8px;padding-left:18px;color:var(--char)}
 .vchars li::marker{color:var(--mid)}
 #hint{display:none}
-footer{border-top:1px solid var(--rule);padding:28px 0 40px;color:var(--mid);font-size:12.5px}
+footer{border-top:0;margin-top:var(--s6);padding:96px 0 28px;color:var(--mid);font-size:13px;
+  background:url("assets/footer-mountains.png") center bottom/100% 140px no-repeat;
+  background-image:image-set(url("assets/footer-mountains.webp") type("image/webp"), url("assets/footer-mountains.png") type("image/png"))}
 footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 
 @media (min-width:721px){
@@ -304,19 +338,28 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 @media (max-width:980px){
   #hero .wrap{grid-template-columns:1fr;min-height:0;padding-top:0;padding-bottom:30px}
   .hero-txt{order:2}
-  .hero-art{order:1;position:relative;width:100%;min-height:0;height:auto;aspect-ratio:16/9}
-  .hero-art img{object-position:60% 50%;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 14%,#000 80%,transparent 100%);-webkit-mask-composite:source-over;mask-image:linear-gradient(to bottom,transparent 0,#000 14%,#000 80%,transparent 100%);mask-composite:add}
+  .hero-art{order:1;position:relative;width:100%;min-height:0;height:auto;aspect-ratio:1/1}
+  .hero-art img{object-position:center 42%}
   #main{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .band{padding:var(--s7) 0 var(--s2)}
+  .pian-menu{display:inline-flex}
+  #bar .wrap{flex-wrap:nowrap;height:52px;min-height:52px;overflow:visible;gap:8px}
+  #pianNav{display:none;position:absolute;left:0;right:0;top:100%;z-index:45;flex-direction:column;align-items:stretch;gap:0;width:auto;order:0;background:rgba(236,234,228,.97);border-bottom:1px solid var(--rule);padding:8px 16px 12px}
+  #pianNav.open{display:flex}
+  #pianNav a{padding:10px 4px;font-size:16px}
+  #scenes{grid-template-columns:1fr}
 }
 @media (max-width:640px){
   body{font-size:14.5px}
-  #bar .wrap{gap:8px;min-height:52px}
+  #bar .wrap{gap:8px;min-height:52px;height:52px}
   #btitle{font-size:19px}
   .tools label{display:none}
   .tools select{width:6.2em;max-width:24vw;font-size:13px}
   .hero-title{gap:12px}
   .stats{gap:20px}
-  #scenes{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  #scenes{grid-template-columns:1fr;gap:8px}
   .sc{min-height:88px;padding:10px 10px 8px}
   .sc .t{font-size:17px}
   .scene-head .seal-m{width:48px;height:48px;font-size:13px;top:26px}
@@ -335,7 +378,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 <a class="sr" href="#chapter">跳到本章</a>
 <header id="bar">
   <div class="wrap">
-    <a class="brand" href="#home" aria-label="烽火 · 回到四篇"><span class="seal seal-s" aria-hidden="true">烽</span><span id="btitle">烽火</span></a>
+    <a class="brand" href="#home" aria-label="烽火 · 回到四篇"><span class="seal seal-s seal-1" aria-hidden="true"><i>烽</i></span><span id="btitle">烽火</span></a>
+    <button type="button" class="pian-menu" id="pianMenu" aria-expanded="false" aria-controls="pianNav">篇</button>
     <nav id="pianNav" aria-label="四篇"></nav>
     <div class="tools">
       <label for="chapSel">章</label><select id="chapSel" title="选择章节"></select>
@@ -359,9 +403,15 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
         <button class="btn" id="randBtn" type="button">随机一场</button>
       </div>
     </div>
-    <div class="hero-art"><picture><source srcset="assets/fenghuo-hero.webp" type="image/webp"><img src="assets/fenghuo-hero.jpg" width="1280" height="720" alt="水墨长城：烽火台燃起红色烽火，黑色狼烟升起，右侧悬崖上一名持矛武士的剪影" fetchpriority="high" decoding="async"></picture></div>
+    <div class="hero-art"><picture>
+      <source media="(max-width:980px)" srcset="assets/hero-fenghuo-m.webp" type="image/webp">
+      <source media="(max-width:980px)" srcset="assets/hero-fenghuo-m.jpg" type="image/jpeg">
+      <source srcset="assets/hero-fenghuo-wide.webp" type="image/webp">
+      <img src="assets/hero-fenghuo-wide.jpg" width="2400" height="1000" alt="水墨长城：烽火台燃起红色烽火，黑色狼烟升起，右侧悬崖上一名持矛武士的剪影" fetchpriority="high" decoding="async">
+    </picture></div>
   </div>
 </section>
+<div class="ridge" aria-hidden="true"></div>
 
 <section id="pianHome" aria-labelledby="pian-h">
   <div class="wrap">
@@ -391,15 +441,18 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     <span id="chNo" class="sr"></span>
     <div class="keys" id="chKeys"></div>
     <span class="stroke" aria-hidden="true" style="margin:14px 0 0"></span>
-    <figure id="chVideo" hidden>
-      <div class="cv-frame"><video id="chVid" controls playsinline preload="metadata"></video></div>
-      <figcaption><span class="cv-seal seal-2" aria-hidden="true"><i>开</i><i>卷</i></span><span id="chVidCap"></span></figcaption>
-    </figure>
+    <details id="chVideoWrap" hidden>
+      <summary>播放开场短片</summary>
+      <figure id="chVideo">
+        <div class="cv-frame"><video id="chVid" controls playsinline preload="metadata"></video></div>
+        <figcaption><span class="cv-seal seal-tall seal-2" aria-hidden="true"><i>开</i><i>卷</i></span><span id="chVidCap"></span></figcaption>
+      </figure>
+    </details>
     <ol id="scenes" aria-label="本章场景"></ol>
   </div>
 </section>
 
-<section id="scene">
+<section id="scene" hidden>
   <div class="wrap">
     <div class="scene-head" id="sceneHead"></div>
     <nav id="secnav" aria-label="场景内容"><ol>
@@ -542,17 +595,19 @@ function renderPianNav(){
     nav.appendChild(a);
   });
 }
+function assetPic(base, w, h, alt){
+  return '<picture><source srcset="assets/' + base + '.webp" type="image/webp"><img src="assets/' + base + '.jpg" width="' + w + '" height="' + h + '" alt="' + esc(alt || "") + '" decoding="async"></picture>';
+}
 function renderPianGrid(){
   const box = $("#pianGrid"); if (!box || box.childElementCount) return;
   pianList().forEach(p => {
+    const n = catalogOf(p.id).length;
     const a = document.createElement("a"); a.className = "pian-card " + p.id; a.href = "#pian=" + p.id;
-    a.setAttribute("aria-label", p.fullName + "，游戏类型" + p.genre);
-    let extra = "";
-    if (p.id === "renwu") extra = SILHOUETTE;
-    if (p.id === "dili") extra = MAP_SVG + ROUTE_SVG;
-    a.innerHTML = extra + '<div class="pk">' + esc(p.fullName) + '</div><h3>' + esc(p.name) + '</h3>' +
-      (p.id === "zhiguo" ? '<span class="seal seal-s" aria-hidden="true">' + esc(p.seal) + '</span>' : '') +
-      '<div class="pg">游戏 · ' + esc(p.genre) + '</div><p class="ps">' + esc(p.scope) + '</p><div class="pm">' + esc(p.motif) + '</div>';
+    a.setAttribute("aria-label", p.fullName + "，" + p.genre + "，" + n + " 场");
+    a.innerHTML = '<div class="pc-img">' + assetPic("pian-" + p.id, 800, 1000, p.name) + '</div>' +
+      '<div class="pc-body"><h3>' + sealMarkup(p.seal, "seal-s") + '<span>' + esc(p.name) + '</span></h3>' +
+      '<div class="pg">' + esc(p.genre) + " · " + n + ' 场</div><p class="ps">' + esc(p.scope) + '</p>' +
+      '<div class="motif" aria-hidden="true"></div></div>';
     box.appendChild(a);
   });
 }
@@ -560,20 +615,11 @@ function renderBanner(){
   const p = pianById(view.pian), box = $("#pianBanner");
   if (!p){ box.hidden = true; box.textContent = ""; return; }
   box.hidden = false;
-  const lead = '<p class="plead">' + esc(p.scope) + '</p><p class="pmeta">短片 · ' + esc(p.videoLine) + '</p><p class="pmeta">游戏 · ' + esc(p.genre) + ' · ' + esc(p.promptFocus) + '</p>';
-  if (p.id === "zhanchang"){
-    box.className = "pb pb-zhanchang";
-    box.innerHTML = '<div class="wrap"><div class="pk">烽火</div><h2 id="pianBannerTitle">' + esc(p.fullName) + '</h2>' + lead + '</div>';
-  } else if (p.id === "zhiguo"){
-    box.className = "pb pb-zhiguo";
-    box.innerHTML = '<div class="wrap"><div class="frame"><span class="seal seal-s" aria-hidden="true">' + esc(p.seal) + '</span><h2 id="pianBannerTitle">' + esc(p.fullName) + '</h2>' + lead + '</div></div>';
-  } else if (p.id === "renwu"){
-    box.className = "pb pb-renwu";
-    box.innerHTML = '<div class="wrap">' + SILHOUETTE + '<div><h2 id="pianBannerTitle">' + esc(p.fullName) + '</h2>' + lead + '</div></div>';
-  } else {
-    box.className = "pb pb-dili";
-    box.innerHTML = '<div class="wrap"><h2 id="pianBannerTitle">' + esc(p.fullName) + '</h2>' + lead + '</div>' + MAP_SVG;
-  }
+  box.className = "pb";
+  const n = catalogOf(p.id).length;
+  box.innerHTML = '<div class="pb-art">' + assetPic("banner-" + p.id, 2400, 600, p.fullName) + '</div>' +
+    '<div class="wrap pb-txt"><p class="pk">烽火</p><h2 id="pianBannerTitle">' + esc(p.fullName) + '</h2>' +
+    '<p class="plead">' + esc(p.scope) + '</p><p class="pmeta">' + esc(p.genre) + " · " + n + ' 场</p></div>';
 }
 function refreshDynastyTabs(){
   const items = view.pian ? catalogOf(view.pian).filter(c => !view.primaryOnly || c.primary === view.pian) : [];
@@ -589,34 +635,65 @@ function refreshDynastyTabs(){
   const cs = $("#chapSel");
   if (cs) cs.value = view.ch || "";
 }
+let expandedGroups = new Set();
+let expandedFor = null;
+function sceneCard(item){
+  const li = document.createElement("li"), b = document.createElement("button");
+  const primary = item.primary === view.pian;
+  const meta = chapterById(item.chapter);
+  b.type = "button"; b.className = "sc" + (item.id === view.sc ? " active" : "");
+  b.dataset.id = item.id;
+  if (item.id === view.sc) b.setAttribute("aria-current", "true");
+  b.innerHTML = '<span class="sc-in"><span class="n">' + esc((meta && (meta.short || meta.name)) || "") + (item.novel ? " · 新场" : "") + '</span>' +
+    '<span class="badge">' + (primary ? "主线" : "兼收") + '</span>' +
+    '<span class="t">' + esc(item.title) + '</span><span class="s">' + esc(item.subtitle || "") + '</span>' +
+    '<span class="y">' + esc(item.display || "") + '</span></span>';
+  b.addEventListener("click", () => { userNav = true; view.sc = item.id; writeHash(); openScene(); jump("#scene"); });
+  li.appendChild(b);
+  return li;
+}
 function renderPianList(){
   const box = $("#scenes"); box.textContent = "";
   const items = visibleItems();
   const ss = $("#sceneSel"); ss.textContent = "";
-  let lastCh = null;
+  if (expandedFor !== view.pian){ expandedGroups = new Set(); expandedFor = view.pian; }
   items.forEach(item => {
-    if (!view.ch && item.chapter !== lastCh){
-      lastCh = item.chapter;
-      const h = document.createElement("li"); h.className = "sc-group";
-      const meta = chapterById(item.chapter);
-      h.textContent = meta ? meta.name : item.chapter;
-      box.appendChild(h);
-    }
     const o = document.createElement("option"); o.value = item.id;
     o.textContent = (chapterById(item.chapter) || {}).name + " · " + item.title;
     ss.appendChild(o);
-    const li = document.createElement("li"), b = document.createElement("button");
-    const primary = item.primary === view.pian;
-    b.type = "button"; b.className = "sc" + (item.id === view.sc ? " active" : "");
-    b.dataset.id = item.id;
-    if (item.id === view.sc) b.setAttribute("aria-current", "true");
-    b.innerHTML = '<span class="sc-in"><span class="n">' + esc((chapterById(item.chapter) || {}).name || "") + (item.novel ? " · 新场" : "") + '</span>' +
-      '<span class="badge">' + (primary ? "主线" : "兼收") + '</span>' +
-      '<span class="t">' + esc(item.title) + '</span><span class="s">' + esc(item.subtitle || "") + '</span>' +
-      '<span class="y">' + esc(item.display || "") + '</span></span>';
-    b.addEventListener("click", () => { userNav = true; view.sc = item.id; writeHash(); openScene(); jump("#scene"); });
-    li.appendChild(b); box.appendChild(li);
   });
+  if (!items.length){
+    const li = document.createElement("li"); li.className = "empty-state";
+    li.innerHTML = '<img src="assets/empty-ink-boat.webp" width="600" height="360" alt="">' +
+      '<p>这一篇在本朝还没有场景。</p>';
+    box.appendChild(li);
+  } else if (view.ch){
+    items.forEach(item => box.appendChild(sceneCard(item)));
+  } else {
+    const groups = [];
+    let curG = null;
+    items.forEach(item => {
+      if (!curG || curG.id !== item.chapter){ curG = { id: item.chapter, items: [] }; groups.push(curG); }
+      curG.items.push(item);
+    });
+    groups.forEach(g => {
+      const h = document.createElement("li"); h.className = "sc-group";
+      const meta = chapterById(g.id);
+      h.textContent = (meta ? (meta.short || meta.name) : g.id) + " · " + g.items.length + " 场";
+      box.appendChild(h);
+      const open = expandedGroups.has(g.id);
+      const show = open ? g.items : g.items.slice(0, 4);
+      show.forEach(item => box.appendChild(sceneCard(item)));
+      const rest = g.items.length - show.length;
+      if (rest > 0){
+        const li = document.createElement("li"); li.className = "more-row";
+        const b = document.createElement("button"); b.type = "button"; b.className = "more";
+        b.textContent = "展开其余 " + rest + " 场";
+        b.addEventListener("click", () => { expandedGroups.add(g.id); renderPianList(); });
+        li.appendChild(b); box.appendChild(li);
+      }
+    });
+  }
   if (view.sc && items.some(i => i.id === view.sc)) ss.value = view.sc;
   const p = pianById(view.pian);
   $("#pianCount").textContent = p ? (p.name + " · 本筛 " + items.length + " 场") : "";
@@ -628,13 +705,14 @@ function paintChapterChrome(){
     $("#chName").textContent = p ? p.name : "";
     $("#quote").textContent = "全部朝代 · 点长卷只看一朝，并播放该朝开场短片";
     $("#chKeys").textContent = "";
-    const fig = $("#chVideo"), v = $("#chVid");
-    if (!v.paused) v.pause();
-    fig.hidden = true;
+    const wrap = $("#chVideoWrap"), v = $("#chVid");
+    if (v && !v.paused) v.pause();
+    if (wrap){ wrap.hidden = true; wrap.open = false; }
     return;
   }
   const meta = chapterById(view.ch);
   if (!CH[meta.id]){
+    $("#quote").innerHTML = '<span class="loading"><img src="assets/loading-ink-drop.webp" alt="" width="28" height="28">载入本章</span>';
     loadChapter(meta).then(() => { if (view.ch === meta.id) paintChapterChrome(); }).catch(err => { $("#quote").textContent = err.message; });
     return;
   }
@@ -695,7 +773,7 @@ function renderNovel(item, sc){
   $("#scene").classList.add("is-novel");
   const meta = chapterById(item.chapter);
   const w = sc.when || {};
-  $("#sceneHead").innerHTML = '<div class="eyebrow">' + esc(meta ? meta.name : "") + " · " + esc(pianById(view.pian).name) + (item.primary === view.pian ? " · 主线" : " · 兼收") + '</div>' +
+  $("#sceneHead").innerHTML = backMarkup() + '<div class="eyebrow">' + esc(meta ? meta.name : "") + " · " + esc(pianById(view.pian).name) + (item.primary === view.pian ? " · 主线" : " · 兼收") + '</div>' +
     '<h2>' + esc(sc.title) + '</h2><div class="sub2">' + esc(sc.subtitle || "") + '</div>' +
     '<div class="when">' + esc(w.display || "") + (w.era ? "（" + esc(w.era) + "）" : "") + '</div>';
   const lineLabel = sc.line === "legend" ? "传说 / 异说" : sc.line === "classic" ? "经典文献" : "正史";
@@ -724,12 +802,19 @@ function renderLegacy(item){
   if (!CH[meta.id]) loadChapter(meta).then(go).catch(err => { $("#sceneHead").textContent = err.message; });
   else go();
 }
+function backMarkup(){
+  const meta = view.ch ? chapterById(view.ch) : null;
+  const label = meta ? (meta.short || meta.name) : "列表";
+  return '<p class="backline"><a class="back" id="backList" href="#pian=' + encodeURIComponent(view.pian || "") + (view.ch ? "&ch=" + encodeURIComponent(view.ch) : "") + '">← ' + esc(label) + '</a></p>';
+}
 function openScene(){
   const items = visibleItems();
-  if (!view.sc || !items.some(i => i.id === view.sc)) view.sc = items[0] ? items[0].id : null;
+  if (view.sc && !items.some(i => i.id === view.sc)) view.sc = null;
   renderPianList();
-  const item = (PIAN.catalog || []).find(c => c.id === view.sc);
-  if (!item){ $("#sceneHead").innerHTML = ""; return; }
+  const scene = $("#scene");
+  const item = view.sc ? (PIAN.catalog || []).find(c => c.id === view.sc) : null;
+  if (!item){ scene.hidden = true; $("#sceneHead").innerHTML = ""; return; }
+  scene.hidden = false;
   loadPianPack(view.pian).then(pack => {
     if (item.novel){
       const sc = (pack.scenes || []).find(s => s.id === item.id);
@@ -791,6 +876,20 @@ function init(){
   };
   syncBar();
   window.addEventListener("resize", syncBar);
+  const menuBtn = $("#pianMenu"), nav = $("#pianNav");
+  menuBtn.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  nav.addEventListener("click", (ev) => {
+    if (ev.target.closest("a")){ nav.classList.remove("open"); menuBtn.setAttribute("aria-expanded", "false"); }
+  });
+  $("#scene").addEventListener("click", (ev) => {
+    const a = ev.target.closest("#backList");
+    if (!a) return;
+    ev.preventDefault();
+    userNav = false; view.sc = null; writeHash(); openScene(); jump("#chapter");
+  });
   cs.addEventListener("change", () => { userNav = true; view.ch = cs.value || null; view.sc = null; writeHash(); paint(); });
   $("#sceneSel").addEventListener("change", () => { userNav = false; view.sc = $("#sceneSel").value; writeHash(); openScene(); });
   $("#primaryOnly").addEventListener("change", () => {
@@ -876,11 +975,12 @@ function selectChapter(id, sceneId){
 }
 /* 章节开场视频：清单来自 assets/chapter-videos/index.js（与 index.json 同源生成，file:// 下不用 fetch） */
 function renderChapterVideo(meta){
-  const fig = $("#chVideo"), v = $("#chVid"), man = window.CHAPTER_VIDEOS && window.CHAPTER_VIDEOS.chapters || {};
+  const wrap = $("#chVideoWrap"), v = $("#chVid"), man = window.CHAPTER_VIDEOS && window.CHAPTER_VIDEOS.chapters || {};
   const e = man[meta.id];
-  if (!e){ if (!v.paused) v.pause(); v.removeAttribute("src"); v.textContent = ""; v.load(); v.dataset.ch = ""; fig.hidden = true; return; }
-  fig.hidden = false;
+  if (!e){ if (!v.paused) v.pause(); v.removeAttribute("src"); v.textContent = ""; v.load(); v.dataset.ch = ""; wrap.hidden = true; wrap.open = false; return; }
+  wrap.hidden = false;
   if (v.dataset.ch === meta.id) return;
+  wrap.open = false;
   v.pause(); v.dataset.ch = meta.id; v.textContent = "";
   v.poster = e.posterWebp || e.poster;
   { const s = document.createElement("source"); s.src = e.mp4; s.type = "video/mp4"; v.appendChild(s); }
@@ -917,7 +1017,7 @@ function renderTimeline(){
 function renderHead(){
   const e = cur.entry, s = e.scene, w = s.when || {};
   const seal = e.videoPrompt && e.videoPrompt.onScreenText && (e.videoPrompt.onScreenText.zh.match(/朱印「([^」]+)」/) || [])[1];
-  $("#sceneHead").innerHTML = '<div class="eyebrow">第 ' + esc(cur.ch.no) + ' 章 · ' + esc(cur.ch.name) + ' · ' + esc(e.outlineId) + '</div>' +
+  $("#sceneHead").innerHTML = backMarkup() + '<div class="eyebrow">第 ' + esc(cur.ch.no) + ' 章 · ' + esc(cur.ch.name) + ' · ' + esc(e.outlineId) + '</div>' +
     '<h2>' + esc(T(s.title)) + '</h2><div class="sub2">' + esc(T(s.subtitle)) + '</div>' +
     '<div class="when">' + esc(w.display || "") + (w.era ? "（" + esc(w.era) + "）" : "") + '</div>' +
     (seal ? sealMarkup(seal.slice(0, 4), "seal-m") .replace('aria-hidden="true"', 'aria-label="印：' + esc(seal) + '"') : '');
