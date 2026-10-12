@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>烽火 · 二十一章中国历史水墨剧情</title>
+<title>烽火 · 四篇</title>
+<link rel="stylesheet" href="pian.css">
 <style>
 /* =====================================================================
    烽火 · 内容站（video/viewer/index.html）
@@ -46,7 +47,7 @@ html::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;bac
 body::before,body::after{content:"";position:fixed;z-index:0;pointer-events:none;background:var(--tex-blot) no-repeat;background-size:contain;opacity:.18;width:min(480px,52vw);aspect-ratio:16/9}
 body::before{left:-4%;top:-2%}
 body::after{right:-6%;bottom:-4%;transform:rotate(180deg);opacity:.14}
-#bar,#hero,#dynasties,#chapter,#scene,footer{position:relative;z-index:1}
+#bar,#hero,#pianHome,#pianBanner,#dynasties,#chapter,#scene,footer{position:relative;z-index:1}
 a{color:inherit}
 button,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--red);outline-offset:2px}
@@ -290,7 +291,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 <a class="sr" href="#chapter">跳到本章</a>
 <header id="bar">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="烽火 · 回到开卷"><span class="seal seal-s" aria-hidden="true">烽</span><span id="btitle">烽火</span></a>
+    <a class="brand" href="#home" aria-label="烽火 · 回到四篇"><span class="seal seal-s" aria-hidden="true">烽</span><span id="btitle">烽火</span></a>
+    <nav id="pianNav" aria-label="四篇"></nav>
     <div class="tools">
       <label for="chapSel">章</label><select id="chapSel" title="选择章节"></select>
       <label for="sceneSel">场</label><select id="sceneSel" title="选择场景"></select>
@@ -302,20 +304,30 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   <span id="top"></span>
   <div class="wrap">
     <div class="hero-txt">
-      <div class="kicker">中国历史 · 水墨剧情</div>
+      <div class="kicker">中国历史 · 水墨内容站</div>
       <div class="hero-title"><h1 id="htitle">烽火</h1><span class="seal seal-l" aria-hidden="true">正史野史</span></div>
       <p class="hero-sub">一卷黑白，半点朱红</p>
       <span class="stroke" aria-hidden="true"></span>
-      <p class="hero-p">从女娲补天到清末变局，二十一朝、数百个场景。每一场都有正史与野史两条线、人物关系、出处，以及可直接用于水墨短片的分镜与提示词。</p>
+      <p class="hero-p">四篇各成一条线：战场、治国、人物、地理。同一段历史可以分属几篇，短片提示词和游戏类型跟着篇走。朝代长卷仍在每篇之内，用来筛选。</p>
       <div class="stats" id="stats"></div>
       <div class="cta">
-        <a class="btn primary" href="#dynasties">展卷 · 二十一朝</a>
+        <a class="btn primary" href="#pianHome">择一篇</a>
         <button class="btn" id="randBtn" type="button">随机一场</button>
       </div>
     </div>
   </div>
   <div class="hero-art"><picture><source srcset="assets/fenghuo-hero.webp" type="image/webp"><img src="assets/fenghuo-hero.jpg" width="1280" height="720" alt="水墨长城：烽火台燃起红色烽火，黑色狼烟升起，右侧悬崖上一名持矛武士的剪影" fetchpriority="high" decoding="async"></picture></div>
 </section>
+
+<section id="pianHome" aria-labelledby="pian-h">
+  <div class="wrap">
+    <div class="sec-h"><h2 id="pian-h">四篇</h2><p>内容、短片与游戏各成一条线</p></div>
+    <span class="stroke" aria-hidden="true"></span>
+    <div id="pianGrid" class="pian-grid"></div>
+  </div>
+</section>
+
+<section id="pianBanner" hidden aria-labelledby="pianBannerTitle"></section>
 
 <section class="band" id="dynasties" aria-labelledby="dyn-h">
   <div class="wrap">
@@ -328,6 +340,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   <div class="wrap">
     <div class="ch-head"><div class="ch-no" id="chNo" aria-hidden="true"></div><div><div class="ch-name" id="chName"></div><div id="quote"></div></div></div>
     <div class="keys" id="chKeys"></div>
+    <div id="pianTools">
+      <label for="primaryOnly"><input id="primaryOnly" type="checkbox"> 只看主线</label>
+      <p id="pianCount"></p>
+    </div>
     <span class="stroke" aria-hidden="true" style="margin:14px 0 0"></span>
     <figure id="chVideo" hidden>
       <div class="cv-frame"><video id="chVid" controls playsinline preload="metadata"></video></div>
@@ -341,8 +357,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   <div class="wrap">
     <div class="scene-head" id="sceneHead"></div>
     <nav id="secnav" aria-label="场景内容"><ol>
-      <li><a href="#cardInfo">概要</a></li><li><a href="#cardGraph">人物</a></li><li><a href="#cardTree">剧情树</a></li>
-      <li><a href="#cardShots">分镜</a></li><li><a href="#cardVideo">视频提示词</a></li><li><a href="#cardAudio">音频</a></li><li><a href="#cardArt">素材提示词</a></li>
+      <li class="nav-legacy"><a href="#cardInfo">概要</a></li><li class="nav-legacy"><a href="#cardGraph">人物</a></li><li class="nav-legacy"><a href="#cardTree">剧情树</a></li>
+      <li class="nav-legacy"><a href="#cardShots">分镜</a></li><li class="nav-legacy"><a href="#cardVideo">视频提示词</a></li><li class="nav-legacy"><a href="#cardAudio">音频</a></li><li class="nav-legacy"><a href="#cardArt">素材提示词</a></li>
+      <li class="nav-novel"><a href="#cardNovel">叙事</a></li>
+      <li><a href="#cardPian">本篇提示词</a></li>
     </ol></nav>
     <main id="main">
       <section class="card" id="cardInfo"></section>
@@ -352,6 +370,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
       <section class="card wide" id="cardVideo"><h2>水墨视频提示词 <small id="videoMeta"></small></h2><div id="videoTabs" class="tabs"></div><div id="video"></div></section>
       <section class="card wide" id="cardAudio"><h2>音频提示 <small id="audioMeta"></small></h2><div id="audio"></div></section>
       <section class="card wide" id="cardArt"><h2>水墨素材提示词 <small id="artMeta"></small></h2><div id="artTabs" class="tabs"></div><div id="art"></div></section>
+      <section class="card wide" id="cardNovel"><h2>叙事 <small id="novelMeta"></small></h2><div id="novelBody" class="novel"></div></section>
+      <section class="card wide" id="cardPian"><h2>本篇提示词 <small id="pianPromptMeta"></small></h2><div id="pianPromptTabs" class="tabs"></div><div id="pianPrompt"></div></section>
     </main>
   </div>
 </section>
@@ -360,6 +380,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 
 <script src="data/index.js"></script>
 <script src="assets/chapter-videos/index.js"></script>
+<script src="data/pian/index.js"></script>
 <script>
 "use strict";
 const NS = "http://www.w3.org/2000/svg";
@@ -407,36 +428,327 @@ function srcText(s){
   return '<span class="tag">' + esc(s.kind) + '</span>' + esc(t);
 }
 /* ---------- 章节与场景选择 ---------- */
+const PIAN = window.FENGHUO_PIAN;
+const PACKS = (window.FENGHUO_PIAN_PACKS = window.FENGHUO_PIAN_PACKS || {});
+const PIAN_LOAD = {};
+let view = { pian: null, ch: null, sc: null, primaryOnly: false };
+const SILHOUETTE = '<svg class="sil" viewBox="0 0 40 120" aria-hidden="true"><circle cx="20" cy="14" r="10" fill="#141414"/><path d="M8 30 h24 l6 78 H6 z" fill="#141414"/></svg>';
+const MAP_SVG = '<svg class="map" viewBox="0 0 800 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 78 L80 62 L160 70 L260 40 L360 58 L480 28 L600 52 L720 36 L800 48 L800 120 L0 120 Z" fill="#d2d1cc"/><path d="M0 96 L120 80 L240 90 L360 70 L500 84 L660 64 L800 76 L800 120 L0 120 Z" fill="#a8a8a4"/><path d="M0 108 L200 96 L400 104 L600 92 L800 100 L800 120 L0 120 Z" fill="#6e6e6c"/></svg>';
+const ROUTE_SVG = '<svg class="route" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M4 20 C 40 4, 80 24, 120 12 S 200 4, 240 16 300 8, 316 14" fill="none" stroke="#141414" stroke-width="2"/><circle cx="4" cy="20" r="3" fill="#b3241c"/><circle cx="160" cy="10" r="3" fill="#141414"/><circle cx="316" cy="14" r="3" fill="#141414"/></svg>';
+
+function pianList(){ return (PIAN && PIAN.series && PIAN.series.pians) || []; }
+function pianById(id){ return pianList().find(p => p.id === id) || null; }
+function chapterById(id){ return INDEX.chapters.find(c => c.id === id) || null; }
+function catalogOf(pianId){
+  return (PIAN.catalog || []).filter(c => c.primary === pianId || (c.also || []).includes(pianId));
+}
+function visibleItems(){
+  let list = view.pian ? catalogOf(view.pian) : [];
+  if (view.ch) list = list.filter(c => c.chapter === view.ch);
+  if (view.primaryOnly) list = list.filter(c => c.primary === view.pian);
+  const order = {};
+  INDEX.chapters.forEach((c, i) => { order[c.id] = i; });
+  list.sort((a, b) => (order[a.chapter] - order[b.chapter]) || ((a.year || 0) - (b.year || 0)) || a.title.localeCompare(b.title, "zh"));
+  return list;
+}
+function parseHash(){
+  const raw = location.hash.replace(/^#/, "");
+  if (!raw || raw === "home" || raw === "top" || raw === "pianHome") return { home: true };
+  const q = new URLSearchParams(raw);
+  const pian = q.get("pian"), ch = q.get("ch"), sc = q.get("sc");
+  if (pian && pianById(pian)) return { pian, ch: ch && chapterById(ch) ? ch : null, sc };
+  if (sc){
+    const item = (PIAN.catalog || []).find(c => c.id === sc);
+    if (item) return { pian: item.primary, ch: item.chapter, sc };
+  }
+  if (ch && chapterById(ch)) return { pian: "zhanchang", ch, sc: null };
+  return { home: true };
+}
+function writeHash(){
+  const next = !view.pian ? "#home" : "#pian=" + encodeURIComponent(view.pian) + (view.ch ? "&ch=" + encodeURIComponent(view.ch) : "") + (view.sc ? "&sc=" + encodeURIComponent(view.sc) : "");
+  if (location.hash !== next) history.replaceState(null, "", next);
+}
+function loadPianPack(id){
+  if (PACKS[id]) return Promise.resolve(PACKS[id]);
+  if (PIAN_LOAD[id]) return PIAN_LOAD[id];
+  return PIAN_LOAD[id] = new Promise((res, rej) => {
+    const s = document.createElement("script"); s.src = "data/pian/" + id + ".js";
+    s.onload = () => PACKS[id] ? res(PACKS[id]) : rej(new Error("篇数据没有注册 " + id));
+    s.onerror = () => { delete PIAN_LOAD[id]; s.remove(); rej(new Error("无法加载 data/pian/" + id + ".js")); };
+    document.head.appendChild(s);
+  });
+}
+function renderPianNav(){
+  const nav = $("#pianNav"); nav.textContent = "";
+  pianList().forEach(p => {
+    const a = document.createElement("a"); a.href = "#pian=" + p.id;
+    a.innerHTML = '<span class="seal mini" aria-hidden="true">' + esc(p.seal) + '</span>' + esc(p.name);
+    if (view.pian === p.id) a.setAttribute("aria-current", "page");
+    nav.appendChild(a);
+  });
+}
+function renderPianGrid(){
+  const box = $("#pianGrid"); if (!box || box.childElementCount) return;
+  pianList().forEach(p => {
+    const a = document.createElement("a"); a.className = "pian-card " + p.id; a.href = "#pian=" + p.id;
+    a.setAttribute("aria-label", p.fullName + "，游戏类型" + p.genre);
+    let extra = "";
+    if (p.id === "renwu") extra = SILHOUETTE;
+    if (p.id === "dili") extra = MAP_SVG + ROUTE_SVG;
+    a.innerHTML = extra + '<div class="pk">' + esc(p.fullName) + '</div><h3>' + esc(p.name) + '</h3>' +
+      (p.id === "zhiguo" ? '<span class="seal seal-s" aria-hidden="true">' + esc(p.seal) + '</span>' : '') +
+      '<div class="pg">游戏 · ' + esc(p.genre) + '</div><p class="ps">' + esc(p.scope) + '</p><div class="pm">' + esc(p.motif) + '</div>';
+    box.appendChild(a);
+  });
+}
+function renderBanner(){
+  const p = pianById(view.pian), box = $("#pianBanner");
+  if (!p){ box.hidden = true; box.textContent = ""; return; }
+  box.hidden = false;
+  const lead = '<p class="plead">' + esc(p.scope) + '</p><p class="pmeta">短片 · ' + esc(p.videoLine) + '</p><p class="pmeta">游戏 · ' + esc(p.genre) + ' · ' + esc(p.promptFocus) + '</p>';
+  if (p.id === "zhanchang"){
+    box.className = "pb pb-zhanchang";
+    box.innerHTML = '<div class="wrap"><div class="pk">烽火</div><h2 id="pianBannerTitle">' + esc(p.fullName) + '</h2>' + lead + '</div>';
+  } else if (p.id === "zhiguo"){
+    box.className = "pb pb-zhiguo";
+    box.innerHTML = '<div class="wrap"><div class="frame"><span class="seal seal-s" aria-hidden="true">' + esc(p.seal) + '</span><h2 id="pianBannerTitle">' + esc(p.fullName) + '</h2>' + lead + '</div></div>';
+  } else if (p.id === "renwu"){
+    box.className = "pb pb-renwu";
+    box.innerHTML = '<div class="wrap">' + SILHOUETTE + '<div><h2 id="pianBannerTitle">' + esc(p.fullName) + '</h2>' + lead + '</div></div>';
+  } else {
+    box.className = "pb pb-dili";
+    box.innerHTML = '<div class="wrap"><h2 id="pianBannerTitle">' + esc(p.fullName) + '</h2>' + lead + '</div>' + MAP_SVG;
+  }
+}
+function refreshDynastyTabs(){
+  const items = view.pian ? catalogOf(view.pian).filter(c => !view.primaryOnly || c.primary === view.pian) : [];
+  document.querySelectorAll("#chapTabs button").forEach(b => {
+    const id = b.dataset.id;
+    const n = id === "*" ? items.length : items.filter(c => c.chapter === id).length;
+    const ct = b.querySelector(".ct"); if (ct) ct.textContent = n + " 场";
+    const on = id === "*" ? !view.ch : view.ch === id;
+    b.classList.toggle("active", on);
+    if (on) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current");
+    if (id !== "*") b.disabled = n === 0;
+  });
+  const cs = $("#chapSel");
+  if (cs) cs.value = view.ch || "";
+}
+function renderPianList(){
+  const box = $("#scenes"); box.textContent = "";
+  const items = visibleItems();
+  const ss = $("#sceneSel"); ss.textContent = "";
+  let lastCh = null;
+  items.forEach(item => {
+    if (!view.ch && item.chapter !== lastCh){
+      lastCh = item.chapter;
+      const h = document.createElement("li"); h.className = "sc-group";
+      const meta = chapterById(item.chapter);
+      h.textContent = meta ? meta.name : item.chapter;
+      box.appendChild(h);
+    }
+    const o = document.createElement("option"); o.value = item.id;
+    o.textContent = (chapterById(item.chapter) || {}).name + " · " + item.title;
+    ss.appendChild(o);
+    const li = document.createElement("li"), b = document.createElement("button");
+    const primary = item.primary === view.pian;
+    b.type = "button"; b.className = "sc" + (item.id === view.sc ? " active" : "");
+    b.dataset.id = item.id;
+    if (item.id === view.sc) b.setAttribute("aria-current", "true");
+    b.innerHTML = '<span class="n">' + esc((chapterById(item.chapter) || {}).name || "") + (item.novel ? " · 新场" : "") + '</span>' +
+      '<span class="badge">' + (primary ? "主线" : "兼收") + '</span>' +
+      '<span class="t">' + esc(item.title) + '</span><span class="s">' + esc(item.subtitle || "") + '</span>' +
+      '<span class="y">' + esc(item.display || "") + '</span>';
+    b.addEventListener("click", () => { userNav = true; view.sc = item.id; writeHash(); openScene(); jump("#scene"); });
+    li.appendChild(b); box.appendChild(li);
+  });
+  if (view.sc && items.some(i => i.id === view.sc)) ss.value = view.sc;
+  const p = pianById(view.pian);
+  $("#pianCount").textContent = p ? (p.name + " · 本筛 " + items.length + " 场") : "";
+}
+function paintChapterChrome(){
+  if (!view.ch){
+    const p = pianById(view.pian);
+    $("#chNo").textContent = p ? p.seal : "";
+    $("#chName").textContent = p ? p.name : "";
+    $("#quote").textContent = "全部朝代 · 点长卷只看一朝，并播放该朝开场短片";
+    $("#chKeys").textContent = "";
+    const fig = $("#chVideo"), v = $("#chVid");
+    if (!v.paused) v.pause();
+    fig.hidden = true;
+    return;
+  }
+  const meta = chapterById(view.ch);
+  if (!CH[meta.id]){
+    loadChapter(meta).then(() => { if (view.ch === meta.id) paintChapterChrome(); }).catch(err => { $("#quote").textContent = err.message; });
+    return;
+  }
+  const bundle = CH[meta.id];
+  cur.ch = meta; cur.bundle = bundle;
+  prefetchNear(meta);
+  $("#chNo").textContent = meta.no;
+  $("#chName").textContent = meta.name;
+  const ch = bundle.chapter;
+  $("#quote").innerHTML = esc(ch.span && ch.span.display || meta.span) + " · 本章原有 <b>" + meta.scenes + "</b> 场";
+  $("#chKeys").textContent = "";
+  renderChapterVideo(meta);
+}
+function promptOf(item, pack){
+  if (!pack || !item) return null;
+  if (item.novel){
+    const sc = (pack.scenes || []).find(s => s.id === item.id);
+    return sc && sc.prompts ? sc.prompts[view.pian] : null;
+  }
+  return pack.variants ? pack.variants[item.id] : null;
+}
+function renderPianPrompts(item){
+  const box = $("#pianPrompt"), tabs = $("#pianPromptTabs");
+  box.textContent = ""; tabs.textContent = "";
+  const pack = PACKS[view.pian];
+  const bundle = promptOf(item, pack);
+  const p = pianById(view.pian);
+  $("#pianPromptMeta").textContent = p ? p.name + " · 静帧 / 视频 / 配乐 / 声响" : "";
+  if (!bundle){ box.innerHTML = '<div class="empty">这一篇的提示词还在载入。</div>'; return; }
+  const kinds = [["image","静帧"],["video","视频"],["music","配乐"],["sound","声响"]];
+  let kind = "image", lang = "zh";
+  const draw = () => {
+    box.textContent = "";
+    const block = bundle[kind];
+    const add = (label, text) => {
+      const h = document.createElement("div"); h.className = "sub"; h.textContent = label; box.appendChild(h);
+      const pre = document.createElement("pre"); pre.className = "prompt"; pre.textContent = text; box.appendChild(pre);
+    };
+    add(lang === "zh" ? "提示词" : "Prompt", block[lang]);
+    add(lang === "zh" ? "负面提示词" : "Negative", block.negative[lang]);
+  };
+  const mk = (label, on, active) => {
+    const b = document.createElement("button"); b.type = "button"; b.textContent = label;
+    if (active) b.className = "active";
+    b.addEventListener("click", () => { on(); [].forEach.call(tabs.children, c => c.classList.remove("active")); b.classList.add("active"); draw(); });
+    tabs.appendChild(b);
+  };
+  kinds.forEach(([k, label]) => mk(label, () => { kind = k; }, k === kind));
+  mk("中文", () => { lang = "zh"; }, true);
+  mk("English", () => { lang = "en"; }, false);
+  const copy = document.createElement("button"); copy.type = "button"; copy.textContent = "复制本段";
+  copy.addEventListener("click", () => copyText(bundle[kind][lang] + "\n\n" + bundle[kind].negative[lang], copy));
+  tabs.appendChild(copy);
+  draw();
+}
+function renderNovel(item, sc){
+  cur.entry = null; cur.novel = sc;
+  $("#scene").classList.add("is-novel");
+  const meta = chapterById(item.chapter);
+  const w = sc.when || {};
+  $("#sceneHead").innerHTML = '<div class="eyebrow">' + esc(meta ? meta.name : "") + " · " + esc(pianById(view.pian).name) + (item.primary === view.pian ? " · 主线" : " · 兼收") + '</div>' +
+    '<h2>' + esc(sc.title) + '</h2><div class="sub2">' + esc(sc.subtitle || "") + '</div>' +
+    '<div class="when">' + esc(w.display || "") + (w.era ? "（" + esc(w.era) + "）" : "") + '</div>';
+  const lineLabel = sc.line === "legend" ? "传说 / 异说" : sc.line === "classic" ? "经典文献" : "正史";
+  $("#novelMeta").textContent = lineLabel;
+  const who = (sc.figures || []).map(f => '<span>' + esc(f.name) + (f.role ? " · " + esc(f.role) : "") + '</span>').join("");
+  const srcs = (sc.sources || []).map(srcText).join("<br>");
+  $("#novelBody").innerHTML = '<p>' + esc(sc.narrative || "") + '</p>' +
+    '<div><b>人物</b><div class="who">' + who + '</div></div>' +
+    '<div><b>地点</b> ' + esc((sc.places || []).join("、")) + '</div>' +
+    '<div style="margin-top:8px"><b>出处</b><div class="src">' + srcs + '</div></div>' +
+    (w.notes ? '<div class="src">' + esc(w.notes) + '</div>' : '');
+  renderPianPrompts(item);
+}
+function renderLegacy(item){
+  const meta = chapterById(item.chapter);
+  const go = () => {
+    const bundle = CH[meta.id];
+    cur.ch = meta; cur.bundle = bundle;
+    cur.entry = bundle.scenes.find(e => e.scene.id === item.id);
+    cur.novel = null;
+    if (!cur.entry){ $("#sceneHead").innerHTML = '<div class="empty">场景不在章节数据里。</div>'; return; }
+    $("#scene").classList.remove("is-novel");
+    renderHead(); renderInfo(); renderGraph(); renderTree(); renderShots(); renderVideo(); renderAudio(); renderArt();
+    renderPianPrompts(item);
+  };
+  if (!CH[meta.id]) loadChapter(meta).then(go).catch(err => { $("#sceneHead").textContent = err.message; });
+  else go();
+}
+function openScene(){
+  const items = visibleItems();
+  if (!view.sc || !items.some(i => i.id === view.sc)) view.sc = items[0] ? items[0].id : null;
+  renderPianList();
+  const item = (PIAN.catalog || []).find(c => c.id === view.sc);
+  if (!item){ $("#sceneHead").innerHTML = ""; return; }
+  loadPianPack(view.pian).then(pack => {
+    if (item.novel){
+      const sc = (pack.scenes || []).find(s => s.id === item.id);
+      if (!sc){ $("#sceneHead").textContent = "新场景缺失"; return; }
+      renderNovel(item, sc);
+    } else renderLegacy(item);
+  }).catch(err => { $("#pianPrompt").textContent = err.message; });
+}
+function paint(){
+  const home = !view.pian;
+  document.body.className = home ? "is-home" : ("is-pian pian-" + view.pian);
+  document.title = home ? "烽火 · 四篇" : ((pianById(view.pian) || {}).fullName || "烽火");
+  renderPianNav();
+  if (home){
+    const n = (PIAN && PIAN.catalog || []).length;
+    $("#stats").innerHTML = [[pianList().length, "篇"], [INDEX.chapters.length, "朝代"], [n, "场景"]].map(x => '<div><b>' + esc(x[0] ?? "") + '</b><span>' + x[1] + '</span></div>').join("");
+    $("#bsub").textContent = pianList().length + " 篇 · " + INDEX.chapters.length + " 朝 · " + n + " 场（含兼收，页面上会重复出现）";
+    renderPianGrid();
+    return;
+  }
+  renderBanner();
+  refreshDynastyTabs();
+  paintChapterChrome();
+  openScene();
+  if (userNav) jump("#pianBanner");
+  userNav = false;
+}
+function applyHash(){
+  const r = parseHash();
+  view.pian = r.home ? null : r.pian;
+  view.ch = r.home ? null : (r.ch || null);
+  view.sc = r.home ? null : (r.sc || null);
+  if (!PIAN){ $("#pianGrid").innerHTML = '<div class="empty">缺少 data/pian/index.js：请先运行 node video/tools/build-pian.mjs</div>'; return; }
+  writeHash();
+  paint();
+}
 function init(){
-  if (!INDEX){ $("#main").innerHTML = '<div class="empty">缺少 data/index.js：请先运行 node tools/build-viewer-data.mjs</div>'; return; }
+  if (!INDEX){ $("#main").innerHTML = '<div class="empty">缺少 data/index.js：请先运行 node video/tools/build-viewer-data.mjs</div>'; return; }
   const cs = $("#chapSel"), tabs = $("#chapTabs");
-  INDEX.chapters.forEach((c, i) => {
+  const allOpt = document.createElement("option"); allOpt.value = ""; allOpt.textContent = "全部朝代"; cs.appendChild(allOpt);
+  const allBtn = document.createElement("button"); allBtn.type = "button"; allBtn.dataset.id = "*";
+  allBtn.setAttribute("aria-label", "全部朝代");
+  allBtn.innerHTML = '<span class="nm">全部</span><span class="dot" aria-hidden="true"></span><span class="yr">各朝</span><span class="ct"></span>';
+  allBtn.addEventListener("click", () => { userNav = true; view.ch = null; view.sc = null; writeHash(); paint(); });
+  tabs.appendChild(allBtn);
+  INDEX.chapters.forEach(c => {
     const o = document.createElement("option"); o.value = c.id; o.textContent = c.no + " · " + c.name; cs.appendChild(o);
     const b = document.createElement("button"); b.type = "button"; b.dataset.id = c.id;
-    b.setAttribute("aria-label", "第 " + c.no + " 章 " + c.name + "，" + c.scenes + " 个场景");
+    b.setAttribute("aria-label", "第 " + c.no + " 章 " + c.name);
     b.innerHTML = '<span class="nm">' + esc(c.name.replace(/\s*·\s*/g, "·")) + '</span><span class="dot" aria-hidden="true"></span><span class="yr">' + esc(spanShort(c.span)) + '</span><span class="ct">' + c.scenes + ' 场</span>';
-    b.addEventListener("click", () => { userNav = true; selectChapter(c.id); });
+    b.addEventListener("click", () => { userNav = true; view.ch = c.id; view.sc = null; writeHash(); paint(); });
     tabs.appendChild(b);
   });
   const fitTrack = () => tabs.style.setProperty("--trackw", tabs.scrollWidth + "px");
   fitTrack(); window.addEventListener("resize", fitTrack);
-  cs.addEventListener("change", () => { userNav = true; selectChapter(cs.value); });
-  $("#sceneSel").addEventListener("change", () => { userNav = true; selectScene($("#sceneSel").value); });
+  cs.addEventListener("change", () => { userNav = true; view.ch = cs.value || null; view.sc = null; writeHash(); paint(); });
+  $("#sceneSel").addEventListener("change", () => { userNav = false; view.sc = $("#sceneSel").value; writeHash(); openScene(); });
+  $("#primaryOnly").addEventListener("change", () => {
+    userNav = false;
+    view.primaryOnly = $("#primaryOnly").checked;
+    const vis = visibleItems();
+    if (view.sc && !vis.some(i => i.id === view.sc)) view.sc = null;
+    paint();
+  });
   $("#randBtn").addEventListener("click", () => {
-    const c = INDEX.chapters[Math.floor(Math.random() * INDEX.chapters.length)];
-    userNav = true; loadChapter(c).then(b => selectChapter(c.id, b.scenes[Math.floor(Math.random() * b.scenes.length)].scene.id)).catch(() => selectChapter(c.id));
+    const list = PIAN && PIAN.catalog || [];
+    if (!list.length) return;
+    const item = list[Math.floor(Math.random() * list.length)];
+    userNav = true; view.pian = item.primary; view.ch = item.chapter; view.sc = item.id;
+    writeHash(); paint();
   });
-  const tot = INDEX.totals || {};
-  $("#stats").innerHTML = [[INDEX.chapters.length, "朝代"], [tot.scenes, "场景"]].map(x => '<div><b>' + esc(x[0] ?? "") + '</b><span>' + x[1] + '</span></div>').join("");
-  $("#bsub").textContent = INDEX.chapters.length + " 章 · " + (tot.scenes ?? "") + " 场景 · 完整 " + fullOf(tot);
-  const h = new URLSearchParams(location.hash.slice(1));
-  selectChapter(h.get("ch") || INDEX.chapters[0].id, h.get("sc"));
+  applyHash();
   let rz; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { if (cur.entry) renderGraph(); }, 120); });
-  window.addEventListener("hashchange", () => {
-    const q = new URLSearchParams(location.hash.slice(1)), ch = q.get("ch"), sc = q.get("sc");
-    if (ch && (!cur.ch || ch !== cur.ch.id)) selectChapter(ch, sc);
-    else if (sc && cur.entry && sc !== cur.entry.scene.id) selectScene(sc);
-  });
+  window.addEventListener("hashchange", () => { userNav = false; applyHash(); });
 }
 /* 章节脚本按需加载：file:// 下用动态 <script>（不用 fetch），只加载正在看的章与相邻两章 */
 const LOADING = {};

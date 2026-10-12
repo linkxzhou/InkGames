@@ -14,7 +14,7 @@ InkGames 是桌面优先的**横版水墨动作引擎 + 中国历史内容线**�
 
 - 引擎：three.js `0.186.1`（WebGL）+ Matter.js `0.20.0`。Matter.js 在 X/Y 平面做 2D 物理，刚体 x、y 写进 three.js 模型，Z 固定。依赖只有这两个，见 [package.json](./package.json)。PixiJS 与 p5 已删除，不得再引入。
 - 示例页：`apps/scroll/`（横版切片）、`apps/story/`（叙事宿主，易水寒样例）、`apps/history/`（历史动画）、`apps/gallery/`（参照画廊）、`apps/props/<id>/`（二十个道具页）。
-- 历史内容：`video/` 下 21 章（上古至清）、每章 5–30 个完整场景的剧情数据、史源摘要、开场分镜、音频提示、素材提示词与每场的水墨视频生成提示词，以及 `file://` 可直接打开的查看器 `video/viewer/index.html`。
+- 历史内容：`video/` 下 21 章（上古至清）、每章 5–30 个完整场景的剧情数据、史源摘要、开场分镜、音频提示、素材提示词与每场的水墨视频生成提示词，以及 `file://` 可直接打开的查看器 `video/viewer/index.html`。站点按四篇组织（战场、治国、人物、地理），朝代是篇内筛选，见 §12。
 - 包管理：Yarn 4（`packageManager` 见 package.json，锁文件 `yarn.lock` 必须保留）。
 
 ## 2. 目录速览
@@ -26,8 +26,9 @@ InkGames 是桌面优先的**横版水墨动作引擎 + 中国历史内容线**�
 | `src/` | 引擎源码，唯一公共出口 `src/index.ts`；不放示例数据，不 import `video/` |
 | `apps/` | 示例页面，只依赖 `@inkgames/engine` |
 | `video/data/chapters/*.json` | 章节数据（生成物，见 §4.3） |
-| `video/viewer/` | 查看器与 `data/*.js`（由 `build-viewer-data.mjs` 生成，`file://` 可用） |
-| `video/tools/` | 无依赖 Node 工具：`validate.mjs`、`art-style.mjs`、`build-video-prompts.mjs`、`build-art-prompts.mjs`、`build-source-digests.mjs`、`build-viewer-data.mjs` |
+| `video/data/pian/` | 四篇：定义、新场景、分类与提示词（见 §12） |
+| `video/viewer/` | 查看器与 `data/*.js`（由 `build-viewer-data.mjs` 生成，`file://` 可用）；`data/pian/` 由 `build-pian.mjs` 生成 |
+| `video/tools/` | 无依赖 Node 工具：`validate.mjs`、`art-style.mjs`、`build-video-prompts.mjs`、`build-art-prompts.mjs`、`build-source-digests.mjs`、`build-viewer-data.mjs`、`build-pian.mjs` |
 | `video/sources/<chapter>/*.md` | 每场的原创史源摘要（只有短的公版古籍引文和书名卷次） |
 | `thirdparty/` | 只读参考快照；大的克隆都在 [.gitignore](./.gitignore) 里 |
 | `plan/` | 只剩 `plan/10`（引擎计划）与 `plan/README.md`（含历史内容迁到 `video/` 的指针） |
@@ -157,6 +158,7 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 - 三件套：① 历史内容站「烽火」——`video/viewer/index.html` 改成水墨风格的公开内容站（不再是开发工具；开卷图 `video/viewer/assets/fenghuo-hero.{webp,jpg}`）；② 每个场景用站内的分镜与 `videoPrompt` 做一支水墨短片；③ 用同一份内容做 InkGames 水墨游戏引擎，再用引擎做游戏。
 - 推广路线：内容站 → 社交媒体短视频 → 游戏玩家。
 - 三者共用 `video/data/` 与 [art-style.md](./video/docs/art-style.md)；站点的视觉同样只用黑白红色板，朱砂红只给印章、当前章节与少量强调。
+- 内容站、短片和游戏都按四篇各做一条线（战场 / 治国 / 人物 / 地理）。范围、提示词、游戏类型和页面气质见 §12 与 [pian.md](./video/docs/pian.md)。
 
 ## 9. 意图史（按 git log 核对）
 
@@ -208,6 +210,7 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 | 2026-10-11 | 元重建（转场 2→3 重生成；镜 7 redScale 0.4，红含淡晕约 9%；111.4 s，27.2 MB，crf 29） | 本地提交，待审 |
 | 2026-10-11 | 清按新规则出片（流墨转场 15 段、旁白 −29%，176.4 s，28.5 MB，crf 32；镜 16 朝霞粉晕用 redMaskBelow 去掉） | 本地提交，待审 |
 | 2026-10-11 | 唐按新规则出片（镜 11、12 重生成；流墨转场 15 段、旁白 −29%，180.8 s，25.9 MB，crf 32） | 本地提交，待审 |
+| 2026-10-12 | 内容站改为四篇（战场、治国、人物、地理）：既有场景分类并生成篇内提示词，每篇另写新场景；章节开场短片仍按朝代，在篇内选中该朝时播放 | 见 [pian.md](./video/docs/pian.md) |
 
 ## 10. 关键记忆与规则
 
@@ -228,7 +231,7 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 3. 复制 inkField 的代码、shader、常量表或素材；inkEngine 的移植规则见 [docs/AGENTS.md §6](./docs/AGENTS.md#6-许可红线)。
 4. 重新引入 PixiJS、p5 或第二套渲染库。
 5. 在提示词里写《影之刃》角色名，或把其素材图片放进仓库。
-6. 手改 `video/data/chapters/*.json` 或 `video/viewer/data/*.js` 而不改生成源。
+6. 手改 `video/data/chapters/*.json`、`video/viewer/data/*.js` 或 `video/viewer/data/pian/` 而不改生成源。
 7. 把无头 SwiftShader 结果写成“已验证”。
 
 ## 11. 常见任务速查
@@ -238,6 +241,33 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 | 新增或修改历史场景 | 改 `/workspace/gen/new/NN.yaml`（及英文分镜 `en/*.txt`），跑 `/workspace/gen/run.sh`；它会同步大纲、文档场景数、提示词、史源摘要、查看器数据并运行校验器 |
 | 改美术风格 | 只改 `video/tools/art-style.mjs` 与 [art-style.md](./video/docs/art-style.md)，重跑提示词生成器；校验器会拦住没带新风格的提示词 |
 | 新增引擎公共 API | 从 `src/index.ts` 导出，同步 `docs/NN-*.md` 与 `plan/10` 的状态（见 [docs/AGENTS.md §3](./docs/AGENTS.md#3-文档约定)） |
-| 新增章节开场短片 | 按 §7：改 `/workspace/gen/chapter-videos/shots.txt` → `build_scripts.py --write`，静帧与片段放 `/workspace/chapter-video/<chapter>/v2/`，跑 `python3 video/tools/build-chapter-video.py <chapter>`（见 [chapter-videos.md](./video/docs/chapter-videos.md)） |
+| 新增章节开场短片 | 按 §7：改 `/workspace/gen/chapter-videos/shots.txt` → `build_scripts.py --write`，静帧与片段放 `/workspace/chapter-video/<chapter>/v2/`，跑 `python3 video/tools/build-chapter-video.py <chapter>`（见 [chapter-videos.md](./video/docs/chapter-videos.md)）。若短片属于某一篇，镜头可标可选字段 `pian`，提示词按 §12 |
+| 新增四篇场景或改归类 | 改 `video/data/pian/src/scenes/<pian>.json` 或 `src/overrides.json`，跑 `node video/tools/build-pian.mjs`（见 §12、[pian.md](./video/docs/pian.md)）。不要手改章节 JSON 来塞新场 |
 | 查看器截图 | 用无头 Chromium 打开 `file://…/video/viewer/index.html#<chapter>`，截场景页与“水墨视频提示词”面板 |
 | 新增依赖 | 只允许 MIT / BSD / Apache / LGPL，登记到 [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md) |
+
+## 12. 四篇（2026-10-12 定）
+
+内容站首页先选篇，再在篇内用二十一朝筛选。细则、字段和操作步骤见 [video/docs/pian.md](./video/docs/pian.md)。这里只记不能破的规则。
+
+**四条线**
+
+| 篇 | 内容 | 短片与提示词 | 配乐 / 声响 | 游戏 | 页面 |
+|---|---|---|---|---|---|
+| 烽火：战场篇 | 战场上的战争 | 军阵、旌旗、壁垒、攻城器械；不生成兵刃相接 | 战鼓、号角 | 动作 | 斜向笔锋，墨底，朱砂斜杠 |
+| 烽火：治国篇 | 国策、改制、朝局 | 朝堂、奏疏、粮仓、渠堰、典章 | 钟、琴，庄严朝会 | 策略 | 格网、卷轴边栏、印章 |
+| 烽火：人物篇 | 人物的一生和戏剧转折 | 无五官的剪影肖像 | 这个人的短动机反复 | 人物技能 | 竖幅肖像卡片 |
+| 烽火：地理篇 | 河流、关隘、城址、路线如何塑造历史 | 水墨地图、水系、边墙、行军路线 | 开阔长音 | 攻城夺城 | 长卷地形，灰山叠层 |
+
+视觉仍只用黑白红色板，朱砂红不超过一成。提示词的风格参照、色板 Hex、运动约束、风格负面词、「不出现现代元素」和按朝代的「不出现时代错置之物」（`negAnachronism`）与 §5、§6 相同，由 `art-style.mjs` 写进每一篇的静帧、视频、配乐和声响。
+
+**数据**
+
+- 一场可有一个主篇和至多两个兼收。既有 316 场不改章节 JSON，分类写在 `video/data/pian/built/`。
+- 新场景写在 `video/data/pian/src/scenes/<pian>.json`，id 为 `篇.朝代.短名`。叙事原创，出处标明正史或传说，书名加篇卷。每篇新场景主线至少 40。不要编造卷次。
+- 改完源数据后只跑 `node video/tools/build-pian.mjs`。不要手改 `built/` 与 `video/viewer/data/pian/`。
+- 开放全文和年号表可以在本地核对，不提交进仓库。非商业或许可不清的数据集不抄录、不随库分发。
+
+**短片**
+
+已合成的章节开场短片保持朝代成片。篇页面只在选中一个朝代时播放它。以后为某一篇新做的镜头可在剧本里写可选 `pian`；缺省就是朝代片。校验器拒绝无效 id，不强迫旧镜头补标。

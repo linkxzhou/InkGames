@@ -1,0 +1,2186 @@
+[
+ {
+  "id": "zhanchang.shanggu.banquan",
+  "pian": "zhanchang",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "shanggu",
+  "title": "阪泉之战",
+  "subtitle": "黄帝与炎帝",
+  "when": {
+   "start": -2610,
+   "precision": "legend",
+   "display": "传说时代，传统排在涿鹿之前",
+   "era": "传说时代（年号未行）",
+   "verify": "done",
+   "notes": "阪泉、涿鹿的地望与公元年都没有可靠纪年，年份只用于排序。"
+  },
+  "line": "canon",
+  "narrative": "《史记·五帝本纪》把黄帝和炎帝的冲突写在涿鹿大战之前：两国在阪泉之野打了三仗，黄帝才压服炎帝一系。这是上古战争传说里少有的“同姓联盟内部开战”，不是对蚩尤那种外敌。三战的打法、阵法和地点，司马迁没有细写，后世地图上的阪泉有涿鹿附近等几种附会。本场只取正史这一句的规模：两支部族军阵相持，不把龙、雾和应龙写进正史线。",
+  "figures": [
+   {
+    "name": "黄帝",
+    "role": "部族首领",
+    "en": "Huangdi"
+   },
+   {
+    "name": "炎帝",
+    "role": "部族首领",
+    "en": "Yandi"
+   }
+  ],
+  "places": [
+   "阪泉"
+  ],
+  "placeEn": "Banquan",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "五帝本纪",
+    "notes": "黄帝与炎帝战于阪泉之野，三战然后得其志"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.xia.ganzhi",
+  "pian": "zhanchang",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "xia",
+  "title": "甘之战",
+  "subtitle": "启伐有扈",
+  "when": {
+   "start": -2070,
+   "precision": "circa",
+   "display": "约前 2070 年",
+   "era": "夏启在位之初（年号未行）",
+   "verify": "done",
+   "notes": "甘地所在有户县、郑州等说，本场不锁定今地。"
+  },
+  "line": "canon",
+  "narrative": "禹死之后，启把位子留在自家里，有扈氏不答应。启在甘地誓师，《甘誓》用很重的话责备对方扰乱时令、不遵正朔，叫六卿在战车上听鼓进、听锣退。这一仗是“家天下”第一次靠大战来压不服的人。正史记下了誓师和胜负的政治意义，没有留下阵图。战场篇只画车阵和鼓，不把后世演义里的神兽加进去。",
+  "figures": [
+   {
+    "name": "启",
+    "role": "夏后",
+    "en": "Qi of Xia"
+   },
+   {
+    "name": "有扈氏",
+    "role": "敌对部族",
+    "en": "Youhu"
+   }
+  ],
+  "places": [
+   "甘"
+  ],
+  "placeEn": "Gan",
+  "sources": [
+   {
+    "kind": "classic",
+    "title": "尚书",
+    "section": "甘誓",
+    "notes": "启与有扈大战于甘的誓辞"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "夏本纪",
+    "notes": "有扈氏不服，启伐之，大战于甘"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.shang.guifang",
+  "pian": "zhanchang",
+  "also": [],
+  "chapter": "shang",
+  "title": "高宗伐鬼方",
+  "subtitle": "三年克之",
+  "when": {
+   "start": -1240,
+   "precision": "circa",
+   "display": "约前 13 世纪",
+   "era": "武丁在位（年号未行）",
+   "verify": "done",
+   "notes": "《周易》只说三年克之，没有公元年。"
+  },
+  "line": "canon",
+  "narrative": "武丁在殷墟卜辞和后世追述里都是一位把战争打到很远的商王。《周易·既济》留下一句极短的战报：高宗伐鬼方，三年才打下来。《史记·殷本纪》写武丁修政行德、殷道复兴，没有展开这场战争的地形。鬼方究竟在晋陕还是更北，学界仍在争。本场取“长期对北的苦战”这一正史和易传能站住的核心，不把妇好伐羌方和这一场混成一件事。",
+  "figures": [
+   {
+    "name": "武丁",
+    "role": "商王",
+    "en": "Wu Ding"
+   },
+   {
+    "name": "鬼方",
+    "role": "敌对部族",
+    "en": "Guifang"
+   }
+  ],
+  "places": [
+   "鬼方"
+  ],
+  "placeEn": "the Guifang frontier",
+  "sources": [
+   {
+    "kind": "classic",
+    "title": "周易",
+    "section": "既济",
+    "notes": "高宗伐鬼方，三年克之"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "殷本纪",
+    "notes": "武丁修政，殷道复兴"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.xizhou.qianmu",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "xizhou",
+  "title": "千亩之战",
+  "subtitle": "败于姜戎",
+  "when": {
+   "start": -789,
+   "precision": "year",
+   "display": "前 789 年",
+   "era": "周宣王三十九年（年号未行）",
+   "verify": "done",
+   "notes": "宣王元年按前 827 年计，三十九年为前 789 年。"
+  },
+  "line": "canon",
+  "narrative": "周宣王前期还有“中兴”的名声，晚岁却在千亩被姜氏之戎打垮，连调来的“南国之师”也折了。《史记·周本纪》把这一仗和宣王此后不修籍田、败于申侯之祸连在一起看：西周的兵力从这里开始不够用。千亩的位置有山西、关中两说，本场只把它当作戎人熟悉、王师不熟的一块坡地。和宣王早年对玁狁的反击不是同一场。",
+  "figures": [
+   {
+    "name": "周宣王",
+    "role": "周天子",
+    "en": "King Xuan of Zhou"
+   },
+   {
+    "name": "姜氏之戎",
+    "role": "敌对部族",
+    "en": "Jiang Rong"
+   }
+  ],
+  "places": [
+   "千亩"
+  ],
+  "placeEn": "Qianmu",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "周本纪",
+    "notes": "宣王三十九年，战于千亩，王师败绩于姜氏之戎"
+   },
+   {
+    "kind": "classic",
+    "title": "国语",
+    "section": "周语上",
+    "notes": "宣王既丧南国之师"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.chunqiu.an",
+  "pian": "zhanchang",
+  "also": [],
+  "chapter": "chunqiu",
+  "title": "鞍之战",
+  "subtitle": "齐晋车战",
+  "when": {
+   "start": -589,
+   "precision": "year",
+   "display": "前 589 年",
+   "era": "周定王十八年 · 鲁成公二年（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "晋国郤克出使齐国时受了辱，两年后齐晋在鞍开战。齐顷公轻敌，说“余姑翦灭此而后朝食”，马还没有披甲就冲出去。晋军以郤克为中军，却在他受伤后仍把战车赶进齐阵。逢丑父和顷公换了位置，顷公才逃回。这是春秋车战的典型一仗：胜负系于中军的鼓和御者，不系于后来的骑兵画像。《左传》把对话和伤情写得很细，本场用它，不用汉以后的演义。",
+  "figures": [
+   {
+    "name": "郤克",
+    "role": "晋中军帅",
+    "en": "Xi Ke"
+   },
+   {
+    "name": "齐顷公",
+    "role": "齐君",
+    "en": "Duke Qing of Qi"
+   },
+   {
+    "name": "逢丑父",
+    "role": "齐卿",
+    "en": "Feng Choufu"
+   }
+  ],
+  "places": [
+   "鞍"
+  ],
+  "placeEn": "An",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "左传",
+    "section": "成公二年",
+    "notes": "齐晋鞍之战"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "齐太公世家",
+    "notes": "顷公十年与晋战于鞍"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.chunqiu.bi",
+  "pian": "zhanchang",
+  "also": [],
+  "chapter": "chunqiu",
+  "title": "邲之战",
+  "subtitle": "晋楚争霸",
+  "when": {
+   "start": -597,
+   "precision": "year",
+   "display": "前 597 年",
+   "era": "周定王十年 · 鲁宣公十二年（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "楚庄王围郑，郑降。晋国荀林父把大军带到黄河边，内部对渡河意见分裂，部分部队先过了河，主帅只好跟着渡。楚军在邲打垮这支阵脚不稳的晋军，晋人夜里抢船，船上砍断攀着船舷的手指。庄王没有穷追，还禁止把晋尸堆成京观。这一仗说明城濮之后晋楚的均势反过来了，也说明主帅压不住自己的偏师就会崩。本场和城濮之战是两次不同的晋楚决战。",
+  "figures": [
+   {
+    "name": "楚庄王",
+    "role": "楚君",
+    "en": "King Zhuang of Chu"
+   },
+   {
+    "name": "荀林父",
+    "role": "晋中军帅",
+    "en": "Xun Linfu"
+   },
+   {
+    "name": "孙叔敖",
+    "role": "楚令尹",
+    "en": "Sunshu Ao"
+   }
+  ],
+  "places": [
+   "邲",
+   "黄河"
+  ],
+  "placeEn": "Bi, on the Yellow River",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "左传",
+    "section": "宣公十二年",
+    "notes": "晋楚邲之战"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "楚世家",
+    "notes": "庄王十七年败晋师于河上"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.chunqiu.yanling",
+  "pian": "zhanchang",
+  "also": [],
+  "chapter": "chunqiu",
+  "title": "鄢陵之战",
+  "subtitle": "射目",
+  "when": {
+   "start": -575,
+   "precision": "year",
+   "display": "前 575 年",
+   "era": "周简王十一年 · 鲁成公十六年（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "晋厉公和楚共王在鄢陵对阵。楚军在清晨压到晋营前面，晋军营前地窄，范匄建议填井平灶，腾出列阵的地方。战斗中晋军吕锜一箭射中楚共王的眼睛。郤至三次遇见楚王的战车，都下车免胄快走过去。楚军主将子反夜里喝醉，不能再战，楚师夜遁。这是春秋晚期一次阵形、射手和中军纪律同时起作用的车战，晋国由此再次压过楚国。",
+  "figures": [
+   {
+    "name": "晋厉公",
+    "role": "晋君",
+    "en": "Duke Li of Jin"
+   },
+   {
+    "name": "楚共王",
+    "role": "楚君",
+    "en": "King Gong of Chu"
+   },
+   {
+    "name": "郤至",
+    "role": "晋卿",
+    "en": "Xi Zhi"
+   }
+  ],
+  "places": [
+   "鄢陵"
+  ],
+  "placeEn": "Yanling",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "左传",
+    "section": "成公十六年",
+    "notes": "晋楚战于鄢陵"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "晋世家",
+    "notes": "厉公八年败楚于鄢陵"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.chunqiu.boju",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "chunqiu",
+  "title": "柏举之战",
+  "subtitle": "吴师入郢",
+  "when": {
+   "start": -506,
+   "precision": "year",
+   "display": "前 506 年",
+   "era": "周敬王十四年 · 鲁定公四年（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "吴王阖闾用伍子胥、孙武，从淮水一线西进，在柏举大破楚令尹囊瓦的军队，接着五战五胜，攻进郢都。楚昭王出逃。吴人在郢的暴行和后来秦国出兵救楚、吴师退走，都写在《左传》定公四年、五年。这一仗把长江中游的霸权从楚国手里打出一条缝，也是孙武之名进入史书战争记载的关键一役。本场画汉水以东的军阵和空了的郢都，不把西施故事掺进来。",
+  "figures": [
+   {
+    "name": "阖闾",
+    "role": "吴王",
+    "en": "Helü"
+   },
+   {
+    "name": "伍子胥",
+    "role": "吴行人",
+    "en": "Wu Zixu"
+   },
+   {
+    "name": "孙武",
+    "role": "吴将",
+    "en": "Sun Wu"
+   },
+   {
+    "name": "囊瓦",
+    "role": "楚令尹",
+    "en": "Nang Wa"
+   }
+  ],
+  "places": [
+   "柏举",
+   "郢"
+  ],
+  "placeEn": "Boju and Ying",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "左传",
+    "section": "定公四年",
+    "notes": "柏举之战，吴入郢"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "吴太伯世家",
+    "notes": "阖庐九年伐楚，取郢"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.zhanguo.yique",
+  "pian": "zhanchang",
+  "also": [],
+  "chapter": "zhanguo",
+  "title": "伊阙之战",
+  "subtitle": "白起破韩魏",
+  "when": {
+   "start": -293,
+   "precision": "year",
+   "display": "前 293 年",
+   "era": "周赧王二十二年 · 秦昭襄王十四年（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "伊阙在洛阳南，是韩魏挡秦国东出的口子。秦昭襄王用白起，在这里击破韩魏联军。《史记·白起列传》记下了极大的斩首数字，用来说明白起从此被封为武安君、秦军开始以歼灭战闻名。数字本身是汉代史书的记载，本场不把它画成屠场，只保留关口、两支援军互相观望、秦军从中间撕开的格局。韩魏从此不敢再轻易合兵塞住伊阙。",
+  "figures": [
+   {
+    "name": "白起",
+    "role": "秦将",
+    "en": "Bai Qi"
+   },
+   {
+    "name": "韩釐王",
+    "role": "韩君",
+    "en": "King Xi of Han"
+   },
+   {
+    "name": "魏冉",
+    "role": "秦相",
+    "en": "Wei Ran"
+   }
+  ],
+  "places": [
+   "伊阙"
+  ],
+  "placeEn": "Yique",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "白起王翦列传",
+    "notes": "昭王十四年，白起攻韩、魏于伊阙"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "秦本纪",
+    "notes": "昭襄王十四年，白起攻韩、魏于伊阙"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.zhanguo.jixi",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "zhanguo",
+  "title": "济西之战",
+  "subtitle": "乐毅伐齐",
+  "when": {
+   "start": -284,
+   "precision": "year",
+   "display": "前 284 年",
+   "era": "周赧王三十一年 · 燕昭王二十八年（年号未行）",
+   "verify": "done",
+   "notes": "燕昭王元年传统系于前 311 年，二十八年为前 284 年。"
+  },
+  "line": "canon",
+  "narrative": "燕昭王为了报复齐国早年的入侵，筑黄金台招揽乐毅。乐毅联合秦、楚、三晋，在济西击破齐军，随即长驱，下齐城七十余座，只剩下莒和即墨。齐湣王出逃，后来死在莒。这一仗和后来田单的火牛复齐是同一场战争的两头：先是齐国几乎亡国，再是即墨的翻盘。本场只写济西的会战和空城，火牛留给已有的田单一场。",
+  "figures": [
+   {
+    "name": "乐毅",
+    "role": "燕上将军",
+    "en": "Yue Yi"
+   },
+   {
+    "name": "燕昭王",
+    "role": "燕君",
+    "en": "King Zhao of Yan"
+   },
+   {
+    "name": "齐湣王",
+    "role": "齐君",
+    "en": "King Min of Qi"
+   }
+  ],
+  "places": [
+   "济西"
+  ],
+  "placeEn": "west of the Ji River",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "乐毅列传",
+    "notes": "乐毅破齐于济西，下齐七十余城"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "田敬仲完世家",
+    "notes": "湣王四十年，燕将乐毅入临淄"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.zhanguo.wangjian",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "zhanguo",
+  "title": "王翦灭楚",
+  "subtitle": "六十万",
+  "when": {
+   "start": -224,
+   "precision": "year",
+   "display": "前 224 年",
+   "era": "秦王政二十三年（年号未行）",
+   "verify": "done",
+   "notes": "秦王政元年为前 246 年，二十三年为前 224 年；次年虏负刍。"
+  },
+  "line": "canon",
+  "narrative": "秦王政想迅速灭楚，先听李信说二十万够了，李信被楚军击败。王翦坚持非六十万不可，得到兵权后却按兵不动，让士卒投石超距，等楚军松懈再出击，追到蕲南，杀项燕，次年虏楚王负刍。司马迁把重点放在用兵的耐心，而不是一夜破城。楚地大、粮道长，所以这是一场以休整和追击写成的灭国之战。和后来项羽的楚不是同一个楚。",
+  "figures": [
+   {
+    "name": "王翦",
+    "role": "秦将",
+    "en": "Wang Jian"
+   },
+   {
+    "name": "秦王政",
+    "role": "秦王",
+    "en": "Ying Zheng"
+   },
+   {
+    "name": "项燕",
+    "role": "楚将",
+    "en": "Xiang Yan"
+   }
+  ],
+  "places": [
+   "蕲南",
+   "楚"
+  ],
+  "placeEn": "Qinan, in Chu",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "白起王翦列传",
+    "notes": "王翦率六十万灭楚，杀项燕"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "秦始皇本纪",
+    "notes": "二十三年，王翦虏楚王负刍"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.zhanguo.handan",
+  "pian": "zhanchang",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "zhanguo",
+  "title": "围邯郸",
+  "subtitle": "平原君在围城",
+  "when": {
+   "start": -257,
+   "precision": "year",
+   "display": "前 257 年",
+   "era": "秦昭襄王五十年（年号未行）",
+   "verify": "done",
+   "notes": "长平在前 260 年，邯郸围解在前 257 年。"
+  },
+  "line": "canon",
+  "narrative": "长平之后秦军围邯郸，赵国几乎被困死。平原君向楚、魏求救，门客毛遂在楚王面前把合纵说成，楚国才出兵。魏国晋鄙的救兵停在荡阴，不敢进。围城本身是一场粮尽、拆屋、守垛的苦战，解围要等魏楚兵到。信陵君窃符是同一围城的另一条线，已有专场。本场站在邯郸城头：赵孝成王、平原君和几乎出不去的使团。",
+  "figures": [
+   {
+    "name": "平原君",
+    "role": "赵公子",
+    "en": "Lord Pingyuan"
+   },
+   {
+    "name": "毛遂",
+    "role": "赵客",
+    "en": "Mao Sui"
+   },
+   {
+    "name": "赵孝成王",
+    "role": "赵君",
+    "en": "King Xiaocheng of Zhao"
+   }
+  ],
+  "places": [
+   "邯郸"
+  ],
+  "placeEn": "Handan",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "平原君虞卿列传",
+    "notes": "邯郸被围，毛遂定楚约"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "秦本纪",
+    "notes": "昭襄王五十年攻邯郸"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.xihan.pengcheng",
+  "pian": "zhanchang",
+  "also": [],
+  "chapter": "xihan",
+  "title": "彭城之战",
+  "subtitle": "项羽回师",
+  "when": {
+   "start": -205,
+   "precision": "year",
+   "display": "前 205 年",
+   "era": "汉王二年（年号未行）",
+   "verify": "done",
+   "notes": "汉元年为前 206 年。"
+  },
+  "line": "canon",
+  "narrative": "刘邦趁项羽北上齐地，率诸侯兵进入彭城。项羽只带三万骑连夜赶回，从早晨打到中午，汉军大溃，掉进穀水和泗水的人很多。刘邦只和几十骑逃出，路上连子女都推下车。司马迁用这一仗说明：占领都城不等于赢得会战，回师的一方可以更致命。本场画彭城外的尘土和向北的骑队，不画后来戏台上的项王。",
+  "figures": [
+   {
+    "name": "项羽",
+    "role": "西楚霸王",
+    "en": "Xiang Yu"
+   },
+   {
+    "name": "刘邦",
+    "role": "汉王",
+    "en": "Liu Bang"
+   }
+  ],
+  "places": [
+   "彭城",
+   "泗水"
+  ],
+  "placeEn": "Pengcheng and the Si River",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "项羽本纪",
+    "notes": "项羽以三万骑破汉军于彭城"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "高祖本纪",
+    "notes": "汉二年四月，项羽击汉军于彭城"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.xihan.weishui",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "xihan",
+  "title": "潍水之战",
+  "subtitle": "韩信破齐",
+  "when": {
+   "start": -203,
+   "precision": "year",
+   "display": "前 203 年",
+   "era": "汉王四年（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "韩信已经用计拿下齐地，楚国派龙且来救。有人劝龙且深壁，让齐人自己反汉，龙且不听，要速战。韩信在潍水上游用沙囊堵住水，军半渡时撤囊，楚军被冲散，龙且被杀。齐地从此归汉。这一仗常被看成韩信用地形打的最干净的一仗：不是硬碰，是把河变成武器。本场的主线是潍水和两岸的军阵。",
+  "figures": [
+   {
+    "name": "韩信",
+    "role": "汉将",
+    "en": "Han Xin"
+   },
+   {
+    "name": "龙且",
+    "role": "楚将",
+    "en": "Long Ju"
+   }
+  ],
+  "places": [
+   "潍水"
+  ],
+  "placeEn": "Wei River in Qi",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "淮阴侯列传",
+    "notes": "韩信夹潍水阵，破龙且"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "项羽本纪",
+    "notes": "韩信破杀龙且"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.xihan.henan",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "xihan",
+  "title": "收河南地",
+  "subtitle": "卫青出云中",
+  "when": {
+   "start": -127,
+   "precision": "year",
+   "display": "前 127 年",
+   "era": "汉武帝元朔二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "元朔二年，卫青出云中，沿黄河北岸向西打到陇西，赶走匈奴白羊、楼烦王，把秦朝丢掉的“河南地”收回来，汉朝在那里设朔方郡。这是漠北大战之前的一次收复，意义在地图：匈奴失去了南下威胁长安的跳板。司马迁写卫青这次“走白羊、楼烦王”，不写一场有名字的对阵厮杀。本场以河套的空旷和新建的障塞为主。",
+  "figures": [
+   {
+    "name": "卫青",
+    "role": "大将军",
+    "en": "Wei Qing"
+   },
+   {
+    "name": "汉武帝",
+    "role": "汉帝",
+    "en": "Emperor Wu of Han"
+   }
+  ],
+  "places": [
+   "河南地",
+   "云中",
+   "朔方"
+  ],
+  "placeEn": "the Ordos bend",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "卫将军骠骑列传",
+    "notes": "元朔二年收河南地"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "匈奴列传",
+    "notes": "汉遂取河南地，筑朔方"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.xihan.nanyue",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "xihan",
+  "title": "灭南越",
+  "subtitle": "楼船与伏波",
+  "when": {
+   "start": -111,
+   "precision": "year",
+   "display": "前 111 年",
+   "era": "汉武帝元鼎六年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "南越相吕嘉杀汉使、立新王。元鼎六年，路博德为伏波将军，杨仆为楼船将军，分兵出桂阳、豫章、零陵和巴蜀，会师番禺。番禺城火起后，吕嘉夜间逃出，被追获。南越从此设为汉郡。这是一场沿江、沿海的远征，不是中原车战。本场画楼船、江雾和番禺的城郭，不把汉代还没有的海图仪器画进去。",
+  "figures": [
+   {
+    "name": "路博德",
+    "role": "伏波将军",
+    "en": "Lu Bode"
+   },
+   {
+    "name": "杨仆",
+    "role": "楼船将军",
+    "en": "Yang Pu"
+   },
+   {
+    "name": "吕嘉",
+    "role": "南越相",
+    "en": "Lü Jia"
+   }
+  ],
+  "places": [
+   "番禺",
+   "离水"
+  ],
+  "placeEn": "Panyu",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "南越列传",
+    "notes": "元鼎六年楼船、伏波灭南越"
+   },
+   {
+    "kind": "canon",
+    "title": "汉书",
+    "section": "西南夷两粤朝鲜传",
+    "notes": "汉灭南越，置九郡"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.donghan.tongma",
+  "pian": "zhanchang",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "donghan",
+  "title": "铜马",
+  "subtitle": "刘秀在河北",
+  "when": {
+   "start": 24,
+   "precision": "year",
+   "display": "公元 24 年",
+   "era": "更始二年",
+   "verify": "done",
+   "notes": "更始是淮阳王刘玄的年号，不在后来的东汉年号序列里。"
+  },
+  "line": "canon",
+  "narrative": "更始把刘秀放到河北，名义上是安抚，实际上中原已经是各路农民军的地盘。刘秀在鄡和铜马等部反复较量，被迫投降的人仍不放心，他亲自在营中骑马按行，铜马的人才说“萧王推赤心置人腹中”。这一仗让他获得后来打天下的基本兵力，也是昆阳大捷之后、称帝之前的关键战役。本场不提前写洛阳的皇帝仪仗。",
+  "figures": [
+   {
+    "name": "刘秀",
+    "role": "萧王",
+    "en": "Liu Xiu"
+   },
+   {
+    "name": "铜马部众",
+    "role": "河北义军",
+    "en": "Tongma bands"
+   }
+  ],
+  "places": [
+   "河北",
+   "鄡"
+  ],
+  "placeEn": "Hebei",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "后汉书",
+    "section": "光武帝纪",
+    "notes": "更始二年击铜马于鄡"
+   },
+   {
+    "kind": "canon",
+    "title": "后汉书",
+    "section": "光武帝纪",
+    "notes": "铜马降者称其推赤心置人腹中"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.donghan.shehu",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "donghan",
+  "title": "射虎谷",
+  "subtitle": "段颎破羌",
+  "when": {
+   "start": 169,
+   "precision": "year",
+   "display": "169 年",
+   "era": "汉灵帝建宁二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "东汉对西羌的战争打了几十年，段颎主张把兵力用尽，反对朝里“招降省费”的办法。建宁二年，他把东羌追进射虎谷，在山谷上下设防，最后把这支羌人军队击破。《后汉书》对他的评价很分裂：军功写得很满，杀人的规模也写得很满。本场取山谷、长墙和相持，不把史书里的斩首数字画成风景。这和窦宪燕然勒石不是同一场北边的战争。",
+  "figures": [
+   {
+    "name": "段颎",
+    "role": "护羌校尉",
+    "en": "Duan Jiong"
+   },
+   {
+    "name": "东羌",
+    "role": "羌人部众",
+    "en": "the Eastern Qiang"
+   }
+  ],
+  "places": [
+   "射虎谷"
+  ],
+  "placeEn": "Shehu Valley",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "后汉书",
+    "section": "段颎传",
+    "notes": "建宁二年追羌至射虎谷，大破之"
+   },
+   {
+    "kind": "canon",
+    "title": "后汉书",
+    "section": "西羌传",
+    "notes": "段颎对东羌的战事"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.sanguo.shiting",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "sanguo",
+  "title": "石亭之战",
+  "subtitle": "陆逊破曹休",
+  "when": {
+   "start": 228,
+   "precision": "year",
+   "display": "228 年",
+   "era": "魏太和二年 · 吴黄武七年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "魏将曹休听信吴人周鲂的诈降，率兵深入皖地。陆逊在石亭设伏，三路齐进，曹休的军队自相践踏，弃甲逃走。孙权事先还把这支大军的中路交给陆逊统一调度。这是夷陵之后陆逊又一次把追击写成伏击的仗，也是吴国在江北能打赢的少数会战之一。本场画皖口的山道和弃在路上的旗帜，不画刀剑相交。",
+  "figures": [
+   {
+    "name": "陆逊",
+    "role": "吴大都督",
+    "en": "Lu Xun"
+   },
+   {
+    "name": "曹休",
+    "role": "魏大司马",
+    "en": "Cao Xiu"
+   },
+   {
+    "name": "周鲂",
+    "role": "吴将",
+    "en": "Zhou Fang"
+   }
+  ],
+  "places": [
+   "石亭",
+   "皖"
+  ],
+  "placeEn": "Shiting",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "三国志",
+    "section": "吴书·陆逊传",
+    "notes": "石亭大破曹休"
+   },
+   {
+    "kind": "canon",
+    "title": "三国志",
+    "section": "魏书·曹休传",
+    "notes": "曹休深入失利"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.sanguo.shouchun",
+  "pian": "zhanchang",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "sanguo",
+  "title": "寿春之战",
+  "subtitle": "诸葛诞",
+  "when": {
+   "start": 257,
+   "precision": "year",
+   "display": "257 年",
+   "era": "魏甘露二年 · 吴太平二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "诸葛诞在寿春联结吴国，反对司马氏。司马昭挟魏帝东征，围城一年多。城中粮尽，诸葛诞的部将互相残杀，吴将文钦也被诞杀掉。城破之后，司马氏在淮南的反对者基本清掉。这是一场围城，不是野战：长围、外援进不来、城里先乱。它也说明三国末年的大战已经常常是朝廷内斗打到边镇。本场以寿春的城墙和城外的长围为主。",
+  "figures": [
+   {
+    "name": "司马昭",
+    "role": "魏权臣",
+    "en": "Sima Zhao"
+   },
+   {
+    "name": "诸葛诞",
+    "role": "魏征东大将军",
+    "en": "Zhuge Dan"
+   },
+   {
+    "name": "文钦",
+    "role": "吴将",
+    "en": "Wen Qin"
+   }
+  ],
+  "places": [
+   "寿春"
+  ],
+  "placeEn": "Shouchun",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "三国志",
+    "section": "魏书·诸葛诞传",
+    "notes": "甘露二年寿春之围"
+   },
+   {
+    "kind": "canon",
+    "title": "三国志",
+    "section": "魏书·三少帝纪",
+    "notes": "甘露二年征诸葛诞"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.liangjin.canhe",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "liangjin",
+  "title": "参合陂",
+  "subtitle": "拓跋珪破慕容宝",
+  "when": {
+   "start": 395,
+   "precision": "year",
+   "display": "395 年",
+   "era": "东晋太元二十年 · 北魏登国十年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "后燕慕容宝率大军伐魏，拓跋珪把燕军引到参合陂。燕人觉得魏军已经远走，夜晚不设防。魏军清晨从陂上压下来，燕军溃乱，落水和被俘的人极多。慕容宝单骑逃走。这一仗让北魏从草原部落变成能吃掉中原边镇的力量，后燕从此一蹶不振。《魏书》和《晋书·慕容垂载记》都写了，细节互有出入，本场取双方都承认的结果：燕军在陂下崩了。",
+  "figures": [
+   {
+    "name": "拓跋珪",
+    "role": "魏王",
+    "en": "Tuoba Gui"
+   },
+   {
+    "name": "慕容宝",
+    "role": "燕太子",
+    "en": "Murong Bao"
+   }
+  ],
+  "places": [
+   "参合陂"
+  ],
+  "placeEn": "Canhe Slope",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "魏书",
+    "section": "太祖纪",
+    "notes": "登国十年破慕容宝于参合陂"
+   },
+   {
+    "kind": "canon",
+    "title": "晋书",
+    "section": "慕容垂载记",
+    "notes": "慕容宝参合陂大败"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.nanbeichao.zhongli",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "nanbeichao",
+  "title": "钟离之战",
+  "subtitle": "邵阳洲",
+  "when": {
+   "start": 507,
+   "precision": "year",
+   "display": "507 年",
+   "era": "梁天监六年 · 魏正始四年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "北魏中山王元英围梁国钟离，在淮水上的邵阳洲架桥，兵号称很盛。城中守将昌义之用泥补被炮石打坏的城垛。梁武帝先派曹景宗，再派韦叡赶去。韦叡的军队连夜筑营，火攻洲上的桥。魏军从桥上退下时互相拥挤，淮水为之不流是史书的夸张说法，至少说明溃退发生在水上。钟离因此成为南朝少数守住了的江淮重镇。",
+  "figures": [
+   {
+    "name": "韦叡",
+    "role": "梁将",
+    "en": "Wei Rui"
+   },
+   {
+    "name": "昌义之",
+    "role": "梁太守",
+    "en": "Chang Yizhi"
+   },
+   {
+    "name": "元英",
+    "role": "魏中山王",
+    "en": "Yuan Ying"
+   }
+  ],
+  "places": [
+   "钟离",
+   "邵阳洲"
+  ],
+  "placeEn": "Zhongli and Shaoyang Island",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "梁书",
+    "section": "韦叡传",
+    "notes": "天监六年解钟离之围"
+   },
+   {
+    "kind": "canon",
+    "title": "梁书",
+    "section": "昌义之传",
+    "notes": "昌义之守钟离"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.nanbeichao.shayuan",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "nanbeichao",
+  "title": "沙苑之战",
+  "subtitle": "宇文泰以寡击众",
+  "when": {
+   "start": 537,
+   "precision": "year",
+   "display": "537 年",
+   "era": "西魏大统三年 · 东魏天平四年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "高欢的东魏军队渡河，号称兵多。宇文泰的西魏兵少，在沙苑的芦苇荡里把部队分成左右埋伏。东魏兵看见西魏人少，争着向前，队形散了，伏兵从芦苇里出来，东魏大败，丢掉大量甲仗。沙苑让西魏在关中站住，东西对峙从此成为定局。本场用芦苇、河滩和稀疏的西魏旗帜，不把后来隋唐的府兵制度提前画出来。",
+  "figures": [
+   {
+    "name": "宇文泰",
+    "role": "西魏丞相",
+    "en": "Yuwen Tai"
+   },
+   {
+    "name": "高欢",
+    "role": "东魏权臣",
+    "en": "Gao Huan"
+   }
+  ],
+  "places": [
+   "沙苑",
+   "渭水"
+  ],
+  "placeEn": "Shayuan",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "周书",
+    "section": "文帝纪",
+    "notes": "大统三年沙苑之战"
+   },
+   {
+    "kind": "canon",
+    "title": "北齐书",
+    "section": "神武帝纪",
+    "notes": "高欢沙苑失利"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.nanbeichao.hanling",
+  "pian": "zhanchang",
+  "also": [],
+  "chapter": "nanbeichao",
+  "title": "韩陵之战",
+  "subtitle": "高欢破尔朱",
+  "when": {
+   "start": 532,
+   "precision": "year",
+   "display": "532 年",
+   "era": "北魏普泰二年 · 中兴二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "尔朱氏在河阴之后控制洛阳，高欢从山东起兵，在韩陵山下列阵。他的兵是鲜卑和六镇余部混编的，阵圆之后把牛驴连起来堵住自己的退路，表示不胜就回不去。尔朱兆等几路人马配合不好，被高欢击破。尔朱氏的霸权到此结束，高欢开始成为东魏的实际主人。本场画韩陵山下的圆阵和被拴住的辎重，不画洛阳城里后来的政治清洗。",
+  "figures": [
+   {
+    "name": "高欢",
+    "role": "晋州刺史",
+    "en": "Gao Huan"
+   },
+   {
+    "name": "尔朱兆",
+    "role": "尔朱氏",
+    "en": "Erzhu Zhao"
+   }
+  ],
+  "places": [
+   "韩陵"
+  ],
+  "placeEn": "Hanling",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "北齐书",
+    "section": "神武帝纪",
+    "notes": "普泰二年韩陵破尔朱兆"
+   },
+   {
+    "kind": "canon",
+    "title": "魏书",
+    "section": "尔朱兆传",
+    "notes": "韩陵之败"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.tang.qianshui",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "tang",
+  "title": "浅水原",
+  "subtitle": "薛举父子",
+  "when": {
+   "start": 618,
+   "precision": "year",
+   "display": "618 年",
+   "era": "唐武德元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "武德元年，薛举从金城东进，在浅水原打败唐军，李世民因为生病没有亲自把整场仗管住。薛举不久病死，儿子薛仁杲继续围折墌。李世民先坚壁，等对方粮尽气衰，再在浅水原出击，追到折墌城下，薛仁杲投降。同一块原，先败后胜，旧唐书把两次都记在这一年。本场按时间画两阵之间的空营，不把后来的玄武门提前进来。",
+  "figures": [
+   {
+    "name": "李世民",
+    "role": "秦王",
+    "en": "Li Shimin"
+   },
+   {
+    "name": "薛举",
+    "role": "西秦霸王",
+    "en": "Xue Ju"
+   },
+   {
+    "name": "薛仁杲",
+    "role": "薛举之子",
+    "en": "Xue Rengao"
+   }
+  ],
+  "places": [
+   "浅水原",
+   "折墌"
+  ],
+  "placeEn": "Qianshuiyuan",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "太宗本纪",
+    "notes": "武德元年浅水原败薛举、降薛仁杲"
+   },
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "薛举传",
+    "notes": "浅水原与折墌"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.tang.anshi",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "tang",
+  "title": "安市",
+  "subtitle": "贞观征辽",
+  "when": {
+   "start": 645,
+   "precision": "year",
+   "display": "645 年",
+   "era": "唐太宗贞观十九年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "贞观十九年，唐太宗亲自东征高丽。安市城外，高延寿、高惠真的援军被李世民击破，但安市城本身久攻不下。秋天草枯水冻，唐军退兵，太宗把失败归到自己不该亲自远征。两唐书没有“一将守城、皇帝受挫于某人姓名”的传奇说法，那些姓名是后来的小说。本场只画辽东的土城、城外的唐营和向西撤回的道路。",
+  "figures": [
+   {
+    "name": "唐太宗",
+    "role": "唐帝",
+    "en": "Emperor Taizong"
+   },
+   {
+    "name": "高延寿",
+    "role": "高丽将",
+    "en": "Gao Yanshou"
+   },
+   {
+    "name": "李勣",
+    "role": "唐将",
+    "en": "Li Ji"
+   }
+  ],
+  "places": [
+   "安市",
+   "辽东"
+  ],
+  "placeEn": "Anshi, Liaodong",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "太宗本纪",
+    "notes": "贞观十九年攻安市，班师"
+   },
+   {
+    "kind": "canon",
+    "title": "新唐书",
+    "section": "高丽传",
+    "notes": "安市不下，唐师还"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.tang.xiangji",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "tang",
+  "title": "香积寺",
+  "subtitle": "收复长安",
+  "when": {
+   "start": 757,
+   "precision": "year",
+   "display": "757 年",
+   "era": "唐肃宗至德二载",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "马嵬之后肃宗在灵武即位，郭子仪、李嗣业等从凤翔反攻长安。至德二载九月，唐军和回纥兵在香积寺北与安守忠、李归仁接战，把叛军赶进长安城，当晚长安收复。史书强调的是城西的会战和回纥骑兵从侧翼加入，不是巷战的细节。本场画香积寺外的平原和向城门退去的旗帜。杨贵妃之死已经在马嵬一场里，这里不再重复。",
+  "figures": [
+   {
+    "name": "郭子仪",
+    "role": "唐副元帅",
+    "en": "Guo Ziyi"
+   },
+   {
+    "name": "李嗣业",
+    "role": "唐将",
+    "en": "Li Siye"
+   },
+   {
+    "name": "安守忠",
+    "role": "燕将",
+    "en": "An Shouzhong"
+   }
+  ],
+  "places": [
+   "香积寺",
+   "长安"
+  ],
+  "placeEn": "Xiangji Temple, west of Chang'an",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "郭子仪传",
+    "notes": "至德二载香积寺之战，收复长安"
+   },
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "肃宗本纪",
+    "notes": "至德二载九月复京师"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.tang.heyang",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "tang",
+  "title": "河阳之战",
+  "subtitle": "李光弼",
+  "when": {
+   "start": 759,
+   "precision": "year",
+   "display": "759 年",
+   "era": "唐肃宗乾元二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "乾元二年，史思明在相州打败九节度的联军之后南下。李光弼放弃洛阳，把军队收缩到河阳的三城，背靠黄河，用城北、中潬和南城互相支援。史思明攻城不利，自己在河清被射伤。河阳没有把叛军消灭，但把东都空出来换了一条守得住的河防线。本场画黄河里的中潬城和两岸的栅栏，不画洛阳宫殿里的宴饮。",
+  "figures": [
+   {
+    "name": "李光弼",
+    "role": "唐太尉",
+    "en": "Li Guangbi"
+   },
+   {
+    "name": "史思明",
+    "role": "燕帝",
+    "en": "Shi Siming"
+   }
+  ],
+  "places": [
+   "河阳",
+   "中潬"
+  ],
+  "placeEn": "Heyang and the mid-river fort",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "李光弼传",
+    "notes": "乾元二年守河阳"
+   },
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "史思明传",
+    "notes": "攻河阳不克"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.wudai.baixiang",
+  "pian": "zhanchang",
+  "also": [],
+  "chapter": "wudai",
+  "title": "柏乡之战",
+  "subtitle": "晋破后梁",
+  "when": {
+   "start": 911,
+   "precision": "year",
+   "display": "911 年",
+   "era": "后梁开平五年 · 乾化元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "后梁王景仁率兵北上，在柏乡和高邑之间与晋王李存勖对峙。周德威劝李存勖先退到高邑，让梁军离开营栅、人马饥渴，再反击。梁军果然被引出，晋军用骑兵把他们切碎。柏乡之战让河朔的天平从梁转到晋，也是李存勖从父亲的三支箭故事走进真正会战的一仗。本场画冬天的原野和梁军丢下的营栅。",
+  "figures": [
+   {
+    "name": "李存勖",
+    "role": "晋王",
+    "en": "Li Cunxu"
+   },
+   {
+    "name": "周德威",
+    "role": "晋将",
+    "en": "Zhou Dewei"
+   },
+   {
+    "name": "王景仁",
+    "role": "后梁将",
+    "en": "Wang Jingren"
+   }
+  ],
+  "places": [
+   "柏乡",
+   "高邑"
+  ],
+  "placeEn": "Baixiang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧五代史",
+    "section": "唐书·庄宗纪",
+    "notes": "开平五年柏乡之战"
+   },
+   {
+    "kind": "canon",
+    "title": "新五代史",
+    "section": "唐本纪·庄宗",
+    "notes": "柏乡破梁军"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.beisong.gaoliang",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "beisong",
+  "title": "高梁河",
+  "subtitle": "宋辽首次大战",
+  "when": {
+   "start": 979,
+   "precision": "year",
+   "display": "979 年",
+   "era": "宋太平兴国四年 · 辽乾亨元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "太平兴国四年，宋太宗灭北汉后不停脚，直接去攻辽南京。城下宋军已经疲敝。辽将耶律沙在高梁河与宋军接触，耶律休哥和耶律斜轸随后赶到，宋师大溃，太宗连夜退走，与主力失散。《宋史》对这场败写得含糊，《辽史·景宗纪》把追击写得更明白。本场以辽史能对上的结果为准：南京城北的河岸，宋军向南溃退。",
+  "figures": [
+   {
+    "name": "宋太宗",
+    "role": "宋帝",
+    "en": "Emperor Taizong of Song"
+   },
+   {
+    "name": "耶律休哥",
+    "role": "辽将",
+    "en": "Yelü Xiuge"
+   },
+   {
+    "name": "耶律沙",
+    "role": "辽将",
+    "en": "Yelü Sha"
+   }
+  ],
+  "places": [
+   "高梁河",
+   "南京"
+  ],
+  "placeEn": "Gaoliang River, near Yanjing",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "辽史",
+    "section": "景宗纪",
+    "notes": "乾亨元年高梁河破宋师"
+   },
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "太宗纪",
+    "notes": "太平兴国四年北伐幽州，师还"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.beisong.dingchuan",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "beisong",
+  "title": "定川寨",
+  "subtitle": "庆历西夏",
+  "when": {
+   "start": 1042,
+   "precision": "year",
+   "display": "1042 年",
+   "era": "宋庆历二年 · 夏天授礼法延祚五年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "好水川的第二年，李元昊再次入宋边。宋将葛怀敏在定川寨被夏军包围，夜里溃围，本人死在乱军里。夏军进到渭州，在城下大掠后退走。范仲淹、韩琦在西北的防守并没有因为一次败仗就撤掉，但定川说明宋军出寨会战仍然容易被引进伏地。本场和好水川分开：换了主将、换了寨名，仍是同一条边境上的第二次大败。",
+  "figures": [
+   {
+    "name": "李元昊",
+    "role": "夏国主",
+    "en": "Li Yuanhao"
+   },
+   {
+    "name": "葛怀敏",
+    "role": "宋将",
+    "en": "Ge Huaimin"
+   }
+  ],
+  "places": [
+   "定川寨",
+   "渭州"
+  ],
+  "placeEn": "Dingchuan Fort",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "夏国传",
+    "notes": "庆历二年定川寨之战"
+   },
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "葛怀敏传",
+    "notes": "怀敏战死定川"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.nansong.shunchang",
+  "pian": "zhanchang",
+  "also": [],
+  "chapter": "nansong",
+  "title": "顺昌之战",
+  "subtitle": "刘锜",
+  "when": {
+   "start": 1140,
+   "precision": "year",
+   "display": "1140 年",
+   "era": "宋绍兴十年 · 金天眷三年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "绍兴十年金军毁约南下。刘锜刚到顺昌，就地筑羊马垣，把船只沉了表示不走。完颜宗弼的重甲骑兵攻城，刘锜在城下设伏，又趁大雨后的暑热出击。金军退走，顺昌保住。这是岳飞北伐同一年里、由另一支军队打的守城战，不能并进朱仙镇的故事里。本场画顺昌的矮墙、城河和城外停住的金军旗帜。",
+  "figures": [
+   {
+    "name": "刘锜",
+    "role": "宋将",
+    "en": "Liu Qi"
+   },
+   {
+    "name": "完颜宗弼",
+    "role": "金都元帅",
+    "en": "Wanyan Zongbi"
+   }
+  ],
+  "places": [
+   "顺昌"
+  ],
+  "placeEn": "Shunchang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "刘锜传",
+    "notes": "绍兴十年顺昌之战"
+   },
+   {
+    "kind": "canon",
+    "title": "金史",
+    "section": "宗弼传",
+    "notes": "顺昌不利而还"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.nansong.chenjiadao",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "nansong",
+  "title": "陈家岛",
+  "subtitle": "李宝焚舟",
+  "when": {
+   "start": 1161,
+   "precision": "year",
+   "display": "1161 年",
+   "era": "宋绍兴三十一年 · 金大定元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "海陵王南侵时，金朝水军从密州一带南下。李宝率宋朝舟师北上，在胶西陈家岛附近发现金船还挂着帆、士兵多不习水。宋军趁风放火，金舟大半被烧，赴海的人很多。这一仗和虞允文的采石几乎同时，一个在黄海之滨，一个在长江。本场只取陈家岛的船队和火，不把采石的陆军混进来，也不画近代舰船。",
+  "figures": [
+   {
+    "name": "李宝",
+    "role": "宋浙西路马步军副总管",
+    "en": "Li Bao"
+   },
+   {
+    "name": "完颜郑家",
+    "role": "金水军统领",
+    "en": "Wanyan Zhengjia"
+   }
+  ],
+  "places": [
+   "陈家岛",
+   "胶西"
+  ],
+  "placeEn": "Chenjia Island",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "李宝传",
+    "notes": "绍兴三十一年陈家岛焚金舟"
+   },
+   {
+    "kind": "canon",
+    "title": "金史",
+    "section": "海陵纪",
+    "notes": "舟师败于海中"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.nansong.fuli",
+  "pian": "zhanchang",
+  "also": [],
+  "chapter": "nansong",
+  "title": "符离之战",
+  "subtitle": "隆兴北伐",
+  "when": {
+   "start": 1163,
+   "precision": "year",
+   "display": "1163 年",
+   "era": "宋隆兴元年 · 金大定三年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "孝宗起用张浚，想在绍兴和议之后再打一次。李显忠收复宿州，邵宏渊却与他不和，金军反击时宋军在符离崩溃，军资几乎丢光。张浚的北伐就此停住，朝廷重新走向和议。符离的意义是负的：它说明南宋不是没有北伐的意愿，而是前线两将不协、粮械跟不上时，一次胜利会马上变成溃退。本场画符离路上丢弃的旗帜和向南的溃兵剪影。",
+  "figures": [
+   {
+    "name": "张浚",
+    "role": "宋枢密使",
+    "en": "Zhang Jun"
+   },
+   {
+    "name": "李显忠",
+    "role": "宋将",
+    "en": "Li Xianzhong"
+   },
+   {
+    "name": "邵宏渊",
+    "role": "宋将",
+    "en": "Shao Hongyuan"
+   }
+  ],
+  "places": [
+   "符离",
+   "宿州"
+  ],
+  "placeEn": "Fuli",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "孝宗纪",
+    "notes": "隆兴元年符离师溃"
+   },
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "张浚传",
+    "notes": "符离之溃，浚贬"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.liaojin.yehu",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "liaojin",
+  "title": "野狐岭",
+  "subtitle": "蒙古破金",
+  "when": {
+   "start": 1211,
+   "precision": "year",
+   "display": "1211 年",
+   "era": "金大安三年 · 宋嘉定四年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "成吉思汗在大安三年大举攻金。金军在野狐岭、会河川设防，成吉思汗派木华黎率敢死之士冲击，金军大败，死者被史书写成蔽野。野狐岭是从草原进入华北平原的山口，这一仗之后金朝的北边门户等于被打开，中都开始暴露。西夏、南宋的年号此时并存，本场的纪年以金朝大安三年为准，因为防守的一方是金。",
+  "figures": [
+   {
+    "name": "成吉思汗",
+    "role": "蒙古大汗",
+    "en": "Genghis Khan"
+   },
+   {
+    "name": "木华黎",
+    "role": "蒙古将",
+    "en": "Muqali"
+   },
+   {
+    "name": "独吉思忠",
+    "role": "金将",
+    "en": "Duji Sizhong"
+   }
+  ],
+  "places": [
+   "野狐岭",
+   "会河川"
+  ],
+  "placeEn": "Yehuling Pass",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "元史",
+    "section": "太祖纪",
+    "notes": "大安三年破金军于野狐岭"
+   },
+   {
+    "kind": "canon",
+    "title": "金史",
+    "section": "卫绍王纪",
+    "notes": "大安三年会河川溃"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.yuan.dingjiazhou",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "yuan",
+  "title": "丁家洲",
+  "subtitle": "伯颜渡江",
+  "when": {
+   "start": 1275,
+   "precision": "year",
+   "display": "1275 年",
+   "era": "元至元十二年 · 宋德祐元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "襄阳、樊城陷落后，伯颜沿汉水入江。贾似道被迫督师，在池州下游的丁家洲把舟师排开。元军炮击并冲阵，宋军没怎么接战就溃了，贾似道逃到扬州。长江上的这次崩溃比崖山早四年，它决定的是沿江州郡不再有统一的防线。本场画江面的船阵和岸上扔下的旗，不把崖山的末帝船队提前画出来。",
+  "figures": [
+   {
+    "name": "伯颜",
+    "role": "元丞相",
+    "en": "Bayan"
+   },
+   {
+    "name": "贾似道",
+    "role": "宋右丞相",
+    "en": "Jia Sidao"
+   }
+  ],
+  "places": [
+   "丁家洲",
+   "池州"
+  ],
+  "placeEn": "Dingjiazhou",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "元史",
+    "section": "伯颜传",
+    "notes": "至元十二年丁家洲破宋师"
+   },
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "贾似道传",
+    "notes": "丁家洲师溃"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.ming.baigou",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "ming",
+  "title": "白沟河",
+  "subtitle": "靖难前哨",
+  "when": {
+   "start": 1400,
+   "precision": "year",
+   "display": "1400 年",
+   "era": "明建文二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "建文二年，李景隆率号称百万的南军北上，与燕王朱棣在白沟河相遇。南军在数量上占优，燕军一度被压到绝境，朱棣几乎陷在阵里。风向一转，南军大火烧营，李景隆连夜逃回德州。这一仗不是金川门那场不战而降，而是靖难里少有的大规模野战。本场只取白沟河的夜火和两军旗帜，不把后来的“诛十族”写进同一画面。",
+  "figures": [
+   {
+    "name": "朱棣",
+    "role": "燕王",
+    "en": "Zhu Di"
+   },
+   {
+    "name": "李景隆",
+    "role": "大将军",
+    "en": "Li Jinglong"
+   }
+  ],
+  "places": [
+   "白沟河"
+  ],
+  "placeEn": "Baigou River",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "成祖纪",
+    "notes": "建文二年白沟河之战"
+   },
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "恭闵帝纪",
+    "notes": "李景隆白沟河败绩"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.ming.pingrang1593",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "ming",
+  "title": "平壤之战",
+  "subtitle": "李如松援朝",
+  "when": {
+   "start": 1593,
+   "precision": "year",
+   "display": "1593 年",
+   "era": "明万历二十一年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "万历朝鲜之役里，日军占领平壤。万历二十一年正月，李如松督明军攻城，用大炮轰开城门一带，日军退向汉城。明军入城后抢掠，李如松斩了自己的部下压住。这是明军在朝鲜打的一次真正的攻城，和后来碧蹄馆的受挫不是同一天。本场画冬日的平壤城墙和城门上的烟，画面里不出现近代枪械的特写，火器只作为城头的烟。",
+  "figures": [
+   {
+    "name": "李如松",
+    "role": "明提督",
+    "en": "Li Rusong"
+   },
+   {
+    "name": "小西行长",
+    "role": "日军将领",
+    "en": "Konishi Yukinaga"
+   }
+  ],
+  "places": [
+   "平壤"
+  ],
+  "placeEn": "Pyongyang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "李如松传",
+    "notes": "万历二十一年克平壤"
+   },
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "朝鲜传",
+    "notes": "平壤之捷"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.ming.songjin",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "ming",
+  "title": "松锦之战",
+  "subtitle": "洪承畴",
+  "when": {
+   "start": 1640,
+   "precision": "year",
+   "display": "1640—1642 年",
+   "era": "明崇祯十三年至十五年",
+   "verify": "done",
+   "notes": "start 取围城之始；城破与洪承畴降在崇祯十五年。"
+  },
+  "line": "canon",
+  "narrative": "清军围锦州，明廷派洪承畴出山海关救援。他起初主守，朝里催促进战，明军集结在松山。皇太极切断粮道之后，明军夜溃，洪承畴被困在松山，次年城破被俘，祖大寿也开锦州出降。松锦之后，明朝在关外只剩下宁远等少数孤城。本场和袁崇焕的宁远守城分开：那是天启的胜仗，这是崇祯的大败。画面取长围、粮道和关外的雪。",
+  "figures": [
+   {
+    "name": "洪承畴",
+    "role": "明蓟辽总督",
+    "en": "Hong Chengchou"
+   },
+   {
+    "name": "皇太极",
+    "role": "清太宗",
+    "en": "Hong Taiji"
+   },
+   {
+    "name": "祖大寿",
+    "role": "明总兵",
+    "en": "Zu Dashou"
+   }
+  ],
+  "places": [
+   "松山",
+   "锦州"
+  ],
+  "placeEn": "Songshan and Jinzhou",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "庄烈帝纪",
+    "notes": "崇祯十五年松山陷，洪承畴降"
+   },
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "太宗纪",
+    "notes": "松锦之战"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.qing.yaksa",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "qing",
+  "title": "雅克萨",
+  "subtitle": "两次围城",
+  "when": {
+   "start": 1685,
+   "precision": "year",
+   "display": "1685—1686 年",
+   "era": "清康熙二十四年至二十五年",
+   "verify": "done",
+   "notes": "康熙二十四年取城，二十五年俄军复至，再次围城后议和。"
+  },
+  "line": "canon",
+  "narrative": "俄罗斯人在雅克萨筑城，清廷先致书，不成，康熙二十四年派彭春、萨布素等水陆并进，攻下城后平毁，允许俄人退走。第二年俄军又回来筑城，清军再围。双方最后在尼布楚谈界。本场只写这两次围城，不把康熙二十八年的条约文本放进画面——划界已有专场可走。画面是黑龙江上的木城、船只和城外的营垒。",
+  "figures": [
+   {
+    "name": "萨布素",
+    "role": "清黑龙江将军",
+    "en": "Sabsu"
+   },
+   {
+    "name": "彭春",
+    "role": "清都统",
+    "en": "Pengcun"
+   },
+   {
+    "name": "托尔布津",
+    "role": "俄军头目",
+    "en": "Afanasy Tolbuzin"
+   }
+  ],
+  "places": [
+   "雅克萨",
+   "黑龙江"
+  ],
+  "placeEn": "Albazin on the Amur",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "圣祖本纪",
+    "notes": "康熙二十四年攻雅克萨，二十五年复围"
+   },
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "朋春传",
+    "notes": "雅克萨之役"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.qing.zhaomo",
+  "pian": "zhanchang",
+  "also": [
+   "dili"
+  ],
+  "chapter": "qing",
+  "title": "昭莫多",
+  "subtitle": "费扬古",
+  "when": {
+   "start": 1696,
+   "precision": "year",
+   "display": "1696 年",
+   "era": "清康熙三十五年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "康熙亲征噶尔丹，自己率中路出草原，西路费扬古拦在昭莫多。噶尔丹的军队从土拉河来，费扬古先据山，用下马步战拖住，再以骑兵袭其后营。噶尔丹丢掉辎重逃走，阿奴等人战死。昭莫多是乌兰布通之后真正把噶尔丹从漠北打散的一仗。本场画山梁上的下马军阵和河湾，康熙的御营放在远处，不画近代地图的经纬线。",
+  "figures": [
+   {
+    "name": "费扬古",
+    "role": "清抚远大将军",
+    "en": "Fiyanggū"
+   },
+   {
+    "name": "噶尔丹",
+    "role": "准噶尔汗",
+    "en": "Galdan"
+   },
+   {
+    "name": "康熙帝",
+    "role": "清帝",
+    "en": "Kangxi Emperor"
+   }
+  ],
+  "places": [
+   "昭莫多",
+   "土拉河"
+  ],
+  "placeEn": "Zuunmod and the Tuul",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "圣祖本纪",
+    "notes": "康熙三十五年昭莫多之战"
+   },
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "费扬古传",
+    "notes": "昭莫多大破噶尔丹"
+   }
+  ]
+ },
+ {
+  "id": "zhanchang.qing.pingrang1894",
+  "pian": "zhanchang",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "qing",
+  "title": "平壤陆战",
+  "subtitle": "左宝贵",
+  "when": {
+   "start": 1894,
+   "precision": "year",
+   "display": "1894 年",
+   "era": "清光绪二十年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "甲午年日本陆军进逼平壤。清军叶志超主退，总兵左宝贵坚持守北城，穿上朝服登城指挥，在玄武门中炮而死。叶志超随即弃城。这是黄海海战之外、陆地上决定朝鲜战局的一仗。《清史稿·左宝贵传》写了他的死，《德宗本纪》写了平壤溃。本场画平壤北城的城楼和一面还在的旗帜，不画近代步枪的特写，炮烟只作为城头的一团墨。",
+  "figures": [
+   {
+    "name": "左宝贵",
+    "role": "清总兵",
+    "en": "Zuo Baogui"
+   },
+   {
+    "name": "叶志超",
+    "role": "清总统",
+    "en": "Ye Zhichao"
+   }
+  ],
+  "places": [
+   "平壤",
+   "玄武门"
+  ],
+  "placeEn": "Pyongyang, North Gate",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "左宝贵传",
+    "notes": "光绪二十年守平壤玄武门，中炮死"
+   },
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "德宗本纪",
+    "notes": "光绪二十年平壤败"
+   }
+  ]
+ }
+]

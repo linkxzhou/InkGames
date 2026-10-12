@@ -518,6 +518,10 @@ interface VideoPrompt {
 - 校验器检查：每个有开场的场景都有 `videoPrompt`；`prompt`、`negative` 中英俱全；镜头 5–8 个、时间连续、时长之和等于 `durationSec`；出镜人物都在 `cast` 里。
 - 和 `artPrompts` 一样，`videoPrompt` 只服务创作，运行时不读（`FullSceneEntry.videoPrompt` 为可选字段）。
 
+### 2.12 四篇
+
+朝代场景 JSON 不收录篇分类，也不把新的篇场景塞进 `chapters/*.json`。四篇的范围、主篇与兼收、新场景字段、篇内静帧 / 视频 / 配乐 / 声响提示词，见 [pian.md](./pian.md)。查看器首页按篇进入，二十一朝是篇里的筛选。
+
 ## 3. 完整样例：易水寒 · 荆轲刺秦王
 
 完整文件见 [`video/data/examples/05-09-zhanguo-jingke.json`](../data/examples/05-09-zhanguo-jingke.json)，里面有场景定义、开场动画脚本和中文字符串表。下面讲它的结构。（该样例只覆盖 `scene` / `opening` / `strings`，所以不含 §2.10 的 `artPrompts`；`artPrompts` 挂在 `chapters/*.json` 的场景条目上，易水寒那一场在 [`05-zhanguo.json`](../data/chapters/05-zhanguo.json) 里可查。）

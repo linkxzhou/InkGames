@@ -13,6 +13,7 @@ video/
 │   ├── story-design.md          故事与玩法设计（原 plan/11-history-game-story-design.md）
 │   ├── chapter-outline.md       章节大纲：21 章场景表（原 plan/11-history-game-chapter-outline.md）
 │   ├── content-schema.md        JSON 数据契约，含 artPrompts / videoPrompt（原 plan/11-history-game-content-schema.md）
+│   ├── pian.md                  四篇：范围、提示词、数据与查看器
 │   ├── engine-gaps.md           开场动画管线与引擎缺口（原 plan/12-history-game-engine-gaps.md）
 │   └── production-plan.md       历史动画制作计划（原 plan/12-history-game-ink-animation-production-plan.md）
 ├── data/
@@ -21,6 +22,7 @@ video/
 │   │   └── NN-<dynasty>.json    每章一个数据包：00-shanggu … 20-qing
 │   ├── examples/
 │   │   └── 05-09-zhanguo-jingke.json   荆轲（易水寒）完整样例
+│   ├── pian/                    四篇定义、新场景、生成的分类与提示词（见 docs/pian.md）
 │   └── corpus-catalog.json      语料书目（只有目录，不含 PDF）
 ├── sources/
 │   ├── README.md                史源摘要的写法与版权规则
@@ -31,6 +33,7 @@ video/
 │   ├── build-video-prompts.mjs  生成 videoPrompt（水墨视频提示词，中英双语）
 │   ├── build-source-digests.mjs 生成 sources/ 下的史源摘要
 │   ├── build-viewer-data.mjs    chapters/*.json → viewer/data/*.js
+│   ├── build-pian.mjs           四篇分类与提示词 → data/pian/built/ 与 viewer/data/pian/
 │   ├── gen-name-pinyin.py       可选：重建 name-pinyin.json（需 pypinyin）
 │   └── name-pinyin.json         人名拼音表，供英文提示词使用
 └── viewer/
@@ -45,7 +48,7 @@ video/
 - 章用两位数字加朝代拼音：`NN-<dynasty>`，`NN` 是 `00`–`20`（与 `chapter.order` 一致），如 `12-sui`、`16-liaojin`。
 - 场景用大纲编号加场景 id：`NN-MM-<scene-id>`，`NN-MM` 是 [章节大纲](docs/chapter-outline.md) 里的 ID（`outlineId`），`<scene-id>` 是 `scene.id` 点号后面的部分，如 `05-09-jingke`、`12-08-yanmen`。大纲编号一旦分配就不改，新增场景接着往后编号；章内顺序按年代，由数据里的 `order` 决定。
 - 文档放 `docs/`，用内容命名（`story-design.md`），不用序号。
-- 生成物（`viewer/data/*.js`、`sources/NN-*/`、数据里的 `artPrompts`、`videoPrompt`）都由 `tools/` 下的脚本产出，不手改。
+- 生成物（`viewer/data/*.js`、`viewer/data/pian/`、`data/pian/built/`、`sources/NN-*/`、数据里的 `artPrompts`、`videoPrompt`）都由 `tools/` 下的脚本产出，不手改。
 
 ## 工作流
 
@@ -74,6 +77,8 @@ node video/tools/validate.mjs              # 必须 0 个错误
 每章可有一支开场短片（16:9，无声），显示在查看器章节头之下、场景卡之上，流程见 [chapter-videos.md](docs/chapter-videos.md)；目前完成上古一章。
 
 查看器每个场景都有“水墨视频提示词”面板：中/英切换、复制整段、复制负面提示词、逐镜复制，以及导出本章或全部场景（Markdown / JSON）。字段说明见 [content-schema.md §2.11](docs/content-schema.md#211-水墨视频生成提示词videoprompt)。
+
+站点首页按四篇进入（战场、治国、人物、地理），朝代长卷是篇内筛选。篇的范围、提示词、新场景和章节短片的关系见 [docs/pian.md](docs/pian.md)。章节 JSON 仍是上面的 316 场；四篇场景写在 `data/pian/src/`，由 `node video/tools/build-pian.mjs` 生成查看器脚本。
 
 ## 内容规则
 
