@@ -175,8 +175,9 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 | 新增引擎公共 API | 从 `src/index.ts` 导出，同步 `docs/NN-*.md` 与 `plan/10` 的状态（见 [docs/AGENTS.md §3](./docs/AGENTS.md#3-文档约定)） |
 | 新增章节开场短片 | 按 §7：改 `/workspace/gen/chapter-videos/shots.txt` → `build_scripts.py --write`，静帧与片段放 `/workspace/chapter-video/<chapter>/v2/`，跑 `python3 video/tools/build-chapter-video.py <chapter>`（见 [chapter-videos.md](./video/docs/chapter-videos.md)）。若短片属于某一篇，镜头可标可选字段 `pian`，提示词按 §12 |
 | 新增四篇场景或改归类 | 改 `video/data/pian/src/scenes/<pian>.json` 或 `src/overrides.json`，跑 `node video/tools/build-pian.mjs`（见 §12、[pian.md](./video/docs/pian.md)）。不要手改章节 JSON 来塞新场 |
-| 改地图落点 | 改 `video/data/maps/places.json` 或 `scene-places.json`，跑 `node video/tools/build-maps.mjs`。重出图片再跑 `python3 video/tools/render-maps.py`。海岸和大河用 Natural Earth。CHGIS 只人工核对，不落地。低置信保持 `placeless` 与待核验，不猜坐标。不要手改 `video/viewer/data/maps.js` |
-| 查看器截图 | 用无头 Chromium 打开 `file://…/video/viewer/index.html`（篇页 `#pian=<id>`）。只存截图，不录屏 |
+| 改地图落点 | 改 `video/data/maps/places.json` 或 `scene-places.json`，跑 `node video/tools/build-maps.mjs`。重出图片再跑 `python3 video/tools/render-maps.py`。低置信保持 `placeless` 与待核验，不猜坐标。不要手改 `video/viewer/data/maps.js` |
+| 查看器截图 | 用无头 Chromium 打开 `file://…/video/viewer/index.html#<chapter>`，截场景页与“水墨视频提示词”面板 |
+| 多步任务规划（5+ 步） | 用 [plan-with-files](./skills/plan-with-files/SKILL.md) skill：计划文件放 `plan/progress/<date>-<task-slug>/`（`task_plan.md` / `findings.md` / `progress.md`），每阶段后更新，云端与本地 agent 共用 |
 | 新增依赖 | 只允许 MIT / BSD / Apache / LGPL，登记到 [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md) |
 
 ## 12. 四篇（2026-10-12 定）
