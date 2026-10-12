@@ -10,7 +10,7 @@ from io import BytesIO
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageDraw
 
 PAL = np.array([
     (0x14, 0x14, 0x14),
@@ -181,18 +181,13 @@ def chipped_seal(w, h, seed=3):
 
 
 def ink_dots():
-    """192×64，三格：淡墨 / 浓墨 / 朱砂。"""
+    """192×64，三格：墨 / 墨 / 朱砂。只许 #141414、#eceae4、#b3241c，不画晕。"""
     img = Image.new("RGBA", (192, 64), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
-    colors = [(0xA8, 0xA8, 0xA4, 230), (0x14, 0x14, 0x14, 255), (0xB3, 0x24, 0x1C, 255)]
+    colors = [(0x14, 0x14, 0x14, 255), (0x14, 0x14, 0x14, 255), (0xB3, 0x24, 0x1C, 255)]
     radii = [7, 9, 9]
     for i, (c, r) in enumerate(zip(colors, radii)):
         cx, cy = 32 + i * 64, 32
-        halo = Image.new("RGBA", (192, 64), (0, 0, 0, 0))
-        hd = ImageDraw.Draw(halo)
-        hd.ellipse((cx - r - 4, cy - r - 3, cx + r + 4, cy + r + 3), fill=(*c[:3], 70))
-        halo = halo.filter(ImageFilter.GaussianBlur(2.2))
-        img.alpha_composite(halo)
         draw.ellipse((cx - r, cy - r, cx + r, cy + r), fill=c)
     return img
 
@@ -228,7 +223,8 @@ def main():
         jobs.append((name, size, budget, sizes))
 
     photo("hero-fenghuo-wide", "hero-fenghuo-wide.jpg", (2400, 1000), (0.72, 0.48), 220_000, red_cap=0.08)
-    photo("hero-fenghuo-m", "hero-fenghuo-m.jpg", (1080, 1080), (0.55, 0.42), 120_000, red_cap=0.08)
+    # 退役：hero-fenghuo-m、paper-fiber、fenghuo-hero、ink-blot-corner。不要再跑回写。
+    # paper-ink-stains 留下，build-chapter-video.py 片头卡还在读。
     photo("pian-zhanchang", "pian-zhanchang.jpg", (800, 1000), (0.5, 0.55), 70_000, red_cap=0.08)
     photo("pian-zhiguo", "pian-zhiguo-blank.jpg", (800, 1000), (0.5, 0.45), 70_000, red_cap=0.09, wipe_seal=True)
     photo("pian-renwu", "pian-renwu.jpg", (800, 1000), (0.48, 0.45), 70_000, red_cap=0.06)
@@ -243,7 +239,6 @@ def main():
     photo("timeline-rod", "timeline-rod.jpg", (2400, 24), (0.5, 0.5), 16_000, alpha=True, red_cap=0.0)
     photo("empty-ink-boat", "empty-ink-boat.jpg", (600, 360), (0.5, 0.55), 30_000, alpha=True, red_cap=0.02)
     photo("loading-ink-drop", "loading-ink-drop.jpg", (256, 256), (0.5, 0.5), 12_000, alpha=True, red_cap=0.0)
-    photo("paper-fiber", "paper-fiber.jpg", (1024, 1024), (0.5, 0.5), 60_000, red_cap=0.0, gain=4.2)
     photo("footer-mountains", "footer-mountains.jpg", (2400, 200), (0.5, 0.78), 40_000, alpha=True, red_cap=0.0, gain=2.6)
 
     sw, sp = save_alpha(chipped_seal(256, 256, 3), out / "seal-frame-square", 18_000)
