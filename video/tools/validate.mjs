@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // 历史游戏内容校验器（无依赖）。用法：node video/tools/validate.mjs [--pending]
 // 规则见 video/docs/content-schema.md §4.1。退出码 0 = 零错误。
+import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
@@ -860,6 +861,27 @@ function validateMaps() {
     }
   }
   const low = Object.values(scenes.scenes || {}).filter(r => r.placeless && r.reason === '待核验').length;
+  const mapDir = join(DATA, '..', 'viewer/assets/maps');
+  const reviewPath = join(dir, 'review.md');
+  const review = existsSync(reviewPath) ? readFileSync(reviewPath, 'utf8') : '';
+  if (!review) err('maps', '缺少 video/data/maps/review.md 审图记录');
+  const styled = /风格化：是/.test(review);
+  if (styled && !/IoU\s*[≥>=]\s*0\.85/.test(review)) err('maps', '做了风格化但审图记录里没有河流遮罩 IoU ≥ 0.85');
+  const paletteFiles = [];
+  for (const ch of Object.keys(frames.chapters || {})) {
+    if (!new RegExp('(^|[^a-z])' + ch + '([^a-z]|$)').test(review)) err('maps review', '审图记录没有覆盖 ' + ch);
+    for (const [suffix, w, h, budget] of [['.webp', 1600, 1000, 160 * 1024], ['-m.webp', 800, 500, 60 * 1024], ['-t.webp', 320, 200, 25 * 1024]]) {
+      const file = join(mapDir, ch + suffix);
+      if (!existsSync(file)) { err('map ' + ch, '缺少 ' + suffix); continue; }
+      const size = statSync(file).size;
+      if (size > budget) err('map ' + ch, suffix + ' 体积 ' + size + ' 超过 ' + budget);
+      paletteFiles.push(file);
+    }
+  }
+  if (paletteFiles.length) {
+    const py = spawnSync('python3', [join(DATA, '..', 'tools/check-image-palette.py'), ...paletteFiles], { encoding: 'utf8' });
+    if (py.status !== 0) err('maps palette', (py.stdout || py.stderr || '色板检查失败').trim());
+  }
   console.log(`地图：地名 ${Object.keys(places.places).length}，场景落点 ${catalog.length}（待核验 ${low}）`);
 }
 
