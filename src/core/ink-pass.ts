@@ -3,7 +3,7 @@ import {
   NoBlending, NoColorSpace, NormalBlending, OrthographicCamera, RawShaderMaterial, RGBAFormat, Scene,
   UnsignedByteType, Vector2, Vector3, Vector4, WebGLRenderTarget,
   type Blending, type Texture, type WebGLRenderer,
-} from 'three';
+} from './three-gl';
 import type { PixelRect } from './ink-raster';
 
 const VERT = `

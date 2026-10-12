@@ -13,6 +13,11 @@ export type { InkBite } from './core/ink-metallic';
 
 export { InkSurface } from './core/ink-surface';
 export type { InkSurfaceOptions, InkSurfaceSnapshot } from './core/ink-surface';
+export { InkPaintSheet } from './core/ink-paint';
+export type { InkPaintOptions } from './core/ink-paint';
+export { InkWash } from './core/ink-wash';
+export { InkBackdrop, backdropMarks, BACKDROP_PAPER, BACKDROP_WIDTH, BACKDROP_HEIGHT } from './core/ink-backdrop';
+export type { InkBackdropOptions, BackdropMark } from './core/ink-backdrop';
 export { InkScene } from './core/ink-scene';
 export type { InkSceneLayer, InkLayerPose, InkClipRect, InkSurfaceWashStep } from './core/ink-scene';
 export { InkView } from './core/ink-view';

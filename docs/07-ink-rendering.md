@@ -65,7 +65,7 @@ surface.paint({
 scene.add(new Mesh(new PlaneGeometry(640, 480), new MeshBasicMaterial({ map: surface.texture, transparent: true })));
 ```
 
-- `InkSurfaceOptions`：`width`、`height`、`seed`（纸、力场和默认笔画种子）、`background`、`paper`（纸纹开关）、`transparent`（白底无纸，供叠在别的纸上）。
+- `InkSurfaceOptions`：`width`、`height`、`seed`（纸、力场和默认笔画种子）、`background`、`paper`（纸纹开关）、`transparent`（白底无纸，供叠在别的纸上）。湿墨在 `InkPaintSheet`，漫水在 `InkWash`；`InkSurface` 在 `paper !== false` 时把 `inkPaperPixels` 传进去，再自己跑 flow / distort / metallic。
 - `setBrush({ mode, size, effect, blend })`、`setColor(name | [r, g, b])`、`strokePath(points, seed?)`、`paint(stroke)`。`points` 是笔尖落点；`inkPointerPath(points, mode)` 换算成 inkEngine 要的指针坐标（加 10px，gothic 不加）。
 - `strokePath` 是同步的：按下、每帧一个点、停一帧、提起、倒计时、提交，全部在一次调用里跑完。
 - `beginStroke` / `addPoint` / `endStroke` 给拖动用，每个显示帧调一次 `update()`。和 inkEngine 一样每帧只取最新的指针位置，提交前用 `realtime.frag` 在 `display` 上叠出湿墨。同一张墨面只允许一个活动笔画，宿主（`StoryStage.paintPulses`）负责拒绝并发并计数。
@@ -135,6 +135,12 @@ scene.add(new Mesh(new PlaneGeometry(640, 480), new MeshBasicMaterial({ map: sur
 `/history/` 用 `InkScene` 展示上古「混沌开卷」五幕：30 fps 展示、名义 90 秒、保留原剧本字幕，提供播放/暂停/重播/进度拖动/跳镜与 `?frame=` 定位。人物、山水、火与五色石均为原创路径分件，不用参考图。分件与关键帧抽在 `apps/history/chaos-data.ts`，是原创表现数据；`validatePresentation` / `poseAt`（`src/core/ink-presentation.ts`，已导出）负责校验与求值，`apps/history/procedural.ts` 只做“校验 → 逐层绘制 → 每帧按帧号求位”。求值纯由帧号决定、不累计积分，因此跳帧与顺播同值。
 
 无头 Chromium + SwiftShader 已验证三页绘制完成、无 JS/shader 错误、无图片请求，且跨镜头跳转（s2、s5）字幕与姿态正确；真实 GPU 观感、性能、连续墨扩散、关节绑定与遮罩质量均未实测。
+
+## 内容站底纹（2026-10-12）
+
+`InkBackdrop`（`src/core/ink-backdrop.ts`，已从 `src/index.ts` 导出）给烽火查看器铺一层固定全屏的淡墨。入口只引 `InkPaintSheet` 和 `InkWash`：湿墨用 feedback、encode、类型图、合成、realtime、力场这几支着色器，漫水用同一支 wash。不带 flow、distort、metallic，也不生成纸纹；底是平涂宣纸色 `#eceae4`，和页面 CSS 相同。three 从 `three/src` 按需引入 `WebGLRenderer` 和这一路用到的几何、材质、渲染目标。内部墨面是 480×270，显示画布像素比锁在 1，大约 8 帧/秒；指针、滚动和按键停 8 秒后降到约 2 帧/秒；`document.hidden` 时不推进。`prefers-reduced-motion: reduce` 只画一帧。没有 WebGL 时构造会抛错，挂载脚本拿掉画布，页面留在宣纸色。
+
+查看器不能用 ES module（`file://` 会拦）。`vite.ink-backdrop.config.ts` 把 `ink-backdrop-mount.ts` 打成 `video/viewer/assets/ink-backdrop.js`（IIFE，压缩，tree-shake，普通 `<script>`）。这是提交进仓库的生成物，改源码后要重跑 `npx vite build --config vite.ink-backdrop.config.ts`。`WebGLRenderer` 类内部仍会带上它自己引用的阴影、光照和 WebXR 代码，tree-shake 去不掉。真实 GPU 上的帧时间和观感未实测。
 
 ## 调用时注意
 
