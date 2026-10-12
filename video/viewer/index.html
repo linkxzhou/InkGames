@@ -44,11 +44,13 @@
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} *,*::before,*::after{transition:none!important;animation:none!important} }
 html{background-color:var(--paper)}
-html::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.45;
+html::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
   background:url("assets/paper-fiber.jpg") 0 0/512px 512px repeat;
   background-image:image-set(url("assets/paper-fiber.webp") type("image/webp"), url("assets/paper-fiber.jpg") type("image/jpeg"))}
+html::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:url("assets/ink-wash.webp") 0 0/512px 512px repeat}
 body{background:transparent;color:var(--ink);font-family:var(--serif);font-size:15px;line-height:1.75;min-height:100vh;position:relative}
-/* 纸纹只留一层极淡的纤维。整页墨渍与角落墨斑已停用（D1）。 */
+/* 底是宣纸纤维，上面再铺一层很疏的墨点与墨晕。透明度压低，不压正文。 */
 #bar,#hero,#pianHome,#pianBanner,#dynasties,#chapter,#scene,footer{position:relative;z-index:1}
 a{color:inherit}
 button,select{font:inherit;color:inherit}
@@ -415,7 +417,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
       <source media="(max-width:980px)" srcset="assets/hero-fenghuo-m.webp" type="image/webp">
       <source media="(max-width:980px)" srcset="assets/hero-fenghuo-m.jpg" type="image/jpeg">
       <source srcset="assets/hero-fenghuo-wide.webp" type="image/webp">
-      <img src="assets/hero-fenghuo-wide.jpg" width="2400" height="1000" alt="水墨长城：烽火台燃起红色烽火，黑色狼烟升起，右侧悬崖上一名持矛武士的剪影" fetchpriority="high" decoding="async">
+      <img src="assets/hero-fenghuo-wide.jpg" width="2400" height="1000" alt="宣纸水墨：右侧悬崖上的烽火台有一点朱红火焰，持矛武士剪影，左侧大片留白" fetchpriority="high" decoding="async">
     </picture></div>
     <div class="hero-txt">
       <div class="kicker">中国历史 · 水墨内容站</div>

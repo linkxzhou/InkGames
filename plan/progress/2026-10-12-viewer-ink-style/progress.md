@@ -66,6 +66,13 @@
 | 2026-10-12 | update_pr 找不到开放的 PR #16 | 1 | PR 已合并。新建指向 main 的 PR |
 | 2026-10-12 | 进度文件不符合 plan-with-files 三文件约定 | 1 | 改为本目录的 task_plan / findings / progress |
 
+### 2026-10-12 续：墨晕底、色彩模板、重画主图
+
+- **Status:** complete
+- 页面加了 `ink-wash.svg` 淡墨点与墨晕。
+- `video/docs/art-style.md` §1.1 与 §5 写入色彩归纳和中英模板。`AGENTS.md` §5.1 列为强制。
+- 主图、四条横幅、四张篇卡按模板重画并锁色板。深色焦墨都在标题区右侧。
+
 ## 5-Question Reboot Check
 
 | Question | Answer |
