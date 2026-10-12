@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const outDir = join(root, 'viewer', 'data');
 mkdirSync(outDir, { recursive: true });
-for (const f of readdirSync(outDir)) if (f.endsWith('.js')) unlinkSync(join(outDir, f));
+for (const f of readdirSync(outDir)) if (f.endsWith('.js') && f !== 'maps.js') unlinkSync(join(outDir, f));
 
 const index = JSON.parse(readFileSync(join(root, 'data', 'chapters', 'index.json'), 'utf8'));
 const head = '/* 自动生成：node tools/build-viewer-data.mjs —— 请勿手改，改 chapters/*.json 后重新生成 */\n';

@@ -78,9 +78,10 @@ button,select{font:inherit;color:inherit}
 .tools label{font-size:12px;color:var(--mid);letter-spacing:.1em}
 
 /* ---------- 开卷（hero） ---------- */
-#hero{position:relative;overflow:hidden;border-bottom:1px solid var(--rule)}
-#hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:center;gap:24px;min-height:min(520px,72vh);padding-top:40px;padding-bottom:40px}
-.hero-txt{position:relative;z-index:2}
+#hero{position:relative;border-bottom:1px solid var(--rule)}
+#hero .wrap{position:relative;z-index:2;padding-top:0;padding-bottom:0}
+.hero-stage{position:relative}
+.hero-txt{position:relative;z-index:2;max-width:40em}
 .kicker{font-size:13px;letter-spacing:.42em;color:var(--mid)}
 .hero-title{display:flex;align-items:flex-start;gap:18px;margin:10px 0 6px}
 .hero-title h1{font-family:var(--kai);font-weight:900;font-size:clamp(76px,10vw,148px);line-height:.95;letter-spacing:.06em;color:var(--ink)}
@@ -112,9 +113,14 @@ button,select{font:inherit;color:inherit}
   background:url("assets/btn-ink.png") center/100% 100% no-repeat;
   background-image:image-set(url("assets/btn-ink.webp") type("image/webp"), url("assets/btn-ink.png") type("image/png"))}
 .btn.primary:hover{filter:brightness(1.15)}
-.hero-art{position:relative;z-index:1;width:100%;min-height:320px;height:100%;pointer-events:none;align-self:stretch}
-.hero-art picture,.hero-art img{display:block;width:100%;height:100%}
-.hero-art img{object-fit:cover;object-position:78% center}
+.hero-art{position:relative;z-index:1;width:100%;min-height:0;height:auto;pointer-events:none}
+.hero-art picture,.hero-art img{display:block;width:100%;height:auto}
+.hero-art img{max-width:100%;height:auto;object-fit:contain;object-position:center center;background:var(--paper)}
+@media (min-width:981px){
+  .hero-txt{position:absolute;left:0;top:0;bottom:0;width:42%;max-width:42%;display:flex;flex-direction:column;justify-content:center;padding:24px 16px 24px 0}
+  .hero-txt .hero-p,.hero-txt .stats,.hero-txt .cta{max-width:100%}
+  .hero-txt .stats{flex-wrap:wrap;margin:16px 0 18px}
+}
 
 /* ---------- 二十一朝 · 长卷 ---------- */
 .band{padding:var(--s8) 0 var(--s3)}
@@ -160,9 +166,8 @@ button,select{font:inherit;color:inherit}
 #chVideoWrap summary{cursor:pointer;font-family:var(--kai);font-size:16px;letter-spacing:.12em;line-height:1;display:inline-flex;align-items:center;gap:8px;list-style:none}
 #chVideoWrap summary::-webkit-details-marker{display:none}
 #chVideo{margin:12px auto 4px;max-width:880px;text-align:center}
-#chVideo .cv-frame{position:relative;aspect-ratio:16/9;max-width:880px;margin:0 auto;background:var(--paper);clip-path:polygon(0 1.2%,99.4% 0,100% 98.6%,.5% 100%);box-shadow:inset 0 0 0 1px var(--mist)}
-#chVideo .cv-frame::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 26px 6px rgba(236,234,228,.85)}
-#chVideo video{display:block;width:100%;height:100%;object-fit:cover;background:var(--paper)}
+#chVideo .cv-frame{position:relative;aspect-ratio:16/9;max-width:880px;margin:0 auto;background:var(--paper);border:1px solid var(--mist);overflow:hidden}
+#chVideo video{display:block;width:100%;height:100%;object-fit:contain;background:var(--paper)}
 #chVideo video:focus-visible{outline:3px solid var(--red);outline-offset:-3px}
 #chVideo figcaption{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:10px;font-size:13px;color:var(--mid);letter-spacing:.04em}
 #chVideo .cv-seal{width:28px;height:56px;font-size:13px;color:var(--paper)}
@@ -206,6 +211,7 @@ button,select{font:inherit;color:inherit}
 .scene-head{position:relative;padding:26px 0 18px;border-top:1px solid var(--rule)}
 .scene-head .eyebrow{font-size:12px;letter-spacing:.3em;color:var(--mid)}
 .scene-head h2{font-family:var(--kai);font-size:clamp(40px,5.2vw,72px);font-weight:900;letter-spacing:.12em;line-height:1.1;margin:6px 0 2px}
+.scene-head.has-seal h2{padding-right:88px}
 .scene-head .sub2{font-family:var(--kai);font-size:clamp(18px,1.8vw,23px);color:var(--char);letter-spacing:.08em}
 .scene-head .when{margin-top:8px;color:var(--mid);font-size:14px}
 .scene-head .seal-m{position:absolute;right:0;top:30px;width:64px;height:64px;font-size:16px;transform:rotate(-4deg);letter-spacing:0;line-height:1;writing-mode:horizontal-tb}
@@ -281,9 +287,9 @@ table.cmp th{font-weight:400;color:var(--mid);font-size:12px;letter-spacing:.15e
 .empty{color:var(--mid);font-size:13.5px;padding:10px 0}
 /* 提示词面板 */
 .seg{border-top:1px solid var(--ink);padding:12px 0 6px;margin-bottom:14px}
-.seg-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;padding-bottom:6px;margin-bottom:6px}
+.seg-h{display:flex;flex-wrap:wrap;align-items:flex-start;gap:6px 10px;padding-bottom:6px;margin-bottom:6px}
 .seg-h b{font-size:14px;font-family:var(--kai);letter-spacing:.06em}
-.seg-h span{font-size:12px;color:var(--mid)}
+.seg-h span{flex:1 1 14em;min-width:0;font-size:12px;color:var(--mid);white-space:normal;line-height:1.45}
 .seg-h button,.tabs button{display:inline-flex;align-items:center;justify-content:center;line-height:1;border:1.2px solid var(--ink);background:transparent;padding:3px 12px;min-height:30px;font-size:12.5px;cursor:pointer;transition:background .2s,color .2s}
 .seg-h button{margin-left:auto}
 .seg-h button:hover,.tabs button:hover{background:var(--fill-ink);color:var(--paper)}
@@ -292,8 +298,24 @@ table.cmp th{font-weight:400;color:var(--mid);font-size:12px;letter-spacing:.15e
 .tabs .sp{flex:1 1 12px}
 .chips{display:flex;flex-wrap:wrap;gap:3px 4px;font-size:12px}
 .sub{font-family:var(--kai);font-size:15px;color:var(--ink);margin:14px 0 4px;letter-spacing:.1em}
-.ptext{font-size:13.5px;line-height:1.8;color:var(--char)}
-pre.prompt{white-space:pre-wrap;word-break:break-word;font-family:var(--mono);font-size:12px;line-height:1.7;background:var(--wash);border-left:3px solid var(--ink);padding:10px 12px;max-height:260px;overflow:auto;margin:0}
+.ptext{font-size:14.5px;line-height:1.8;color:var(--char);overflow-wrap:anywhere}
+pre.prompt{white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:var(--serif);font-size:14.5px;line-height:1.8;background:transparent;border-left:3px solid var(--ink);padding:4px 12px 12px;max-height:none;overflow:visible;margin:0;color:var(--char)}
+.prompt-block{margin:0 0 12px;border:1px solid var(--rule);background:rgba(236,234,228,.55)}
+.prompt-block > summary{display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;list-style:none;padding:8px 12px;font-family:var(--kai);font-size:15px;letter-spacing:.08em}
+.prompt-block > summary::-webkit-details-marker{display:none}
+.prompt-block > summary::before,.prompt-fold > summary::before{content:"▸";margin-right:6px;color:var(--mid);font-family:var(--serif)}
+.prompt-block[open] > summary::before,.prompt-fold[open] > summary::before{content:"▾"}
+.prompt-tools{display:flex;justify-content:flex-end;gap:8px;padding:0 10px 10px}
+.prompt-tools button{display:inline-flex;align-items:center;justify-content:center;line-height:1;border:1.2px solid var(--ink);background:transparent;padding:3px 12px;min-height:30px;font-size:12.5px;cursor:pointer}
+.prompt-tools button:hover{background:var(--fill-ink);color:var(--paper)}
+.prompt-fold{margin:10px 0 4px;border-top:1px solid var(--rule)}
+.prompt-fold > summary{cursor:pointer;list-style:none;padding:8px 0;font-family:var(--kai);font-size:15px;letter-spacing:.08em}
+.prompt-fold > summary::-webkit-details-marker{display:none}
+.prompt-fold pre.prompt{max-height:70vh;overflow:auto;background:var(--wash);padding:10px 12px}
+.tabset{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#pianPromptTabs{flex-direction:column;align-items:flex-start;gap:8px}
+#video.en pre.prompt,#video.en .ptext,#pianPrompt.en pre.prompt,#art.en pre.prompt{font-family:var(--mono);font-size:12.5px;line-height:1.65}
+.vshot{overflow-wrap:anywhere}
 .vshots{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-bottom:8px}
 .vshot{background:var(--wash);border-top:2px solid var(--ink);padding:8px 12px 10px;font-size:12.5px;line-height:1.7;color:var(--char)}
 .vshot .seg-h{margin-bottom:2px;padding-bottom:2px}
@@ -335,12 +357,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   .ch-meta{grid-column:1;grid-row:2}
   #pianTools{grid-column:2;grid-row:2;justify-self:end}
 }
-@media (max-width:1200px) and (min-width:981px){ .hero-p{max-width:24em} }
 @media (max-width:980px){
-  #hero .wrap{grid-template-columns:1fr;min-height:0;padding-top:0;padding-bottom:30px}
-  .hero-txt{order:2}
-  .hero-art{order:1;position:relative;width:100%;min-height:0;height:auto;aspect-ratio:1/1}
-  .hero-art img{object-position:center 42%}
+  .hero-txt{position:relative;inset:auto;width:auto;max-width:40em;display:block;padding:20px 0 28px}
+  .hero-art{width:100%;height:auto;aspect-ratio:auto}
+  .hero-art picture,.hero-art img{width:100%;height:auto}
   #main{grid-template-columns:1fr}
 }
 @media (max-width:720px){
@@ -358,13 +378,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   #btitle{font-size:19px}
   .tools label{display:none}
   .tools select{width:6.2em;max-width:24vw;font-size:13px}
-  .hero-title{gap:12px}
+  .hero-title{gap:12px;flex-wrap:wrap}
+  .scene-head.has-seal h2{padding-right:72px}
   .stats{gap:20px}
   #scenes{grid-template-columns:1fr;gap:8px}
   .sc{min-height:88px;padding:10px 10px 8px}
   .sc .t{font-size:17px}
   .scene-head .seal-m{width:48px;height:48px;font-size:13px;top:26px}
-  .scene-head h2{padding-right:56px}
   #graph{height:380px}
   .vshots{grid-template-columns:1fr}
   .seg-h button{margin-left:0}
@@ -392,6 +412,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 <section id="hero" aria-labelledby="htitle">
   <span id="top"></span>
   <div class="wrap">
+    <div class="hero-stage">
+    <div class="hero-art"><picture>
+      <source media="(max-width:980px)" srcset="assets/hero-fenghuo-m.webp" type="image/webp">
+      <source media="(max-width:980px)" srcset="assets/hero-fenghuo-m.jpg" type="image/jpeg">
+      <source srcset="assets/hero-fenghuo-wide.webp" type="image/webp">
+      <img src="assets/hero-fenghuo-wide.jpg" width="2400" height="1000" alt="水墨长城：烽火台燃起红色烽火，黑色狼烟升起，右侧悬崖上一名持矛武士的剪影" fetchpriority="high" decoding="async">
+    </picture></div>
     <div class="hero-txt">
       <div class="kicker">中国历史 · 水墨内容站</div>
       <div class="hero-title"><h1 id="htitle">烽火</h1><span class="seal seal-l seal-4" aria-hidden="true"><i>正</i><i>史</i><i>野</i><i>史</i></span></div>
@@ -404,12 +431,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
         <button class="btn" id="randBtn" type="button">随机一场</button>
       </div>
     </div>
-    <div class="hero-art"><picture>
-      <source media="(max-width:980px)" srcset="assets/hero-fenghuo-m.webp" type="image/webp">
-      <source media="(max-width:980px)" srcset="assets/hero-fenghuo-m.jpg" type="image/jpeg">
-      <source srcset="assets/hero-fenghuo-wide.webp" type="image/webp">
-      <img src="assets/hero-fenghuo-wide.jpg" width="2400" height="1000" alt="水墨长城：烽火台燃起红色烽火，黑色狼烟升起，右侧悬崖上一名持矛武士的剪影" fetchpriority="high" decoding="async">
-    </picture></div>
+    </div>
   </div>
 </section>
 <div class="ridge" aria-hidden="true"></div>
@@ -625,9 +647,9 @@ function renderBanner(){
   box.hidden = false;
   box.className = "pb";
   const n = catalogOf(p.id).length;
-  box.innerHTML = '<div class="pb-art">' + assetPic("banner-" + p.id, 2400, 600, p.fullName) + '</div>' +
-    '<div class="wrap pb-txt"><p class="pk">烽火</p><h2 id="pianBannerTitle">' + esc(p.fullName) + '</h2>' +
-    '<p class="plead">' + esc(p.scope) + '</p><p class="pmeta">' + esc(p.genre) + " · " + n + ' 场</p></div>';
+  box.innerHTML = '<div class="wrap"><div class="pb-stage"><div class="pb-art">' + assetPic("banner-" + p.id, 2400, 600, p.fullName) + '</div>' +
+    '<div class="pb-txt"><p class="pk">烽火</p><h2 id="pianBannerTitle">' + esc(p.fullName) + '</h2>' +
+    '<p class="plead">' + esc(p.scope) + '</p><p class="pmeta">' + esc(p.genre) + " · " + n + ' 场</p></div></div></div>';
 }
 function refreshDynastyTabs(){
   const items = view.pian ? catalogOf(view.pian).filter(c => !view.primaryOnly || c.primary === view.pian) : [];
@@ -742,6 +764,12 @@ function promptOf(item, pack){
   }
   return pack.variants ? pack.variants[item.id] : null;
 }
+function promptFold(label, text, open){
+  const d = document.createElement("details"); d.className = "prompt-fold"; d.open = !!open;
+  const s = document.createElement("summary"); s.textContent = label; d.appendChild(s);
+  const pre = document.createElement("pre"); pre.className = "prompt"; pre.textContent = text; d.appendChild(pre);
+  return d;
+}
 function renderPianPrompts(item){
   const box = $("#pianPrompt"), tabs = $("#pianPromptTabs");
   box.textContent = ""; tabs.textContent = "";
@@ -752,28 +780,32 @@ function renderPianPrompts(item){
   if (!bundle){ box.innerHTML = '<div class="empty">这一篇的提示词还在载入。</div>'; return; }
   const kinds = [["image","静帧"],["video","视频"],["music","配乐"],["sound","声响"]];
   let kind = "image", lang = "zh";
+  const kindBar = document.createElement("div"); kindBar.className = "tabset";
+  const langBar = document.createElement("div"); langBar.className = "tabset";
   const draw = () => {
     box.textContent = "";
+    box.classList.toggle("en", lang === "en");
     const block = bundle[kind];
-    const add = (label, text) => {
-      const h = document.createElement("div"); h.className = "sub"; h.textContent = label; box.appendChild(h);
-      const pre = document.createElement("pre"); pre.className = "prompt"; pre.textContent = text; box.appendChild(pre);
-    };
-    add(lang === "zh" ? "提示词" : "Prompt", block[lang]);
-    add(lang === "zh" ? "负面提示词" : "Negative", block.negative[lang]);
+    if (!block || !block[lang]){ box.innerHTML = '<div class="empty">这段提示词是空的。</div>'; return; }
+    const main = document.createElement("details"); main.className = "prompt-block"; main.open = true;
+    const sum = document.createElement("summary"); sum.textContent = lang === "zh" ? "提示词" : "Prompt"; main.appendChild(sum);
+    const pre = document.createElement("pre"); pre.className = "prompt"; pre.textContent = block[lang]; main.appendChild(pre);
+    const tools = document.createElement("div"); tools.className = "prompt-tools";
+    const copy = document.createElement("button"); copy.type = "button"; copy.textContent = lang === "zh" ? "复制本段" : "Copy";
+    copy.addEventListener("click", () => copyText(block[lang] + "\n\n" + (block.negative && block.negative[lang] || ""), copy));
+    tools.appendChild(copy); main.appendChild(tools); box.appendChild(main);
+    if (block.negative && block.negative[lang]) box.appendChild(promptFold(lang === "zh" ? "负面提示词" : "Negative", block.negative[lang], false));
   };
-  const mk = (label, on, active) => {
+  const arm = (row, label, on, active) => {
     const b = document.createElement("button"); b.type = "button"; b.textContent = label;
-    if (active) b.className = "active";
-    b.addEventListener("click", () => { on(); [].forEach.call(tabs.children, c => c.classList.remove("active")); b.classList.add("active"); draw(); });
-    tabs.appendChild(b);
+    if (active) b.classList.add("active");
+    b.addEventListener("click", () => { on(); [].forEach.call(row.children, c => c.classList.remove("active")); b.classList.add("active"); draw(); });
+    row.appendChild(b);
   };
-  kinds.forEach(([k, label]) => mk(label, () => { kind = k; }, k === kind));
-  mk("中文", () => { lang = "zh"; }, true);
-  mk("English", () => { lang = "en"; }, false);
-  const copy = document.createElement("button"); copy.type = "button"; copy.textContent = "复制本段";
-  copy.addEventListener("click", () => copyText(bundle[kind][lang] + "\n\n" + bundle[kind].negative[lang], copy));
-  tabs.appendChild(copy);
+  kinds.forEach(([k, label]) => arm(kindBar, label, () => { kind = k; }, k === kind));
+  arm(langBar, "中文", () => { lang = "zh"; }, true);
+  arm(langBar, "English", () => { lang = "en"; }, false);
+  tabs.appendChild(kindBar); tabs.appendChild(langBar);
   draw();
 }
 function renderNovel(item, sc){
@@ -781,6 +813,7 @@ function renderNovel(item, sc){
   $("#scene").classList.add("is-novel");
   const meta = chapterById(item.chapter);
   const w = sc.when || {};
+  $("#sceneHead").classList.remove("has-seal");
   $("#sceneHead").innerHTML = backMarkup() + '<div class="eyebrow">' + esc(meta ? meta.name : "") + " · " + esc(pianById(view.pian).name) + (item.primary === view.pian ? " · 主线" : " · 兼收") + '</div>' +
     '<h2>' + esc(sc.title) + '</h2><div class="sub2">' + esc(sc.subtitle || "") + '</div>' +
     '<div class="when">' + esc(w.display || "") + (w.era ? "（" + esc(w.era) + "）" : "") + '</div>';
@@ -939,6 +972,10 @@ function renderMap(){
     const pop = (sheet) => {
       const box = document.createElement("div"); box.className = sheet ? "map-sheet" : "map-pop"; box.setAttribute("role", sheet ? "dialog" : "tooltip");
       box.innerHTML = g.items.map(m => '<div><b>' + esc(m.title) + '</b><div>' + esc(m.name) + " · " + esc(String(m.year < 0 ? "前" + (-m.year) : m.year)) + (m.primary === view.pian ? " · 主线" : " · 兼收") + '</div><div>' + esc(m.subtitle || "") + '</div><button type="button" data-open="' + esc(m.sc) + '">打开场景</button></div>').join("");
+      if (!sheet){
+        if (g.x > 0.62){ box.style.left = "auto"; box.style.right = "0"; }
+        if (g.y > 0.68){ box.style.top = "auto"; box.style.bottom = "16px"; }
+      }
       return box;
     };
     b.addEventListener("click", () => {
@@ -979,6 +1016,20 @@ function renderMap(){
   });
   col.hidden = false;
   col.appendChild(fig); col.appendChild(legend);
+  requestAnimationFrame(() => {
+    const fr = fig.getBoundingClientRect();
+    fig.querySelectorAll(".map-label,.mk-label").forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.width < 2 || r.height < 2) return;
+      let dx = 0, dy = 0;
+      if (r.right > fr.right - 4) dx = fr.right - 4 - r.right;
+      else if (r.left < fr.left + 4) dx = fr.left + 4 - r.left;
+      if (r.bottom > fr.bottom - 2) dy = fr.bottom - 2 - r.bottom;
+      else if (r.top < fr.top + 2) dy = fr.top + 2 - r.top;
+      if (dx) el.style.marginLeft = dx + "px";
+      if (dy) el.style.marginTop = dy + "px";
+    });
+  });
   if (none.childElementCount){
     const h = document.createElement("p"); h.className = "map-legend"; h.textContent = "无定所或待核验";
     col.appendChild(h); col.appendChild(none);
@@ -1180,6 +1231,7 @@ function renderTimeline(){
 function renderHead(){
   const e = cur.entry, s = e.scene, w = s.when || {};
   const seal = e.videoPrompt && e.videoPrompt.onScreenText && (e.videoPrompt.onScreenText.zh.match(/朱印「([^」]+)」/) || [])[1];
+  $("#sceneHead").classList.toggle("has-seal", !!seal);
   $("#sceneHead").innerHTML = backMarkup() + '<div class="eyebrow">第 ' + esc(cur.ch.no) + ' 章 · ' + esc(cur.ch.name) + ' · ' + esc(e.outlineId) + '</div>' +
     '<h2>' + esc(T(s.title)) + '</h2><div class="sub2">' + esc(T(s.subtitle)) + '</div>' +
     '<div class="when">' + esc(w.display || "") + (w.era ? "（" + esc(w.era) + "）" : "") + '</div>' +
@@ -1500,24 +1552,25 @@ function renderVideo(){
   box.appendChild(grid);
   add(L() === "zh" ? "声音" : "Sound", v.sound[L()]);
   add(L() === "zh" ? "字幕与屏幕文字" : "On-screen text", v.onScreenText[L()]);
-  add(L() === "zh" ? "负面提示词" : "Negative prompt", v.negative[L()]);
-  const h3 = document.createElement("div"); h3.className = "sub"; h3.textContent = L() === "zh" ? "完整提示词（可直接粘贴）" : "Full prompt (paste as is)"; box.appendChild(h3);
-  const pre = document.createElement("pre"); pre.className = "prompt"; pre.textContent = v.prompt[L()]; pre.style.maxHeight = "260px"; pre.style.overflow = "auto"; box.appendChild(pre);
+  box.classList.toggle("en", L() === "en");
+  box.appendChild(promptFold(L() === "zh" ? "负面提示词" : "Negative prompt", v.negative[L()], false));
+  box.appendChild(promptFold(L() === "zh" ? "完整提示词（可直接粘贴）" : "Full prompt (paste as is)", v.prompt[L()], false));
 }
 
 /* ---------- 水墨素材提示词 ---------- */
 function copyText(text, btn){
-  const done = ok => { if (btn){ const old = btn.textContent; btn.textContent = ok ? "已复制" : "复制失败"; setTimeout(() => { btn.textContent = old; }, 1200); } };
-  if (navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(text).then(() => done(true), () => done(fallbackCopy(text)));
-  } else done(fallbackCopy(text));
-}
-function fallbackCopy(text){
-  const ta = document.createElement("textarea");
-  ta.value = text; ta.style.position = "fixed"; ta.style.left = "-9999px";
-  document.body.appendChild(ta); ta.select();
-  let ok = false; try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
-  document.body.removeChild(ta); return ok;
+  const done = ok => { if (btn){ const old = btn.textContent; btn.textContent = ok ? "已复制" : "复制失败"; setTimeout(() => { btn.textContent = old; }, 1400); } };
+  const fallback = () => {
+    const ta = document.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:fixed;top:0;left:0;width:2px;height:2px;opacity:0";
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try { ta.setSelectionRange(0, text.length); } catch (e) {}
+    let ok = false; try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    ta.remove(); return ok;
+  };
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(() => done(true), () => done(fallback()));
+  else done(fallback());
 }
 function segText(s){
   return s.id + "  [" + s.categoryLabel + " 第 " + s.segment + "/" + s.segmentsInCategory + " 段 · " + s.grid.cols + "×" + s.grid.rows + " · " +
@@ -1557,12 +1610,9 @@ function renderArt(){
         chips.appendChild(t);
       });
       d.appendChild(chips);
-      const add = (label, text) => {
-        const h = document.createElement("div"); h.className = "sub"; h.textContent = label; d.appendChild(h);
-        const p = document.createElement("pre"); p.className = "prompt"; p.textContent = text; d.appendChild(p);
-      };
-      add("提示词（" + s.grid.cols + "×" + s.grid.rows + " 网格，逐格清单）", s.prompt);
-      if (s.negative) add("负面提示词", s.negative);
+      const hPrompt = document.createElement("div"); hPrompt.className = "sub"; hPrompt.textContent = "提示词（" + s.grid.cols + "×" + s.grid.rows + " 网格，逐格清单）"; d.appendChild(hPrompt);
+      const p = document.createElement("pre"); p.className = "prompt"; p.textContent = s.prompt; d.appendChild(p);
+      if (s.negative) d.appendChild(promptFold("负面提示词", s.negative, false));
       box.appendChild(d);
     });
   };
