@@ -71,3 +71,6 @@ thirdparty/story-to-handdrawn-video/
 thirdparty/hyperframes/
 thirdparty/images/
 thirdparty/remotion/
+
+# local-only reference skills (third-party licenses)
+skills/reference/
