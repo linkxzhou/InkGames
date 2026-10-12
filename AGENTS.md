@@ -86,6 +86,45 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 - 效果：只有命中或高潮才泼墨与朱红血雾，之后定格。
 - 负面词：其他颜色、金色、精细纹理、CG 渐变、写实照片、3D、动漫脸、画面文字、**日本刀（武士刀）**、**细密皴纹**（后两项已写进 `NEG_STYLE_*`）。
 
+### 5.1 强制：水墨简化版提示词
+
+生成静帧、主图、横幅、卡片图、`videoPrompt` 与素材提示词时，必须套 [art-style.md §5](./video/docs/art-style.md) 的模板：共用正向 + 本类一句 + 共用负向。不要改色板、留白比例和红色上限。不要写角色名，不要把参照作品的图放进仓库或当作参考图。复杂城、山、天改成墨晕，不画实景。
+
+墨分五层：焦 `#141414`、浓 `#3a3a3a`、重 `#6e6e6c`、淡 `#a8a8a4`、清 `#d2d1cc`，纸 `#eceae4`。朱砂 `#b3241c` 单帧不超过一成、一帧一处，只给血、旗、日、空白印。人物无五官，头身约 1:7。侧锋见棱角，飞白只跟动势。光是平的。
+
+**共用正向：** 高反差黑白红武侠水墨剪影，简化版，暖宣纸底。复杂景物改成墨晕。人物侧视大剪影，无五官。地平线在下三分之一。
+
+**共用负向：** 不要文字、印章里的字、金色、蓝青黄绿橙紫、写实、3D、动漫脸、五官、日本刀、现代建筑与器物、蒸汽机械、界画密线、细密皴纹、霓虹刀光、粒子和光斑。
+
+**Shared positive:** High-contrast black-white-red wuxia ink silhouette, simplified, on warm xuan paper #eceae4. Replace complex scenery with ink wash. Side-view faceless silhouette. Horizon in the lower third.
+
+**Shared negative:** No text, letters in seals, gold, blue, cyan, green, yellow, orange, purple, photograph, 3D, anime face, facial features, katana, modern objects, steampunk, dense ruled lines, dense texture strokes, neon blade light, particles, or lens flare. Vermilion under 10%, one place.
+
+本类只追加一句（红的位置和上限写在句中）：
+
+| 类 | 追加这一句 |
+|---|---|
+| 武将 | 肩宽，简单盔，甲只留大块，长兵器不与人相接。人高约五成。红只在旗或盔缨，不超过 6%。 |
+| 刺客 | 偏瘦，斗笠压头，直剑收在身侧。人高四到五成，周围清墨。红不超过 3%，可以不用。 |
+| 文士 | 瘦高宽袖，手藏袖中，不持兵器。左侧至少四成纸白。不用红。 |
+| 女性 | 清瘦长裙，发髻只是一块形，不持兵器。红在裙裾或无字小印，不超过 4%。 |
+| 帝王 | 简单高冠或冕旒，不持兵器，不戴西式尖冠。身后两根平涂柱。无字朱印不超过 6%。 |
+| 山水 | 三四层平涂山，一条淡墨水，不画皴纹。上半几乎是纸。红不超过 2% 或不用。 |
+| 城池 | 几块墙、一个门洞、屋顶一条斜线，无砖缝。素旗不超过 5%，旗上无字无徽记。 |
+| 宫殿 | 柱、阶、檐是平涂块。无字朱印或帘边不超过 6%。 |
+| 战场 | 成排剪影由焦到淡，矛竖着不相接。朱旗或落日不超过 8%。 |
+| 夜景 | 纸仍是 `#eceae4`，不涂蓝黑。月是纸白圆，无光晕。灯火不超过 3%。 |
+| 单挑 | 两人拉开，兵器离开对方身体，中间是纸和一条飞白。地上朱砂点不超过 8%。 |
+| 军阵 | 只见阵，不见格斗。前排焦、后排淡。旗不超过 8%。 |
+| 攻城 | 城是重墨块，人很小，云梯两条线，无人翻过垛口。城头红不超过 6%。 |
+| 刺杀 | 一人将倒，另一人在三步外，剑尖不接触身体。斜向血雾不超过 8%。 |
+| 主图宽 | 左半几乎空白。焦墨只在右侧四成：悬崖、烽火、持矛无五官武士。烽火红不超过 6%。 |
+| 主图方 | 同一题材。焦墨从横向约四成之后才出现，人不要被切出画外。 |
+| 横幅 | 左半空白。右侧只一件事：阵与旗，或柱、竹简与文臣，或一名无兵器的人，或河、三层山和一条路。红的上限依次不超过 8%、6%、3%、3%。 |
+| 卡片 | 竖幅，头顶脚下都留纸。题材与同篇横幅相同，红的上限也相同。 |
+
+English clause for the same row, in order: faceless general with weapon clear of any body; lean assassin, sword at the side; scholar, no weapon, empty paper on the left; woman, no weapon; ruler with a simple crown and two flat columns; flat mountain layers and one water stroke; wall blocks and one gate; flat palace blocks; ranks with upright spears; night kept on paper white, moon with no glow; two fighters apart; formation only; wall, small people, ladder of two lines; assassination with the sword not touching; wide hero with the left half empty; square hero, ink after 40% of the width; banner with the left half empty and one subject; vertical card, subject complete.
+
 ## 6. AI 视频怎么做（2026-10-10 实测）
 
 - 流程：每个镜头先出一张本风格静帧作**首帧**，再**图生视频**。
@@ -149,7 +188,7 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 4. `node video/tools/validate.mjs` 0 个错误，`./build.sh check` 全绿，才能提交或推送。
 5. 视觉改动只交截图，必要时附改前改后对比。不要录屏。未在真实 GPU 上看过的结论写“未实测”。真实 GPU 验收在用户的 Mac 上。内容站版式以无头截图为准，字形在 Mac 上会不同（box 上没有楷体）。
 6. 新 PR 一律以 `main` 为合并目标，不要把一个 PR 的分支再当成下一个 PR 的基线。小批量提交；提交作者用 `linkxzhou`。
-7. 页面与图片遵循 §5 的简化版《影之刃》黑白红：宣纸 `#eceae4`、浓墨 `#141414`、灰阶、朱砂 `#b3241c` 不超过一成。内容站不用圆角卡片、投影、渐变和玻璃模糊；标题用楷体感字体、墨线分隔和朱印。
+7. 页面与图片遵循 §5 的简化版《影之刃》黑白红：宣纸 `#eceae4`、浓墨 `#141414`、灰阶、朱砂 `#b3241c` 不超过一成。提示词必须套 §5.1 的共用正负向和本类一句。内容站不用圆角卡片、投影、玻璃模糊；标题用楷体感字体、墨线分隔和朱印。页面底可以有很淡的纸纹和墨晕。
 8. 章节视频按 §7：旁白 rate −29%（约慢 1.3 倍）、禁止现代元素和时代错置、镜头之间默认流墨转场。分镜静帧、镜头、转场和音频分轨留在本地 `/workspace/chapter-video/`，不提交；仓库只收成片 mp4、海报和剧本。
 9. 多步任务按 plan-with-files 把进度记在 `plan/progress/<日期>-<任务>/` 的 `task_plan.md`、`findings.md`、`progress.md`。
 10. 地图的海岸和大河用 Natural Earth（公有领域）。CHGIS / TGAZ 只用于人工在线核对，不下载、不抄坐标、不提交。

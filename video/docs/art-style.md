@@ -15,7 +15,33 @@
 - **场景用细密的界画线条再铺幽暗色彩**（《影之刃3》场景美术自述）；《影之刃零》的地图则是画在宣纸上的水墨图。
 - **横版动作与动势**：前作为横版格斗，招式靠剪影姿态、刀光和拖影读出来。
 
-我们取其中最适合历史短片与横版引擎的部分：**黑、白、红的高反差，剪影人物，泼墨与血雾的打击感，侧视的武侠戏剧感**。系列里的金色高光、蒸汽朋克机械、细密界画线条与复杂材质，**一律不用**。
+我们取其中最适合历史短片与横版引擎的部分：**黑、白、红的高反差，剪影人物，泼墨与血雾的打击感，侧视的武侠戏剧感**。系列里的金色高光、蒸汽朋克机械、细密界画线条与复杂材质，**一律不用**。复杂实景改成墨晕，不画照片式的城、山、天。
+
+### 1.1 色彩归纳（2026-10-12，只据公开文字，不临摹画面）
+
+公开访谈和评测**没有给出官方色值或色板文件**。下面的占比和 Hex 是我们锁死的简化，不是从他们的宣传图吸色。吸色或临摹画面都不做。
+
+| 范围 | 资料里实际说了什么 | 水墨简化版 |
+|---|---|---|
+| 人物轮廓 | 美术总监 Michael CTY（《影之刃3》，游民星空 2020-12-25）：少画繁复细节，写意轮廓，用大黑大白的比例出厚度，以「力」和「型」做骨架。服装按功能分层，不按装饰堆。 | 人物主体约七成是焦墨 `#141414`。内部只用浓墨 `#3a3a3a` 分一两块，不超过人物面积一成五。纸白是底，不是皮肤高光。 |
+| 服饰、发丝 | 梁其伟（腾讯新闻 2023-06-26）：武侠要朴、要带一点尘土，破蓑衣、斗笠压住脸，不要高饱和的新绸缎。发丝和面容在原作里要质感；我们这里不画。 | 只留冠、髻、袖、甲的外轮廓。不画发丝，不画五官。袖摆可以有枯笔飞白。 |
+| 兵刃 | 同一访谈里的意象是雨中一把剑、寒光一闪。评测把刀光写成黑灰底上最跳的一笔。 | 刃口一笔纸白或淡灰，刀身仍是焦墨。不画金色刃，不画日本刀。 |
+| 红色点缀 | 梁其伟谈《影之刃零》（游戏陀螺）：从 2D 抽出的要素是低饱和、冷色大背景，对比红和金色高光。2014 年评测（360 游戏、益玩）：全场景黑与灰，技能和喷出的血最刺激。GameRant 引他的话：树上挂的红布是传统色，机械臂和炮是另一套。 | 只留朱砂 `#b3241c`。用在血、旗、落日、空白印。单帧不超过一成，一帧一处。金色高光不收。 |
+| 天空、远景 | 2014 评测：黑与灰，阴暗。游民星空 2021-01：场景用《千里江山图》《清明上河图》式的界画密线再铺幽暗色，繁复里有疏离。 | 不画界画，不画实景天空。最远是清墨 `#d2d1cc` 的晕，然后淡墨 `#a8a8a4` 的山，中景重墨 `#6e6e6c` 的建筑块。层与层之间留纸。 |
+| 雾、月、日 | 《影之刃零》的玩家向描述里出现过瘴气、浑浊天光、灰雾挡月、火把（当游网）。那些偏黄、偏紫的光不收。 | 雾是清墨晕开的毛边。月是纸白的圆，没有光晕。日只在地平线上一小块朱砂，不画橙黄圆日。 |
+| 刀光、血、动作线、冲击 | 2014 评测：线与墨构成画面，血在黑灰里跳出来。《影之刃零》试玩描述有拖尾、暗红碎粒、火星、血像泼到墙上、烟像淡墨（当游网）。屏幕闪白和金属火星不收。 | 刀光是沿挥砍方向的枯笔飞白，纸白或焦灰，不是霓虹。血是斜向的朱砂点，面积见上。动作线最多两笔侧锋。冲击是一圈淡墨，不要光斑、不要粒子。 |
+
+资料（均为文字，未把宣传图放进仓库）：
+
+- 游戏陀螺 / 陀螺科技对梁其伟的访谈：低饱和、冷色大背景、红与金色高光、KUNGFUPUNK。[youxituoluo.com/530799.html](http://www.youxituoluo.com/530799.html)
+- 腾讯新闻 2023-06-26 专访：武侠要朴、要带尘土，不要高饱和戏装。[news.qq.com/rain/a/20230626A09UJA00](https://news.qq.com/rain/a/20230626A09UJA00)
+- 游民星空 2020-12-25，Michael CTY：写意轮廓、大黑大白、力与型。[shouyou.gamersky.com/news/202012/1349494.shtml](https://shouyou.gamersky.com/news/202012/1349494.shtml)
+- 游民星空 2021-01：阴郁粗粝；环境用界画密线（这一条我们改成墨晕，不照做）。[shouyou.gamersky.com/news/202101/1357660.shtml](https://shouyou.gamersky.com/news/202101/1357660.shtml)
+- 360 游戏、益玩，2014 年《影之刃》评测：黑灰浓墨，技能和血最跳。
+- PlayStation Blog（2023-05-24）与 GameRant：暗、冷、荒；红布是传统色，机械与炮是功夫朋克，不进入本项目。
+- A9VG 对《影之刃零》的试玩：地图是水墨的，钢铁高塔是另一套，不进入本项目。
+
+明暗关系收成一句：纸最亮，人最黑，中间只留三四层灰；红比最黑的人更「跳」，但面积小。对比靠黑白块，不靠彩色渐变。笔触是侧锋、见棱角、飞白只跟动势走。
 
 ## 2. 我们的简化版
 
@@ -111,6 +137,72 @@
 - `videoPrompt.style`、`videoPrompt.negative`、人物描述末尾的剪影规则、高潮镜的墨效，全部来自 `art-style.mjs`。
 - `artPrompts[].prompt` 的“画风”一行与负面词同源；素材仍是透明底，以便引擎分层合成。
 - 开场分镜的“水墨效果”词表（火、营帐、军阵、殿柱等）已改为剪影说法。
+
+## 5. 可直接复用的提示词模板（2026-10-12）
+
+生成任何静帧，先写「共用正向」，再接本类的一句，最后接「共用负向」。不要改色板、留白比例和红色上限。不要写《影之刃》的角色名，不要把他们的图当参考图。
+
+**共用正向（中文）**
+
+高反差黑白红武侠水墨剪影，简化版，画在暖宣纸 `#eceae4` 上。复杂的城、山、天都改成墨晕，不画实景、不画照片。墨分五层：焦 `#141414`、浓 `#3a3a3a`、重 `#6e6e6c`、淡 `#a8a8a4`、清 `#d2d1cc`。人物是侧视大剪影，头身约 1:7，无五官。外轮廓粗笔侧锋、转折见棱角；飞白只沿动势。光是平的，没有体积光、没有光斑。地平线在下三分之一。
+
+**共用负向（中文）**
+
+不要文字、字母、印章里的字、水印。不要金色、蓝色、青色、绿色、黄色、橙色、紫色。不要写实照片、3D、动漫脸、五官、日本刀、现代建筑、电线、公路、车辆、玻璃、塑料、现代衣服、眼镜、手表、枪、电灯。不要蒸汽机械、界画密线、细密皴纹、霓虹刀光、粒子、镜头光斑。朱砂 `#b3241c` 不超过画面一成，一帧只用一处。
+
+**Shared positive (English)**
+
+High-contrast black-white-red wuxia ink silhouette, simplified, on warm xuan paper #eceae4. Replace any complex city, mountain or sky with ink wash; do not paint a real place or a photograph. Five ink weights only: scorched #141414, dense #3a3a3a, heavy #6e6e6c, pale #a8a8a4, clear #d2d1cc. Side-view silhouette, about seven heads tall, no facial features. Bold angular side-brush contour; dry-brush flying white only along motion. Flat light, no god rays, no lens flare. Horizon in the lower third.
+
+**Shared negative (English)**
+
+No text, letters, characters inside seals, or watermark. No gold, blue, cyan, green, yellow, orange, or purple. No photograph, 3D, anime face, facial features, katana, modern buildings, power lines, roads, vehicles, glass, plastic, modern clothing, eyeglasses, watches, guns, or electric lights. No steampunk machinery, dense ruled lines, dense texture strokes, neon blade light, particles, or lens flare. Vermilion #b3241c stays under 10% of the frame and in one place only.
+
+### 5.1 人物
+
+每类都是共用正向 + 下面这一句 + 共用负向。人物四周留白不少于画面三成。焦墨占人物约七成，浓墨分块不超过人物一成五。
+
+| 类 | 正向要补的一句 | 红用在哪 | English clause |
+|---|---|---|---|
+| 武将 | 一名无五官的武将剪影，肩宽，简单盔或高冠，甲只留大块轮廓，长兵器竖持或斜持，不与任何人相接。侧视，人高占画面五成，脚下是重墨地面一笔。 | 旗或盔缨一小块，不超过 6% | One faceless general, broad shoulders, simple helmet or tall crown, armour as large plates only, a long weapon held clear of any other body. Side view, figure about half the frame height, one heavy-ink ground stroke. |
+| 刺客 | 一名偏瘦的无五官剪影，斗笠或包头压住头部，窄袖，一把直剑收在身侧，姿态前倾。人高占画面四到五成，周围清墨雾。 | 不用红；若必须，只在刃口下一滴，不超过 3% | One lean faceless assassin, wide hat or wrapped head, narrow sleeves, a straight sword held at the side, weight forward. Figure 40–50% of frame height, clear-ink mist around. |
+| 文士 | 一名瘦高的无五官文士，宽袖，双手藏在袖里，不持兵器，不披甲，布冠或方巾。人高占画面五成，左侧留出至少四成纸白。 | 不用红 | One tall lean faceless scholar, wide sleeves, hands hidden, no weapon, no armour, cloth cap. Figure about half the frame height, at least 40% empty paper on the left. |
+| 女性 | 一名无五官的女性剪影，身形清瘦，长裙或深衣的外轮廓，发髻只是头上的一块形，不持兵器。姿态稳，不画腰肢细节。 | 裙裾或一枝小印，不超过 4%，印面无字 | One faceless woman, slim, the outer shape of a long robe, hair only as a knot mass, no weapon. Calm pose, no body detail. |
+| 帝王 | 一名无五官的君王剪影，简单高冠或冕旒，宽袖端坐或侧立，不持兵器，不戴西式尖冠。身后是两根重墨柱的平涂块，不是宫殿照片。 | 冠前或座侧一块空白朱印，无字，不超过 6% | One faceless ruler, simple tall crown or a crown with bead tassels, wide sleeves, seated or standing, no weapon, no western spiked crown. Two flat heavy-ink columns behind, not a photographed palace. |
+
+### 5.2 场景
+
+没有特写人物。留白不少于四成。远、中、近三层必须都能分开。
+
+| 类 | 正向要补的一句 | 红用在哪 | English clause |
+|---|---|---|---|
+| 山水 | 三四层平涂的山，最近重墨，最远清墨晕开，中间一条淡墨的水。不画树叶、不画皴纹。地平线在下三分之一，上半几乎是纸。 | 不用红，或地平线上一小点，不超过 2% | Three or four flat mountain layers, heavy ink near, clear ink far, one pale stroke of water. No leaves, no texture strokes. Horizon in the lower third, the upper half almost bare paper. |
+| 城池 | 城是几块重墨的墙和一门洞，屋顶是一条斜线，不要砖缝和窗格。城前留纸。 | 一面素旗，不超过 5%，旗上无徽记无字 | A city as a few heavy-ink wall blocks and one gate opening, roofs as single slanted strokes, no bricks, no window lattice. Empty paper in front. |
+| 宫殿 | 柱、阶、屋檐都是平涂的重墨块，地面一条纸白。不要藻井和金饰。 | 空白朱印或帘边一条，不超过 6%，无字 | Columns, steps and eaves as flat heavy-ink blocks, one paper-white floor stroke. No ceiling pattern, no gold ornament. |
+| 战场 | 成排的无五官剪影由焦到淡退远，矛竖着，不相接。地面一条重墨。烟是横向的清墨。 | 一面朱旗或落日一小块，不超过 8% | Ranks of faceless silhouettes receding from scorched to pale ink, spears upright, not touching. One heavy ground stroke. Smoke as a horizontal clear-ink band. |
+| 夜景 | 纸仍然是 `#eceae4`，夜不涂成蓝黑。月亮是纸白的圆，没有光晕。建筑只剩更黑的一块剪影。 | 一盏青铜灯的火，或月旁不用红；火不超过 3% | The paper stays #eceae4; night is not painted blue-black. The moon is a paper-white disc with no glow. Buildings are one darker silhouette. |
+
+### 5.3 战斗
+
+不画兵器相接的瞬间，只画之前或之后。人仍无五官。飞白方向必须和动作一致。
+
+| 类 | 正向要补的一句 | 红用在哪 | English clause |
+|---|---|---|---|
+| 单挑 | 两人剪影拉开距离，一人前倾、一人稳立，刀或剑已离开对方身体。中间是纸，上面一条飞白。 | 地上数点朱砂，不超过 8%，不画血河 | Two silhouettes apart, one leaning in, one planted, blades clear of the other body. Paper between them and one flying-white stroke. |
+| 军阵 | 只见阵，不见格斗。前排焦墨，后排淡成雾。旗在阵侧。 | 一阵旗，不超过 8% | The formation only, no melee. Front rank scorched ink, rear rank fading into mist. Banners at the side. |
+| 攻城 | 城墙是重墨块，城下人很小，云梯是两条线。不画人翻过垛口。 | 城头一小块朱砂如火或旗，不超过 6% | The wall is a heavy-ink block, people small beneath it, a ladder as two lines. Nobody climbing over the parapet. |
+| 刺杀 | 一人已倒或将倒的剪影，另一人站在三步之外，剑尖不接触身体。地上墨滩。 | 斜向的朱砂血雾，不超过 8%，然后像要定格 | One figure already falling, the other three steps away, the sword tip not touching the body. A pool of ink on the ground. |
+
+### 5.4 页面图（主图、横幅、卡片）
+
+站点图还要遵守留白，否则标题会压住主体。左侧纸上可以有极淡的清墨，不能有焦墨。
+
+| 类 | 正向要补的一句 | 红用在哪 | English clause |
+|---|---|---|---|
+| 主图（宽 2.4:1） | 左侧至少一半是几乎空白的宣纸，焦墨全部放在右侧四成以内：悬崖、烽火台、一名持矛的无五官武士。 | 烽火一点，不超过 6% | At least the left half is nearly empty paper. All scorched ink stays inside the right 40%: a cliff, a beacon, one faceless spear warrior. |
+| 主图（方） | 同样的烽火与武士，焦墨从横向约四成之后才出现，人不要被切出画外。 | 烽火一点，不超过 6% | The same beacon and warrior. Scorched ink begins only after about 40% of the width. Do not crop the figure. |
+| 横幅（4:1） | 左侧至少一半空白。右侧按篇放一件事：战场是阵与旗，治国是柱、竹简和无五官文臣，人物是一名无兵器剪影，地理是河、三层山和一条路。 | 战场用旗或小日不超过 8%；治国用无字朱印不超过 6%；人物不超过 3%；地理一个点不超过 3% | At least the left half is empty. The right holds one subject only: ranks and banners, or columns plus slips plus a faceless minister, or one unarmed silhouette, or a river, three mountain layers and a route. |
+| 卡片（4:5） | 竖幅。主体完整，头顶和脚下都留纸。战场、治国、人物、地理各只讲上面横幅里的那一件事。 | 与对应横幅相同 | Vertical. The subject is complete, with paper above the head and below the feet. One subject only, matching that banner. |
 
 ---
 
