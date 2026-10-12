@@ -82,8 +82,8 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 
 - 人物：无五官的大剪影，头身比约 1:7，只留冠帽、袖摆、兵器、甲片的大轮廓；女性与文臣默认不持兵器。
 - 笔线：粗笔侧锋、转折见棱角；枯笔飞白只做动势拖尾；山石用平涂块面。
-- 构图：侧视，地平线在下三分之一，三四层平涂灰阶，大量留白。
-- 效果：只有命中或高潮才泼墨与朱红血雾，之后定格。
+- 构图：侧视，地平线在下三分之一，三四层平涂灰阶，大量留白。页面图要有前中远三层，飞白可以破开外轮廓。
+- 效果：只有命中或高潮才泼墨与朱红血雾，之后定格。页面静帧允许一处泼墨；场景视频镜头仍按原句，高潮才泼墨。
 - 负面词：其他颜色、金色、精细纹理、CG 渐变、写实照片、3D、动漫脸、画面文字、**日本刀（武士刀）**、**细密皴纹**（后两项已写进 `NEG_STYLE_*`）。
 
 ### 5.1 强制：水墨简化版提示词
@@ -118,12 +118,14 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 | 军阵 | 只见阵，不见格斗。前排焦、后排淡。旗不超过 8%。 |
 | 攻城 | 城是重墨块，人很小，云梯两条线，无人翻过垛口。城头红不超过 6%。 |
 | 刺杀 | 一人将倒，另一人在三步外，剑尖不接触身体。斜向血雾不超过 8%。 |
-| 主图宽 | 左半几乎空白。焦墨只在右侧四成：悬崖、烽火、持矛无五官武士。烽火红不超过 6%。 |
-| 主图方 | 同一题材。焦墨从横向约四成之后才出现，人不要被切出画外。 |
-| 横幅 | 左半空白。右侧只一件事：阵与旗，或柱、竹简与文臣，或一名无兵器的人，或河、三层山和一条路。红的上限依次不超过 8%、6%、3%、3%。 |
+| 主图宽 | 左半几乎空白。焦墨只在右侧四成：近景持矛武士，中景悬崖和烽火台，远景清墨山。烽火红不超过 6%。四边洇进纸。 |
+| 横幅·战场 | 左半空白。右侧残阵：近一人、中成排、远烟和壁垒，矛不相接。朱旗不超过 8%。 |
+| 横幅·治国 | 左半空白。右侧粗线棋局，不要十九路。一枚朱砂子不超过 6%。 |
+| 横幅·人物 | 左半空白。右侧空龙座，龙是三四块大形，无鳞无金。无字印不超过 6%。 |
+| 横幅·地理 | 左半空白。右侧关河：河、关门、穿门的路、两层远山。地平线一点红不超过 3%。 |
 | 卡片 | 竖幅，头顶脚下都留纸。题材与同篇横幅相同，红的上限也相同。 |
 
-English clause for the same row, in order: faceless general with weapon clear of any body; lean assassin, sword at the side; scholar, no weapon, empty paper on the left; woman, no weapon; ruler with a simple crown and two flat columns; flat mountain layers and one water stroke; wall blocks and one gate; flat palace blocks; ranks with upright spears; night kept on paper white, moon with no glow; two fighters apart; formation only; wall, small people, ladder of two lines; assassination with the sword not touching; wide hero with the left half empty; square hero, ink after 40% of the width; banner with the left half empty and one subject; vertical card, subject complete.
+English clause for the same row, in order: faceless general with weapon clear of any body; lean assassin, sword at the side; scholar, no weapon, empty paper on the left; woman, no weapon; ruler with a simple crown and two flat columns; flat mountain layers and one water stroke; wall blocks and one gate; flat palace blocks; ranks with upright spears; night kept on paper white, moon with no glow; two fighters apart; formation only; wall, small people, ladder of two lines; assassination with the sword not touching; wide hero, left half empty, spearman and beacon on the right; leftover ranks with upright spears; weiqi with a few thick strokes and one vermilion stone; empty dragon throne of three or four masses, no scales; pass, river and a road through the gate; vertical card, subject matching that banner.
 
 ## 6. AI 视频怎么做（2026-10-10 实测）
 
@@ -188,7 +190,7 @@ English clause for the same row, in order: faceless general with weapon clear of
 4. `node video/tools/validate.mjs` 0 个错误，`./build.sh check` 全绿，才能提交或推送。
 5. 视觉改动只交截图，必要时附改前改后对比。不要录屏。未在真实 GPU 上看过的结论写“未实测”。真实 GPU 验收在用户的 Mac 上。内容站版式以无头截图为准，字形在 Mac 上会不同（box 上没有楷体）。
 6. 新 PR 一律以 `main` 为合并目标，不要把一个 PR 的分支再当成下一个 PR 的基线。小批量提交；提交作者用 `linkxzhou`。
-7. 页面与图片遵循 §5 的简化版《影之刃》黑白红：宣纸 `#eceae4`、浓墨 `#141414`、灰阶、朱砂 `#b3241c` 不超过一成。提示词必须套 §5.1 的共用正负向和本类一句。内容站不用圆角卡片、投影、玻璃模糊；标题用楷体感字体、墨线分隔和朱印。页面底可以有很淡的纸纹和墨晕。
+7. 页面与图片遵循 §5 的简化版《影之刃》黑白红：宣纸 `#eceae4`、浓墨 `#141414`、灰阶、朱砂 `#b3241c` 不超过一成。提示词必须套 §5.1 的共用正负向和本类一句。内容站不用圆角卡片、投影、玻璃模糊；标题用楷体感字体、墨线分隔和朱印。页面底可以有很淡的纸纹和墨晕。首页横幅和篇横幅是同一个组件，图的四边渐隐进 `#eceae4`。
 8. 章节视频按 §7：旁白 rate −29%（约慢 1.3 倍）、禁止现代元素和时代错置、镜头之间默认流墨转场。分镜静帧、镜头、转场和音频分轨留在本地 `/workspace/chapter-video/`，不提交；仓库只收成片 mp4、海报和剧本。
 9. 多步任务按 plan-with-files 把进度记在 `plan/progress/<日期>-<任务>/` 的 `task_plan.md`、`findings.md`、`progress.md`。
 10. 地图的海岸和大河用 Natural Earth（公有领域）。CHGIS / TGAZ 只用于人工在线核对，不下载、不抄坐标、不提交。
@@ -227,10 +229,10 @@ English clause for the same row, in order: faceless general with weapon clear of
 
 | 篇 | 内容 | 短片与提示词 | 配乐 / 声响 | 游戏 | 页面 |
 |---|---|---|---|---|---|
-| 烽火：战场篇 | 战场上的战争 | 军阵、旌旗、壁垒、攻城器械；不生成兵刃相接 | 战鼓、号角 | 动作 | 斜向笔锋，墨底，朱砂斜杠 |
-| 烽火：治国篇 | 国策、改制、朝局 | 朝堂、奏疏、粮仓、渠堰、典章 | 钟、琴，庄严朝会 | 策略 | 格网、卷轴边栏、印章 |
-| 烽火：人物篇 | 人物的一生和戏剧转折 | 无五官的剪影肖像 | 这个人的短动机反复 | 人物技能 | 竖幅肖像卡片 |
-| 烽火：地理篇 | 河流、关隘、城址、路线如何塑造历史 | 水墨地图、水系、边墙、行军路线 | 开阔长音 | 攻城夺城 | 长卷地形，灰山叠层 |
+| 烽火：战场篇 | 战场上的战争 | 残阵与朱旗；军阵、旌旗、壁垒、攻城器械；不生成兵刃相接 | 战鼓、号角 | 动作 | 斜向笔锋，墨底，朱砂斜杠 |
+| 烽火：治国篇 | 国策、改制、朝局 | 棋局；朝堂、奏疏、粮仓、渠堰、典章 | 钟、琴，庄严朝会 | 策略 | 格网、卷轴边栏、印章 |
+| 烽火：人物篇 | 人物的一生和戏剧转折 | 龙座剪影 | 这个人的短动机反复 | 人物技能 | 竖幅肖像卡片 |
+| 烽火：地理篇 | 河流、关隘、城址、路线如何塑造历史 | 关河；水墨地图、水系、边墙、行军路线 | 开阔长音 | 攻城夺城 | 长卷地形，灰山叠层 |
 
 视觉仍只用黑白红色板，朱砂红不超过一成。提示词的风格参照、色板 Hex、运动约束、风格负面词、「不出现现代元素」和按朝代的「不出现时代错置之物」（`negAnachronism`）与 §5、§6 相同，由 `art-style.mjs` 写进每一篇的静帧、视频、配乐和声响。
 

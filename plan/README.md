@@ -14,6 +14,7 @@
 |---|---|
 | [10 · three.js + Matter.js](./10-three-matter-side-scroller-plan.md) | 现行引擎计划。**M0–M4 已完成**（`InkView`、`Playfield`、`InkSurface`、`apps/scroll/`）。**M5 部分完成**：叙事宿主能播荆轲开场、走正史 / 野史、检查点恢复；`PostStack`、景深、录制回放、玩法模板未做。真实 GPU 未实测。 |
 | [11 · 烽火内容站改版](./11-fenghuo-viewer-redesign-plan.md) | `video/viewer/index.html`：居中与朝代轴、水墨图片化、朝代地图。按文内 §5 分四个 PR 实施。视觉验收只交截图。 |
+| [12 · 烽火内容站视觉协调](./12-fenghuo-visual-harmony-plan.md) | `video/` 面向用户的页面和图落到同一套黑白红：全宽横幅、四边洇纸、四篇封面换成残阵 / 棋局 / 龙座 / 关河。已确认，按文内 §5 分五个 PR 从 `main` 实施。不改 `art-style.mjs`，不重出地图和成片。 |
 | `10-v2-pixi-matter-ink-game-engine-plan.md` | 已删除（PixiJS 舞台清单，随渲染栈清理一并作废）。 |
 | Pixi / p5 / 原生 WebGL2 相关条目 | **已作废并清理**，不再是待办；见 [引擎缺口 §6](../video/docs/engine-gaps.md#6-纯引擎水墨动画实现方案2026-10-09-重新评估) 的现行方案。 |
 
