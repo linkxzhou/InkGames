@@ -29,6 +29,7 @@
 **墨面与场景**
 
 - `InkSurface`、`InkSurfaceOptions`、`InkSurfaceSnapshot`：three.js `WebGLRenderTarget` 上的 inkEngine 管线，见第 7 章。
+- `InkBackdrop`、`backdropMarks`：内容站用的低分辨率淡墨底，纸纹和湿墨都走 `InkSurface`，见第 7 章。
 - `InkScene`、`InkSceneLayer`、`InkLayerPose`、`InkClipRect`、`InkWashStep`：程序分件墨层，支持关节轴心、矩形裁剪、绘制顺序与真实漫水。
 - `InkView`、`InkViewOptions`：横版切片宿主。
 - `inkCameraDistance`、`inkLayerScale`、`INK_LAYER_Z`：分层镜头的距离和缩放常数。

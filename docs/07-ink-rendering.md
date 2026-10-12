@@ -136,6 +136,12 @@ scene.add(new Mesh(new PlaneGeometry(640, 480), new MeshBasicMaterial({ map: sur
 
 无头 Chromium + SwiftShader 已验证三页绘制完成、无 JS/shader 错误、无图片请求，且跨镜头跳转（s2、s5）字幕与姿态正确；真实 GPU 观感、性能、连续墨扩散、关节绑定与遮罩质量均未实测。
 
+## 内容站底纹（2026-10-12）
+
+`InkBackdrop`（`src/core/ink-backdrop.ts`，已从 `src/index.ts` 导出）给烽火查看器铺一层固定全屏的淡墨。它不新写着色器：纸纹走 `inkPaperPixels`，落笔、湿墨反馈和漫水走 `InkSurface`（`paint` / `beginStroke` / `update` / `wash`）。内部墨面是 480×270，显示画布像素比锁在 1，大约 8 帧/秒；指针、滚动和按键停 8 秒后降到约 2 帧/秒；`document.hidden` 时不推进。`prefers-reduced-motion: reduce` 只画一帧。没有 WebGL 时构造会抛错，挂载脚本拿掉画布，页面留在宣纸色 `#eceae4`。
+
+查看器不能用 ES module（`file://` 会拦）。`vite.ink-backdrop.config.ts` 把 `ink-backdrop-mount.ts` 打成 `video/viewer/assets/ink-backdrop.js`（IIFE，普通 `<script>`）。这是提交进仓库的生成物，改源码后要重跑 `npx vite build --config vite.ink-backdrop.config.ts`。真实 GPU 上的帧时间和观感未实测。
+
 ## 调用时注意
 
 - `strokePath` 在主线程里连续跑完整笔（几十到上百帧的 pass）。SwiftShader 上很慢，真实 GPU 上快得多，但没有实测数据。

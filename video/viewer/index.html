@@ -11,7 +11,8 @@
    烽火 · 内容站（video/viewer/index.html）
    ---------------------------------------------------------------------
    - 视觉按 video/docs/art-style.md：简化版黑白红武侠水墨剪影。只用色板七色，
-     朱砂红只作印章、当前章节与少量强调。纸纹与笔触是内联 SVG，开卷图是本地
+     朱砂红只作印章、当前章节与少量强调。页面底是 three.js 淡墨（assets/ink-backdrop.js，
+     复用引擎 InkSurface），无 WebGL 时留宣纸色。开卷图是本地
      assets/hero-fenghuo-wide 与 hero-fenghuo-m（相对路径），不加载外部图片、字体或库，双击即可用 file:// 打开。
    - 数据来自 data/*.js（由 tools/build-viewer-data.mjs 从 chapters/*.json
      生成，设置 window.HISTORY_GAME_INDEX / HISTORY_GAME_CHAPTERS）。
@@ -44,13 +45,9 @@
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} *,*::before,*::after{transition:none!important;animation:none!important} }
 html{background-color:var(--paper)}
-html::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
-  background:url("assets/paper-fiber.jpg") 0 0/512px 512px repeat;
-  background-image:image-set(url("assets/paper-fiber.webp") type("image/webp"), url("assets/paper-fiber.jpg") type("image/jpeg"))}
-html::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:url("assets/ink-wash.webp") 0 0/512px 512px repeat}
+#inkbg{position:fixed;inset:0;z-index:0;width:100%;height:100%;pointer-events:none;display:block}
 body{background:transparent;color:var(--ink);font-family:var(--serif);font-size:15px;line-height:1.75;min-height:100vh;position:relative}
-/* 底是宣纸纤维，上面再铺一层很疏的墨点与墨晕。透明度压低，不压正文。 */
+/* 底是实时淡墨。没有画布时 html 的宣纸色自己垫底。 */
 #bar,#hero,#pianHome,#pianBanner,#dynasties,#chapter,#scene,footer{position:relative;z-index:1}
 a{color:inherit}
 button,select{font:inherit;color:inherit}
@@ -396,6 +393,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 </style>
 </head>
 <body>
+<canvas id="inkbg" aria-hidden="true"></canvas>
 <a class="sr" href="#chapter">跳到本章</a>
 <header id="bar">
   <div class="wrap">
@@ -1637,5 +1635,6 @@ function renderArt(){
 
 init();
 </script>
+<script src="assets/ink-backdrop.js"></script>
 </body>
 </html>
