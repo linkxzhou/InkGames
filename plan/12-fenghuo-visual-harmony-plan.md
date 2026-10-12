@@ -2,7 +2,7 @@
 
 状态：**待确认**。本文只定方案。确认前不改页面、不改图、不改 `art-style.mjs`。
 
-- 依据：`main` `e1ae16b`（PR #19 已合并）。对象是 `video/viewer/index.html`、`video/viewer/pian.css` 和 `video/viewer/assets/` 里的首页主图、四篇横幅、四篇封面。
+- 依据：`main` `e1ae16b`（PR #19 已合并）。范围是 `video/` 里面向用户的全部页面和视觉素材，不只是首页横幅。盘点在下面一节。`video/docs/`、`video/sources/`、`video/data/` 的 JSON 和 `video/tools/` 不是页面，不做出图对象。
 - 美术仍是 AGENTS.md §5 / [art-style.md §5](../video/docs/art-style.md) 的简化版黑白红。提示词套 §5.1：共用正向 + 本图一句 + 共用负向。不写《影之刃》角色名，不把参照图放进仓库。
 - 实测：无头 Chrome + SwiftShader，`prefers-reduced-motion: reduce`，像素比 1。1440×900 与 390×844。色值是截图像素。真实 GPU 未实测。box 上没有楷体，Mac 上字形会不同，宽度和色差不受影响。
 - 问题截图（只这四张）：
@@ -11,9 +11,61 @@
   - 治国篇横幅 1440：`/opt/cursor/artifacts/screenshots/main-zhiguo-1440.png`
   - 首页 390：`/opt/cursor/artifacts/screenshots/main-home-390.png`
 
-**目标：** 首页和四篇用同一条横幅，图片四边洇进宣纸 `#eceae4`，四篇封面换成能代表该篇的一张图，画面层次靠近黑白红水墨，但不放宽色板和红色上限。
+**目标：** `video/` 里用户看得到的页面和图都落到同一套黑白红：宣纸 `#eceae4`、五层灰、朱砂 `#b3241c` 只做一处。首页和四篇共用一条横幅，图的四边洇进纸色。四篇封面换成代表图。已经锁进色板的地图和成片不再重画。
 
 **约束：** 朱砂 `#b3241c` 单帧不超过一成、一处。不改场景 `videoPrompt` 的校验句，避免 316 场提示词一起重生成。新 PR 都以 `main` 为基线，互不叠放（AGENTS.md §10 第 6 条）。验收只交截图，不录屏。
+
+---
+
+## 盘点：video/ 里用户看得到的东西
+
+`video/` 下面向用户的 HTML 只有两页。图片、地图、海报、成片都在 `video/viewer/assets/`，地图用的笔触原件在 `video/data/maps/sprites/`。色相抽查：非透明像素里，通道极差 ≥ 22 且不像朱砂（红明显高于绿蓝）的记为偏色。抽查步长 4 像素。SwiftShader 与文件抽样都不是真实 GPU。
+
+### 页面
+
+| 页面 | 现状 | 改法 |
+|---|---|---|
+| `video/viewer/index.html` + `pian.css` | 内容站。色板变量已是七色。问题是横幅窄、首页底色台阶、图边是硬框，见 §0、§1。地图框和视频框另见下两节 | §1 的横幅和渐隐。地图、播放器、页脚用同一套纸色和渐隐，不另做一套皮肤 |
+| `video/viewer/05-09-jingke-relations.html` | 荆轲关系图，独立一页，不走内容站 CSS。底 `#efe6d3` / `#f7f1e3`，墨 `#3a3329`，强调 `#a63a2e`，另外还有黛蓝 `#3e5c76`、草绿 `#3f5c4b`、金 `#b08d4f`、紫 `#6b5b8a`、灰褐 `#7a746b`。按钮有白底，卡片圆角 4–10px | 底改 `#eceae4`，字改 `#141414`。六类人只用墨的深浅区分，君主或敌对用一处 `#b3241c`，删掉蓝绿金紫。圆角改直角。不新画插图 |
+
+### 内容站主图（要重画）
+
+首页宽图、手机方图、四篇横幅、四篇封面。问题和提示词在 §0、§3。手机方图 `hero-fenghuo-m` 在统一横幅后停止使用。
+
+### 界面小图（`video/viewer/assets/` 根上，成对的 webp/jpg/png）
+
+抽查已在灰阶或纯朱砂里的，留着，不重画：`btn-ink`、`divider-brush`、`divider-mountain`、`empty-ink-boat`、`footer-mountains`、`loading-ink-drop`、`ink-black-panel`、`timeline-rod`、`seal-frame-square`、`seal-frame-tall`、`vermilion-brush-bar`、`vermilion-seal-fill`。印章和朱砂条整张都是红，只用在印和细线，不拿来铺底。
+
+| 文件 | 现状 | 改法 |
+|---|---|---|
+| `timeline-node.png`（192×64，三态） | 约 7% 像素是 `#2d0907`（45,9,7），不在七色里。朱砂态约占 34% | 三态只许 `#141414`、`#eceae4`、`#b3241c`。重画这一张，不改交互 |
+| `fenghuo-hero.jpg/webp`（1280×720） | 偏色约 0.1%，抽样有 (80,60,51) 这类褐边。`index.html` 已不引用，被 `hero-fenghuo-wide` 换掉 | 删掉。不留回退件 |
+| `paper-fiber.*` | 色板内，但当前页面不用（底已经是 `#inkbg`） | 删掉 |
+| `paper-ink-stains.*`、`ink-blot-corner.*` | 色板内。CSS 变量 `--tex-paper`、`--tex-blot` 写了，没有哪条规则用它们 | 删掉变量和文件。成片片头卡若还叠了 `paper-ink-stains`，那是烧进 mp4 的，见下节，本轮不拆 |
+
+页脚山、空状态小船、载入墨滴已经是灰墨。它们若在页面上仍像一块矩形，跟主图一样加四边渐隐，不重新生成。
+
+### 地图
+
+| 素材 | 数量 | 现状 | 改法 |
+|---|---|---|---|
+| `video/viewer/assets/maps/<章>.webp` 及 `-m`、`-t` | 21×3 = 63 | `render-maps.py` 用纸 `#eceae4`、雾灰、淡灰、中灰、墨黑合成。抽查唐、秦、上古，偏色 0%，通道极差 ≤ 8。文字是 HTML，不在图里 | 不重渲染。去掉 `.dmap` 和 `.map-thumb` 的 1.5px / 1px 实线框，图的外圈约 8% 渐隐进纸 |
+| `video/data/maps/sprites/*.png` | 21（山 8、浪 4、长岭 3，以及城、关、沙、泽、长城） | 抽查全部是纯灰，通道极差 0 | 不动。它们只被地图合成使用 |
+
+### 章节海报和成片
+
+`video/viewer/assets/chapter-videos/`：21 张海报 jpg、21 张 webp、21 条 mp4。播放器在内容站朝代长卷下面，`poster` 来自 `index.js`。
+
+抽查上古、秦、唐三张海报：偏色 0.03%–0.21%，是 JPEG 边上的暖灰，不是另一套色。成片已经按 `chapter_grade.py` 锁过色板。
+
+| 现状 | 改法 |
+|---|---|
+| `#chVideo .cv-frame` 是 16:9 硬框，1px 雾灰边，海报铺满 | 边改成约 8% 渐隐到 `#eceae4`，去掉实线框。海报文件不重出，除非渐隐之后仍能看出偏色 |
+| 片头卡烧进了 `paper-ink-stains` 和朱印 | 本轮不重编码 21 条 mp4。要换片头纸纹就单开一轮，不跟版式 PR 绑在一起 |
+
+### 不在这轮里的目录
+
+`video/docs/` 没有位图。`video/sources/` 是史源摘要。`video/data/chapters`、`pian`、`maps` 的 JSON 是数据。这些不改画面。
 
 ---
 
@@ -385,16 +437,17 @@ High-contrast black-white-red wuxia ink silhouette, simplified, on warm xuan pap
 
 ## 5. 分 PR
 
-四支都从最新 `main` 开，目标都是 `main`。不要从另一支的分支上再开。可以同时做。合并顺序不影响另一支能不能合。
+五支都从最新 `main` 开，目标都是 `main`。不要从另一支的分支上再开。可以同时做。合并顺序不影响另一支能不能合。地图 63 张和 21 条成片不单开出图 PR。
 
 | PR | 分支上只放 | 动哪些文件 | 不动 |
 |---|---|---|---|
-| A 版式 | 全宽 `.sheet`、父级 `#eceae4`、四边 10% 遮罩、首页改用篇横幅结构、手机不再用方图 | `video/viewer/index.html`、`video/viewer/pian.css` | 不换图，不改提示词文档 |
-| B 文档 | §4 的条目 | `AGENTS.md`、`video/docs/art-style.md`、`plan/README.md` | 不改 `art-style.mjs`，不重生成场景提示词，不改页面 |
-| C 横幅 | 按 §3.1–§3.2、§3.4、§3.6、§3.8 出图，webp + jpg | `hero-fenghuo-wide.*`、`banner-zhanchang.*`、`banner-zhiguo.*`、`banner-renwu.*`、`banner-dili.*`；可删 `hero-fenghuo-m.*` | 不改封面，不改 CSS |
-| D 封面 | 按 §3.3、§3.5、§3.7、§3.9 出图，webp + jpg | `pian-zhanchang.*`、`pian-zhiguo.*`、`pian-renwu.*`、`pian-dili.*` | 不改横幅，不改 CSS |
+| A 内容站版式 | 全宽 `.sheet`、父级 `#eceae4`、主图 / 封面 / 地图 / 海报框的渐隐、去掉地图和播放器的实线框、页脚和空状态若像矩形也渐隐、删掉没用的 `--tex-paper` / `--tex-blot` | `video/viewer/index.html`、`video/viewer/pian.css` | 不换主图和封面，不改关系图，不重编码 mp4 |
+| B 文档 | §4 的条目，并写明关系图、地图、海报也只用这七色 | `AGENTS.md`、`video/docs/art-style.md`、`plan/README.md` | 不改 `art-style.mjs`，不重生成场景提示词，不改页面 |
+| C 横幅 | 按 §3.1–§3.2、§3.4、§3.6、§3.8 出图，webp + jpg | `hero-fenghuo-wide.*`、四张 `banner-*`；可删 `hero-fenghuo-m.*` | 不改封面，不改 CSS |
+| D 封面 | 按 §3.3、§3.5、§3.7、§3.9 出图，webp + jpg | 四张 `pian-*` | 不改横幅，不改 CSS |
+| E 其余页面和边角素材 | 关系图改成七色、直角；重画 `timeline-node`；删 `fenghuo-hero`、`paper-fiber`、`paper-ink-stains`、`ink-blot-corner` | `video/viewer/05-09-jingke-relations.html`、`timeline-node.png`（及 webp）、上述退役文件 | 不改 `index.html` 的横幅结构，不重渲染地图，不重编码 mp4 |
 
-A 先合上时，旧图会被遮罩裁软，窄带会变宽，底色台阶会消失。C、D 后合上也只是换图。B 只改文档，画面不变。
+A 先合上时，旧图会被遮罩裁软，窄带会变宽，底色台阶会消失，地图和播放器不再是硬框。C、D 后合上也只是换图。B 只改文档。E 单独改关系图和边角文件，不依赖 A。
 
 ---
 
@@ -404,9 +457,10 @@ A 先合上时，旧图会被遮罩裁软，窄带会变宽，底色台阶会消
 
 | PR | 截哪些 | 过关 |
 |---|---|---|
-| A | 首页 1440、任一页横幅 1440、首页 390、封面区 1440 | 横幅宽等于视口宽。图框外采样和 `#eceae4` 的通道差之和 ≤ 8（现在首页是 37）。四边看得到渐隐，没有新的描边、圆角、投影 |
-| B | 不交画面。文档 PR 没有截图项 | 条目与 §3、§4 一致；`validate.mjs` 仍是 0 错误 |
+| A | 首页 1440、任一页横幅 1440、首页 390、封面区 1440、地理篇地图 1440、任一章开场视频海报 1440 | 横幅宽等于视口宽。图框外采样和 `#eceae4` 的通道差之和 ≤ 8（现在首页是 37）。主图、地图、海报四边看得到渐隐，没有新的描边、圆角、投影 |
+| B | 不交画面。文档 PR 没有截图项 | 条目与 §3、§4 和盘点一致；`validate.mjs` 仍是 0 错误 |
 | C | 首页 1440、四篇横幅各一张 1440、首页 390 | 右四成才有焦墨；首页是烽火，战场是残阵，治国是粗线棋盘加一枚朱砂子，人物是空龙座，地理是关河。红只有一处。墨不顶边 |
 | D | 首页封面区 1440，必要时每张封面裁一块 | 与同篇横幅是同一件事。竖幅上下有纸。治国封面的墨不再顶到左缘和上缘 |
+| E | 关系图 1440 和 390、内容站时间轴节点特写一张 | 画面上不再出现蓝、绿、金、紫和圆角。节点只有墨、纸、朱砂三色 |
 
 A 的色差用和 §0 相同的方法：框外 8px 的通道差之和。SwiftShader 上量。Mac 上再看一次之前，结论写未实测。
