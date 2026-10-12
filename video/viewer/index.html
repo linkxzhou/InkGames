@@ -852,6 +852,12 @@ function paint(){
   userNav = false;
 }
 const MAP_MOBILE = window.matchMedia && matchMedia("(max-width: 720px)").matches;
+function mapImg(pack, alt, thumb){
+  const src = thumb ? (pack.thumb || pack.img) : pack.img;
+  const w = thumb ? 320 : 1600, h = thumb ? 200 : 1000;
+  const mob = !thumb && pack.imgM ? '<source media="(max-width: 720px)" srcset="' + pack.imgM + '" type="image/webp">' : "";
+  return '<picture>' + mob + '<img src="' + src + '" alt="' + esc(alt || "") + '" width="' + w + '" height="' + h + '" loading="lazy" decoding="async"></picture>';
+}
 function markerList(){
   const maps = window.FENGHUO_MAPS;
   if (!maps || !view.ch) return [];
@@ -883,7 +889,7 @@ function renderMap(){
       const pack = maps.chapters[c.id]; if (!pack) return;
       const n = catalogOf("dili").filter(x => x.chapter === c.id && (!view.primaryOnly || x.primary === "dili")).length;
       const b = document.createElement("button"); b.type = "button"; b.className = "map-thumb";
-      b.innerHTML = '<img src="' + pack.img + '" alt="" width="320" height="200" loading="lazy"><span>' + esc(c.short || c.name) + " · " + n + " 场</span>";
+      b.innerHTML = mapImg(pack, "", true) + "<span>" + esc(c.short || c.name) + " · " + n + " 场</span>";
       b.addEventListener("click", () => { userNav = true; view.ch = c.id; view.sc = null; writeHash(); paint(); });
       thumbs.appendChild(b);
     });
@@ -902,7 +908,7 @@ function renderMap(){
     if (hit) hit.items.push(m); else clusters.push({ x: m.x, y: m.y, items: [m] });
   });
   const fig = document.createElement("figure"); fig.className = "dmap";
-  fig.innerHTML = '<img src="' + pack.img + '" alt="' + esc((chapterById(view.ch) || {}).name || "") + ' 示意地图" width="1600" height="1000" loading="lazy">' +
+  fig.innerHTML = mapImg(pack, ((chapterById(view.ch) || {}).name || "") + " 示意地图") +
     '<div class="map-labels"></div><ol class="dmap-marks"></ol>';
   const lab = fig.querySelector(".map-labels");
   (pack.labels || []).forEach(l => {

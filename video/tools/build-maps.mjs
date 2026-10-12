@@ -498,7 +498,7 @@ function build() {
   for (const [ch, meta] of Object.entries(frames.chapters)) {
     const box = boxes[meta.frame];
     const terr = JSON.parse(readFileSync(join(MAPS, 'territory', ch + '.json'), 'utf8'));
-    writeFileSync(join(OUT_SVG, ch + '.svg'), svgFor(ch, box, terr, base));
+    if (process.argv.includes('--svg')) writeFileSync(join(OUT_SVG, ch + '.svg'), svgFor(ch, box, terr, base));
     const cap = places.places[meta.capital];
     const capital = { place: meta.capital, name: cap.name, ...xy(box, cap.lon, cap.lat) };
     const labels = [];
@@ -539,7 +539,8 @@ function build() {
       m.side = side;
     }
     chapters[ch] = {
-      img: 'assets/maps/' + ch + '.svg', w: 1600, h: 1000, frame: meta.frame,
+      img: 'assets/maps/' + ch + '.webp', imgM: 'assets/maps/' + ch + '-m.webp',
+      thumb: 'assets/maps/' + ch + '-t.webp', w: 1600, h: 1000, frame: meta.frame,
       capital, labels, markers, placeless,
     };
   }
