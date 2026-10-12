@@ -78,9 +78,10 @@ button,select{font:inherit;color:inherit}
 .tools label{font-size:12px;color:var(--mid);letter-spacing:.1em}
 
 /* ---------- 开卷（hero） ---------- */
-#hero{position:relative;overflow:hidden;border-bottom:1px solid var(--rule)}
-#hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:center;gap:24px;min-height:min(520px,72vh);padding-top:40px;padding-bottom:40px}
-.hero-txt{position:relative;z-index:2}
+#hero{position:relative;border-bottom:1px solid var(--rule)}
+#hero .wrap{position:relative;z-index:2;padding-top:0;padding-bottom:0}
+.hero-stage{position:relative}
+.hero-txt{position:relative;z-index:2;max-width:40em}
 .kicker{font-size:13px;letter-spacing:.42em;color:var(--mid)}
 .hero-title{display:flex;align-items:flex-start;gap:18px;margin:10px 0 6px}
 .hero-title h1{font-family:var(--kai);font-weight:900;font-size:clamp(76px,10vw,148px);line-height:.95;letter-spacing:.06em;color:var(--ink)}
@@ -112,9 +113,14 @@ button,select{font:inherit;color:inherit}
   background:url("assets/btn-ink.png") center/100% 100% no-repeat;
   background-image:image-set(url("assets/btn-ink.webp") type("image/webp"), url("assets/btn-ink.png") type("image/png"))}
 .btn.primary:hover{filter:brightness(1.15)}
-.hero-art{position:relative;z-index:1;width:100%;min-height:0;height:auto;pointer-events:none;align-self:center}
+.hero-art{position:relative;z-index:1;width:100%;min-height:0;height:auto;pointer-events:none}
 .hero-art picture,.hero-art img{display:block;width:100%;height:auto}
-.hero-art img{object-fit:contain;object-position:center center;background:var(--paper)}
+.hero-art img{max-width:100%;height:auto;object-fit:contain;object-position:center center;background:var(--paper)}
+@media (min-width:981px){
+  .hero-txt{position:absolute;left:0;top:0;bottom:0;width:42%;max-width:42%;display:flex;flex-direction:column;justify-content:center;padding:24px 16px 24px 0}
+  .hero-txt .hero-p,.hero-txt .stats,.hero-txt .cta{max-width:100%}
+  .hero-txt .stats{flex-wrap:wrap;margin:16px 0 18px}
+}
 
 /* ---------- 二十一朝 · 长卷 ---------- */
 .band{padding:var(--s8) 0 var(--s3)}
@@ -351,13 +357,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   .ch-meta{grid-column:1;grid-row:2}
   #pianTools{grid-column:2;grid-row:2;justify-self:end}
 }
-@media (max-width:1200px) and (min-width:981px){ .hero-p{max-width:24em} }
 @media (max-width:980px){
-  #hero .wrap{grid-template-columns:1fr;min-height:0;padding-top:0;padding-bottom:30px}
-  .hero-txt{order:2}
-  .hero-art{order:1;position:relative;width:100%;min-height:0;height:auto;aspect-ratio:1/1}
-  .hero-art picture,.hero-art img{height:100%}
-  .hero-art img{width:100%;height:100%;object-fit:contain;object-position:center center}
+  .hero-txt{position:relative;inset:auto;width:auto;max-width:40em;display:block;padding:20px 0 28px}
+  .hero-art{width:100%;height:auto;aspect-ratio:auto}
+  .hero-art picture,.hero-art img{width:100%;height:auto}
   #main{grid-template-columns:1fr}
 }
 @media (max-width:720px){
@@ -409,6 +412,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 <section id="hero" aria-labelledby="htitle">
   <span id="top"></span>
   <div class="wrap">
+    <div class="hero-stage">
+    <div class="hero-art"><picture>
+      <source media="(max-width:980px)" srcset="assets/hero-fenghuo-m.webp" type="image/webp">
+      <source media="(max-width:980px)" srcset="assets/hero-fenghuo-m.jpg" type="image/jpeg">
+      <source srcset="assets/hero-fenghuo-wide.webp" type="image/webp">
+      <img src="assets/hero-fenghuo-wide.jpg" width="2400" height="1000" alt="水墨长城：烽火台燃起红色烽火，黑色狼烟升起，右侧悬崖上一名持矛武士的剪影" fetchpriority="high" decoding="async">
+    </picture></div>
     <div class="hero-txt">
       <div class="kicker">中国历史 · 水墨内容站</div>
       <div class="hero-title"><h1 id="htitle">烽火</h1><span class="seal seal-l seal-4" aria-hidden="true"><i>正</i><i>史</i><i>野</i><i>史</i></span></div>
@@ -421,12 +431,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
         <button class="btn" id="randBtn" type="button">随机一场</button>
       </div>
     </div>
-    <div class="hero-art"><picture>
-      <source media="(max-width:980px)" srcset="assets/hero-fenghuo-m.webp" type="image/webp">
-      <source media="(max-width:980px)" srcset="assets/hero-fenghuo-m.jpg" type="image/jpeg">
-      <source srcset="assets/hero-fenghuo-wide.webp" type="image/webp">
-      <img src="assets/hero-fenghuo-wide.jpg" width="2400" height="1000" alt="水墨长城：烽火台燃起红色烽火，黑色狼烟升起，右侧悬崖上一名持矛武士的剪影" fetchpriority="high" decoding="async">
-    </picture></div>
+    </div>
   </div>
 </section>
 <div class="ridge" aria-hidden="true"></div>
@@ -642,9 +647,9 @@ function renderBanner(){
   box.hidden = false;
   box.className = "pb";
   const n = catalogOf(p.id).length;
-  box.innerHTML = '<div class="wrap pb-grid"><div class="pb-txt"><p class="pk">烽火</p><h2 id="pianBannerTitle">' + esc(p.fullName) + '</h2>' +
-    '<p class="plead">' + esc(p.scope) + '</p><p class="pmeta">' + esc(p.genre) + " · " + n + ' 场</p></div>' +
-    '<div class="pb-art">' + assetPic("banner-" + p.id, 2400, 600, p.fullName) + '</div></div>';
+  box.innerHTML = '<div class="wrap"><div class="pb-stage"><div class="pb-art">' + assetPic("banner-" + p.id, 2400, 600, p.fullName) + '</div>' +
+    '<div class="pb-txt"><p class="pk">烽火</p><h2 id="pianBannerTitle">' + esc(p.fullName) + '</h2>' +
+    '<p class="plead">' + esc(p.scope) + '</p><p class="pmeta">' + esc(p.genre) + " · " + n + ' 场</p></div></div></div>';
 }
 function refreshDynastyTabs(){
   const items = view.pian ? catalogOf(view.pian).filter(c => !view.primaryOnly || c.primary === view.pian) : [];
