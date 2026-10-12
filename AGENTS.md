@@ -246,6 +246,7 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 | 新增四篇场景或改归类 | 改 `video/data/pian/src/scenes/<pian>.json` 或 `src/overrides.json`，跑 `node video/tools/build-pian.mjs`（见 §12、[pian.md](./video/docs/pian.md)）。不要手改章节 JSON 来塞新场 |
 | 改地图落点 | 改 `video/data/maps/places.json` 或 `scene-places.json`，跑 `node video/tools/build-maps.mjs`。重出图片再跑 `python3 video/tools/render-maps.py`。低置信保持 `placeless` 与待核验，不猜坐标。不要手改 `video/viewer/data/maps.js` |
 | 查看器截图 | 用无头 Chromium 打开 `file://…/video/viewer/index.html#<chapter>`，截场景页与“水墨视频提示词”面板 |
+| 多步任务规划（5+ 步） | 用 [plan-with-files](./skills/plan-with-files/SKILL.md) skill：计划文件放 `plan/progress/<date>-<task-slug>/`（`task_plan.md` / `findings.md` / `progress.md`），每阶段后更新，云端与本地 agent 共用 |
 | 新增依赖 | 只允许 MIT / BSD / Apache / LGPL，登记到 [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md) |
 
 ## 12. 四篇（2026-10-12 定）
