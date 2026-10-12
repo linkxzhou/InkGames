@@ -64,7 +64,7 @@
 ### 2.2 笔线
 
 - 外轮廓用粗笔、侧锋，转折处见棱角，不画圆滑的匀线。
-- 枯笔飞白只用在动势方向（衣摆、刀光、马尾、烟），作拖尾。
+- 枯笔飞白只用在动势方向（衣摆、刀光、马尾、烟），作拖尾。页面静帧的飞白可以破开外轮廓；仍不铺皴。
 - 剪影内部最多两三笔焦灰分块，交代臂、甲、袖的前后关系，不画衣纹细节。
 - 不用界画尺线、不用皴法密点；山石用块面，不用皴擦。
 
@@ -74,6 +74,7 @@
 - 三到四个景深层：最远雾灰 → 淡灰山 → 中灰建筑/竹林 → 墨黑主体，层与层之间留白。
 - 主体剪影占画面高度三到五成，四周至少三成留白。
 - 一帧只讲一件事；群像以成排剪影由黑到灰逐层退远，不画细节人群。
+- 页面图四边约一成是 `#eceae4`，不留矩形纸边。
 
 ### 2.4 人物
 
@@ -85,7 +86,7 @@
 
 ### 2.5 效果
 
-- 命中、高潮：大块泼墨炸开，朱红血雾斜向喷溅，随后定格。每场最多一到两次。
+- 命中、高潮：大块泼墨炸开，朱红血雾斜向喷溅，随后定格。每场最多一到两次。页面静帧可以有一处泼墨；视频高潮镜的规则不改。
 - 火：平涂黑焰剪影，焰心一抹朱红；烟：淡灰横向飘散。
 - 水：长横笔湿墨，浪头留白；雨雪：细斜线或留白点。
 - 转场：墨点放大、浓墨泼满画面、沿画卷横移；不用光效、粒子光晕、镜头光斑。
@@ -195,14 +196,19 @@ No text, letters, characters inside seals, or watermark. No gold, blue, cyan, gr
 
 ### 5.4 页面图（主图、横幅、卡片）
 
-站点图还要遵守留白，否则标题会压住主体。左侧纸上可以有极淡的清墨，不能有焦墨。
+站点图还要遵守留白，否则标题会压住主体。左侧纸上可以有极淡的清墨，不能有焦墨。横幅比例是 12:5（2400×1000）。手机用同一张宽图裁切，不再另出方图。关系图、地图、海报也只用这七色；地图和已合成的成片不因页面改版重出。
 
 | 类 | 正向要补的一句 | 红用在哪 | English clause |
 |---|---|---|---|
-| 主图（宽 2.4:1） | 左侧至少一半是几乎空白的宣纸，焦墨全部放在右侧四成以内：悬崖、烽火台、一名持矛的无五官武士。 | 烽火一点，不超过 6% | At least the left half is nearly empty paper. All scorched ink stays inside the right 40%: a cliff, a beacon, one faceless spear warrior. |
-| 主图（方） | 同样的烽火与武士，焦墨从横向约四成之后才出现，人不要被切出画外。 | 烽火一点，不超过 6% | The same beacon and warrior. Scorched ink begins only after about 40% of the width. Do not crop the figure. |
-| 横幅（4:1） | 左侧至少一半空白。右侧按篇放一件事：战场是阵与旗，治国是柱、竹简和无五官文臣，人物是一名无兵器剪影，地理是河、三层山和一条路。 | 战场用旗或小日不超过 8%；治国用无字朱印不超过 6%；人物不超过 3%；地理一个点不超过 3% | At least the left half is empty. The right holds one subject only: ranks and banners, or columns plus slips plus a faceless minister, or one unarmed silhouette, or a river, three mountain layers and a route. |
-| 卡片（4:5） | 竖幅。主体完整，头顶和脚下都留纸。战场、治国、人物、地理各只讲上面横幅里的那一件事。 | 与对应横幅相同 | Vertical. The subject is complete, with paper above the head and below the feet. One subject only, matching that banner. |
+| 主图（宽 12:5） | 左侧至少一半几乎是空白宣纸。焦墨只在右侧四成：近景一名持矛的无五官武士，中景悬崖和烽火台，远景清墨山。矛不与人相接。三层分开。飞白只破开袖缘和烽烟。崖下一处泼墨，不铺满。四边约一成渐隐进 `#eceae4`，不要矩形纸边。 | 烽火一点，不超过 6% | At least the left half is nearly empty paper. Scorched ink stays inside the right 40%: a faceless spearman in front, a cliff and beacon in the middle, pale mountains far away. The spear touches no one. Three depths stay separate. Flying white only breaks the sleeve edge and the beacon smoke. One ink splash under the cliff. The outer tenth of each edge fades into #eceae4. |
+| 横幅·战场（12:5） | 左侧至少一半空白。右侧只画残阵。近景一名无五官武士，矛竖着；中景成排剪影由焦到淡，矛不相接；远景是清墨烟和一块壁垒。飞白沿旗边。地上一处泼墨。四边约一成渐隐进 `#eceae4`。 | 一面朱旗，不超过 8% | At least the left half is empty. The right holds a formation after the clash. One faceless warrior in front, spear upright; ranks fading from scorched to pale, spears not touching; far away, clear-ink smoke and one wall block. Flying white only along the banner edge. One splash on the ground. |
+| 横幅·治国（12:5） | 左侧至少一半空白。右侧只画一局围棋。矮几上的棋盘只用几笔粗墨，不要十九路密线。数枚平涂黑子。几旁可以露出一只宽袖，袖中无兵器，人无五官。近景是几和子，中景是袖，远景是两根平涂柱的墨晕。四边约一成渐隐进 `#eceae4`。 | 一枚朱砂子，不超过 6% | At least the left half is empty. The right holds one weiqi game. The board is a few thick ink strokes, not a dense nineteen-line grid. Several flat black stones. A wide sleeve may show beside the desk, no weapon, no face. Desk and stones in front, the sleeve in the middle, two flat columns far away. |
+| 横幅·人物（12:5） | 左侧至少一半空白。右侧只画一座空的龙座，侧视。龙是靠背上三四块大剪影，不画鳞，不描金。座面是纸白。座上没有人。近景是座，中景是龙形靠背，远景是两根平涂柱。四边约一成渐隐进 `#eceae4`。 | 座侧一块无字朱印，不超过 6% | At least the left half is empty. The right holds one empty dragon throne, side view. The dragon is three or four large silhouette masses on the backrest, no scales, no gold. The seat is paper white. Nobody sits there. Two flat columns far away. |
+| 横幅·地理（12:5） | 左侧至少一半空白。右侧只画关河。近景一条淡墨河，中景一座关门嵌在重墨山里，一条路穿过门洞，远景再两层清墨山。不画皴，不画车马细部。四边约一成渐隐进 `#eceae4`。 | 地平线上一小点朱砂，不超过 3% | At least the left half is empty. The right holds one pass and one river. A pale river in front, a gate set into a heavy-ink mountain, one road through the gate, two more clear-ink ranges far away. No texture strokes, no carriage detail. |
+| 卡片·战场（4:5） | 竖幅。残阵完整，头顶和脚下都留纸。近景一名无五官武士，矛竖着；中景成排剪影由焦到淡，矛不相接；远景清墨烟和一块壁垒。飞白沿旗边。地上一处泼墨。四边约一成渐隐进 `#eceae4`。 | 一面朱旗，不超过 8% | Vertical. The formation is complete, with paper above and below. One faceless warrior in front, spear upright; ranks fading from scorched to pale; clear-ink smoke and one wall block far away. |
+| 卡片·治国（4:5） | 竖幅。棋局完整，头顶和脚下都留纸。矮几上的棋盘只用几笔粗墨，不要十九路密线。数枚平涂黑子。一只宽袖在中景，袖中无兵器，人无五官。远景两根平涂柱的墨晕。四边约一成渐隐进 `#eceae4`。 | 一枚朱砂子，不超过 6% | Vertical. The game is complete, with paper above and below. The board is a few thick ink strokes, not a dense nineteen-line grid. One wide sleeve in the middle ground, no weapon, no face. Two flat columns far away. |
+| 卡片·人物（4:5） | 竖幅。龙座完整，头顶和脚下都留纸。侧视空座，龙是靠背上三四块大剪影，不画鳞，不描金，座面是纸白，座上没有人。远景两根平涂柱。四边约一成渐隐进 `#eceae4`。 | 座侧一块无字朱印，不超过 6% | Vertical. The throne is complete, with paper above and below. Empty seat in side view. The dragon is three or four large masses, no scales, no gold, nobody sitting. Two flat columns far away. |
+| 卡片·地理（4:5） | 竖幅。关河完整，头顶和脚下都留纸。近景一条淡墨河，中景关门嵌在重墨山里，路穿过门洞，远景两层清墨山。不画皴。四边约一成渐隐进 `#eceae4`。 | 地平线上一小点朱砂，不超过 3% | Vertical. The pass and river are complete, with paper above and below. A pale river in front, a gate in a heavy-ink mountain, a road through the opening, two clear-ink ranges far away. |
 
 ---
 
