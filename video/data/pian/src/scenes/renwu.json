@@ -1,0 +1,2006 @@
+[
+ {
+  "id": "renwu.shanggu.cangjie",
+  "pian": "renwu",
+  "also": [],
+  "chapter": "shanggu",
+  "title": "仓颉",
+  "subtitle": "好书者众",
+  "when": {
+   "start": -2600,
+   "precision": "legend",
+   "display": "传说时代",
+   "era": "黄帝之时（年号未行）",
+   "verify": "done",
+   "notes": "仓颉不是可考的历史人物，本场标明传说。"
+  },
+  "line": "legend",
+  "narrative": "仓颉造字是传说，不是殷墟能对上的史事。《荀子·解蔽》只说“好书者众矣，而仓颉独传”，承认他是被记住的一个名字。《说文解字叙》把鸟兽之迹、分理之可相别貌写成他造字的方法，那是东汉的说法。正史没有他的传。本场按传说画一个面对兽迹的剪影，并在叙事里写明：这是后世对文字起源的追认，不是黄帝时代的档案。",
+  "figures": [
+   {
+    "name": "仓颉",
+    "role": "传说中的史官",
+    "en": "Cangjie"
+   }
+  ],
+  "places": [
+   "传说中的黄河边"
+  ],
+  "placeEn": "a legendary riverbank",
+  "sources": [
+   {
+    "kind": "classic",
+    "title": "荀子",
+    "section": "解蔽",
+    "notes": "好书者众矣，而仓颉独传"
+   },
+   {
+    "kind": "classic",
+    "title": "说文解字",
+    "section": "叙",
+    "notes": "仓颉之初作书，东汉追述"
+   }
+  ]
+ },
+ {
+  "id": "renwu.shanggu.leizu",
+  "pian": "renwu",
+  "also": [],
+  "chapter": "shanggu",
+  "title": "嫘祖",
+  "subtitle": "黄帝正妃",
+  "when": {
+   "start": -2600,
+   "precision": "legend",
+   "display": "传说时代",
+   "era": "黄帝之时（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "《史记·五帝本纪》在黄帝诸妃里只给嫘祖一句：她是西陵之女，为正妃，生玄嚣和昌意，后来的颛顼一系从昌意出。养蚕、教民缫丝是很晚的传说，司马迁没有写。人物篇取正史这一句：她是世系上的一环，不是神仙传里的蚕神。画面只留一个女剪影和两名孩童的轮廓，不画宋代以后才流行的先蚕仪仗。",
+  "figures": [
+   {
+    "name": "嫘祖",
+    "role": "黄帝正妃",
+    "en": "Leizu"
+   },
+   {
+    "name": "黄帝",
+    "role": "部族首领",
+    "en": "Huangdi"
+   }
+  ],
+  "places": [
+   "有熊"
+  ],
+  "placeEn": "Youxiong",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "五帝本纪",
+    "notes": "嫘祖为黄帝正妃，生玄嚣、昌意"
+   }
+  ]
+ },
+ {
+  "id": "renwu.xizhou.taigong",
+  "pian": "renwu",
+  "also": [
+   "dili"
+  ],
+  "chapter": "xizhou",
+  "title": "渭水垂钓",
+  "subtitle": "太公望",
+  "when": {
+   "start": -1100,
+   "precision": "legend",
+   "display": "传说，在牧野之前",
+   "era": "商末（年号未行）",
+   "verify": "done",
+   "notes": "钓鱼遇文王是史公采用的传说，年份不考。"
+  },
+  "line": "canon",
+  "narrative": "《史记·齐太伯世家》说吕尚穷困，年老钓于渭滨，西伯出猎和他谈话，高兴地说“吾太公望子久矣”，于是称太公望，一起回去。牧野之战里的师尚父是这个人的后一半，已有专场。本场只取渭水边的相遇。钓鱼的细节像小说，司马迁自己也用了“或曰”保存异说，所以画面保持留白，不把封神故事里的法宝画进去。",
+  "figures": [
+   {
+    "name": "吕尚",
+    "role": "渭滨钓者",
+    "en": "Lü Shang"
+   },
+   {
+    "name": "周文王",
+    "role": "西伯",
+    "en": "King Wen of Zhou"
+   }
+  ],
+  "places": [
+   "渭水"
+  ],
+  "placeEn": "the Wei River",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "齐太伯世家",
+    "notes": "吕尚钓于渭滨，西伯载与俱归"
+   }
+  ]
+ },
+ {
+  "id": "renwu.chunqiu.baoshu",
+  "pian": "renwu",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "chunqiu",
+  "title": "鲍叔荐管仲",
+  "subtitle": "管鲍",
+  "when": {
+   "start": -685,
+   "precision": "year",
+   "display": "前 685 年",
+   "era": "齐桓公元年（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "齐国内乱，管仲辅公子纠，鲍叔辅公子小白。小白先回到齐国，成为桓公，管仲被囚。鲍叔不以私怨为意，向桓公说明管仲的才能在自己之上。桓公从鲁国把管仲接回来任用。《史记·管晏列传》把这段写成鲍叔的识人，而不是管仲自己的游说。参国伍鄙是他任职之后的制度，本场只写路上的囚车和鲍叔的一句话。",
+  "figures": [
+   {
+    "name": "鲍叔牙",
+    "role": "齐大夫",
+    "en": "Bao Shuya"
+   },
+   {
+    "name": "管仲",
+    "role": "囚徒",
+    "en": "Guan Zhong"
+   },
+   {
+    "name": "齐桓公",
+    "role": "齐君",
+    "en": "Duke Huan of Qi"
+   }
+  ],
+  "places": [
+   "堂阜"
+  ],
+  "placeEn": "Tangfu",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "管晏列传",
+    "notes": "鲍叔牙荐管仲"
+   },
+   {
+    "kind": "canon",
+    "title": "左传",
+    "section": "庄公九年",
+    "notes": "管仲受囚归齐"
+   }
+  ]
+ },
+ {
+  "id": "renwu.chunqiu.wugong",
+  "pian": "renwu",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "chunqiu",
+  "title": "吴宫教战",
+  "subtitle": "孙武",
+  "when": {
+   "start": -512,
+   "precision": "circa",
+   "display": "约前 512 年",
+   "era": "吴王阖闾三年前后（年号未行）",
+   "verify": "done",
+   "notes": "《史记》系于阖闾用孙武，不记月日。"
+  },
+  "line": "canon",
+  "narrative": "《史记·孙子吴起列传》说孙武以兵法见阖闾，阖闾用宫中美女试他的束伍。孙武三令五申之后斩了两名队长，队伍才听鼓进退。阖闾先心疼宠姬，后来仍用他为将。斩姬的戏剧性很强，史公写进列传，本场保留这个文本，同时不把它扩张成小说里的剑阵。吴宫是人物场：一个把军法用在王的亲近身上的人。",
+  "figures": [
+   {
+    "name": "孙武",
+    "role": "吴将",
+    "en": "Sun Wu"
+   },
+   {
+    "name": "阖闾",
+    "role": "吴王",
+    "en": "Helü"
+   }
+  ],
+  "places": [
+   "吴宫"
+  ],
+  "placeEn": "the Wu palace",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "孙子吴起列传",
+    "notes": "孙武以兵法见吴王，小试勒兵"
+   }
+  ]
+ },
+ {
+  "id": "renwu.chunqiu.jieying",
+  "pian": "renwu",
+  "also": [],
+  "chapter": "chunqiu",
+  "title": "结缨",
+  "subtitle": "子路",
+  "when": {
+   "start": -480,
+   "precision": "year",
+   "display": "前 480 年",
+   "era": "周敬王四十年 · 鲁哀公十五年（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "卫国内乱，子路在孔悝被劫时进城。战斗中系冠的缨被砍断，他说君子死而冠不免，停下结缨，被杀死。《左传·哀公十五年》记下了这个细节。《史记·仲尼弟子列传》也写了。这是人物的死法，不是一场决定霸权的战争。本场只留城门、断缨和一个还在整理冠帽的剪影。",
+  "figures": [
+   {
+    "name": "子路",
+    "role": "孔子弟子",
+    "en": "Zilu"
+   },
+   {
+    "name": "孔悝",
+    "role": "卫卿",
+    "en": "Kong Kui"
+   }
+  ],
+  "places": [
+   "卫"
+  ],
+  "placeEn": "Wei",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "左传",
+    "section": "哀公十五年",
+    "notes": "子路结缨而死"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "仲尼弟子列传",
+    "notes": "子路死于卫难"
+   }
+  ]
+ },
+ {
+  "id": "renwu.zhanguo.binjiao",
+  "pian": "renwu",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "zhanguo",
+  "title": "膑脚",
+  "subtitle": "孙膑与庞涓",
+  "when": {
+   "start": -360,
+   "precision": "circa",
+   "display": "约前 4 世纪",
+   "era": "齐威王、魏惠王之间（年号未行）",
+   "verify": "done",
+   "notes": "膑脚之年不可考，取在桂陵之前。"
+  },
+  "line": "canon",
+  "narrative": "《史记·孙子吴起列传》说孙膑与庞涓同学兵法，庞涓在魏国得志，把孙膑骗来，处以膑刑。孙膑后来装疯，被齐国使者藏在车里带回齐国，才有桂陵和马陵。马陵的伏击已有专场。本场停在刑余和出逃：一个不能走路的人被藏进使车。不把后世兵书上的名字都算成他的原著。",
+  "figures": [
+   {
+    "name": "孙膑",
+    "role": "刑余",
+    "en": "Sun Bin"
+   },
+   {
+    "name": "庞涓",
+    "role": "魏将",
+    "en": "Pang Juan"
+   }
+  ],
+  "places": [
+   "大梁",
+   "临淄"
+  ],
+  "placeEn": "Daliang and Linzi",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "孙子吴起列传",
+    "notes": "庞涓刑孙膑，孙膑归齐"
+   }
+  ]
+ },
+ {
+  "id": "renwu.chunqiu.wuhu",
+  "pian": "renwu",
+  "also": [
+   "dili"
+  ],
+  "chapter": "chunqiu",
+  "title": "泛舟五湖",
+  "subtitle": "范蠡",
+  "when": {
+   "start": -473,
+   "precision": "circa",
+   "display": "约前 473 年",
+   "era": "越王勾践灭吴之后（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "勾践灭吴，范蠡以为大名之下难以久居，离开越国，从海上走，后来在陶做买卖，人称陶朱公。《史记·越王勾践世家》写他写信给文种，劝文种也走，文种不走，果然被赐死。西施随他而去是后世小说，史公没有写。本场只画一只离开会稽的船和没有回头的人。卧薪尝胆是战争那场，这里是离开。",
+  "figures": [
+   {
+    "name": "范蠡",
+    "role": "越大夫",
+    "en": "Fan Li"
+   },
+   {
+    "name": "文种",
+    "role": "越大夫",
+    "en": "Wen Zhong"
+   },
+   {
+    "name": "勾践",
+    "role": "越王",
+    "en": "Goujian"
+   }
+  ],
+  "places": [
+   "五湖",
+   "陶"
+  ],
+  "placeEn": "the lakes and Tao",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "越王勾践世家",
+    "notes": "范蠡浮海出齐，止于陶"
+   }
+  ]
+ },
+ {
+  "id": "renwu.zhanguo.niezheng",
+  "pian": "renwu",
+  "also": [],
+  "chapter": "zhanguo",
+  "title": "聂政",
+  "subtitle": "严仲子",
+  "when": {
+   "start": -397,
+   "precision": "circa",
+   "display": "约前 397 年",
+   "era": "韩烈侯时（年号未行）",
+   "verify": "done",
+   "notes": "刺杀之年诸书约在前四世纪初。"
+  },
+  "line": "canon",
+  "narrative": "严仲子与韩相侠累有仇，奉黄金给齐人聂政。聂政因为母亲还在，不肯接受。母亲死后，他独自仗剑到韩都，杀死侠累，然后毁容自杀，让姐姐不必被牵连。姐姐聂荌后来还是去认尸。《史记·刺客列传》把这件事写在荆轲之前。本场是一个人的死，不是合纵的战争。画面停在市上的尸体和来认的姐姐，不画血雾满屏。",
+  "figures": [
+   {
+    "name": "聂政",
+    "role": "刺客",
+    "en": "Nie Zheng"
+   },
+   {
+    "name": "聂荌",
+    "role": "聂政之姊",
+    "en": "Nie Ying"
+   },
+   {
+    "name": "严仲子",
+    "role": "韩臣",
+    "en": "Yan Zhongzi"
+   }
+  ],
+  "places": [
+   "阳翟"
+  ],
+  "placeEn": "Yangdi",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "刺客列传",
+    "notes": "聂政刺侠累"
+   }
+  ]
+ },
+ {
+  "id": "renwu.zhanguo.yibudiqin",
+  "pian": "renwu",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "zhanguo",
+  "title": "义不帝秦",
+  "subtitle": "鲁仲连",
+  "when": {
+   "start": -258,
+   "precision": "year",
+   "display": "前 258 年",
+   "era": "秦昭襄王四十九年前后（年号未行）",
+   "verify": "done",
+   "notes": "邯郸围城期间，取前 258 年。"
+  },
+  "line": "canon",
+  "narrative": "邯郸被围时，魏国派新垣衍劝赵尊秦为帝，以求罢兵。鲁仲连在平原君处见他，说秦如果称帝，自己就跳东海而死，也不会做它的百姓。新垣衍不敢再提。《史记·鲁仲连邹阳列传》把这段写成辩难，不是战斗。围城和窃符是另外的场。本场只留席间的三个人和一封没有发出的“帝秦”之议。",
+  "figures": [
+   {
+    "name": "鲁仲连",
+    "role": "齐人",
+    "en": "Lu Zhonglian"
+   },
+   {
+    "name": "新垣衍",
+    "role": "魏使",
+    "en": "Xin Yuan Yan"
+   },
+   {
+    "name": "平原君",
+    "role": "赵公子",
+    "en": "Lord Pingyuan"
+   }
+  ],
+  "places": [
+   "邯郸"
+  ],
+  "placeEn": "Handan",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "鲁仲连邹阳列传",
+    "notes": "鲁仲连义不帝秦"
+   }
+  ]
+ },
+ {
+  "id": "renwu.zhanguo.lanling",
+  "pian": "renwu",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "zhanguo",
+  "title": "兰陵令",
+  "subtitle": "荀况",
+  "when": {
+   "start": -255,
+   "precision": "circa",
+   "display": "约前 255 年",
+   "era": "楚考烈王时（年号未行）",
+   "verify": "done",
+   "notes": "荀子为兰陵令的年份取考烈王中期，约数。"
+  },
+  "line": "canon",
+  "narrative": "荀子在齐国稷下做过祭酒，后来被人谗毁，到了楚国。春申君请他做兰陵令。春申君死，荀子也被废，就住在兰陵，著书到老。《史记·孟子荀卿列传》给的就是这条线，没有给他安排一场战争。本场画兰陵的县署和一堆简，人已经老了。不把他的学生李斯、韩非在秦国的死再演一遍。",
+  "figures": [
+   {
+    "name": "荀况",
+    "role": "兰陵令",
+    "en": "Xun Kuang"
+   },
+   {
+    "name": "春申君",
+    "role": "楚相",
+    "en": "Lord Chunshen"
+   }
+  ],
+  "places": [
+   "兰陵"
+  ],
+  "placeEn": "Lanling",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "孟子荀卿列传",
+    "notes": "荀卿为兰陵令，著书终老"
+   }
+  ]
+ },
+ {
+  "id": "renwu.zhanguo.jianzhuke",
+  "pian": "renwu",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "zhanguo",
+  "title": "谏逐客",
+  "subtitle": "李斯",
+  "when": {
+   "start": -237,
+   "precision": "year",
+   "display": "前 237 年",
+   "era": "秦王政十年（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "秦王政十年，因为郑国渠是韩国的疲秦之计，下令驱逐客卿。李斯也在被逐之列，他上书说：秦国的音乐、珠玉、后宫和大臣很多来自别国，为什么独独把人赶走。秦王收回成命。《史记·李斯列传》保存了这篇上书的大意。这是李斯人生里还在用言辞救人的一刻，不是后来的沙丘阴谋。本场画函谷道上被拦回的车。",
+  "figures": [
+   {
+    "name": "李斯",
+    "role": "秦客卿",
+    "en": "Li Si"
+   },
+   {
+    "name": "秦王政",
+    "role": "秦王",
+    "en": "Ying Zheng"
+   }
+  ],
+  "places": [
+   "咸阳",
+   "函谷"
+  ],
+  "placeEn": "Xianyang and Hangu",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "李斯列传",
+    "notes": "谏逐客书"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "秦始皇本纪",
+    "notes": "十年，大索，逐客，李斯上书，乃止"
+   }
+  ]
+ },
+ {
+  "id": "renwu.qin.mengtian",
+  "pian": "renwu",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "qin",
+  "title": "蒙恬之死",
+  "subtitle": "罪固当死",
+  "when": {
+   "start": -210,
+   "precision": "year",
+   "display": "前 210 年",
+   "era": "秦始皇三十七年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "始皇在沙丘死后，赵高、李斯改诏，赐扶苏、蒙恬死。扶苏自杀。蒙恬疑心，被关在阳周，后来还是吞药。他临死说自己修长城、起临洮，可能惊动了地脉。《史记·蒙恬列传》记下这段自责，司马迁又批评他把罪过归于地脉、而不说拒绝进谏。长城工地已有专场。本场只在阳周的监狱：一个将领和一封假诏。",
+  "figures": [
+   {
+    "name": "蒙恬",
+    "role": "秦将",
+    "en": "Meng Tian"
+   },
+   {
+    "name": "扶苏",
+    "role": "公子",
+    "en": "Fusu"
+   },
+   {
+    "name": "赵高",
+    "role": "中车府令",
+    "en": "Zhao Gao"
+   }
+  ],
+  "places": [
+   "阳周"
+  ],
+  "placeEn": "Yangzhou prison",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "蒙恬列传",
+    "notes": "蒙恬系阳周，后吞药死"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "李斯列传",
+    "notes": "沙丘矫诏"
+   }
+  ]
+ },
+ {
+  "id": "renwu.xihan.lvhou",
+  "pian": "renwu",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "xihan",
+  "title": "吕后称制",
+  "subtitle": "人彘之后",
+  "when": {
+   "start": -187,
+   "precision": "year",
+   "display": "前 187 年",
+   "era": "汉高后元年（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "高祖死，惠帝软弱，吕后实际主政。她杀了戚夫人和赵王如意，惠帝因此病倒。惠帝死后，她临朝称制，封吕氏为王。《史记·吕太后本纪》把这些事按年写下，没有替她掩饰，也写下她称制期间百姓还能生活。本场取称制这一年的朝堂：空的帝位和吕氏的王侯。不把“人彘”画成血腥特写。",
+  "figures": [
+   {
+    "name": "吕雉",
+    "role": "太后",
+    "en": "Lü Zhi"
+   },
+   {
+    "name": "汉惠帝",
+    "role": "汉帝",
+    "en": "Emperor Hui of Han"
+   }
+  ],
+  "places": [
+   "长安"
+  ],
+  "placeEn": "Chang'an",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "吕太后本纪",
+    "notes": "惠帝崩，太后称制，封诸吕"
+   }
+  ]
+ },
+ {
+  "id": "renwu.xihan.qinu",
+  "pian": "renwu",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "xihan",
+  "title": "骑奴",
+  "subtitle": "卫青微时",
+  "when": {
+   "start": -130,
+   "precision": "circa",
+   "display": "约前 130 年",
+   "era": "汉武帝元光年间",
+   "verify": "done",
+   "notes": "卫青为骑奴的年份在被封侯之前，取元光中。"
+  },
+  "line": "canon",
+  "narrative": "卫青是平阳侯家的骑奴，母亲卫媪是侯家的婢。他的姐姐卫子夫得幸武帝之后，卫青才从奴仆变成太中大夫，再一步步做到大将军。《史记·卫将军骠骑列传》开篇就写这段出身。收河南地和封狼居胥是他后来的战争。本场停在平阳侯府的马厩：一个还没有军阵的人。",
+  "figures": [
+   {
+    "name": "卫青",
+    "role": "平阳侯家骑奴",
+    "en": "Wei Qing"
+   },
+   {
+    "name": "卫子夫",
+    "role": "平阳主讴者",
+    "en": "Wei Zifu"
+   }
+  ],
+  "places": [
+   "平阳"
+  ],
+  "placeEn": "Pingyang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "卫将军骠骑列传",
+    "notes": "卫青少为平阳侯家骑奴"
+   }
+  ]
+ },
+ {
+  "id": "renwu.xihan.xiongnuweimie",
+  "pian": "renwu",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "xihan",
+  "title": "匈奴未灭",
+  "subtitle": "霍去病",
+  "when": {
+   "start": -117,
+   "precision": "year",
+   "display": "前 117 年",
+   "era": "汉武帝元狩六年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "霍去病十八岁为剽姚校尉，两次深入匈奴，封狼居胥。武帝给他造府第，他回答：匈奴未灭，无以家为。元狩六年他死，年不满二十四。《史记》把这句话和早死写在一起。漠北大战是战役场。本场是人：一个不肯接受宅第、很快死去的青年将领。画面只有空着的府第和远去的骑队。",
+  "figures": [
+   {
+    "name": "霍去病",
+    "role": "骠骑将军",
+    "en": "Huo Qubing"
+   },
+   {
+    "name": "汉武帝",
+    "role": "汉帝",
+    "en": "Emperor Wu of Han"
+   }
+  ],
+  "places": [
+   "长安"
+  ],
+  "placeEn": "Chang'an",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "卫将军骠骑列传",
+    "notes": "匈奴未灭，无以家为；元狩六年卒"
+   }
+  ]
+ },
+ {
+  "id": "renwu.xihan.jishe",
+  "pian": "renwu",
+  "also": [],
+  "chapter": "xihan",
+  "title": "社稷之臣",
+  "subtitle": "汲黯",
+  "when": {
+   "start": -135,
+   "precision": "circa",
+   "display": "约前 135 年",
+   "era": "汉武帝建元末",
+   "verify": "done",
+   "notes": "汲黯面折武帝的具体一次取建元年间，约数。"
+  },
+  "line": "canon",
+  "narrative": "汲黯做东海太守、主爵都尉，说话很直。武帝招揽儒生，他当面说皇帝内心欲望很多、外面却装仁义。武帝当时怒得变色，退朝后还是说汲黯是社稷之臣。《史记·汲郑列传》写了好几次这样的顶撞。他没有一场属于自己的战争。本场只留殿上一个不肯跪好的剪影。",
+  "figures": [
+   {
+    "name": "汲黯",
+    "role": "主爵都尉",
+    "en": "Ji An"
+   },
+   {
+    "name": "汉武帝",
+    "role": "汉帝",
+    "en": "Emperor Wu of Han"
+   }
+  ],
+  "places": [
+   "长安"
+  ],
+  "placeEn": "Chang'an",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "汲郑列传",
+    "notes": "武帝称汲黯为社稷之臣"
+   }
+  ]
+ },
+ {
+  "id": "renwu.donghan.lantai",
+  "pian": "renwu",
+  "also": [],
+  "chapter": "donghan",
+  "title": "兰台",
+  "subtitle": "班固",
+  "when": {
+   "start": 62,
+   "precision": "circa",
+   "display": "约 62 年",
+   "era": "汉明帝永平五年前后",
+   "verify": "done",
+   "notes": "班固私作国史被系，约在永平初，年份取约数。"
+  },
+  "line": "canon",
+  "narrative": "班彪死后，班固继续写父亲没有写完的汉史，被人告发私改国史，关进京兆的监狱。弟弟班超赶到洛阳上书，明帝读了书稿，放了他，让他在兰台把书写完。《后汉书·班彪传》所附的班固传记了这件事。班昭续书是他死后的另一场。本场是监狱和兰台之间的那一次赦免。",
+  "figures": [
+   {
+    "name": "班固",
+    "role": "兰台令史",
+    "en": "Ban Gu"
+   },
+   {
+    "name": "班超",
+    "role": "班固之弟",
+    "en": "Ban Chao"
+   },
+   {
+    "name": "汉明帝",
+    "role": "汉帝",
+    "en": "Emperor Ming of Han"
+   }
+  ],
+  "places": [
+   "洛阳",
+   "兰台"
+  ],
+  "placeEn": "Luoyang, Lantai",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "后汉书",
+    "section": "班彪传",
+    "notes": "班固私作国史被系，明帝奇其书，除兰台令史"
+   }
+  ]
+ },
+ {
+  "id": "renwu.donghan.erjing",
+  "pian": "renwu",
+  "also": [],
+  "chapter": "donghan",
+  "title": "二京赋",
+  "subtitle": "张衡",
+  "when": {
+   "start": 117,
+   "precision": "circa",
+   "display": "约 117 年",
+   "era": "汉安帝元初中",
+   "verify": "done",
+   "notes": "《二京赋》写作年份取张衡为太史令之前，约数。"
+  },
+  "line": "canon",
+  "narrative": "张衡用十年写成《二京赋》，模拟班固的两都，但把东京的奢侈写得更严厉。他后来做太史令，造候风地动仪，那和蔡伦一起已有专场。《后汉书·张衡传》先写赋，再写机械。人物篇取写赋的十年：一个不肯很快把文章交出去的人。画面是洛阳的城郭剪影和一堆改过的简。",
+  "figures": [
+   {
+    "name": "张衡",
+    "role": "南阳人",
+    "en": "Zhang Heng"
+   }
+  ],
+  "places": [
+   "洛阳"
+  ],
+  "placeEn": "Luoyang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "后汉书",
+    "section": "张衡传",
+    "notes": "拟班固两都，作二京赋，精思十年乃成"
+   }
+  ]
+ },
+ {
+  "id": "renwu.donghan.beifen",
+  "pian": "renwu",
+  "also": [
+   "dili"
+  ],
+  "chapter": "donghan",
+  "title": "悲愤",
+  "subtitle": "蔡琰归汉",
+  "when": {
+   "start": 208,
+   "precision": "circa",
+   "display": "约建安中",
+   "era": "汉建安十三年前后",
+   "verify": "done",
+   "notes": "曹操赎回蔡琰的年份史无月日，取建安中。"
+  },
+  "line": "canon",
+  "narrative": "蔡邕的女儿蔡琰在乱中被胡骑掳去，在南匈奴生活了十二年，曹操把她赎回，再嫁董祀。她凭记忆写下父亲留给她的书，又作《悲愤诗》写流离。《后汉书·列女传》保存了这段和两首诗的文本。诗里的细节有文学加工，被赎这件事本身见于传。本场画归途上的一个女剪影和两名不能带走的孩子，这是诗里的情节，画面注明出自她的自述。",
+  "figures": [
+   {
+    "name": "蔡琰",
+    "role": "董祀妻",
+    "en": "Cai Yan"
+   },
+   {
+    "name": "曹操",
+    "role": "汉丞相",
+    "en": "Cao Cao"
+   }
+  ],
+  "places": [
+   "南匈奴",
+   "邺"
+  ],
+  "placeEn": "the Southern Xiongnu and Ye",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "后汉书",
+    "section": "列女传",
+    "notes": "蔡琰没于南匈奴，曹操赎归"
+   }
+  ]
+ },
+ {
+  "id": "renwu.sanguo.xunyu",
+  "pian": "renwu",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "sanguo",
+  "title": "荀彧",
+  "subtitle": "董昭之议",
+  "when": {
+   "start": 212,
+   "precision": "year",
+   "display": "212 年",
+   "era": "汉建安十七年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "董昭建议曹操进爵国公、加九锡。荀彧私下说丞相本起于匡辅汉室，应当退让。曹操因此不高兴。荀彧不久病死在随征的路上，有的记载说他饮药。《三国志》本传写了反对九锡和随后的死，裴注保留了自杀的异说。本场取正传能站住的部分：一次劝退和一次死亡，不把杯中的毒写成唯一事实。",
+  "figures": [
+   {
+    "name": "荀彧",
+    "role": "汉侍中",
+    "en": "Xun Yu"
+   },
+   {
+    "name": "曹操",
+    "role": "汉丞相",
+    "en": "Cao Cao"
+   },
+   {
+    "name": "董昭",
+    "role": "议郎",
+    "en": "Dong Zhao"
+   }
+  ],
+  "places": [
+   "谯"
+  ],
+  "placeEn": "Qiao",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "三国志",
+    "section": "魏书·荀彧传",
+    "notes": "建安十七年彧阻九锡，寻卒"
+   },
+   {
+    "kind": "classic",
+    "title": "三国志",
+    "section": "裴注引魏氏春秋",
+    "notes": "饮药而死，异说，本场不当唯一事实"
+   }
+  ]
+ },
+ {
+  "id": "renwu.sanguo.quanxue",
+  "pian": "renwu",
+  "also": [],
+  "chapter": "sanguo",
+  "title": "劝学",
+  "subtitle": "吕蒙",
+  "when": {
+   "start": 210,
+   "precision": "circa",
+   "display": "约 210 年",
+   "era": "汉建安十五年前后",
+   "verify": "done",
+   "notes": "孙权劝吕蒙读书在取荆州之前，年份约数。"
+  },
+  "line": "canon",
+  "narrative": "吕蒙早年说军中事务忙，读不了书。孙权用自己读书的例子劝他。吕蒙开始学，鲁肃后来过寻阳，和他议论，吃惊地说他已经不是当年的吴下阿蒙。吕蒙说士别三日便当刮目相待。《三国志·吕蒙传》裴注引《江表传》记下了这段对话。袭取荆州是后来的战争。本场只留灯下的简和两个将领。",
+  "figures": [
+   {
+    "name": "吕蒙",
+    "role": "吴将",
+    "en": "Lü Meng"
+   },
+   {
+    "name": "孙权",
+    "role": "吴主",
+    "en": "Sun Quan"
+   },
+   {
+    "name": "鲁肃",
+    "role": "吴都督",
+    "en": "Lu Su"
+   }
+  ],
+  "places": [
+   "寻阳"
+  ],
+  "placeEn": "Xunyang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "三国志",
+    "section": "吴书·吕蒙传",
+    "notes": "蒙始就学"
+   },
+   {
+    "kind": "classic",
+    "title": "三国志",
+    "section": "裴注引江表传",
+    "notes": "士别三日，刮目相待"
+   }
+  ]
+ },
+ {
+  "id": "renwu.sanguo.guangling",
+  "pian": "renwu",
+  "also": [],
+  "chapter": "sanguo",
+  "title": "广陵散",
+  "subtitle": "嵇康",
+  "when": {
+   "start": 262,
+   "precision": "year",
+   "display": "262 年",
+   "era": "魏景元三年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "嵇康在魏末不肯与司马氏合作，吕安的案子牵连到他。钟会说他言论放荡、害时乱教。景元三年他被杀于洛阳东市。临刑前他要了琴，弹《广陵散》，说过去袁孝尼想学，自己没有教，从此绝了。《晋书·嵇康传》写了东市和这首曲子。本场不讨论曲子是否真的失传，只画刑场上的一张琴。",
+  "figures": [
+   {
+    "name": "嵇康",
+    "role": "中散大夫",
+    "en": "Ji Kang"
+   },
+   {
+    "name": "钟会",
+    "role": "司隶校尉",
+    "en": "Zhong Hui"
+   }
+  ],
+  "places": [
+   "洛阳东市"
+  ],
+  "placeEn": "the eastern market of Luoyang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "晋书",
+    "section": "嵇康传",
+    "notes": "景元三年康死于东市，索琴弹广陵散"
+   }
+  ]
+ },
+ {
+  "id": "renwu.liangjin.dongshan",
+  "pian": "renwu",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "liangjin",
+  "title": "东山",
+  "subtitle": "谢安",
+  "when": {
+   "start": 360,
+   "precision": "circa",
+   "display": "约 360 年",
+   "era": "东晋升平中",
+   "verify": "done",
+   "notes": "谢安出山在升平年间，取约数，早于淝水。"
+  },
+  "line": "canon",
+  "narrative": "谢安早年高卧东山，朝廷屡次征召都不就。直到弟弟谢万兵败、家族需要人，他才出来做官，后来一直做到指挥淝水之战。《晋书·谢安传》把东山写成他一生的前半。淝水是战役场。本场只画会稽的山和一顶还没有戴上的进贤冠。不把围棋赌墅提前到隐居的时候。",
+  "figures": [
+   {
+    "name": "谢安",
+    "role": "隐士",
+    "en": "Xie An"
+   }
+  ],
+  "places": [
+   "东山"
+  ],
+  "placeEn": "Dongshan",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "晋书",
+    "section": "谢安传",
+    "notes": "高卧东山，屡辟不就"
+   }
+  ]
+ },
+ {
+  "id": "renwu.liangjin.wenji",
+  "pian": "renwu",
+  "also": [],
+  "chapter": "liangjin",
+  "title": "闻鸡",
+  "subtitle": "祖逖与刘琨",
+  "when": {
+   "start": 291,
+   "precision": "circa",
+   "display": "约 291 年",
+   "era": "西晋元康元年",
+   "verify": "done",
+   "notes": "两人同为司州主簿在元康前后。元康元年为 291 年。"
+  },
+  "line": "canon",
+  "narrative": "《晋书·祖逖传》说祖逖和刘琨一起做司州主簿，夜里听到荒鸡叫，祖逖踢醒刘琨，说这不是恶声，于是起身舞剑。中流击楫是他后来渡江北伐时的事，已有专场。本场停在洛阳或司州的夜里：两个还没有兵权的年轻人。荒鸡和剑是传里的原有细节，不需要再加神异。",
+  "figures": [
+   {
+    "name": "祖逖",
+    "role": "司州主簿",
+    "en": "Zu Ti"
+   },
+   {
+    "name": "刘琨",
+    "role": "司州主簿",
+    "en": "Liu Kun"
+   }
+  ],
+  "places": [
+   "司州"
+  ],
+  "placeEn": "Sizhou",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "晋书",
+    "section": "祖逖传",
+    "notes": "与刘琨闻鸡起舞"
+   }
+  ]
+ },
+ {
+  "id": "renwu.liangjin.menshi",
+  "pian": "renwu",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "liangjin",
+  "title": "扪虱",
+  "subtitle": "王猛",
+  "when": {
+   "start": 354,
+   "precision": "year",
+   "display": "354 年",
+   "era": "东晋永和十年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "桓温北伐入关，王猛穿着粗布衣服去见他，一边捉虱子一边谈世务，旁若无人。桓温问他：我奉天子之命讨逆，为什么关中豪杰没有人来。王猛说公自己知道。后来王猛没有跟桓温南下，而辅佐了苻坚。《晋书·王猛载记》写了这次见面。本场是两个人的谈话，不是淝水。",
+  "figures": [
+   {
+    "name": "王猛",
+    "role": "隐士",
+    "en": "Wang Meng"
+   },
+   {
+    "name": "桓温",
+    "role": "征西大将军",
+    "en": "Huan Wen"
+   }
+  ],
+  "places": [
+   "长安"
+  ],
+  "placeEn": "Chang'an",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "晋书",
+    "section": "王猛载记",
+    "notes": "桓温入关，王猛扪虱而谈"
+   }
+  ]
+ },
+ {
+  "id": "renwu.nanbeichao.wenxuan",
+  "pian": "renwu",
+  "also": [],
+  "chapter": "nanbeichao",
+  "title": "文选",
+  "subtitle": "萧统",
+  "when": {
+   "start": 522,
+   "precision": "circa",
+   "display": "约 522 年",
+   "era": "梁普通三年前后",
+   "verify": "done",
+   "notes": "《文选》编成之年不可考，取萧统成年后、卒前。"
+  },
+  "line": "canon",
+  "narrative": "梁昭明太子萧统和门下文士编《文选》，收录周秦到梁的诗文，不收经、子和史的论述，只收他认为有文采的篇章。《梁书·昭明太子传》写他引纳才学之士、恒自讨论篇籍。书的具体体例要看《文选》自己的序。本场不评价选目，只画东宫里围坐的人和一堆被留下或被放下的简。他活到中大通三年，三十一岁死。",
+  "figures": [
+   {
+    "name": "萧统",
+    "role": "昭明太子",
+    "en": "Xiao Tong"
+   }
+  ],
+  "places": [
+   "建康"
+  ],
+  "placeEn": "Jiankang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "梁书",
+    "section": "昭明太子传",
+    "notes": "引纳才学之士，讨论篇籍"
+   },
+   {
+    "kind": "classic",
+    "title": "文选",
+    "section": "序",
+    "notes": "事出于沉思，义归乎翰藻"
+   }
+  ]
+ },
+ {
+  "id": "renwu.nanbeichao.wenming",
+  "pian": "renwu",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "nanbeichao",
+  "title": "文明太后",
+  "subtitle": "冯氏称制",
+  "when": {
+   "start": 476,
+   "precision": "year",
+   "display": "476 年",
+   "era": "北魏承明元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "献文帝死后，冯太后再次临朝，这一次一直到太和十四年她自己去世。均田、三长和新的俸禄制度都在她称制时推出，孝文帝当时还没有真正掌权。《魏书·皇后列传》写她猜忌、也写她能用人。迁都洛阳是她死后的事。本场画平城的帘后和幼帝，不把太和改制的每一条都堆进肖像。",
+  "figures": [
+   {
+    "name": "冯太后",
+    "role": "文明太后",
+    "en": "Empress Dowager Feng"
+   },
+   {
+    "name": "孝文帝",
+    "role": "幼帝",
+    "en": "Emperor Xiaowen"
+   }
+  ],
+  "places": [
+   "平城"
+  ],
+  "placeEn": "Pingcheng",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "魏书",
+    "section": "皇后列传",
+    "notes": "承明元年冯太后复临朝"
+   }
+  ]
+ },
+ {
+  "id": "renwu.sui.changlewang",
+  "pian": "renwu",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "sui",
+  "title": "长乐王",
+  "subtitle": "窦建德",
+  "when": {
+   "start": 617,
+   "precision": "year",
+   "display": "617 年",
+   "era": "隋大业十三年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "窦建德在河北起兵，大业十三年在乐寿称长乐王。他的军队纪律相对严，打仗也时常亲自上阵。武德年间他救王世充，在虎牢被李世民俘获，那是唐初的另一场。本场停在隋末的乐寿：一个从农民军里出来、还没有碰到虎牢的人。《旧唐书·窦建德传》从这里写起。",
+  "figures": [
+   {
+    "name": "窦建德",
+    "role": "长乐王",
+    "en": "Dou Jiande"
+   }
+  ],
+  "places": [
+   "乐寿"
+  ],
+  "placeEn": "Leshhou",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "窦建德传",
+    "notes": "大业十三年称长乐王于乐寿"
+   }
+  ]
+ },
+ {
+  "id": "renwu.sui.dugu",
+  "pian": "renwu",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "sui",
+  "title": "独孤",
+  "subtitle": "二圣",
+  "when": {
+   "start": 593,
+   "precision": "circa",
+   "display": "约开皇中",
+   "era": "隋开皇十三年前后",
+   "verify": "done",
+   "notes": "独孤伽罗干政贯穿开皇，取其中段。"
+  },
+  "line": "canon",
+  "narrative": "独孤伽罗和杨坚一起从北周走进隋朝。她要求皇帝不能和别的女人生孩子，宫里称他们为“二圣”。太子杨勇被废，和她的态度有很大关系。《隋书·后妃传》写了她的节俭，也写了她对后宫的控制。仁寿宫夺嫡已有专场。本场是她的日常：宣华夫人还没有进宫之前，一座只有一个声音的后宫。",
+  "figures": [
+   {
+    "name": "独孤伽罗",
+    "role": "文献皇后",
+    "en": "Dugu Qieluo"
+   },
+   {
+    "name": "杨坚",
+    "role": "隋文帝",
+    "en": "Yang Jian"
+   }
+  ],
+  "places": [
+   "大兴"
+  ],
+  "placeEn": "Daxing",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "隋书",
+    "section": "后妃传",
+    "notes": "独孤皇后与帝相称二圣"
+   }
+  ]
+ },
+ {
+  "id": "renwu.tang.fangmou",
+  "pian": "renwu",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "tang",
+  "title": "房谋",
+  "subtitle": "房玄龄",
+  "when": {
+   "start": 630,
+   "precision": "year",
+   "display": "630 年",
+   "era": "唐太宗贞观四年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "房玄龄从秦王府一直做到尚书左仆射，管的是选拔和章奏，不是战场。旧唐书说他善于谋而杜如晦善于断，当时人称为房谋杜断。贞观四年天下相对安静，他的工作是把战争年代的人事变成可以天天运转的省署。魏征是镜子那场。本场画他夜里改过的文书，人很瘦，这是传里反复写的样子。",
+  "figures": [
+   {
+    "name": "房玄龄",
+    "role": "尚书左仆射",
+    "en": "Fang Xuanling"
+   },
+   {
+    "name": "杜如晦",
+    "role": "尚书右仆射",
+    "en": "Du Ruhui"
+   }
+  ],
+  "places": [
+   "长安"
+  ],
+  "placeEn": "Chang'an",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "房玄龄传",
+    "notes": "房谋杜断"
+   },
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "杜如晦传",
+    "notes": "玄龄善谋，如晦能断"
+   }
+  ]
+ },
+ {
+  "id": "renwu.tang.zhangsun",
+  "pian": "renwu",
+  "also": [],
+  "chapter": "tang",
+  "title": "长孙皇后",
+  "subtitle": "贞观十年",
+  "when": {
+   "start": 636,
+   "precision": "year",
+   "display": "636 年",
+   "era": "唐太宗贞观十年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "长孙皇后在贞观十年病重，太子要请赦天下、度人入道为她祈福，她拒绝，说赦令和度人是国家的事，不能因为自己扰乱。她死时三十六岁。旧唐书写她常劝太宗信用魏征，自己的家人却不许进政。本场取病榻上的拒绝：一个把国家仪式和私人祈福分开的人。不把她画成后来话本里的贤后模板。",
+  "figures": [
+   {
+    "name": "长孙氏",
+    "role": "文德皇后",
+    "en": "Empress Zhangsun"
+   },
+   {
+    "name": "唐太宗",
+    "role": "唐帝",
+    "en": "Emperor Taizong"
+   }
+  ],
+  "places": [
+   "长安"
+  ],
+  "placeEn": "Chang'an",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "后妃传",
+    "notes": "贞观十年长孙皇后卒，辞祈福"
+   }
+  ]
+ },
+ {
+  "id": "renwu.tang.shishi",
+  "pian": "renwu",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "tang",
+  "title": "十事要说",
+  "subtitle": "姚崇",
+  "when": {
+   "start": 713,
+   "precision": "year",
+   "display": "713 年",
+   "era": "唐玄宗开元元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "先天政变之后，玄宗要姚崇做宰相。姚崇提出十件事情，包括取消苛政、不求边功、宦官不得干政、外戚不许任台省，皇帝同意了，他才肯就职。《新唐书·姚崇传》和《开元升平源》都记了这十事，条目的文字略有出入，本场只取“先讲条件再做宰相”这件事。开元的盛世画像不在这一夜。",
+  "figures": [
+   {
+    "name": "姚崇",
+    "role": "同中书门下三品",
+    "en": "Yao Chong"
+   },
+   {
+    "name": "唐玄宗",
+    "role": "唐帝",
+    "en": "Emperor Xuanzong"
+   }
+  ],
+  "places": [
+   "长安"
+  ],
+  "placeEn": "Chang'an",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "新唐书",
+    "section": "姚崇传",
+    "notes": "以十事要说玄宗，然后就相位"
+   }
+  ]
+ },
+ {
+  "id": "renwu.tang.taizhen",
+  "pian": "renwu",
+  "also": [],
+  "chapter": "tang",
+  "title": "太真",
+  "subtitle": "杨贵妃入宫",
+  "when": {
+   "start": 745,
+   "precision": "year",
+   "display": "745 年",
+   "era": "唐玄宗天宝四载",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "杨玉环起初是寿王的妃，开元末年被度为女道士，号太真，天宝四载册为贵妃。旧唐书写她得宠之后杨氏一门显贵，也写她善舞《霓裳》。马嵬之死在安史那场里。本场停在册妃这一年：道观和宫殿之间的一次身份改变。不采用后来小说里的所有私情细节，只取正史写明的入宫和册封。",
+  "figures": [
+   {
+    "name": "杨玉环",
+    "role": "贵妃",
+    "en": "Yang Yuhuan"
+   },
+   {
+    "name": "唐玄宗",
+    "role": "唐帝",
+    "en": "Emperor Xuanzong"
+   }
+  ],
+  "places": [
+   "长安",
+   "华清宫"
+  ],
+  "placeEn": "Chang'an and Huaqing",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "后妃传",
+    "notes": "天宝四载册杨太真为贵妃"
+   }
+  ]
+ },
+ {
+  "id": "renwu.tang.libi",
+  "pian": "renwu",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "tang",
+  "title": "李泌",
+  "subtitle": "白衣宰相",
+  "when": {
+   "start": 756,
+   "precision": "year",
+   "display": "756 年",
+   "era": "唐肃宗至德元载",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "肃宗在灵武时，李泌以宾友的身份随军，睡觉就在皇帝旁边，出谋却常常穿着白衣，人称白衣宰相。他建议先取范阳、不要急着收复两京，肃宗没有全听。《旧唐书·李泌传》写了这段亲密和后来他几次归隐。香积寺收长安是郭子仪的战役。本场是灵武行营里的一个不穿官服的人。",
+  "figures": [
+   {
+    "name": "李泌",
+    "role": "宾友",
+    "en": "Li Bi"
+   },
+   {
+    "name": "唐肃宗",
+    "role": "唐帝",
+    "en": "Emperor Suzong"
+   }
+  ],
+  "places": [
+   "灵武"
+  ],
+  "placeEn": "Lingwu",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "李泌传",
+    "notes": "肃宗在灵武，泌以宾友从，称白衣宰相"
+   }
+  ]
+ },
+ {
+  "id": "renwu.wudai.changlelao",
+  "pian": "renwu",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "wudai",
+  "title": "长乐老",
+  "subtitle": "冯道",
+  "when": {
+   "start": 951,
+   "precision": "year",
+   "display": "951 年",
+   "era": "后周广顺元年",
+   "verify": "done",
+   "notes": "冯道自号长乐老在晚年，取后周初。广顺元年为 951 年。"
+  },
+  "line": "canon",
+  "narrative": "冯道在后唐、后晋、辽、后汉、后周都做过宰相，自己写《长乐老自叙》，对这种经历并不羞愧。欧阳修在《新五代史》里把他写成无廉耻的代表，薛居正在《旧五代史》里则保留了他劝农、减赋的记载。两种评价都是后世的史论。本场把事实放在前面：一个人用同一套做官的本事走过五个政权。画面是五枚不同的印，人只有一个。",
+  "figures": [
+   {
+    "name": "冯道",
+    "role": "宰相",
+    "en": "Feng Dao"
+   }
+  ],
+  "places": [
+   "开封"
+  ],
+  "placeEn": "Kaifeng",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧五代史",
+    "section": "冯道传",
+    "notes": "历事四朝，自号长乐老"
+   },
+   {
+    "kind": "canon",
+    "title": "新五代史",
+    "section": "冯道传",
+    "notes": "欧阳修责其无廉耻，评价与旧史不同"
+   }
+  ]
+ },
+ {
+  "id": "renwu.beisong.kouzhun",
+  "pian": "renwu",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "beisong",
+  "title": "寇准",
+  "subtitle": "少年登第",
+  "when": {
+   "start": 980,
+   "precision": "year",
+   "display": "980 年",
+   "era": "宋太平兴国五年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "寇准十九岁中进士。宋太宗想用他做知县，有人说他太年轻，太宗说他和当年的颜回差不多大。《宋史·寇准传》从这里写起。澶渊城里逼真宗过河，是他中年的事，已有专场。本场只留殿试之后的一个年轻人，还没有莱国公的爵位。不把京剧里的寇准脸谱画进去。",
+  "figures": [
+   {
+    "name": "寇准",
+    "role": "进士",
+    "en": "Kou Zhun"
+   },
+   {
+    "name": "宋太宗",
+    "role": "宋帝",
+    "en": "Emperor Taizong of Song"
+   }
+  ],
+  "places": [
+   "汴京"
+  ],
+  "placeEn": "Bianjing",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "寇准传",
+    "notes": "太平兴国五年进士，年十九"
+   }
+  ]
+ },
+ {
+  "id": "renwu.beisong.yanshu",
+  "pian": "renwu",
+  "also": [],
+  "chapter": "beisong",
+  "title": "晏殊",
+  "subtitle": "太平宰相",
+  "when": {
+   "start": 1042,
+   "precision": "year",
+   "display": "1042 年",
+   "era": "宋庆历二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "晏殊从神童做到宰相，提拔过范仲淹、欧阳修、王安石这一代人里的不少名字。庆历二年他再次任集贤殿学士、同平章事，不久因为有人说他写过“升平无事”的词、和宫里的事牵扯，被罢。《宋史·晏殊传》给的是一个谨慎、爱荐人、也被看成太平宰相的人。本场不评他的词，只画他在政事堂上递出的名单。",
+  "figures": [
+   {
+    "name": "晏殊",
+    "role": "同平章事",
+    "en": "Yan Shu"
+   }
+  ],
+  "places": [
+   "汴京"
+  ],
+  "placeEn": "Bianjing",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "晏殊传",
+    "notes": "庆历中再入相，旋罢"
+   }
+  ]
+ },
+ {
+  "id": "renwu.nansong.qingyuan",
+  "pian": "renwu",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "nansong",
+  "title": "庆元党禁",
+  "subtitle": "朱熹",
+  "when": {
+   "start": 1196,
+   "precision": "year",
+   "display": "1196 年",
+   "era": "宋庆元二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "宁宗初年赵汝愚和韩侂胄争权，朱熹站在赵一边，被罢。庆元二年以后，朝廷把道学称为伪学，禁止推荐，朱熹的学生和同情者列进党籍。《宋史·道学传》和《宁宗纪》都写了这场党禁。鹅湖之会是他和陆九渊的学术争论，已有专场。本场是政治上的禁令：一个人的学说被写成罪名。",
+  "figures": [
+   {
+    "name": "朱熹",
+    "role": "待制",
+    "en": "Zhu Xi"
+   },
+   {
+    "name": "韩侂胄",
+    "role": "枢密都承旨",
+    "en": "Han Tuozhou"
+   }
+  ],
+  "places": [
+   "临安"
+  ],
+  "placeEn": "Lin'an",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "道学传",
+    "notes": "庆元二年禁伪学"
+   },
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "宁宗纪",
+    "notes": "庆元党禁"
+   }
+  ]
+ },
+ {
+  "id": "renwu.yuan.songxue",
+  "pian": "renwu",
+  "also": [],
+  "chapter": "yuan",
+  "title": "松雪",
+  "subtitle": "赵孟頫",
+  "when": {
+   "start": 1286,
+   "precision": "year",
+   "display": "1286 年",
+   "era": "元至元二十三年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "至元二十三年，行台侍御史程钜夫奉诏到江南搜访遗逸，把赵孟頫荐到大都。赵是宋朝的宗室，出来做元朝的官，当时就有人骂他失节。《元史·赵孟頫传》写他后来做到翰林学士承旨，也写他多次求外任、不愿留在宫里。本场取江南船上北上的那一次：画卷还没有被称作松雪体，人已经要进大都。",
+  "figures": [
+   {
+    "name": "赵孟頫",
+    "role": "遗逸",
+    "en": "Zhao Mengfu"
+   },
+   {
+    "name": "程钜夫",
+    "role": "侍御史",
+    "en": "Cheng Jufu"
+   }
+  ],
+  "places": [
+   "吴兴",
+   "大都"
+  ],
+  "placeEn": "Wuxing and Dadu",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "元史",
+    "section": "赵孟頫传",
+    "notes": "至元二十三年程钜夫荐孟頫于朝"
+   }
+  ]
+ },
+ {
+  "id": "renwu.ming.qingci",
+  "pian": "renwu",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "ming",
+  "title": "青词",
+  "subtitle": "严嵩",
+  "when": {
+   "start": 1542,
+   "precision": "year",
+   "display": "1542 年",
+   "era": "明嘉靖二十一年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "嘉靖皇帝长期住在西苑，不上朝，用青词和方士沟通。严嵩因为写青词写得称旨，挤掉夏言，成为首辅。《明史·奸臣传》从这里写他的专权，也写他儿子严世蕃在外面纳贿。杨继盛上疏已经是后来的事。本场停在西苑的灯和一叠青词：权力从一篇斋醮文字里过来。不把《明史》的“奸臣”二字写在画面上，那是史官的判决。",
+  "figures": [
+   {
+    "name": "严嵩",
+    "role": "礼部尚书",
+    "en": "Yan Song"
+   },
+   {
+    "name": "明世宗",
+    "role": "明帝",
+    "en": "Jiajing Emperor"
+   }
+  ],
+  "places": [
+   "北京",
+   "西苑"
+  ],
+  "placeEn": "Beijing, Xiyuan",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "奸臣传",
+    "notes": "严嵩以青词得幸"
+   },
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "世宗纪",
+    "notes": "嘉靖中斋醮"
+   }
+  ]
+ },
+ {
+  "id": "renwu.ming.chuangwang",
+  "pian": "renwu",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "ming",
+  "title": "闯王",
+  "subtitle": "李自成入京",
+  "when": {
+   "start": 1644,
+   "precision": "year",
+   "display": "1644 年",
+   "era": "明崇祯十七年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "李自成从陕西的驿卒变成闯王，崇祯十七年春天进入北京。崇祯在煤山自缢，那是皇帝的一场。本场跟着李自成：进城、拷掠明朝官员追饷、自己在武英殿称帝，随即听说山海关兵败，匆忙离京。《明史·流贼传》写了入城后的失序，不是一份英雄榜。画面停在空了的紫禁城门和准备离京的车。",
+  "figures": [
+   {
+    "name": "李自成",
+    "role": "闯王",
+    "en": "Li Zicheng"
+   }
+  ],
+  "places": [
+   "北京",
+   "米脂"
+  ],
+  "placeEn": "Beijing and Mizhi",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "流贼传",
+    "notes": "崇祯十七年李自成入京师"
+   },
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "庄烈帝纪",
+    "notes": "三月丁未，贼入京师"
+   }
+  ]
+ },
+ {
+  "id": "renwu.qing.heshen",
+  "pian": "renwu",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "qing",
+  "title": "和珅",
+  "subtitle": "嘉庆四年",
+  "when": {
+   "start": 1799,
+   "precision": "year",
+   "display": "1799 年",
+   "era": "清嘉庆四年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "乾隆死在嘉庆四年正月。十五天之后，嘉庆宣布和珅二十条大罪，责令自尽，抄出的家产多到成为后来的俗语。和珅从侍卫走到军机大臣，靠的是乾隆晚年的信任。《清史稿·和珅传》写了发迹和倒台。乾隆南巡那场里他只是随从。本场是抄家的日子：府门被封，人已经不在。不把民间“和珅跌倒”的歌谣当成清史稿的原文。",
+  "figures": [
+   {
+    "name": "和珅",
+    "role": "军机大臣",
+    "en": "Heshen"
+   },
+   {
+    "name": "嘉庆帝",
+    "role": "清帝",
+    "en": "Jiaqing Emperor"
+   }
+  ],
+  "places": [
+   "北京"
+  ],
+  "placeEn": "Beijing",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "和珅传",
+    "notes": "嘉庆四年正月宣布和珅罪，赐死"
+   }
+  ]
+ },
+ {
+  "id": "renwu.qing.siku",
+  "pian": "renwu",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "qing",
+  "title": "四库",
+  "subtitle": "纪昀",
+  "when": {
+   "start": 1773,
+   "precision": "year",
+   "display": "1773 年",
+   "era": "清乾隆三十八年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "乾隆三十八年开四库全书馆，纪昀为总纂，陆锡熊为副。馆臣从各地进书里选、改、也禁。纪昀后来把工作中的见闻写成《阅微草堂笔记》，那是笔记，不是馆档。《清史稿·纪昀传》写他在馆十几年。本场画翰林院里的书堆和朱笔，不把四库只写成文化盛事，也不把每一条抽毁都算到他一个人头上。",
+  "figures": [
+   {
+    "name": "纪昀",
+    "role": "总纂官",
+    "en": "Ji Yun"
+   },
+   {
+    "name": "乾隆帝",
+    "role": "清帝",
+    "en": "Qianlong Emperor"
+   }
+  ],
+  "places": [
+   "北京",
+   "翰林院"
+  ],
+  "placeEn": "Beijing, the Hanlin Academy",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "纪昀传",
+    "notes": "乾隆三十八年为四库总纂"
+   }
+  ]
+ },
+ {
+  "id": "renwu.qing.nalan",
+  "pian": "renwu",
+  "also": [],
+  "chapter": "qing",
+  "title": "饮水",
+  "subtitle": "纳兰性德",
+  "when": {
+   "start": 1685,
+   "precision": "year",
+   "display": "1685 年",
+   "era": "清康熙二十四年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "纳兰性德是明珠的儿子，康熙十五年的进士，做侍卫，三十一岁死。他的词集《饮水词》《侧帽词》在生前就已经流传。《清史稿·文苑传》给了他很短的一篇，称他的词在国初为最。本场不复述任何一首完整的词，只画一个随扈出塞、夜里仍在写的侍卫。康熙的战争在别的场。",
+  "figures": [
+   {
+    "name": "纳兰性德",
+    "role": "一等侍卫",
+    "en": "Nalan Xingde"
+   }
+  ],
+  "places": [
+   "北京"
+  ],
+  "placeEn": "Beijing",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "文苑传",
+    "notes": "性德善词，卒年三十一"
+   }
+  ]
+ }
+]

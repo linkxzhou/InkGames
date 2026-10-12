@@ -1,0 +1,2173 @@
+[
+ {
+  "id": "zhiguo.shanggu.gaoyao",
+  "pian": "zhiguo",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "shanggu",
+  "title": "皋陶作士",
+  "subtitle": "刑的源头",
+  "when": {
+   "start": -2200,
+   "precision": "legend",
+   "display": "传说时代",
+   "era": "虞舜之时（年号未行）",
+   "verify": "done",
+   "notes": "皋陶的年代属于传说，公元年只用于排在禹之前。"
+  },
+  "line": "canon",
+  "narrative": "《史记·五帝本纪》说舜任用皋陶作士，主管五刑。《尚书·舜典》也把“五刑有服”系在皋陶名下。这不是一部传下来的法典，而是上古叙事里“刑罚要有专人、不能由征服者随口决定”的起点。后世把法律之祖追到他身上，正史能证实的只有这个官职和这套说法。本场画一座空的士师席和几条墨线似的刑具轮廓，不画后来的衙门。",
+  "figures": [
+   {
+    "name": "皋陶",
+    "role": "士",
+    "en": "Gao Yao"
+   },
+   {
+    "name": "舜",
+    "role": "部族首领",
+    "en": "Shun"
+   }
+  ],
+  "places": [
+   "虞廷"
+  ],
+  "placeEn": "the court of Shun",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "五帝本纪",
+    "notes": "舜命皋陶作士"
+   },
+   {
+    "kind": "classic",
+    "title": "尚书",
+    "section": "舜典",
+    "notes": "皋陶作士，五刑有服"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.xia.taikang",
+  "pian": "zhiguo",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "xia",
+  "title": "太康失国",
+  "subtitle": "羿距之于河",
+  "when": {
+   "start": -2000,
+   "precision": "circa",
+   "display": "约前 2000 年",
+   "era": "夏太康时（年号未行）",
+   "verify": "done",
+   "notes": "夏王世次的公元年都是约数。"
+  },
+  "line": "canon",
+  "narrative": "启之后，太康游猎无度，有穷氏后羿把他挡在黄河以北，不让他回国。《史记·夏本纪》用很短的句子写下“失国”，《尚书·五子之歌》是后来的训诫文本，细节不可当实录。这件事的政治含义很清楚：家天下刚建立，国君离开都城和军队，位子就可以被别人占住。本场取河岸和回不去的车仗，不取后羿射日的神话——那是另一套传说。",
+  "figures": [
+   {
+    "name": "太康",
+    "role": "夏后",
+    "en": "Taikang"
+   },
+   {
+    "name": "后羿",
+    "role": "有穷氏",
+    "en": "Houyi"
+   }
+  ],
+  "places": [
+   "黄河"
+  ],
+  "placeEn": "the Yellow River",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "夏本纪",
+    "notes": "太康失国，羿距之于河"
+   },
+   {
+    "kind": "classic",
+    "title": "尚书",
+    "section": "五子之歌",
+    "notes": "太康失邦，后人追述，不当实录"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.shang.weizi",
+  "pian": "zhiguo",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "shang",
+  "title": "微子去殷",
+  "subtitle": "三仁之一",
+  "when": {
+   "start": -1048,
+   "precision": "circa",
+   "display": "约前 1048 年",
+   "era": "商纣末年（年号未行）",
+   "verify": "done",
+   "notes": "在牧野之前，精确年份不可考。"
+  },
+  "line": "canon",
+  "narrative": "微子是纣的庶兄。他看见殷商的祭祀和刑政都乱了，和太师、少师商量之后离开。《史记·宋微子世家》把他的出走写成对宗庙的保存，而不是叛变。比干死谏、箕子装狂，是另外两条路，已有“殷有三仁”一场。本场只写微子出走这一条：一个宗室离开都城，后来才被周封在宋。治国篇看的是“宗庙由谁带走”，不是牧野的战阵。",
+  "figures": [
+   {
+    "name": "微子启",
+    "role": "殷宗室",
+    "en": "Weizi Qi"
+   },
+   {
+    "name": "纣",
+    "role": "商王",
+    "en": "Zhou of Shang"
+   }
+  ],
+  "places": [
+   "殷墟"
+  ],
+  "placeEn": "Yin",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "宋微子世家",
+    "notes": "微子数谏，不听，遂去"
+   },
+   {
+    "kind": "classic",
+    "title": "论语",
+    "section": "微子",
+    "notes": "孔子称微子、箕子、比干为三仁"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.xizhou.zhili",
+  "pian": "zhiguo",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "xizhou",
+  "title": "制礼作乐",
+  "subtitle": "周公",
+  "when": {
+   "start": -1042,
+   "precision": "circa",
+   "display": "约前 1042 年",
+   "era": "周成王初年（年号未行）",
+   "verify": "done",
+   "notes": "与周公摄政、东征大致同时，年份取成王初。"
+  },
+  "line": "canon",
+  "narrative": "周公东征是一场战争，已有专场。另一件事是他给新建的周朝补制度：《史记·周本纪》和《鲁周公世家》都说他制礼作乐，相成王。《尚书·洛诰》写的是营建洛邑时的对话，不是一部礼仪手册。能站住的是：周人用祭礼、嫡长和分封把征服写成秩序。本场画洛邑的空庭和成排的礼器剪影，不把汉代画像砖上的周公辅成王当成周初写真。",
+  "figures": [
+   {
+    "name": "周公旦",
+    "role": "周王室",
+    "en": "Duke of Zhou"
+   },
+   {
+    "name": "周成王",
+    "role": "周天子",
+    "en": "King Cheng of Zhou"
+   }
+  ],
+  "places": [
+   "洛邑"
+  ],
+  "placeEn": "Luoyi",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "鲁周公世家",
+    "notes": "周公相成王，制礼作乐"
+   },
+   {
+    "kind": "classic",
+    "title": "尚书",
+    "section": "洛诰",
+    "notes": "营洛与还政"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.xizhou.qianmuji",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "xizhou",
+  "title": "不籍千亩",
+  "subtitle": "虢文公之谏",
+  "when": {
+   "start": -827,
+   "precision": "year",
+   "display": "前 827 年",
+   "era": "周宣王元年（年号未行）",
+   "verify": "done",
+   "notes": "《国语》系于宣王即位，不系于三十九年的千亩之战。"
+  },
+  "line": "canon",
+  "narrative": "宣王一即位，就不按旧例举行籍田。虢文公劝他：籍田是劝农的仪式，王亲自推耜，百姓才跟着种。宣王不听。《国语·周语》把这件事放在千亩战败之前，当成后来“丧南国之师”的远因。它不是一场仗，是一项被放弃的国家仪式。本场和“千亩之战”分开：这里只有田亩、耜和空着的王者位置。",
+  "figures": [
+   {
+    "name": "周宣王",
+    "role": "周天子",
+    "en": "King Xuan of Zhou"
+   },
+   {
+    "name": "虢文公",
+    "role": "周大夫",
+    "en": "Duke Wen of Guo"
+   }
+  ],
+  "places": [
+   "千亩之田"
+  ],
+  "placeEn": "the royal field",
+  "sources": [
+   {
+    "kind": "classic",
+    "title": "国语",
+    "section": "周语上",
+    "notes": "宣王即位，不籍千亩，虢文公谏"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "周本纪",
+    "notes": "宣王不修籍于千亩"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.chunqiu.sanguowubi",
+  "pian": "zhiguo",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "chunqiu",
+  "title": "参国伍鄙",
+  "subtitle": "管仲内政",
+  "when": {
+   "start": -685,
+   "precision": "circa",
+   "display": "约前 685 年",
+   "era": "齐桓公初年（年号未行）",
+   "verify": "done",
+   "notes": "管仲相齐的具体月份不可考，取桓公即位之年。"
+  },
+  "line": "canon",
+  "narrative": "齐桓公称霸是军事和盟会，已有专场。管仲真正先做的是国内的编制：《国语·齐语》写他用参国伍鄙把士、农、工、商分开居住，军赋就从这些编制里出。《史记·管晏列传》更强调他与鲍叔的私谊，内政的细节要看《齐语》。这是春秋时代少有的、被写成制度而不是只写成战役的改革。本场画都城外分片的聚落，不画后来的葵丘之会。",
+  "figures": [
+   {
+    "name": "管仲",
+    "role": "齐相",
+    "en": "Guan Zhong"
+   },
+   {
+    "name": "齐桓公",
+    "role": "齐君",
+    "en": "Duke Huan of Qi"
+   },
+   {
+    "name": "鲍叔牙",
+    "role": "齐大夫",
+    "en": "Bao Shuya"
+   }
+  ],
+  "places": [
+   "临淄"
+  ],
+  "placeEn": "Linzi",
+  "sources": [
+   {
+    "kind": "classic",
+    "title": "国语",
+    "section": "齐语",
+    "notes": "管仲制参国伍鄙"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "管晏列传",
+    "notes": "管仲既用，任政于齐"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.chunqiu.mibing",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "chunqiu",
+  "title": "弭兵之会",
+  "subtitle": "向戌",
+  "when": {
+   "start": -546,
+   "precision": "year",
+   "display": "前 546 年",
+   "era": "周灵王二十六年 · 鲁襄公二十七年（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "宋国向戌在晋楚之间奔走，襄公二十七年把双方和十几个小国请到宋都会盟，约定停止正面大战。盟书写了“晋楚之从交相见”，小国要同时讨好两边，负担并没有消失。《左传》也记下盟会上楚人裹甲，信任很薄。这不是和平条约的现代文本，是一次用会盟把霸战按下去的尝试。本场画宋都的坛和两边的空车，不画鄢陵那种战阵。",
+  "figures": [
+   {
+    "name": "向戌",
+    "role": "宋大夫",
+    "en": "Xiang Xu"
+   },
+   {
+    "name": "赵武",
+    "role": "晋卿",
+    "en": "Zhao Wu"
+   },
+   {
+    "name": "屈建",
+    "role": "楚令尹",
+    "en": "Qu Jian"
+   }
+  ],
+  "places": [
+   "宋"
+  ],
+  "placeEn": "Song",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "左传",
+    "section": "襄公二十七年",
+    "notes": "宋之盟，弭兵"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "宋微子世家",
+    "notes": "平公三十年弭兵之会"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.chunqiu.duisandu",
+  "pian": "zhiguo",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "chunqiu",
+  "title": "堕三都",
+  "subtitle": "孔子与三桓",
+  "when": {
+   "start": -498,
+   "precision": "year",
+   "display": "前 498 年",
+   "era": "周敬王二十二年 · 鲁定公十二年（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "鲁国三桓的私家城邑大过公家。孔子在定公时代建议堕三都：拆掉叔孙氏的郈、季孙氏的费。郈拆了，费邑的公山不狃反抗，定公和季桓子被围，孔子派申句须、乐颀才把费打下来。成邑却因为孟孙氏的抵制没有拆成。《左传》把这件事写成国君想收回城防，不是单纯的道德故事。本场画三座城、拆到一半的墙。",
+  "figures": [
+   {
+    "name": "孔子",
+    "role": "鲁大司寇",
+    "en": "Confucius"
+   },
+   {
+    "name": "季桓子",
+    "role": "鲁卿",
+    "en": "Ji Huanzi"
+   },
+   {
+    "name": "公山不狃",
+    "role": "费宰",
+    "en": "Gongshan Buniu"
+   }
+  ],
+  "places": [
+   "郈",
+   "费",
+   "成"
+  ],
+  "placeEn": "Hou, Bi and Cheng",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "左传",
+    "section": "定公十二年",
+    "notes": "堕三都"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "孔子世家",
+    "notes": "定公十二年堕三都"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.zhanguo.penga",
+  "pian": "zhiguo",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "zhanguo",
+  "title": "烹阿大夫",
+  "subtitle": "齐威王",
+  "when": {
+   "start": -356,
+   "precision": "circa",
+   "display": "约前 356 年",
+   "era": "齐威王初年（年号未行）",
+   "verify": "done",
+   "notes": "《史记》系于威王初即位之后，没有精确到某月。"
+  },
+  "line": "canon",
+  "narrative": "齐威王即位初期，政事委托卿大夫，国家很弱。他召即墨大夫，说毁谤你的话每天都有，我派人去看，田野开辟、百姓富足，是你不巴结左右。又召阿大夫，说夸你的话每天都有，派人去看却是田坏民冻。于是烹阿大夫和左右曾经吹捧他的人。这是战国治国叙事里最狠的一则赏罚，出自《史记·田敬仲完世家》。本场只画朝堂和两份相反的报告，不画行刑的血。",
+  "figures": [
+   {
+    "name": "齐威王",
+    "role": "齐君",
+    "en": "King Wei of Qi"
+   },
+   {
+    "name": "即墨大夫",
+    "role": "齐地方官",
+    "en": "the governor of Jimo"
+   },
+   {
+    "name": "阿大夫",
+    "role": "齐地方官",
+    "en": "the governor of E"
+   }
+  ],
+  "places": [
+   "临淄",
+   "即墨",
+   "阿"
+  ],
+  "placeEn": "Linzi, Jimo and E",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "田敬仲完世家",
+    "notes": "威王烹阿大夫，赏即墨大夫"
+   },
+   {
+    "kind": "classic",
+    "title": "战国策",
+    "section": "齐策",
+    "notes": "齐威王听政，后世转述，细节以史记为准"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.zhanguo.jindili",
+  "pian": "zhiguo",
+  "also": [
+   "dili"
+  ],
+  "chapter": "zhanguo",
+  "title": "尽地力",
+  "subtitle": "李悝",
+  "when": {
+   "start": -400,
+   "precision": "circa",
+   "display": "约前 400 年",
+   "era": "魏文侯时（年号未行）",
+   "verify": "done",
+   "notes": "李悝为魏文侯作法经、尽地力，年份只能取文侯中期。"
+  },
+  "line": "canon",
+  "narrative": "魏文侯用李悝。汉代人追述他说李悝作尽地力之教，鼓励农耕，又以平籴在丰年收购、荒年抛出，还编过《法经》六篇。这些话主要保存在《汉书·食货志》和《晋书·刑法志》，不是魏国当时的原档。能采纳的是：战国变法不是从商鞅才开始，魏国更早把土地和刑律当成国家工程。本场画井田式的墨线和一册刑书，并注明法经原文已佚。",
+  "figures": [
+   {
+    "name": "李悝",
+    "role": "魏臣",
+    "en": "Li Kui"
+   },
+   {
+    "name": "魏文侯",
+    "role": "魏君",
+    "en": "Marquis Wen of Wei"
+   }
+  ],
+  "places": [
+   "魏"
+  ],
+  "placeEn": "Wei",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "汉书",
+    "section": "食货志",
+    "notes": "李悝为魏文侯作尽地力之教"
+   },
+   {
+    "kind": "canon",
+    "title": "晋书",
+    "section": "刑法志",
+    "notes": "李悝撰法经六篇，书已佚"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.zhanguo.bangmu",
+  "pian": "zhiguo",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "zhanguo",
+  "title": "谤木",
+  "subtitle": "邹忌",
+  "when": {
+   "start": -350,
+   "precision": "circa",
+   "display": "约前 4 世纪中叶",
+   "era": "齐威王时（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "邹忌用自己和城北徐公比美的事劝齐威王：宫里的人、朝里的臣、国内的人都因为私心说他美。威王于是下令，能当面指出过失的受上赏，上书的受中赏，在市朝议论而被听到的受下赏。这是《战国策·齐策》的名篇，《史记·田敬仲完世家》也收了大意。它是一则关于信息如何进到国君耳朵里的故事，不是法令全文。本场画朝门和一群来进言的剪影。",
+  "figures": [
+   {
+    "name": "邹忌",
+    "role": "齐相",
+    "en": "Zou Ji"
+   },
+   {
+    "name": "齐威王",
+    "role": "齐君",
+    "en": "King Wei of Qi"
+   }
+  ],
+  "places": [
+   "临淄"
+  ],
+  "placeEn": "Linzi",
+  "sources": [
+   {
+    "kind": "classic",
+    "title": "战国策",
+    "section": "齐策一",
+    "notes": "邹忌讽齐王纳谏"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "田敬仲完世家",
+    "notes": "威王赏言"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.qin.tingyi",
+  "pian": "zhiguo",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "qin",
+  "title": "廷议分封",
+  "subtitle": "李斯驳王绾",
+  "when": {
+   "start": -221,
+   "precision": "year",
+   "display": "前 221 年",
+   "era": "秦始皇二十六年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "秦刚统一，丞相王绾请封诸子到燕、齐、楚的故地，说不封建就管不住这么远。李斯反对：周朝分封，诸侯相攻就像仇人，天下才重新打起来。始皇采纳李斯，分天下为郡，郡下设县。这是《史记·秦始皇本纪》里一次真正决定国家形状的朝议。“书同文”是配套的另一项，已有专场。本场只画殿上的两派和地图，不画长城工地。",
+  "figures": [
+   {
+    "name": "秦始皇",
+    "role": "秦帝",
+    "en": "Qin Shi Huang"
+   },
+   {
+    "name": "李斯",
+    "role": "廷尉",
+    "en": "Li Si"
+   },
+   {
+    "name": "王绾",
+    "role": "丞相",
+    "en": "Wang Wan"
+   }
+  ],
+  "places": [
+   "咸阳"
+  ],
+  "placeEn": "Xianyang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "秦始皇本纪",
+    "notes": "二十六年廷议封建，分天下为三十六郡"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.xihan.zhian",
+  "pian": "zhiguo",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "xihan",
+  "title": "治安策",
+  "subtitle": "贾谊",
+  "when": {
+   "start": -174,
+   "precision": "year",
+   "display": "前 174 年",
+   "era": "汉文帝前元六年（年号未行）",
+   "verify": "done",
+   "notes": "文帝元年为前 179 年。贾谊卒于前 169 年前后，策在此前。"
+  },
+  "line": "canon",
+  "narrative": "贾谊在长沙和梁国之间上疏，核心是诸侯王的封地太大，中央要用“众建诸侯而少其力”把它们拆小，同时改礼服、定等次。《汉书·贾谊传》保存了长篇，宣室夜问鬼神是另一场面，已有专场。本场只取他对王国问题的判断：不在朝堂上把封地拆开，将来就是又一次七国之乱。文帝没有全盘照做，但后来晁错、主父偃走的是同一条思路。",
+  "figures": [
+   {
+    "name": "贾谊",
+    "role": "梁王太傅",
+    "en": "Jia Yi"
+   },
+   {
+    "name": "汉文帝",
+    "role": "汉帝",
+    "en": "Emperor Wen of Han"
+   }
+  ],
+  "places": [
+   "长安"
+  ],
+  "placeEn": "Chang'an",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "汉书",
+    "section": "贾谊传",
+    "notes": "陈治安之策，请众建诸侯而少其力"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "屈原贾生列传",
+    "notes": "贾谊数上疏陈政事"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.xihan.tuien",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "xihan",
+  "title": "推恩令",
+  "subtitle": "主父偃",
+  "when": {
+   "start": -127,
+   "precision": "year",
+   "display": "前 127 年",
+   "era": "汉武帝元朔二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "晁错削藩引发七国之乱。元朔二年，主父偃换了一个办法：诸侯王可以把封地分给所有子弟，由朝廷定名号。王国越分越小，不用再下削地的诏书。《史记·主父偃列传》说武帝立刻施行。这是西汉治国里最成功的一次制度手术，它和同一年卫青收河南地同时发生，但一件在朝堂，一件在边塞。本场只画被分成小块的封国地图。",
+  "figures": [
+   {
+    "name": "主父偃",
+    "role": "中大夫",
+    "en": "Zhufu Yan"
+   },
+   {
+    "name": "汉武帝",
+    "role": "汉帝",
+    "en": "Emperor Wu of Han"
+   }
+  ],
+  "places": [
+   "长安"
+  ],
+  "placeEn": "Chang'an",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "主父偃列传",
+    "notes": "元朔二年令诸侯得推恩分子弟"
+   },
+   {
+    "kind": "canon",
+    "title": "汉书",
+    "section": "武帝纪",
+    "notes": "元朔二年春正月，诸侯王得分邑"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.xihan.yantie",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "xihan",
+  "title": "盐铁之议",
+  "subtitle": "贤良文学",
+  "when": {
+   "start": -81,
+   "precision": "year",
+   "display": "前 81 年",
+   "era": "汉昭帝始元六年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "武帝死后，盐铁官营还在。始元六年，昭帝叫郡国举的贤良文学进长安，和御史大夫桑弘羊辩论要不要罢掉盐铁、均输。桓宽后来把这次辩论写成《盐铁论》，那是整理过的文本，不是当场的速记。《汉书·车千秋传》证实会议开过，并在次年罢了酒酤。本场取朝堂上的两排人：一边要边费和国库，一边要民间的铁器。不把《盐铁论》的每一句都当成原话。",
+  "figures": [
+   {
+    "name": "桑弘羊",
+    "role": "御史大夫",
+    "en": "Sang Hongyang"
+   },
+   {
+    "name": "贤良文学",
+    "role": "与会者",
+    "en": "the literati"
+   },
+   {
+    "name": "汉昭帝",
+    "role": "汉帝",
+    "en": "Emperor Zhao of Han"
+   }
+  ],
+  "places": [
+   "长安"
+  ],
+  "placeEn": "Chang'an",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "汉书",
+    "section": "车千秋传",
+    "notes": "始元六年诏贤良文学议罢盐铁"
+   },
+   {
+    "kind": "classic",
+    "title": "盐铁论",
+    "section": "本议",
+    "notes": "桓宽追记，非当场全文"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.xihan.tuntian",
+  "pian": "zhiguo",
+  "also": [
+   "dili"
+  ],
+  "chapter": "xihan",
+  "title": "屯田奏",
+  "subtitle": "赵充国",
+  "when": {
+   "start": -60,
+   "precision": "year",
+   "display": "前 60 年",
+   "era": "汉宣帝神爵元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "神爵元年，西羌反。赵充国在金城主张罢骑兵、留步兵在湟中屯田，上了三份奏，反复和朝里主战的人争。宣帝最终允许他留兵开垦，羌人后来分化。《汉书·赵充国传》把奏文保存得很完整，是西汉少见的、把军费算成粮食账的文件。本场画湟水边的营田和奏牍，不画陈汤那种千里突袭。",
+  "figures": [
+   {
+    "name": "赵充国",
+    "role": "后将军",
+    "en": "Zhao Chongguo"
+   },
+   {
+    "name": "汉宣帝",
+    "role": "汉帝",
+    "en": "Emperor Xuan of Han"
+   }
+  ],
+  "places": [
+   "湟中",
+   "金城"
+  ],
+  "placeEn": "Huangzhong",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "汉书",
+    "section": "赵充国传",
+    "notes": "神爵元年屯田奏"
+   },
+   {
+    "kind": "canon",
+    "title": "汉书",
+    "section": "宣帝纪",
+    "notes": "神爵元年西羌之役"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.donghan.dutian",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "donghan",
+  "title": "度田",
+  "subtitle": "光武检核",
+  "when": {
+   "start": 39,
+   "precision": "year",
+   "display": "39 年",
+   "era": "汉光武帝建武十五年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "建武十五年，光武帝下令各州郡核实垦田和户口。地方官包庇豪强，把赋转到贫户头上，百姓起来反抗，有的郡守因为度田不实被下狱。《后汉书·光武帝纪》和《刘隆传》都写了这次清查的反弹。它说明东汉开国不久就碰到土地账和豪强的冲突，不是只在末年才有。本场画田册和郡守手中的简，不画昆阳的雷雨。",
+  "figures": [
+   {
+    "name": "汉光武帝",
+    "role": "汉帝",
+    "en": "Emperor Guangwu"
+   },
+   {
+    "name": "刘隆",
+    "role": "谒者",
+    "en": "Liu Long"
+   }
+  ],
+  "places": [
+   "洛阳"
+  ],
+  "placeEn": "Luoyang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "后汉书",
+    "section": "光武帝纪",
+    "notes": "建武十五年诏下州郡检核垦田户口"
+   },
+   {
+    "kind": "canon",
+    "title": "后汉书",
+    "section": "刘隆传",
+    "notes": "度田不实，守长下狱"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.donghan.denghou",
+  "pian": "zhiguo",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "donghan",
+  "title": "邓太后称制",
+  "subtitle": "元兴之后",
+  "when": {
+   "start": 106,
+   "precision": "year",
+   "display": "106 年",
+   "era": "汉殇帝延平元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "和帝死，邓绥立出生才百日的殇帝，自己临朝。殇帝一年后死，她又立安帝，继续称制，前后十余年。她限制外戚邓氏的一部分特权，也用宦官，史书对她的评价比对后来的梁冀温和，但权力结构是一样的：皇帝幼小，太后和兄弟掌机要。《后汉书·皇后纪》是这一段的主要文本。本场画空着的御座和太后的帘，不把她写成后来的慈禧。",
+  "figures": [
+   {
+    "name": "邓绥",
+    "role": "和熹邓太后",
+    "en": "Deng Sui"
+   },
+   {
+    "name": "汉安帝",
+    "role": "汉帝",
+    "en": "Emperor An of Han"
+   }
+  ],
+  "places": [
+   "洛阳"
+  ],
+  "placeEn": "Luoyang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "后汉书",
+    "section": "皇后纪",
+    "notes": "邓绥临朝，立殇帝、安帝"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.sanguo.xuxia",
+  "pian": "zhiguo",
+  "also": [
+   "dili"
+  ],
+  "chapter": "sanguo",
+  "title": "许下屯田",
+  "subtitle": "枣祗",
+  "when": {
+   "start": 196,
+   "precision": "year",
+   "display": "196 年",
+   "era": "汉建安元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "建安元年曹操迎献帝到许，同时采纳枣祗、韩浩的办法，在许下屯田，用官牛收租。一年得谷百万斛，后来推广到各州郡。《三国志·武帝纪》和《任峻传》都把这件事写成曹氏能支撑长期战争的原因。它是治国，不是官渡的夜袭：先有粮，才有后来的仗。本场画许县郊外的屯田和粮堆，不画官渡的火。",
+  "figures": [
+   {
+    "name": "曹操",
+    "role": "汉司空",
+    "en": "Cao Cao"
+   },
+   {
+    "name": "枣祗",
+    "role": "屯田都尉",
+    "en": "Zao Zhi"
+   },
+   {
+    "name": "任峻",
+    "role": "典农中郎将",
+    "en": "Ren Jun"
+   }
+  ],
+  "places": [
+   "许"
+  ],
+  "placeEn": "Xu",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "三国志",
+    "section": "魏书·武帝纪",
+    "notes": "建安元年用枣祗、韩浩等议，始兴屯田"
+   },
+   {
+    "kind": "canon",
+    "title": "三国志",
+    "section": "魏书·任峻传",
+    "notes": "军国之饶，起于枣祗而成于峻"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.sanguo.jiupin",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "sanguo",
+  "title": "九品官人",
+  "subtitle": "陈群",
+  "when": {
+   "start": 220,
+   "precision": "year",
+   "display": "220 年",
+   "era": "魏延康元年 / 黄初元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "曹丕代汉这一年，陈群建议用九品官人法：郡设中正，把本地人物分成九等，供吏部选用。起初是为了在战乱里找到人，后来中正被大族把持，变成门第的工具。这个后果是两晋人的批评，《三国志·陈群传》只记下创立本身。本场取延康年间的朝议，不把后来“上品无寒门”的成语当成曹丕当年的原文。",
+  "figures": [
+   {
+    "name": "陈群",
+    "role": "尚书",
+    "en": "Chen Qun"
+   },
+   {
+    "name": "曹丕",
+    "role": "魏王",
+    "en": "Cao Pi"
+   }
+  ],
+  "places": [
+   "洛阳"
+  ],
+  "placeEn": "Luoyang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "三国志",
+    "section": "魏书·陈群传",
+    "notes": "制九品官人之法"
+   },
+   {
+    "kind": "canon",
+    "title": "三国志",
+    "section": "魏书·文帝纪",
+    "notes": "延康元年受禅"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.sanguo.kejiao",
+  "pian": "zhiguo",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "sanguo",
+  "title": "科教严明",
+  "subtitle": "诸葛亮治蜀",
+  "when": {
+   "start": 223,
+   "precision": "year",
+   "display": "223 年",
+   "era": "蜀建兴元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "刘备死后，诸葛亮开府治蜀。陈寿在《三国志》本传的评语里说他科教严明、赏罚必信，官吏不敢欺，百姓都记得他。同时也说他连年兴军，没有做到以攻为守之外的休息。治国篇取前一半：南征和北伐是别的场，这里只写成都的府寺、条文和他亲自校对的簿书。不把《出师表》的每一个句子都搬上画面。",
+  "figures": [
+   {
+    "name": "诸葛亮",
+    "role": "蜀丞相",
+    "en": "Zhuge Liang"
+   },
+   {
+    "name": "刘禅",
+    "role": "蜀帝",
+    "en": "Liu Shan"
+   }
+  ],
+  "places": [
+   "成都"
+  ],
+  "placeEn": "Chengdu",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "三国志",
+    "section": "蜀书·诸葛亮传",
+    "notes": "科教严明，赏罚必信"
+   },
+   {
+    "kind": "canon",
+    "title": "三国志",
+    "section": "蜀书·后主传",
+    "notes": "建兴元年诸葛亮开府"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.liangjin.hudiao",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "liangjin",
+  "title": "户调式",
+  "subtitle": "太康均田亩",
+  "when": {
+   "start": 280,
+   "precision": "year",
+   "display": "280 年",
+   "era": "晋武帝太康元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "平吴这一年，晋朝颁布户调之式：丁男之户每年交绢三匹、绵三斤，女及次丁减半，并按官品占田。《晋书·食货志》保存了这个框架。它常常被和北魏均田令比，但晋的占田是限额和课税，不是把无主地授给每户。本场按《食货志》的原意画户籍和绢，不把太和均田的名词提前用到晋武帝身上。",
+  "figures": [
+   {
+    "name": "晋武帝",
+    "role": "晋帝",
+    "en": "Emperor Wu of Jin"
+   }
+  ],
+  "places": [
+   "洛阳"
+  ],
+  "placeEn": "Luoyang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "晋书",
+    "section": "食货志",
+    "notes": "太康元年户调之式"
+   },
+   {
+    "kind": "canon",
+    "title": "晋书",
+    "section": "武帝纪",
+    "notes": "太康元年平吴"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.liangjin.tuduan",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "liangjin",
+  "title": "庚戌土断",
+  "subtitle": "桓温",
+  "when": {
+   "start": 364,
+   "precision": "year",
+   "display": "364 年",
+   "era": "东晋兴宁二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "南渡的北方人长期挂着侨州郡的籍，不入当地户籍，赋役就转不到他们头上。兴宁二年三月庚戌，桓温行土断，把侨人断入所居郡县的户籍，王公以下都不得例外，会稽王司马昱也受了罚。《晋书·桓温传》把庚戌土断写成他内政里最有实效的一项。本场画江南的户籍册和被涂掉的侨郡名，不画北伐的战船。",
+  "figures": [
+   {
+    "name": "桓温",
+    "role": "大司马",
+    "en": "Huan Wen"
+   },
+   {
+    "name": "司马昱",
+    "role": "会稽王",
+    "en": "Sima Yu"
+   }
+  ],
+  "places": [
+   "建康"
+  ],
+  "placeEn": "Jiankang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "晋书",
+    "section": "桓温传",
+    "notes": "兴宁二年庚戌土断"
+   },
+   {
+    "kind": "canon",
+    "title": "晋书",
+    "section": "哀帝纪",
+    "notes": "兴宁二年三月庚戌，大阅户人，严法禁"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.nanbeichao.juntian",
+  "pian": "zhiguo",
+  "also": [
+   "dili"
+  ],
+  "chapter": "nanbeichao",
+  "title": "均田令",
+  "subtitle": "太和九年",
+  "when": {
+   "start": 485,
+   "precision": "year",
+   "display": "485 年",
+   "era": "北魏太和九年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "太和九年，北魏下诏均田：十五岁以上的男夫受露田四十亩，妇人二十亩，奴婢依良人，另有桑田。土地在年老或身死后还官，桑田可以留。《魏书·食货志》记录了这个框架。它是鲜卑政权在中原用汉地的亩制重新把劳动力绑到土地上。和太和十年的三长制是一套改革的两步，本场只写授田的文书，三长另场。",
+  "figures": [
+   {
+    "name": "冯太后",
+    "role": "临朝称制",
+    "en": "Empress Dowager Feng"
+   },
+   {
+    "name": "北魏孝文帝",
+    "role": "魏帝",
+    "en": "Emperor Xiaowen"
+   }
+  ],
+  "places": [
+   "平城"
+  ],
+  "placeEn": "Pingcheng",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "魏书",
+    "section": "食货志",
+    "notes": "太和九年均田"
+   },
+   {
+    "kind": "canon",
+    "title": "魏书",
+    "section": "高祖纪",
+    "notes": "太和九年十月丁未，诏均给天下民田"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.nanbeichao.sanzhang",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "nanbeichao",
+  "title": "三长制",
+  "subtitle": "废宗主督护",
+  "when": {
+   "start": 486,
+   "precision": "year",
+   "display": "486 年",
+   "era": "北魏太和十年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "均田的第二年，李冲建议设三长：五家一邻长，五邻一里长，五里一党长，用来代替豪强包揽户口的宗主督护。文明太后在朝议里压下反对，下令施行。《魏书·食货志》和《李冲传》都写了争论。没有三长，均田的账就仍然在宗主手里。本场画邻、里、党的三级名籍，不和迁都洛阳混成一件事——迁都在太和十七年之后。",
+  "figures": [
+   {
+    "name": "李冲",
+    "role": "内秘书令",
+    "en": "Li Chong"
+   },
+   {
+    "name": "冯太后",
+    "role": "临朝称制",
+    "en": "Empress Dowager Feng"
+   }
+  ],
+  "places": [
+   "平城"
+  ],
+  "placeEn": "Pingcheng",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "魏书",
+    "section": "食货志",
+    "notes": "太和十年立三长"
+   },
+   {
+    "kind": "canon",
+    "title": "魏书",
+    "section": "李冲传",
+    "notes": "李冲立三长之制"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.sui.kaihuanglv",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "sui",
+  "title": "开皇律",
+  "subtitle": "除枭辕",
+  "when": {
+   "start": 581,
+   "precision": "year",
+   "display": "581 年",
+   "era": "隋开皇元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "杨坚代周的当年就命高颎、郑译、杨素等人更定新律，第二年又让苏威、牛弘改定。开皇律把死罪条款减少，废除枭首、辕身等法，定下五刑和十恶的框架。《隋书·刑法志》是主要依据。它直接影响后来的唐律。本场和“临光殿受禅”分开：受禅是权力转移，开皇律是他们拿到权力之后写的规则。画面是竹简和朱笔，不是宫殿典礼。",
+  "figures": [
+   {
+    "name": "隋文帝",
+    "role": "隋帝",
+    "en": "Emperor Wen of Sui"
+   },
+   {
+    "name": "高颎",
+    "role": "尚书左仆射",
+    "en": "Gao Jiong"
+   },
+   {
+    "name": "苏威",
+    "role": "纳言",
+    "en": "Su Wei"
+   },
+   {
+    "name": "牛弘",
+    "role": "礼部尚书",
+    "en": "Niu Hong"
+   }
+  ],
+  "places": [
+   "大兴"
+  ],
+  "placeEn": "Daxing",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "隋书",
+    "section": "刑法志",
+    "notes": "开皇元年、三年定新律"
+   },
+   {
+    "kind": "canon",
+    "title": "隋书",
+    "section": "高祖纪",
+    "notes": "开皇元年十月行新律"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.sui.suigong",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "sui",
+  "title": "岁贡三人",
+  "subtitle": "开皇科举的前身",
+  "when": {
+   "start": 587,
+   "precision": "year",
+   "display": "587 年",
+   "era": "隋开皇七年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "开皇七年，隋文帝命诸州每年贡士三人。《隋书·高祖纪》有这条诏令。进士科是不是炀帝大业年间才有，两唐书和通典的说法并不一致，本场不把“隋创进士”写成定论，只写开皇这条还能在正史纪里对上的岁贡。它的意义是：选人开始从州里往上送，不完全靠中正的品状。本场画州府的贡士名单，不画唐代的贡院号舍。",
+  "figures": [
+   {
+    "name": "隋文帝",
+    "role": "隋帝",
+    "en": "Emperor Wen of Sui"
+   }
+  ],
+  "places": [
+   "大兴"
+  ],
+  "placeEn": "Daxing",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "隋书",
+    "section": "高祖纪",
+    "notes": "开皇七年命诸州岁贡三人"
+   },
+   {
+    "kind": "canon",
+    "title": "隋书",
+    "section": "儒林传",
+    "notes": "开皇之间征辟与贡士，进士科始年诸书不一"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.tang.zuyong",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "tang",
+  "title": "租庸调",
+  "subtitle": "武德七年",
+  "when": {
+   "start": 624,
+   "precision": "year",
+   "display": "624 年",
+   "era": "唐武德七年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "武德七年，唐朝把租、庸、调写进令：每丁租粟二石，调绢或布，庸是力役，不想服役可以用绢代替。《旧唐书·食货志》和《唐会要》都记了这个框架。它是建立在均田和户籍之上的，所以安禄山之后户口大乱，这套税法就收不上来。本场只写武德的令文和户籍，两税法是德宗时的另一场。",
+  "figures": [
+   {
+    "name": "唐高祖",
+    "role": "唐帝",
+    "en": "Emperor Gaozu of Tang"
+   }
+  ],
+  "places": [
+   "长安"
+  ],
+  "placeEn": "Chang'an",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "食货志",
+    "notes": "武德七年始定律令，租庸调"
+   },
+   {
+    "kind": "classic",
+    "title": "唐会要",
+    "section": "租税上",
+    "notes": "武德租庸调的令文提要"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.tang.doumi",
+  "pian": "zhiguo",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "tang",
+  "title": "贞观斗米",
+  "subtitle": "外户不闭",
+  "when": {
+   "start": 630,
+   "precision": "year",
+   "display": "630 年",
+   "era": "唐太宗贞观四年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "贞观四年，唐军破东突厥，北边暂时安静。旧唐书说这一年天下判死罪的只有二十九人，东至于海、南至于岭，外户不闭，行旅不带粮食。这些句子是史官的颂词，不能当成逐县统计，但它们被写进本纪，代表唐人对贞观治理的标准画像。魏征进谏已有专场。本场只取年成、刑狱和路上的空门，不把颂词画成永远的太平。",
+  "figures": [
+   {
+    "name": "唐太宗",
+    "role": "唐帝",
+    "en": "Emperor Taizong"
+   },
+   {
+    "name": "房玄龄",
+    "role": "尚书左仆射",
+    "en": "Fang Xuanling"
+   }
+  ],
+  "places": [
+   "长安"
+  ],
+  "placeEn": "Chang'an",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "太宗本纪",
+    "notes": "贞观四年，米斗不过三四钱，外户不闭"
+   },
+   {
+    "kind": "canon",
+    "title": "资治通鉴",
+    "section": "唐纪",
+    "notes": "贞观四年治象，与旧唐书互见"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.tang.liangshui",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "tang",
+  "title": "两税法",
+  "subtitle": "杨炎",
+  "when": {
+   "start": 780,
+   "precision": "year",
+   "display": "780 年",
+   "era": "唐德宗建中元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "建中元年，杨炎建议废租庸调，按户等和田亩在夏、秋两次收税，不分主户客户，商人也要纳税。德宗采纳。旧唐书说这是因为版籍坏了，丁额已经查不清。《旧唐书·杨炎传》和《食货志》是依据。两税后来被附加税掏空，但征税的单位从“丁”改成“资产”，是中古财政的转轴。本场画夏秋两册税簿。",
+  "figures": [
+   {
+    "name": "杨炎",
+    "role": "宰相",
+    "en": "Yang Yan"
+   },
+   {
+    "name": "唐德宗",
+    "role": "唐帝",
+    "en": "Emperor Dezong"
+   }
+  ],
+  "places": [
+   "长安"
+  ],
+  "placeEn": "Chang'an",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "杨炎传",
+    "notes": "建中元年请作两税法"
+   },
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "食货志",
+    "notes": "建中元年颁两税"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.tang.yongzhen",
+  "pian": "zhiguo",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "tang",
+  "title": "永贞革新",
+  "subtitle": "二王八司马",
+  "when": {
+   "start": 805,
+   "precision": "year",
+   "display": "805 年",
+   "era": "唐顺宗永贞元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "顺宗在永贞元年正月即位，说话已经困难，王叔文、王伾引用柳宗元、刘禹锡等，罢宫市、停进奉，并想从宦官手里收回兵权。八月顺宗退位，宪宗即位，王叔文被贬，随后赐死，八名官员贬到远州。旧唐书把这场变革写成小人专权，宋人以后也有不同评价。本场只记录措施和结局都发生过，不把任何一种史论当成事实本身。",
+  "figures": [
+   {
+    "name": "王叔文",
+    "role": "翰林学士",
+    "en": "Wang Shuwen"
+   },
+   {
+    "name": "唐顺宗",
+    "role": "唐帝",
+    "en": "Emperor Shunzong"
+   },
+   {
+    "name": "柳宗元",
+    "role": "礼部员外郎",
+    "en": "Liu Zongyuan"
+   }
+  ],
+  "places": [
+   "长安"
+  ],
+  "placeEn": "Chang'an",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "王叔文传",
+    "notes": "永贞元年改革与失败"
+   },
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "顺宗本纪",
+    "notes": "永贞内禅"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.wudai.xiande",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "wudai",
+  "title": "显德毁佛",
+  "subtitle": "周世宗",
+  "when": {
+   "start": 955,
+   "precision": "year",
+   "display": "955 年",
+   "era": "后周显德二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "显德二年，周世宗下令废除没有敕额的寺院，僧尼必须经过考试才能保留度牒，并把铜佛像销铸成钱。《旧五代史·世宗纪》和《五代会要》都记了。他的理由是国家缺铜、僧徒太滥，不是后来的思想运动。这一年和高平之战不是一件事：高平是用兵，这里是财政和寺观。本场画被封的寺门和铸钱的炉，不画战场。",
+  "figures": [
+   {
+    "name": "柴荣",
+    "role": "后周世宗",
+    "en": "Chai Rong"
+   }
+  ],
+  "places": [
+   "开封"
+  ],
+  "placeEn": "Kaifeng",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧五代史",
+    "section": "周书·世宗纪",
+    "notes": "显德二年废无敕额寺院"
+   },
+   {
+    "kind": "classic",
+    "title": "五代会要",
+    "section": "寺观",
+    "notes": "显德二年寺院与铜像"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.beisong.gengshu",
+  "pian": "zhiguo",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "beisong",
+  "title": "更戍法",
+  "subtitle": "禁军轮驻",
+  "when": {
+   "start": 962,
+   "precision": "circa",
+   "display": "约建隆年间",
+   "era": "宋建隆中",
+   "verify": "done",
+   "notes": "《宋史·兵志》说太祖立更戍法，没有系于某一天。"
+  },
+  "line": "canon",
+  "narrative": "宋太祖把精兵收到中央，让禁军定期换防，将领不固定带同一支兵，兵也不固定驻同一座城。《宋史·兵志》认为这是为了防止唐末藩镇的兵为将有。代价后来也很清楚：兵不识将，训练变差，一到对外战争就显出来。本场只画士卒出发换防的名册和空着的将旗，不把杯酒释兵权的宴会再演一遍。",
+  "figures": [
+   {
+    "name": "宋太祖",
+    "role": "宋帝",
+    "en": "Emperor Taizu of Song"
+   },
+   {
+    "name": "赵普",
+    "role": "枢密使",
+    "en": "Zhao Pu"
+   }
+  ],
+  "places": [
+   "汴京"
+  ],
+  "placeEn": "Bianjing",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "兵志",
+    "notes": "太祖惩藩镇之弊，立更戍法"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.beisong.yuanyou",
+  "pian": "zhiguo",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "beisong",
+  "title": "元祐更化",
+  "subtitle": "司马光",
+  "when": {
+   "start": 1086,
+   "precision": "year",
+   "display": "1086 年",
+   "era": "宋元祐元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "神宗死，高太后听政，起用司马光。元祐元年，免役、青苗等新法被陆续罢掉，司马光在几个月里把他认为害民的条目改回去，自己也在这一年九月去世。苏轼等人并不是每一条都同意他的速度。《宋史·哲宗纪》和《司马光传》记录了改法本身。熙宁变法已有专场，本场是它的回摆：同一座朝堂，相反的诏书。",
+  "figures": [
+   {
+    "name": "司马光",
+    "role": "尚书左仆射",
+    "en": "Sima Guang"
+   },
+   {
+    "name": "高太后",
+    "role": "太皇太后",
+    "en": "Empress Dowager Gao"
+   },
+   {
+    "name": "宋哲宗",
+    "role": "宋帝",
+    "en": "Emperor Zhezong"
+   }
+  ],
+  "places": [
+   "汴京"
+  ],
+  "placeEn": "Bianjing",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "司马光传",
+    "notes": "元祐元年罢新法"
+   },
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "哲宗纪",
+    "notes": "元祐元年改役法"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.beisong.sanshe",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "beisong",
+  "title": "三舍法",
+  "subtitle": "太学",
+  "when": {
+   "start": 1071,
+   "precision": "year",
+   "display": "1071 年",
+   "era": "宋熙宁四年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "熙宁四年，王安石把太学分成外舍、内舍、上舍。学生按考试和行艺升舍，上舍上等可以免解甚至直接授官。《宋史·选举志》记了这个办法。它是想用学校代替一部分科举，后来在党争里屡次废复。本场不评价它是否成功，只画太学的三进院子和名榜。乌台诗案是另一场，不放进这间学堂。",
+  "figures": [
+   {
+    "name": "王安石",
+    "role": "参知政事",
+    "en": "Wang Anshi"
+   },
+   {
+    "name": "宋神宗",
+    "role": "宋帝",
+    "en": "Emperor Shenzong"
+   }
+  ],
+  "places": [
+   "汴京",
+   "太学"
+  ],
+  "placeEn": "the Imperial Academy, Bianjing",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "选举志",
+    "notes": "熙宁四年太学三舍法"
+   },
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "王安石传",
+    "notes": "改科举，立三舍"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.nansong.shaoxing",
+  "pian": "zhiguo",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "nansong",
+  "title": "绍兴和议",
+  "subtitle": "淮水为界",
+  "when": {
+   "start": 1141,
+   "precision": "year",
+   "display": "1141 年",
+   "era": "宋绍兴十一年 · 金皇统元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "绍兴十一年，宋金再定和议：宋称臣，岁贡银绢，两国以淮水中流、大散关为界，并割唐、邓。岳飞在这一年被杀，是和议的配套，已有“精忠”一场。本场只取边界和誓书：一张把淮河画成国界的地图，和朝堂上的岁币账。地理上的淮河另有专场可画水，这里画的是条约如何写成。",
+  "figures": [
+   {
+    "name": "秦桧",
+    "role": "宰相",
+    "en": "Qin Hui"
+   },
+   {
+    "name": "宋高宗",
+    "role": "宋帝",
+    "en": "Emperor Gaozong"
+   },
+   {
+    "name": "完颜宗弼",
+    "role": "金都元帅",
+    "en": "Wanyan Zongbi"
+   }
+  ],
+  "places": [
+   "临安",
+   "淮河"
+  ],
+  "placeEn": "Lin'an and the Huai",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "高宗纪",
+    "notes": "绍兴十一年和议成"
+   },
+   {
+    "kind": "canon",
+    "title": "金史",
+    "section": "宗弼传",
+    "notes": "皇统元年宋称臣，画淮为界"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.nansong.jingjie",
+  "pian": "zhiguo",
+  "also": [
+   "dili"
+  ],
+  "chapter": "nansong",
+  "title": "经界法",
+  "subtitle": "李椿年",
+  "when": {
+   "start": 1142,
+   "precision": "year",
+   "display": "1142 年",
+   "era": "宋绍兴十二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "和议刚签，李椿年请在平江开始经界：丈量田亩，造砧基簿，让产有主、税有地。绍兴十二年推行，后来扩到其他路，也因为扰民和豪强抵制时停时续。《宋史·食货志》记录了砧基簿的办法。这是南宋在半壁江山上重做土地账。本场画田埂、图帐和拒测的村庄，不画前线。",
+  "figures": [
+   {
+    "name": "李椿年",
+    "role": "两浙转运副使",
+    "en": "Li Chunnian"
+   },
+   {
+    "name": "宋高宗",
+    "role": "宋帝",
+    "en": "Emperor Gaozong"
+   }
+  ],
+  "places": [
+   "平江"
+  ],
+  "placeEn": "Pingjiang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "食货志",
+    "notes": "绍兴十二年李椿年经界，造砧基簿"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.liaojin.nanbeimian",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "liaojin",
+  "title": "南北面官",
+  "subtitle": "辽的两套政府",
+  "when": {
+   "start": 947,
+   "precision": "circa",
+   "display": "约会同末至大同元年",
+   "era": "辽会同末至大同元年",
+   "verify": "done",
+   "notes": "南北面官的定制有一个过程，《辽史·百官志》追述于太宗得燕云之后。会同十年与大同元年都在 947 年。"
+  },
+  "line": "canon",
+  "narrative": "辽朝用北面官治宫帐、部族和属国，用南面官治汉人州县，官名一套像契丹，一套像唐朝。《辽史·百官志》的序把这个设计说得很明确，具体设官的年份则是后来追记的。它是征服政权保留两套制度、而不是立刻改成单一汉制的例子。本场画同一座帐前的两排印信，不把契丹文字画成可读的汉字。",
+  "figures": [
+   {
+    "name": "辽太宗",
+    "role": "辽帝",
+    "en": "Emperor Taizong of Liao"
+   }
+  ],
+  "places": [
+   "上京"
+  ],
+  "placeEn": "Shangjing",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "辽史",
+    "section": "百官志",
+    "notes": "北面治宫帐部族，南面治汉人州县"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.liaojin.menganke",
+  "pian": "zhiguo",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "liaojin",
+  "title": "猛安谋克",
+  "subtitle": "女真的军政单位",
+  "when": {
+   "start": 1114,
+   "precision": "year",
+   "display": "1114 年",
+   "era": "辽天庆四年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "女真起兵之前，阿骨打就把部人编成猛安、谋克：猛安相当于千户，谋克相当于百户，平时狩猎耕种，战时出兵。《金史·太祖纪》和《兵志》都写了这套编制在宁江州之战前后被用来扩军。它既是军队也是户籍。本场和护步答冈的会战分开，只画营帐和户册。南下中原以后，猛安谋克迁到华北屯田，是后来的问题，不在这一年。",
+  "figures": [
+   {
+    "name": "完颜阿骨打",
+    "role": "女真都勃极烈",
+    "en": "Wanyan Aguda"
+   }
+  ],
+  "places": [
+   "宁江州"
+  ],
+  "placeEn": "Ningjiang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "金史",
+    "section": "兵志",
+    "notes": "猛安谋克之制"
+   },
+   {
+    "kind": "canon",
+    "title": "金史",
+    "section": "太祖纪",
+    "notes": "天庆四年起兵，以猛安谋克统军"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.yuan.xingsheng",
+  "pian": "zhiguo",
+  "also": [
+   "dili"
+  ],
+  "chapter": "yuan",
+  "title": "行省",
+  "subtitle": "政令出中书",
+  "when": {
+   "start": 1280,
+   "precision": "circa",
+   "display": "约至元中",
+   "era": "元世祖至元十七年前后",
+   "verify": "done",
+   "notes": "行省从出征时的行中书省逐渐变成固定大区，年份取至元中叶，不假装有一天颁定全国。"
+  },
+  "line": "canon",
+  "narrative": "蒙古出征时派行中书省随军。忽必烈定都之后，这些行省慢慢变成固定的大行政区，掌一路的钱粮、兵甲和刑名，上面是中书省。《元史·百官志》记录了各行省的名称和职掌。这是中国地方制度里“省”的直接来源。本场画从大都伸向各路的墨线，不把行省当成清代的总督衙门。",
+  "figures": [
+   {
+    "name": "忽必烈",
+    "role": "元世祖",
+    "en": "Kublai Khan"
+   }
+  ],
+  "places": [
+   "大都"
+  ],
+  "placeEn": "Dadu",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "元史",
+    "section": "百官志",
+    "notes": "行中书省职掌"
+   },
+   {
+    "kind": "canon",
+    "title": "元史",
+    "section": "世祖纪",
+    "notes": "至元间诸行省的设置"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.ming.yulin",
+  "pian": "zhiguo",
+  "also": [
+   "dili"
+  ],
+  "chapter": "ming",
+  "title": "鱼鳞图册",
+  "subtitle": "洪武二十年",
+  "when": {
+   "start": 1387,
+   "precision": "year",
+   "display": "1387 年",
+   "era": "明洪武二十年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "洪武二十年，明朝在各地攒造鱼鳞图册，把每块田的形状、四至、业主画成相连的鱼鳞状图，和赋役黄册互相核对。《明史·食货志》说明黄册管户、鱼鳞图册管田。这是朱元璋在全国范围内重做土地底账。本场画一册打开的田图，不画胡惟庸案的朝堂——那是洪武十三年的另一场政治清洗。",
+  "figures": [
+   {
+    "name": "朱元璋",
+    "role": "明太祖",
+    "en": "Zhu Yuanzhang"
+   }
+  ],
+  "places": [
+   "南京"
+  ],
+  "placeEn": "Nanjing",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "食货志",
+    "notes": "洪武二十年鱼鳞图册"
+   },
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "太祖纪",
+    "notes": "洪武间核田亩"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.ming.haijin",
+  "pian": "zhiguo",
+  "also": [
+   "dili"
+  ],
+  "chapter": "ming",
+  "title": "海禁",
+  "subtitle": "寸板不许下海",
+  "when": {
+   "start": 1372,
+   "precision": "circa",
+   "display": "约洪武初",
+   "era": "明洪武五年前后",
+   "verify": "done",
+   "notes": "禁海诏令的年月各书详略不同，本场只取洪武初禁止私自出海这一政策，不锁定某一道诏的日子。"
+  },
+  "line": "canon",
+  "narrative": "洪武年间明朝禁止民间私造海船、私自下海通番，朝贡以外的海上贸易被当成犯罪。《明史·食货志》把海禁和后来的倭乱、市舶废置连在一起叙述。郑和的船队是朝贡体系里的例外，不是这道禁令的取消。本场画封住的海口和空着的市舶公案。具体哪一天第一道诏书发出，材料不一致，所以年份用约数。",
+  "figures": [
+   {
+    "name": "朱元璋",
+    "role": "明太祖",
+    "en": "Zhu Yuanzhang"
+   }
+  ],
+  "places": [
+   "沿海卫所"
+  ],
+  "placeEn": "the coastal guards",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "食货志",
+    "notes": "洪武禁濒海民私通海外"
+   },
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "朱纨传",
+    "notes": "海禁之严，至寸板不许下海，系后世概括"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.qing.bujiafu",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "qing",
+  "title": "永不加赋",
+  "subtitle": "康熙五十一年",
+  "when": {
+   "start": 1712,
+   "precision": "year",
+   "display": "1712 年",
+   "era": "清康熙五十一年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "康熙五十一年，朝廷宣布以五十年的人丁数为定额，以后新生的人丁不再加征丁银，叫“盛世滋生人丁，永不加赋”。《清史稿·食货志》和《圣祖本纪》都有这条。它没有立刻取消丁银，只是把丁银总额冻结。真正把丁银摊进地亩，是雍正年间的另一步。本场只画冻结的丁额册，不把摊丁入亩提前算到这一年。",
+  "figures": [
+   {
+    "name": "康熙帝",
+    "role": "清帝",
+    "en": "Kangxi Emperor"
+   }
+  ],
+  "places": [
+   "北京"
+  ],
+  "placeEn": "Beijing",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "圣祖本纪",
+    "notes": "康熙五十一年滋生人丁永不加赋"
+   },
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "食货志",
+    "notes": "丁额冻结"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.qing.gaitu",
+  "pian": "zhiguo",
+  "also": [
+   "dili"
+  ],
+  "chapter": "qing",
+  "title": "改土归流",
+  "subtitle": "鄂尔泰",
+  "when": {
+   "start": 1726,
+   "precision": "year",
+   "display": "1726 年",
+   "era": "清雍正四年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "西南土司世袭管地、管人。雍正四年，云贵总督鄂尔泰奏请在用兵能到的地方改设流官，雍正批准，云南、贵州、广西和四川的一部分土司被废。《清史稿·土司传》和《鄂尔泰传》写了推行，也写了乌蒙、古州等地的反抗和清军的镇压。这不是和平的行政更名。本场画土司印信被收走、流官的关防送进山寨，不回避镇压，也不把它画成现代的省界测绘。",
+  "figures": [
+   {
+    "name": "鄂尔泰",
+    "role": "云贵总督",
+    "en": "Ortai"
+   },
+   {
+    "name": "雍正帝",
+    "role": "清帝",
+    "en": "Yongzheng Emperor"
+   }
+  ],
+  "places": [
+   "云南",
+   "贵州"
+  ],
+  "placeEn": "Yunnan and Guizhou",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "鄂尔泰传",
+    "notes": "雍正四年奏改土归流"
+   },
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "土司传",
+    "notes": "西南改流与反抗"
+   }
+  ]
+ },
+ {
+  "id": "zhiguo.qing.junjichu",
+  "pian": "zhiguo",
+  "also": [],
+  "chapter": "qing",
+  "title": "军机处",
+  "subtitle": "雍正七年",
+  "when": {
+   "start": 1729,
+   "precision": "year",
+   "display": "1729 年",
+   "era": "清雍正七年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "雍正七年，因为对准噶尔用兵，宫里设立军机房，让亲信大臣值宿，承旨出诏，后来改名军机处，战争结束后也没有撤。《清史稿·军机大臣年表》从这一年开始列名。它使许多机要不再经过内阁的票拟。本场画隆宗门内的值房和一封未封口的廷寄，不把军机处写成后来一切决策的唯一地点——有些事仍然在皇帝和个别大臣之间。",
+  "figures": [
+   {
+    "name": "雍正帝",
+    "role": "清帝",
+    "en": "Yongzheng Emperor"
+   },
+   {
+    "name": "张廷玉",
+    "role": "军机大臣",
+    "en": "Zhang Tingyu"
+   }
+  ],
+  "places": [
+   "北京",
+   "隆宗门"
+  ],
+  "placeEn": "Beijing, the Grand Council office",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "军机大臣年表",
+    "notes": "雍正七年始设军机"
+   },
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "职官志",
+    "notes": "军机处承旨出政"
+   }
+  ]
+ }
+]

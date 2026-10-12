@@ -1,0 +1,2042 @@
+[
+ {
+  "id": "dili.shanggu.hekunlun",
+  "pian": "dili",
+  "also": [],
+  "chapter": "shanggu",
+  "title": "河出昆仑",
+  "subtitle": "禹本纪",
+  "when": {
+   "start": -2200,
+   "precision": "legend",
+   "display": "传说时代",
+   "era": "禹之时（年号未行）",
+   "verify": "done",
+   "notes": "河源的实测要到很晚，本场只处理早期文献怎么想象它。"
+  },
+  "line": "legend",
+  "narrative": "《史记·大宛列传》太史公曰引《禹本纪》：河出昆仑，昆仑高二千五百余里，其上有醴泉瑶池。司马迁接着说，张骞到了大夏，并没有看见这本书写的东西，所以他不敢据《禹本纪》来谈河源。这是地理篇要标明的一种知识：早期中国人用昆仑解释黄河从哪里来，而写史的人已经表示怀疑。本场标为传说，不把它写成正史里的实测。画面是一张留白很多的墨线河图，不画后来的实测地图。",
+  "figures": [
+   {
+    "name": "司马迁",
+    "role": "太史公",
+    "en": "Sima Qian"
+   }
+  ],
+  "places": [
+   "昆仑",
+   "黄河"
+  ],
+  "placeEn": "Kunlun and the Yellow River",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "大宛列传",
+    "notes": "太史公曰引禹本纪，并言不敢据以谈河源"
+   },
+   {
+    "kind": "classic",
+    "title": "山海经",
+    "section": "海内西经",
+    "notes": "河出昆仑，神话地理，与史记所疑为同一类文本"
+   }
+  ]
+ },
+ {
+  "id": "dili.shanggu.yugong",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "shanggu",
+  "title": "禹贡九州",
+  "subtitle": "任土作贡",
+  "when": {
+   "start": -2100,
+   "precision": "legend",
+   "display": "传说时代，文本形成于战国",
+   "era": "《尚书》所传禹时（年号未行）",
+   "verify": "done",
+   "notes": "《禹贡》不是禹的档案，多数学者认为成于战国。"
+  },
+  "line": "classic",
+  "narrative": "《尚书·禹贡》把天下划成冀、兖、青、徐、扬、荆、豫、梁、雍九州，并写每州的土壤、物产和进贡路线。它不是夏朝的行政档案，文本的成型一般被放在战国，但两千年里人们拿它当地理总图。《史记·夏本纪》几乎把全文收了进去。大禹治水是人物和工程那场。本场只展开这张想象的九州图：河流是墨线，州界是留白。",
+  "figures": [
+   {
+    "name": "禹",
+    "role": "传说中的治水者",
+    "en": "Yu"
+   }
+  ],
+  "places": [
+   "九州"
+  ],
+  "placeEn": "the Nine Provinces",
+  "sources": [
+   {
+    "kind": "classic",
+    "title": "尚书",
+    "section": "禹贡",
+    "notes": "九州与贡道"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "夏本纪",
+    "notes": "采禹贡入夏本纪"
+   }
+  ]
+ },
+ {
+  "id": "dili.xia.yangcheng",
+  "pian": "dili",
+  "also": [],
+  "chapter": "xia",
+  "title": "阳城",
+  "subtitle": "禹都的争议",
+  "when": {
+   "start": -2070,
+   "precision": "circa",
+   "display": "约前 2070 年",
+   "era": "夏禹时（年号未行）",
+   "verify": "done",
+   "notes": "夏都地望有阳城、斟鄩等说，本场把争议写进叙事。"
+  },
+  "line": "canon",
+  "narrative": "《史记·夏本纪》说禹避舜之子到阳城，天下诸侯都去朝见，他才即天子位。阳城在哪里，晋南、豫西都有说法，考古上的王城岗也只是候选，不能在叙事里写成定论。地理篇要的就是这种不确定：都城的名字比都城的坐标更早进入史书。画面用两处可能的山丘，中间留白，不标今天的县名当唯一答案。",
+  "figures": [
+   {
+    "name": "禹",
+    "role": "夏后",
+    "en": "Yu"
+   }
+  ],
+  "places": [
+   "阳城"
+  ],
+  "placeEn": "Yangcheng",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "夏本纪",
+    "notes": "禹避商均于阳城"
+   },
+   {
+    "kind": "classic",
+    "title": "孟子",
+    "section": "万章上",
+    "notes": "禹避舜之子于阳城，与史记同系"
+   }
+  ]
+ },
+ {
+  "id": "dili.shang.tangbo",
+  "pian": "dili",
+  "also": [],
+  "chapter": "shang",
+  "title": "汤居亳",
+  "subtitle": "三亳",
+  "when": {
+   "start": -1600,
+   "precision": "circa",
+   "display": "约前 1600 年",
+   "era": "商汤时（年号未行）",
+   "verify": "done",
+   "notes": "亳有南亳、北亳、西亳之争。"
+  },
+  "line": "canon",
+  "narrative": "《史记·殷本纪》说自契到汤八迁，汤始居亳。亳的位置后来至少有南亳、北亳、西亳三种主要说法，分别被放在商丘一带、曹县一带和偃师。正史给了迁徙的次数和起点的名字，没有给一张能裁定的地图。本场画三次搬迁留下的空营地和一座叫亳的城，城下用三道淡墨表示三种地望，都不涂实。",
+  "figures": [
+   {
+    "name": "汤",
+    "role": "商王",
+    "en": "Tang"
+   }
+  ],
+  "places": [
+   "亳"
+  ],
+  "placeEn": "Bo",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "殷本纪",
+    "notes": "汤始居亳，自契至汤八迁"
+   }
+  ]
+ },
+ {
+  "id": "dili.xizhou.zhouyuan",
+  "pian": "dili",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "xizhou",
+  "title": "周原",
+  "subtitle": "古公迁岐",
+  "when": {
+   "start": -1200,
+   "precision": "circa",
+   "display": "约前 12 世纪",
+   "era": "古公亶父时（年号未行）",
+   "verify": "done",
+   "notes": "迁岐的公元年不可考。"
+  },
+  "line": "canon",
+  "narrative": "《史记·周本纪》说古公亶父因为薰育戎狄的压力，带领私属离开豳，越过梁山，停在岐山之下的周原。那里土地肥沃，他营筑城郭家室。周人从此有了一个可以称为“周”的地方。丰镐是文王、武王后来的都城，另场。本场只画从豳到岐的那条路和周原上新筑的城郭轮廓。",
+  "figures": [
+   {
+    "name": "古公亶父",
+    "role": "周人首领",
+    "en": "Gugong Danfu"
+   }
+  ],
+  "places": [
+   "豳",
+   "岐山",
+   "周原"
+  ],
+  "placeEn": "Bin, Qi and the Zhou plain",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "周本纪",
+    "notes": "古公去豳，止于岐下"
+   }
+  ]
+ },
+ {
+  "id": "dili.xizhou.fenghao",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "xizhou",
+  "title": "丰镐",
+  "subtitle": "文王作邑",
+  "when": {
+   "start": -1050,
+   "precision": "circa",
+   "display": "约前 11 世纪中叶",
+   "era": "周文王、武王时（年号未行）",
+   "verify": "done",
+   "notes": "作丰、迁镐的年份取灭商之前。"
+  },
+  "line": "canon",
+  "narrative": "《史记·周本纪》说文王从岐下迁到丰，武王后来把政治中心放到镐，丰镐之间有灵台、灵沼一类的礼制建筑被写进诗里。两座城都在沣水两岸，东边才是后来的洛邑。镐京之变是幽王那一场。本场画沣水两边的两座城，中间是水面，说明周人在灭商之前已经把都城从山边挪到了关中平原的水边。",
+  "figures": [
+   {
+    "name": "周文王",
+    "role": "西伯",
+    "en": "King Wen of Zhou"
+   },
+   {
+    "name": "周武王",
+    "role": "周王",
+    "en": "King Wu of Zhou"
+   }
+  ],
+  "places": [
+   "丰",
+   "镐",
+   "沣水"
+  ],
+  "placeEn": "Feng, Hao and the Feng River",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "周本纪",
+    "notes": "文王作丰，武王治镐"
+   },
+   {
+    "kind": "classic",
+    "title": "诗经",
+    "section": "大雅·文王有声",
+    "notes": "丰水东注，作邑于丰，诗而非档案"
+   }
+  ]
+ },
+ {
+  "id": "dili.chunqiu.xintian",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "chunqiu",
+  "title": "新田",
+  "subtitle": "晋迁都",
+  "when": {
+   "start": -585,
+   "precision": "year",
+   "display": "前 585 年",
+   "era": "周简王元年 · 鲁成公六年（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "晋景公觉得故绛水浅、地瘠，想迁都。诸大夫建议去郇瑕氏之地，韩献子反对，说那里土薄水浅，容易有病，新田土厚水深，又有盐池之利。晋人于是迁到新田，称为新绛。《左传·成公六年》把这次讨论写得很具体，是一场用土壤和疾病来决定国都的朝议。本场画两块地：一块盐碱，一块深土。",
+  "figures": [
+   {
+    "name": "晋景公",
+    "role": "晋君",
+    "en": "Duke Jing of Jin"
+   },
+   {
+    "name": "韩献子",
+    "role": "晋卿",
+    "en": "Han Jue"
+   }
+  ],
+  "places": [
+   "故绛",
+   "新田"
+  ],
+  "placeEn": "old Jiang and Xintian",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "左传",
+    "section": "成公六年",
+    "notes": "晋迁于新田"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "晋世家",
+    "notes": "迁新田"
+   }
+  ]
+ },
+ {
+  "id": "dili.chunqiu.helucheng",
+  "pian": "dili",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "chunqiu",
+  "title": "阖闾城",
+  "subtitle": "姑苏",
+  "when": {
+   "start": -514,
+   "precision": "circa",
+   "display": "约前 514 年",
+   "era": "吴王阖闾元年（年号未行）",
+   "verify": "done",
+   "notes": "城郭落成之年取阖闾初立。"
+  },
+  "line": "canon",
+  "narrative": "阖闾即位后想强国，伍子胥建议筑大城，立门按天象和地势来命名。《吴越春秋》的描写很细，但那是东汉的书；《史记·吴太伯世家》只确认阖闾强大之后都于姑苏一带，并由此西破楚、南服越。本场采用谨慎的说法：吴国在太湖东边有了一座足以支撑霸业的都城。不把《吴越春秋》里的每座门都画成实录。",
+  "figures": [
+   {
+    "name": "阖闾",
+    "role": "吴王",
+    "en": "Helü"
+   },
+   {
+    "name": "伍子胥",
+    "role": "吴行人",
+    "en": "Wu Zixu"
+   }
+  ],
+  "places": [
+   "姑苏"
+  ],
+  "placeEn": "Gusu",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "吴太伯世家",
+    "notes": "阖庐都吴，西破强楚"
+   },
+   {
+    "kind": "biji",
+    "title": "吴越春秋",
+    "section": "阖闾内传",
+    "notes": "筑城细节为东汉追述，不当城门实录"
+   }
+  ]
+ },
+ {
+  "id": "dili.zhanguo.zhengguoqu",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "zhanguo",
+  "title": "郑国渠",
+  "subtitle": "疲秦之计",
+  "when": {
+   "start": -246,
+   "precision": "year",
+   "display": "前 246 年",
+   "era": "秦王政元年（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "韩国派水工郑国到秦国修渠，本意是消耗秦的民力。渠从泾水引到洛水，灌田四万余顷，关中因此更富，韩国的计策反过来帮了秦。《史记·河渠书》把这件事和都江堰并列为战国的两条大渠。都江堰已有专场。本场只画泾洛之间的干渠和被灌的田。后来秦国发现这是疲秦之计，渠已经太有用，没有停工。",
+  "figures": [
+   {
+    "name": "郑国",
+    "role": "水工",
+    "en": "Zheng Guo"
+   },
+   {
+    "name": "秦王政",
+    "role": "秦王",
+    "en": "Ying Zheng"
+   }
+  ],
+  "places": [
+   "泾水",
+   "洛水"
+  ],
+  "placeEn": "the Jing and the Luo",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "河渠书",
+    "notes": "郑国渠，溉泽卤之地四万余顷"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "李斯列传",
+    "notes": "郑国渠为韩国间秦，渠成而秦益富"
+   }
+  ]
+ },
+ {
+  "id": "dili.zhanguo.honggou",
+  "pian": "dili",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "zhanguo",
+  "title": "鸿沟",
+  "subtitle": "楚河汉界的前身",
+  "when": {
+   "start": -360,
+   "precision": "circa",
+   "display": "约前 360 年",
+   "era": "魏惠王时（年号未行）",
+   "verify": "done",
+   "notes": "鸿沟开凿取魏惠王中期，约数。"
+  },
+  "line": "canon",
+  "narrative": "《史记·河渠书》说荥阳下引黄河水向东南，就是鸿沟，宋、郑、陈、蔡、曹、卫各国靠它连通。它本来是魏国的运河，后来楚汉相争时，刘邦和项羽以鸿沟为界中分天下，这条河才变成政治分界。本场画的是运河本身：从荥阳伸进豫东平原的一条墨线。楚汉划界是这条河的第二次生命，只用一句带过。",
+  "figures": [
+   {
+    "name": "魏惠王",
+    "role": "魏君",
+    "en": "King Hui of Wei"
+   }
+  ],
+  "places": [
+   "荥阳",
+   "鸿沟"
+  ],
+  "placeEn": "Xingyang and the Hong Canal",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "河渠书",
+    "notes": "荥阳下引河东南为鸿沟"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "项羽本纪",
+    "notes": "割鸿沟以西者为汉，以东者为楚"
+   }
+  ]
+ },
+ {
+  "id": "dili.zhanguo.hangu",
+  "pian": "dili",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "zhanguo",
+  "title": "函谷",
+  "subtitle": "关中的门",
+  "when": {
+   "start": -318,
+   "precision": "year",
+   "display": "前 318 年",
+   "era": "秦惠文王更元七年 · 周慎靓王三年（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "前 318 年，楚、赵、魏、韩、燕五国攻秦，到了函谷关就退了回去。《史记·楚世家》记下了这次到关而返。函谷是从山东进入关中的窄道，关在谷中，而不是在平原上。鸡鸣狗盗是孟尝君出关的故事，已有专场。本场把关本身当作主角：一座只能过少量车马的谷口，挡住了一次合纵。",
+  "figures": [
+   {
+    "name": "樗里疾",
+    "role": "秦庶长",
+    "en": "Chuli Ji"
+   }
+  ],
+  "places": [
+   "函谷关"
+  ],
+  "placeEn": "Hangu Pass",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "楚世家",
+    "notes": "五国兵至函谷关而还"
+   },
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "秦本纪",
+    "notes": "惠文王更元七年，韩、赵、魏、燕、齐共攻秦，秦使庶长疾与战修鱼"
+   }
+  ]
+ },
+ {
+  "id": "dili.qin.chidao",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "qin",
+  "title": "驰道",
+  "subtitle": "东穷燕齐",
+  "when": {
+   "start": -220,
+   "precision": "year",
+   "display": "前 220 年",
+   "era": "秦始皇二十七年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "统一的第二年，始皇开始治驰道。贾山后来在《至言》里追述：道宽五十步，三丈而树，厚筑其外，隐以金椎，东到燕齐，南到吴楚。《史记·秦始皇本纪》确认二十七年治驰道。宽五十步是汉人的描述，不必当成每段都丈量过。本场画从咸阳伸出去的几条直线和路旁的树，不画现代公路。",
+  "figures": [
+   {
+    "name": "秦始皇",
+    "role": "秦帝",
+    "en": "Qin Shi Huang"
+   }
+  ],
+  "places": [
+   "咸阳",
+   "驰道"
+  ],
+  "placeEn": "the imperial highways from Xianyang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "秦始皇本纪",
+    "notes": "二十七年治驰道"
+   },
+   {
+    "kind": "canon",
+    "title": "汉书",
+    "section": "贾山传",
+    "notes": "追述驰道之制"
+   }
+  ]
+ },
+ {
+  "id": "dili.qin.epang",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "qin",
+  "title": "阿房",
+  "subtitle": "关中的朝宫",
+  "when": {
+   "start": -212,
+   "precision": "year",
+   "display": "前 212 年",
+   "era": "秦始皇三十五年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "三十五年，始皇觉得咸阳人多、先王宫殿小，在渭南作朝宫，先修前殿阿房，东西五百步，南北五十丈，上可以坐万人。《史记》说阿房是因为宫还没有命名，暂用这个地名。它没有建成，项羽入关后烧掉秦宫，阿房是否在那把火里，后人有争论。本场只画渭南一座没有完工的大殿基址和运石的人，不画杜牧赋里的全部想象。",
+  "figures": [
+   {
+    "name": "秦始皇",
+    "role": "秦帝",
+    "en": "Qin Shi Huang"
+   }
+  ],
+  "places": [
+   "渭南",
+   "阿房"
+  ],
+  "placeEn": "south of the Wei, Epang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "秦始皇本纪",
+    "notes": "三十五年作阿房宫前殿"
+   }
+  ]
+ },
+ {
+  "id": "dili.xihan.weiyang",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "xihan",
+  "title": "未央",
+  "subtitle": "萧何营宫",
+  "when": {
+   "start": -200,
+   "precision": "year",
+   "display": "前 200 年",
+   "era": "汉高祖七年（年号未行）",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "高祖七年，萧何在长安营作未央宫，立东阙、北阙、前殿、武库、太仓。刘邦看见规模太大，发怒。萧何说天子以四海为家，宫殿不壮丽不足以重威，而且让后世无法再加。《史记·高祖本纪》写了这次争执。长安的城墙是惠帝时才陆续修完的。本场画未央的前殿和太仓，说明汉的都城先有宫殿和粮库，后有完整的城圈。",
+  "figures": [
+   {
+    "name": "萧何",
+    "role": "丞相",
+    "en": "Xiao He"
+   },
+   {
+    "name": "汉高祖",
+    "role": "汉帝",
+    "en": "Emperor Gaozu of Han"
+   }
+  ],
+  "places": [
+   "长安",
+   "未央宫"
+  ],
+  "placeEn": "Chang'an, Weiyang Palace",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "史记",
+    "section": "高祖本纪",
+    "notes": "七年，萧何治未央宫"
+   }
+  ]
+ },
+ {
+  "id": "dili.xihan.hexi",
+  "pian": "dili",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "xihan",
+  "title": "河西四郡",
+  "subtitle": "断匈奴右臂",
+  "when": {
+   "start": -121,
+   "precision": "year",
+   "display": "前 121 年",
+   "era": "汉武帝元狩二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "元狩二年霍去病出陇西、过焉支，匈奴浑邪王降汉，河西走廊空出。汉朝随后设酒泉、武威，后又设张掖、敦煌，合称河西四郡。设郡的年份不完全在同一年，《汉书·武帝纪》和《地理志》把过程写在元狩到元鼎之间。本场取走廊落入汉朝版图的这一步：四座郡城沿着祁连和沙漠排开。漠北大战是军事场。",
+  "figures": [
+   {
+    "name": "霍去病",
+    "role": "骠骑将军",
+    "en": "Huo Qubing"
+   },
+   {
+    "name": "浑邪王",
+    "role": "匈奴王",
+    "en": "King Hunye"
+   }
+  ],
+  "places": [
+   "河西",
+   "酒泉",
+   "敦煌"
+  ],
+  "placeEn": "the Hexi corridor",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "汉书",
+    "section": "武帝纪",
+    "notes": "元狩二年匈奴浑邪王降"
+   },
+   {
+    "kind": "canon",
+    "title": "汉书",
+    "section": "地理志",
+    "notes": "武威、酒泉、张掖、敦煌"
+   }
+  ]
+ },
+ {
+  "id": "dili.xihan.yumen",
+  "pian": "dili",
+  "also": [],
+  "chapter": "xihan",
+  "title": "阳关玉门",
+  "subtitle": "两座西门",
+  "when": {
+   "start": -111,
+   "precision": "circa",
+   "display": "约元鼎至太初",
+   "era": "汉武帝元鼎六年前后",
+   "verify": "done",
+   "notes": "两关的始置年份记载不一，取河西设郡之后。"
+  },
+  "line": "canon",
+  "narrative": "敦煌郡的西边有两座关：玉门关和阳关，出玉门为北道，出阳关为南道，都通向西域。《汉书·地理志》敦煌县下记了这两个关名。张骞凿空是人的远行，已有专场。本场是门本身：沙漠西缘的两座关，关外是白龙堆和盐泽。画面不画宋代以后才有的嘉峪关，也不把两关写成同一座城门。",
+  "figures": [
+   {
+    "name": "汉武帝",
+    "role": "汉帝",
+    "en": "Emperor Wu of Han"
+   }
+  ],
+  "places": [
+   "玉门关",
+   "阳关",
+   "敦煌"
+  ],
+  "placeEn": "Yumen, Yangguan and Dunhuang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "汉书",
+    "section": "地理志",
+    "notes": "敦煌郡龙勒有阳关、玉门关"
+   }
+  ]
+ },
+ {
+  "id": "dili.donghan.ganying",
+  "pian": "dili",
+  "also": [
+   "renwu"
+  ],
+  "chapter": "donghan",
+  "title": "甘英西行",
+  "subtitle": "条支海边",
+  "when": {
+   "start": 97,
+   "precision": "year",
+   "display": "97 年",
+   "era": "汉和帝永元九年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "班超在西域时，派甘英往大秦。甘英到了条支，临大海，安息的船人告诉他海水广大，遇到顺风也要三个月，人容易想家而死。甘英于是停下来。《后汉书·西域传》写了这次最远的官方出行，也写了它停在海边的原因。班超投笔是他个人的选择。本场画条支的海和停下的使团，海的对面不再画。",
+  "figures": [
+   {
+    "name": "甘英",
+    "role": "汉使",
+    "en": "Gan Ying"
+   },
+   {
+    "name": "班超",
+    "role": "西域都护",
+    "en": "Ban Chao"
+   }
+  ],
+  "places": [
+   "条支",
+   "西海"
+  ],
+  "placeEn": "Tiaozhi and the western sea",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "后汉书",
+    "section": "西域传",
+    "notes": "永元九年甘英至条支，临大海欲渡而止"
+   }
+  ]
+ },
+ {
+  "id": "dili.sanguo.jianye",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "sanguo",
+  "title": "建业",
+  "subtitle": "孙权都城",
+  "when": {
+   "start": 229,
+   "precision": "year",
+   "display": "229 年",
+   "era": "吴黄龙元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "孙权先在武昌称帝，黄龙元年迁都建业。建业靠长江，石头城控江，后有钟山，是一座把水军和都城绑在一起的城。《三国志·吴主传》记了迁都。武昌仍保留宗庙和一部分兵力。本场画长江、石头和宫城的三层关系，说明吴国的地理中心不在中原。赤壁是战争场，这里是都城选定之后的地图。",
+  "figures": [
+   {
+    "name": "孙权",
+    "role": "吴大帝",
+    "en": "Sun Quan"
+   }
+  ],
+  "places": [
+   "建业",
+   "石头城",
+   "武昌"
+  ],
+  "placeEn": "Jianye, Stone City and Wuchang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "三国志",
+    "section": "吴书·吴主传",
+    "notes": "黄龙元年迁都建业"
+   }
+  ]
+ },
+ {
+  "id": "dili.sanguo.nanjun",
+  "pian": "dili",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "sanguo",
+  "title": "南四郡",
+  "subtitle": "赤壁之后的地图",
+  "when": {
+   "start": 209,
+   "precision": "year",
+   "display": "209 年",
+   "era": "汉建安十四年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "赤壁之后，刘备表刘琦为荆州刺史，自己南征武陵、长沙、桂阳、零陵四郡，四郡皆降。刘琦死，刘备领荆州牧，孙权把南郡借给他。《三国志·先主传》写的是这场领土变化。赤壁是火与船。本场是火灭之后的地图：长江以南的四郡落到刘备手里，南郡的归属却要靠借。这张图决定了后来的荆州争端。",
+  "figures": [
+   {
+    "name": "刘备",
+    "role": "领荆州牧",
+    "en": "Liu Bei"
+   },
+   {
+    "name": "孙权",
+    "role": "吴主",
+    "en": "Sun Quan"
+   },
+   {
+    "name": "刘琦",
+    "role": "荆州刺史",
+    "en": "Liu Qi"
+   }
+  ],
+  "places": [
+   "武陵",
+   "长沙",
+   "桂阳",
+   "零陵"
+  ],
+  "placeEn": "the four southern commanderies",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "三国志",
+    "section": "蜀书·先主传",
+    "notes": "建安十四年南征四郡"
+   }
+  ]
+ },
+ {
+  "id": "dili.liangjin.liangzhou",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "liangjin",
+  "title": "凉州",
+  "subtitle": "张轨",
+  "when": {
+   "start": 301,
+   "precision": "year",
+   "display": "301 年",
+   "era": "西晋永宁元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "永宁元年张轨出任凉州刺史、护羌校尉。中原很快陷入八王之乱，他在姑臧稳住河西，课农、兴学，凉州成为流人西奔的去处。《晋书·张轨传》从这一年上任写起。前凉的建国是他儿子以后的事。本场画河西走廊西端的一座还没有称王的州城，和向西逃难的人。永嘉之乱是洛阳那场。",
+  "figures": [
+   {
+    "name": "张轨",
+    "role": "凉州刺史",
+    "en": "Zhang Gui"
+   }
+  ],
+  "places": [
+   "姑臧",
+   "凉州"
+  ],
+  "placeEn": "Guzang, Liangzhou",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "晋书",
+    "section": "张轨传",
+    "notes": "永宁元年为凉州刺史"
+   }
+  ]
+ },
+ {
+  "id": "dili.nanbeichao.liuzhen",
+  "pian": "dili",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "nanbeichao",
+  "title": "六镇",
+  "subtitle": "北边的军镇",
+  "when": {
+   "start": 523,
+   "precision": "year",
+   "display": "523 年",
+   "era": "北魏正光四年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "北魏在平城时代沿北边设沃野、怀朔、武川、抚冥、柔玄、怀荒等镇，用来防柔然。迁都洛阳之后，镇人的地位下降。正光四年破六韩拔陵在沃野镇起兵，六镇相继崩溃。《魏书·肃宗纪》记了起兵，地理格局则要连着《地形志》和后来的追述一起看。本场画六座沿着草原南缘排列的镇城，洛阳的宫廷远在南边。",
+  "figures": [
+   {
+    "name": "破六韩拔陵",
+    "role": "沃野镇民",
+    "en": "Poliuhan Baling"
+   }
+  ],
+  "places": [
+   "沃野",
+   "怀朔",
+   "武川"
+  ],
+  "placeEn": "the Six Garrisons",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "魏书",
+    "section": "肃宗纪",
+    "notes": "正光四年沃野镇破六韩拔陵起兵"
+   },
+   {
+    "kind": "canon",
+    "title": "魏书",
+    "section": "地形志",
+    "notes": "北方州镇的框架"
+   }
+  ]
+ },
+ {
+  "id": "dili.nanbeichao.pingcheng",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "nanbeichao",
+  "title": "平城",
+  "subtitle": "代北的都城",
+  "when": {
+   "start": 398,
+   "precision": "year",
+   "display": "398 年",
+   "era": "北魏天兴元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "拓跋珪在天兴元年称帝，定都平城，营宫室、建宗庙、立社稷。《魏书·太祖纪》写了从盛乐到平城的这一步。平城在今大同一带，北靠草原，南对山西的谷道，适合一个还没有离开马背太远的政权。迁都洛阳是将近一百年之后的事。本场画平城的宫城和城北的空旷，不把云冈的石窟提前到天兴元年。",
+  "figures": [
+   {
+    "name": "拓跋珪",
+    "role": "魏道武帝",
+    "en": "Tuoba Gui"
+   }
+  ],
+  "places": [
+   "平城",
+   "盛乐"
+  ],
+  "placeEn": "Pingcheng and Shengle",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "魏书",
+    "section": "太祖纪",
+    "notes": "天兴元年定都平城"
+   }
+  ]
+ },
+ {
+  "id": "dili.sui.daxing",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "sui",
+  "title": "大兴城",
+  "subtitle": "宇文恺",
+  "when": {
+   "start": 582,
+   "precision": "year",
+   "display": "582 年",
+   "era": "隋开皇二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "开皇二年，隋文帝因为汉长安城水苦、格局旧，命宇文恺在龙首原之南营新都，名大兴。城用里坊把居民隔开，宫城、皇城、外郭分层，朱雀大街为中轴。《隋书·高祖纪》和《宇文恺传》记了始建。唐代的长安沿用这座城，只是改了名。本场画空的里坊网格，还没有唐代的东市西市那么热闹。",
+  "figures": [
+   {
+    "name": "宇文恺",
+    "role": "营新都副监",
+    "en": "Yuwen Kai"
+   },
+   {
+    "name": "隋文帝",
+    "role": "隋帝",
+    "en": "Emperor Wen of Sui"
+   }
+  ],
+  "places": [
+   "大兴",
+   "龙首原"
+  ],
+  "placeEn": "Daxing on Longshou plain",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "隋书",
+    "section": "高祖纪",
+    "notes": "开皇二年诏营新都"
+   },
+   {
+    "kind": "canon",
+    "title": "隋书",
+    "section": "宇文恺传",
+    "notes": "恺创制规模，大兴城之制"
+   }
+  ]
+ },
+ {
+  "id": "dili.sui.jiangdu",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "sui",
+  "title": "江都",
+  "subtitle": "运河的南端",
+  "when": {
+   "start": 605,
+   "precision": "year",
+   "display": "605 年",
+   "era": "隋大业元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "大业元年开通济渠，又开邗沟，把黄河和长江连起来，南端就是江都。炀帝多次从水路南下，江都有宫。他最后死在这里，那是政变场。本场只取这座城在地理上的位置：运河走到长江边的终点，仓廪和船只比宫殿更重要。画面是水门和排开的舟，不画兵变的夜里。",
+  "figures": [
+   {
+    "name": "隋炀帝",
+    "role": "隋帝",
+    "en": "Emperor Yang of Sui"
+   },
+   {
+    "name": "宇文恺",
+    "role": "将作大匠",
+    "en": "Yuwen Kai"
+   }
+  ],
+  "places": [
+   "江都",
+   "邗沟"
+  ],
+  "placeEn": "Jiangdu and the Hangou canal",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "隋书",
+    "section": "炀帝纪",
+    "notes": "大业元年开通济渠，幸江都"
+   },
+   {
+    "kind": "canon",
+    "title": "隋书",
+    "section": "食货志",
+    "notes": "漕渠与江都仓"
+   }
+  ]
+ },
+ {
+  "id": "dili.tang.daming",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "tang",
+  "title": "大明宫",
+  "subtitle": "龙首之东",
+  "when": {
+   "start": 662,
+   "precision": "year",
+   "display": "662 年",
+   "era": "唐高宗龙朔二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "太极宫地势低，高宗在龙朔二年搬到大明宫听政。大明宫在长安城外东北、龙首原上，含元殿利用了高差。《旧唐书·高宗纪》记了移仗。它后来成为唐帝实际上的主宫，玄武门在它的北面，和武德九年那场政变的玄武门不是同一座门。本场画原上的殿和城北的坡，说明唐代政治中心在地理上抬高了一次。",
+  "figures": [
+   {
+    "name": "唐高宗",
+    "role": "唐帝",
+    "en": "Emperor Gaozong"
+   }
+  ],
+  "places": [
+   "长安",
+   "大明宫",
+   "龙首原"
+  ],
+  "placeEn": "Daming Palace on Longshou",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "高宗纪",
+    "notes": "龙朔二年移仗就蓬莱宫"
+   },
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "地理志",
+    "notes": "大明宫在禁苑东南"
+   }
+  ]
+ },
+ {
+  "id": "dili.tang.anxisi",
+  "pian": "dili",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "tang",
+  "title": "安西四镇",
+  "subtitle": "龟兹",
+  "when": {
+   "start": 658,
+   "precision": "year",
+   "display": "658 年",
+   "era": "唐显庆三年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "显庆三年，唐把安西都护府从西州迁到龟兹，统领龟兹、于阗、疏勒、焉耆四镇。四镇后来多次因吐蕃而弃、又恢复，不是一次设置就永远安定。《旧唐书·地理志》记录了都护府和四镇的名字。玄奘走过的是更早的路。本场画塔里木南缘和北缘的四座城，以及把它们连到长安的一条细线。",
+  "figures": [
+   {
+    "name": "唐高宗",
+    "role": "唐帝",
+    "en": "Emperor Gaozong"
+   }
+  ],
+  "places": [
+   "龟兹",
+   "于阗",
+   "疏勒",
+   "焉耆"
+  ],
+  "placeEn": "the Four Garrisons of Anxi",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "地理志",
+    "notes": "安西都护府与四镇"
+   },
+   {
+    "kind": "canon",
+    "title": "新唐书",
+    "section": "地理志",
+    "notes": "显庆中安西徙龟兹"
+   }
+  ]
+ },
+ {
+  "id": "dili.tang.yangzhou",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "tang",
+  "title": "广陵漕运",
+  "subtitle": "江淮枢纽",
+  "when": {
+   "start": 750,
+   "precision": "circa",
+   "display": "约天宝中",
+   "era": "唐玄宗天宝年间",
+   "verify": "done",
+   "notes": "扬州成为漕运枢纽是一个过程，取天宝中。"
+  },
+  "line": "canon",
+  "narrative": "隋唐大运河在长江北岸汇到扬州。江淮的粮从这里北上，外商和盐也在这里集中。《旧唐书·地理志》把扬州写成大都督府，户数在南方城市里很突出。李白、杜牧的诗把扬州写得很盛，那是文学，本场不把诗句当人口统计。画面是运河、长江和城中的仓，三块水面夹着一座城。",
+  "figures": [
+   {
+    "name": "唐玄宗",
+    "role": "唐帝",
+    "en": "Emperor Xuanzong"
+   }
+  ],
+  "places": [
+   "扬州",
+   "邗沟"
+  ],
+  "placeEn": "Yangzhou",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "地理志",
+    "notes": "扬州大都督府"
+   },
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "食货志",
+    "notes": "江淮漕运经扬州北上"
+   }
+  ]
+ },
+ {
+  "id": "dili.tang.bianzhou",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "tang",
+  "title": "汴州",
+  "subtitle": "水陆之会",
+  "when": {
+   "start": 781,
+   "precision": "year",
+   "display": "781 年",
+   "era": "唐德宗建中二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "汴州控着通济渠，是江淮物资进长安、洛阳之前的咽喉。建中二年，淄青、魏博等镇拒命，运道被掐，朝廷立刻感到缺粮。《旧唐书·地理志》写汴州的位置，《德宗纪》写这一年运河沿岸的叛镇。本场不写每一场藩镇战争，只画一座城卡在运河上：城门一关，长安的仓就空。",
+  "figures": [
+   {
+    "name": "李勉",
+    "role": "永平军节度使",
+    "en": "Li Mian"
+   }
+  ],
+  "places": [
+   "汴州",
+   "通济渠"
+  ],
+  "placeEn": "Bianzhou on the canal",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "地理志",
+    "notes": "汴州，河南道水陆之会"
+   },
+   {
+    "kind": "canon",
+    "title": "旧唐书",
+    "section": "德宗纪",
+    "notes": "建中二年运道阻绝"
+   }
+  ]
+ },
+ {
+  "id": "dili.wudai.dongdu",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "wudai",
+  "title": "东都汴州",
+  "subtitle": "后梁迁都",
+  "when": {
+   "start": 907,
+   "precision": "year",
+   "display": "907 年",
+   "era": "后梁开平元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "朱温代唐，开平元年把汴州升为开封府，称东都，把洛阳叫做西都。政治中心从关中正式挪到运河边上的平原。《旧五代史·梁书·太祖纪》记了升府。关中从此不再自动是正统的所在地。本场画两座都：西边的洛阳变淡，东边的汴州加墨。燕云割让是后来石敬瑭的事。",
+  "figures": [
+   {
+    "name": "朱温",
+    "role": "后梁太祖",
+    "en": "Zhu Wen"
+   }
+  ],
+  "places": [
+   "汴州",
+   "洛阳"
+  ],
+  "placeEn": "Bianzhou and Luoyang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "旧五代史",
+    "section": "梁书·太祖纪",
+    "notes": "开平元年升汴州为开封府，称东都"
+   }
+  ]
+ },
+ {
+  "id": "dili.beisong.tangluo",
+  "pian": "dili",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "beisong",
+  "title": "塘泺",
+  "subtitle": "河北水网",
+  "when": {
+   "start": 993,
+   "precision": "year",
+   "display": "993 年",
+   "era": "宋淳化四年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "宋朝打不过辽的骑兵，何承矩建议在河北边缘开塘泊，把水连成一片，使骑兵不能直冲。《宋史·河渠志》记了淳化以后白洋淀一带塘泺的经营。这是用地理缺陷来补军力：把平原改成浅水。澶渊之盟是城下的政治。本场只画一条沿边界展开的水面和水面后面的宋军营垒。",
+  "figures": [
+   {
+    "name": "何承矩",
+    "role": "河北屯田使",
+    "en": "He Chengju"
+   }
+  ],
+  "places": [
+   "河北",
+   "塘泺"
+  ],
+  "placeEn": "the Hebei ponds",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "河渠志",
+    "notes": "河北塘泺"
+   },
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "何承矩传",
+    "notes": "开塘泊以限契丹"
+   }
+  ]
+ },
+ {
+  "id": "dili.beisong.xihe",
+  "pian": "dili",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "beisong",
+  "title": "熙河",
+  "subtitle": "王韶开边",
+  "when": {
+   "start": 1072,
+   "precision": "year",
+   "display": "1072 年",
+   "era": "宋熙宁五年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "王韶向神宗建议先取洮河一带的蕃部，再图西夏。熙宁五年他在熙河用兵，收复熙、河、洮、岷等州，设熙河路。《宋史·王韶传》写了这次开边的成功和后来的争议。它改变的是北宋西北的地图，不只是一次战斗的胜负。本场画洮河和新建的一路，不把好水川的败仗画在同一张图上。",
+  "figures": [
+   {
+    "name": "王韶",
+    "role": "秦凤路经略",
+    "en": "Wang Shao"
+   },
+   {
+    "name": "宋神宗",
+    "role": "宋帝",
+    "en": "Emperor Shenzong"
+   }
+  ],
+  "places": [
+   "熙州",
+   "河州",
+   "洮河"
+  ],
+  "placeEn": "Xihe and the Tao River",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "王韶传",
+    "notes": "熙宁五年取熙河"
+   },
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "地理志",
+    "notes": "熙河路"
+   }
+  ]
+ },
+ {
+  "id": "dili.beisong.shibo",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "beisong",
+  "title": "市舶",
+  "subtitle": "泉州",
+  "when": {
+   "start": 1087,
+   "precision": "year",
+   "display": "1087 年",
+   "era": "宋元祐二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "元祐二年，宋朝在泉州设市舶司，和广州、明州并列，管理海外来的船和税。《宋史·食货志》记了市舶的设置和抽解。泉州在南宋更加兴盛，但机构的建立在北宋。本场画泉州的港、番船的剪影和市舶官的印，不画具体的外国国旗，也不把后来的刺桐港传说全部写实。",
+  "figures": [
+   {
+    "name": "宋哲宗",
+    "role": "宋帝",
+    "en": "Emperor Zhezong"
+   }
+  ],
+  "places": [
+   "泉州"
+  ],
+  "placeEn": "Quanzhou",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "食货志",
+    "notes": "元祐二年置泉州市舶司"
+   }
+  ]
+ },
+ {
+  "id": "dili.nansong.linan",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "nansong",
+  "title": "临安",
+  "subtitle": "行在",
+  "when": {
+   "start": 1138,
+   "precision": "year",
+   "display": "1138 年",
+   "era": "宋绍兴八年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "绍兴八年，南宋正式定都临安，名义上仍叫行在，表示有朝一日要回到开封。城在西湖和钱塘江之间，宫城利用凤凰山，平民和湖山挤在一起。《宋史·地理志》把临安府写成行在所。它是一座被山水卡住、又靠海路和运河活着的临时首都，一住就是一百多年。本场画山、湖、江三面包住的城。",
+  "figures": [
+   {
+    "name": "宋高宗",
+    "role": "宋帝",
+    "en": "Emperor Gaozong"
+   }
+  ],
+  "places": [
+   "临安",
+   "西湖",
+   "钱塘江"
+  ],
+  "placeEn": "Lin'an, the lake and the Qiantang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "地理志",
+    "notes": "临安府，绍兴中为行在所"
+   },
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "高宗纪",
+    "notes": "绍兴八年定都临安"
+   }
+  ]
+ },
+ {
+  "id": "dili.nansong.huaihe",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "nansong",
+  "title": "淮河",
+  "subtitle": "一条国界",
+  "when": {
+   "start": 1141,
+   "precision": "year",
+   "display": "1141 年",
+   "era": "宋绍兴十一年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "绍兴和议规定宋金以淮水中流为界。一条原本用于灌溉和漕运的河，变成两个政权的边界，河边的州县从此是边镇。《宋史·高宗纪》记了划界。和议的朝堂谈判是治国场。本场只沿河走：北岸的金和南岸的宋，河本身是一道墨线。大散关是这条界在西边的另一个点，用淡墨标在远处。",
+  "figures": [
+   {
+    "name": "宋高宗",
+    "role": "宋帝",
+    "en": "Emperor Gaozong"
+   }
+  ],
+  "places": [
+   "淮河",
+   "大散关"
+  ],
+  "placeEn": "the Huai River and Dasan Pass",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "宋史",
+    "section": "高宗纪",
+    "notes": "绍兴十一年，以淮水中流划界"
+   },
+   {
+    "kind": "canon",
+    "title": "金史",
+    "section": "地理志",
+    "notes": "金之南界至淮"
+   }
+  ]
+ },
+ {
+  "id": "dili.liaojin.huining",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "liaojin",
+  "title": "会宁",
+  "subtitle": "金的上京",
+  "when": {
+   "start": 1115,
+   "precision": "year",
+   "display": "1115 年",
+   "era": "金收国元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "阿骨打在收国元年称帝，以上京会宁府为都。会宁在按出虎水之侧，是女真兴起的地方，离后来的中都很远。《金史·地理志》写了上京路和会宁府。海陵王迁都燕京是几十年后的事。本场画一条河、一座还不大的城和周围的营帐，说明金的第一张地图中心在白山黑水，不在华北。",
+  "figures": [
+   {
+    "name": "完颜阿骨打",
+    "role": "金太祖",
+    "en": "Wanyan Aguda"
+   }
+  ],
+  "places": [
+   "会宁",
+   "按出虎水"
+  ],
+  "placeEn": "Huining and the Ashi River",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "金史",
+    "section": "地理志",
+    "notes": "上京路会宁府"
+   },
+   {
+    "kind": "canon",
+    "title": "金史",
+    "section": "太祖纪",
+    "notes": "收国元年称帝，都会宁"
+   }
+  ]
+ },
+ {
+  "id": "dili.liaojin.zhongdu",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "liaojin",
+  "title": "中都",
+  "subtitle": "海陵迁燕",
+  "when": {
+   "start": 1153,
+   "precision": "year",
+   "display": "1153 年",
+   "era": "金贞元元年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "海陵王完颜亮在贞元元年把都城从上京迁到燕京，改名中都，并拆掉上京的旧宫殿，表示不准备回去。《金史·海陵纪》写了迁都和毁上京。中都利用了辽南京的城址，金朝的重心从此进入华北平原。立马吴山是他后来的南征。本场只画一次向南的搬迁：上京变空，燕山脚下的城变实。",
+  "figures": [
+   {
+    "name": "完颜亮",
+    "role": "金海陵王",
+    "en": "Wanyan Liang"
+   }
+  ],
+  "places": [
+   "中都",
+   "上京"
+  ],
+  "placeEn": "Zhongdu and Shangjing",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "金史",
+    "section": "海陵纪",
+    "notes": "贞元元年迁都燕京，改中都"
+   },
+   {
+    "kind": "canon",
+    "title": "金史",
+    "section": "地理志",
+    "notes": "中都路大兴府"
+   }
+  ]
+ },
+ {
+  "id": "dili.yuan.helinsi",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "yuan",
+  "title": "和林",
+  "subtitle": "蒙古的城",
+  "when": {
+   "start": 1235,
+   "precision": "year",
+   "display": "1235 年",
+   "era": "蒙古太宗七年 · 宋端平二年",
+   "verify": "done",
+   "notes": "窝阔台没有使用宋的年号，端平是对照。"
+  },
+  "line": "canon",
+  "narrative": "窝阔台在蒙古本部建和林城，作为汗廷所在。它不在农耕地带，靠的是各地送来的人和物资，城内有回回、汉人的街区。《元史·地理志》在岭北行省下追记和林。忽必烈后来把政治中心南移到开平和大都，和林就变成北边的旧都。本场画草原上第一座被写成都城的城，和从它伸向南方的驿路。",
+  "figures": [
+   {
+    "name": "窝阔台",
+    "role": "蒙古大汗",
+    "en": "Ögedei"
+   }
+  ],
+  "places": [
+   "和林"
+  ],
+  "placeEn": "Karakorum",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "元史",
+    "section": "地理志",
+    "notes": "和宁路，太宗建都和林"
+   },
+   {
+    "kind": "canon",
+    "title": "元史",
+    "section": "太宗纪",
+    "notes": "七年建和林城"
+   }
+  ]
+ },
+ {
+  "id": "dili.yuan.huitong",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "yuan",
+  "title": "会通河",
+  "subtitle": "郭守敬的运河",
+  "when": {
+   "start": 1289,
+   "precision": "year",
+   "display": "1289 年",
+   "era": "元至元二十六年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "至元二十六年，开凿从安山到临清的河道，把汶水和御河连起来，赐名会通河。几年后通惠河又把粮船引进大都城下。郭守敬主持了关键的测量和闸坝。《元史·河渠志》记了会通河的长度和闸。大都的城是刘秉忠那场。本场只画闸和水位：没有这些闸，山东的高地会把南北运河截断。",
+  "figures": [
+   {
+    "name": "郭守敬",
+    "role": "都水监",
+    "en": "Guo Shoujing"
+   },
+   {
+    "name": "忽必烈",
+    "role": "元世祖",
+    "en": "Kublai Khan"
+   }
+  ],
+  "places": [
+   "会通河",
+   "临清",
+   "安山"
+  ],
+  "placeEn": "the Huitong canal",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "元史",
+    "section": "河渠志",
+    "notes": "至元二十六年开会通河"
+   },
+   {
+    "kind": "canon",
+    "title": "元史",
+    "section": "郭守敬传",
+    "notes": "开河与闸坝"
+   }
+  ]
+ },
+ {
+  "id": "dili.ming.beijing",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "ming",
+  "title": "迁都北京",
+  "subtitle": "永乐十九年",
+  "when": {
+   "start": 1421,
+   "precision": "year",
+   "display": "1421 年",
+   "era": "明永乐十九年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "永乐元年朱棣已经把北平改为北京，十九年正式迁都，南京变成留都。宫殿沿用元大都的位置而略向南移，形成后来的中轴线。《明史·成祖纪》记了这一年的迁都。靖难是他夺取帝位的战争。本场是地图上的结果：明朝的重心从长江边挪到燕山脚下，运粮靠的仍是运河。",
+  "figures": [
+   {
+    "name": "朱棣",
+    "role": "明成祖",
+    "en": "Yongle Emperor"
+   }
+  ],
+  "places": [
+   "北京",
+   "南京"
+  ],
+  "placeEn": "Beijing and Nanjing",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "成祖纪",
+    "notes": "永乐十九年迁都北京"
+   },
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "地理志",
+    "notes": "顺天府，永乐元年称北京"
+   }
+  ]
+ },
+ {
+  "id": "dili.ming.jiubian",
+  "pian": "dili",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "ming",
+  "title": "延绥边墙",
+  "subtitle": "余子俊",
+  "when": {
+   "start": 1474,
+   "precision": "year",
+   "display": "1474 年",
+   "era": "明成化十年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "成化十年，延绥巡抚余子俊在黄土高原的北边修筑边墙，把营堡移到墙内，用来阻挡河套的骑兵。《明史·余子俊传》写了这次工程的长度和他与朝中反对者的争执。明长城不是一条一次修成的线，延绥这一段是其中有明确主持人的一段。本场画黄土梁上的墙和墙内的堡，不把秦长城和它画成同一道。",
+  "figures": [
+   {
+    "name": "余子俊",
+    "role": "延绥巡抚",
+    "en": "Yu Zijun"
+   }
+  ],
+  "places": [
+   "延绥",
+   "榆林"
+  ],
+  "placeEn": "Yansui and Yulin",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "余子俊传",
+    "notes": "成化十年筑延绥边墙"
+   },
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "兵志",
+    "notes": "九边之制"
+   }
+  ]
+ },
+ {
+  "id": "dili.ming.shanhaiguan",
+  "pian": "dili",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "ming",
+  "title": "辽西走廊",
+  "subtitle": "山海之间的关",
+  "when": {
+   "start": 1381,
+   "precision": "circa",
+   "display": "约洪武十四年",
+   "era": "明洪武十四年前后",
+   "verify": "done",
+   "notes": "筑关之年方志多系洪武十四年，本场取约数，以地理志所载关隘为准。"
+  },
+  "line": "canon",
+  "narrative": "山海关在辽西走廊的最窄处，一边是山，一边是海。《明史·地理志》把它系在永平府抚宁县下，是明朝对辽东和蒙古方向的主要关口。吴三桂开关是崇祯十七年的事，已有专场。本场只画这座关的地形：山、海和中间只能通过一支军队的城门。不把“天下第一关”的匾写进画面，字是后来加的。",
+  "figures": [
+   {
+    "name": "徐达",
+    "role": "明将",
+    "en": "Xu Da"
+   }
+  ],
+  "places": [
+   "山海关",
+   "辽西走廊"
+  ],
+  "placeEn": "Shanhai Pass",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "地理志",
+    "notes": "永平府山海关"
+   },
+   {
+    "kind": "canon",
+    "title": "明史",
+    "section": "徐达传",
+    "notes": "洪武中修北边关隘，山海关之筑系于此时，年份取约"
+   }
+  ]
+ },
+ {
+  "id": "dili.qing.taiwanfu",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "qing",
+  "title": "台湾府",
+  "subtitle": "康熙二十三年",
+  "when": {
+   "start": 1684,
+   "precision": "year",
+   "display": "1684 年",
+   "era": "清康熙二十三年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "施琅取下台湾的第二年，清朝没有按一部分大臣的意见放弃海岛，而是设台湾府，下辖台湾、凤山、诸罗三县，隶属福建省。《清史稿·地理志》和《圣祖本纪》都记了设府。郑成功收复是军事场。本场是行政地理：一座府城、三座县城，和把它们连到厦门的海路。不把今天的省界画上去。",
+  "figures": [
+   {
+    "name": "康熙帝",
+    "role": "清帝",
+    "en": "Kangxi Emperor"
+   },
+   {
+    "name": "施琅",
+    "role": "水师提督",
+    "en": "Shi Lang"
+   }
+  ],
+  "places": [
+   "台湾府",
+   "厦门"
+  ],
+  "placeEn": "Taiwan Prefecture and Xiamen",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "圣祖本纪",
+    "notes": "康熙二十三年设台湾府"
+   },
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "地理志",
+    "notes": "福建省台湾府"
+   }
+  ]
+ },
+ {
+  "id": "dili.qing.yili",
+  "pian": "dili",
+  "also": [
+   "zhanchang"
+  ],
+  "chapter": "qing",
+  "title": "伊犁",
+  "subtitle": "新疆的枢纽",
+  "when": {
+   "start": 1759,
+   "precision": "year",
+   "display": "1759 年",
+   "era": "清乾隆二十四年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "乾隆二十到二十四年，清朝平定准部和回部，在伊犁设将军，总统天山南北的军政。《清史稿·地理志》把伊犁写成新疆的重心，惠远城是将军驻地。左宗棠收复是一百多年后的事。本场画伊犁河谷和从那里伸向塔里木、伸向蒙古的路，说明十八世纪中叶清朝的地图在这里收了一个结。",
+  "figures": [
+   {
+    "name": "乾隆帝",
+    "role": "清帝",
+    "en": "Qianlong Emperor"
+   }
+  ],
+  "places": [
+   "伊犁",
+   "惠远"
+  ],
+  "placeEn": "Ili and Huiyuan",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "地理志",
+    "notes": "伊犁将军驻惠远"
+   },
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "高宗纪",
+    "notes": "乾隆二十四年平定回部"
+   }
+  ]
+ },
+ {
+  "id": "dili.qing.wukou",
+  "pian": "dili",
+  "also": [
+   "zhiguo"
+  ],
+  "chapter": "qing",
+  "title": "五口",
+  "subtitle": "南京之约",
+  "when": {
+   "start": 1842,
+   "precision": "year",
+   "display": "1842 年",
+   "era": "清道光二十二年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "道光二十二年，耆英与英国代表在南京定约，广州、福州、厦门、宁波、上海五处开口岸，并割让香港岛。《清史稿·邦交志》记录了这五口。它改变的是海岸的法律地位：五个点从只许行商的广州体系里被单独打开。本场画海岸线上的五个墨点，不画条约的英文字，也不把后来的租界街道画进道光二十二年。",
+  "figures": [
+   {
+    "name": "耆英",
+    "role": "钦差大臣",
+    "en": "Qiying"
+   },
+   {
+    "name": "道光帝",
+    "role": "清帝",
+    "en": "Daoguang Emperor"
+   }
+  ],
+  "places": [
+   "广州",
+   "福州",
+   "厦门",
+   "宁波",
+   "上海"
+  ],
+  "placeEn": "the five ports",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "邦交志",
+    "notes": "道光二十二年南京约，五口通商"
+   },
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "宣宗纪",
+    "notes": "道光二十二年和议成"
+   }
+  ]
+ },
+ {
+  "id": "dili.qing.tongwaxiang",
+  "pian": "dili",
+  "also": [],
+  "chapter": "qing",
+  "title": "铜瓦厢",
+  "subtitle": "黄河改道",
+  "when": {
+   "start": 1855,
+   "precision": "year",
+   "display": "1855 年",
+   "era": "清咸丰五年",
+   "verify": "done"
+  },
+  "line": "canon",
+  "narrative": "咸丰五年六月，黄河在兰阳铜瓦厢决口，河道从南边的淮河一线摆回北边，经山东夺大清河入海。这是黄河近几百年里最重要的一次改道。《清史稿·河渠志》记了决口和此后北流的事实。它不是一场战争，但战场、漕运和山东的州县都被这条新河改写。本场画决口处和一条向东北的新墨线，旧河道用淡灰留着。",
+  "figures": [
+   {
+    "name": "咸丰帝",
+    "role": "清帝",
+    "en": "Xianfeng Emperor"
+   }
+  ],
+  "places": [
+   "铜瓦厢",
+   "兰阳"
+  ],
+  "placeEn": "Tongwaxiang",
+  "sources": [
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "河渠志",
+    "notes": "咸丰五年铜瓦厢决，河北徙"
+   },
+   {
+    "kind": "canon",
+    "title": "清史稿",
+    "section": "文宗纪",
+    "notes": "咸丰五年河决兰阳"
+   }
+  ]
+ }
+]

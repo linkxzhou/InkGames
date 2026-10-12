@@ -1,0 +1,120 @@
+/* 四篇：仍只用色板七色。差异在版式、笔势和印章，不另加颜色。 */
+
+#pianNav{display:flex;gap:4px;align-items:center;min-width:0;flex-wrap:wrap}
+#pianNav a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-family:var(--kai);font-size:15px;letter-spacing:.12em;padding:4px 8px;border-bottom:2px solid transparent;white-space:nowrap}
+#pianNav a .mini{width:22px;height:22px;font-size:13px}
+#pianNav a[aria-current="page"]{border-bottom-color:var(--red);color:var(--ink)}
+
+.pian-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:18px 0 36px;align-items:stretch}
+.pian-card{position:relative;display:flex;flex-direction:column;min-height:320px;padding:22px 18px 16px;text-decoration:none;overflow:hidden;color:var(--ink);background:var(--paper);border:1px solid var(--rule)}
+.pian-card:hover{border-color:var(--ink)}
+.pian-card .pk{font-size:12px;letter-spacing:.28em;color:var(--mid)}
+.pian-card h3{font-family:var(--kai);font-weight:900;font-size:clamp(28px,2.4vw,36px);letter-spacing:.14em;line-height:1.15;margin:8px 0 6px}
+.pian-card .pg{font-family:var(--kai);letter-spacing:.2em;font-size:14px}
+.pian-card .ps{margin-top:10px;font-size:13.5px;line-height:1.7;color:var(--char)}
+.pian-card .pm{margin-top:auto;padding-top:12px;font-size:12px;letter-spacing:.08em;color:var(--mid)}
+
+/* 战场：墨底、斜向笔锋、朱砂斜杠 */
+.pian-card.zhanchang{background:var(--fill-ink);color:var(--paper);border-color:var(--ink);clip-path:polygon(0 0,100% 0,100% 92%,96% 100%,0 100%)}
+.pian-card.zhanchang::before{content:"";position:absolute;inset:-20% -10%;background:linear-gradient(112deg,transparent 38%,rgba(179,36,28,.95) 38%,rgba(179,36,28,.95) 42%,transparent 42%),linear-gradient(112deg,transparent 62%,rgba(236,234,228,.08) 62%,rgba(236,234,228,.08) 63.2%,transparent 63.2%);pointer-events:none}
+.pian-card.zhanchang .pk,.pian-card.zhanchang .pm{color:var(--pale)}
+.pian-card.zhanchang .ps{color:var(--mist);position:relative}
+.pian-card.zhanchang h3,.pian-card.zhanchang .pg,.pian-card.zhanchang .seal{position:relative}
+
+/* 治国：格网、双边栏、印章 */
+.pian-card.zhiguo{background-color:var(--paper);background-image:linear-gradient(var(--mist) 1px,transparent 1px),linear-gradient(90deg,var(--mist) 1px,transparent 1px);background-size:22px 22px;box-shadow:inset 0 0 0 1px var(--ink);outline:1px solid var(--ink);outline-offset:-7px;text-align:center;align-items:center}
+.pian-card.zhiguo h3{margin-top:18px}
+.pian-card.zhiguo .seal{position:absolute;right:16px;top:16px;transform:rotate(6deg)}
+
+/* 人物：竖幅、无五官剪影 */
+.pian-card.renwu{min-height:380px;padding-right:108px}
+.pian-card.renwu .sil{position:absolute;right:16px;bottom:12px;width:72px;height:220px;pointer-events:none}
+.pian-card.renwu h3{writing-mode:horizontal-tb}
+
+/* 地理：横卷地形 */
+.pian-card.dili{min-height:300px;padding-bottom:92px}
+.pian-card.dili .map{position:absolute;left:0;right:0;bottom:0;height:88px;pointer-events:none}
+.pian-card.dili .route{position:absolute;left:8%;right:8%;bottom:36px;height:28px;pointer-events:none}
+
+#pianBanner{padding:0 0 8px}
+#pianBanner[hidden]{display:none}
+.pb{position:relative;overflow:hidden;min-height:168px;padding:28px 0 22px}
+.pb h2{font-family:var(--kai);font-weight:900;font-size:clamp(36px,5vw,64px);letter-spacing:.16em;line-height:1.05}
+.pb .plead{max-width:40em;margin-top:8px;color:var(--char)}
+.pb .pmeta{margin-top:10px;font-size:13px;letter-spacing:.12em;color:var(--mid)}
+.pb-zhanchang{background:var(--fill-ink);color:var(--paper);clip-path:polygon(0 0,100% 0,100% 88%,97% 100%,0 100%)}
+.pb-zhanchang::before{content:"";position:absolute;inset:0;background:linear-gradient(108deg,transparent 0 46%,#b3241c 46% 50%,transparent 50%);opacity:.9;pointer-events:none}
+.pb-zhanchang .wrap{position:relative}
+.pb-zhanchang .plead{color:var(--mist)}
+.pb-zhanchang .pmeta{color:var(--pale)}
+.pb-zhiguo .frame{position:relative;border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:6px;padding:22px 28px;background-image:linear-gradient(var(--mist) 1px,transparent 1px),linear-gradient(90deg,var(--mist) 1px,transparent 1px);background-size:28px 28px;background-color:rgba(236,234,228,.92)}
+.pb-zhiguo .seal{position:absolute;right:18px;top:18px;transform:rotate(8deg)}
+.pb-renwu .wrap{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:end}
+.pb-renwu .sil{width:96px;height:240px}
+.pb-dili{padding-bottom:0}
+.pb-dili .map{display:block;width:100%;height:120px}
+
+#pianTools{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:8px 0 0}
+#pianTools label{display:inline-flex;align-items:center;gap:8px;font-family:var(--kai);letter-spacing:.12em;cursor:pointer}
+#pianTools input{width:16px;height:16px;accent-color:var(--red)}
+#pianCount{color:var(--mid);font-size:13px}
+
+.sc-group{grid-column:1 / -1;font-family:var(--kai);font-size:18px;letter-spacing:.2em;margin:14px 0 0;padding-top:8px;border-top:1px solid var(--rule)}
+.sc .badge{font-size:11px;letter-spacing:.08em;color:var(--mid)}
+
+body.pian-zhanchang #scenes{gap:12px}
+body.pian-zhanchang .sc{background:#141414;color:var(--paper);border-color:#141414;transform:skewX(-7deg)}
+body.pian-zhanchang .sc > *{display:block;transform:skewX(7deg)}
+body.pian-zhanchang .sc .s,body.pian-zhanchang .sc .n,body.pian-zhanchang .sc .y,body.pian-zhanchang .sc .badge{color:var(--pale)}
+body.pian-zhanchang .sc.active{box-shadow:inset 5px 0 0 #b3241c}
+body.pian-zhanchang .sc.active::after{display:none}
+
+body.pian-zhiguo #scenes{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+body.pian-zhiguo .sc{border:1px solid var(--ink);box-shadow:inset 0 0 0 4px var(--paper),inset 0 0 0 5px var(--ink);background-color:var(--paper);background-image:linear-gradient(var(--mist) 1px,transparent 1px),linear-gradient(90deg,var(--mist) 1px,transparent 1px);background-size:14px 14px}
+body.pian-zhiguo .sc.active{background-color:var(--ink);background-image:none;color:var(--paper)}
+
+body.pian-renwu #scenes{grid-template-columns:repeat(auto-fill,minmax(168px,1fr))}
+body.pian-renwu .sc{min-height:210px;align-items:center;text-align:center;padding-top:28px;background:linear-gradient(180deg,transparent 0 42%,rgba(210,209,204,.45) 42% 100%)}
+body.pian-renwu .sc::after{content:"";position:absolute;left:50%;top:10px;width:22px;height:58px;transform:translateX(-50%);background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 120'%3E%3Ccircle cx='20' cy='14' r='10' fill='%23141414'/%3E%3Cpath d='M8 30 h24 l6 78 H6 z' fill='%23141414'/%3E%3C/svg%3E");opacity:.8;pointer-events:none}
+body.pian-renwu .sc .t{margin-top:48px}
+body.pian-renwu .sc.active{background:var(--fill-ink);color:var(--paper)}
+body.pian-renwu .sc.active::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 120'%3E%3Ccircle cx='20' cy='14' r='10' fill='%23eceae4'/%3E%3Cpath d='M8 30 h24 l6 78 H6 z' fill='%23eceae4'/%3E%3C/svg%3E")}
+
+body.pian-dili #chapter{background:linear-gradient(180deg,transparent 0,rgba(210,209,204,.35) 28%,rgba(168,168,164,.28) 62%,rgba(110,110,108,.18) 100%)}
+body.pian-dili #scenes{display:flex;flex-direction:column;gap:0;margin-left:8px;padding-left:22px;border-left:2px solid var(--ink)}
+body.pian-dili .sc{border:0;border-bottom:1px solid var(--rule);border-radius:0;background:transparent}
+body.pian-dili .sc::before{content:"";position:absolute;left:-28px;top:22px;width:12px;height:12px;background:var(--paper);border:2px solid var(--ink);transform:rotate(45deg)}
+body.pian-dili .sc.active{background:var(--fill-ink);color:var(--paper)}
+body.pian-dili .sc.active::before{background:var(--red);border-color:var(--red)}
+body.pian-dili .sc-group{border:0;margin-left:-22px;padding-left:22px}
+
+#scene.is-novel .nav-legacy,#scene.is-novel #cardInfo,#scene.is-novel #cardGraph,#scene.is-novel #cardTree,#scene.is-novel #cardShots,#scene.is-novel #cardVideo,#scene.is-novel #cardAudio,#scene.is-novel #cardArt{display:none}
+#scene:not(.is-novel) .nav-novel,#scene:not(.is-novel) #cardNovel{display:none}
+.novel p{margin:0 0 12px;font-size:16px;line-height:1.9}
+.novel .who{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+.novel .who span{border:1px solid var(--ink);padding:4px 8px;font-family:var(--kai)}
+
+body.is-home #pianBanner,body.is-home #dynasties,body.is-home #chapter,body.is-home #scene,body.is-home .tools{display:none}
+body.is-pian #hero,body.is-pian #pianHome{display:none}
+body.is-home #hero .wrap{min-height:0;padding-top:28px;padding-bottom:12px}
+body.is-home .hero-title h1{font-size:clamp(64px,8vw,108px)}
+body.is-home .hero-art{width:min(720px,52%)}
+
+@media (max-width:1100px){
+  .pian-grid{grid-template-columns:1fr 1fr}
+  body.pian-zhiguo #scenes{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  #bar .wrap{flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+  #pianNav{order:3;width:100%;justify-content:space-between}
+  #pianNav a{font-size:14px;padding:4px 2px}
+  .pian-grid{grid-template-columns:1fr}
+  .pian-card{min-height:240px}
+  .pian-card.renwu{min-height:280px;padding-right:88px}
+  body.pian-zhiguo #scenes,body.pian-renwu #scenes,#scenes{grid-template-columns:1fr}
+  body.pian-zhanchang .sc{transform:none}
+  body.pian-zhanchang .sc > *{transform:none}
+  .pb-renwu .wrap{grid-template-columns:72px 1fr}
+  .pb-renwu .sil{width:64px;height:160px}
+  body.is-home .hero-art{width:100%}
+}

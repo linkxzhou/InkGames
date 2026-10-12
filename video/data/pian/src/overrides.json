@@ -1,0 +1,13 @@
+{
+  "chunqiu.laozi": { "primary": "renwu", "also": ["dili"] },
+  "zhanguo.ximenbao": { "primary": "zhiguo", "also": ["renwu"] },
+  "qin.fengshan": { "primary": "zhiguo", "also": ["renwu"] },
+  "xihan.zhaojun": { "primary": "renwu", "also": ["dili"] },
+  "sui.miechen": { "primary": "zhanchang", "also": ["dili"] },
+  "sui.jiangdu": { "primary": "renwu", "also": ["zhiguo"] },
+  "liaojin.xixiawang": { "primary": "zhanchang", "also": ["dili"] },
+  "nansong.zongze": { "primary": "renwu", "also": ["zhanchang"] },
+  "yuan.chengjisi": { "primary": "renwu", "also": ["dili"] },
+  "ming.meishan": { "primary": "renwu", "also": ["zhanchang"] },
+  "qing.zuozongtang": { "primary": "zhanchang", "also": ["dili"] }
+}

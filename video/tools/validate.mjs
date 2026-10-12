@@ -561,6 +561,7 @@ let chapterScripts = 0, chapterScriptShots = 0;
       else for (const a of sh.ambience) if (!AMB.has(a)) err(w, '环境声未在 chapter_audio.py 实现：' + a);
       if (!['pending', 'done'].includes(sh.status)) err(w, 'status 应为 pending 或 done');
       if (sh.clip !== `${id}-${String(i + 1).padStart(2, '0')}.mp4`) err(w, 'clip 文件名应为 ' + `${id}-${String(i + 1).padStart(2, '0')}.mp4`);
+      if (sh.pian != null && !['zhanchang', 'zhiguo', 'renwu', 'dili'].includes(sh.pian)) err(w, 'pian 不是四篇之一：' + sh.pian);
     });
   }
 }
@@ -590,6 +591,170 @@ let chapterVideos = 0;
       if (!e.mp4 || !e.poster) err('chapter-videos ' + id, '缺少 mp4 或 poster');
       else if (existsSync(join(VIEW, e.mp4)) && statSync(join(VIEW, e.mp4)).size >= 30 * 1024 * 1024) err('chapter-videos ' + id, 'mp4 超过 30 MB（每章上限，见 AGENTS.md 章节片头视频制作规范）');
     }
+  }
+}
+
+// 四篇：分类、新场景与篇内提示词。见 video/docs/pian.md。
+{
+  const PIAN_IDS = ['zhanchang', 'zhiguo', 'renwu', 'dili'];
+  const PIAN_LINES = new Set(['canon', 'legend', 'classic']);
+  const HAN = s => (String(s || '').match(/[\u4e00-\u9fff]/g) || []).length;
+  const SPAN = {
+    shanggu: [-4000, -1600], xia: [-2120, -1550], shang: [-1650, -996], xizhou: [-1096, -721],
+    chunqiu: [-820, -426], zhanguo: [-525, -171], qin: [-271, -157], xihan: [-256, 58],
+    donghan: [-41, 270], sanguo: [134, 330], liangjin: [216, 470], nanbeichao: [370, 639],
+    sui: [531, 668], tang: [568, 957], wudai: [857, 1010], beisong: [910, 1177],
+    liaojin: [857, 1284], nansong: [1077, 1329], yuan: [1156, 1418], ming: [1318, 1694], qing: [1586, 1962],
+  };
+  const NEED = {
+    zhanchang: { zh: [/军阵/, /旌旗/], music: [/战鼓/, /号角/], en: [/troops|army|formation/i, /banner/i], musicEn: [/drum/i, /horn/i] },
+    zhiguo: { zh: [/朝堂/, /粮仓/], music: [/编钟|朝会/], en: [/court/i, /granar/i], musicEn: [/bell|court/i] },
+    renwu: { zh: [/剪影/, /肖像/], music: [/动机/], en: [/silhouette/i, /portrait/i], musicEn: [/leitmotif|phrase/i] },
+    dili: { zh: [/水墨地图/, /关隘/], music: [/开阔/], en: [/ink map/i, /pass/i], musicEn: [/expansive/i] },
+  };
+  const pianDir = join(DATA, 'pian');
+  const builtPath = join(pianDir, 'built', 'pian.json');
+  if (!existsSync(builtPath)) err('pian', '缺少 video/data/pian/built/pian.json（运行 node video/tools/build-pian.mjs）');
+  else {
+    const built = JSON.parse(readFileSync(builtPath, 'utf8'));
+    const series = JSON.parse(readFileSync(join(pianDir, 'series.json'), 'utf8'));
+    if (!series.pians || series.pians.length !== 4) err('pian', 'series.json 必须恰好四篇');
+    const ids = (series.pians || []).map(p => p.id);
+    if (ids.join() !== PIAN_IDS.join()) err('pian', '篇 id 顺序应为 ' + PIAN_IDS.join(','));
+    for (const p of series.pians || []) {
+      for (const k of ['name', 'fullName', 'seal', 'genre', 'scope', 'videoLine', 'promptFocus', 'music', 'motif']) {
+        if (!p[k]) err('pian ' + p.id, '缺少 ' + k);
+      }
+    }
+    const mem = built.membership || {};
+    for (const [id, e] of allScenes) {
+      const m = mem[id];
+      if (!m) { err('pian ' + id, '既有场景未分类'); continue; }
+      if (!PIAN_IDS.includes(m.primary)) err('pian ' + id, '主篇无效');
+      if (!Array.isArray(m.also) || m.also.length > 2 || m.also.includes(m.primary) || m.also.some(x => !PIAN_IDS.includes(x))) err('pian ' + id, '兼收无效');
+    }
+    for (const id of Object.keys(mem)) if (!allScenes.has(id)) err('pian ' + id, '分类指向不存在的场景');
+    const srcScenes = [];
+    const srcDir = join(pianDir, 'src', 'scenes');
+    if (existsSync(srcDir)) for (const f of readdirSync(srcDir).filter(f => f.endsWith('.json'))) {
+      srcScenes.push(...JSON.parse(readFileSync(join(srcDir, f), 'utf8')));
+    }
+    const builtById = new Map((built.scenes || []).map(s => [s.id, s]));
+    const seenTitle = new Map();
+    for (const [id, e] of allScenes) {
+      const table = e.strings && e.strings.strings || {};
+      const title = table[e.scene.title] || e.scene.title;
+      seenTitle.set(title, id);
+    }
+    const novelPrimary = Object.fromEntries(PIAN_IDS.map(id => [id, 0]));
+    for (const s of srcScenes) {
+      const w = 'pian ' + (s.id || '?');
+      if (!s.id || !PIAN_IDS.includes(s.pian) || s.id !== `${s.pian}.${s.chapter}.${s.id.split('.').slice(2).join('.')}`) err(w, 'id 应为 篇.朝代.短名');
+      if (allScenes.has(s.id)) err(w, '与既有场景 id 冲突');
+      if (!index.chapters.some(c => c.id === s.chapter)) err(w, '朝代不存在');
+      if (!PIAN_LINES.has(s.line)) err(w, 'line 应为 canon / classic / legend');
+      if (!Array.isArray(s.also) || s.also.includes(s.pian) || s.also.some(x => !PIAN_IDS.includes(x)) || s.also.length > 2) err(w, 'also 无效');
+      const n = HAN(s.narrative);
+      if (n < 100 || n > 500) err(w, `叙事汉字 ${n}，应在 100–500`);
+      if (s.line === 'legend' && !/正史|传说|异说|笔记|演义|后世/.test(s.narrative || '')) err(w, '传说线叙事要标明传说或正史界限');
+      checkDate(w, s.when);
+      if (!s.when || !s.when.era) err(w, 'era 为空');
+      const span = SPAN[s.chapter];
+      // circa 可早于本章政治起点约两百年（如周人迁岐写在西周，年份只用于排序）。
+      if (span && s.when && s.when.precision !== 'legend' && isInt(s.when.start)) {
+        const early = s.when.precision === 'circa' ? span[0] - 160 : span[0];
+        if (s.when.start < early || s.when.start > span[1]) err(w, `年份 ${s.when.start} 离本章范围过远`);
+      }
+      checkSources(w, s.sources);
+      const kinds = new Set((s.sources || []).map(x => x.kind));
+      if (s.line === 'canon' && ![...kinds].some(k => k === 'canon' || k === 'classic' || k === 'excavated')) err(w, '正史线缺少正史、经典或出土文献');
+      if (s.line === 'classic' && ![...kinds].some(k => k === 'classic' || k === 'canon')) err(w, '经典线缺少经典或正史出处');
+      if (!Array.isArray(s.figures) || !s.figures.length || s.figures.some(f => !f.name)) err(w, '人物为空');
+      if (!Array.isArray(s.places) || !s.places.length) err(w, '地点为空');
+      if (!s.title) err(w, '标题为空');
+      if (seenTitle.has(s.title)) err(w, '标题与已有场景重复：' + seenTitle.get(s.title));
+      seenTitle.set(s.title, s.id);
+      novelPrimary[s.pian] += 1;
+      const b = builtById.get(s.id);
+      if (!b) err(w, 'built 里没有这则新场景');
+      else if (b.narrative !== s.narrative || JSON.stringify(b.sources) !== JSON.stringify(s.sources)) err(w, 'built 与 src 叙事或出处不一致（重跑 build-pian.mjs）');
+    }
+    for (const id of PIAN_IDS) if (novelPrimary[id] < 40) err('pian ' + id, `新场景主线 ${novelPrimary[id]}，至少 40`);
+    if ((built.scenes || []).length !== srcScenes.length) err('pian', 'built.scenes 数量与 src 不一致');
+    const packs = {};
+    for (const id of PIAN_IDS) packs[id] = JSON.parse(readFileSync(join(pianDir, 'built', id + '.json'), 'utf8'));
+    const orderOf = Object.fromEntries(index.chapters.map(c => [c.id, Number(c.no)]));
+    const checkBundle = (where, bundle, pianId, order) => {
+      if (!bundle) return err(where, '缺少提示词');
+      for (const kind of ['image', 'video', 'music', 'sound']) {
+        const block = bundle[kind];
+        if (!block || !block.zh || !block.en || !block.negative || !block.negative.zh || !block.negative.en) { err(where, kind + ' 不完整'); continue; }
+        if (!block.negative.zh.includes(NEG_MODERN_ZH) || !block.negative.en.includes(NEG_MODERN_EN)) err(where, kind + ' 负面词缺少现代元素禁令');
+        if (!block.negative.zh.includes(negAnachronism(order, 'zh')) || !block.negative.en.includes(negAnachronism(order, 'en'))) err(where, kind + ' 负面词缺少时代错置禁令');
+      }
+      const img = bundle.image, vid = bundle.video;
+      if (img && vid) {
+        for (const text of [img.zh, vid.zh]) if (text && !text.includes(STYLE_REF_ZH)) err(where, '中文静帧/视频缺少风格参照');
+        for (const text of [img.en, vid.en]) if (text && !text.includes(STYLE_REF_EN)) err(where, '英文静帧/视频缺少风格参照');
+        for (const text of [img.zh, img.en, vid.zh, vid.en]) if (text) for (const hex of HEXES) if (!text.includes(hex)) err(where, '缺少色板 ' + hex);
+        if (img.negative && (!img.negative.zh.includes(NEG_STYLE_ZH) || !img.negative.en.includes(NEG_STYLE_EN))) err(where, '静帧负面词缺少风格禁令');
+        if (vid.negative && (!vid.negative.zh.includes(NEG_STYLE_ZH) || !vid.negative.en.includes(NEG_STYLE_EN))) err(where, '视频负面词缺少风格禁令');
+        if (vid.zh && !vid.zh.includes(MOTION_ZH)) err(where, '视频缺少运动约束');
+        if (vid.en && !vid.en.includes(MOTION_EN)) err(where, '英文视频缺少运动约束');
+        if (vid.negative && (!vid.negative.zh.includes(NEG_MOTION_ZH) || !vid.negative.en.includes(NEG_MOTION_EN))) err(where, '视频负面词缺少运动禁令');
+      }
+      const need = NEED[pianId];
+      if (need && img && bundle.music) {
+        for (const re of need.zh) if (!re.test(img.zh || '')) err(where, '静帧未扣住本篇：' + re);
+        for (const re of need.en) if (!re.test(img.en || '')) err(where, '英文静帧未扣住本篇：' + re);
+        for (const re of need.music) if (!re.test(bundle.music.zh || '')) err(where, '配乐未扣住本篇：' + re);
+        for (const re of need.musicEn) if (!re.test(bundle.music.en || '')) err(where, '英文配乐未扣住本篇：' + re);
+      }
+      if (OLD_STYLE_DATA.test(JSON.stringify(bundle))) err(where, '提示词含旧彩色水墨措辞');
+    };
+    for (const item of built.catalog || []) {
+      const pians = [item.primary, ...(item.also || [])];
+      for (const pid of pians) {
+        const pack = packs[pid];
+        const where = 'pian ' + pid + ' ' + item.id;
+        if (item.novel) {
+          const sc = (pack.scenes || []).find(s => s.id === item.id);
+          if (!sc) err(where, '篇包里没有这则新场景');
+          else checkBundle(where, sc.prompts && sc.prompts[pid], pid, orderOf[item.chapter]);
+        } else if (!pack.variants || !pack.variants[item.id]) err(where, '缺少既有场景的篇提示词');
+        else checkBundle(where, pack.variants[item.id], pid, orderOf[item.chapter]);
+      }
+    }
+    const viewerDir = join(DATA, '..', 'viewer', 'data', 'pian');
+    const parseJs = (file, re) => {
+      const text = readFileSync(file, 'utf8');
+      const m = text.match(re);
+      if (!m) { err(file, '无法解析查看器脚本'); return null; }
+      return JSON.parse(m[1]);
+    };
+    const viewerIndex = parseJs(join(viewerDir, 'index.js'), /window\.FENGHUO_PIAN = (\{[\s\S]*\});\s*$/);
+    const expectIndex = { format: 'inkgames.pian-index', version: 1, series: built.series, membership: built.membership, catalog: built.catalog, counts: built.counts };
+    if (viewerIndex && JSON.stringify(viewerIndex) !== JSON.stringify(expectIndex)) err('pian', 'viewer/data/pian/index.js 与 built/pian.json 不一致');
+    for (const id of PIAN_IDS) {
+      const js = parseJs(join(viewerDir, id + '.js'), /=\s*(\{[\s\S]*\});\s*$/);
+      if (js && JSON.stringify(js) !== JSON.stringify(packs[id])) err('pian ' + id, '查看器脚本与 built JSON 不一致');
+    }
+    const ROOT = resolve(DATA, '..', '..');
+    const walk = (dir, ext, out = []) => {
+      if (!existsSync(dir)) return out;
+      for (const f of readdirSync(dir)) {
+        const p = join(dir, f);
+        if (statSync(p).isDirectory()) walk(p, ext, out);
+        else if (ext.test(f)) out.push(p);
+      }
+      return out;
+    };
+    for (const file of [...walk(pianDir, /\.json$/), ...walk(viewerDir, /\.js$/)]) {
+      const m = readFileSync(file, 'utf8').match(OLD_STYLE_DATA);
+      if (m) err(file.slice(ROOT.length + 1), '含旧彩色水墨措辞：' + m[0]);
+    }
+    const listed = Object.fromEntries(PIAN_IDS.map(id => [id, (built.catalog || []).filter(c => c.primary === id || (c.also || []).includes(id)).length]));
+    console.log('四篇：' + PIAN_IDS.map(id => `${series.pians.find(p => p.id === id).name} 列出 ${listed[id]}（新主线 ${novelPrimary[id]}）`).join('；'));
   }
 }
 
