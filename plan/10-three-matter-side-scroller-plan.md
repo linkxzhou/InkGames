@@ -423,7 +423,7 @@ Playfield 碰撞（角色 × 地面）
 
 - [x] **M0 文档。** 本计划、docs 里的切片说明、与 video/docs/engine-gaps 的模块名对齐。所有者已按 §11 逐条确认（2026-10-09）。
 - [x] **M1 能走的坡。** `InkView`、透视侧视、`Playfield` 固定步和插值、角色圆、折线地面。`tests/playfield.test.ts` 不创建 GL。
-- [x] **M2 墨面。** `InkSurface` 提供 `paint` / `update` / `texture`。过场播放器接在 M5。`InkBackdrop` 用同一张墨面给内容站铺淡墨底（低分辨率、低帧率），见 docs/07。
+- [x] **M2 墨面。** `InkSurface` 提供 `paint` / `update` / `texture`。过场播放器接在 M5。湿墨与漫水在 `InkPaintSheet`、`InkWash`，`InkBackdrop` 只用这两段给内容站铺淡墨底（低分辨率、低帧率，平涂宣纸），见 docs/07。
 - [x] **M3 三样画面。** `TerrainSeep`（512×256）、`createCunRock` 勾边、`BambooView` 墨滴。SwiftShader 截图见 `node scripts/gpu-check.mjs --shots`。真实 GPU 未实测。
 - [x] **M4 动作补全。** 单向平台、击退、扫掠、可砍。`InkView.washAt` 先 `washBridge` 再 `InkSurface.wash`。演示页 `apps/scroll/`。
 - [~] **M5 叙事宿主。** `SceneDirector`、`StoryRuntime`、`CutscenePlayer`、`AudioBus`、`InkText`、`SaveStore`、`StoryStage` 已从 `src/index.ts` 导出。`apps/story/` 只读荆轲样例：正史开场按帧时钟走，Canvas 字幕画出「易水寒」，选择处可进正史或野史，检查点可 `resume`。`PostStack` 没有类；flow / distort / metallic / wash / fade 由 `StoryStage` 写到墨面或淡出平面，遮罩是画布暗角。玩法节点只显示目标并等待继续。配音文件不在仓库里，`AudioBus` 用振荡器占位。景深、录制回放、video/docs/engine-gaps M1 的三场景通关、两次播放末帧逐像素一致、独显帧时都未做。CPU 证据是 `tests/narrative.test.ts`。无头截图只证明着色器能编过。

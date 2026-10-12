@@ -1,15 +1,14 @@
 import {
   Mesh, MeshBasicMaterial, OrthographicCamera, PlaneGeometry, Scene, SRGBColorSpace, WebGLRenderer,
-} from 'three';
-import { InkSurface } from './ink-surface';
+} from './three-gl';
+import { InkPaintSheet } from './ink-paint';
+import { InkWash } from './ink-wash';
 import { P5Noise, P5Random } from './ink-random';
 
 /** 宣纸 #eceae4。与内容站 `--paper` 相同，无 WebGL 时页面就停在这一色。 */
 export const BACKDROP_PAPER: readonly [number, number, number] = [236, 234, 228];
 /** 中灰 #6e6e6c。湿墨用它，避免墨黑铺满正文。 */
 const INK: readonly [number, number, number] = [110, 110, 108];
-/** 纸纹会把底色乘 1.1 再压暗。这个值经过那一步后接近宣纸 #eceae4。 */
-const PAPER_BEFORE_FIBRE: readonly [number, number, number] = [200, 198, 194];
 /**
  * 朱砂 #b3241c。编码会把明度高于 0.6 的颜色抬淡，
  * 背景上因此只剩一小点淡红，不会压过文字。
@@ -61,13 +60,14 @@ function clampSheet(value: number, limit: number): number {
 }
 
 /**
- * 全屏淡墨底。墨画在低分辨率的 InkSurface 上（纸纹、湿墨反馈、漫水都走现成管线），
- * 再铺满视口。显示画布的像素比锁在 1，动画大约 8 帧/秒，页面不可见或静止后更慢。
+ * 全屏淡墨底。只走湿墨 InkPaintSheet 和漫水 InkWash，纸色用页面的宣纸底。
+ * 显示画布的像素比锁在 1，动画大约 8 帧/秒，页面不可见或静止后更慢。
  */
 export class InkBackdrop {
   readonly canvas: HTMLCanvasElement;
   private readonly renderer: WebGLRenderer;
-  private readonly surface: InkSurface;
+  private readonly surface: InkPaintSheet;
+  private readonly wash: InkWash;
   private readonly scene = new Scene();
   private readonly camera: OrthographicCamera;
   private readonly sheet: Mesh<PlaneGeometry, MeshBasicMaterial>;
@@ -120,13 +120,15 @@ export class InkBackdrop {
     this.renderer.outputColorSpace = SRGBColorSpace;
     this.renderer.setPixelRatio(1);
     this.renderer.setClearColor(0xeceae4, 1);
-    this.surface = new InkSurface(this.renderer, {
+    this.surface = new InkPaintSheet(this.renderer, {
       width: BACKDROP_WIDTH,
       height: BACKDROP_HEIGHT,
       seed: this.seed,
-      paper: true,
-      background: PAPER_BEFORE_FIBRE,
+      paper: false,
+      recordLastStroke: false,
+      background: BACKDROP_PAPER,
     });
+    this.wash = new InkWash(this.surface);
     this.surface.texture.colorSpace = SRGBColorSpace;
     const geometry = new PlaneGeometry(2, 2);
     const material = new MeshBasicMaterial({ map: this.surface.texture, toneMapped: false, depthWrite: false });
@@ -166,6 +168,7 @@ export class InkBackdrop {
     this.disposed = true;
     this.stop();
     this.canvas.removeEventListener('webglcontextlost', this.onLost);
+    this.wash.dispose();
     this.surface.dispose();
     this.scene.traverse(object => {
       const mesh = object as Mesh;
@@ -216,12 +219,12 @@ export class InkBackdrop {
     this.trail.push({ x, y });
     if (this.trail.length > TRAIL) {
       const old = this.trail.shift();
-      if (old) this.surface.wash(old.x, old.y, 30);
+      if (old) this.wash.wash(old.x, old.y, 30);
     }
     if (this.frames % 48 === 47) this.bloom += 1;
   }
 
-  /** InkSurface 的 pass 会把视口留在墨面尺寸上，铺回屏幕前要改回来。 */
+  /** 湿墨 pass 会把视口留在墨面尺寸上，铺回屏幕前要改回来。 */
   private present(): void {
     this.renderer.setRenderTarget(null);
     this.renderer.setViewport(0, 0, this.canvas.width, this.canvas.height);

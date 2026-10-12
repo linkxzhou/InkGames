@@ -14,7 +14,13 @@ export default defineConfig({
     outDir: resolve(__dirname, 'video/viewer/assets'),
     emptyOutDir: false,
     sourcemap: false,
-    minify: true,
+    minify: 'esbuild',
     target: 'es2022',
+    rollupOptions: {
+      treeshake: {
+        preset: 'smallest',
+        moduleSideEffects: (id) => !id.includes('/three/'),
+      },
+    },
   },
 });
