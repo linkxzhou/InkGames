@@ -175,6 +175,7 @@ button,select{font:inherit;color:inherit}
 .keys{margin-top:4px;font-size:14px;color:var(--char)}
 .keys em{font-style:normal;font-family:var(--kai);font-size:16px;border-bottom:1.5px solid var(--red);margin-right:10px}
 #scenes{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:18px 0 8px;list-style:none}
+#scenes[hidden]{display:none !important}
 .sc{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;min-height:96px;padding:12px 14px 10px;text-align:left;background:transparent;border:1px solid var(--rule);cursor:pointer;overflow:hidden;
   transition:border-color .25s,color .25s}
 .sc::before{content:"";position:absolute;inset:-30%;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(20,20,20,.09) 0,rgba(20,20,20,.05) 30%,transparent 62%);transform:scale(.2);opacity:0;transition:transform .5s ease-out,opacity .4s;pointer-events:none}
@@ -435,7 +436,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     <div class="ch-bar">
       <h2 class="ch-name" id="chName"></h2>
       <p class="ch-meta" id="quote"></p>
-      <div id="pianTools"><label for="primaryOnly"><input id="primaryOnly" type="checkbox"> 只看主线</label></div>
+      <div id="pianTools"><label for="primaryOnly"><input id="primaryOnly" type="checkbox"> 只看主线</label>
+        <div id="viewToggle" hidden><button type="button" data-mode="list">列表</button><button type="button" data-mode="map">地图</button></div>
+      </div>
       <p id="pianCount"></p>
     </div>
     <span id="chNo" class="sr"></span>
@@ -448,7 +451,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
         <figcaption><span class="cv-seal seal-tall seal-2" aria-hidden="true"><i>开</i><i>卷</i></span><span id="chVidCap"></span></figcaption>
       </figure>
     </details>
-    <ol id="scenes" aria-label="本章场景"></ol>
+    <div id="diliThumbs" class="map-thumbs" hidden></div>
+    <div class="chapter-body" id="chapterBody">
+      <div id="dmapCol" hidden></div>
+      <ol id="scenes" aria-label="本章场景"></ol>
+    </div>
   </div>
 </section>
 
@@ -480,6 +487,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 <script src="data/index.js"></script>
 <script src="assets/chapter-videos/index.js"></script>
 <script src="data/pian/index.js"></script>
+<script src="data/maps.js"></script>
 <script>
 "use strict";
 const NS = "http://www.w3.org/2000/svg";
@@ -539,7 +547,7 @@ function sealMarkup(text, cls){
 const PIAN = window.FENGHUO_PIAN;
 const PACKS = (window.FENGHUO_PIAN_PACKS = window.FENGHUO_PIAN_PACKS || {});
 const PIAN_LOAD = {};
-let view = { pian: null, ch: null, sc: null, primaryOnly: false };
+let view = { pian: null, ch: null, sc: null, primaryOnly: false, mapOn: false };
 const SILHOUETTE = '<svg class="sil" viewBox="0 0 40 120" aria-hidden="true"><circle cx="20" cy="14" r="10" fill="#141414"/><path d="M8 30 h24 l6 78 H6 z" fill="#141414"/></svg>';
 const MAP_SVG = '<svg class="map" viewBox="0 0 800 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 78 L80 62 L160 70 L260 40 L360 58 L480 28 L600 52 L720 36 L800 48 L800 120 L0 120 Z" fill="#d2d1cc"/><path d="M0 96 L120 80 L240 90 L360 70 L500 84 L660 64 L800 76 L800 120 L0 120 Z" fill="#a8a8a4"/><path d="M0 108 L200 96 L400 104 L600 92 L800 100 L800 120 L0 120 Z" fill="#6e6e6c"/></svg>';
 const ROUTE_SVG = '<svg class="route" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M4 20 C 40 4, 80 24, 120 12 S 200 4, 240 16 300 8, 316 14" fill="none" stroke="#141414" stroke-width="2"/><circle cx="4" cy="20" r="3" fill="#b3241c"/><circle cx="160" cy="10" r="3" fill="#141414"/><circle cx="316" cy="14" r="3" fill="#141414"/></svg>';
@@ -839,9 +847,158 @@ function paint(){
   refreshDynastyTabs();
   paintChapterChrome();
   openScene();
+  renderMap();
   if (userNav) jump("#pianBanner");
   userNav = false;
 }
+const MAP_MOBILE = window.matchMedia && matchMedia("(max-width: 720px)").matches;
+function markerList(){
+  const maps = window.FENGHUO_MAPS;
+  if (!maps || !view.ch) return [];
+  const pack = maps.chapters[view.ch];
+  if (!pack) return [];
+  return pack.markers.filter(m => m.pians.includes(view.pian) && (!view.primaryOnly || m.primary === view.pian));
+}
+function openMappedScene(id){
+  userNav = true; view.sc = id; writeHash(); openScene(); renderMap(); jump("#scene");
+}
+function renderMap(){
+  const col = $("#dmapCol"), thumbs = $("#diliThumbs"), body = $("#chapterBody"), toggle = $("#viewToggle");
+  const maps = window.FENGHUO_MAPS;
+  if (thumbs){ thumbs.hidden = true; thumbs.textContent = ""; }
+  if (!col) return;
+  col.hidden = true; col.textContent = "";
+  if ($("#scenes")) $("#scenes").hidden = false;
+  if (body) body.classList.remove("has-map");
+  if (!view.pian || !maps){ if (toggle) toggle.hidden = true; return; }
+  if (toggle){
+    const battle = view.pian === "zhanchang" && view.ch;
+    toggle.hidden = !battle;
+    toggle.querySelector('[data-mode="map"]').setAttribute("aria-pressed", view.mapOn ? "true" : "false");
+    toggle.querySelector('[data-mode="list"]').setAttribute("aria-pressed", view.mapOn ? "false" : "true");
+  }
+  if (!view.ch && view.pian === "dili"){
+    thumbs.hidden = false;
+    INDEX.chapters.forEach(c => {
+      const pack = maps.chapters[c.id]; if (!pack) return;
+      const n = catalogOf("dili").filter(x => x.chapter === c.id && (!view.primaryOnly || x.primary === "dili")).length;
+      const b = document.createElement("button"); b.type = "button"; b.className = "map-thumb";
+      b.innerHTML = '<img src="' + pack.img + '" alt="" width="320" height="200" loading="lazy"><span>' + esc(c.short || c.name) + " · " + n + " 场</span>";
+      b.addEventListener("click", () => { userNav = true; view.ch = c.id; view.sc = null; writeHash(); paint(); });
+      thumbs.appendChild(b);
+    });
+    return;
+  }
+  if (!view.ch) return;
+  const sidebar = view.pian === "zhiguo" || view.pian === "renwu" || view.pian === "dili";
+  const show = sidebar || (view.pian === "zhanchang" && view.mapOn);
+  if (!show) return;
+  const pack = maps.chapters[view.ch];
+  if (!pack) return;
+  const marks = markerList();
+  const clusters = [];
+  marks.forEach(m => {
+    const hit = clusters.find(g => Math.hypot(g.x - m.x, g.y - m.y) < 0.028);
+    if (hit) hit.items.push(m); else clusters.push({ x: m.x, y: m.y, items: [m] });
+  });
+  const fig = document.createElement("figure"); fig.className = "dmap";
+  fig.innerHTML = '<img src="' + pack.img + '" alt="' + esc((chapterById(view.ch) || {}).name || "") + ' 示意地图" width="1600" height="1000" loading="lazy">' +
+    '<div class="map-labels"></div><ol class="dmap-marks"></ol>';
+  const lab = fig.querySelector(".map-labels");
+  (pack.labels || []).forEach(l => {
+    const s = document.createElement("span");
+    s.className = "map-label" + (l.schematic ? " is-schematic" : "");
+    s.style.left = (l.x * 100) + "%"; s.style.top = (l.y * 100) + "%";
+    s.textContent = l.text;
+    lab.appendChild(s);
+  });
+  const ol = fig.querySelector("ol");
+  const cap = pack.capital;
+  if (cap){
+    const li = document.createElement("li"); li.style.left = (cap.x * 100) + "%"; li.style.top = (cap.y * 100) + "%";
+    const place = (window.FENGHUO_MAPS && cap.place) || "";
+    li.innerHTML = '<span class="mk is-capital" aria-hidden="true"><i class="dot"></i><span class="mk-label">' + esc(cap.name || cap.place) + '</span></span>';
+    ol.appendChild(li);
+  }
+  clusters.forEach(g => {
+    const li = document.createElement("li"); li.style.left = (g.x * 100) + "%"; li.style.top = (g.y * 100) + "%";
+    const current = g.items.some(m => m.sc === view.sc);
+    const b = document.createElement("button"); b.type = "button";
+    const side = g.items.length === 1 ? g.items[0].side : "e";
+    b.className = "mk side-" + (side || "e") + (current ? " is-current" : "") + (g.items.length === 1 && g.items[0].prec === "region" ? " is-region" : "");
+    const label = g.items.length > 1 ? "（" + g.items.length + "）" : (view.pian === "renwu" ? g.items[0].title : g.items[0].name);
+    b.dataset.scs = g.items.map(m => m.sc).join(" ");
+    b.innerHTML = '<i class="dot"></i><span class="mk-label">' + esc(label) + "</span>";
+    b.setAttribute("aria-label", g.items.map(m => m.title).join("、"));
+    const pop = (sheet) => {
+      const box = document.createElement("div"); box.className = sheet ? "map-sheet" : "map-pop"; box.setAttribute("role", sheet ? "dialog" : "tooltip");
+      box.innerHTML = g.items.map(m => '<div><b>' + esc(m.title) + '</b><div>' + esc(m.name) + " · " + esc(String(m.year < 0 ? "前" + (-m.year) : m.year)) + (m.primary === view.pian ? " · 主线" : " · 兼收") + '</div><div>' + esc(m.subtitle || "") + '</div><button type="button" data-open="' + esc(m.sc) + '">打开场景</button></div>').join("");
+      return box;
+    };
+    b.addEventListener("click", () => {
+      if (g.items.length === 1 && !MAP_MOBILE){ openMappedScene(g.items[0].sc); return; }
+      document.querySelectorAll(".map-pop,.map-sheet").forEach(n => n.remove());
+      const node = pop(MAP_MOBILE || g.items.length > 1);
+      if (MAP_MOBILE) document.body.appendChild(node); else b.parentElement.appendChild(node);
+    });
+    if (!MAP_MOBILE){
+      const showPop = () => { if (!b.parentElement.querySelector(".map-pop")) b.parentElement.appendChild(pop(false)); };
+      const hidePop = () => { if (document.activeElement === b) return; const n = b.parentElement.querySelector(".map-pop"); if (n) n.remove(); };
+      b.addEventListener("focus", showPop);
+      b.addEventListener("blur", hidePop);
+      b.addEventListener("mouseenter", () => {
+        showPop();
+        document.querySelectorAll("#scenes .sc").forEach(el => el.classList.toggle("is-hot", g.items.some(m => m.sc === el.dataset.id)));
+      });
+      b.addEventListener("mouseleave", () => {
+        hidePop();
+        document.querySelectorAll("#scenes .sc.is-hot").forEach(el => el.classList.remove("is-hot"));
+      });
+    }
+    li.appendChild(b); ol.appendChild(li);
+  });
+  const legend = document.createElement("p"); legend.className = "map-legend";
+  legend.textContent = "方点是都城，圆点是本篇场景，战场篇用菱形。河名叠在图上。疆域和渭水、淮河、汉水是示意，不是精确边界。地名坐标待核验。";
+  const none = document.createElement("div"); none.className = "placeless";
+  const ids = new Set(marks.map(m => m.sc));
+  (pack.placeless || []).forEach(id => {
+    const item = (PIAN.catalog || []).find(c => c.id === id);
+    if (!item) return;
+    if (item.primary !== view.pian && !(item.also || []).includes(view.pian)) return;
+    if (view.primaryOnly && item.primary !== view.pian) return;
+    if (ids.has(id)) return;
+    const b = document.createElement("button"); b.type = "button"; b.textContent = item.title + " · 待核验";
+    b.addEventListener("click", () => openMappedScene(id));
+    none.appendChild(b);
+  });
+  col.hidden = false;
+  col.appendChild(fig); col.appendChild(legend);
+  if (none.childElementCount){
+    const h = document.createElement("p"); h.className = "map-legend"; h.textContent = "无定所或待核验";
+    col.appendChild(h); col.appendChild(none);
+  }
+  if (view.pian === "zhanchang") $("#scenes").hidden = true; else $("#scenes").hidden = false;
+  if (body && view.pian !== "zhanchang") body.classList.add("has-map");
+  if (view.pian === "dili") body.classList.add("has-map");
+}
+document.addEventListener("click", (ev) => {
+  const open = ev.target.closest("[data-open]");
+  if (open){ ev.preventDefault(); document.querySelectorAll(".map-pop,.map-sheet").forEach(n => n.remove()); openMappedScene(open.dataset.open); }
+});
+document.addEventListener("keydown", (ev) => {
+  if (ev.key === "Escape") document.querySelectorAll(".map-pop,.map-sheet").forEach(n => n.remove());
+});
+$("#viewToggle").addEventListener("click", (ev) => {
+  const b = ev.target.closest("button");
+  if (!b) return;
+  view.mapOn = b.dataset.mode === "map";
+  renderMap();
+});
+$("#scenes").addEventListener("mouseover", (ev) => {
+  const card = ev.target.closest(".sc");
+  const id = card && card.dataset.id;
+  document.querySelectorAll(".mk[data-scs]").forEach(mk => mk.classList.toggle("is-hot", !!(id && mk.dataset.scs.split(" ").includes(id))));
+});
 function applyHash(){
   const r = parseHash();
   view.pian = r.home ? null : r.pian;

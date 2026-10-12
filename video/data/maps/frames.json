@@ -1,0 +1,110 @@
+{
+ "format": "inkgames.map-frames",
+ "version": 1,
+ "frames": {
+  "core": {
+   "west": 104,
+   "east": 122,
+   "south": 29,
+   "north": 42
+  },
+  "han": {
+   "west": 97,
+   "east": 125,
+   "south": 18,
+   "north": 45
+  },
+  "full": {
+   "west": 73,
+   "east": 135,
+   "south": 15,
+   "north": 55
+  }
+ },
+ "chapters": {
+  "shanggu": {
+   "frame": "core",
+   "capital": "zhuolu"
+  },
+  "xia": {
+   "frame": "core",
+   "capital": "yangcheng"
+  },
+  "shang": {
+   "frame": "core",
+   "capital": "yin"
+  },
+  "xizhou": {
+   "frame": "core",
+   "capital": "hao"
+  },
+  "chunqiu": {
+   "frame": "core",
+   "capital": "luoyi"
+  },
+  "zhanguo": {
+   "frame": "core",
+   "capital": "handan"
+  },
+  "qin": {
+   "frame": "han",
+   "capital": "xianyang"
+  },
+  "donghan": {
+   "frame": "han",
+   "capital": "luoyang"
+  },
+  "sanguo": {
+   "frame": "han",
+   "capital": "luoyang"
+  },
+  "liangjin": {
+   "frame": "han",
+   "capital": "luoyang"
+  },
+  "nanbeichao": {
+   "frame": "han",
+   "capital": "jianye"
+  },
+  "sui": {
+   "frame": "han",
+   "capital": "changan"
+  },
+  "wudai": {
+   "frame": "han",
+   "capital": "kaifeng"
+  },
+  "beisong": {
+   "frame": "han",
+   "capital": "kaifeng"
+  },
+  "nansong": {
+   "frame": "han",
+   "capital": "linan"
+  },
+  "ming": {
+   "frame": "han",
+   "capital": "beijing"
+  },
+  "xihan": {
+   "frame": "full",
+   "capital": "changan"
+  },
+  "tang": {
+   "frame": "full",
+   "capital": "changan"
+  },
+  "liaojin": {
+   "frame": "full",
+   "capital": "beijing"
+  },
+  "yuan": {
+   "frame": "full",
+   "capital": "dadu"
+  },
+  "qing": {
+   "frame": "full",
+   "capital": "beijing"
+  }
+ }
+}

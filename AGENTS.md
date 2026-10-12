@@ -27,6 +27,7 @@ InkGames 是桌面优先的**横版水墨动作引擎 + 中国历史内容线**�
 | `apps/` | 示例页面，只依赖 `@inkgames/engine` |
 | `video/data/chapters/*.json` | 章节数据（生成物，见 §4.3） |
 | `video/data/pian/` | 四篇：定义、新场景、分类与提示词（见 §12） |
+| `video/data/maps/` | 地名、场景落点、地图帧与示意疆域；由 `build-maps.mjs` 生成查看器地图 |
 | `video/viewer/` | 查看器与 `data/*.js`（由 `build-viewer-data.mjs` 生成，`file://` 可用）；`data/pian/` 由 `build-pian.mjs` 生成 |
 | `video/tools/` | 无依赖 Node 工具：`validate.mjs`、`art-style.mjs`、`build-video-prompts.mjs`、`build-art-prompts.mjs`、`build-source-digests.mjs`、`build-viewer-data.mjs`、`build-pian.mjs` |
 | `video/sources/<chapter>/*.md` | 每场的原创史源摘要（只有短的公版古籍引文和书名卷次） |
@@ -243,6 +244,7 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 | 新增引擎公共 API | 从 `src/index.ts` 导出，同步 `docs/NN-*.md` 与 `plan/10` 的状态（见 [docs/AGENTS.md §3](./docs/AGENTS.md#3-文档约定)） |
 | 新增章节开场短片 | 按 §7：改 `/workspace/gen/chapter-videos/shots.txt` → `build_scripts.py --write`，静帧与片段放 `/workspace/chapter-video/<chapter>/v2/`，跑 `python3 video/tools/build-chapter-video.py <chapter>`（见 [chapter-videos.md](./video/docs/chapter-videos.md)）。若短片属于某一篇，镜头可标可选字段 `pian`，提示词按 §12 |
 | 新增四篇场景或改归类 | 改 `video/data/pian/src/scenes/<pian>.json` 或 `src/overrides.json`，跑 `node video/tools/build-pian.mjs`（见 §12、[pian.md](./video/docs/pian.md)）。不要手改章节 JSON 来塞新场 |
+| 改地图落点 | 改 `video/data/maps/places.json` 或 `scene-places.json`，跑 `node video/tools/build-maps.mjs`。低置信保持 `placeless` 与待核验，不猜坐标。不要手改 `video/viewer/data/maps.js` |
 | 查看器截图 | 用无头 Chromium 打开 `file://…/video/viewer/index.html#<chapter>`，截场景页与“水墨视频提示词”面板 |
 | 新增依赖 | 只允许 MIT / BSD / Apache / LGPL，登记到 [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md) |
 

@@ -80,6 +80,8 @@ node video/tools/validate.mjs              # 必须 0 个错误
 
 站点首页按四篇进入（战场、治国、人物、地理），朝代长卷是篇内筛选。篇的范围、提示词、新场景和章节短片的关系见 [docs/pian.md](docs/pian.md)。章节 JSON 仍是上面的 316 场；四篇场景写在 `data/pian/src/`，由 `node video/tools/build-pian.mjs` 生成查看器脚本。
 
+选中朝代后，查看器按当前篇在示意地图上标场景。地名、落点和帧写在 `data/maps/`，由 `node video/tools/build-maps.mjs` 生成 `viewer/data/maps.js` 和 `viewer/assets/maps/<朝代>.svg`。海岸和大河几何来自 Natural Earth（公有领域）；疆域是手写椭圆，图例标明示意。目录 493 场里，标题或新场景地点能对上地名库、且落在本朝帧内的记为高置信，其余 `placeless` 且 `reason` 为待核验，只保留候选、不猜坐标。当前统计以校验器输出为准。
+
 ## 内容规则
 
 - 每个场景都有正史线和第二条线（野史、演义、传说或后世解读），每条线都标出处，精确到书名加卷、篇或回。没有把握的日期与出处标 `verify: 'pending'`（查看器里显示为“待核验”），不硬写。
