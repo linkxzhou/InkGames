@@ -16,8 +16,15 @@ const index = JSON.parse(readFileSync(join(root, 'data', 'chapters', 'index.json
 const head = '/* 自动生成：node tools/build-viewer-data.mjs —— 请勿手改，改 chapters/*.json 后重新生成 */\n';
 const json = (v) => JSON.stringify(v).replace(/</g, '\\u003c').replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
 
+// 朝代轴显示名：最长 3 字。全称仍留在 name，aria-label / title 用全称。
+const SHORT = { xihan: '西汉', donghan: '东汉', wudai: '五代', liaojin: '辽夏金' };
+const viewerIndex = {
+  ...index,
+  chapters: index.chapters.map(c => ({ ...c, short: SHORT[c.id] || c.name })),
+};
+
 writeFileSync(join(outDir, 'index.js'),
-  head + 'window.HISTORY_GAME_INDEX = ' + json(index) + ';\nwindow.HISTORY_GAME_CHAPTERS = window.HISTORY_GAME_CHAPTERS || {};\n');
+  head + 'window.HISTORY_GAME_INDEX = ' + json(viewerIndex) + ';\nwindow.HISTORY_GAME_CHAPTERS = window.HISTORY_GAME_CHAPTERS || {};\n');
 let bytes = 0;
 for (const c of index.chapters) {
   const bundle = JSON.parse(readFileSync(join(root, 'data', c.file), 'utf8'));

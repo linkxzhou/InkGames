@@ -31,7 +31,7 @@ InkGames 是桌面优先的**横版水墨动作引擎 + 中国历史内容线**�
 | `video/tools/` | 无依赖 Node 工具：`validate.mjs`、`art-style.mjs`、`build-video-prompts.mjs`、`build-art-prompts.mjs`、`build-source-digests.mjs`、`build-viewer-data.mjs`、`build-pian.mjs` |
 | `video/sources/<chapter>/*.md` | 每场的原创史源摘要（只有短的公版古籍引文和书名卷次） |
 | `thirdparty/` | 只读参考快照；大的克隆都在 [.gitignore](./.gitignore) 里 |
-| `plan/` | 只剩 `plan/10`（引擎计划）与 `plan/README.md`（含历史内容迁到 `video/` 的指针） |
+| `plan/` | `plan/10`（引擎计划）、`plan/11`（烽火内容站改版）与 `plan/README.md` |
 
 ## 3. 构建与检查
 
@@ -220,7 +220,7 @@ node video/tools/validate.mjs   # 历史内容校验器，必须 0 个错误
 2. 没有可靠出处的民间故事标作“演义 / 异说 / 后世”，并在 `disc` 里说明来源与可信度。
 3. `v1` 只标那 66 个首发场景。
 4. `node video/tools/validate.mjs` 0 个错误，`./build.sh check` 全绿，才能提交或推送。
-5. 视觉类工作交付时附**并排对比截图与录屏**；未在真实 GPU 上看过的结论写“未实测”。真实 GPU 验收在用户的 Mac 上。
+5. 视觉类工作交付时附**并排对比截图，不录屏**；未在真实 GPU 上看过的结论写“未实测”。真实 GPU 验收在用户的 Mac 上。内容站版式以无头截图为准，字形在 Mac 上会不同（box 上没有楷体）。
 6. 推送走用户 Mac 上的仓库：在 box 打 `git bundle` → 拷到 Mac → `git fetch` bundle → `git merge --ff-only` → `git push origin main`。只快进；不碰用户 `thirdparty/` 下的改动与未跟踪目录。
 7. 小批量提交；提交作者用 `linkxzhou`。
 

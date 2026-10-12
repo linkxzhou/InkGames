@@ -4,7 +4,7 @@
 
 **渲染栈已收敛（2026-10-09）**：`src/`、`apps/` 与依赖只剩 **three.js + Matter.js**。PixiJS 十卡舞台、p5 微内核、原生 WebGL2 渲染插件、`InkFluid`、老 `Engine`/插件图/命令录制都已从代码中删除；`package.json` 不再依赖 `pixi.js` / `p5`。产品线现在只有三条入口：`apps/scroll/`（横版切片，`InkView`）、`apps/story/`（叙事宿主，`StoryStage`）、`apps/history/`（历史动画，`InkScene`）。
 
-历史游戏的内容（原 `plan/11-*`、`plan/12-*`）已于 2026-10-10 整体迁到仓库顶层 **[`video/`](../video/README.md)**，文件名改为不带编号前缀的 kebab-case；`plan/` 只保留引擎计划（`plan/10`）。
+历史游戏的内容（原 `plan/11-*`、`plan/12-*`）已于 2026-10-10 整体迁到仓库顶层 **[`video/`](../video/README.md)**，文件名改为不带编号前缀的 kebab-case。`plan/` 保留引擎计划（`plan/10`），以及 2026-10-12 起的内容站改版计划（新的 `plan/11`，编号在迁走后空出）。
 
 ## 引擎计划（2026-10-09）
 
@@ -13,6 +13,7 @@
 | 文件 | 状态 |
 |---|---|
 | [10 · three.js + Matter.js](./10-three-matter-side-scroller-plan.md) | 现行引擎计划。**M0–M4 已完成**（`InkView`、`Playfield`、`InkSurface`、`apps/scroll/`）。**M5 部分完成**：叙事宿主能播荆轲开场、走正史 / 野史、检查点恢复；`PostStack`、景深、录制回放、玩法模板未做。真实 GPU 未实测。 |
+| [11 · 烽火内容站改版](./11-fenghuo-viewer-redesign-plan.md) | `video/viewer/index.html`：居中与朝代轴、水墨图片化、朝代地图。按文内 §5 分四个 PR 实施。视觉验收只交截图。 |
 | `10-v2-pixi-matter-ink-game-engine-plan.md` | 已删除（PixiJS 舞台清单，随渲染栈清理一并作废）。 |
 | Pixi / p5 / 原生 WebGL2 相关条目 | **已作废并清理**，不再是待办；见 [引擎缺口 §6](../video/docs/engine-gaps.md#6-纯引擎水墨动画实现方案2026-10-09-重新评估) 的现行方案。 |
 

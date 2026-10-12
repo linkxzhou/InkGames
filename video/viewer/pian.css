@@ -1,6 +1,6 @@
 /* 四篇：仍只用色板七色。差异在版式、笔势和印章，不另加颜色。 */
 
-#pianNav{display:flex;gap:4px;align-items:center;min-width:0;flex-wrap:wrap}
+#pianNav{display:flex;gap:4px;align-items:center;min-width:0;flex-wrap:nowrap}
 #pianNav a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-family:var(--kai);font-size:15px;letter-spacing:.12em;padding:4px 8px;border-bottom:2px solid transparent;white-space:nowrap}
 #pianNav a .mini{width:22px;height:22px;font-size:13px}
 #pianNav a[aria-current="page"]{border-bottom-color:var(--red);color:var(--ink)}
@@ -23,7 +23,7 @@
 
 /* 治国：格网、双边栏、印章 */
 .pian-card.zhiguo{background-color:var(--paper);background-image:linear-gradient(var(--mist) 1px,transparent 1px),linear-gradient(90deg,var(--mist) 1px,transparent 1px);background-size:22px 22px;box-shadow:inset 0 0 0 1px var(--ink);outline:1px solid var(--ink);outline-offset:-7px;text-align:center;align-items:center}
-.pian-card.zhiguo h3{margin-top:18px}
+.pian-card.zhiguo h3{margin-top:18px;line-height:1;padding-top:1px}
 .pian-card.zhiguo .seal{position:absolute;right:16px;top:16px;transform:rotate(6deg)}
 
 /* 人物：竖幅、无五官剪影 */
@@ -54,17 +54,17 @@
 .pb-dili{padding-bottom:0}
 .pb-dili .map{display:block;width:100%;height:120px}
 
-#pianTools{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:8px 0 0}
-#pianTools label{display:inline-flex;align-items:center;gap:8px;font-family:var(--kai);letter-spacing:.12em;cursor:pointer}
+#pianTools{display:flex;align-items:center;gap:12px;margin:0}
+#pianTools label{display:inline-flex;align-items:center;gap:8px;font-family:var(--kai);letter-spacing:.12em;cursor:pointer;line-height:1}
 #pianTools input{width:16px;height:16px;accent-color:var(--red)}
-#pianCount{color:var(--mid);font-size:13px}
+#pianCount{color:var(--mid);font-size:13px;margin:0;white-space:nowrap}
 
 .sc-group{grid-column:1 / -1;font-family:var(--kai);font-size:18px;letter-spacing:.2em;margin:14px 0 0;padding-top:8px;border-top:1px solid var(--rule)}
 .sc .badge{font-size:11px;letter-spacing:.08em;color:var(--mid)}
 
 body.pian-zhanchang #scenes{gap:12px}
 body.pian-zhanchang .sc{background:#141414;color:var(--paper);border-color:#141414;transform:skewX(-7deg)}
-body.pian-zhanchang .sc > *{display:block;transform:skewX(7deg)}
+body.pian-zhanchang .sc .sc-in{display:flex;flex-direction:column;align-items:flex-start;width:100%;transform:skewX(7deg)}
 body.pian-zhanchang .sc .s,body.pian-zhanchang .sc .n,body.pian-zhanchang .sc .y,body.pian-zhanchang .sc .badge{color:var(--pale)}
 body.pian-zhanchang .sc.active{box-shadow:inset 5px 0 0 #b3241c}
 body.pian-zhanchang .sc.active::after{display:none}
@@ -74,9 +74,10 @@ body.pian-zhiguo .sc{border:1px solid var(--ink);box-shadow:inset 0 0 0 4px var(
 body.pian-zhiguo .sc.active{background-color:var(--ink);background-image:none;color:var(--paper)}
 
 body.pian-renwu #scenes{grid-template-columns:repeat(auto-fill,minmax(168px,1fr))}
-body.pian-renwu .sc{min-height:210px;align-items:center;text-align:center;padding-top:28px;background:linear-gradient(180deg,transparent 0 42%,rgba(210,209,204,.45) 42% 100%)}
-body.pian-renwu .sc::after{content:"";position:absolute;left:50%;top:10px;width:22px;height:58px;transform:translateX(-50%);background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 120'%3E%3Ccircle cx='20' cy='14' r='10' fill='%23141414'/%3E%3Cpath d='M8 30 h24 l6 78 H6 z' fill='%23141414'/%3E%3C/svg%3E");opacity:.8;pointer-events:none}
-body.pian-renwu .sc .t{margin-top:48px}
+body.pian-renwu .sc{display:grid;grid-template-rows:72px auto;min-height:210px;align-items:stretch;text-align:center;padding-top:0;background:linear-gradient(180deg,transparent 0 72px,rgba(210,209,204,.45) 72px 100%)}
+body.pian-renwu .sc::after{content:"";grid-row:1;position:static;width:22px;height:58px;margin:0 auto;align-self:center;justify-self:center;transform:none;background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 120'%3E%3Ccircle cx='20' cy='14' r='10' fill='%23141414'/%3E%3Cpath d='M8 30 h24 l6 78 H6 z' fill='%23141414'/%3E%3C/svg%3E");opacity:.8;pointer-events:none}
+body.pian-renwu .sc .sc-in{grid-row:2;display:flex;flex-direction:column;align-items:center;width:100%;padding:0 10px 10px}
+body.pian-renwu .sc .t{margin-top:0}
 body.pian-renwu .sc.active{background:var(--fill-ink);color:var(--paper)}
 body.pian-renwu .sc.active::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 120'%3E%3Ccircle cx='20' cy='14' r='10' fill='%23eceae4'/%3E%3Cpath d='M8 30 h24 l6 78 H6 z' fill='%23eceae4'/%3E%3C/svg%3E")}
 
@@ -98,7 +99,7 @@ body.is-home #pianBanner,body.is-home #dynasties,body.is-home #chapter,body.is-h
 body.is-pian #hero,body.is-pian #pianHome{display:none}
 body.is-home #hero .wrap{min-height:0;padding-top:28px;padding-bottom:12px}
 body.is-home .hero-title h1{font-size:clamp(64px,8vw,108px)}
-body.is-home .hero-art{width:min(720px,52%)}
+body.is-home .hero-art{width:100%;min-height:280px}
 
 @media (max-width:1100px){
   .pian-grid{grid-template-columns:1fr 1fr}
@@ -106,14 +107,14 @@ body.is-home .hero-art{width:min(720px,52%)}
 }
 @media (max-width:720px){
   #bar .wrap{flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
-  #pianNav{order:3;width:100%;justify-content:space-between}
+  #pianNav{order:3;width:100%;justify-content:space-between;flex-wrap:wrap}
   #pianNav a{font-size:14px;padding:4px 2px}
   .pian-grid{grid-template-columns:1fr}
   .pian-card{min-height:240px}
   .pian-card.renwu{min-height:280px;padding-right:88px}
   body.pian-zhiguo #scenes,body.pian-renwu #scenes,#scenes{grid-template-columns:1fr}
   body.pian-zhanchang .sc{transform:none}
-  body.pian-zhanchang .sc > *{transform:none}
+  body.pian-zhanchang .sc .sc-in{transform:none}
   .pb-renwu .wrap{grid-template-columns:72px 1fr}
   .pb-renwu .sil{width:64px;height:160px}
   body.is-home .hero-art{width:100%}
