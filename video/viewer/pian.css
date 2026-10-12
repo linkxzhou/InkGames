@@ -6,17 +6,17 @@
 #pianNav a[aria-current="page"]{border-bottom-color:var(--red);color:var(--ink)}
 
 .pian-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:16px 0 48px;align-items:stretch}
-.pian-card{position:relative;display:flex;flex-direction:column;min-height:0;padding:0;text-decoration:none;overflow:hidden;color:var(--ink);background:var(--paper);border:1px solid var(--rule);text-align:left}
-.pian-card:hover{border-color:var(--ink)}
+.pian-card{position:relative;display:flex;flex-direction:column;min-height:0;padding:0;text-decoration:none;overflow:hidden;color:var(--ink);background:transparent;border:0;text-align:left}
+.pian-card:hover .pc-body{background-color:var(--wash)}
 .pian-card .pc-img{aspect-ratio:4/5;overflow:hidden;background:var(--paper)}
 .pian-card .pc-img img{display:block;width:100%;height:100%;object-fit:contain;background:var(--paper)}
-.pian-card .pc-body{display:flex;flex-direction:column;gap:6px;padding:12px 12px 14px}
+.pian-card .pc-body{display:flex;flex-direction:column;gap:6px;padding:12px 4px 18px;background:var(--brush) left bottom/100% 8px no-repeat}
 .pian-card h3{display:flex;align-items:center;gap:8px;margin:0;font-family:var(--kai);font-weight:700;font-size:20px;letter-spacing:.08em;line-height:1}
 .pian-card .seal{width:28px;height:28px;font-size:14px}
 .pian-card .pg{font-size:13px;letter-spacing:.06em;color:var(--mid)}
 .pian-card .ps{margin:0;font-size:13.5px;line-height:1.55;color:var(--char);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .pian-card .motif{height:10px;margin-top:4px}
-.pian-card.zhanchang .motif{background:linear-gradient(112deg,transparent 0 8%,#b3241c 8% 22%,transparent 22%)}
+.pian-card.zhanchang .motif{height:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 16' preserveAspectRatio='none'%3E%3Cpath d='M2 13 L34 2 L42 3 L10 15 Z' fill='%23b3241c'/%3E%3Cpath d='M48 12 L92 3 L100 4 L56 14 Z' fill='%23141414'/%3E%3C/svg%3E") left center/120px 14px no-repeat}
 .pian-card.zhiguo .motif{width:22px;height:22px;background:url("assets/seal-frame-square.webp") center/100% 100% no-repeat}
 .pian-card.renwu .motif{width:2px;height:28px;background:#141414}
 .pian-card.dili .motif{height:18px;background:url("assets/divider-mountain.webp") center/100% 100% no-repeat}
@@ -46,8 +46,8 @@
 .sc-group,.more-row,.empty-state{grid-column:1 / -1}
 .sc-group{font-family:var(--kai);font-size:18px;letter-spacing:.12em;margin:16px 0 0;padding-top:8px;border-top:1px solid var(--rule)}
 .sc .badge{font-size:12px;letter-spacing:.08em;color:var(--mid)}
-body.pian-zhanchang .sc.active{box-shadow:inset 4px 0 0 #b3241c}
-body.pian-zhiguo .sc{border-color:var(--ink)}
+body.pian-zhanchang .sc.active{border-left:4px solid #b3241c}
+body.pian-zhiguo .sc{border:1px solid var(--ink);background-image:none}
 body.pian-dili .sc{border-left:3px solid var(--mist)}
 
 #scene.is-novel .nav-legacy,#scene.is-novel #cardInfo,#scene.is-novel #cardGraph,#scene.is-novel #cardTree,#scene.is-novel #cardShots,#scene.is-novel #cardVideo,#scene.is-novel #cardAudio,#scene.is-novel #cardArt{display:none}
@@ -74,27 +74,27 @@ body.is-home #pianHome{padding-bottom:var(--s7)}
 #viewToggle button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .chapter-body.has-map{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);gap:24px;align-items:start}
 body.pian-dili .chapter-body.has-map,body.pian-zhanchang .chapter-body.has-map{grid-template-columns:1fr}
-.dmap{position:relative;margin:0;aspect-ratio:16/10;background:var(--paper);border:1px solid var(--rule)}
+.dmap{position:relative;margin:0;aspect-ratio:16/10;background:var(--paper);border:1.5px solid var(--ink)}
 .dmap picture{display:block;height:100%}
 .map-thumb picture{display:block}
 .dmap img{display:block;width:100%;height:100%;object-fit:contain;background:var(--paper)}
 .dmap-marks,.map-labels{list-style:none;position:absolute;inset:0;margin:0;padding:0;pointer-events:none}
 .dmap-marks li,.map-label{position:absolute;transform:translate(-50%,-50%)}
 .dmap-marks li{pointer-events:auto}
-.map-label{font-family:var(--kai);font-size:12px;color:var(--mid);white-space:nowrap;letter-spacing:.12em;text-shadow:0 0 2px #eceae4,1px 0 #eceae4,-1px 0 #eceae4,0 1px #eceae4,0 -1px #eceae4}
+.map-label{font-family:var(--kai);font-size:12px;color:var(--mid);white-space:nowrap;letter-spacing:.12em;background:var(--paper);padding:0 3px;line-height:1.35}
 .map-label.is-schematic{color:var(--pale)}
 .mk{position:relative;width:18px;height:18px;border:0;padding:0;background:transparent;cursor:pointer}
-.mk .dot{display:block;width:10px;height:10px;margin:4px auto;border-radius:50%;background:#141414}
-.mk.is-current .dot,.mk.is-hot .dot{background:#b3241c;box-shadow:0 0 0 3px rgba(179,36,28,.35)}
-.mk.is-region .dot{width:18px;height:18px;margin:0;background:rgba(110,110,108,.35)}
-.mk.is-capital .dot{width:12px;height:12px;border-radius:0;background:#b3241c}
-.mk-label{position:absolute;left:14px;top:-2px;font-family:var(--kai);font-size:13px;line-height:1.2;white-space:nowrap;color:var(--ink);text-shadow:0 0 2px #eceae4,1px 0 #eceae4,-1px 0 #eceae4,0 1px #eceae4,0 -1px #eceae4}
+.mk .dot{display:block;width:8px;height:8px;margin:5px auto;border-radius:0;background:#141414}
+.mk.is-current .dot,.mk.is-hot .dot{background:#b3241c;outline:1px solid #b3241c;outline-offset:2px}
+.mk.is-region .dot{width:16px;height:16px;margin:1px auto;background:transparent;border:1px solid #6e6e6c}
+.mk.is-capital .dot{width:11px;height:11px;border-radius:0;background:#b3241c}
+.mk-label{position:absolute;left:14px;top:-2px;font-family:var(--kai);font-size:13px;line-height:1.2;white-space:nowrap;color:var(--ink);background:var(--paper);padding:0 3px}
 .mk.side-w .mk-label,.mk.side-nw .mk-label,.mk.side-sw .mk-label{left:auto;right:14px}
 .mk.side-n .mk-label,.mk.side-s .mk-label{left:50%;transform:translateX(-50%)}
 .mk.side-n .mk-label,.mk.side-ne .mk-label,.mk.side-nw .mk-label{top:auto;bottom:16px}
 .mk.side-s .mk-label,.mk.side-se .mk-label,.mk.side-sw .mk-label{top:16px}
 body.pian-zhanchang .mk:not(.is-capital):not(.is-region) .dot{width:8px;height:8px;margin:5px auto;border-radius:0;transform:rotate(45deg)}
-.map-pop{position:absolute;z-index:5;min-width:160px;max-width:min(220px,70vw);padding:8px 10px;background:rgba(236,234,228,.96);border:1px solid var(--ink);font-size:13px}
+.map-pop{position:absolute;z-index:5;min-width:160px;max-width:min(220px,70vw);padding:8px 10px 8px 12px;background:var(--paper);border:1.5px solid var(--ink);border-left:4px solid var(--red);font-size:13px}
 .map-pop b{font-family:var(--kai);font-size:16px;letter-spacing:.06em}
 .map-pop button{margin-top:6px;border:0;background:transparent;font-family:var(--kai);cursor:pointer;color:var(--red)}
 .map-sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--paper);border-top:1px solid var(--ink);padding:12px 16px 20px}
@@ -103,11 +103,11 @@ body.pian-zhanchang .mk:not(.is-capital):not(.is-region) .dot{width:8px;height:8
 .placeless{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .placeless button{border:1px solid var(--pale);background:transparent;font-size:13px;padding:4px 8px;cursor:pointer}
 .map-thumbs{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin:8px 0 16px}
-.map-thumb{display:flex;flex-direction:column;gap:4px;border:1px solid var(--rule);background:var(--paper);padding:0;cursor:pointer;text-align:left}
-.map-thumb img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.map-thumb{display:flex;flex-direction:column;gap:4px;border:1px solid var(--ink);background:var(--paper);padding:0;cursor:pointer;text-align:left}
+.map-thumb img{width:100%;aspect-ratio:16/10;object-fit:contain;display:block;background:var(--paper)}
 .map-thumb span{font-family:var(--kai);font-size:13px;line-height:1.35;padding:0 6px 6px;overflow-wrap:anywhere}
 .sc.is-hot{border-color:var(--red)}
-@media (prefers-reduced-motion:reduce){ .mk.is-current .dot{box-shadow:none} }
+@media (prefers-reduced-motion:reduce){ .mk.is-current .dot{outline:none} }
 
 @media (max-width:720px){
   .pian-grid{grid-template-columns:1fr;gap:12px}
