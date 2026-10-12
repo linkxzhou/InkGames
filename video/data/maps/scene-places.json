@@ -1,0 +1,3974 @@
+{
+ "format": "inkgames.scene-places",
+ "version": 1,
+ "comment": "高置信只来自标题、副标题或新场景 places 数组里的整名匹配，且落在本朝地图帧内。其余 placeless，reason 为待核验，suggest 只是候选。",
+ "high": 127,
+ "review": 366,
+ "scenes": {
+  "shanggu.hundun": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "shanggu.fuxi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "huanghe"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "shanggu.shennong": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "shanggu.zhuolu": {
+   "at": "zhuolu",
+   "confidence": "high",
+   "via": "title"
+  },
+  "shanggu.xihe": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "shanggu.shanrang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "shanggu.dayu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "xia.qi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "xia.shaokang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "xia.kongjia": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "xia.meixi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "xia.mingtiao": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "shang.tangdao": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "shang.tonggong": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "shang.pangeng": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yin"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "shang.fuhao": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yin"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "shang.youli": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "shang.bigan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "shang.muye": {
+   "at": "muye",
+   "confidence": "high",
+   "via": "title"
+  },
+  "xizhou.zhougong": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "xizhou.hezun": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yangcheng",
+    "luoyi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "xizhou.gantang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "beijing"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "xizhou.zhaowang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "hanshui"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "xizhou.muwang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "xizhou.feizi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "weishui"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "xizhou.gonghe": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "hao"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "xizhou.xuanwang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changan",
+    "taiyuan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "xizhou.haojing": {
+   "at": "hao",
+   "confidence": "high",
+   "via": "title"
+  },
+  "chunqiu.zhengbo": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "chunqiu.huangong": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "linzi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "chunqiu.changshao": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "chunqiu.baolixi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "chunqiu.hongshui": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "chunqiu.jiezitui": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "chunqiu.chengpu": {
+   "at": "chengpu",
+   "confidence": "high",
+   "via": "title"
+  },
+  "chunqiu.xiaozhi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "chunqiu.wending": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "chunqiu.zhaoshi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "chunqiu.yanzi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "linzi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "chunqiu.zichan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "chunqiu.zhaoguan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "chunqiu.zhuanzhu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "taihu"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "chunqiu.jiagu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "chunqiu.laozi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi",
+    "hangu"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "chunqiu.wuyue": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "taihu"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "chunqiu.chencai": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "zhanguo.sanjia": {
+   "at": "taiyuan",
+   "confidence": "high",
+   "via": "title"
+  },
+  "zhanguo.ximenbao": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "zhanguo.wuqi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "zhanguo.shangyang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "zhanguo.maling": {
+   "at": "maling",
+   "confidence": "high",
+   "via": "title"
+  },
+  "zhanguo.zhuangzi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "zhanguo.sujin": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "hangu",
+    "luoyi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "zhanguo.mengzi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "kaifeng",
+    "maling"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "zhanguo.zhangyi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "hanzhong"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "zhanguo.hufu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "shaqiu"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "zhanguo.jiming": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "hangu"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "zhanguo.huoniu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "linzi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "zhanguo.wanbi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "zhanguo.quyuan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "zhanguo.fanju": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "zhanguo.changping": {
+   "at": "changping",
+   "confidence": "high",
+   "via": "title"
+  },
+  "zhanguo.lvbuwei": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "handan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "zhanguo.qiefu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "handan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "zhanguo.libing": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "chengdu"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "zhanguo.ganluo": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "xianyang"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "zhanguo.hanfei": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "zhanguo.jingke": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "xianyang"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qin.shuwen": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "qin.xufu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "langya",
+    "shaqiu",
+    "hengshan",
+    "donghai"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qin.fengshan": {
+   "at": "taishan",
+   "confidence": "high",
+   "via": "title"
+  },
+  "qin.bolangsha": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "qin.changcheng": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "guilin"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qin.fenshu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "xianyang"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qin.shaqiu": {
+   "at": "shaqiu",
+   "confidence": "high",
+   "via": "title"
+  },
+  "qin.dazexiang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yunmeng"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qin.baishe": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "qin.julu": {
+   "at": "julu",
+   "confidence": "high",
+   "via": "title"
+  },
+  "xihan.hongmen": {
+   "at": "hongmen",
+   "confidence": "high",
+   "via": "title"
+  },
+  "xihan.hanxin": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "xihan.beishui": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "xihan.gaixia": {
+   "at": "gaixia",
+   "confidence": "high",
+   "via": "title"
+  },
+  "xihan.baideng": {
+   "at": "baideng",
+   "also": [
+    "pingcheng"
+   ],
+   "confidence": "high",
+   "via": "title"
+  },
+  "xihan.jiayi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi",
+    "changsha"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "xihan.tiying": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "linzi",
+    "changan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "xihan.qiguo": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "xihan.simaxiangru": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "chengdu"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "xihan.zhangqian": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "xihan.dongfangshuo": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "xihan.mobei": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jiuquan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "xihan.liguang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "beijing"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "xihan.suwu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "xihan.simaqian": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "taishan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "xihan.wugu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "xihan.huoguang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "nanchang"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "xihan.gujian": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "xihan.chentang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "xihan.zhaojun": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "donghan.wangmang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "donghan.kunyang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "donghan.yanguang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "donghan.mayuan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "guangzhou"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "donghan.dongxuan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "donghan.baimasi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yangcheng",
+    "luoyi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "donghan.banchao": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "donghan.yanran": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "donghan.banzhao": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "donghan.zaozhi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi",
+    "jincheng"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "donghan.yangzhen": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yangcheng",
+    "jiangling"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "donghan.liangji": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yangcheng",
+    "luoyi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "donghan.danggu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "donghan.huangjin": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "sanguo.dongzhuo": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changan",
+    "wuwei"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sanguo.zhujiu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "hongmen",
+    "pengcheng"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sanguo.guandu": {
+   "at": "guandu",
+   "confidence": "high",
+   "via": "title"
+  },
+  "sanguo.baima": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi",
+    "huanghe"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sanguo.sunce": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "guandu"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sanguo.caochong": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "sanguo.longzhong": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jiangling"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sanguo.changban": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jiangling"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sanguo.chibi": {
+   "at": "chibi",
+   "confidence": "high",
+   "via": "title"
+  },
+  "sanguo.kongrong": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "sanguo.huatuo": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "xuchang"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sanguo.dandao": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yangcheng",
+    "hanzhong",
+    "jiangling",
+    "changsha",
+    "wuwei"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sanguo.hefei": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "hanzhong"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sanguo.qijun": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jiangling",
+    "hanshui"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sanguo.dingjunshan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changan",
+    "hanzhong",
+    "hanshui"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sanguo.qibu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "sanguo.shouchan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "sanguo.yiling": {
+   "at": "yiling",
+   "confidence": "high",
+   "via": "title"
+  },
+  "sanguo.menghuo": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "xiangyang"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sanguo.jieting": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "hanzhong",
+    "jiangling"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sanguo.wuzhangyuan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "sanguo.gaopingling": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye",
+    "xuchang",
+    "jiangling"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sanguo.caomao": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "sanguo.yinping": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "chengdu"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sanguo.lesi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi",
+    "chengdu"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sanguo.yanglu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "xiangyang"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "liangjin.zhouchu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "liangjin.doufu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "liangjin.bawang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yangcheng",
+    "luoyi",
+    "chengdu",
+    "changsha",
+    "donghai"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "liangjin.yongjia": {
+   "at": "luoyi",
+   "confidence": "high",
+   "via": "title"
+  },
+  "liangjin.zuti": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "langya",
+    "jianye",
+    "taiyuan",
+    "huanghe"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "liangjin.xinting": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi",
+    "langya",
+    "jianye"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "liangjin.lanting": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "liangjin.huanwen": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changan",
+    "jincheng"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "liangjin.feishui": {
+   "at": "feishui",
+   "confidence": "high",
+   "via": "title"
+  },
+  "liangjin.daoyun": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "liangjin.taoqian": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "liangjin.liuyu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changan",
+    "huanghe",
+    "weishui"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nanbeichao.changchou": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "nanbeichao.yuanjia": {
+   "at": "changjiang",
+   "confidence": "high",
+   "via": "title"
+  },
+  "nanbeichao.mulan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "huanghe"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nanbeichao.cuihao": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "pingcheng",
+    "taiyuan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nanbeichao.zuchongzhi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "nanbeichao.fanzhen": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nanbeichao.xiaowen": {
+   "at": "luoyi",
+   "confidence": "high",
+   "via": "title"
+  },
+  "nanbeichao.damo": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi",
+    "jianye",
+    "guangzhou",
+    "changjiang"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nanbeichao.lidaoyuan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changan",
+    "jiangling"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nanbeichao.heyin": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yangcheng",
+    "luoyi",
+    "taiyuan",
+    "huanghe"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nanbeichao.chenqingzhi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yangcheng",
+    "luoyi",
+    "jianye"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nanbeichao.yubi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "taiyuan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nanbeichao.houjing": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changjiang"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nanbeichao.lanling": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sui.shouchan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "sui.miechen": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changan",
+    "jianye",
+    "caishi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sui.zhaozhou": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "sui.yangguang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "sui.yunhe": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yangzhou",
+    "huanghe"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sui.gaogouli": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "sui.yanmen": {
+   "at": "yanmen",
+   "confidence": "high",
+   "via": "title"
+  },
+  "sui.wagang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "sui.hongfu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changan",
+    "taiyuan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "sui.jiangdu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changan",
+    "yangzhou"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.hulao": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yangcheng",
+    "luoyi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.xuanwu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "tang.weishui": {
+   "at": "weishui",
+   "confidence": "high",
+   "via": "title"
+  },
+  "tang.xuanzang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi",
+    "shaqiu",
+    "changan",
+    "wuwei"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.wencheng": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.weizheng": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "tang.wangbo": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "shangdu"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.luobinwang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi",
+    "jianye",
+    "linan",
+    "yangzhou"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.wuzetian": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.direnjie": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "tang.shangguan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "linzi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.xiantian": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "tang.libai": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "title"
+  },
+  "tang.daluosi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changan",
+    "guangzhou",
+    "tongguan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.jianzhen": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yangzhou",
+    "suzhou"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.anshi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi",
+    "changan",
+    "tongguan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.suiyang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yangcheng"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.dufu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi",
+    "chengdu",
+    "tongguan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.guoziyi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yangcheng",
+    "changan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.hongxian": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "tang.yanzhenqing": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.baijuyi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi",
+    "changan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.caizhou": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "kaifeng"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.hanyu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "tang.huichang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "tang.huangchao": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "title"
+  },
+  "wudai.zhuwen": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "kaifeng",
+    "huanghe"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "wudai.sanshi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "wudai.qianliu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "linan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "wudai.yanyun": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yanmen",
+    "taiyuan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "wudai.dacaogu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi",
+    "pingcheng",
+    "taiyuan",
+    "kaifeng"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "wudai.huangqi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "wudai.gaoping": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "taiyuan",
+    "taishan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "wudai.chenqiao": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "kaifeng"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "wudai.liyu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye",
+    "kaifeng",
+    "caishi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "wudai.hanxizai": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye",
+    "huaihe"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "beisong.beijiu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "beisong.zhuying": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "beisong.yangye": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yanmen"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "beisong.chanyuan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "chengdu",
+    "jianye"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "beisong.liuhou": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "beisong.haoshuichuan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "beisong.bisheng": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "beisong.fanzhongyan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "dongting",
+    "linan",
+    "pengcheng"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "beisong.diqing": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "guangzhou"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "beisong.baogong": {
+   "at": "kaifeng",
+   "confidence": "high",
+   "via": "title"
+  },
+  "beisong.ouyangxiu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "beisong.xining": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "beisong.shenkuo": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "beisong.wutai": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "pengcheng"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "beisong.simaguang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "luoyi"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "beisong.fangla": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "kaifeng",
+    "linan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "beisong.huizong": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "kaifeng",
+    "suzhou",
+    "taihu"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "beisong.jingkang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye",
+    "kaifeng"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "liaojin.abaoji": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "bohai"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "liaojin.xiaotaihou": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "liaojin.yuanhao": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yinchuan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "liaojin.xiaoguanyin": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "liaojin.hubudagang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "liaojin.dashi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "tianshan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "liaojin.wushan": {
+   "at": "shanhaiguan",
+   "confidence": "high",
+   "via": "title"
+  },
+  "liaojin.dading": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "kaifeng"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "liaojin.xixiawang": {
+   "at": "huanghe",
+   "confidence": "high",
+   "via": "title"
+  },
+  "liaojin.sanfeng": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "kaifeng"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "liaojin.caizhou": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "kaifeng"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nansong.zongze": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye",
+    "kaifeng",
+    "yangzhou"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nansong.liqingzhao": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nansong.huangtiandang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changjiang",
+    "huaihe"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nansong.yuefei": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "nansong.caishi": {
+   "at": "caishi",
+   "confidence": "high",
+   "via": "title"
+  },
+  "nansong.xinqiji": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nansong.ehu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "nansong.kaixi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "linan",
+    "huaihe"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nansong.luyou": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "nansong.diaoyucheng": {
+   "at": "diaoyu",
+   "confidence": "high",
+   "via": "title"
+  },
+  "nansong.songci": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "guangzhou"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nansong.jiasidao": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "diaoyu",
+    "jianye",
+    "xiangyang",
+    "linan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nansong.xiangyang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yangcheng",
+    "xiangyang",
+    "linan",
+    "changjiang",
+    "hanshui"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "nansong.yashan": {
+   "at": "yashan",
+   "confidence": "high",
+   "via": "title"
+  },
+  "yuan.chengjisi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "yuan.xizheng": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "juyong"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "yuan.yelvchucai": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "yuan.zhiyuan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "diaoyu",
+    "dadu",
+    "helins"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "yuan.dadu": {
+   "at": "dadu",
+   "confidence": "high",
+   "via": "title"
+  },
+  "yuan.makebolo": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "xiangyang",
+    "yangzhou",
+    "quanzhou",
+    "dadu",
+    "shangdu"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "yuan.shoushi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "yangcheng",
+    "kaifeng",
+    "dadu"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "yuan.shenfeng": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "yuan.guanhanqing": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "dadu",
+    "donghai"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "yuan.huangdaopo": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "yuan.hongjin": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "dadu",
+    "huanghe"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.zhuyuanzhang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.poyanghu": {
+   "at": "poyang",
+   "confidence": "high",
+   "via": "title"
+  },
+  "ming.huweiyong": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.jingnan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.fangxiaoru": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.zhenghe": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "suzhou"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.tumubao": {
+   "at": "beijing",
+   "confidence": "high",
+   "via": "title"
+  },
+  "ming.tangyin": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye",
+    "suzhou"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.liujin": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "ming.wangyangming": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "poyang",
+    "jianye",
+    "linan",
+    "nanchang"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.dali": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changjiang"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.yangjisheng": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "ming.qijiajun": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "ming.hairui": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "beijing"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.zhangjuzheng": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "ming.lishizhen": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.xuguangqi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye",
+    "beijing"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.tingji": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "chengdu"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.saerhu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "ming.weizhongxian": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "ming.ningyuan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "beijing",
+    "liaohe"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.wanggongchang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "beijing"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.yuanchonghuan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "beijing"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.qinliangyu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "pingcheng"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.xukexia": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye",
+    "huanghe"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "ming.meishan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "juyong",
+    "jianye",
+    "beijing"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qing.shanhaiguan": {
+   "at": "shanhaiguan",
+   "confidence": "high",
+   "via": "title"
+  },
+  "qing.yangzhou": {
+   "at": "yangzhou",
+   "confidence": "high",
+   "via": "title"
+  },
+  "qing.shunzhi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "qing.zhengchenggong": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qing.aobai": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "qing.sanfan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "qing.nibuchu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "qing.duodi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "qing.wenziyu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "beijing"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qing.qianlong": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "beijing"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qing.hongloumeng": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "beijing"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qing.malgaerni": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "guangzhou",
+    "beijing"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qing.humen": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "guangzhou"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qing.taiping": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "changjiang"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qing.zengguofan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "wuchang"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qing.yuanmingyuan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "beijing"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qing.xinyou": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "beijing"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qing.yangnaiwu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "beijing"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qing.zuozongtang": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "tianshan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qing.zhennanguan": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "qing.jiawu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "qing.wuxu": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "beijing",
+    "kunlun"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qing.gengzi": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "beijing"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qing.keju": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [
+    "jianye",
+    "taiyuan"
+   ],
+   "note": "只在史源摘要里提到，没有写进标题"
+  },
+  "qing.qiujin": {
+   "placeless": true,
+   "reason": "待核验",
+   "confidence": "low",
+   "suggest": [],
+   "note": "标题和史源摘要都没有对上地名库"
+  },
+  "qing.wuchang": {
+   "at": "wuchang",
+   "confidence": "high",
+   "via": "title"
+  },
+  "dili.shanggu.hekunlun": {
+   "at": "huanghe",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "昆仑"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "dili.shanggu.yugong": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "九州"
+   ],
+   "confidence": "low"
+  },
+  "dili.xia.yangcheng": {
+   "at": "yangcheng",
+   "confidence": "high",
+   "via": "places"
+  },
+  "dili.shang.tangbo": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "亳"
+   ],
+   "confidence": "low"
+  },
+  "dili.xizhou.zhouyuan": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "豳",
+    "岐山",
+    "周原"
+   ],
+   "confidence": "low"
+  },
+  "dili.xizhou.fenghao": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "丰",
+    "镐",
+    "沣水"
+   ],
+   "confidence": "low"
+  },
+  "dili.chunqiu.xintian": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "故绛",
+    "新田"
+   ],
+   "confidence": "low"
+  },
+  "dili.chunqiu.helucheng": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "姑苏"
+   ],
+   "confidence": "low"
+  },
+  "dili.zhanguo.zhengguoqu": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "泾水",
+    "洛水"
+   ],
+   "confidence": "low"
+  },
+  "dili.zhanguo.honggou": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "荥阳",
+    "鸿沟"
+   ],
+   "confidence": "low"
+  },
+  "dili.zhanguo.hangu": {
+   "at": "hangu",
+   "confidence": "high",
+   "via": "places"
+  },
+  "dili.qin.chidao": {
+   "at": "xianyang",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "驰道"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "dili.qin.epang": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "渭南",
+    "阿房"
+   ],
+   "confidence": "low"
+  },
+  "dili.xihan.weiyang": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "未央宫"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "dili.xihan.hexi": {
+   "at": "jiuquan",
+   "confidence": "high",
+   "via": "places",
+   "also": [
+    "dunhuang"
+   ],
+   "suggest": [
+    "河西"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "dili.xihan.yumen": {
+   "at": "dunhuang",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "玉门关",
+    "阳关"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "dili.donghan.ganying": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "条支",
+    "西海"
+   ],
+   "confidence": "low"
+  },
+  "dili.sanguo.jianye": {
+   "at": "jianye",
+   "confidence": "high",
+   "via": "places",
+   "also": [
+    "wuchang"
+   ],
+   "suggest": [
+    "石头城"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "dili.sanguo.nanjun": {
+   "at": "changsha",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "武陵",
+    "桂阳",
+    "零陵"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "dili.liangjin.liangzhou": {
+   "at": "wuwei",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "姑臧"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "dili.nanbeichao.liuzhen": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "沃野",
+    "怀朔",
+    "武川"
+   ],
+   "confidence": "low"
+  },
+  "dili.nanbeichao.pingcheng": {
+   "at": "pingcheng",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "盛乐"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "dili.sui.daxing": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "龙首原"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "dili.sui.jiangdu": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "江都",
+    "邗沟"
+   ],
+   "confidence": "low"
+  },
+  "dili.tang.daming": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "大明宫",
+    "龙首原"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "dili.tang.anxisi": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "龟兹",
+    "于阗",
+    "疏勒",
+    "焉耆"
+   ],
+   "confidence": "low"
+  },
+  "dili.tang.yangzhou": {
+   "at": "yangzhou",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "邗沟"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "dili.tang.bianzhou": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "汴州",
+    "通济渠"
+   ],
+   "confidence": "low"
+  },
+  "dili.wudai.dongdu": {
+   "at": "luoyi",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "汴州"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "dili.beisong.tangluo": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "河北",
+    "塘泺"
+   ],
+   "confidence": "low"
+  },
+  "dili.beisong.xihe": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "熙州",
+    "河州",
+    "洮河"
+   ],
+   "confidence": "low"
+  },
+  "dili.beisong.shibo": {
+   "at": "quanzhou",
+   "confidence": "high",
+   "via": "places"
+  },
+  "dili.nansong.linan": {
+   "at": "linan",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "西湖",
+    "钱塘江"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "dili.nansong.huaihe": {
+   "at": "huaihe",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "大散关"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "dili.liaojin.huining": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "会宁",
+    "按出虎水"
+   ],
+   "confidence": "low"
+  },
+  "dili.liaojin.zhongdu": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "中都",
+    "上京"
+   ],
+   "confidence": "low"
+  },
+  "dili.yuan.helinsi": {
+   "at": "helins",
+   "confidence": "high",
+   "via": "places"
+  },
+  "dili.yuan.huitong": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "会通河",
+    "临清",
+    "安山"
+   ],
+   "confidence": "low"
+  },
+  "dili.ming.beijing": {
+   "at": "beijing",
+   "confidence": "high",
+   "via": "places",
+   "also": [
+    "jianye"
+   ]
+  },
+  "dili.ming.jiubian": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "延绥",
+    "榆林"
+   ],
+   "confidence": "low"
+  },
+  "dili.ming.shanhaiguan": {
+   "at": "shanhaiguan",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "辽西走廊"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "dili.qing.taiwanfu": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "台湾府",
+    "厦门"
+   ],
+   "confidence": "low"
+  },
+  "dili.qing.yili": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "伊犁",
+    "惠远"
+   ],
+   "confidence": "low"
+  },
+  "dili.qing.wukou": {
+   "at": "guangzhou",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "福州",
+    "厦门",
+    "宁波",
+    "上海"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "dili.qing.tongwaxiang": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "铜瓦厢",
+    "兰阳"
+   ],
+   "confidence": "low"
+  },
+  "renwu.shanggu.cangjie": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "传说中的黄河边"
+   ],
+   "confidence": "low"
+  },
+  "renwu.shanggu.leizu": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "有熊"
+   ],
+   "confidence": "low"
+  },
+  "renwu.xizhou.taigong": {
+   "at": "weishui",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.chunqiu.baoshu": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "堂阜"
+   ],
+   "confidence": "low"
+  },
+  "renwu.chunqiu.wugong": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "吴宫"
+   ],
+   "confidence": "low"
+  },
+  "renwu.chunqiu.jieying": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "卫"
+   ],
+   "confidence": "low"
+  },
+  "renwu.zhanguo.binjiao": {
+   "at": "kaifeng",
+   "confidence": "high",
+   "via": "places",
+   "also": [
+    "linzi"
+   ]
+  },
+  "renwu.chunqiu.wuhu": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "五湖",
+    "陶"
+   ],
+   "confidence": "low"
+  },
+  "renwu.zhanguo.niezheng": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "阳翟"
+   ],
+   "confidence": "low"
+  },
+  "renwu.zhanguo.yibudiqin": {
+   "at": "handan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.zhanguo.lanling": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "兰陵"
+   ],
+   "confidence": "low"
+  },
+  "renwu.zhanguo.jianzhuke": {
+   "at": "xianyang",
+   "confidence": "high",
+   "via": "places",
+   "also": [
+    "hangu"
+   ]
+  },
+  "renwu.qin.mengtian": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "阳周"
+   ],
+   "confidence": "low"
+  },
+  "renwu.xihan.lvhou": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.xihan.qinu": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "平阳"
+   ],
+   "confidence": "low"
+  },
+  "renwu.xihan.xiongnuweimie": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.xihan.jishe": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.donghan.lantai": {
+   "at": "luoyi",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "兰台"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "renwu.donghan.erjing": {
+   "at": "luoyi",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.donghan.beifen": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "南匈奴",
+    "邺"
+   ],
+   "confidence": "low"
+  },
+  "renwu.sanguo.xunyu": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "谯"
+   ],
+   "confidence": "low"
+  },
+  "renwu.sanguo.quanxue": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "寻阳"
+   ],
+   "confidence": "low"
+  },
+  "renwu.sanguo.guangling": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "洛阳东市"
+   ],
+   "confidence": "low"
+  },
+  "renwu.liangjin.dongshan": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "东山"
+   ],
+   "confidence": "low"
+  },
+  "renwu.liangjin.wenji": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "司州"
+   ],
+   "confidence": "low"
+  },
+  "renwu.liangjin.menshi": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.nanbeichao.wenxuan": {
+   "at": "jianye",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.nanbeichao.wenming": {
+   "at": "pingcheng",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.sui.changlewang": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "乐寿"
+   ],
+   "confidence": "low"
+  },
+  "renwu.sui.dugu": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.tang.fangmou": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.tang.zhangsun": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.tang.shishi": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.tang.taizhen": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "华清宫"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "renwu.tang.libi": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "灵武"
+   ],
+   "confidence": "low"
+  },
+  "renwu.wudai.changlelao": {
+   "at": "kaifeng",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.beisong.kouzhun": {
+   "at": "kaifeng",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.beisong.yanshu": {
+   "at": "kaifeng",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.nansong.qingyuan": {
+   "at": "linan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.yuan.songxue": {
+   "at": "dadu",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "吴兴"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "renwu.ming.qingci": {
+   "at": "beijing",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "西苑"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "renwu.ming.chuangwang": {
+   "at": "beijing",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "米脂"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "renwu.qing.heshen": {
+   "at": "beijing",
+   "confidence": "high",
+   "via": "places"
+  },
+  "renwu.qing.siku": {
+   "at": "beijing",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "翰林院"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "renwu.qing.nalan": {
+   "at": "beijing",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhanchang.shanggu.banquan": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "阪泉"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.xia.ganzhi": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "甘"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.shang.guifang": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "鬼方"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.xizhou.qianmu": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "千亩"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.chunqiu.an": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "鞍"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.chunqiu.bi": {
+   "at": "huanghe",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "邲"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "zhanchang.chunqiu.yanling": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "鄢陵"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.chunqiu.boju": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "柏举",
+    "郢"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.zhanguo.yique": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "伊阙"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.zhanguo.jixi": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "济西"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.zhanguo.wangjian": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "蕲南",
+    "楚"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.zhanguo.handan": {
+   "at": "handan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhanchang.xihan.pengcheng": {
+   "at": "pengcheng",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "泗水"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "zhanchang.xihan.weishui": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "潍水"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.xihan.henan": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "河南地",
+    "云中",
+    "朔方"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.xihan.nanyue": {
+   "at": "guangzhou",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "离水"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "zhanchang.donghan.tongma": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "河北",
+    "鄡"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.donghan.shehu": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "射虎谷"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.sanguo.shiting": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "石亭",
+    "皖"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.sanguo.shouchun": {
+   "at": "shouchun",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhanchang.liangjin.canhe": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "参合陂"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.nanbeichao.zhongli": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "钟离",
+    "邵阳洲"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.nanbeichao.shayuan": {
+   "at": "weishui",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "沙苑"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "zhanchang.nanbeichao.hanling": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "韩陵"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.tang.qianshui": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "浅水原",
+    "折墌"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.tang.anshi": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "安市",
+    "辽东"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.tang.xiangji": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "香积寺"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "zhanchang.tang.heyang": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "河阳",
+    "中潬"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.wudai.baixiang": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "柏乡",
+    "高邑"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.beisong.gaoliang": {
+   "at": "jianye",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "高梁河"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "zhanchang.beisong.dingchuan": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "定川寨",
+    "渭州"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.nansong.shunchang": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "顺昌"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.nansong.chenjiadao": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "陈家岛",
+    "胶西"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.nansong.fuli": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "符离",
+    "宿州"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.liaojin.yehu": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "野狐岭",
+    "会河川"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.yuan.dingjiazhou": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "丁家洲",
+    "池州"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.ming.baigou": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "白沟河"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.ming.pingrang1593": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "平壤"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.ming.songjin": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "松山",
+    "锦州"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.qing.yaksa": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "雅克萨",
+    "黑龙江"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.qing.zhaomo": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "昭莫多",
+    "土拉河"
+   ],
+   "confidence": "low"
+  },
+  "zhanchang.qing.pingrang1894": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "平壤",
+    "玄武门"
+   ],
+   "confidence": "low"
+  },
+  "zhiguo.shanggu.gaoyao": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "虞廷"
+   ],
+   "confidence": "low"
+  },
+  "zhiguo.xia.taikang": {
+   "at": "huanghe",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.shang.weizi": {
+   "at": "yin",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.xizhou.zhili": {
+   "at": "luoyi",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.xizhou.qianmuji": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "千亩之田"
+   ],
+   "confidence": "low"
+  },
+  "zhiguo.chunqiu.sanguowubi": {
+   "at": "linzi",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.chunqiu.mibing": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "宋"
+   ],
+   "confidence": "low"
+  },
+  "zhiguo.chunqiu.duisandu": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "郈",
+    "费",
+    "成"
+   ],
+   "confidence": "low"
+  },
+  "zhiguo.zhanguo.penga": {
+   "at": "linzi",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "即墨",
+    "阿"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "zhiguo.zhanguo.jindili": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "魏"
+   ],
+   "confidence": "low"
+  },
+  "zhiguo.zhanguo.bangmu": {
+   "at": "linzi",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.qin.tingyi": {
+   "at": "xianyang",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.xihan.zhian": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.xihan.tuien": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.xihan.yantie": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.xihan.tuntian": {
+   "at": "jincheng",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "湟中"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "zhiguo.donghan.dutian": {
+   "at": "luoyi",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.donghan.denghou": {
+   "at": "luoyi",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.sanguo.xuxia": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "许"
+   ],
+   "confidence": "low"
+  },
+  "zhiguo.sanguo.jiupin": {
+   "at": "luoyi",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.sanguo.kejiao": {
+   "at": "chengdu",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.liangjin.hudiao": {
+   "at": "luoyi",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.liangjin.tuduan": {
+   "at": "jianye",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.nanbeichao.juntian": {
+   "at": "pingcheng",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.nanbeichao.sanzhang": {
+   "at": "pingcheng",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.sui.kaihuanglv": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.sui.suigong": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.tang.zuyong": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.tang.doumi": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.tang.liangshui": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.tang.yongzhen": {
+   "at": "changan",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.wudai.xiande": {
+   "at": "kaifeng",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.beisong.gengshu": {
+   "at": "kaifeng",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.beisong.yuanyou": {
+   "at": "kaifeng",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.beisong.sanshe": {
+   "at": "kaifeng",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "太学"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  },
+  "zhiguo.nansong.shaoxing": {
+   "at": "linan",
+   "confidence": "high",
+   "via": "places",
+   "also": [
+    "huaihe"
+   ]
+  },
+  "zhiguo.nansong.jingjie": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "平江"
+   ],
+   "confidence": "low"
+  },
+  "zhiguo.liaojin.nanbeimian": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "上京"
+   ],
+   "confidence": "low"
+  },
+  "zhiguo.liaojin.menganke": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "宁江州"
+   ],
+   "confidence": "low"
+  },
+  "zhiguo.yuan.xingsheng": {
+   "at": "dadu",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.ming.yulin": {
+   "at": "jianye",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.ming.haijin": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "沿海卫所"
+   ],
+   "confidence": "low"
+  },
+  "zhiguo.qing.bujiafu": {
+   "at": "beijing",
+   "confidence": "high",
+   "via": "places"
+  },
+  "zhiguo.qing.gaitu": {
+   "placeless": true,
+   "reason": "待核验",
+   "suggest": [
+    "云南",
+    "贵州"
+   ],
+   "confidence": "low"
+  },
+  "zhiguo.qing.junjichu": {
+   "at": "beijing",
+   "confidence": "high",
+   "via": "places",
+   "suggest": [
+    "隆宗门"
+   ],
+   "note": "部分地名未入地名库或超出本朝地图帧"
+  }
+ }
+}

@@ -63,6 +63,44 @@ body.is-home #pianHome{padding-bottom:var(--s7)}
   .pian-grid{grid-template-columns:1fr 1fr}
   body.pian-zhiguo #scenes{grid-template-columns:1fr 1fr}
 }
+#viewToggle{display:inline-flex;gap:4px}
+#viewToggle button{min-height:32px;padding:0 10px;border:1px solid var(--ink);background:transparent;font-family:var(--kai);font-size:14px;letter-spacing:.08em;cursor:pointer;line-height:1}
+#viewToggle button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chapter-body.has-map{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);gap:24px;align-items:start}
+body.pian-dili .chapter-body.has-map,body.pian-zhanchang .chapter-body.has-map{grid-template-columns:1fr}
+.dmap{position:relative;margin:0;aspect-ratio:16/10;background:var(--paper);border:1px solid var(--rule)}
+.dmap img{display:block;width:100%;height:100%;object-fit:cover}
+.dmap-marks,.map-labels{list-style:none;position:absolute;inset:0;margin:0;padding:0;pointer-events:none}
+.dmap-marks li,.map-label{position:absolute;transform:translate(-50%,-50%)}
+.dmap-marks li{pointer-events:auto}
+.map-label{font-family:var(--kai);font-size:12px;color:var(--mid);white-space:nowrap;letter-spacing:.12em;text-shadow:0 0 2px #eceae4,1px 0 #eceae4,-1px 0 #eceae4,0 1px #eceae4,0 -1px #eceae4}
+.map-label.is-schematic{color:var(--pale)}
+.mk{position:relative;width:18px;height:18px;border:0;padding:0;background:transparent;cursor:pointer}
+.mk .dot{display:block;width:10px;height:10px;margin:4px auto;border-radius:50%;background:#141414}
+.mk.is-current .dot,.mk.is-hot .dot{background:#b3241c;box-shadow:0 0 0 3px rgba(179,36,28,.35)}
+.mk.is-region .dot{width:18px;height:18px;margin:0;background:rgba(110,110,108,.35)}
+.mk.is-capital .dot{width:12px;height:12px;border-radius:0;background:#b3241c}
+.mk-label{position:absolute;left:14px;top:-2px;font-family:var(--kai);font-size:13px;line-height:1.2;white-space:nowrap;color:var(--ink);text-shadow:0 0 2px #eceae4,1px 0 #eceae4,-1px 0 #eceae4,0 1px #eceae4,0 -1px #eceae4}
+.mk.side-w .mk-label,.mk.side-nw .mk-label,.mk.side-sw .mk-label{left:auto;right:14px}
+.mk.side-n .mk-label,.mk.side-s .mk-label{left:50%;transform:translateX(-50%)}
+.mk.side-n .mk-label,.mk.side-ne .mk-label,.mk.side-nw .mk-label{top:auto;bottom:16px}
+.mk.side-s .mk-label,.mk.side-se .mk-label,.mk.side-sw .mk-label{top:16px}
+body.pian-zhanchang .mk:not(.is-capital):not(.is-region) .dot{width:8px;height:8px;margin:5px auto;border-radius:0;transform:rotate(45deg)}
+.map-pop{position:absolute;z-index:5;min-width:160px;max-width:220px;padding:8px 10px;background:rgba(236,234,228,.96);border:1px solid var(--ink);font-size:13px}
+.map-pop b{font-family:var(--kai);font-size:16px;letter-spacing:.06em}
+.map-pop button{margin-top:6px;border:0;background:transparent;font-family:var(--kai);cursor:pointer;color:var(--red)}
+.map-sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--paper);border-top:1px solid var(--ink);padding:12px 16px 20px}
+.map-sheet[hidden]{display:none}
+.map-legend{font-size:12px;color:var(--mid);margin:8px 0}
+.placeless{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.placeless button{border:1px solid var(--pale);background:transparent;font-size:13px;padding:4px 8px;cursor:pointer}
+.map-thumbs{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin:8px 0 16px}
+.map-thumb{display:flex;flex-direction:column;gap:4px;border:1px solid var(--rule);background:var(--paper);padding:0;cursor:pointer;text-align:left}
+.map-thumb img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.map-thumb span{font-family:var(--kai);font-size:13px;padding:0 6px 6px}
+.sc.is-hot{border-color:var(--red)}
+@media (prefers-reduced-motion:reduce){ .mk.is-current .dot{box-shadow:none} }
+
 @media (max-width:720px){
   .pian-grid{grid-template-columns:1fr;gap:12px}
   .pian-card .pc-img{aspect-ratio:16/9}
@@ -71,4 +109,11 @@ body.is-home #pianHome{padding-bottom:var(--s7)}
   .pb-txt{max-width:62%}
   .pb h2{font-size:32px}
   #scenes{grid-template-columns:1fr}
+  .chapter-body.has-map{grid-template-columns:1fr}
+  .map-thumbs{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .mk{width:32px;height:32px}
+  .mk .dot{margin:11px auto}
+  .mk-label,.map-label{display:none}
+  .mk.is-current .mk-label,.mk.is-capital .mk-label{display:block}
+  body.pian-zhanchang .mk:not(.is-capital):not(.is-region) .dot{margin:12px auto}
 }

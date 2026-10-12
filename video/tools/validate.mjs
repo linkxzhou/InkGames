@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // 历史游戏内容校验器（无依赖）。用法：node video/tools/validate.mjs [--pending]
 // 规则见 video/docs/content-schema.md §4.1。退出码 0 = 零错误。
+import { createHash } from 'node:crypto';
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -757,6 +758,112 @@ let chapterVideos = 0;
     console.log('四篇：' + PIAN_IDS.map(id => `${series.pians.find(p => p.id === id).name} 列出 ${listed[id]}（新主线 ${novelPrimary[id]}）`).join('；'));
   }
 }
+
+function mapSegHit(a, b, c, d) {
+  const o = (p, q, r) => Math.sign((q[1] - p[1]) * (r[0] - q[0]) - (q[0] - p[0]) * (r[1] - q[1]));
+  return o(a, b, c) !== o(a, b, d) && o(c, d, a) !== o(c, d, b);
+}
+function mapSelfCross(ring) {
+  const n = ring.length - 1;
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      if (Math.abs(i - j) <= 1) continue;
+      if (i === 0 && j === n - 1) continue;
+      if (mapSegHit(ring[i], ring[i + 1], ring[j], ring[j + 1])) return true;
+    }
+  }
+  return false;
+}
+function validateMaps() {
+  const dir = join(DATA, 'maps');
+  if (!existsSync(join(dir, 'places.json'))) { err('maps', '缺少 video/data/maps'); return; }
+  const places = JSON.parse(readFileSync(join(dir, 'places.json'), 'utf8'));
+  const scenes = JSON.parse(readFileSync(join(dir, 'scene-places.json'), 'utf8'));
+  const frames = JSON.parse(readFileSync(join(dir, 'frames.json'), 'utf8'));
+  const blob = JSON.stringify(places) + JSON.stringify(scenes) + JSON.stringify(frames);
+  if (/chgis/i.test(blob)) err('maps', '地名数据里出现了 CHGIS，不能作为来源');
+  for (const [id, p] of Object.entries(places.places || {})) {
+    if (!p.precision) err('place ' + id, '缺少 precision');
+    if (p.precision !== 'legend' && (typeof p.lon !== 'number' || typeof p.lat !== 'number')) err('place ' + id, '缺少经纬度');
+    const src = p.src || {};
+    if (src.type !== 'wikidata' && src.type !== 'manual') err('place ' + id, 'src.type 只能是 wikidata 或 manual');
+    if (src.type === 'manual' && !src.note) err('place ' + id, 'manual 必须有 note');
+    if (src.type === 'chgis') err('place ' + id, '不允许 chgis');
+  }
+  const pianRaw = readFileSync(join(DATA, '..', 'viewer/data/pian/index.js'), 'utf8');
+  const catalog = JSON.parse(pianRaw.slice(pianRaw.indexOf('{')).replace(/;\s*$/, '')).catalog || [];
+  const boxes = {};
+  const project = (frame) => {
+    const lat0 = ((frame.south + frame.north) / 2) * Math.PI / 180;
+    const cos = Math.cos(lat0);
+    let west = frame.west, east = frame.east, south = frame.south, north = frame.north;
+    const w = (east - west) * cos, h = north - south, aspect = w / h, target = 1.6;
+    if (aspect > target) { const pad = (w / target - h) / 2; south -= pad; north += pad; }
+    else { const pad = (h * target / cos - (east - west)) / 2; west -= pad; east += pad; }
+    return { west, east, south, north };
+  };
+  for (const [id, fr] of Object.entries(frames.frames || {})) boxes[id] = project(fr);
+  const xy = (box, lon, lat) => ({ x: (lon - box.west) / (box.east - box.west), y: (box.north - lat) / (box.north - box.south) });
+  for (const item of catalog) {
+    const rec = scenes.scenes && scenes.scenes[item.id];
+    if (!rec) { err('scene-places ' + item.id, '目录里的场景没有落点记录'); continue; }
+    if (rec.placeless) {
+      if (!rec.reason) err('scene-places ' + item.id, 'placeless 必须写 reason');
+      continue;
+    }
+    if (!places.places[rec.at]) err('scene-places ' + item.id, 'at 指向不存在的地名 ' + rec.at);
+    else {
+      const p = places.places[rec.at];
+      const meta = frames.chapters[item.chapter];
+      const box = meta && boxes[meta.frame];
+      if (p && box && p.lon != null) {
+        const pos = xy(box, p.lon, p.lat);
+        if (pos.x < 0.02 || pos.x > 0.98 || pos.y < 0.02 || pos.y > 0.98) err('scene-places ' + item.id, '投影超出本朝地图帧');
+      }
+    }
+    if (rec.route) {
+      if (!Array.isArray(rec.route) || rec.route.length < 2) err('scene-places ' + item.id, 'route 至少两点');
+      else rec.route.forEach((pid, i) => {
+        if (!places.places[pid]) err('scene-places ' + item.id, 'route 点不存在 ' + pid);
+        if (i && pid === rec.route[i - 1]) err('scene-places ' + item.id, 'route 相邻点重复');
+      });
+    }
+  }
+  for (const [ch, meta] of Object.entries(frames.chapters || {})) {
+    const file = join(dir, 'territory', ch + '.json');
+    if (!existsSync(file)) { err('territory ' + ch, '缺少疆域'); continue; }
+    const terr = JSON.parse(readFileSync(file, 'utf8'));
+    for (const part of terr.parts || []) {
+      const ring = part.ring || [];
+      if (ring.length < 4 || ring.length > 81) err('territory ' + ch, part.id + ' 顶点应在 4–80');
+      const a = ring[0], b = ring[ring.length - 1];
+      if (!a || !b || a[0] !== b[0] || a[1] !== b[1]) err('territory ' + ch, part.id + ' 没有闭合');
+      else if (mapSelfCross(ring)) err('territory ' + ch, part.id + ' 自交');
+    }
+    const cap = places.places[meta.capital];
+    if (!cap) err('frames ' + ch, '缺少都城 ' + meta.capital);
+  }
+  const jsPath = join(DATA, '..', 'viewer/data/maps.js');
+  if (!existsSync(jsPath)) { err('maps.js', '缺少查看器地图脚本，请运行 build-maps.mjs'); return; }
+  const js = readFileSync(jsPath, 'utf8');
+  const m = js.match(/^\/\* inkgames\.maps ([0-9a-f]+) \*\/\nwindow\.FENGHUO_MAPS = (\{[\s\S]*\});\n$/);
+  if (!m) { err('maps.js', '文件头哈希缺失'); return; }
+  const parsed = JSON.parse(m[2]);
+  const hash = createHash('sha256').update(JSON.stringify(parsed)).digest('hex').slice(0, 16);
+  if (hash !== m[1]) err('maps.js', '与源数据哈希不一致，请重新运行 build-maps.mjs');
+  for (const [ch, pack] of Object.entries(parsed.chapters || {})) {
+    for (const mk of pack.markers || []) {
+      if (mk.x < 0.02 || mk.x > 0.98 || mk.y < 0.02 || mk.y > 0.98) err('maps ' + ch + ' ' + mk.sc, '标记不在图框内');
+    }
+    if (pack.capital && (pack.capital.x < 0 || pack.capital.x > 1 || pack.capital.y < 0 || pack.capital.y > 1)) {
+      err('maps ' + ch, '都城不在图框内');
+    }
+  }
+  const low = Object.values(scenes.scenes || {}).filter(r => r.placeless && r.reason === '待核验').length;
+  console.log(`地图：地名 ${Object.keys(places.places).length}，场景落点 ${catalog.length}（待核验 ${low}）`);
+}
+
+validateMaps();
 
 // 同一来源挂在多个节点上会重复计数：按“场景 + 内容”去重
 const pendingUniq = new Set(pending.map(p => { const [w, ...rest] = p.split('：'); return w.split(' ').slice(0, 2).join(' ').replace(/\.[^. ]+$/, '') + '：' + rest.join('：'); }));
