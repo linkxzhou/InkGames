@@ -2,7 +2,7 @@
 // 四篇数据构建：给既有场景分类、生成篇内提示词，并把 src 里的新场景写成查看器脚本。
 // 用法（仓库根目录）：node video/tools/build-pian.mjs
 // 改 video/data/pian/src/ 之后重跑。不改 chapters/*.json。
-import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -17,6 +17,18 @@ const pianDir = join(dataDir, 'pian');
 const srcDir = join(pianDir, 'src');
 const outViewer = join(root, 'viewer', 'data', 'pian');
 const pinyin = JSON.parse(readFileSync(join(root, 'tools', 'name-pinyin.json'), 'utf8'));
+const EN = existsSync(join(root, 'tools', 'video-prompt-en.json'))
+  ? JSON.parse(readFileSync(join(root, 'tools', 'video-prompt-en.json'), 'utf8')) : {};
+
+const CHAPTER_EN = {
+  shanggu: 'legendary antiquity', xia: 'the Xia', shang: 'the Shang', xizhou: 'the Western Zhou',
+  chunqiu: 'the Spring and Autumn period', zhanguo: 'the Warring States', qin: 'the Qin',
+  xihan: 'the Western Han', donghan: 'the Eastern Han', sanguo: 'the Three Kingdoms',
+  liangjin: 'the Jin', nanbeichao: 'the Northern and Southern dynasties', sui: 'the Sui',
+  tang: 'the Tang', wudai: 'the Five Dynasties', beisong: 'the Northern Song',
+  liaojin: 'the Liao, Western Xia and Jin', nansong: 'the Southern Song', yuan: 'the Yuan',
+  ming: 'the Ming', qing: 'the Qing',
+};
 
 const PIAN_IDS = ['zhanchang', 'zhiguo', 'renwu', 'dili'];
 
@@ -143,6 +155,21 @@ function classify(entry) {
   return { primary, also, score };
 }
 
+function shotCue(entry) {
+  const shots = (entry.videoPrompt && entry.videoPrompt.shots) || [];
+  const s = shots.find(x => x.n === 1) || shots[0];
+  if (!s) return { zh: '', en: '' };
+  const zh = String(s.zh || '');
+  const en = String(s.en || '');
+  const comp = (zh.match(/构图：([^｜]+)/) || [])[1] || '';
+  const act = (zh.match(/动作：([^｜]+)/) || [])[1] || '';
+  const compE = (en.match(/Composition:\s*([^|]+)/) || [])[1] || '';
+  const actE = (en.match(/Action:\s*([^|]+)/) || [])[1] || '';
+  return {
+    zh: [comp, act].map(x => x.trim()).filter(Boolean).join('，'),
+    en: dropHan([compE, actE].map(x => x.trim()).filter(Boolean).join(', ')),
+  };
+}
 function sceneFacts(entry, meta) {
   const s = entry.scene;
   const title = strOf(entry, s.title);
@@ -165,19 +192,108 @@ function sceneFacts(entry, meta) {
     placeEn: setting.en || subtitle || meta.name,
     whoZh,
     whoEn,
+    cueZh: shotCue(entry).zh,
+    cueEn: shotCue(entry).en,
     template: s.template || '',
     order: Number(meta.no),
   };
 }
 
+const FIGURE_BY = {
+  zhanchang: {
+    zh: '武人剪影只留冠帽、兵器与甲片的大轮廓；文臣与女眷不持兵器、不披甲。头身比约 1:7，无五官，姿态一眼可读',
+    en: 'soldiers keep only the big shapes of headgear, weapon and armour; officials and women hold no weapon and wear no armour. About 7 heads tall, no facial features, pose readable at a glance',
+  },
+  zhiguo: {
+    zh: '黑色剪影，文臣与女眷不持兵器、不披甲，只留冠帽、宽袖、笏板或竹简的大轮廓，头身比约 1:7，无五官',
+    en: 'black silhouettes; officials and women hold no weapon and wear no armour, only the big shapes of caps, wide sleeves, a tablet or bamboo slips, about 7 heads tall, no facial features',
+  },
+  renwu: {
+    zh: '一尊无五官的黑色剪影肖像，只留冠帽、袖摆与一件器物的大轮廓，头身比约 1:7，姿态表达转折',
+    en: 'one faceless black silhouette portrait, only the big shapes of headgear, sleeves and a single object, about 7 heads tall, the pose carrying the turn',
+  },
+  dili: {
+    zh: '人物只作为路线上的小剪影，不画五官，不占满画面',
+    en: 'figures are only small silhouettes on the route, no facial features, not filling the frame',
+  },
+};
+
+function zhJoin(parts) {
+  return parts.filter(Boolean).map(s => String(s).replace(/[。\s]+$/g, '')).join('。') + '。';
+}
+function sceneryZh(text) {
+  const bits = String(text || '').split('。').map(s => s.trim()).filter(Boolean);
+  const scene = bits.length > 1 ? bits.slice(1).join('，') : (bits[0] || '');
+  return scene.replace(/[，、\s]+$/g, '');
+}
+function sceneryEn(text) {
+  const s = String(text || '').trim();
+  const parts = s.split(/\s+[—–-]\s+/);
+  const body = (parts.length > 1 ? parts.slice(1).join(', ') : s).replace(/\.\s*$/, '').trim();
+  return body;
+}
+function yearEn(y) {
+  if (typeof y !== 'number' || Number.isNaN(y)) return '';
+  return y < 0 ? `${-y} BCE` : `${y} CE`;
+}
+function dropHan(text) {
+  const s = String(text || '').trim();
+  return /[\u4e00-\u9fff]/.test(s) ? '' : s;
+}
+
 function promptsFor(facts, pian) {
   const f = FOCUS[pian];
+  const fig = FIGURE_BY[pian];
+  const placeZh = sceneryZh(facts.placeZh) || facts.chapterName;
+  const placeEn = dropHan(sceneryEn(facts.placeEn)) || CHAPTER_EN[facts.chapter] || '';
+  const whoZh = facts.whoZh || '不特写具体人物';
+  const whoEn = facts.whoEn || 'no individual portrait';
+  const enTitle = (EN[facts.id] && EN[facts.id].title) || facts.title;
+  const chapterEn = CHAPTER_EN[facts.chapter] || facts.chapterName;
+  const yEn = yearEn(facts.year);
   const whenZh = [facts.display, facts.era].filter(Boolean).join('，');
-  const whenEn = facts.display || '';
-  const imageZh = `${STYLE_REF_ZH}。${f.imageZh}这一帧画${facts.chapterName}「${facts.title}」${facts.subtitle ? '（' + facts.subtitle + '）' : ''}，时间${whenZh || '见场景纪年'}。地点与格局：${facts.placeZh}。人物：${facts.whoZh}。${FIGURE_ZH}。${PALETTE_ZH}。侧视，地平线在下三分之一，三四层平涂灰阶，大面积留白。画面内不写字。`;
-  const imageEn = `${STYLE_REF_EN}. ${f.imageEn} This still is "${facts.title}"${facts.subtitle ? ' (' + facts.subtitle + ')' : ''} in the ${facts.chapterName} chapter, ${whenEn}. Place and layout: ${facts.placeEn}. Figures: ${facts.whoEn}. ${FIGURE_EN}. ${PALETTE_EN}. Side view, horizon on the lower third, three or four flat grey layers, generous empty space. No text in the frame.`;
-  const videoZh = `${imageZh}${f.videoZh}${MOTION_ZH}。`;
-  const videoEn = `${imageEn} ${f.videoEn} ${MOTION_EN}.`;
+  const subZh = facts.subtitle ? `（${facts.subtitle}）` : '';
+  const subEn = dropHan(facts.subtitle) ? ` (${dropHan(facts.subtitle)})` : '';
+  const imageZh = zhJoin([
+    STYLE_REF_ZH,
+    f.imageZh,
+    `这一帧画${facts.chapterName}「${facts.title}」${subZh}`,
+    whenZh ? `时间${whenZh}` : '时间见场景纪年',
+    `地点与格局：${placeZh}`,
+    facts.cueZh ? `这一镜的构图与动作：${facts.cueZh}` : '',
+    `人物：${whoZh}`,
+    fig.zh,
+    PALETTE_ZH,
+    '侧视，地平线在下三分之一，三四层平涂灰阶，大面积留白',
+    '画面内不写字',
+  ]);
+  const imageEn = [
+    `${STYLE_REF_EN}.`,
+    f.imageEn,
+    `This still is "${enTitle}"${subEn} in ${chapterEn}${yEn ? ', ' + yEn : ''}.`,
+    `Place and layout: ${placeEn}.`,
+    facts.cueEn ? `This shot's composition and action: ${facts.cueEn}.` : '',
+    `Figures: ${whoEn}.`,
+    `${fig.en}.`,
+    `${PALETTE_EN}.`,
+    'Side view, horizon on the lower third, three or four flat grey layers, generous empty space. No text in the frame.',
+  ].join(' ');
+  const videoZh = zhJoin([
+    STYLE_REF_ZH,
+    PALETTE_ZH,
+    f.videoZh,
+    `这一场是${facts.chapterName}「${facts.title}」${subZh}，地点${placeZh}，人物剪影：${whoZh}`,
+    MOTION_ZH,
+    '画面内不写字',
+  ]);
+  const videoEn = [
+    `${STYLE_REF_EN}.`,
+    `${PALETTE_EN}.`,
+    f.videoEn,
+    `This shot is "${enTitle}" in ${chapterEn}, at ${placeEn}. Silhouettes: ${whoEn}.`,
+    `${MOTION_EN}.`,
+    'No text in the frame.',
+  ].join(' ');
   const anaZh = negAnachronism(facts.order, 'zh');
   const anaEn = negAnachronism(facts.order, 'en');
   const negImgZh = `${NEG_STYLE_ZH}。${NEG_MODERN_ZH}。${anaZh}`;
@@ -187,13 +303,15 @@ function promptsFor(facts, pian) {
   return {
     image: { zh: imageZh, en: imageEn, negative: { zh: negImgZh, en: negImgEn } },
     video: { zh: videoZh, en: videoEn, negative: { zh: negVidZh, en: negVidEn } },
-    music: { zh: `${f.musicZh}本场：${facts.chapterName}「${facts.title}」。`, en: `${f.musicEn} This cue: "${facts.title}" in ${facts.chapterName}.`, negative: { zh: `不要电子乐，不要流行歌曲，不要歌词。${NEG_MODERN_ZH}。${anaZh}`, en: `No electronic music, no pop songs, no lyrics. ${NEG_MODERN_EN}. ${anaEn}` } },
-    sound: { zh: `${f.soundZh}本场地点：${facts.placeZh}。`, en: `${f.soundEn} Place for this cue: ${facts.placeEn}.`, negative: { zh: `不要现代环境声。${NEG_MODERN_ZH}。${anaZh}`, en: `No modern ambience. ${NEG_MODERN_EN}. ${anaEn}` } },
+    music: { zh: `${f.musicZh}本场：${facts.chapterName}「${facts.title}」${subZh}，${whoZh}，${placeZh}。只随这一场的转折起伏一次。`, en: `${f.musicEn} This cue: "${enTitle}" in ${chapterEn}, ${whoEn}, ${placeEn}. One rise and fall, then rest.`, negative: { zh: `不要电子乐，不要流行歌曲，不要歌词。${NEG_MODERN_ZH}。${anaZh}`, en: `No electronic music, no pop songs, no lyrics. ${NEG_MODERN_EN}. ${anaEn}` } },
+    sound: { zh: `${f.soundZh}本场地点：${placeZh}。`, en: `${f.soundEn} Place for this cue: ${placeEn}.`, negative: { zh: `不要现代环境声。${NEG_MODERN_ZH}。${anaZh}`, en: `No modern ambience. ${NEG_MODERN_EN}. ${anaEn}` } },
   };
 }
 
 function promptsForNew(scene, meta) {
   const facts = {
+    id: scene.id,
+    chapter: scene.chapter,
     chapterName: meta.name,
     title: scene.title,
     subtitle: scene.subtitle || '',

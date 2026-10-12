@@ -328,16 +328,26 @@ function build(bundle, entry, chapterTitle) {
     const hint = (c.title || '') + (c.bio || '');
     const ageZh = /少年|十几岁|年幼|幼主|幼子|童/.test(hint) ? '少年（十余岁）' : /老将|老臣|白发|老人|老妪|晚年|年老|七十|八十|老母/.test(hint) ? '老年' : '';
     const ageEn = /少年|十几岁|年幼|幼主|幼子|童/.test(hint) ? 'a teenager' : /老将|老臣|白发|老人|老妪|晚年|年老|七十|八十|老母/.test(hint) ? 'elderly' : '';
+    const fem = FEMALE.test(c.title || '') || /公主|皇后|太后|夫人|女$|姬$/.test(c.name);
+    const martial = c.type === 'general' || /将|兵|卒|勇士|刺客|侠|武士|守城|率兵|率军|领兵|搏战|血战|力战|挥刀|拔剑|披甲/.test(hint);
+    const figZh = (fem || !martial)
+      ? '黑色剪影造型，只保留冠帽与袖摆的大轮廓，不持兵器、不披甲，头身比约 1:7，面部几乎不画五官，姿态一眼可读'
+      : FIGURE_ZH;
+    const figEn = (fem || !martial)
+      ? 'rendered as a black silhouette keeping only the big shapes of headgear and sleeves, no weapon and no armour, about 7 heads tall, almost no facial features, pose readable at a glance'
+      : FIGURE_EN;
     return {
       id: c.id, name: c.name, nameEn: nameEn(c.name), onScreen: appearing.has(c.id),
-      zh: `${c.name}（${c.camp}·${c.title}）：${lz}${ageZh ? '；' + ageZh : ''}；${FIGURE_ZH}；${c.bio}`,
-      en: `${nameEn(c.name)} (${c.name}) — ${TYPE_EN[c.type] || 'figure'}, ${PINYIN[c.camp] || c.camp}; ${le}${ageEn ? '; ' + ageEn : ''}; ${FIGURE_EN}`,
+      zh: `${c.name}（${c.camp}·${c.title}）：${lz}${ageZh ? '；' + ageZh : ''}；${figZh}；${c.bio}`,
+      en: `${nameEn(c.name)} (${c.name}) — ${TYPE_EN[c.type] || 'figure'}, ${PINYIN[c.camp] || c.camp}; ${le}${ageEn ? '; ' + ageEn : ''}; ${figEn}`,
     };
   });
 
   const style = { zh: STYLE_ZH, en: STYLE_EN };
+  const eraLabel = scene.when.era;
+  const whenBit = eraLabel && year ? `${eraLabel}（${year}）` : (eraLabel || year || '');
   const setting = {
-    zh: `${chapterTitle} · ${scene.when.era || ''}（${year}）。${era[3]}。`,
+    zh: `${chapterTitle}${whenBit ? ' · ' + whenBit : ''}。${era[3]}。`,
     en: `${era[0]}, ${whenEn(scene.when)} — ${era[4]}.`,
   };
   const vos = shots.map(s => s.vo).filter(Boolean);
