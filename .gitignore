@@ -74,3 +74,9 @@ thirdparty/remotion/
 
 # local-only reference skills (third-party licenses)
 skills/reference/
+
+# 历史考据参考包：数据只留本地（CBDB / shiji-kb 为 CC BY-NC-SA，清史稿授权不明等），只提交 README.md 和 SOURCE.md
+video/sources/reference/**
+!video/sources/reference/**/
+!video/sources/reference/README.md
+!video/sources/reference/**/SOURCE.md
