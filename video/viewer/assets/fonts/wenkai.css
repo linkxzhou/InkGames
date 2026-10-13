@@ -1,0 +1,21 @@
+/* 霞鹜文楷 LXGW WenKai v1.522，SIL Open Font License 1.1。
+   许可证全文见同目录 OFL.txt。
+   Copyright 2021-2026 LXGW (https://github.com/lxgw/LxgwWenKai)
+   Copyright 2020 The Klee Project Authors (https://github.com/fontworks-fonts/Klee)
+   这两份 woff2 只收录内容站用到的字形。上游没有 Bold，最重的一档是 Medium
+   （usWeightClass 500）。这里把它登记为 700，标题的 font-weight:700 用这套字，
+   不再让浏览器合成假粗体。族名不回退到系统楷。 */
+@font-face{
+  font-family:"LXGW WenKai";
+  src:url("lxgw-wenkai-regular.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+@font-face{
+  font-family:"LXGW WenKai";
+  src:url("lxgw-wenkai-medium.woff2") format("woff2");
+  font-weight:700;
+  font-style:normal;
+  font-display:swap;
+}
