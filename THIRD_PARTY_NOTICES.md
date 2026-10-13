@@ -37,9 +37,9 @@
 
 | 组件 | 版本 | 许可 | 用途 | 是否随发布物分发 |
 |---|---|---|---|---|
-| [霞鹜文楷 LXGW WenKai](https://github.com/lxgw/LxgwWenKai) | 1.522 | SIL Open Font License 1.1 | 内容站标题用的楷体。`video/viewer/assets/fonts/` 只收查看器用字的 woff2 子集（Regular 400，以及上游最重的 Medium，在 `@font-face` 里登记为 700）。许可证全文在同目录 `OFL.txt` | 是（`video/viewer/`，`file://` 本地加载） |
+| [霞鹜文楷 LXGW WenKai](https://github.com/lxgw/LxgwWenKai) | 1.522 | SIL Open Font License 1.1 | 内容站楷体。`video/viewer/assets/fonts/` 只收一份 Medium woff2，由 `video/tools/subset-wenkai.mjs` 按查看器实际用字生成，并同时登记为字重 400 与 700。许可证全文在同目录 `OFL.txt` | 是（`video/viewer/`，`file://` 本地加载） |
 
-上游 v1.522 没有 Bold。版权行为 Copyright 2021-2026 LXGW 与 Copyright 2020 The Klee Project Authors，许可证没有 Reserved Font Name，子集保留族名 LXGW WenKai。这不是引擎的 npm 依赖。
+上游 v1.522 没有 Bold，也没有单独再包 Regular。版权行为 Copyright 2021-2026 LXGW 与 Copyright 2020 The Klee Project Authors，许可证没有 Reserved Font Name，子集保留族名 LXGW WenKai。子集未收录的字回退系统楷体。这不是引擎的 npm 依赖。fonttools 只在重做子集时使用，不随仓库安装。
 
 ## 随源码分发的派生实现
 

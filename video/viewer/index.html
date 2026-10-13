@@ -14,8 +14,8 @@
    - 视觉按 video/docs/art-style.md：简化版黑白红武侠水墨剪影。只用色板七色，
      朱砂红只作印章、当前章节与少量强调。页面底是 three.js 淡墨（assets/ink-backdrop.js，
      复用引擎 InkSurface），无 WebGL 时留宣纸色。开卷图是本地
-     assets/hero-fenghuo-wide。楷体是本地 assets/fonts 的霞鹜文楷子集（OFL），
-     不请求外部图片、字体或库，双击即可用 file:// 打开。
+     assets/hero-fenghuo-wide。楷体是本地 assets/fonts 的霞鹜文楷 Medium 子集（OFL），
+     缺字回退系统楷。不请求外部图片、字体或库，双击即可用 file:// 打开。
    - 数据来自 data/*.js（由 tools/build-viewer-data.mjs 从 chapters/*.json
      生成，设置 window.HISTORY_GAME_INDEX / HISTORY_GAME_CHAPTERS）。
      只静态加载 data/index.js；章节脚本在切到该章时用动态 <script> 按需加载，
@@ -27,7 +27,7 @@
   --fs-1:14px; --fs-2:16px; --fs-3:20px; --fs-4:28px; --fs-5:40px; --fs-6:56px; --fs-7:92px;
   --wash:rgba(210,209,204,.38);           /* 雾灰淡染，用于代码块与次级底 */
   --rule:rgba(20,20,20,.18);
-  --kai:"LXGW WenKai";
+  --kai:"LXGW WenKai","Kaiti SC",STKaiti,KaiTi,BiauKai,"TW-Kai","AR PL UKai CN",Kai,serif;
   --serif:"Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC","Source Han Serif","SimSun",serif;
   --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Noto Sans Mono CJK SC",monospace;
   --wrap:1240px;

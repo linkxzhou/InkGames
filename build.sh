@@ -76,6 +76,11 @@ cmd_links() {
   node scripts/check-links.mjs
 }
 
+cmd_fonts() {
+  log "按内容站楷体实际用字，重做霞鹜文楷 Medium 子集"
+  node video/tools/subset-wenkai.mjs
+}
+
 cmd_check() {
   cmd_typecheck
   cmd_test
@@ -108,6 +113,7 @@ usage() {
   test        运行 vitest 单元测试
   browser     构建后在无头 Chromium 中对三条 three.js 页面做启动与零图片请求冒烟
   links       校验 README/docs/plan/video 的本地相对链接
+  fonts       扫描 video/viewer 的楷体用字，重做霞鹜文楷子集（需 fonttools、brotli）
   check       typecheck + test + links（提交前必跑）
   clean       清理 dist/ 与缓存
 EOF
@@ -122,6 +128,7 @@ case "${1:-help}" in
   test)      cmd_test ;;
   browser)   cmd_browser ;;
   links)     cmd_links ;;
+  fonts)     cmd_fonts ;;
   check)     cmd_check ;;
   clean)     cmd_clean ;;
   help|-h|--help) usage ;;
