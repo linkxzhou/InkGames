@@ -251,7 +251,16 @@ def render_one(ch, meta, frames, land, rivers, sprites):
         pts = [to_px(box, lon, lat) for lon, lat in part["ring"]]
         od.polygon(pts, fill=TERR)
     im.alpha_composite(overlay)
-    draw = ImageDraw.Draw(im)
+    coasts, river_lines = [], []
+    for ring in rings:
+        pts = [to_px(box, lon, lat) for lon, lat in ring]
+        if len(pts) < 3:
+            continue
+        if not any(-40 < x < W + 40 and -40 < y < H + 40 for x, y in pts):
+            continue
+        if pts[0] != pts[-1]:
+            pts = pts + [pts[0]]
+        coasts.append(pts)
     for river in rivers["lines"]:
         line = river["line"]
         if len(line) < 2:
@@ -259,9 +268,7 @@ def render_one(ch, meta, frames, land, rivers, sprites):
         span = abs(line[0][0] - line[-1][0]) + abs(line[0][1] - line[-1][1])
         if not river.get("schematic") and span < 0.4 and len(line) < 4:
             continue
-        pts = [to_px(box, lon, lat) for lon, lat in line]
-        width = 3 if river.get("schematic") else 2
-        draw.line(pts, fill=RIVER, width=width, joint="curve")
+        river_lines.append([to_px(box, lon, lat) for lon, lat in line])
     for lon, lat, idx, px in RANGES:
         x, y = to_px(box, lon, lat)
         if not (80 < x < W - 80 and 40 < y < H - 40):
@@ -277,8 +284,9 @@ def render_one(ch, meta, frames, land, rivers, sprites):
         x, y = to_px(box, lon, lat)
         if 0 < x < W and 0 < y < H:
             stamp(im, sprites["great-wall-seg.png"], x, y, 0.42)
-    # 都城只留一枚小城廓，名字仍由 HTML 标注
-    return im.convert("RGB")
+    # 都城只留一枚小城廓，名字仍由 HTML 标注。
+    # 河岸和海岸在锁色板之后再描，避免 2px 线被抗锯齿吸进雾灰。
+    return im.convert("RGB"), coasts, river_lines
 
 
 PALETTE = np.array([
@@ -295,8 +303,29 @@ def snap_palette(im):
     return Image.fromarray(PALETTE[idx].astype(np.uint8), "RGB")
 
 
-def save_budget(im, path, budget, size):
+def hard_stroke(im, lines, color, width, sx, sy):
+    if not lines:
+        return im
+    mask = Image.new("L", im.size, 0)
+    draw = ImageDraw.Draw(mask)
+    for line in lines:
+        pts = [(x * sx, y * sy) for x, y in line]
+        if len(pts) < 2:
+            continue
+        draw.line(pts, fill=255, width=width, joint="curve")
+    raw = np.asarray(mask)
+    hard = Image.fromarray(np.where(raw >= 96, 255, 0).astype(np.uint8), "L")
+    solid = Image.new("RGB", im.size, color)
+    im.paste(solid, mask=hard)
+    return im
+
+
+def save_budget(im, coasts, rivers, path, budget, size):
     im = snap_palette(im.resize(size, Image.Resampling.LANCZOS))
+    sx, sy = size[0] / W, size[1] / H
+    # 海岸墨线、河岸中灰，输出尺寸上保持 2px，不被缩放吃掉。
+    im = hard_stroke(im, coasts, (0x14, 0x14, 0x14), 2, sx, sy)
+    im = hard_stroke(im, rivers, (0x6E, 0x6E, 0x6C), 2, sx, sy)
     buf = BytesIO()
     im.save(buf, "WEBP", lossless=True, quality=100, method=6)
     blob = buf.getvalue()
@@ -318,10 +347,10 @@ def main():
         sprites[name] = load_sprite(name)
     OUT.mkdir(parents=True, exist_ok=True)
     for ch, meta in frames["chapters"].items():
-        im = render_one(ch, meta, frames, land, rivers, sprites)
-        n = save_budget(im, OUT / f"{ch}.webp", 160 * 1024, (1600, 1000))
-        m = save_budget(im, OUT / f"{ch}-m.webp", 60 * 1024, (800, 500))
-        t = save_budget(im, OUT / f"{ch}-t.webp", 25 * 1024, (320, 200))
+        im, coasts, river_lines = render_one(ch, meta, frames, land, rivers, sprites)
+        n = save_budget(im, coasts, river_lines, OUT / f"{ch}.webp", 160 * 1024, (1600, 1000))
+        m = save_budget(im, coasts, river_lines, OUT / f"{ch}-m.webp", 60 * 1024, (800, 500))
+        t = save_budget(im, coasts, river_lines, OUT / f"{ch}-t.webp", 25 * 1024, (320, 200))
         print(f"{ch} {n} {m} {t}")
 
 

@@ -81,14 +81,16 @@ body.pian-dili .chapter-body.has-map,body.pian-zhanchang .chapter-body.has-map{g
 .dmap-marks,.map-labels{list-style:none;position:absolute;inset:0;margin:0;padding:0;pointer-events:none}
 .dmap-marks li,.map-label{position:absolute;transform:translate(-50%,-50%)}
 .dmap-marks li{pointer-events:auto}
-.map-label{font-family:var(--kai);font-size:12px;color:var(--char);white-space:nowrap;letter-spacing:.12em;background:var(--paper);padding:0 3px;line-height:1.35}
+.map-label{font-family:var(--kai);font-size:14px;color:var(--char);white-space:nowrap;letter-spacing:.04em;background:var(--paper);padding:0 3px;line-height:1.35}
 .map-label.is-schematic{color:var(--char)}
+.map-label.is-crowded{display:none}
 .mk{position:relative;width:18px;height:18px;border:0;padding:0;background:transparent;cursor:pointer}
 .mk .dot{display:block;width:8px;height:8px;margin:5px auto;border-radius:0;background:#141414}
 .mk.is-current .dot,.mk.is-hot .dot{background:#b3241c;outline:1px solid #b3241c;outline-offset:2px}
 .mk.is-region .dot{width:16px;height:16px;margin:1px auto;background:transparent;border:1px solid #6e6e6c}
 .mk.is-capital .dot{width:11px;height:11px;border-radius:0;background:#b3241c}
-.mk-label{position:absolute;left:14px;top:-2px;font-family:var(--kai);font-size:13px;line-height:1.2;white-space:nowrap;color:var(--ink);background:var(--paper);padding:0 3px}
+.mk-label{position:absolute;left:14px;top:-2px;font-family:var(--kai);font-size:14px;line-height:1.2;white-space:nowrap;color:var(--char);background:var(--paper);padding:0 3px}
+.mk.is-crowded .mk-label{display:none}
 .mk.side-w .mk-label,.mk.side-nw .mk-label,.mk.side-sw .mk-label{left:auto;right:14px}
 .mk.side-n .mk-label,.mk.side-s .mk-label{left:50%;transform:translateX(-50%)}
 .mk.side-n .mk-label,.mk.side-ne .mk-label,.mk.side-nw .mk-label{top:auto;bottom:16px}
@@ -122,6 +124,6 @@ body.pian-zhanchang .mk:not(.is-capital):not(.is-region) .dot{width:8px;height:8
   .mk{width:32px;height:32px}
   .mk .dot{margin:11px auto}
   .mk-label,.map-label{display:none}
-  .mk.is-current .mk-label,.mk.is-capital .mk-label{display:block}
+  .mk.is-current .mk-label,.mk.is-capital .mk-label{display:block;font-size:14px;color:var(--char)}
   body.pian-zhanchang .mk:not(.is-capital):not(.is-region) .dot{margin:12px auto}
 }

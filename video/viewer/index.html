@@ -674,7 +674,7 @@ function renderBanner(){
   box.hidden = false;
   box.className = "pb sheet";
   const n = catalogOf(p.id).length;
-  box.innerHTML = '<div class="pb-stage"><div class="pb-art">' + assetPic("banner-" + p.id, 2400, 600, p.fullName) + '</div>' +
+  box.innerHTML = '<div class="pb-stage"><div class="pb-art">' + assetPic("banner-" + p.id, 2400, 1000, p.fullName) + '</div>' +
     '<div class="pb-txt"><p class="pk">烽火</p><h2 id="pianBannerTitle">' + esc(p.fullName) + '</h2>' +
     '<p class="plead">' + esc(p.scope) + '</p><p class="pmeta">' + esc(p.genre) + " · " + n + ' 场</p></div></div>';
 }
@@ -928,6 +928,103 @@ function markerList(){
 function openMappedScene(id){
   userNav = true; view.sc = id; writeHash(); openScene(); renderMap(); jump("#scene");
 }
+const LABEL_GAP = 28;
+const SIDE_OPP = { e: "w", w: "e", n: "s", s: "n", ne: "sw", sw: "ne", nw: "se", se: "nw" };
+function mapLabelNodes(fig){
+  return [...fig.querySelectorAll(".map-label, .mk-label")].filter(el => {
+    if (el.classList.contains("is-crowded")) return false;
+    const mk = el.closest(".mk");
+    if (mk && mk.classList.contains("is-crowded")) return false;
+    const cs = getComputedStyle(el);
+    return cs.display !== "none" && cs.visibility !== "hidden";
+  });
+}
+function labelKept(el){
+  const mk = el.closest(".mk");
+  return !!(mk && (mk.classList.contains("is-capital") || mk.classList.contains("is-current")));
+}
+function labelGap(a, b){
+  const overlapX = Math.min(a.right, b.right) - Math.max(a.left, b.left);
+  const overlapY = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+  if (overlapX > 0 && overlapY > 0) return 0;
+  const dx = Math.max(a.left - b.right, b.left - a.right, 0);
+  const dy = Math.max(a.top - b.bottom, b.top - a.bottom, 0);
+  return Math.hypot(dx, dy);
+}
+function clampMapLabel(fig, el){
+  const fr = fig.getBoundingClientRect();
+  const r = el.getBoundingClientRect();
+  if (r.width < 2 || r.height < 2) return;
+  let dx = 0, dy = 0;
+  if (r.right > fr.right - 4) dx = fr.right - 4 - r.right;
+  else if (r.left < fr.left + 4) dx = fr.left + 4 - r.left;
+  if (r.bottom > fr.bottom - 2) dy = fr.bottom - 2 - r.bottom;
+  else if (r.top < fr.top + 2) dy = fr.top + 2 - r.top;
+  if (dx) el.style.marginLeft = ((parseFloat(el.style.marginLeft) || 0) + dx) + "px";
+  if (dy) el.style.marginTop = ((parseFloat(el.style.marginTop) || 0) + dy) + "px";
+}
+function flipLabel(el){
+  const mk = el.closest(".mk");
+  if (mk && el.classList.contains("mk-label")){
+    const cur = [...mk.classList].find(c => c.startsWith("side-"));
+    const side = cur ? cur.slice(5) : "e";
+    if (cur) mk.classList.remove(cur);
+    mk.classList.add("side-" + (SIDE_OPP[side] || "w"));
+    return;
+  }
+  const step = Number(el.dataset.nudge || 0) + 1;
+  el.dataset.nudge = String(step);
+  const shifts = [[0, -32], [0, 32], [36, 0], [-36, 0], [24, -24], [-24, 24]];
+  const [dx, dy] = shifts[(step - 1) % shifts.length];
+  el.style.transform = "translate(calc(-50% + " + dx + "px), calc(-50% + " + dy + "px))";
+}
+function collidingLabels(nodes){
+  const boxes = nodes.map(el => ({ el, r: el.getBoundingClientRect() })).filter(it => it.r.width > 2);
+  const hits = [];
+  for (let i = 0; i < boxes.length; i++){
+    for (let j = i + 1; j < boxes.length; j++){
+      if (labelGap(boxes[i].r, boxes[j].r) < LABEL_GAP) hits.push([boxes[i].el, boxes[j].el]);
+    }
+  }
+  return hits;
+}
+function settleMapLabels(fig, legend){
+  mapLabelNodes(fig).forEach(el => clampMapLabel(fig, el));
+  const hits = collidingLabels(mapLabelNodes(fig));
+  const moved = new Set();
+  hits.forEach(([a, b]) => {
+    const loose = [a, b].find(el => !labelKept(el) && !moved.has(el));
+    const current = [a, b].find(el => {
+      const mk = el.closest(".mk");
+      return mk && mk.classList.contains("is-current") && !mk.classList.contains("is-capital") && !moved.has(el);
+    });
+    const pick = loose || current;
+    if (!pick) return;
+    flipLabel(pick);
+    moved.add(pick);
+  });
+  requestAnimationFrame(() => {
+    mapLabelNodes(fig).forEach(el => clampMapLabel(fig, el));
+    const dropped = [];
+    collidingLabels(mapLabelNodes(fig)).forEach(([a, b]) => {
+      [a, b].forEach(el => {
+        if (labelKept(el) || el.classList.contains("is-crowded")) return;
+        const mk = el.closest(".mk");
+        if (mk && el.classList.contains("mk-label")) mk.classList.add("is-crowded");
+        else el.classList.add("is-crowded");
+        const name = (el.textContent || "").trim();
+        if (name && !dropped.includes(name)) dropped.push(name);
+      });
+    });
+    if (dropped.length){
+      const extra = document.createElement("p");
+      extra.className = "map-legend";
+      extra.textContent = "图上未标：" + dropped.join("、");
+      legend.after(extra);
+    }
+    fig.dataset.labels = "ready";
+  });
+}
 function renderMap(){
   const col = $("#dmapCol"), thumbs = $("#diliThumbs"), body = $("#chapterBody"), toggle = $("#viewToggle");
   const maps = window.FENGHUO_MAPS;
@@ -1043,20 +1140,7 @@ function renderMap(){
   });
   col.hidden = false;
   col.appendChild(fig); col.appendChild(legend);
-  requestAnimationFrame(() => {
-    const fr = fig.getBoundingClientRect();
-    fig.querySelectorAll(".map-label,.mk-label").forEach(el => {
-      const r = el.getBoundingClientRect();
-      if (r.width < 2 || r.height < 2) return;
-      let dx = 0, dy = 0;
-      if (r.right > fr.right - 4) dx = fr.right - 4 - r.right;
-      else if (r.left < fr.left + 4) dx = fr.left + 4 - r.left;
-      if (r.bottom > fr.bottom - 2) dy = fr.bottom - 2 - r.bottom;
-      else if (r.top < fr.top + 2) dy = fr.top + 2 - r.top;
-      if (dx) el.style.marginLeft = dx + "px";
-      if (dy) el.style.marginTop = dy + "px";
-    });
-  });
+  requestAnimationFrame(() => settleMapLabels(fig, legend));
   if (none.childElementCount){
     const h = document.createElement("p"); h.className = "map-legend"; h.textContent = "无定所或待核验";
     col.appendChild(h); col.appendChild(none);
