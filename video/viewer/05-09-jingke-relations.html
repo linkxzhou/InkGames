@@ -22,7 +22,7 @@
   --bg:#eceae4;
   --paper:#eceae4;
   --ink:#141414;
-  --muted:#6e6e6c;
+  --muted:#3a3a3a; /* 纸上的小字。边线仍用 --edge #6e6e6c */
   --accent:#b3241c;    /* 只给敌对连线 */
   --accent2:#3a3a3a;
   --edge:#6e6e6c;
@@ -44,8 +44,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font);display:flex;
 #bsub{font-size:clamp(11px,1.1vw,13px);color:var(--muted);margin-top:2px}
 .tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .tools button,.tools select,.tools input{
-  font:inherit;font-size:clamp(13px,1.1vw,15px);color:var(--ink);background:transparent;
-  border:1px solid var(--ink);border-radius:0;padding:5px 12px;min-height:30px;cursor:pointer}
+  font:inherit;font-size:16px;color:var(--ink);background:transparent;
+  border:1px solid var(--ink);border-radius:0;padding:10px 12px;min-height:44px;cursor:pointer}
 .tools input[type=text]{width:130px;cursor:text}
 .tools button:hover{border-color:var(--ink);background:var(--ink);color:var(--paper)}
 .tools button.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
@@ -54,7 +54,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font);display:flex;
 #quote{flex:0 0 auto;padding:6px 16px;background:var(--paper);
   border-bottom:1px solid var(--edge);font-size:clamp(11px,1.1vw,13px);
   color:var(--muted);line-height:1.6;text-align:center}
-#quote .q-src{opacity:.8}
+#quote .q-src{opacity:1}
 
 /* ---------- 图区 ---------- */
 #graph{position:relative;flex:1;overflow:hidden;background:var(--paper);
@@ -114,13 +114,13 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font);display:flex;
   padding-bottom:6px;margin-bottom:8px}
 #panel label{display:block;font-size:13px;color:var(--muted);margin:8px 0 2px}
 #panel input[type=text],#panel input[type=number],#panel select,#panel textarea{
-  width:100%;font:inherit;font-size:14px;padding:6px 8px;border:1px solid var(--ink);
+  width:100%;font:inherit;font-size:16px;padding:10px 8px;min-height:44px;border:1px solid var(--ink);
   border-radius:0;background:var(--paper);color:var(--ink)}
 #panel textarea{min-height:64px;resize:vertical;line-height:1.5}
 #panel .row2{display:flex;gap:6px}
 #panel .row2 > div{flex:1}
 .pbtns{display:flex;gap:8px;margin-top:12px}
-.pbtns button{flex:1;font:inherit;font-size:13px;padding:5px 8px;border-radius:0;
+.pbtns button{flex:1;font:inherit;font-size:14px;padding:10px 8px;min-height:44px;border-radius:0;
   border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
 .pbtns button:hover{background:var(--ink);color:var(--paper)}
 .pbtns button.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
@@ -147,7 +147,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font);display:flex;
   .nname{font-size:16px}
 }
 @media (hover:none){
-  .tools button,.tools select,.tools input{min-height:34px;padding:6px 12px}
+  .tools button,.tools select,.tools input{min-height:44px;padding:10px 12px}
   .node{min-height:54px}
 }
 @media (prefers-reduced-motion:reduce){

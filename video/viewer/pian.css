@@ -1,7 +1,7 @@
 /* 四篇：仍只用色板七色。差异在版式、笔势和印章，不另加颜色。 */
 
 #pianNav{display:flex;gap:4px;align-items:center;min-width:0;flex-wrap:nowrap}
-#pianNav a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-family:var(--kai);font-size:15px;letter-spacing:.12em;padding:4px 8px;border-bottom:2px solid transparent;white-space:nowrap}
+#pianNav a{display:inline-flex;align-items:center;gap:6px;min-height:var(--hit,44px);text-decoration:none;font-family:var(--kai);font-size:15px;letter-spacing:.12em;padding:0 8px;border-bottom:2px solid transparent;white-space:nowrap}
 #pianNav a .mini{width:22px;height:22px;font-size:13px}
 #pianNav a[aria-current="page"]{border-bottom-color:var(--red);color:var(--ink)}
 
@@ -13,8 +13,8 @@
 .pian-card .pc-body{display:flex;flex-direction:column;gap:6px;padding:12px 4px 18px;background:var(--brush) left bottom/100% 8px no-repeat}
 .pian-card h3{display:flex;align-items:center;gap:8px;margin:0;font-family:var(--kai);font-weight:700;font-size:20px;letter-spacing:.08em;line-height:1}
 .pian-card .seal{width:28px;height:28px;font-size:14px}
-.pian-card .pg{font-size:13px;letter-spacing:.06em;color:var(--mid)}
-.pian-card .ps{margin:0;font-size:13.5px;line-height:1.55;color:var(--char);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pian-card .pg{font-size:14px;letter-spacing:.06em;color:var(--char)}
+.pian-card .ps{margin:0;font-size:16px;line-height:1.75;color:var(--char);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .pian-card .motif{height:10px;margin-top:4px}
 .pian-card.zhanchang .motif{height:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 16' preserveAspectRatio='none'%3E%3Cpath d='M2 13 L34 2 L42 3 L10 15 Z' fill='%23b3241c'/%3E%3Cpath d='M48 12 L92 3 L100 4 L56 14 Z' fill='%23141414'/%3E%3C/svg%3E") left center/120px 14px no-repeat}
 .pian-card.zhiguo .motif{width:22px;height:22px;background:url("assets/seal-frame-square.webp") center/100% 100% no-repeat}
@@ -33,19 +33,19 @@
   .pb-txt{position:absolute;left:0;top:0;bottom:0;width:42%;max-width:42%;display:flex;flex-direction:column;justify-content:center;padding:16px clamp(16px,4vw,40px)}
   .pb .plead{max-width:none}
 }
-.pb .pk{font-size:12px;letter-spacing:.28em;color:var(--mid)}
+.pb .pk{font-size:14px;letter-spacing:.18em;color:var(--char)}
 .pb h2{font-family:var(--kai);font-weight:900;font-size:clamp(32px,4vw,52px);letter-spacing:.12em;line-height:1.05;margin:6px 0}
-.pb .plead{max-width:28em;margin-top:8px;color:var(--char);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.pb .pmeta{margin-top:10px;font-size:13px;letter-spacing:.12em;color:var(--mid)}
+.pb .plead{max-width:28em;margin-top:8px;font-size:16px;line-height:1.75;color:var(--char);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.pb .pmeta{margin-top:10px;font-size:14px;letter-spacing:.12em;color:var(--char)}
 
 #pianTools{display:flex;align-items:center;gap:12px;margin:0}
-#pianTools label{display:inline-flex;align-items:center;gap:8px;font-family:var(--kai);letter-spacing:.12em;cursor:pointer;line-height:1}
+#pianTools label{display:inline-flex;align-items:center;gap:8px;min-height:var(--hit,44px);font-family:var(--kai);letter-spacing:.12em;cursor:pointer;line-height:1}
 #pianTools input{width:16px;height:16px;accent-color:var(--red)}
-#pianCount{color:var(--mid);font-size:13px;margin:0;white-space:nowrap}
+#pianCount{color:var(--char);font-size:14px;margin:0;white-space:nowrap}
 
 .sc-group,.more-row,.empty-state{grid-column:1 / -1}
 .sc-group{font-family:var(--kai);font-size:18px;letter-spacing:.12em;margin:16px 0 0;padding-top:8px;border-top:1px solid var(--rule)}
-.sc .badge{font-size:12px;letter-spacing:.08em;color:var(--mid)}
+.sc .badge{font-size:12px;letter-spacing:.08em;color:var(--char)}
 body.pian-zhanchang .sc.active{border-left:4px solid #b3241c}
 body.pian-zhiguo .sc{border:1px solid var(--ink);background-image:none}
 body.pian-dili .sc{border-left:3px solid var(--mist)}
@@ -70,7 +70,7 @@ body.is-home #pianHome{padding-bottom:var(--s7)}
   body.pian-zhiguo #scenes{grid-template-columns:1fr 1fr}
 }
 #viewToggle{display:inline-flex;gap:4px}
-#viewToggle button{min-height:32px;padding:0 10px;border:1px solid var(--ink);background:transparent;font-family:var(--kai);font-size:14px;letter-spacing:.08em;cursor:pointer;line-height:1}
+#viewToggle button{min-height:var(--hit,44px);padding:0 12px;border:1px solid var(--ink);background:transparent;font-family:var(--kai);font-size:14px;letter-spacing:.08em;cursor:pointer;line-height:1}
 #viewToggle button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .chapter-body.has-map{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);gap:24px;align-items:start}
 body.pian-dili .chapter-body.has-map,body.pian-zhanchang .chapter-body.has-map{grid-template-columns:1fr}
@@ -81,8 +81,8 @@ body.pian-dili .chapter-body.has-map,body.pian-zhanchang .chapter-body.has-map{g
 .dmap-marks,.map-labels{list-style:none;position:absolute;inset:0;margin:0;padding:0;pointer-events:none}
 .dmap-marks li,.map-label{position:absolute;transform:translate(-50%,-50%)}
 .dmap-marks li{pointer-events:auto}
-.map-label{font-family:var(--kai);font-size:12px;color:var(--mid);white-space:nowrap;letter-spacing:.12em;background:var(--paper);padding:0 3px;line-height:1.35}
-.map-label.is-schematic{color:var(--pale)}
+.map-label{font-family:var(--kai);font-size:12px;color:var(--char);white-space:nowrap;letter-spacing:.12em;background:var(--paper);padding:0 3px;line-height:1.35}
+.map-label.is-schematic{color:var(--char)}
 .mk{position:relative;width:18px;height:18px;border:0;padding:0;background:transparent;cursor:pointer}
 .mk .dot{display:block;width:8px;height:8px;margin:5px auto;border-radius:0;background:#141414}
 .mk.is-current .dot,.mk.is-hot .dot{background:#b3241c;outline:1px solid #b3241c;outline-offset:2px}
@@ -96,12 +96,12 @@ body.pian-dili .chapter-body.has-map,body.pian-zhanchang .chapter-body.has-map{g
 body.pian-zhanchang .mk:not(.is-capital):not(.is-region) .dot{width:8px;height:8px;margin:5px auto;border-radius:0;transform:rotate(45deg)}
 .map-pop{position:absolute;z-index:5;min-width:160px;max-width:min(220px,70vw);padding:8px 10px 8px 12px;background:var(--paper);border:1.5px solid var(--ink);border-left:4px solid var(--red);font-size:13px}
 .map-pop b{font-family:var(--kai);font-size:16px;letter-spacing:.06em}
-.map-pop button{margin-top:6px;border:0;background:transparent;font-family:var(--kai);cursor:pointer;color:var(--red)}
+.map-pop button{display:inline-flex;align-items:center;min-height:var(--hit,44px);margin-top:6px;padding:0 4px;border:0;background:transparent;font-family:var(--kai);cursor:pointer;color:var(--red)}
 .map-sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--paper);border-top:1px solid var(--ink);padding:12px 16px 20px}
 .map-sheet[hidden]{display:none}
-.map-legend{font-size:12px;color:var(--mid);margin:8px 0}
+.map-legend{font-size:14px;color:var(--char);margin:8px 0}
 .placeless{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.placeless button{border:1px solid var(--pale);background:transparent;font-size:13px;padding:4px 8px;cursor:pointer}
+.placeless button{display:inline-flex;align-items:center;min-height:var(--hit,44px);border:1px solid var(--pale);background:transparent;font-size:14px;padding:0 12px;cursor:pointer}
 .map-thumbs{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin:8px 0 16px}
 .map-thumb{display:flex;flex-direction:column;gap:4px;border:0;background:var(--paper);padding:0;cursor:pointer;text-align:left}
 .map-thumb img{width:100%;aspect-ratio:16/10;object-fit:contain;display:block;background:var(--paper)}
