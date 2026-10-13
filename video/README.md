@@ -61,7 +61,10 @@ node video/tools/build-source-digests.mjs  # 重写 sources/NN-*/ 史源摘要
 node video/tools/build-viewer-data.mjs     # 刷新 viewer/data/*.js
 node video/tools/validate.mjs              # 必须 0 个错误
 ./build.sh check                           # 类型检查、单测（含 tests/narrative.test.ts 读取本目录数据）、文档链接
+./build.sh fonts                           # 页面文案或场景标题变了之后，重做霞鹜文楷子集
 ```
+
+`./build.sh fonts` 扫描 `viewer/` 里实际用楷体画出的文字（标题、人物名、印章、地图标注、分镜旁白、关系页），调用 fonttools 把霞鹜文楷 Medium 收成 `viewer/assets/fonts/lxgw-wenkai-medium.woff2`。需要 `pip install fonttools brotli`。上游 TTF 可用 `WENKAI_TTF` 指定，否则从 v1.522 发布页下载到缓存。子集没有的字回退系统楷体。
 
 然后双击 `video/viewer/index.html`（或 `?chapter=sui&scene=sui.yanmen` 直接定位场景）。查看器只用 `<script>` 加载 `viewer/data/*.js`，不发请求，所以 file:// 下可用。
 
