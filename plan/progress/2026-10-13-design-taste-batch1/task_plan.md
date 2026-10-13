@@ -14,4 +14,4 @@
 - [done] 改前截图（1440 / 390）
 - [done] 改 `video/viewer/index.html`、`pian.css`、`05-09-jingke-relations.html`
 - [done] 改后截图、对比度、`./build.sh check`、校验器 0 错误
-- [in_progress] 提交并开 PR 指向 main
+- [done] 提交并开 PR 指向 main
