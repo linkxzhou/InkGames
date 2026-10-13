@@ -5,3 +5,4 @@
 - 关系页整页是楷，字重 normal。这些字已包含在同一份 Medium 里，不另留 Regular。
 - 重扫后：3248 个实际用字，生成 3269 个字形，woff2 739936 字节（723 KiB）。上游字体本身没有 U+21E2 ⇢，剧情树里的这个符号走系统楷回退。
 - 无头 Chrome：`LXGW WenKai` 的 400 与 700 都是 loaded。首页「烽火」、场景「易水寒」、战国列表标题（含「战」）字形都在子集里。真实 GPU 未实测。
+- 字体压缩之后 `./build.sh check` 与 `node video/tools/validate.mjs` 再次通过。

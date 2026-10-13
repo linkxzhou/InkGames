@@ -6,7 +6,7 @@
 
 ## Next Step
 
-跑 `./build.sh check` 与 `node video/tools/validate.mjs`，通过后把体积写进 PR。
+无。检查已通过，体积已写入 PR #29。
 
 ## Current Phase
 
@@ -25,9 +25,9 @@ Phase 2
 
 - [x] 删掉 regular，`@font-face` 只指向 Medium；缺字回退系统楷
 - [x] 标题截图无缺字（cmap 含标题用字；无头页上 400/700 均 loaded）
-- [ ] `./build.sh check` 与 `node video/tools/validate.mjs`
-- [ ] 更新 PR #29，写明压缩前后体积和字形数
-- **Status:** in_progress
+- [x] `./build.sh check` 与 `node video/tools/validate.mjs`
+- [x] 更新 PR #29，写明压缩前后体积和字形数
+- **Status:** complete
 
 ## Decisions
 
