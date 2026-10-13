@@ -6,7 +6,7 @@
 
 ## Next Step
 
-跑 `./build.sh check` 与 `node video/tools/validate.mjs`，通过后把结果写回本目录并更新 PR。
+无。检查已通过，PR #29 指向 main。
 
 ## Current Phase
 
@@ -32,9 +32,9 @@ Phase 3
 ### Phase 3: 验证与 PR
 
 - [x] 改后截图（1440 / 390）
-- [ ] ./build.sh check 与 node video/tools/validate.mjs
-- [ ] 提交、推送、PR 指向 main，描述里写字体体积和对比图
-- **Status:** in_progress
+- [x] ./build.sh check 与 node video/tools/validate.mjs
+- [x] 提交、推送、PR 指向 main，描述里写字体体积和对比图
+- **Status:** complete
 
 ## Decisions
 

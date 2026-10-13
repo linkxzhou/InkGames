@@ -8,3 +8,4 @@
 - 上游字体本身没有 ⇢、▸、▾ 和 U+23130（𣄰）。三角改由系统衬线画。𣄰 出现在西周史源注里，全文也缺，不补造字。
 - 改后无头 Chrome：首页 1440 仍是图高 600、contain、50% 50%、h1 92px、族名 `"LXGW WenKai"`、字重 700。390 图高 240、overflow hidden、cover、78% 60%，h1 56px 且在图下。场景标题 1440 为 56px、390 为 40px。`#scene` 在 1440 只剩 14/16/20/28/56。七镜全部收起，视频区块 1440 为 702px、390 为 1283px。整页 1440 为 6118px、390 为 9436px。390 复制按钮高 44px。
 - `document.fonts` 里 Regular 400 与 Medium（登记为 700）状态都是 loaded。真实 GPU 未实测。本机没有系统楷，标题现在画的是这份子集。
+- `./build.sh check` 与 `node video/tools/validate.mjs` 都通过。校验器第一次因为环境里没有 Pillow 报了 1 个错误；装上 Pillow 后重跑是 0 个错误，没有改仓库。
